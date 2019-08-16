@@ -79,7 +79,7 @@ For [AI enrichment with Cognitive Services](cognitive-search-concept-intro.md), 
 | Document cracking, text extraction | Free |
 | Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search.|
 | [Pre-built cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
-| Custom skills | A custom skill is functionality you provide. The cost of using a custom skills depends entirely on whether custom code is calling other metered services. |
+| Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services. |
 
 <a name="search-units"></a>
 
@@ -99,13 +99,13 @@ Most customers bring just a portion of total capacity online, holding the rest i
 
 In addition to the following suggestions, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
-1. Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
+- Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
-1. Consolidate all services into one resource group, such as Azure Search, Cognitive Services, and any other Azure services used in your solution. In the Azure portal, find the resource group and use the **Cost Management** commands for insight into actual and projected spending.
+- Consolidate all services into one resource group, such as Azure Search, Cognitive Services, and any other Azure services used in your solution. In the Azure portal, find the resource group and use the **Cost Management** commands for insight into actual and projected spending.
 
-1. Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
+- Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
 
-1. Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
+- Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
 You can't shut down a search service to reduce your bill. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. In terms of the service itself, the only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/), or create a service at a lower tier (S1 hourly rates are lower than S2 or S3 rates). Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
 
