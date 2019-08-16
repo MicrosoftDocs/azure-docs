@@ -40,7 +40,7 @@ A sample use case for the ReliableConcurrentQueue is the [Message Queue](https:/
 * The queue expects that the items in the queue have a low retention period. That is, the items would not stay in the queue for a long time.
 * The queue does not guarantee strict FIFO ordering.
 * The queue does not read its own writes. If an item is enqueued within a transaction, it will not be visible to a dequeuer within the same transaction.
-* Dequeues are not isolated from each other. If item *A* is dequeued in transaction *txnA*, even though *txnA* is not committed, item *A* would not be visible to a concurrent transaction *txnB*.  If *txnA* aborts, *A* will become visible to *txnB* immediately.
+* Dequeues are not isolated from each other unless wrapped in transactions. If item *A* is dequeued in transaction *txnA*, even though *txnA* is not committed, item *A* would not be visible to a concurrent transaction *txnB*.  If *txnA* aborts, *A* will become visible to *txnB* immediately.
 * *TryPeekAsync* behavior can be implemented by using a *TryDequeueAsync* and then aborting the transaction. An example of this can be found in the Programming Patterns section.
 * Count is non-transactional. It can be used to get an idea of the number of elements in the queue, but represents a point-in-time and cannot be relied upon.
 * Expensive processing on the dequeued items should not be performed while the transaction is active, to avoid long-running transactions which may have a performance impact on the system.
