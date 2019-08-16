@@ -1,12 +1,12 @@
 ---
-title: Create a read-only snapshot of a blob in Azure Storage | Microsoft Docs
+title: Create a read-only snapshot of a blob in Azure Storage
 description: Learn how to create a snapshot of a blob to back up blob data at a given moment in time. Understand how snapshots are billed and how to use them to minimize capacity charges.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/16/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -21,7 +21,7 @@ A snapshot of a blob is identical to its base blob, except that the blob URI has
 > All snapshots share the base blob's URI. The only distinction between the base blob and the snapshot is the appended **DateTime** value.
 >
 
-A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted. A snapshot cannot outlive its base blob. You can enumerate the snapshots associated with the base blob to track your current snapshots.
+A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted, meaning that a snapshot cannot outlive its base blob. You can enumerate the snapshots associated with the base blob to track your current snapshots.
 
 When you create a snapshot of a blob, the blob's system properties are copied to the snapshot with the same values. The base blob's metadata is also copied to the snapshot, unless you specify separate metadata for the snapshot when you create it.
 
@@ -30,6 +30,7 @@ Any leases associated with the base blob do not affect the snapshot. You cannot 
 A VHD file is used to store the current information and status for a VM disk. You can detach a disk from within the VM or shut down the VM, and then take a snapshot of its VHD file. You can use that snapshot file later to retrieve the VHD file at that point in time and recreate the VM.
 
 ## Create a snapshot
+
 The following code example shows how to create a snapshot by using the [Azure Storage Client Library for .NET](/dotnet/api/overview/azure/storage/client). This example specifies additional metadata for the snapshot when it is created.
 
 ```csharp
@@ -50,7 +51,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
         System.Threading.Thread.Sleep(5000);
 
         // Create a snapshot of the base blob.
-        // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
+        // You can specify metadata at the time that the snapshot is created.
         // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
         Dictionary<string, string> metadata = new Dictionary<string, string>();
         metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
@@ -66,6 +67,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 ```
 
 ## Copy snapshots
+
 Copy operations involving blobs and snapshots follow these rules:
 
 * You can copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob. The snapshot remains, but the base blob is overwritten with a writable copy of the snapshot.
@@ -74,9 +76,11 @@ Copy operations involving blobs and snapshots follow these rules:
 * When you create a snapshot of a block blob, the blob's committed block list is also copied to the snapshot. Any uncommitted blocks are not copied.
 
 ## Specify an access condition
+
 When you call [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], you can specify an access condition so that the snapshot is created only if a condition is met. To specify an access condition, use the [AccessCondition][dotnet_AccessCondition] parameter. If the specified condition is not met, the snapshot is not created, and the Blob service returns status code [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed.
 
 ## Delete snapshots
+
 You can't delete a blob with snapshots unless the snapshots are also deleted. You can delete a snapshot individually, or specify that all snapshots be deleted when the source blob is deleted. If you attempt to delete a blob that still has snapshots, an error results.
 
 The following code example shows how to delete a blob and its snapshots in .NET, where `blockBlob` is an object of type [CloudBlockBlob][dotnet_CloudBlockBlob]:
@@ -86,6 +90,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ```
 
 ## Snapshots with Azure Premium Storage
+
 When using snapshots with Premium Storage, the following rules apply:
 
 * The maximum number of snapshots per page blob in a premium storage account is 100. If that limit is exceeded, the Snapshot Blob operation returns error code 409 (`SnapshotCountExceeded`).
@@ -93,6 +98,7 @@ When using snapshots with Premium Storage, the following rules apply:
 * To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account. The destination blob for the copy operation must not have any existing snapshots. If the destination blob does have snapshots, then the Copy Blob operation returns error code 409 (`SnapshotsPresent`).
 
 ## Return the absolute URI to a snapshot
+
 This C# code example creates a snapshot and writes out the absolute URI for the primary location.
 
 ```csharp
@@ -116,9 +122,11 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 ```
 
 ## Understand how snapshots accrue charges
+
 Creating a snapshot, which is a read-only copy of a blob, can result in additional data storage charges to your account. When designing your application, it is important to be aware of how these charges might accrue so that you can minimize costs.
 
 ### Important billing considerations
+
 The following list includes key points to consider when creating a snapshot.
 
 * Your storage account incurs charges for unique blocks or pages, whether they are in the blob or in the snapshot. Your account does not incur additional charges for snapshots associated with a blob until you update the blob on which they are based. After you update the base blob, it diverges from its snapshots. When this happens, you are charged for the unique blocks or pages in each blob or snapshot.
@@ -134,27 +142,28 @@ We recommend managing your snapshots carefully to avoid extra charges. You can f
 * If you are maintaining snapshots for a blob, avoid calling [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], or [UploadFromByteArray][dotnet_UploadFromByteArray] to update the blob. These methods replace all of the blocks in the blob, causing your base blob and its snapshots to diverge significantly. Instead, update the fewest possible number of blocks by using the [PutBlock][dotnet_PutBlock] and [PutBlockList][dotnet_PutBlockList] methods.
 
 ### Snapshot billing scenarios
+
 The following scenarios demonstrate how charges accrue for a block blob and its snapshots.
 
-**Scenario 1**
+#### Scenario 1
 
 In scenario 1, the base blob has not been updated after the snapshot was taken, so charges are incurred only for unique blocks 1, 2, and 3.
 
 ![Azure Storage resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
-**Scenario 2**
+#### Scenario 2
 
 In scenario 2, the base blob has been updated, but the snapshot has not. Block 3 was updated, and even though it contains the same data and the same ID, it is not the same as block 3 in the snapshot. As a result, the account is charged for four blocks.
 
 ![Azure Storage resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
-**Scenario 3**
+#### Scenario 3
 
 In scenario 3, the base blob has been updated, but the snapshot has not. Block 3 was replaced with block 4 in the base blob, but the snapshot still reflects block 3. As a result, the account is charged for four blocks.
 
 ![Azure Storage resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
-**Scenario 4**
+#### Scenario 4
 
 In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks. This scenario can occur if you are using an update method such as [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], or [UploadFromByteArray][dotnet_UploadFromByteArray], because these methods replace all of the contents of a blob.
 
