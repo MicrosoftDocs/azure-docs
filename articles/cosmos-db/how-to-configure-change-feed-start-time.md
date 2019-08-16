@@ -46,8 +46,7 @@ The change feed processor will be initialized and start reading changes from the
 
 ## Next steps
 
-You can now proceed to learn more about change feed in the following articles:
+You can now proceed to learn more about change feed processor in the following articles:
 
-* [Overview of change feed](change-feed.md)
-* [Ways to read change feed](read-change-feed.md)
-* [Using change feed processor](change-feed-processor.md)
+* [Overview of change feed processor](change-feed-processor.md)
+* [Using the change feed estimator](how-to-use-change-feed-estimator)
