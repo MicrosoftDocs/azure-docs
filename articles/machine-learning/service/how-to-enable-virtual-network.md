@@ -23,12 +23,15 @@ This article provides detailed information about *advanced security settings*, i
 
 ## Prerequisites
 
-Create an Azure Machine Learning service [workspace](how-to-manage-workspace.md) if you don't already have one. This article assumes that you're familiar with both the Azure Virtual Network service and IP networking in general. The article also assumes that you've created a virtual network and subnet to use with your compute resources. If you're unfamiliar with the Azure Virtual Network service, you can learn about it in the following articles:
++ An Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
 
-* [IP addressing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
-* [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
-* [Quickstart: Create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-* [Filter network traffic](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
++ Working knowledge of both the Azure Virtual Network service and IP networking in general. If you're unfamiliar with the Azure Virtual Network service, learn more with these articles:
+  * [IP addressing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+  * [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
+  * [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+  * [Filter network traffic](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
++ A pre-existing virtual network and subnet to use with your compute resources. 
 
 ## Use a storage account for your workspace
 
