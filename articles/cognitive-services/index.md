@@ -157,7 +157,7 @@ ms.topic: hub-page
 
 
 <h2>Cognitive Services APIs</h2>
-<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
+<ul class="cardsL panelContent singlePanelContent" style="display:flex!important;">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
