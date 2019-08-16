@@ -87,11 +87,11 @@
     - name: Set up private cloud networking
       items: 
       - name: Create and manage VLANs and subnets
-        href:  https://docs.azure.cloudsimple.com/create-vlan-subnet/
+        href:  create-vlan-subnet.md
       - name: Set up firewall tables and rules
-        href: https://docs.azure.cloudsimple.com/firewall/
+        href: firewall.md
       - name: Allocate public IP addresses
-        href: https://docs.azure.cloudsimple.com/public-ips/
+        href: public-ips.md
       - name: Set up VPN connections
         href: vpn-gateway.md
       - name: Obtain peer information for virtual network connection to CloudSimple
@@ -137,7 +137,7 @@
       - name: Learn private cloud permission model
         href: https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/
       - name: vCenter identity sources
-        href: https://docs.azure.cloudsimple.com/set-vcenter-identity/
+        href: set-vcenter-identity.md
       - name: Azure Application Gateway with VMware VMs
         href: https://docs.azure.cloudsimple.com/azure-application-gateway/
       - name: Configure private cloud vCenter server as vRealize automation endpoint
@@ -153,13 +153,13 @@
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
       - name: Configure vSAN encryption for your private cloud
-        href: https://docs.azure.cloudsimple.com/vsan-encryption/
+        href: vsan-encryption.md
       - name: Oracle RAC deployment on CloudSimple private cloud
         href: https://docs.azure.cloudsimple.com/oracle-rac/
     - name: Azure Core Integration
       items:
       - name: Azure AD identity source on Private Cloud vCenter
-        href: https://docs.azure.cloudsimple.com/azure-ad/
+        href: azure-ad.md
       - name: On-premises network connection with ExpressRoute 
         href: https://docs.azure.cloudsimple.com/on-premises-connection/
       - name: Azure Virtual network connection with ExpressRoute
