@@ -112,6 +112,8 @@
       items:
       - name: Create a VM in Azure
         href: azure-create-vm.md
+      - name: Manage VMs in Azure
+        href: azure-manage-vm.md
   - name: How-to guides
     items:
     - name: Secure your environment

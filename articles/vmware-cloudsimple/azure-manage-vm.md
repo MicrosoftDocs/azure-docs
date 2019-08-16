@@ -12,7 +12,7 @@ manager: dikamath
 
 # Manage your CloudSimple Private Cloud virtual machines in Azure
 
-To manage the virtual machines that you [created for your CloudSimple Private Cloud](azure-create-vm.md), sign to the <a href="http://portal.azure.com" target="_blank">Azure portal</a>. Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
+To manage the virtual machines that you [created for your CloudSimple Private Cloud](azure-create-vm.md), sign to the [Azure portal](http://portal.azure.com). Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
 
 ## Control virtual machine operation
 
@@ -51,7 +51,7 @@ To add a VM disk, open the **Disks** page for the selected VM. To add a disk, cl
    | Name | Enter a name to identify the disk.  |
    | Size | Select one of the available sizes.  |
    | SCSI Controller | Select a SCSI controller. The available controllers vary for the different supported operating systems.  |
-   | Mode | Determines how the disk participates in snapshots. Choose one of these options: <br> - Independent persistent: All data written to the disk is written permanently.<br> - Independent, non-persistent: Changes written to the disk are discarded when you power off or reset the virtual machine.  This mode allows you to always restart the VM in the same state. For more information, see the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware documentation</a>. |
+   | Mode | Determines how the disk participates in snapshots. Choose one of these options: <br> - Independent persistent: All data written to the disk is written permanently.<br> - Independent, non-persistent: Changes written to the disk are discarded when you power off or reset the virtual machine.  This mode allows you to always restart the VM in the same state. For more information, see the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 To delete a disk, select it and click **Delete**.
 
@@ -73,7 +73,7 @@ To add an interface, click **Add network interface**. Configure each of the foll
    | ------------ | ------------- |
    | Name | Enter a name to identify the interface.  |
    | Network | Select from the list of configured networks in your Private Cloud vSphere.  |
-   | Adapter | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see the VMware knowledge base article <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Choosing a network adapter for your virtual machine</a>. |
+   | Adapter | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see the VMware knowledge base article [Choosing a network adapter for your virtual machine](https://kb.vmware.com/s/article/1001805). |
    | Power on at Boot | Choose whether to enable the NIC hardware when the VM is booted. The default is **Enable**. |
 
 To delete a network interface, select it and click **Delete**.
