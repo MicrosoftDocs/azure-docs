@@ -22,14 +22,14 @@ While publishing your offer to the marketplace via Partner Center, you will need
 
 1. **Select a lead destination where you want us to send customer leads**. The following CRM systems are supported:
 
-    * [Dynamics 365](./commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
-    * [Marketo](./commercial-marketplace-lead-management-instructions-marketo.md)
-    * [Salesforce](./commercial-marketplace-lead-management-instructions-salesforce.md)
+    * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    * [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md)
+    * [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md)
 
     If your CRM system is not explicitly supported in the list above, you have the following options that allow you to store the customer lead data, and then you can export or import these data into your CRM system.
 
-    * [Azure Table](./commercial-marketplace-lead-management-instructions-azure-table.md)
-    * [Https Endpoint](./commercial-marketplace-lead-management-instructions-https.md)
+    * [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md)
+    * [Https Endpoint](../commercial-marketplace-lead-management-instructions-https.md)
 
 2. Read the documentation linked above to your selected lead destination to see how to set up the lead destination to receive leads from your marketplace offer. 
 3. Connect your offer to the lead destination while publishing the offer to the marketplace in Partner Center. See the documentation linked above for how to do this.
