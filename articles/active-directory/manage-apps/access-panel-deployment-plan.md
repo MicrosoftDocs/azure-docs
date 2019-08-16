@@ -325,7 +325,7 @@ The following tests should be conducted with both corporate-owned devices and pe
 
 ### Rollback steps
 
-It’s important to plan what to do in case your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you may need to [rollback SSO](../manage-apps/plan-sso-deployment).
+It’s important to plan what to do in case your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you may need to [rollback SSO](../manage-apps/plan-sso-deployment.md).
 
 
 ## Manage your implementation
