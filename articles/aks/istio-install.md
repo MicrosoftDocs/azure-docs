@@ -38,6 +38,8 @@ The steps detailed in this article assume that you've created an AKS cluster (Ku
 
 You'll need [Helm][helm] to follow these instructions and install Istio. It's recommended that you have version `2.12.2` or later correctly installed and configured in your cluster. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install]. All Istio pods must also be scheduled to run on Linux nodes.
 
+It's recommended to have 4 vcpus and 14 GiB of memory free on your cluster to deploy the Istio components. If you are using the default Node size, have atleast 3 nodes in your cluster with the free resources as mentioned above. Pods will fail to start if it don't have the required resources.
+
 This article separates the Istio installation guidance into several discrete steps. The end result is the same in structure as the official Istio installation [guidance][istio-install-helm].
 
 ## Download Istio
