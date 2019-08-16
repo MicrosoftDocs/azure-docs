@@ -34,7 +34,7 @@ Data source locations are **public URLs or files**, which do not require authent
 If you need authentication for your data source, consider the following methods to get that data into QnA Maker:
 
 * [Download file manually](#download-file-from-authenticated-data-source-location) and import into QnA Maker
-* Import file for authenticated [Sharepoint location](#import-file-from-authenticated-Sharepoint ) 
+* Import file for authenticated [Sharepoint location](#import-file-from-authenticated-sharepoint) 
 
 ### Download file from authenticated data source location
 
