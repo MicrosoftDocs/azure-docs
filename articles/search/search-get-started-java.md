@@ -20,13 +20,13 @@ ms.date: 07/11/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ] (https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
+Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ] (https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article provides step-by-step instructions to create the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-We used the following software to build and test this sample:
+We used the following software and services to build and test this sample:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
@@ -44,7 +44,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   Get the query key as well. It's a best practice to issue query requests with read-only access.
+   This quickstart uses It's a best practice to issue query requests with read-only access.
 
 ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
@@ -62,7 +62,7 @@ Begin by opening IntelliJ IDEA and creating a new project.
 ![Create a maven project](media/search-get-started-java/java-quickstart-create-new-maven-project.png)
 1. For `GroupId` and `ArtifactId`, enter `AzureSearchQuickstart`.
 1. Accept the remaining defaults to open the project.
-1. Select **File** > **Settings**, and select the **Import Maven projects automatically** check box, and click **OK**. This option appears under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importaing**.
+1. Select **File** > **Settings**, and select the **Import Maven projects automatically** check box, and click **OK**. This option appears under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
 1. In the **Project** window, expand the project tree to access the `src` and `main` folders.
 1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and select **Package**.
 1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and select **Directory**
@@ -103,13 +103,14 @@ Begin by opening IntelliJ IDEA and creating a new project.
     
         public static void main(String[] args) {
             try {
-                var config = loadPropertiesFromResource("config.properties");
                 var client = new SearchServiceClient(
                         config.getProperty("SearchServiceName"),
-                        config.getProperty("SearchServiceApiKey"),
+                        config.getProperty("SearchServiceAdminKey"),
+                        config.getProperty("SearchServiceQueryKey"),
                         config.getProperty("ApiVersion"),
                         config.getProperty("IndexName")
                 );
+    
     
     //Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
     //            if(client.indexExists()){ client.deleteIndex();}
@@ -197,30 +198,21 @@ Begin by opening IntelliJ IDEA and creating a new project.
     /**
      * This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
     public class SearchServiceClient {
-        private final String _apiKey;
+        private final String _adminKey;
+        private final String _queryKey;
         private final String _apiVersion;
         private final String _serviceName;
         private final String _indexName;
         private final static HttpClient client = HttpClient.newHttpClient();
     
-    
-        public SearchServiceClient(String serviceName, String apiKey, String apiVersion, String indexName) {
+        public SearchServiceClient(String serviceName, String adminKey, String queryKey, String apiVersion, String indexName) {
             this._serviceName = serviceName;
-            this._apiKey = apiKey;
+            this._adminKey = adminKey;
+            this._queryKey = queryKey;
             this._apiVersion = apiVersion;
             this._indexName = indexName;
         }
-    
-        private HttpRequest httpRequest(URI uri, String method, String contents)
-        {
-            return httpRequest(uri, _apiKey, method, contents);
-        }
-    
-        private static HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
-            logMessage(String.format("%s: %s", request.method(), request.uri()));
-            return client.send(request, HttpResponse.BodyHandlers.ofString());
-        }
-    
+
     private static URI buildURI(Consumer<Formatter> fmtFn)
         {
             Formatter strFormatter = new Formatter();
@@ -258,12 +250,12 @@ Begin by opening IntelliJ IDEA and creating a new project.
             return false;
         }
     
-        public static HttpRequest httpRequest(URI uri, String apiKey, String method, String contents) {
+        public static HttpRequest httpRequest(URI uri, String key, String method, String contents) {
             contents = contents == null ? "" : contents;
             var builder = HttpRequest.newBuilder();
             builder.uri(uri);
             builder.setHeader("content-type", "application/json");
-            builder.setHeader("api-key", apiKey);
+            builder.setHeader("api-key", key);
     
             switch (method) {
                 case "GET":
@@ -492,7 +484,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
         var uri = buildURI(strFormatter -> strFormatter.format(
                 "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=*",
                 _serviceName,_indexName,_apiVersion));
-        var request = httpRequest(uri, "HEAD", "");
+        var request = httpRequest(uri, _adminKey, "HEAD", "");
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
@@ -502,7 +494,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
         var uri = buildURI(strFormatter -> strFormatter.format(
                 "https://%s.search.windows.net/indexes/%s?api-version=%s",
                 _serviceName,_indexName,_apiVersion));
-        var request = httpRequest(uri, "DELETE", "*");
+        var request = httpRequest(uri, _adminKey, "DELETE", "*");
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
@@ -518,7 +510,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
         var inputStream = SearchServiceClient.class.getResourceAsStream("index.json");
         var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         //Send HTTP PUT request to create the index in the search service
-        var request = httpRequest(uri, "PUT", indexDef);
+        var request = httpRequest(uri, _adminKey, "PUT", indexDef);
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
@@ -639,7 +631,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
         var inputStream = SearchServiceClient.class.getResourceAsStream("hotels.json");
         var documents = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         //Send HTTP POST request to upload and index the data
-        var request = httpRequest(endpoint, "POST", documents);
+        var request = httpRequest(endpoint, _adminKey, "POST", documents);
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
@@ -711,7 +703,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
             var uri = buildURI(strFormatter -> strFormatter.format(
                     "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=%s%s",
                     _serviceName, _indexName, _apiVersion, queryString, optionsString));
-            var request = httpRequest(uri, "GET", null);
+            var request = httpRequest(uri, _queryKey, "GET", null);
             var response = sendRequest(request);
             var jsonReader = Json.createReader(new StringReader(response.body()));
             var jsonArray = jsonReader.readObject().getJsonArray("value");
