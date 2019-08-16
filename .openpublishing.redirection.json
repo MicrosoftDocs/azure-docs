@@ -9046,8 +9046,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/active-directory-saas-scalexenterprise-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/scalexenterprise-tutorial",
+      "source_path": "articles/active-directory/saas-apps/scalexenterprise-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/scalex-enterprise-tutorial",
       "redirect_document_id": true
     },
     {

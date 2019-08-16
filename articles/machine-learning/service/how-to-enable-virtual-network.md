@@ -1,7 +1,7 @@
 ---
-title: Run experiments and inference in a virtual network
+title: Secure experiments and inference in a virtual network
 titleSuffix: Azure Machine Learning service
-description: Run machine learning experiments and inference securing within an Azure virtual network. Learn how to create compute targets for model training and how to run inference within a virtual network. Learn about requirements for secured virtual networks, such as requiring inbound and outbound ports.
+description: learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,22 +13,23 @@ author: aashishb
 ms.date: 08/05/2019
 ---
 
-# Run experiments and inference securely within an Azure virtual network
+# Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
 
-In this article, you learn how to run experiments and inference, or model scoring, within a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference. Inference, or model scoring, is the phase during which the deployed model is used for prediction, most commonly on production data.
+In this article, you'll learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). 
 
-The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources, or compute targets, are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+A **virtual network** acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
-This article provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
+The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources, or [compute targets](concept-compute-target.md), are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+This article also provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
 
 ## Prerequisites
 
-Create an Azure Machine Learning service [workspace](how-to-manage-workspace.md) if you don't already have one. This article assumes that you're familiar with both the Azure Virtual Network service and IP networking in general. The article also assumes that you've created a virtual network and subnet to use with your compute resources. If you're unfamiliar with the Azure Virtual Network service, you can learn about it in the following articles:
++ An Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
 
-* [IP addressing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
-* [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
-* [Quickstart: Create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-* [Filter network traffic](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
++ General working knowledge of both the [Azure Virtual Network service](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and [IP networking](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+
++ A pre-existing virtual network and subnet to use with your compute resources. 
 
 ## Use a storage account for your workspace
 
@@ -228,6 +229,9 @@ When the creation process finishes, you train your model by using the cluster in
 
 ## Use a virtual machine or HDInsight cluster
 
+> [!IMPORTANT]
+> The Azure Machine Learning service supports only virtual machines that are running Ubuntu.
+
 To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, do the following:
 
 1. Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
@@ -259,9 +263,6 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
 1. Attach the VM or HDInsight cluster to your Azure Machine Learning service workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
-> [!IMPORTANT]
-> The Azure Machine Learning service supports only virtual machines that are running Ubuntu.
-
 ## Use Azure Kubernetes Service (AKS)
 
 To add AKS in a virtual network to your workspace, do the following:
@@ -269,9 +270,7 @@ To add AKS in a virtual network to your workspace, do the following:
 > [!IMPORTANT]
 > Before you begin the following procedure, check the prerequisites and plan the IP addressing for your cluster. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 >
-> Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
->
-> The AKS instance and the Azure virtual network should be in the same region.
+> The AKS instance and the Azure virtual network must be in the same region.
 
 1. In the [Azure portal](https://portal.azure.com), make sure that the NSG that controls the virtual network has an inbound rule that's enabled for the Azure Machine Learning service by using __AzureMachineLearning__ as the **SOURCE**.
 
@@ -300,13 +299,12 @@ To add AKS in a virtual network to your workspace, do the following:
    ![Azure Machine Learning service: Machine Learning Compute virtual network settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
 1. Make sure that the NSG group that controls the virtual network has an inbound security rule enabled for the scoring endpoint so that it can be called from outside the virtual network.
+   > [!IMPORTANT]
+   > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+  
+   ![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
 
-    ![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
-
-    > [!TIP]
-    > If you already have an AKS cluster in a virtual network, you can attach it to the workspace. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
-
-You can also use the Azure Machine Learning SDK to add AKS in a virtual network. The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
+You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-to-aks.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
