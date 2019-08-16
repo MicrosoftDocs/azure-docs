@@ -23,13 +23,13 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
 1. In Azure AD, select **Users** > **Bulk create**.
-1. On the **Bulk create user** page, select **Download** to receive a valid CSV file of user properties, and then add your new users.
+1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add your new users.
 1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
 1. When the file contents are validated, you must fix any errors before you can start the upload job.
-1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information. Job notifications are generated to apprise you of progress to completion.
+1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information.
 
 ## Check status
 

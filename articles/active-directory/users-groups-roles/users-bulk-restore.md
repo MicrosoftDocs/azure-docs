@@ -31,8 +31,8 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
-1. When the file contents are validated, you must fix any errors before you can start the upload job.
-1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information. Job notifications are generated to apprise you of progress to completion.
+1. When the file contents are validated, fix the file info and re-submit the file if there are errors. Submitting a valid file starts the data upload job automatically.
+1. After the CSV file passes validation, select **Submit** to start the Azure batch job that restore the users.
 
 ## Check status
 
@@ -42,12 +42,12 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
 Next, you can check to see that the users you created exist in the directory either in the Azure portal or by using PowerShell.
 
-## View created users in the Azure portal
+## View restored users in the Azure portal
 
 1. [Sign in to the Azure AD admin center](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
-1. Under **Show**, select **All users** and verify that the users you created are listed.
+1. Under **Show**, select **All users** and verify that the users you restored are listed.
 
 ### View users with PowerShell
 
@@ -57,7 +57,7 @@ Run the following command:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-You should see that the users that you created are listed.
+You should see that the users that you restored are listed.
 
 ## Next steps
 
