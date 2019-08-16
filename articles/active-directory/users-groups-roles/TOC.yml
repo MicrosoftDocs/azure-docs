@@ -42,10 +42,14 @@
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Download list of users
       href: users-bulk-download.md
-    - name: Add users in bulk
-      href: users-bulk-add.md
-    - name: Delete users in bulk
-      href: users-bulk-delete.md  
+    - name: Bulk operations
+      items:
+        - name: Bulk import users
+          href: users-bulk-add.md
+        - name: Bulk delete users
+          href: users-bulk-delete.md  
+        - name: Bulk restore users
+          href: users-bulk-restore.md
     - name: Share user accounts  
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    

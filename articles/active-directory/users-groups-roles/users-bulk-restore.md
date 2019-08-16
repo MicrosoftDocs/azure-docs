@@ -1,6 +1,6 @@
 ---
-title: Bulk import to add users in the Azure Active Directory portal | Microsoft Docs
-description: Add users in bulk in the Azure AD admin center in Azure Active Directory
+title: Bulk restore deleted users in the Azure Active Directory portal | Microsoft Docs
+description: Restore deleted users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory 
 author: curtand
 ms.author: curtand
@@ -15,15 +15,18 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk import users (preview) in the Azure Active Directory
+# Bulk restore deleted users (preview) in the Azure Active Directory
 
 Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
-## To bulk import users
+## To bulk restore users
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk create**.
-1. On the **Bulk create user** page, select **Download** to receive a valid CSV file of user properties, and then add your new users.
+1. In Azure AD, select **Users** > **Deleted**.
+1. On the **Deleted users** page, select **Bulk restore** to upload a valid CSV file of properties of the users to restore.
+
+   ![Select the bulk restore command on the Deleted users page](./media/users-bulk-add/bulk-restore.png)
+
 1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
