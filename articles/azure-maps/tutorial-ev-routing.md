@@ -1,9 +1,9 @@
 ---
-title: Routing using Azure Maps | Microsoft Docs
-description: Search for multiple viable routes using Azure Maps routing APIs.
+title: EV routing in Azure Maps | Microsoft Docs
+description: EV Routing with limited range using Azure Maps routing APIs.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/15/2019
+ms.date: 08/16/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -13,15 +13,17 @@ ms.custom: mvc
 
 # Routing with Azure Maps
 
-Azure Maps offers a robust set of routing APIs that allows you to calculate routes between the desired set of points based on various conditions. In this tutorial, we will implement a scenario consisting of an electric vehicle with low charge and its driver who needs to find the closest possible charging station with respect to time.
+Azure Maps offers a robust set of routing APIs that allows you to calculate routes between the desired set of points based on various conditions such as vehicle type and or reachable area. In this tutorial, we will implement a scenario consisting of an electric vehicle with low charge and its driver who needs to find the closest possible charging station with respect to drive time.
 
 In this tutorial you will:
 
 > [!div class="checklist"]
-> * Search for a reachable boundary, based on the electric vehicle's consumption model.
-> * Search for electric vehicle charging stations within the boundary range.
-> * Visualize the reachable range boundary and charging stations on a map.
-> * Find and visualize route to the closest electric vehicle charging station based on time.
+> *	Use [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) and run Jupyter notebooks in the cloud
+> *	Call Azure Maps REST APIs in Python
+> *	Search for a reachable range based on the electric vehicle's consumption model.
+> *	Search for electric vehicle charging stations within the reachable range (or isochrone).
+> *	Visualize the reachable range boundary and charging stations on a map.
+> *	Find and visualize route to the closest electric vehicle charging station based on time.
 
 
 ## Prerequisites 
@@ -35,27 +37,27 @@ In order to follow along with this tutorial, you will need to create an Azure No
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 2. From your public profile page, select **My Projects** at the top of the page.
 
-    ![my project](./media/tutorial-maps-routing/myproject.png)
+    ![my project](./media/tutorial-ev-routing/myproject.png)
 
 3. On the **My Projects** page, select **New Project**.
  
-   ![new project](./media/tutorial-maps-routing/create-project.png)
+   ![new project](./media/tutorial-ev-routing/create-project.png)
 
 4. In the **Create New Project** popup that appears, enter the following information and click **Create**:
     * Project Name
     * Project ID
  
-    ![create project](./media/tutorial-maps-routing/create-project-window.png)
+    ![create project](./media/tutorial-ev-routing/create-project-window.png)
 
 5. Once your project is created, select your project from the projects list on the **My Projects** page and click on **Upload** to upload the Jupyter notebook document file. Upload the file from your computer and click **Done**.
 
-    ![upload notebook](./media/tutorial-maps-routing/upload-notebook.png)
+    ![upload notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
 6. Upon a successful upload, you will see your file in your project page. Click on the notebook file to open the file as a Jupyter Notebook.
 
 In order to better understand the functionality implemented in the notebook file, we recommend you to run the code in the notebook one cell at a time. You can run the code in each cell by clicking on the **Run** button at the top in the notebook app.
 
-  ![run](./media/tutorial-maps-routing/run.png)
+  ![run](./media/tutorial-ev-routing/run.png)
 
 ## Install project level packages
 
@@ -70,7 +72,7 @@ You need to install packages at the project level in order to run the code in th
     * In the third drop-down control, choose Python Version 3.6 as the python version.
 7. Select **Save**.
 
-    ![install packages](./media/tutorial-maps-routing/install-packages.png)
+    ![install packages](./media/tutorial-ev-routing/install-packages.png)
 
 ## Load required modules and frameworks
 
@@ -215,7 +217,7 @@ poiRangeMap = await staticMapResponse.content.read()
 display(Image(poiRangeMap))
 ```
 
-![location range](./media/tutorial-maps-routing/location-range.png)
+![location range](./media/tutorial-ev-routing/location-range.png)
 
 
 ## Find the closest charging station
@@ -304,4 +306,4 @@ await session.close()
 display(Image(staticMapImage))
 ```
 
-![route](./media/tutorial-maps-routing/route.png)
+![route](./media/tutorial-ev-routing/route.png)
