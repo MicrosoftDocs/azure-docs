@@ -334,9 +334,9 @@ A managed instance can't access file shares and Windows folders, so the followin
 
 Undocumented DBCC statements that are enabled in SQL Server aren't supported in managed instances.
 
-- `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
-- `DBCC TRACEOFF` isn't supported. See [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
-- `DBCC TRACEON` isn't supported. See [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+- Only a limited number of Global `Trace flags` is supported. Session-level `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) and [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) work with the limited number of global trace-flags.
+- [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) with options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST, and REPAIR_REBUILD cannot be used because database cannot be set in `SINGLE_USER` mode - see [ALTER DATABASE differences](#alter-database-statement). Potential database corruptions are handled by Azure support team. Contact Azure support if you are noticing database corruption that should be fixed.
 
 ### Distributed transactions
 
@@ -376,7 +376,7 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 
 Linked servers in managed instances support a limited number of targets:
 
-- Supported targets are managed instances, Single Databases, and SQL Server instances. 
+- Supported targets are Managed Instances, Single Databases, and SQL Server instances. 
 - Linked servers don't support distributed writable transactions (MS DTC).
 - Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
 
@@ -394,7 +394,7 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-- Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
+- Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
 - [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on managed instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but Publisher and Distributor cannot be placed on different instances.
     - Managed instances can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
