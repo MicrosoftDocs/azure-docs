@@ -82,7 +82,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Choose **Create a resource** in the upper left corner of the Azure portal.
 
-1. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
+1. In the search box above the list of Azure Marketplace resources, search for **Ubuntu Server 18.04** and select the Ubuntu 18.04 LTS offering, then choose **Create**.
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK**.
 
