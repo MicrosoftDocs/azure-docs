@@ -27,12 +27,12 @@ Although all tiers, including the Free tier, generally offer feature parity, lar
 
 ## Available tiers
 
-Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are generally differentiated by:
+Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
 + Quantity of indexes and indexers you can create
 + Size and speed of partitions (physical storage)
 
-The tier you select determines the billable, hourly rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which is visible in the portal and available on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common.
+The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
 
 **Free** creates a limited search service on a cluster, shared with other subscribers. You can complete small projects, including quickstarts and tutorials, but you cannot scale the service or run significant workloads. **Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default.
 
@@ -57,7 +57,7 @@ A solution built on Azure Search can incur costs in the following ways:
 
 Unlike virtual machines or other resources that can be "paused" to avoid charges, an Azure Search service is always available on hardware dedicated for your exclusive use. As such, creating a service is a billable event that starts when you create the service, and ends when you delete the service. 
 
-The minimum charge is the first search unit (1 replica x 1 partition). This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: [(replicas x partitions x rate)](#search-units), where the rate you're charged depends on the pricing tier you select.
+The minimum charge is the first search unit (one replica x one partition). This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: [(replicas x partitions x rate)](#search-units), where the rate you're charged depends on the pricing tier you select.
 
 When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear. (Doubling capacity more than doubles the cost.) For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
@@ -79,7 +79,7 @@ For [AI enrichment with Cognitive Services](cognitive-search-concept-intro.md), 
 | Document cracking, text extraction | Free |
 | Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search.|
 | [Pre-built cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
-| Custom skills | A custom skill is functionality you provide. The cost of using a cusomt skills depends entirely on whether custom code is calling other metered services. |
+| Custom skills | A custom skill is functionality you provide. The cost of using a custom skills depends entirely on whether custom code is calling other metered services. |
 
 <a name="search-units"></a>
 
