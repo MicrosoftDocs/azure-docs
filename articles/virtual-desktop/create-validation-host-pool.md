@@ -62,7 +62,7 @@ The results from the cmdlet should look similar to this output:
 
 ## Update schedule
 
-In preview, service updates occur on approximately a monthly cadence. If there are major issues, critical updates will be provided on a more frequent cadence.
+Service updates happen monthly. If there are major issues, critical updates will be provided at a more frequent pace.
 
 ## Next steps
 

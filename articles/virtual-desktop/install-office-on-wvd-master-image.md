@@ -40,7 +40,7 @@ This sample configuration XML we've provided will do the following things:
 - Enable shared computer activation.
 
 >[!NOTE]
->Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration.
+>Visio's stencil search feature may not work as expected in Windows Virtual Desktop.
 
 Here's what this sample configuration XML won't do:
 
