@@ -19,7 +19,7 @@ In many cases,
 the goal is to automate configuration of servers
 following a "baseline" that hopefully aligns to an industry recommendation.
 
-> [Note!]
+> [!NOTE]
 > This article refers to a solution that is maintained by the Open Source community.
 > Support is only available in the form of GitHub collaboration, not from Microsoft.
 
