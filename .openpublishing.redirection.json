@@ -16,6 +16,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/setup-create-workspace.md",
       "redirect_url": "/azure/machine-learning/service/how-to-manage-workspace",
       "redirect_document_id": true
@@ -9041,8 +9046,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/active-directory-saas-scalexenterprise-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/scalexenterprise-tutorial",
+      "source_path": "articles/active-directory/saas-apps/scalexenterprise-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/scalex-enterprise-tutorial",
       "redirect_document_id": true
     },
     {
@@ -31064,6 +31069,16 @@
       "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/http-response-codes.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/how-to/metadata-generateanswer-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/glossary.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
+      "redirect_document_id": false
+    }, 
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs#publish-a-knowledge-base",
