@@ -145,12 +145,25 @@ The following compute targets, or compute resources, can be used to host your we
 
 ## Prepare to deploy
 
-To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the compute target.
+Deploying the model requires several things:
 
-> [!IMPORTANT]
-> The Azure Machine Learning SDK does not provide a way for web service or IoT Edge deployments to access your datastore or data sets. If you need the deployed model to access data stored outside the deployment, such as in an Azure Storage account, you must develop a custom code solution using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
->
-> Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
+* An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
+
+    > [!IMPORTANT]
+    > The entry script is specific to your model; it must understand the format of the incoming request data, the format of the data expected by your model, and the format of the data returned to clients.
+    >
+    > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning to it to the client.
+
+    > [!IMPORTANT]
+    > The Azure Machine Learning SDK does not provide a way for web service or IoT Edge deployments to access your datastore or data sets. If you need the deployed model to access data stored outside the deployment, such as in an Azure Storage account, you must develop a custom code solution using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
+    >
+    > Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
+
+* **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
+
+* The __deployment configuration__ for the compute target that hosts the deployed model. This configuration describes things like memory and CPU requirements needed to run the model.
+
+These entities are encapsulated into an __inference configuration__, and a __deployment configuration__. The inference configuration references the entry script and other dependencies. These configurations are defined programmatically when using the SDK, and as JSON files when using the CLI to perform the deployment.
 
 ### <a id="script"></a> 1. Define your entry script & dependencies
 
@@ -395,9 +408,13 @@ def run(request):
 
 ### 2. Define your InferenceConfig
 
-The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration. This configuration specifies the runtime, the entry script, and (optionally) the conda environment file:
+The inference configuration describes how to configure the model to make predictions. This configuration is not part of your entry script; it references your entry script and is used to locate all the resources required by the deployment. It is used later when actually deploying the model.
+
+The following example demonstrates how to create an inference configuration. This configuration specifies the runtime, the entry script, and (optionally) the conda environment file:
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -427,7 +444,7 @@ For information on using a custom Docker image with inference configuration, see
 
 ### 3. Define your Deployment configuration
 
-Before deploying, you must define the deployment configuration. __The deployment configuration is specific to the compute target that will host the web service__. For example, when deploying locally you must specify the port where the service accepts requests.
+Before deploying, you must define the deployment configuration. __The deployment configuration is specific to the compute target that will host the web service__. For example, when deploying locally you must specify the port where the service accepts requests. The deployment configuration is not part of your entry script. It is used to define the characteristics of the compute target that will host the model and entry script.
 
 You may also need to create the compute resource. For example, if you do not already have an Azure Kubernetes Service associated with your workspace.
 
@@ -438,6 +455,12 @@ The following table provides an example of creating a deployment configuration f
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+
+Each of these classes for local, ACI, and AKS web services can be imported from `azureml.core.webservice`:
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
 > [!TIP]
 > Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can profile your model using either the SDK or CLI. For more information, see the [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) and [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) reference.
@@ -455,6 +478,8 @@ To deploy locally, you need to have Docker installed on your local machine.
 #### Using the SDK
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)
