@@ -95,30 +95,30 @@ Here is an example of what can be added inside the `Hosting` section in the Clus
 ]
 ```
 
-### Leveraging the Managed Identity of the VM Scale Set using Managed Identity Service (MSI)
+### Leveraging the Managed Identity of the virtual machine scale set using Managed Identity Service (MSI)
 
-Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the managed identity of the underlying VMSS to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for more on MSI.  Using this feature requires the follows steps:
+Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the managed identity of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for more on MSI.  Using this feature requires the follows steps:
 
-1.)  Ensure that System Assigned Managed Identity is enabled for the VM (see screenshot below)
+1.  Ensure that System Assigned Managed Identity is enabled for the VM (see screenshot below)
 
-![Create VMSS Identity](.\media\service-fabric-configure-container-repository-credentials\service-fabric-configure-container-repository-credentials-VMSS-identity.png)
+    ![Create virtual machine scale set identity](/media/service-fabric-configure-container-repository-credentials/service-fabric-configure-container-repository-credentials-VMSS-identity.png)
 
-2.)  After that, grant permissions to the VM(SS) to pull/read images from the registry.  Go to Access Control (IAM) of your ACR via Azure Blade and give your VM(SS) the correct permissions, as seen below:
+2.  After that, grant permissions to the VM(SS) to pull/read images from the registry.  Go to Access Control (IAM) of your ACR via Azure Blade and give your VM(SS) the correct permissions, as seen below:
 
-![Add VM principal to ACR](.\media\service-fabric-configure-container-repository-credentials\service-fabric-configure-container-repository-credentials-ACR-IAM.png)
+    ![Add VM principal to ACR](/media/service-fabric-configure-container-repository-credentials/service-fabric-configure-container-repository-credentials-ACR-IAM.png)
 
-3.)  Once the above steps are completed, modify your applicationmanifest.xml file.  Find the tag labeled “ContainerHostPolicies” and add the attribute `‘UseTokenAuthenticationCredentials=”true”`.
+3.  Once the above steps are completed, modify your applicationmanifest.xml file.  Find the tag labeled “ContainerHostPolicies” and add the attribute `‘UseTokenAuthenticationCredentials=”true”`.
 
-```json
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
-      <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" UseTokenAuthenticationCredentials="true">
-        <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-      </ContainerHostPolicies>
-      <ResourceGovernancePolicy CodePackageRef="NodeService.Code" MemoryInMB="256"/>
-     </Policies>
-    </ServiceManifestImport>
-```
+    ```json
+      <ServiceManifestImport>
+          <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+      <Policies>
+        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" UseTokenAuthenticationCredentials="true">
+          <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+        </ContainerHostPolicies>
+        <ResourceGovernancePolicy CodePackageRef="NodeService.Code" MemoryInMB="256"/>
+      </Policies>
+      </ServiceManifestImport>
+  ```
 
 Note that the flag `UseDefaultRepositoryCredentials` set to true while `UseTokenAuthenticationCredentials` is true as it will cause an error during deployment.  
