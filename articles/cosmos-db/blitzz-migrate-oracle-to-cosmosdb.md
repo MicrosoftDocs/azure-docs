@@ -45,7 +45,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
    ![Blitzz replicant files](./media/blitzz-migrate-oracle-to-cosmosdb/replicant-files.png)
 
-1. From the CLI terminal, setup the source database configuration. Open the configuration file using **vi conf/conn/oracle.yml** command and add a comma separated list of IP addresses of the oracle nodes, port number, username, password and any other required details. The following is an example of contents in the configuration file:
+1. From the CLI terminal, setup the source database configuration. Open the configuration file using **`vi conf/conn/oracle.yml`** command and add a comma separated list of IP addresses of the oracle nodes, port number, username, password and any other required details. The following is an example of contents in the configuration file:
 
    ```bash
    type: ORACLE
@@ -68,7 +68,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
    After filling out the configuration details, save and close the file.
 
-1. Optionally, you can setup the source database filter file. The filter file specifies which schemas or tables to migrate. Open the configuration file using **vi filter/oracle_filter.yml** command and enter the following configuration details:
+1. Optionally, you can setup the source database filter file. The filter file specifies which schemas or tables to migrate. Open the configuration file using **`vi filter/oracle_filter.yml`** command and enter the following configuration details:
 
    ```bash
 
@@ -87,7 +87,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
 1. Get the **Contact Point, Port, Username** and **Primary Password** of your Azure Cosmos account from the **Connection String** pane. You will use these values in the configuration file.
 
-1. From the CLI terminal, setup the destination database configuration. Open the configuration file using **vi conf/conn/cosmosdb.yml** command and add a comma separated list of host URI, port number, username, password, and other required parameters. The following is an example of contents in the configuration file:
+1. From the CLI terminal, setup the destination database configuration. Open the configuration file using **`vi conf/conn/cosmosdb.yml`** command and add a comma separated list of host URI, port number, username, password, and other required parameters. The following is an example of contents in the configuration file:
 
    ```bash
    type: COSMOSDB
