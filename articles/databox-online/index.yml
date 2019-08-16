@@ -36,7 +36,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: 1905 release notes
-            url: data-box-gateway-1905-release-notes
+            url: data-box-gateway-1905-release-notes.md
 
   # Card
   - title: Deploy Data Box Edge
