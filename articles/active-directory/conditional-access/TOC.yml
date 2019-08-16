@@ -47,7 +47,7 @@
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
     - name: Require MFA for Azure management
-      href: howto-conditional-access-policy-azure-mamgement.md
+      href: howto-conditional-access-policy-azure-management.md
     - name: Block legacy authentication
       href: howto-conditional-access-policy-block-legacy.md
     - name: Risk-based Conditional Access
