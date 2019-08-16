@@ -38,7 +38,7 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
    ![Check upload status in the Bulk Operations Results page](./media/users-bulk-delete/bulk-center.png)
 
-Next, you can check to see that the users you deleted exist in the directory either in the Azure portal or by using PowerShell.
+Next, you can check to see that the users you deleted exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 
 ## Verify deleted users in the Azure portal
 

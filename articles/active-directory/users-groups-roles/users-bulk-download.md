@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 ## Check status
 
-You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
+You can see the status of your pending bulk requests in the **Bulk operation results (preview)** page.
 
    ![Check upload status in the Bulk Operations Results page](./media/users-bulk-download/bulk-center.png)
 
