@@ -1,5 +1,5 @@
 ---
-title: Web sign-in with OpenID Connect - Azure Active Directory B2C | Microsoft Docs
+title: Web sign-in with OpenID Connect - Azure Active Directory B2C
 description: Build web applications using the OpenID Connect authentication protocol in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 08/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -28,7 +28,7 @@ Azure AD B2C extends the standard OpenID Connect protocol to do more than simple
 
 When your web application needs to authenticate the user and run a user flow, it can direct the user to the `/authorize` endpoint. The user takes action depending on the user flow.
 
-In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the user flow to run in the `p` parameter. Three examples are provided in the following sections (with line breaks for readability), each using a different user flow. To get a feel for how each request works, try pasting the request into a browser and running it. You can replace `fabrikamb2c` with the name of your tenant if you have one and have created a user flow. You will also need to replace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Replace this client ID with the app ID of the application registration you had created. Also change the policy name `b2c_1_sign_in` to the policy name that you have in your tenant. 
+In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the user flow to run in the `p` parameter. Three examples are provided in the following sections (with line breaks for readability), each using a different user flow. To get a feel for how each request works, try pasting the request into a browser and running it. You can replace `fabrikamb2c` with the name of your tenant if you have one and have created a user flow. You will also need to replace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Replace this client ID with the app ID of the application registration you had created. Also change the policy name `b2c_1_sign_in` to the policy name that you have in your tenant.
 
 #### Use a sign-in user flow
 ```
@@ -117,7 +117,7 @@ error=access_denied
 
 ## Validate the ID token
 
-Just receiving an ID token is not enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid. There are many open-source libraries that are available for validating JWTs, depending on your language of preference. We recommend exploring those options rather than implementing your own validation logic. 
+Just receiving an ID token is not enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid. There are many open-source libraries that are available for validating JWTs, depending on your language of preference. We recommend exploring those options rather than implementing your own validation logic.
 
 Azure AD B2C has an OpenID Connect metadata endpoint, which allows an application to get information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your B2C tenant. For example, the metadata document for the `b2c_1_sign_in` user flow in `fabrikamb2c.onmicrosoft.com` is located at:
 
@@ -151,7 +151,7 @@ After you validate the ID token, you can begin a session with the user. You can 
 
 If you need your web application to only run user flows, you can skip the next few sections. These sections are applicable only to web applications that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
 
-You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other API's](active-directory-b2c-access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](active-directory-b2c-access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
@@ -279,18 +279,24 @@ Error responses look like:
 
 When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again.
 
-You can simply redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
+To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
 
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
-p=b2c_1_sign_in
-&post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
-| p | Yes | The user flow that you want to use to sign the user out of your application. |
+| {tenant} | Yes | Name of your Azure AD B2C tenant |
+| {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
+| id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. |
+| state | No | If a `state` parameter is included in the request, the same value should appear in the response. The application should verify that the `state` values in the request and response are identical. |
 
-Directing the user to the `end_session` endpoint clears some of the user's single sign-on state with Azure AD B2C, but it doesn't sign the user out of their social identity provider (IDP) session. If the user selects the same IDP during a subsequent sign-in, they are reauthenticated, without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.
+### Require ID token hint in logout request
 
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+
+### External identity provider session
+
+Directing the user to the `end_session` endpoint clears some of the user's single sign-on state with Azure AD B2C, but it doesn't sign the user out of their social identity provider (IDP) session. If the user selects the same IDP during a subsequent sign-in, they are reauthenticated without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.
