@@ -167,7 +167,7 @@ Maybe, your VM has to be in a region and availability zone pair that supports Ul
 No, ultra Disks are only supported as data disks and are only supported as 4K native disks.
 
 **Can I convert an existing disk to an ultra disk?**
-No, but you can migrate the date from an existing disk to an ultra disk. To migrate an existing disk to an ultra Disk, attach both disks to the same VM, and copy the disk's data from one disk to the other or leverage a 3rd party solution for data migration.
+No, but you can migrate the data from an existing disk to an ultra disk. To migrate an existing disk to an ultra Disk, attach both disks to the same VM, and copy the disk's data from one disk to the other or leverage a 3rd party solution for data migration.
 
 **Can I create snapshots for ultra disks?**
 No, snapshots are not yet available.
