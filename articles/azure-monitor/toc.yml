@@ -811,6 +811,8 @@
           href: log-query/app-expression.md
         - name: workspace expression
           href: log-query/workspace-expression.md   
+        - name: resource expression
+          href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
       - name: Examples and guidance
