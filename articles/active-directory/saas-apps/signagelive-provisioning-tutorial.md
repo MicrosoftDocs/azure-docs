@@ -52,14 +52,13 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Signagelive for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Signagelive.
 
-1.  Reach out to  [Signagelive](mailto:development@signagelive.com) to obtain the secret token needed to configure SCIM provisioning.
-
+  Reach out to  [Signagelive](mailto:development@signagelive.com) to obtain the secret token needed to configure SCIM provisioning.
 
 ## Add Signagelive from the gallery
 
-To configure Signagelive    for automatic user provisioning with Azure AD, you need to add Signagelive    from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Signagelive    for automatic user provisioning with Azure AD, you need to add Signagelive from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Signagelive    from the Azure AD application gallery, perform the following steps:**
+**To add Signagelive from the Azure AD application gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
@@ -82,7 +81,7 @@ To configure Signagelive    for automatic user provisioning with Azure AD, you n
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Signagelive based on user and/or group assignments in Azure AD.
 
 > [!TIP]
->  You may also choose to enable SAML-based single sign-on for BitaBIZ , following the instructions provided in the [Signagelive Single sign-on tutorial](Signagelive-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+>  You may also choose to enable SAML-based single sign-on for Signagelive, following the instructions provided in the [Signagelive Single sign-on tutorial](Signagelive-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Signagelive  in Azure AD:
 
@@ -102,7 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, input ` https://samlapi.signagelive.com/scim/v2` in **Tenant URL**. In **Secret Token** field, enter the **bearer Token** value provided by the engineering development team. Click **Test Connection** to ensure Azure AD can connect to Signagelive. If the connection fails, ensure your Signagelive account has Admin permissions and try again
+5. Under the Admin Credentials section, input ` https://samlapi.signagelive.com/scim/v2` in **Tenant URL**. In **Secret Token** field, enter the **bearer Token** value provided by the engineering development team. Click **Test Connection** to ensure Azure AD can connect to Signagelive. If the connection fails, ensure your Signagelive account has Admin permissions and try again.
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
@@ -141,10 +140,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Signagelive.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. For more information on how long it will take for users and/or groups to provision, see [How long will it take to provision users](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
+You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Signagelive. For more information, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
