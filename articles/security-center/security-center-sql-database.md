@@ -3,18 +3,18 @@ title: Azure Security Center and Azure SQL Database service | Microsoft Docs
 description: This article shows how Security Center can help you secure your databases in Azure SQL Database.
 services: sql-database
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Azure Security Center and Azure SQL Database service
@@ -35,7 +35,7 @@ In addition to helping protect your SQL Database resources, Security Center also
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. The Free tier of Security Center is enabled with your subscription. For more information on Security Center’s Free and Standard tiers, see [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
-Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md). The Security Center FAQ provides information on [how permissions are handled in Security Center](security-center-faq.md#permissions).
+Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md). The Security Center FAQ provides information on [how permissions are handled in Security Center](security-center-faq.md#permissions).
 
 ## Access Security Center
 You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). [Sign in to the portal](https://portal.azure.com/) and select the **Security Center option**.
@@ -56,7 +56,7 @@ You can set a policy to show recommendations for SQL auditing and SQL transparen
 To set a security policy, select the **Policy** tile on the Security Center blade. On the **Security policy** blade, select the subscription on which you want to enable the security policy. Select **Prevention policy** and turn **On** the security recommendations that you want to use on this subscription.
 ![Security policy][3]
 
-To learn more, see [Set security policies](security-center-policies.md).
+To learn more, see [Set security policies](tutorial-security-policy.md).
 
 ## Manage security recommendation
 Security Center periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls.
@@ -81,7 +81,7 @@ Follow the steps in [SQL Database threat detection in the Azure portal](../sql-d
 To learn more about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
 ## Monitor security health
-After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources in the **Resource security health** tile. When you click **Data** in the **Resource security health** tile, the **Data Resources** blade opens with SQL recommendations for issues such as auditing and transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
+After you enable [security policies](tutorial-security-policy.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources in the **Resource security health** tile. When you click **Data** in the **Resource security health** tile, the **Data Resources** blade opens with SQL recommendations for issues such as auditing and transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
 ![Resource security health][6]
 
 To learn more, see [Security health monitoring](security-center-monitoring.md).

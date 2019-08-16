@@ -3,8 +3,8 @@ title: Add authentication on Apache Cordova with Mobile Apps | Microsoft Docs
 description: Learn how to use Mobile Apps in Azure App Service to authenticate users of your Apache Cordova app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: elamalani
+manager: crdun
 editor: ''
 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: adrianha
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Add authentication to your Apache Cordova app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-users) today.
+>
 
 ## Summary
 In this tutorial, you add authentication to the todolist quickstart project on Apache Cordova using a
@@ -48,7 +51,7 @@ Next, update the app to authenticate users before requesting resources from the 
 
    | Provider | SDK Provider Name | OAuth Host |
    |:--- |:--- |:--- |
-   | Azure Active Directory | aad | https://login.windows.net |
+   | Azure Active Directory | aad | https://login.microsoftonline.com |
    | Facebook | facebook | https://www.facebook.com |
    | Google | google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
@@ -57,9 +60,9 @@ Next, update the app to authenticate users before requesting resources from the 
     An example Content-Security-Policy (implemented for Azure Active Directory) is as follows:
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-            data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+            data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Replace `https://login.windows.net` with the OAuth host from the preceding table.  For more information
+    Replace `https://login.microsoftonline.com` with the OAuth host from the preceding table.  For more information
     about the content-security-policy meta tag, see the [Content-Security-Policy documentation].
 
     Some authentication providers do not require Content-Security-Policy changes when used on appropriate

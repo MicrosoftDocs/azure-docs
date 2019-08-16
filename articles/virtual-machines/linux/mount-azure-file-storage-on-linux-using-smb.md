@@ -1,10 +1,10 @@
 ---
-title: Mount Azure File Storage on Linux VMs using SMB | Microsoft Docs
-description: How to mount Azure File Storage on Linux VMs using SMB with the Azure CLI 2.0
+title: Mount Azure File storage on Linux VMs using SMB | Microsoft Docs
+description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
-manager: timlt
+author: cynthn
+manager: gwallace
 editor: ''
 
 ms.assetid:
@@ -13,133 +13,104 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2017
-ms.author: v-livech
-
+ms.date: 06/28/2018
+ms.author: cynthn
 ---
 
-# Mount Azure File Storage on Linux VMs using SMB
+# Mount Azure File storage on Linux VMs using SMB
 
-This article shows you how to utilize the Azure File Storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. You can also perform these steps with the [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The requirements are:
+This article shows you how to use the Azure File storage service on a Linux VM using an SMB mount with the Azure CLI. Azure File storage offers file shares in the cloud using the standard SMB protocol. 
 
-- [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
-- [SSH public and private key files](mac-create-ssh-keys.md)
+File storage offers file shares in the cloud that use the standard SMB protocol. You can mount a file share from any OS that supports SMB 3.0. When you use an SMB mount on Linux, you get easy backups to a robust, permanent archiving storage location that is supported by an SLA.
 
-## Quick Commands
+Moving files from a VM to an SMB mount that's hosted on File storage is a great way to debug logs. The same SMB share can be mounted locally to your Mac, Linux, or Windows workstation. SMB isn't the best solution for streaming Linux or application logs in real time, because the SMB protocol is not built to handle such heavy logging duties. A dedicated, unified logging layer tool such as Fluentd would be a better choice than SMB for collecting Linux and application logging output.
 
-* A resource group
-* An Azure virtual network
-* A network security group with an SSH inbound
-* A subnet
-* An Azure storage account
-* Azure storage account keys
-* An Azure File storage share
-* A Linux VM
+This guide requires that you're running the Azure CLI version 2.0.4 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
-Replace any examples with your own settings.
 
-### Create a directory for the local mount
+## Create a resource group
+
+Create a resource group named *myResourceGroup* in the *East US* location.
 
 ```bash
-mkdir -p /mnt/mymountpoint
+az group create --name myResourceGroup --location eastus
 ```
 
-### Mount the File storage SMB share to the mount point
+## Create a storage account
+
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT\<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+STORAGEACCT=$(az storage account create \
+    --resource-group "myResourceGroup" \
+    --name "mystorageacct$RANDOM" \
+    --location eastus \
+    --sku Standard_LRS \
+    --query "name" | tr -d '"')
 ```
 
-### Persist the mount after a reboot
-To do so, add the following line to the `/etc/fstab`:
+## Get the storage key
+
+When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, so you always have at least one unused storage account key ready to switch to.
+
+View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys). This example stores the value of key 1 in the **STORAGEKEY** variable.
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+STORAGEKEY=$(az storage account keys list \
+    --resource-group "myResourceGroup" \
+    --account-name $STORAGEACCT \
+    --query "[0].value" | tr -d '"')
 ```
 
-## Detailed walkthrough
+## Create a file share
 
-File storage offers file shares in the cloud that use the standard SMB protocol. With the latest release of File storage, you can also mount a file share from any OS that supports SMB 3.0. When you use an SMB mount on Linux, you get easy backups to a robust, permanent archiving storage location that is supported by an SLA.
+Create the File storage share using [az storage share create](/cli/azure/storage/share). 
 
-Moving files from a VM to an SMB mount that's hosted on File storage is a great way to debug logs. That's because the same SMB share can be mounted locally to your Mac, Linux, or Windows workstation. SMB isn't the best solution for streaming Linux or application logs in real time, because the SMB protocol is not built to handle such heavy logging duties. A dedicated, unified logging layer tool such as Fluentd would be a better choice than SMB for collecting Linux and application logging output.
+Share names need to be all lower case letters, numbers, and single hyphens but can't start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-For this detailed walkthrough, we create the prerequisites needed to first create the File storage share, and then mount it via SMB on a Linux VM.
+This example creates a share named *myshare* with a 10-GiB quota. 
 
-1. Create a resource group with [az group create](/cli/azure/group#create) to hold the file share.
+```bash
+az storage share create --name myshare \
+    --quota 10 \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY
+```
 
-    To create a resource group named `myResourceGroup` in the "West US" location, use the following example:
+## Create a mount point
 
-    ```azurecli
-    az group create --name myResourceGroup --location westus
-    ```
+To mount the Azure file share on your Linux computer, you need to make sure you have the **cifs-utils** package installed. For installation instructions, see [Install the cifs-utils package for your Linux distribution](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
 
-2. Create an Azure storage account with [az storage account create](/cli/azure/storage/account#create) to store the actual files.
+Azure Files uses SMB protocol, which communicates over TCP port 445.  If you're having trouble mounting your Azure file share, make sure your firewall is not blocking TCP port 445.
 
-    To create a storage account named mystorageaccount by using the Standard_LRS storage SKU, use the following example:
 
-    ```azurecli
-    az storage account create --resource-group myResourceGroup \
-        --name mystorageaccount \
-        --location westus \
-        --sku Standard_LRS
-    ```
+```bash
+mkdir -p /mnt/MyAzureFileShare
+```
 
-3. Show the storage account keys.
+## Mount the share
 
-    When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, ensuring that you always have at least one unused storage account key ready to switch to.
+Mount the Azure file share to the local directory. 
 
-    View the storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The storage account keys for the named `mystorageaccount` are listed in the following example:
+```bash
+sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
+```
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount
-    ```
+The above command uses the [mount](https://linux.die.net/man/8/mount) command to mount the Azure file share and options specific to [cifs](https://linux.die.net/man/8/mount.cifs). Specifically, the file_mode and dir_mode options set files and directories to permission `0777`. The `0777` permission gives read, write, and execute permissions to all users. You can change these permissions by replacing the values with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod). You can also use other [cifs](https://linux.die.net/man/8/mount.cifs) options such as gid or uid. 
 
-    To extract a single key, use the `--query` flag. The following example extracts the first key (`[0]`):
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount \
-        --query '[0].{Key:value}' --output tsv
-    ```
+## Persist the mount
 
-4. Create the File storage share.
+When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown. To remount the SMB share on boot, add a line to the Linux /etc/fstab. Linux uses the fstab file to list the file systems that it needs to mount during the boot process. Adding the SMB share ensures that the File storage share is a permanently mounted file system for the Linux VM. Adding the File storage SMB share to a new VM is possible when you use cloud-init.
 
-    The File storage share contains the SMB share with [az storage share create](/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
-
-    ```azurecli
-    az storage share create --name mystorageshare \
-        --quota 10 \
-        --account-name mystorageaccount \
-        --account-key nPOgPR<--snip-->4Q==
-    ```
-
-5. Create a mount-point directory.
-
-    Create a local directory in the Linux file system to mount the SMB share to. Anything written or read from the local mount directory is forwarded to the SMB share that's hosted on File storage. To create a local directory at /mnt/mymountdirectory, use the following example:
-
-    ```bash
-    sudo mkdir -p /mnt/mymountdirectory
-    ```
-
-6. Mount the SMB share to the local directory.
-
-    Provide your own storage account username and storage account key for the mount credentials as follows:
-
-    ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
-    ```
-
-7. Persist the SMB mount through reboots.
-
-    When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown. To remount the SMB share on boot, add a line to the Linux /etc/fstab. Linux uses the fstab file to list the file systems that it needs to mount during the boot process. Adding the SMB share ensures that the File storage share is a permanently mounted file system for the Linux VM. Adding the File storage SMB share to a new VM is possible when you use cloud-init.
-
-    ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
-    ```
+```bash
+//myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+```
+For increased security in production environments, you should store your credentials outside of fstab.
 
 ## Next steps
 
-- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Add a disk to a Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
+- [Add a disk to a Linux VM](add-disk.md)
+- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md)
+

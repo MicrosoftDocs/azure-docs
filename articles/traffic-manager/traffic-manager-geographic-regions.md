@@ -3,23 +3,20 @@ title: Country/Region hierarchy used by Azure Traffic Manager Geographic routing
 description: This article lists Country/Region hierarchy used by Azure Traffic Manager Geographic routing type
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid:
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Country/Region hierarchy used by Azure Traffic Manager for geographic traffic routing method
 
-This article lists the countries and regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/).  
+This article lists the countries and regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
@@ -63,14 +60,6 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- GB(United Kingdom)
 
-			- GB-ENG(England)
-
-			- GB-NIR(Northern Ireland)
-
-			- GB-SCT(Scotland)
-
-			- GB-WLS(Wales)
-
 		- GG(Guernsey)
 
 		- GI(Gibraltar)
@@ -105,7 +94,7 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- ME(Montenegro)
 
-		- MK(Macedonia, FYRO)
+		- MK(North Macedonia)
 
 		- MT(Malta)
 
@@ -134,6 +123,7 @@ This article lists the countries and regions used by the **Geographic**  traffic
 		- SM(San Marino)
 
 		- UA(Ukraine)
+			- Region of Crimea
 
 		- VA(Vatican City)
 
@@ -487,8 +477,6 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- CF(Central African Republic)
 
-		- CG(Congo)
-
 		- CI(Côte d’Ivoire)
 
 		- CM(Cameroon)
@@ -697,7 +685,4 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 ## Next steps
 
-- Learn more about [Geographic traffic routing method in Azure Traffic Manager](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
-
-
-
+- Learn more about [Geographic traffic routing method in Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

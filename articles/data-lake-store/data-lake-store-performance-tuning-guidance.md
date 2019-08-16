@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Performance Tuning Guidelines | Microsoft Docs
-description: Azure Data Lake Store Performance Tuning Guidelines
+title: Azure Data Lake Storage Gen1 Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -11,83 +11,132 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 06/30/2017
 ms.author: stewu
 
 ---
-# Performance tuning guidance for Azure Data Lake Store
+# Tuning Azure Data Lake Storage Gen1 for performance
 
-This article provides guidance on how to get the most optimal performance while writing data to or reading data from performance Azure Data Lake Store. This article is meant to help users understand the parameters that can be configured for commonly used  data upload/download tools and data analysis workloads. The tuning in this guide is specifically targeted to resource intensive workloads where there is a large amount of data that is being read from or written to Data Lake Store.
+Azure Data Lake Storage Gen1 supports high-throughput for I/O intensive analytics and data movement.  In Data Lake Storage Gen1, using all available throughput – the amount of data that can be read or written per second – is important to get the best performance.  This is achieved by performing as many reads and writes in parallel as possible.
 
-## Prerequisites
+![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/throughput.png)
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+Data Lake Storage Gen1 can scale to provide the necessary throughput for all analytics scenario. By default, a Data Lake Storage Gen1 account provides automatically enough throughput to meet the needs of a broad category of use cases. For the cases where customers run into the default limit, the Data Lake Storage Gen1 account can be configured to provide more throughput by contacting Microsoft support.
 
+## Data ingestion
 
-## Guidelines for data ingestion tools
+When ingesting data from a source system to Data Lake Storage Gen1, it is important to consider that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen1 can be the bottleneck.  
 
-This section provides general guidance to improve performance when data is copied or moved into Data Lake Store. In this section, we discuss factors that limit performance and ways to overcome those limitations. Below are a few considerations to keep note of.
+![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
-* **Source Data** - There are many constraints that can arise from where the source data is coming from. Throughput can be a bottleneck if the source data is on slow spindles or remote storage with low throughput capabilities. SSDs, preferably on local disk, will provide the best performance due to higher disk throughput.
+It is important to ensure that the data movement is not affected by these factors.
 
-* **Network** - If you have your source data on VMs, the network connection between the VM and Data Lake Store is important. Use VMs with the largest available NIC to get more network bandwidth.
+### Source Hardware
 
-* **Cross-region copy** - There is a large network cost inherent to cross-region data I/O, for example running a data ingestion tool on a VM in US East 2 to write data to a Data Lake Store account in US Central. If you’re copying data across regions, you may see reduced performance. We recommend using data ingestion jobs on VMs in the same region as the destination Data Lake Store account to maximize network throughput.                                                                                                                                        
+Whether you are using on-premises machines or VMs in Azure, you should carefully select the appropriate hardware. For Source Disk Hardware, prefer SSDs to HDDs and pick disk hardware with faster spindles. For Source Network Hardware, use the fastest NICs possible.  On Azure, we recommend Azure D14 VMs which have the appropriately powerful disk and networking hardware.
 
-* **Cluster** - If you are running data ingestion jobs through an HDInsight cluster (such as for DistCp), we recommend using D-series VMs for the cluster because they contain more memory. Larger numbers of cores will also help to increase throughput.                                                                                                                                                                                                                                                                                                            
+### Network Connectivity to Data Lake Storage Gen1
 
-* **Concurrency of threads** - If you are using an HDInsight cluster to copy data from a storage container, there are limitations to the parallel number of threads that can be used based on your cluster size, container size, and thread settings. One of the most important ways to get better performance on Data Lake Store is to increase the concurrency. You should tune your settings to get the maximum amount to concurrency to obtain higher throughput. The table below are the settings for each ingestion method that can be configured to achieve more concurrency. Follow the links in the table to go to articles that talk about how to use the tool to ingest data into Data Lake Store and also how to performance-tune the tool for maximum throughput.
+The network connectivity between your source data and Data Lake Storage Gen1 can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Storage Gen1 account.
 
-	| Tool               | Concurrency setting                                                                |
-	|--------------------|------------------------------------------------------------------------------------|
-	| [Powershell](data-lake-store-get-started-powershell.md)       | PerFileThreadCount, ConcurrentFileCount |
-	| [AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)    | Azure Data Lake Analytics units         |
-	| [DistCp](data-lake-store-copy-data-wasb-distcp.md)            | -m (mapper)                             |
-	| [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)| parallelCopies                          |
-	| [Sqoop](data-lake-store-data-transfer-sql-sqoop.md)           | fs.azure.block.size, -m (mapper)        |
+### Configure Data Ingestion tools for maximum parallelization
 
+Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
-## Guidelines while working with HDInsight workloads
+| Tool               | Settings		| More Details                                                                 |
+|--------------------|------------------------------------------------------|------------------------------|
+| Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell)	|
+| AdlCopy    | Azure Data Lake Analytics units	|	[Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper)	| [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies	| [Link](../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
-While running analytic workloads to work with data in Data Lake Store, we recommend that you use HDInsight 3.5 cluster versions to get the best performance with Data Lake Store. When your job is more I/O intensive, then certain parameters can be configured for performance reasons. For example, if the job mainly consists of read or writes, then increasing concurrency for I/O to and from Azure Data Lake Store could increase performance.
+## Structure your data set
 
-Azure Data Lake Store is best optimized for performance when there is more concurrency. There are a few general ways to increase concurrency for I/O intensive jobs.
+When data is stored in Data Lake Storage Gen1, the file size, number of files, and folder structure have an impact on performance.  The following section describes best practices in these areas.  
 
-1. **Run a larger number of compute YARN containers rather than a few number of large YARN containers** – Having more containers will increase concurrency for input and output operations thus leveraging the abilities of Data Lake Store.
+### File size
 
-	For example, let’s assume you have 2 D3v2 nodes in your HDInsight cluster. Each D3v2 node has 12GB of YARN memory so 2 D3v2 machines will have 24GB of YARN memory. Let’s also assume that you’ve set the YARN container sizes to 6GB. This means you can have 4 containers of 6GB each. Therefore, you can have 4 concurrent tasks running in parallel. To increase concurrency, you can reduce the size of the containers to 3GB which will give you 8 containers of 3GB each. This allows you to have 8 concurrent tasks running in parallel. Below is an illustration.
+Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead.  If you store your data as many small files, this can negatively affect performance.  
 
-	![Data Lake Store performance](./media/data-lake-store-performance-tuning-guidance/image-1.png)
+In general, organize your data into larger sized files for better performance.  As a rule of thumb, organize data sets in files of 256MB or larger. In some cases such as images and binary data, it is not possible to process them in parallel.  In these cases, it is recommended to keep individual files under 2GB.
 
-	A common question is why don’t I decrease the container size to 1GB of memory so that I can get 24 containers to further increase concurrency. It depends on whether the task needs 3GB of memory or does 1GB suffice.  You may be doing a simple operation in the container that only requires 1GB of memory or a complex operation that may take 3GB of memory.  If you reduce the size of the container too much, you may get an out of memory exception.  When this happens, you should increase the size of your containers.  In addition to memory, the number of virtual cores can also affect parallelism.
+Sometimes, data pipelines have limited control over the raw data which has lots of small files.  It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
 
-	![Data Lake Store performance](./media/data-lake-store-performance-tuning-guidance/image-2.png)
+### Organizing Time Series data in folders
 
-2. **Increase memory in your cluster to get more concurrency** – You can increase the memory in your cluster by increasing the size of your cluster or choosing a VM type that has more memory. This will increase the amount of YARN memory available so that you can create more containers, which increases the concurrency.  
+For Hive and ADLA workloads, partition pruning of time-series data can help some queries read only a subset of the data which improves performance.    
 
-	For example, let’s assume you have a single D3v2 node in your HDInsight cluster that has 12GB of YARN memory and 3GB containers.  You scale your cluster to 2 D3v2, which increases your YARN memory to 24GB.  This increases concurrency from 4 to 8.
+Those pipelines that ingest time-series data, often place their files with a very structured naming for files and folders. Below is a very common example we see for data that is structured by date:
 
-	![Data Lake Store performance](./media/data-lake-store-performance-tuning-guidance/image-3.png)
+	\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
 
-3. **Start by setting the number of tasks to the number of concurrency you have** – By now, you have already set the container size appropriately to get the maximum amount of concurrency. You should now set the number of tasks to use all those containers. There are different names for tasks in each workload.
+Notice that the datetime information appears both as folders and in the filename.
 
-	You may also want to consider the size of your job. If the size of your job is large, then each task may have a large amount of data to process. You may want to use more tasks so that each task will not be processing too much data.
+For date and time, the following is a common pattern
 
-	For example, let’s assume you have 6 containers. We should set our tasks to 6 as a starting point. You may experiment with using higher numbers of tasks to see if performance improves. Setting a higher number of tasks does not increase concurrency. If we set tasks to higher than 6, then the task will not execute until the next wave. If we set tasks to lower than 6, then the concurrency will not be fully utilized.
+	\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
 
-	Each workload has different parameters available to set the number of tasks. The table below lists some of them.
+Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
-	| Workload               | Parameter to set tasks                                                         |
-	|--------------------|------------------------------------------------------------------------------------|
-	| [Spark on HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
-	| [Hive on HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
-	| [MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-	| [Storm on HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
+## Optimizing I/O intensive jobs on Hadoop and Spark workloads on HDInsight
+
+Jobs fall into one of the following three categories:
+
+* **CPU intensive.**  These jobs have long computation times with minimal I/O times.  Examples include machine learning and natural language processing jobs.  
+* **Memory intensive.**  These jobs use lots of memory.  Examples include PageRank and real-time analytics jobs.  
+* **I/O intensive.**  These jobs spend most of their time doing I/O.  A common example is a copy job which does only read and write operations.  Other examples include data preparation jobs that read a lot of data, performs some data transformation, and then writes the data back to the store.  
+
+The following guidance is only applicable to I/O intensive jobs.
+
+### General Considerations for an HDInsight cluster
+
+* **HDInsight versions.** For best performance, use the latest release of HDInsight.
+* **Regions.** Place the Data Lake Storage Gen1 account in the same region as the HDInsight cluster.  
+
+An HDInsight cluster is composed of two head nodes and some worker nodes. Each worker node provides a specific number of cores and memory, which is determined by the VM-type.  When running a job, YARN is the resource negotiator that allocates the available memory and cores to create containers.  Each container runs the tasks needed to complete the job.  Containers run in parallel to process tasks quickly. Therefore, performance is improved by running as many parallel containers as possible.
+
+There are three layers within an HDInsight cluster that can be tuned to increase the number of containers and use all available throughput.  
+
+* **Physical layer**
+* **YARN layer**
+* **Workload layer**
+
+### Physical Layer
+
+**Run cluster with more nodes and/or larger sized VMs.**  A larger cluster will enable you to run more YARN containers as shown in the picture below.
+
+![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/VM.png)
+
+**Use VMs with more network bandwidth.**  The amount of network bandwidth can be a bottleneck if there is less network bandwidth than Data Lake Storage Gen1 throughput.  Different VMs will have varying network bandwidth sizes.  Choose a VM-type that has the largest possible network bandwidth.
+
+### YARN Layer
+
+**Use smaller YARN containers.**  Reduce the size of each YARN container to create more containers with the same amount of resources.
+
+![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+
+Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It's common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
+
+**Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.
+
+### Workload Layer
+
+**Use all available containers.**  Set the number of tasks to be equal or larger than the number of available containers so that all resources are utilized.
+
+![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+
+**Failed tasks are costly.** If each task has a large amount of data to process, then failure of a task results in an expensive retry.  Therefore, it is better to create more tasks, each of which processes a small amount of data.
+
+In addition to the general guidelines above, each application has different parameters available to tune for that specific application. The table below lists some of the parameters and links to get started with performance tuning for each application.
+
+| Workload               | Parameter to set tasks                                                         |
+|--------------------|-------------------------------------------------------------------------------------|
+| [Spark on HDInsight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+| [Hive on HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
+| [MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm on HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
 ## See also
-* [Overview of Azure Data Lake Store](data-lake-store-overview.md)
+* [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Get Started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

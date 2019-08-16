@@ -1,109 +1,136 @@
 ---
-title: Release notes for Hadoop components on Azure HDInsight | Microsoft Docs
-description: Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Hadoop, Apache Storm, and HBase.
-services: hdinsight
-documentationcenter: ''
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
-
-ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
-ms.service: hdinsight
+title: Release notes for Azure HDInsight 
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 4/06/2017
-ms.author: nitinme
-
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 08/08/2019
 ---
-# Release notes for Hadoop components on Azure HDInsight
+# Release notes
 
-This article provides information about the **most recent** Azure HDInsight release updates. For information on releases prior to that, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
+This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
-## 04/06/2017 - General availability of HDInsight 3.6
+## Summary
 
-* With this release, Azure HDInsight adds version 3.6, which is based on HDP 2.6. HDP 2.6 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). HDInsight 3.6 is available for the following workloads.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
 
-	* Hadoop v2.7.3
-	* HBase v1.1.2
-	* Storm v1.1.0
-	* Spark v2.1.0
-	* Interactive Hive v2.1.0
+## New features
 
-* **Support for Hive View 2.0**. This should improve the user experience for Interactive Hive. For more information see, [Hortonworks documentation](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
+For more information on important changes with HDInsight 4.0., see [What's new in HDI 4.0?](../hdinsight/hdinsight-version-release.md).
 
-* **Performance enhancements with Hive LLAP**. See [Hortonworks documentation](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/) for more details.
+## Component versions
 
-* **New features in Hive**. See [Hortonworks documentation](https://hortonworks.com/apache/hive/#section_4) for more details.
+The official Apache versions of all HDInsight 4.0 components are given below. The components listed are releases of the most recent stable versions available.
 
-* **Hive CLI Deprecation**: Hive CLI is being deprecated and customers are encouraged to use Beeline instead. For more information, see [Apache documentation](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). For instructions on how to use Beeline with HDInsight, see [Use Beeline with HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md).
+- Apache Ambari 2.7.1
+- Apache Hadoop 3.1.1
+- Apache HBase 2.0.0
+- Apache Hive 3.1.0
+- Apache Kafka 1.1.1, 2.1.0
+- Apache Mahout 0.9.0+
+- Apache Oozie 4.2.0
+- Apache Phoenix 4.7.0
+- Apache Pig 0.16.0
+- Apache Ranger 0.7.0
+- Apache Slider 0.92.0
+- Apache Spark 2.3.1, 2.4.0
+- Apache Sqoop 1.4.7
+- Apache TEZ 0.9.1
+- Apache Zeppelin 0.8.0
+- Apache ZooKeeper 3.4.6
 
-* **New features in Apache Phoenix and HBase**.
-	* Storage quota support: Commonly used in multi-tenant environments, allowing limited storage space on a per table and per namespace level.
-	* Phoenix indexing improvements: Incremental index creation and rebuild/resume indexing from previous failures.
-	* Phoenix data integrity tool: Supports validation of schema, index, and other metadata.
+Later versions of Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
 
+## Apache patch information
 
-* **Issue with HBase**: While running a CSV bulk upload MapReduce job, the following syntax might result in an error.
+For more information on patches available in HDInsight 4.0, see the patch listing for each product in the table below.
 
-		HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+| Product name | Patch information |
+|---|---|
+| Ambari | [Ambari patch information](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
+| Hadoop | [Hadoop patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
+| HBase | [HBase patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
+| Hive  | This release provides Hive 3.1.0 with no additional Apache patches.  |
+| Kafka | This release provides Kafka 1.1.1 with no additional Apache patches. |
+| Oozie | [Oozie patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
+| Phoenix | [Phoenix patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
+| Pig | [Pig patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
+| Ranger | [Ranger patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
+| Spark | [Spark patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
+| Sqoop | This release provides Sqoop 1.4.7 with no additional Apache patches. |
+| Tez | This release provides Tez 0.9.1 with no additional Apache patches. |
+| Zeppelin | This release provides Zeppelin 0.8.0 with no additional Apache patches. |
+| Zookeeper | [Zookeeper patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
 
-	You should use the following syntax instead.
+## Fixed Common Vulnerabilities and Exposures
 
-		HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+For more information on security issues resolved in this release, see Hortonworks' [Fixed Common Vulnerabilities and Exposures for HDP 3.0.1](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html).
 
+## Known issues
 
-## 02/28/2017 - Release of Spark 2.1 on HDInsight 3.6 (Preview)
-* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
-* Structured Streaming gets improved scalability with support for event time watermarks and Kafka 0.10 connector.
-* Spark SQL partitioning is now handled using new Scalable Partition Handling mechanism. See more details [here](http://spark.apache.org/releases/spark-release-2-1-0.html) on how to upgrade.
-* Spark 2.1 on Azure HDInsight 3.6 Preview currently does not support BI Tool connectivity using ODBC driver.
-* Azure Data Lake Store access from Spark 2.1 clusters is not supported in this Preview.
+### Replication is broken for Secure HBase with default installation
 
+For HDInsight 4.0, do the following steps:
 
-## 11/18/2016 - Release of Spark 2.0.1 on HDInsight 3.5
-Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
+1. Enable inter-cluster communication.
+1. Sign in to the active headnode.
+1. Download a script to enable replication with the following command:
 
-## 11/16/2016 - Release of R Server 9.0 on HDInsight 3.5 (Spark 2.0)
-*	R Server clusters now include the option for two versions: R Server 9.0 on HDI 3.5 (Spark 2.0) and R Server 8.0 on HDI 3.4 (Spark 1.6).
-*	R Server 9.0 on HDI 3.5 (Spark 2.0) is built on R 3.3.2 and includes new ScaleR data source functions called RxHiveData and RxParquetData for loading data from Hive and Parquet directly to Spark DataFrames for analysis by ScaleR. For more information see the inline help on these functions in R through use of the ?RxHiveData and ?RxParquetData commands.
-*	RStudio Server community edition is now installed by default (with an opt-out option) on the Cluster Configuration blade as part of the provisioning flow.
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. Type the command `sudo kinit <domainuser>`.
+1. Type the following command to run the script:
 
-## 11/09/2016 - Release of Spark 2.0 on HDInsight
-* Spark 2.0 clusters on HDInsight 3.5 now support Livy and Jupyter services.
+    ```
+    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
+For HDInsight 3.6, do the following:
 
-## 10/26/2016 - Release of R Server on HDInsight
-* The URI for edge node access has changed to **clustername**-ed-ssh.azurehdinsight.net
-* R Server on HDInsight cluster provisioning has been streamlined.
-* R Server on HDInsight is now available as regular HDInsight "R Server" cluster type and no longer installed as a separate HDInsight application. The edge node and R Server binaries are now provisioned as part of the R Server cluster deployment. This improves speed and reliability of provisioning. Pricing model for R Server is updated accordingly.
-* R Server cluster type price is now based on Standard tier price plus R Server surcharge price. Premium tier will now be reserved for Premium features available across different cluster types and will not be used for R Server cluster type. This change doesn't affect effective pricing of R Server, it only changes how the charges are presented in the bill. All existing R Server clusters will continue to work and ARM templates will continue to function until deprecation notice. **It is recommended though to update your scripted deployments to use new ARM template.**
+1. Sign in to active HMaster ZK.
+1. Download a script to enable replication with the following command:
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. Type the command `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`.
+1. Type the following command:
 
-## 08/30/2016 - Release of R Server on HDInsight
-The full version numbers for Linux-based HDInsight clusters deployed with this release:
+    ```bash
+    sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
 
-| HDI | HDI cluster version | HDP | HDP Build | Ambari Build |
-| --- | --- | --- | --- | --- |
-| 3.2 |3.2.1000.0.8268980 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
-| 3.3 |3.3.1000.0.8268980 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
-| 3.4 |3.4.1000.0.8269383 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
+### Phoenix Sqlline stops working after migrating HBase cluster to HDInsight 4.0
 
-The full version numbers for Windows-based HDInsight clusters deployed with this release:
+Do the following steps:
 
-| HDI | HDI cluster version | HDP | HDP Build |
-| --- | --- | --- | --- |
-| 2.1 |2.1.10.1033.2559206 |1.3 |1.3.12.0-01795 |
-| 3.0 |3.0.6.1033.2559206 |2.0 |2.0.13.0-2117 |
-| 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
-| 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
-| 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
+1. Drop the following Phoenix tables:
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.MUTEX`
+    1. `SYSTEM.CATALOG`
+1. If you can't delete any of the tables, restart HBase to clear any connections to the tables.
+1. Run `sqlline.py` again. Phoenix will re-create all of the tables that were deleted in step 1.
+1. Regenerate Phoenix tables and views for your HBase data.
 
+### Phoenix Sqlline stops working after replicating HBase Phoenix metadata from HDInsight 3.6 to 4.0
 
+Do the following steps:
 
+1. Before doing the replication, go to the destination 4.0 cluster and execute `sqlline.py`. This command will generate Phoenix tables like `SYSTEM.MUTEX` and `SYSTEM.LOG` that only exist in 4.0.
+1. Drop the following tables:
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.CATALOG`
+1. Start the HBase replication
 
+## Deprecation
 
+Apache Storm and ML services aren't available in HDInsight 4.0.

@@ -1,29 +1,43 @@
-To create a VNet in the Resource Manager deployment model by using the Azure portal, follow the steps below. The screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 11/30/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
+You can create a VNet with the Resource Manager deployment model and the Azure portal by following these steps. For more information about virtual networks, see [Virtual Network overview](../articles/virtual-network/virtual-networks-overview.md).
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. Click **New**. In the **Search the marketplace** field, type "Virtual Network". Locate **Virtual Network** from the returned list and click to open the **Virtual Network** blade.
-   
-    ![Locate Virtual Network resource blade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Locate virtual network resource blade")
-3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager**, and then click **Create**.
+>[!NOTE]
+>For the VNet to connect to an on-premises location, coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. If a duplicate address range exists on both sides of the VPN connection, traffic will route in an unexpected way. Additionally, if you want to connect this VNet to another VNet, the address space cannot overlap with other VNet. Plan your network configuration accordingly.
+>
+>
 
-    ![Select Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Select Resource Manager")
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. The **New** page opens.
 
-1. On the **Create virtual network** blade, configure the VNet settings. When you fill in the fields, the red exclamation mark will become a green check mark when the characters entered in the field are valid.
-   
-    ![Field validation](./media/vpn-gateway-basic-vnet-rm-portal-include/checkmark300.png "Field validation")
-2. The **Create virtual network** blade looks similar to the following example. There may be values that are auto-filled. If so, replace the values with your own.
-   
-    ![Create virtual network blade](./media/vpn-gateway-basic-vnet-rm-portal-include/createvnet300.png "Create virtual network blade")
-3. **Name**: Enter the name for your Virtual Network.
-4. **Address space**: Enter the address space. If you have multiple address spaces to add, add your first address space. You can add additional address spaces later, after creating the VNet.
-5. **Subnet name**: Add the subnet name and subnet address range. You can add additional subnets later, after creating the VNet.
-6. **Subscription**: Verify that the Subscription listed is the correct one. You can change subscriptions by using the drop-down.
-7. **Resource group**: Select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-8. **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will reside.
-9. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
-   
-   ![Pin to dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "pin to dashboard")
-10. After clicking **Create**, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile changes as the VNet is being created.
-    
-    ![Creating virtual network tile](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creating virtual network tile")
+2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page opens.
 
+   ![Locate Virtual Network resource page](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Locate virtual network resource page")
+
+3. From the **Select a deployment model** list near the bottom of the page, select **Resource Manager**, and then select **Create**. The **Create virtual network** page opens.
+
+   ![Create virtual network page](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Create virtual network page")
+
+4. On the **Create virtual network** page, configure the VNet settings. When you fill in the fields, the red exclamation mark becomes a green check mark when the characters you enter in the field are validated. Some values are autofilled, which you can replace with your own values:
+
+   - **Name**: Enter the name for your virtual network.
+
+   - **Address space**: Enter the address space. If you have multiple address spaces to add, enter your first address space here. You can add additional address spaces later, after you create the VNet.
+
+   - **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the drop-down.
+
+   - **Resource group**: Select an existing resource group, or create a new one by entering a name for your new resource group. If you're creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+
+   - **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
+
+   - **Subnet**: Add the subnet **Name** and subnet **Address range**. You can add additional subnets later, after you create the VNet. 
+     
+5. Select **Create**.

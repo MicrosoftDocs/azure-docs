@@ -1,19 +1,19 @@
 ---
-title: Debug Azure microservices in Linux | Microsoft Docs
-description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
+title: Debug Azure Service Fabric apps in Linux | Microsoft Docs
+description: Learn how to monitor and diagnose your Service Fabric services on a local Linux development machine.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -32,7 +32,7 @@ Monitoring, detecting, diagnosing, and troubleshooting allow for services to con
 
 ## Debugging Service Fabric Java applications
 
-For Java applications, [multiple logging frameworks](http://en.wikipedia.org/wiki/Java_logging_framework) are available. Since `java.util.logging` is the default option with the JRE, it is also used for the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  The following discussion explains how to configure the `java.util.logging` framework.
+For Java applications, [multiple logging frameworks](https://en.wikipedia.org/wiki/Java_logging_framework) are available. Since `java.util.logging` is the default option with the JRE, it is also used for the [code examples in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). The following discussion explains how to configure the `java.util.logging` framework.
 
 Using java.util.logging you can redirect your application logs to memory, output streams, console files, or sockets. For each of these options, there are default handlers already provided in the framework. You can create a `app.properties` file to configure the file handler for your application to redirect all logs to a local file.
 
@@ -45,10 +45,10 @@ java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
 java.util.logging.FileHandler.count = 10
-java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
+java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-The folder pointed to by the `app.properties` file must exist. After the `app.properties` file is created, you need to also modify your entry point script, `entrypoint.sh` in the `<applicationfolder>/<servicePkg>/Code/` folder to set the property `java.util.logging.config.file` to `app.propertes` file. The entry should look like the following snippet:
+The folder pointed to by the `app.properties` file must exist. After the `app.properties` file is created, you need to also modify your entry point script, `entrypoint.sh` in the `<applicationfolder>/<servicePkg>/Code/` folder to set the property `java.util.logging.config.file` to `app.properties` file. The entry should look like the following snippet:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -61,7 +61,7 @@ This configuration results in logs being collected in a rotating fashion at `/tm
 
 By default if no handler is explicitly configured, the console handler is registered. One can view the logs in syslog under /var/log/syslog.
 
-For more information, see the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
+For more information, see the [code examples in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## Debugging Service Fabric C# applications
@@ -71,7 +71,7 @@ Multiple frameworks are available for tracing CoreCLR applications on Linux. For
 
 The first step is to include System.Diagnostics.Tracing so that you can write your logs to memory, output streams, or console files.  For logging using EventSource, add the following project to your project.json:
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 
@@ -80,8 +80,8 @@ You can use a custom EventListener to listen for the service event and then appr
 
 ```csharp
 
- public class ServiceEventSource : EventSource
- {
+public class ServiceEventSource : EventSource
+{
         public static ServiceEventSource Current = new ServiceEventSource();
 
         [NonEvent]
@@ -102,8 +102,8 @@ You can use a custom EventListener to listen for the service event and then appr
 
 
 ```csharp
-   internal class ServiceEventListener : EventListener
-   {
+internal class ServiceEventListener : EventListener
+{
 
         protected override void OnEventSourceCreated(EventSource eventSource)
         {
@@ -111,20 +111,20 @@ You can use a custom EventListener to listen for the service event and then appr
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-	    { 
-                 // report all event information               
- 		 Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-		    Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-	        else             
-		{ 
-	                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-	                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
-		}
-           }
+                using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))
+                {
+                        // report all event information
+                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                        if (eventData.Message != null)
+                                Out.WriteLine(eventData.Message, eventData.Payload.ToArray());
+                        else
+                        {
+                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");
+                        }
+                }
         }
-    }
+}
 ```
 
 

@@ -1,0 +1,91 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Traffic Manager
+metadata:
+  document_id: 
+  title: Traffic Manager
+  meta.description: Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Quickstarts, tutorials, samples, and more, show how to manage traffic to Azure or external service endpoints.
+  services: traffic-manager
+  author: asudbring
+  manager: twooley
+  layout: LandingPage
+  ms.service: traffic-manager
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/28/2019
+  ms.author: allensu
+abstract:
+  description:  Learn how to use Azure Traffic Manager. Quickstarts, tutorials, samples, and more, show you how to manage incoming traffic for optimal application performance, and how to distribute traffic to Azure or external service endpoints.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to manage web traffic to your service endpoints using Traffic Manager.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure portal
+      href: /azure/traffic-manager/quickstart-create-traffic-manager-profile
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-powershell
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to route traffic based on different routing methods available in Traffic Manager.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Route traffic based on geographic location of endpoint</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">Route traffic for low latency</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic to a set of endpoints</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic to a priority endpoint</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">Control traffic with weighted endpoints</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">Route traffic based on user's subnet</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - title: Azure Solution Architect
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
+    - title: Azure Administration for AWS Administrators
+      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+- title: Samples
+  items:
+  - type: paragraph
+    text: Script samples for common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/traffic-manager/cli-samples">Azure CLI</a>
+    - html: <a href="/azure/traffic-manager/powershell-samples">PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/virtual-network?view=azure-dotnet">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p><p><a href="https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/traffic-manager">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/trafficmanager/">REST API Reference</a></p>

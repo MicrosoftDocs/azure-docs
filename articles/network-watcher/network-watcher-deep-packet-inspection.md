@@ -3,8 +3,8 @@ title: Packet inspection with Azure Network Watcher | Microsoft Docs
 description: This article describes how to use Network Watcher to perform deep packet inspection collected from a VM
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: kumud
 ---
 
 # Packet inspection with Azure Network Watcher
@@ -57,7 +57,7 @@ To more easily view the first two packets in the TCP three-way handshake, we wil
 
 To apply the filter in WireShark, expand the “Transmission Control Protocol” Segment of a [SYN] packet in your capture and examine the flags set in the TCP header.
 
-Since we are looking to filter on all [SYN] and [SYN, ACK] packets, under flags cofirm that the Syn bit is set to 1, then right click on the Syn bit -> Apply as Filter -> Selected.
+Since we are looking to filter on all [SYN] and [SYN, ACK] packets, under flags confirm that the Syn bit is set to 1, then right click on the Syn bit -> Apply as Filter -> Selected.
 
 ![figure 7][7]
 
@@ -81,7 +81,7 @@ Using the same capture in the previous scenario click **Statistics** > **Protoco
 
 The protocol hierarchy window appears. This view provides a list of all the protocols that were in use during the capture session and the number of packets transmitted and received using the protocols. This view can be useful for finding unwanted network traffic on your virtual machines or network.
 
-![protocol hierachy opened][3]
+![protocol hierarchy opened][3]
 
 As you can see in the following screen capture, there was traffic using the BitTorrent protocol, which is used for peer to peer file sharing. As an administrator you do not expect to see BitTorrent traffic on this particular virtual machines. Now you aware of this traffic, you can remove the peer to peer software that installed on this virtual machine, or block the traffic using Network Security Groups or a Firewall. Additionally, you may elect to run packet captures on a schedule, so you can review the protocol use on your virtual machines regularly. For an example on how to automate network tasks in azure visit [Monitor network resources with azure automation](network-watcher-monitor-with-azure-automation.md)
 

@@ -4,7 +4,7 @@ description: Azure command line interface (CLI) commands to manage resources in 
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -22,12 +22,12 @@ ms.author: danlep
 This article provides syntax and options for Azure command-line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. For a general overview of Azure resources and resource groups, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure CLI 1.0. 
->To work in the Resource Manager model, you can also try the [Azure CLI 2.0](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
+> This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure classic CLI. 
+>To work in the Resource Manager model, you can also try the [Azure CLI](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
 > Find out more about the [old and new Azure CLIs](/cli/azure/old-and-new-clis).
 >
 
-To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
+To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli).
 
 For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
@@ -966,6 +966,7 @@ Parameter options:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
+
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Removes the backend IP pool range resource from load balancer.
@@ -1330,6 +1331,7 @@ Parameter options:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
+
     network public-ip list [options] <resource-group>
 Lists all public IP resources within a resource group.
 
@@ -1351,7 +1353,9 @@ Parameter options:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
+
     network public-ip show [options] <resource-group> <name>
 
 Displays public ip properties for a public ip resource within a resource group.
@@ -1451,7 +1455,7 @@ Parameter options:
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
     --subnet-name <subnet-name>                                  the subnet name
     -m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
-    -t, --tags <tags>                                                the comma seperated list of tags.
+    -t, --tags <tags>                                                the comma separated list of tags.
     Can be multiple. In the format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2

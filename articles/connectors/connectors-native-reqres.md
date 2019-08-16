@@ -27,14 +27,15 @@ For example, you can:
 * Trigger a logic app from an external webhook event.
 * Call a logic app with a request and response action from within another logic app.
 
-To get started using the request and response actions in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To get started using the request and response actions in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the HTTP Request trigger
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+A trigger is an event that can be used to start the workflow that is defined in a logic app. 
+[Learn more about triggers](../connectors/apis-list.md).
 
-Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
+Here's an example sequence of how to set up an HTTP request in the Logic App Designer.
 
-1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
+1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](https://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
 2. Add another action so that you can save the logic app.
 3. After saving the logic app, you can get the HTTP request URL from the request card.
 4. An HTTP POST (you can use a tool like [Postman](https://www.getpostman.com/)) to the URL triggers the logic app.
@@ -106,5 +107,5 @@ The following are input fields for the HTTP Response action. A * means that it i
 | Body |body |The response body |
 
 ## Next steps
-Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 

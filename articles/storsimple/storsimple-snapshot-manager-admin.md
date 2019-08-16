@@ -4,7 +4,7 @@ description: Provides an overview and links to more information about StorSimple
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carolz
+manager: timlt
 editor: ''
 
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/18/2016
+ms.date: 06/05/2016
 ms.author: v-sharos
 
 ---
 # Use StorSimple Snapshot Manager to administer your StorSimple solution
+
 ## Overview
 StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment. With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple data in the data center and in the cloud as a single integrated storage solution, thus simplifying backup processes and reducing costs.
 
@@ -36,15 +37,14 @@ This article provides links to tutorials that describe StorSimple Snapshot Manag
 
 > [!NOTE]
 > You cannot use StorSimple Snapshot Manager to manage Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices).
-> 
-> 
+
 
 ## StorSimple Snapshot Manager tasks and workflows
 You can use the StorSimple Snapshot Manager to monitor and manage current, scheduled, and completed backup jobs. Additionally, StorSimple Snapshot Manager provides a catalog of up to 64 completed backups. You can use the catalog to find and restore volumes or individual files. 
 
 | IF YOU WANT TO DO THIS... | USE THIS TUTORIAL... |
 |:--- |:--- |
-| Learn more about StorSimple Snapshot Manager |[What is StorSimple Snapshot Manager? ](storsimple-what-is-snapshot-manager.md) |
+| Learn more about StorSimple Snapshot Manager |[What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Install StorSimple Snapshot Manager<br>Reinstall StorSimple Snapshot Manager<br>Remove StorSimple Snapshot Manager |[Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
 | Use StorSimple Snapshot Manager menus and features:<ul><li>Menu bar</li><li>Tool bar</li><li>Scope pane</li><li>Results pane</li><li>Actions pane</li><li>Keyboard navigation and shortcuts</li></ul> |[StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md) |
 | Use the common MMC features included in StorSimple Snapshot Manager:<ul><li>View</li><li>New Window from Here</li><li>Refresh</li><li>Export List</li><li>Help</li></ul> |[Use the MMC menu actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md) |

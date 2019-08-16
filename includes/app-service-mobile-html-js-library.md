@@ -1,15 +1,22 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 ## <a name="create-client"></a>Create a client connection
 Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the
 URL to your Mobile App.
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>Work with tables
 To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -27,7 +34,7 @@ Once you have a table reference, you can work further with your table:
 Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
 To return all data from the table, use the following code:
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -62,7 +69,7 @@ For more information on the Query syntax, see the [Query object documentation].
 #### <a name="table-filter"></a>Filtering data on the server
 You can use a `where` clause on the table reference:
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -72,7 +79,7 @@ table
 You can also use a function that filters the object.  In this case, the `this` variable is assigned to the
 current object being filtered.  The following code is functionally equivalent to the prior example:
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -86,7 +93,7 @@ table
 #### <a name="table-paging"></a>Paging through data
 Utilize the `take()` and `skip()` methods.  For example, if you wish to split the table into 100-row records:
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -117,7 +124,7 @@ load the new records for each page.  Implement caching to speed access to record
 #### <a name="sorting-data"></a>How to: Return sorted data
 Use the `.orderBy()` or `.orderByDescending()` query methods:
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -170,7 +177,7 @@ table
 ### <a name="deleting"></a>How to: Delete data
 To delete a record, call the `.del()` method.  Pass the ID in an object reference:
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {

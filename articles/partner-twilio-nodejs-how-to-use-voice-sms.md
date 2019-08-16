@@ -242,13 +242,13 @@ We hope you love hacking node.js and Twilio on Azure!
 
 [purchase_phone]: https://www.twilio.com/console/phone-numbers/search
 [twiml]: https://www.twilio.com/docs/api/twiml
-[signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: app-service-web/app-service-web-get-started-nodejs.md
+[signup]: https://ahoy.twilio.com/azure
+[azure_new_site]: app-service/app-service-web-get-started-nodejs.md
 [twilio_console]: https://www.twilio.com/console
-[npm]: http://npmjs.org
-[express]: http://expressjs.com
-[voipnode]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
-[docs]: http://twilio.github.io/twilio-node/
-[votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
-[pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
+[npm]: https://npmjs.org
+[express]: https://expressjs.com
+[voipnode]: https://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
+[docs]: https://www.twilio.com/docs/libraries/reference/twilio-node/
+[votr]: https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
+[pair]: https://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png

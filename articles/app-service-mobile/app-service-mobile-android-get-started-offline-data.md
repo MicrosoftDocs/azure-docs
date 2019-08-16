@@ -2,8 +2,8 @@
 title: Enable offline sync for your Azure Mobile App (Android)
 description: Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application
 documentationcenter: android
-author: ysxu
-manager: adrianha
+author: elamalani
+manager: crdun
 services: app-service\mobile
 
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
@@ -12,12 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: yuaxu
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Enable offline sync for your Android mobile app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-get-started-offline-data) today.
+>
 
 ## Overview
 This tutorial covers the offline sync feature of Azure Mobile Apps for Android. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
@@ -97,6 +100,6 @@ When you press that button, a new background task starts. It first pushes all ch
 
 [Create an Android App]: app-service-mobile-android-get-started.md
 
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Cloud Cover: Offline Sync in Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 

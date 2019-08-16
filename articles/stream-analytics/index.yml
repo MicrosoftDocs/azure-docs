@@ -1,0 +1,73 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Stream Analytics Documentation
+metadata:
+  title:  Azure Stream Analytics Documentation - Tutorials, API Reference
+  meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
+  services: stream-analytics
+  author: mamccrea
+  ms.author: mamccrea
+  ms.service: stream-analytics
+  ms.topic: landing-page
+  ms.date: 06/21/2019
+abstract:
+  description: Stream Analytics is a fully managed, PaaS service to help you analyze and process fast moving streams of data from IoT devices, applications, clickstreams etc in real-time and trigger alerts and actions as necessary. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/streaming-analytics-thumbnail.png
+      width: 250  
+    title: From cloud to the intelligent edge - Drive real-time decisions with Azure Stream Analytics. (1:02:11)
+    href: https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy your first Azure Stream Analytics job:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/stream-analytics.svg
+      text: Azure portal
+      href: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: PowerShell
+      href: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-powershell
+    - image:
+       src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs
+    - image:
+       src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text: Visual Studio Code
+      href: https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy, manage, and monitor Azure Stream Analytics jobs:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="stream-analytics-manage-job">Create a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard</a> 
+    - html: <a href="stream-analytics-with-azure-functions">Run Azure Functions from Azure Stream Analytics jobs</a>
+    - html: <a href="stream-analytics-javascript-user-defined-functions">Run JavaScript user-defined functions in Azure Stream Analytics jobs</a>
+    - html: <a href="stream-analytics-tools-visual-studio-cicd-vsts">Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines</a>
+    - html: <a href="stream-analytics-edge-csharp-udf">Write a C# user-defined function for an Azure Stream Analytics Edge job (Preview)</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Previews
+      html: <p><a href="stream-analytics-previews#public-previews">Public previews</a></p><p><a href="stream-analytics-previews#other-previews">Private previews</a></p>
+    - title: Command-line
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p><p><a href="https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference">Stream Analytics Query Language</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/streamanalytics">REST API Reference</a></p>

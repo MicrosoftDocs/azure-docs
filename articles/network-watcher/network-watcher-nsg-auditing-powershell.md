@@ -3,8 +3,8 @@ title: Automate NSG auditing with Azure Network Watcher Security group view | Mi
 description: This page provides instructions on how to configure auditing of a Network Security Group
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: kumud
 
 ---
 
@@ -22,7 +22,10 @@ ms.author: gwallace
 
 Customers are often faced with the challenge of verifying the security posture of their infrastructure. This challenge is no different for their VMs in Azure. It is important to have a similar security profile based on the Network Security Group (NSG) rules applied. Using the Security Group View, you can now get the list of rules applied to a VM within an NSG. You can define a golden NSG security profile and initiate Security Group View on a weekly cadence and compare the output to the golden profile and create a report. This way you can identify with ease all the VMs that do not conform to the prescribed security profile.
 
-If you are unfamiliar with Network Security Groups, visit [Network Security Overview](../virtual-network/virtual-networks-nsg.md)
+If you are unfamiliar with Network Security Groups, see [Network Security Overview](../virtual-network/security-overview.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 
@@ -43,7 +46,7 @@ In this scenario, you will:
 
 ## Retrieve rule set
 
-The first step in this example is to work with an existing baseline. The following example is some json extracted from an existing Network Security Group using the `Get-AzureRmNetworkSecurityGroup` cmdlet that is used as the baseline for this example.
+The first step in this example is to work with an existing baseline. The following example is some json extracted from an existing Network Security Group using the `Get-AzNetworkSecurityGroup` cmdlet that is used as the baseline for this example.
 
 ```json
 [
@@ -120,19 +123,19 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## Retrieve Network Watcher
 
-The next step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `AzureRmNetworkWatcherSecurityGroupView` cmdlet.
+The next step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## Get a VM
 
-A virtual machine is required to run the `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet against. The following example gets a VM object.
+A virtual machine is required to run the `Get-AzNetworkWatcherSecurityGroupView` cmdlet against. The following example gets a VM object.
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
+$VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
 ## Retrieve security group view
@@ -140,7 +143,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 The next step is to retrieve the security group view result. This result is compared to the "baseline" json that was shown earlier.
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## Analyzing the results
@@ -185,7 +188,7 @@ SideIndicator            : <=
 
 ## Next steps
 
-If settings have been changed, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that are in question.
+If settings have been changed, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are in question.
 
 
 

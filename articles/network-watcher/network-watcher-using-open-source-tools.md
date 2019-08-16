@@ -3,8 +3,8 @@ title: Visualize network traffic patterns with Azure Network Watcher and open so
 description: This page describes how to use Network Watcher packet capture with Capanalysis to visualize traffic patterns to and from your VMs.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: twooley
 editor:
 
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: kumud
 ---
 
-# Visualize network traffic patterns to and from your VMs using open source tools
+# Visualize network traffic patterns to and from your VMs using open-source tools
 
-Packet captures contain network data that allow you to perform network forensics and deep packet inspection. There are many opens source tools you can use to analyze packet captures to gain insights about your network. One such tool is CapAnalysis, an open source packet capture visualization tool. Visualizing packet capture data is a valuable way to quickly derive insights on patterns and anomalies within your network. Visualizations also provide a means of sharing such insights in an easily consumable manner.
+Packet captures contain network data that allow you to perform network forensics and deep packet inspection. There are many opens source tools you can use to analyze packet captures to gain insights about your network. One such tool is CapAnalysis, an open-source packet capture visualization tool. Visualizing packet capture data is a valuable way to quickly derive insights on patterns and anomalies within your network. Visualizations also provide a means of sharing such insights in an easily consumable manner.
 
-Azure’s Network Watcher provides you the ability to capture this valuable data by allowing you to perform packet captures on your network. In this article, we provide a walkthrough of how to visualize and gain insights from packet captures using CapAnalysis with Network Watcher.
+Azure’s Network Watcher provides you the ability to capture data by allowing you to perform packet captures on your network. This article, provides a walk through of how to visualize and gain insights from packet captures using CapAnalysis with Network Watcher.
 
 ## Scenario
 
-You have a simple web application deployed on a VM in Azure want to use open source tools to visualize its network traffic to quickly identify flow patterns and any possible anomalies. With Network Watcher, you can obtain a packet capture of your network environment and directly store it on your storage account. CapAnalysis can then ingest the packet capture directly from the storage blob and visualize its contents.
+You have a simple web application deployed on a VM in Azure want to use open-source tools to visualize its network traffic to quickly identify flow patterns and any possible anomalies. With Network Watcher, you can obtain a packet capture of your network environment and directly store it on your storage account. CapAnalysis can then ingest the packet capture directly from the storage blob and visualize its contents.
 
 ![scenario][1]
 
@@ -34,18 +34,18 @@ You have a simple web application deployed on a VM in Azure want to use open sou
 ### Install CapAnalysis
 
 To install CapAnalysis on a virtual machine, you can refer to the official instructions here https://www.capanalysis.net/ca/how-to-install-capanalysis.
-In order access CapAnalysis remotely, we need to open port 9877 on your VM by adding a new inbound security rule. For more about creating rules in Network Security Groups, refer to [Create rules in an existing NSG](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Once the rule has been successfully added, you should be able to access CapAnalysis from `http://<PublicIP>:9877`
+In order access CapAnalysis remotely, you need to open port 9877 on your VM by adding a new inbound security rule. For more about creating rules in Network Security Groups, refer to [Create rules in an existing NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). Once the rule has been successfully added, you should be able to access CapAnalysis from `http://<PublicIP>:9877`
 
 ### Use Azure Network Watcher to start a packet capture session
 
-Network Watcher allows you to capture packets to track traffic in and out of a virtual machine. You can refer to the instructions at [Manage packet captures with Network Watcher](network-watcher-packet-capture-manage-portal.md) to start a packet capture session. This packet capture can be stored in a storage blob to be accessed by CapAnalysis.
+Network Watcher allows you to capture packets to track traffic in and out of a virtual machine. You can refer to the instructions at [Manage packet captures with Network Watcher](network-watcher-packet-capture-manage-portal.md) to start a packet capture session. A packet capture can be stored in a storage blob to be accessed by CapAnalysis.
 
 ### Upload a packet capture to CapAnalysis
 You can directly upload a packet capture taken by network watcher using the “Import from URL” tab and providing a link to the storage blob where the packet capture is stored.
 
-When providing a link to CapAnalysis, make sure to append a SAS token to the storage blob URL.  To do this, navigate to Shared access signature from the storage account, designate the allowed permissions, and press the Generate SAS button to create a token. You can then append this SAS token to the packet capture storage blob URL.
+When providing a link to CapAnalysis, make sure to append a SAS token to the storage blob URL.  To do this, navigate to Shared access signature from the storage account, designate the allowed permissions, and press the Generate SAS button to create a token. You can then append the SAS token to the packet capture storage blob URL.
 
-The resulting URL will look something like this: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+The resulting URL will look something like the following URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### Analyzing packet captures
@@ -72,7 +72,7 @@ CapAnalysis offers various options to visualize your packet capture, each provid
 
 1. Geomap
 
-    This pane provides you with a map view of your network traffic, with colors scaling to the volume of traffic from each country. You can select highlighted countries to view additional flow statistics such as the proportion of data sent and received from IPs in that country.
+    This pane provides you with a map view of your network traffic, with colors scaling to the volume of traffic from each country/region. You can select highlighted countries/regions to view additional flow statistics such as the proportion of data sent and received from IPs in that country/region.
 
     ![geomap][8]
 
@@ -86,7 +86,7 @@ CapAnalysis offers various options to visualize your packet capture, each provid
 
 ## Conclusion
 
-Network Watcher’s packet capture feature allows you to capture the data necessary to perform network forensics and better understand your network traffic. In this scenario, we showed how packet captures from Network Watcher can easily be integrated with open source visualization tools. By using open source tools such as CapAnalysis to visualize packets captures, you can perform deep packet inspection and quickly identify trends within your network traffic.
+Network Watcher’s packet capture feature allows you to capture the data necessary to perform network forensics and better understand your network traffic. In this scenario, we showed how packet captures from Network Watcher can easily be integrated with open-source visualization tools. By using open-source tools such as CapAnalysis to visualize packets captures, you can perform deep packet inspection and quickly identify trends within your network traffic.
 
 ## Next steps
 

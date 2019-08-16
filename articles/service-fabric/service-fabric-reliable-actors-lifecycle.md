@@ -1,19 +1,19 @@
 ---
-title: Overview of actor-based Azure microservices lifecycle | Microsoft Docs
+title: Overview the Azure Service Fabric actor lifecycle | Microsoft Docs
 description: Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state
 services: service-fabric
 documentationcenter: .net
 author: amanbha
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 10/06/2017
 ms.author: amanbha
 
 ---
@@ -109,37 +109,8 @@ The example shows the impact of actor method calls, reminders, and timers on the
 
 An actor will never be garbage collected while it is executing one of its methods, no matter how much time is spent in executing that method. As mentioned earlier, the execution of actor interface methods and reminder callbacks prevents garbage collection by resetting the actor's idle time to 0. The execution of timer callbacks does not reset the idle time to 0. However, the garbage collection of the actor is deferred until the timer callback has completed execution.
 
-## Deleting actors and their state
-Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is re-activated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never re-activated, it may be necessary to clean up their data.
-
-The [Actor Service](service-fabric-reliable-actors-platform.md) provides a function for deleting actors from a remote caller:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Deleting an actor has the following effects depending on whether or not the actor is currently active:
-
-* **Active Actor**
-  * Actor is removed from active actors list and is deactivated.
-  * Its state is deleted permanently.
-* **Inactive Actor**
-  * Its state is deleted permanently.
-
-Note that an actor cannot call delete on itself from one of its actor methods because the actor cannot be deleted while executing within an actor call context, in which the runtime has obtained a lock around the actor call to enforce single-threaded access.
+## Manually deleting actors and their state
+Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is re-activated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never re-activated, it may be necessary to clean up their data.  For examples of how to delete actors, read [delete actors and their state](service-fabric-reliable-actors-delete-actors.md).
 
 ## Next steps
 * [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
@@ -147,8 +118,8 @@ Note that an actor cannot call delete on itself from one of its actor methods be
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# Sample code](https://github.com/Azure/servicefabric-samples)
-* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

@@ -1,0 +1,92 @@
+- name: Conditional Access Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Conditional Access?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Require MFA for specific apps
+    href: app-based-mfa.md
+  - name: Require terms of use to be accepted
+    href: require-tou.md
+  - name: Block access when a session risk is detected
+    href: app-sign-in-risk.md
+- name: Tutorials
+  items:
+  - name: Migrate classic MFA policies
+    href: policy-migration-mfa.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Conditions
+    href: conditions.md
+  - name: Location conditions
+    href: location-condition.md
+  - name: Controls
+    href: controls.md
+  - name: Service dependencies
+    href: service-dependencies.md
+  - name: What if tool
+    href: what-if-tool.md
+  - name: Baseline protection policies
+    href: concept-baseline-protection.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Plan your Conditional Access deployment
+    href: plan-conditional-access.md
+  - name: Best practices
+    href: best-practices.md
+  - name: Block legacy authentication
+    href: block-legacy-authentication.md
+  - name: Conditional Access for MFA registration
+    href: ../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration
+  - name: Require approved client apps
+    href: app-based-conditional-access.md
+  - name: Require app protection policy
+    href: app-protection-based-conditional-access.md
+  - name: Require managed devices
+    href: require-managed-devices.md
+  - name: Require MFA for access attempts from untrusted networks
+    href: untrusted-networks.md
+  - name: Require terms of use
+    href: terms-of-use.md
+  - name: Sign-in frequency and browser persistence controls
+    href: howto-conditional-access-session-lifetime.md
+  - name: Migrate classic policies
+    href: policy-migration.md
+  - name: Baseline policies
+    items:
+    - name: Require MFA for admins
+      href: howto-baseline-protect-administrators.md
+    - name: End-user protection
+      href: howto-baseline-protect-end-users.md
+    - name: Block legacy authentication
+      href: howto-baseline-protect-legacy-auth.md
+    - name: Require MFA for service management
+      href: howto-baseline-protect-azure.md
+  - name: Adopting Conditional Access
+    href: howto-conditional-access-adoption-kit.md
+  - name: Troubleshooting
+    items:
+    - name: Troubleshoot using the What If tool 
+      href: troubleshoot-conditional-access-what-if.md
+- name: Reference
+  items:
+  - name: Technical reference
+    href: technical-reference.md
+- name: Resources
+  items:
+  - name: Azure feedback forum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Service updates
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

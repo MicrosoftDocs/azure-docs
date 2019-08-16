@@ -1,11 +1,11 @@
 ---
-title: Azure Marketplace for Azure Government partners | Microsoft Docs
-description: This article provides a comparison of features and guidance on developing applications for Azure Government.
+title: Publishing to Azure Government Marketplace | Microsoft Docs
+description: This article provides guidance on publishing solutions to the Azure Government Marketplace.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: tsingh
-manager: asimm
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: 7790d3c5-d0fa-4662-b4f0-a174cb7d6c9f
 ms.service: azure-government
@@ -13,103 +13,98 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/14/2016
-ms.author: zakramer;tsingh;divacc
+ms.date: 07/13/2018
+ms.author: gsacavdm
 
 ---
-# Azure Marketplace for Azure Government
-If you're an Azure Government partner who's interested in publishing offerings to the Azure Marketplace, find the details in this article.
+# Publishing to the Azure Government Marketplace
+This article is provided to help partners create, deploy, and manage their solutions listed in the Azure Government Marketplace for Azure Government customers and partners to use.
 
-Currently BYOL VM Images and Solution Templates are supported in Azure Government Marketplace. As a best practice, Solution Templates should be reviewed prior to publishing to Azure Government to ensure it will function on both Azure Public and Azure Government Clouds. If you are only publishing a VM Image you can proceed to the publishing steps further below.
+## Why publish to Azure Government
+[Azure Government](documentation-government-welcome.md) is a dedicated instance of Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. This makes the cloud a viable option for thousands of US federal, state, local and tribal governments, and their partners.
 
-## Pre-Publishing Validation for Solution Templates
+Publishing your solution in the Azure Government Marketplace is as simple as publishing to Azure global and checking an extra box. There are no compliance requirements to publish your solution to Azure Government
+and making it available in the Azure Government Marketplace makes it easier for these government customers to gain exposure to your solution and get up and running quickly.
 
-Before you publish your solution template to Azure Government, we recommend checking a couple of common best practice areas to ensure your Template will work in both Azure Public Cloud and Azure Government.
+## Compliance considerations
+There are no initial Microsoft compliance requirements to publish solutions to the Azure Government Marketplace.
 
-1.	Verify endpoints are not hard coded into your solution Template for Azure Public Cloud. These won't be valid for any other Azure Environments. Instead modify the Solution template to request an API call to pull the valid end point:  
+Once a solution has been published, customers can deploy it into their own subscription as part of a broader operational environment or business solution. The customer might then opt to certify the overarching environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer. 
 
-  Example:
+## Marketplace offer support
+Currently, the Azure Government Marketplace only supports the following offers:
 
-  Incorrect VHD uri (hard coded)
-  "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/',  '/osdisk.vhd')]",
+* Virtual Machines > Bring your Own License
+* Virtual Machines > Pay-as-you-Go
+* Azure Application > Solution Template
 
-  Correct VHD uri (referenced)
-
-  "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'osdisk.vhd')]",
-
-  The corrected syntax will ensure the template will work on any cloud (Gov, Public Azure, AzureStack, China, etc)
-
-2.	Verify that resources used in your solution template are available in the Sovereign Cloud you are publishing to.
-RPs in Azure & API version
-
-    Identify availability Azure Government using Resource Explorer in the portal:
-
-  1.	Log into Azure Government Portal
-  2.	Launch Resource Explorer, following steps listed here https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#supported-regions
-
-  Most commonly used extensions; Availability in Fairfax  
-
-  | Publisher/Type | Available Versions in Fairfax |
-  | --- | --- |
-  | Microsoft.OSTCExtensions/CustomScriptForLinux | 1; 1.1; 1.2.2.0; 1.3.0.2; 1.4.1.0; 1.5.2.0 |
-  | Microsoft.Compute/CustomScriptExtension | 1.2; 1.3; 1.4; 1.7; 1.8 |
-  | Microsoft.Azure.Extensions/DockerExtension | Not Available |
-  | Microsoft.Azure.Extensions/CustomScript | 2.0.2 |
-  | Microsoft.OSTCExtensions/LinuxDiagnostic | 2.0.9005; 2.1.9005; 2.2.9005; 2.3.9011 |
-  | Microsoft.Powershell/DSC | 2.19.0.0 |
-
-> [!NOTE]
-> If you put locations in for a list of allowed values, you will need to periodically update it as new regions are added.  
-
+If there are other offer types you'd like to see supported in Azure Government, let us know via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).
 
 ## Publishing
 > [!NOTE]
-> If you are not an existing Azure Certified Marketplace partner, complete the steps that show how to [publish and manage an offer](../marketplace-publishing/marketplace-publishing-getting-started.md) before proceeding.
->
->
+> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Azure Marketplace Publisher Guide](../marketplace/marketplace-publishers-guide.md) documentation before proceeding.
 
-### Step 1
-Sign in to [Azure Publishing](https://publish.windowsazure.com).
+1. **Sign in to the [Azure Cloud Partner Portal](https://cloudpartner.azure.com)**.
+1. **Open the offer** you want to publish to the Azure Government Marketplace.
+1. The Editor tab is opened by default, click on the **SKUs** entry in the left menu of the editor.
+1. **Click on the sku**. 
+1. In the **SKU Details section**, **Cloud Availability option**, check the **Azure Government Cloud** box. Remember that this option [isn't available for all offers](#marketplace-offer-support).
+1. ***Optionally***, click the **+ Add Certification** link to add links to any certifications that are relevant for your product and that you want to make available to customers.
+1. ***Optionally***, add your Azure Government subscription to preview your marketplace offering before it is broadly available. 
+    1. Click on **Marketplace** entry in the left menu
+    1. In the **Preview Subscription Ids section**, click on **Add subscription** and add your [Azure Government subscription ID](#testing).
+1. **Publish** your solution once again.
 
-### Step 2
-Click the offer that you want to publish.
+## Testing
+If you want to confirm that your solution has been published or test it, you need to request an Azure Government account. This is a  separate account from any account in Azure Global that is used to log in to the [Azure Government portal](https://portal.azure.us). 
 
-### Step 3
-Click **SKUS**, and select the **Azure Government Cloud** box.
+To obtain an account:
 
-> [!NOTE]
-> Only Bring Your Own License (BYOL) SKUs are supported.  This option is not available for Pay-as-You-Go (PayG) SKUs.
->
->
+1. Request an [Azure Government trial account](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial).
+    * Indicate that your organization is a *Solution Provider Serving U.S. Federal, State, Local or Tribal Government Entities*.
+1. Wait for 3 - 5 business days for your account to be provisioned.
+1. Log in to the [Azure Government portal](https://portal.azure.us) with your newly created account.
+1. Eventually you can convert your trial account to a [paid account](https://azure.microsoft.com/offers/azure-government/)
 
-![Offer page where the SKUS and Azure Government Cloud options are located](./media/government-manage-marketplace-partner-1.png)
+## Troubleshooting
+Generally, virtual machines and solution templates work across both Azure and Azure Government, however there are a few instances when this is not the case. The following section outlines the most common reasons why a virtual machine or solution template would work in the Azure Marketplace but not the Azure Government Marketplace.
 
-### Step 4
-Click the **+ Add Certification** link to add links to any certifications for your offer.
+### Not available after publish
+If you've completed all the steps outlined above and your virtual machine is still not available in the Azure Government Marketplace, make sure that your Virtual's Machine *Hide this SKU* setting is not set to *Yes*.
+If it is set to yes, there's probably also a solution template that you also need to publish to Azure Government. If there is no solution template and you want to make the standalone Virtual Machine available, flip that switch to *No* and republish.
 
-![Offer page with Add Certification link](./media/government-manage-marketplace-partner-2.png)
+### Hardcoded endpoints
+Verify endpoints are not hard-coded into your solution Template for Azure Global as they will not be valid for any other Azure clouds (Azure Government, Azure China, Azure Germany). Instead modify the Solution template to obtain the endpoint from the resource, for example:
 
-### Step 5
-To test your image in the publishing portal, request a [trial account](https://azuregov.microsoft.com/trial/azuregovtrial) for Microsoft Azure Government.
+* Incorrect VHD uri (hard coded)
 
-Your eligibility as a partner who serves US federal, state, local, or tribal entities is verified, and confirmation will be provided via email.  Your trial account will be available in three to five business days.
+    ```json
+    "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/',  '/osdisk.vhd')]",
+    ```
 
-### Step 6
-Click **Publish**, and click **Push to Staging**.
+* Correct VHD uri (referenced)
 
-![Publish and Push to Staging options](./media/government-manage-marketplace-partner-3.png)
+    ```json
+    "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'osdisk.vhd')]",
+    ```
 
-You're prompted to enter a whitelisted subscription that has access to the staged offer. Enter the subscription ID from your newly acquired Azure Government trial account.
+### Hardcoded list of locations
+Make sure your solution template supports the Azure Government locations. 
 
-![Prompt where you specify the subscription IDs that can access the offer](./media/government-manage-marketplace-partner-4.png)
+### Unavailable resources
+Verify that resources, API versions, extensions and VM images used in your solution template are available in Azure Government. 
 
-### Step 7
-After the offer is successfully staged, you can test your image by signing in to the [Azure portal](https://portal.azure.us) by using your Azure Government trial account.
+#### Images
+Make sure that the image that your solution template relies on is available in Azure Government. If this is a Virtual Machine you own, need to also publish that to the Azure Government Marketplace.
+Check out the [Azure Government Marketplace images](documentation-government-image-gallery.md) documentation to obtain the list of images available.
 
-### Step 8
-After you have validated your image by using the trial subscription, you can make the offer available live by clicking **Publish** and requesting approval to go to production.
+#### Resource providers and API versions
+You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#azure-portal) documentation.
 
-![Request approval to go to production command](./media/government-manage-marketplace-partner-5.png)
-
+#### Extensions
+Make sure that any virtual machine extensions that your solution template relies on are available in Azure Government. Check out the [Azure Government virtual machine extensions](documentation-government-extension.md) documentation to obtain the list of extensions available.
+ 
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
+* Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 

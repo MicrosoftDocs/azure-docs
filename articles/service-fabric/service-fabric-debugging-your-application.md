@@ -4,17 +4,18 @@ description: Improve the reliability and performance of your services by develop
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/07/2017
-ms.author: vturecek;mikhegn
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.date: 11/02/2017
+ms.author: vturecek
 
 ---
 # Debug your Service Fabric application by using Visual Studio
@@ -25,7 +26,7 @@ ms.author: vturecek;mikhegn
 
 
 ## Debug a local Service Fabric application
-You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2017 or Visual Studio 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
+You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2019 or 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application. Visual Studio's must be run as Administrator to connect the debugger.
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started.md).
 2. Press **F5** or click **Debug** > **Start Debugging**.
@@ -37,33 +38,33 @@ You can save time and money by deploying and debugging your Azure Service Fabric
    > Visual Studio attaches to all instances of your application. While you're stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoints after they're hit, by making each breakpoint conditional on the thread ID or by using diagnostic events.
    > 
    > 
-4. The **Diagnostic Events** window will automatically open so you can view diagnostic events in real-time.
+4. The **Diagnostic Events** window will automatically open so you can view diagnostic events in real time.
    
     ![View diagnostic events in real time][diagnosticevents]
 5. You can also open the **Diagnostic Events** window in Cloud Explorer.  Under **Service Fabric**, right-click any node and choose **View Streaming Traces**.
    
     ![Open the diagnostic events window][viewdiagnosticevents]
    
-    If you want to filter your traces to a specific service or application, simply enable streaming traces on that specific service or application.
+    If you want to filter your traces to a specific service or application,  enable streaming traces on that specific service or application.
 6. The diagnostic events can be seen in the automatically generated **ServiceEventSource.cs** file and are called from application code.
    
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-7. The **Diagnostic Events** window supports filtering, pausing, and inspecting events in real-time.  The filter is a simple string search of the event message, including its contents.
+7. The **Diagnostic Events** window supports filtering, pausing, and inspecting events in real time.  The filter is a simple string search of the event message, including its contents.
    
-    ![Filter, pause and resume, or inspect events in real-time][diagnosticeventsactions]
-8. Debugging services is like debugging any other application. You will normally set Breakpoints through Visual Studio for easy debugging. Even though Reliable Collections replicate across multiple nodes, they still implement IEnumerable. This means that you can use the Results View in Visual Studio while debugging to see what you've stored inside. Simply set a breakpoint anywhere in your code.
+    ![Filter, pause and resume, or inspect events in real time][diagnosticeventsactions]
+8. Debugging services is like debugging any other application. You'll normally set Breakpoints through Visual Studio for easy debugging. Even though Reliable Collections replicate across multiple nodes, they still implement IEnumerable. This implementation means that you can use the Results View in Visual Studio while you debug to see what you've stored inside. To do so, set a breakpoint anywhere in your code.
    
     ![Start debugging an application][breakpoint]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Debug a remote Service Fabric application
-If your Service Fabric applications are running on a Service Fabric cluster in Azure, you are able to remotely debug these, directly from Visual Studio.
+If your Service Fabric applications are running on a Service Fabric cluster in Azure, you can remotely debug these applications, directly from Visual Studio.
 
 > [!NOTE]
-> The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).    
+> The feature requires [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).    
 > 
 > 
 
@@ -73,11 +74,11 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 > 
 > 
 
-1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Debugging**
+1. Navigate to your cluster in **Cloud Explorer**. Right-click and choose **Enable Debugging**
    
     ![Enable remote debugging][enableremotedebugging]
    
-    This will kick-off the process of enabling the remote debugging extension on your cluster nodes, as well as required network configurations.
+    This action will kick off the process of enabling the remote debugging extension on your cluster nodes and required network configurations.
 2. Right-click the cluster node in **Cloud Explorer**, and choose **Attach Debugger**
    
     ![Attach debugger][attachdebugger]
@@ -89,9 +90,9 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
    
     The debugger will attach to all nodes running the process.
    
-   * In the case where you are debugging a stateless service, all instances of the service on all nodes are part of the debug session.
-   * If you are debugging a stateful service, only the primary replica of any partition will be active and therefore caught by the debugger. If the primary replica moves during the debug session, the processing of that replica will still be part of the debug session.
-   * In order to only catch relevant partitions or instances of a given service, you can use conditional breakpoints to only break a specific partition or instance.
+   * In the case where you're debugging a stateless service, all instances of the service on all nodes are part of the debug session.
+   * If you're debugging a stateful service, only the primary replica of any partition will be active and therefore caught by the debugger. If the primary replica moves during the debug session, the processing of that replica will still be part of the debug session.
+   * To only catch relevant partitions or instances of a given service, you can use conditional breakpoints to only break a specific partition or instance.
      
      ![Conditional breakpoint][conditionalbreakpoint]
      
@@ -104,10 +105,10 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
     ![Disable remote debugging][disableremotedebugging]
 
 ## Streaming traces from a remote cluster node
-You are also able to stream traces directly from a remote cluster node to Visual Studio. This feature allows you to stream ETW trace events, produced on a Service Fabric cluster node.
+You're also able to stream traces directly from a remote cluster node to Visual Studio. This feature allows you to stream ETW trace events, produced on a Service Fabric cluster node.
 
 > [!NOTE]
-> This feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).
+> This feature requires [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).
 > This feature only supports clusters running in Azure.
 > 
 > 
@@ -119,11 +120,11 @@ You are also able to stream traces directly from a remote cluster node to Visual
 > 
 > 
 
-1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Streaming Traces**
+1. Navigate to your cluster in **Cloud Explorer**. Right-click and choose **Enable Streaming Traces**
    
     ![Enable remote streaming traces][enablestreamingtraces]
    
-    This will kick-off the process of enabling the streaming traces extension on your cluster nodes, as well as required network configurations.
+    This action will kick off the process of enabling the streaming traces extension on your cluster nodes, as well as required network configurations.
 2. Expand the **Nodes** element in **Cloud Explorer**, right-click the node you want to stream traces from and choose **View Streaming Traces**
    
     ![View remote streaming traces][viewremotestreamingtraces]

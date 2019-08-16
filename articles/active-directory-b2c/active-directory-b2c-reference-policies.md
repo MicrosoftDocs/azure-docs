@@ -1,39 +1,38 @@
 ---
-title: 'Azure Active Directory B2C: Extensible policy framework | Microsoft Docs'
-description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
+title: User flows in Azure Active Directory B2C | Microsoft Docs
+description: Learn more about the extensible policy framework of Azure Active Directory B2C and how to create various user flows.
 services: active-directory-b2c
-documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: mmacy
+manager: celestedg
 
-ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
-
+ms.topic: conceptual
+ms.date: 11/30/2018
+ms.author: marsma
+ms.subservice: B2C
 ---
-# Azure Active Directory B2C: Extensible policy framework
-## The basics
-The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
-* Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.
-* Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
-* Use of Multi-Factor Authentication.
-* The look-and-feel of all sign-up pages.
-* Information (which manifests as claims in a token) that the application receives when the policy run finishes.
+# User flows in Azure Active Directory B2C
 
-You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This allows developers to define and modify consumer identity experiences with minimal or no changes to their code.
+The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. 
 
-Policies are available for use via a simple developer interface. Your application triggers a policy using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests invoking a sign-up policy and those invoking a sign-in policy is the policy name used in the "p" query string parameter:
+## What are user flows?
+
+A user flow enables you to control behaviors in your applications by configuring the following settings:
+
+- Account types used for sign-in, such as social accounts like a Facebook or local accounts
+- Attributes to be collected from the consumer, such as first name, postal code, and shoe size
+- Azure Multi-Factor Authentication
+- Customization of the user interface
+- Information that the application receives as claims in a token 
+
+You can create many user flows of different types in your tenant and use them in your applications as needed. User flows can be reused across applications. This flexibility enables you to define and modify identity experiences with minimal or no changes to your code. Your application triggers a user flow by using a standard HTTP authentication request that includes a user flow parameter. A customized [token](active-directory-b2c-reference-tokens.md) is received as a response. 
+
+The following examples show the "p" query string parameter that specifies the user flow to be used:
 
 ```
-
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'
@@ -41,13 +40,11 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &scope=openid
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
-&p=b2c_1_siup                                       // Your sign-up policy
-
+&p=b2c_1_siup                                       // Your sign-up user flow
 ```
 
 ```
-
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'
@@ -55,114 +52,35 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &scope=openid
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
-&p=b2c_1_siin                                       // Your sign-in policy
-
+&p=b2c_1_siin                                       // Your sign-in user flow
 ```
 
-For more details about the policy framework, see this [blog post](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+## User flow versions
 
-## Create a sign-up policy
-To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign-up and the contents of tokens that the application will receive on successful sign-ups.
+In the Azure portal, new [versions of user flows](user-flow-versions.md) are being added all the time. When you get started with Azure AD B2C, tested user flows are recommended for you to use. When you create a new user flow, you choose the user flow that you need from the **Recommended** tab.
 
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Click **Sign-up policies**.
-3. Click **+Add** at the top of the blade.
-4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUp".
-5. Click **Identity providers** and select "Email signup". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign-up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
-7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-up experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
-8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUp**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-up policies** blade.
-9. Open the policy by clicking "**B2C_1_SiUp**".
-10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
-11. Click **Run now**. A new browser tab opens, and you can run through the consumer experience of signing up for your application.
-    
-    > [!NOTE]
-    > It takes up to a minute for policy creation and updates to take effect.
-    > 
-    > 
+The following user flows are currently recommended:
 
-## Create a sign-in policy
-To enable sign-in on your application, you will need to create a sign-in policy. This policy describes the experiences that consumers will go through during sign-in and the contents of tokens that the application will receive on successful sign-ins.
+- **Sign up and sign in** - Handles both of the sign-up and sign-in experiences with a single configuration. Users are led down the right path depending on the context. It's recommended that you use this user flow over a **sign-up** user flow or a **sign-in** user flow.
+- **Profile editing** - Enables users to edit their profile information.
+- **Password reset** - Enables you to configure whether and how users can reset their password.
 
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Click **Sign-in policies**.
-3. Click **+Add** at the top of the blade.
-4. The **Name** determines the sign-in policy name used by your application. For example, enter "SiIn".
-5. Click **Identity providers** and select "Local Account SignIn". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-in experience. For example, select "Display Name", "Identity Provider", "Postal Code"  and "User's Object ID". Click **OK**.
-7. Click **Create**. Note that the policy just created appears as "**B2C_1_SiIn**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-in policies** blade.
-8. Open the policy by clicking "**B2C_1_SiIn**".
-9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
-10. Click **Run now**. A new browser tab opens, and you can run through the consumer experience of signing into your application.
-    
-    > [!NOTE]
-    > It takes up to a minute for policy creation and updates to take effect.
-    > 
-    > 
+## Linking user flows
 
-## Create a sign-up or sign-in policy
-This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the sign-up or sign-in policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+A **sign-up or sign-in** user flow with local accounts includes a **Forgot password?** link on the first page of the experience. Clicking this link doesn't automatically trigger a password reset user flow. 
 
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Click **Sign-up or sign-in policies**.
-3. Click **+Add** at the top of the blade.
-4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUpIn".
-5. Click **Identity providers** and select "Email signup". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign-up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
-7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-up or sign-in experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
-8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUpIn**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-up or sign-in policies** blade.
-9. Open the policy by clicking "**B2C_1_SiUpIn**".
-10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
-11. Click **Run now**. A new browser tab opens, and you can run through the sign-up or sign-in consumer experience as configured.
-    
-    > [!NOTE]
-    > It takes up to a minute for policy creation and updates to take effect.
-    > 
-    > 
+Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by running a specific user flow that resets the password. To see an example, take a look at a [simple ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) that demonstrates the linking of user flows.
 
-## Create a profile editing policy
-To enable profile editing on your application, you will need to create a profile editing policy. This policy describes the experiences that consumers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
+## Email address storage
 
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Click **Profile editing policies**.
-3. Click **+Add** at the top of the blade.
-4. The **Name** determines the profile editing policy name used by your application. For example, enter "SiPe".
-5. Click **Identity providers** and select "Local Account Signin". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Profile attributes**. Here you choose attributes that the consumer can view and edit. For example, select "Country/Region", "Display Name", and "Postal Code". Click **OK**.
-7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful profile editing experience. For example, select "Display Name" and "Postal Code".
-8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiPe**" (the **B2C\_1\_** fragment is automatically added) in the **Profile editing policies** blade.
-9. Open the policy by clicking "**B2C_1_SiPe**".
-10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
-11. Click **Run now**. A new browser tab opens, and you can run through the profile editing consumer experience in your application.
-    
-    > [!NOTE]
-    > It takes up to a minute for policy creation and updates to take effect.
-    > 
-    > 
+An email address can be required as part of a user flow. If the user authenticates with a social identity provider, the email address is stored in the **otherMails** property. If a local account is based on a user name, then the email address is stored in a strong authentication detail property. If a local account is based on an email address, then the email address is stored in the **signInNames** property.
+ 
+The email address isn't guaranteed to be verified in any of these cases. A tenant administrator can disable email verification in the basic policies for local accounts. Even if email address verification is enabled, addresses aren't verified if they come from a social identity provider and they haven't been changed.
+ 
+Only the **otherMails** and **signInNames** properties are exposed through the Active Directory Graph API. The email address in the strong authentication detail property is not available.
 
-## Create a password reset policy
-To enable fine-grained password reset on your application, you will need to create a password reset policy. Note that the tenant-wide password reset option specified [here](active-directory-b2c-reference-sspr.md) is still applicable for sign-in policies. This policy describes the experiences that the consumers will go through during password reset and the contents of tokens that the application will receive on successful completion.
+## Next steps
 
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Click **Password reset policies**.
-3. Click **+Add** at the top of the blade.
-4. The **Name** determines the password reset policy name used by your application. For example, enter "SSPR".
-5. Click **Identity providers** and select "Reset password using email address". Click **OK**.
-6. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful password reset experience. For example, select "User's Object ID".
-7. Click **Create**. Note that the policy just created appears as "**B2C_1_SSPR**" (the **B2C\_1\_** fragment is automatically added) in the **Password reset policies** blade.
-8. Open the policy by clicking "**B2C_1_SSPR**".
-9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
-10. Click **Run now**. A new browser tab opens, and you can run through the password reset consumer experience in your application.
-    
-    > [!NOTE]
-    > It takes up to a minute for policy creation and updates to take effect.
-    > 
-    > 
+To create the recommended user flows, follow the instructions in [Tutorial: Create a user flow](tutorial-create-user-flows.md).
 
-## How to link a sign-up or sign-in policy with a password reset policy?
-When you create a sign-up or sign-in policy (with local accounts), the consumer will see a "Forgot password?" link on the first page of the experience. Clicking on this link doesn't automatically trigger a password reset policy. Instead a specific error code `AADB2C90118` is returned back to your app. Your app needs to handle this and invoke a specific password reset policy. A sample that demonstrates this approach of linking together policies is [here](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
-
-## Additional resources
-* [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
-* [Disable email verification during consumer sign-up](active-directory-b2c-reference-disable-ev.md)
 

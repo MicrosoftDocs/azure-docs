@@ -2,7 +2,7 @@
 title: Enable offline sync for your Azure Mobile App (Xamarin.Forms) | Microsoft Docs
 description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin.Forms application
 documentationcenter: xamarin
-author: adrianhall
+author: elamalani
 manager: yochayk
 editor: ''
 services: app-service\mobile
@@ -13,12 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: adrianha
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Enable offline sync for your Xamarin.Forms mobile app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data) today.
+>
 
 ## Overview
 This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.Forms. Offline sync allows end users to
@@ -42,14 +45,14 @@ is defined, these code paths are included in the build. For Windows apps, you mu
    **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package for all projects in the solution.
 2. In the Solution Explorer, open the TodoItemManager.cs file from the project with **Portable** in the name, which is Portable
    Class Library project, then uncomment the following preprocessor directive:
-   
+
         #define OFFLINE_SYNC_ENABLED
 3. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
-   
+
    * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
    * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
    * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal][5].
-     
+
      Although the quickstart does not contain a Universal Windows project, the Universal Windows platform is supported with Xamarin Forms.
 4. (Optional) In each Windows app project, right-click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**.
     Enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK.
@@ -62,33 +65,33 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
 
 * Before any table operations can be performed, the local store must be initialized. The local store database is initialized in
   the **TodoItemManager** class constructor by using the following code:
-  
+
         var store = new MobileServiceSQLiteStore(OfflineDbPath);
         store.DefineTable<TodoItem>();
-  
+
         //Initializes the SyncContext using the default IMobileServiceSyncHandler.
         this.client.SyncContext.InitializeAsync(store);
-  
+
         this.todoTable = client.GetSyncTable<TodoItem>();
-  
+
     This code creates a new local SQLite database using the **MobileServiceSQLiteStore** class.
-  
+
     The **DefineTable** method creates a table in the local store that matches the fields in the provided type.  The type doesn't have to include all the columns that are in the remote database. It is possible to store a subset of columns.
 * The **todoTable** field in **TodoItemManager** is an **IMobileServiceSyncTable** type instead of **IMobileServiceTable**. This
   class uses the local database for all create, read, update, and delete (CRUD) table operations. You decide when those changes
   are pushed to the Mobile App backend by calling **PushAsync** on the **IMobileServiceSyncContext**. The sync context helps preserve
   table relationships by tracking and pushing changes in all tables a client app has modified when **PushAsync** is called.
-  
+
     The following **SyncAsync** method is called to sync with the Mobile App backend:
-  
+
         public async Task SyncAsync()
         {
             ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
-  
+
             try
             {
                 await this.client.SyncContext.PushAsync();
-  
+
                 await this.todoTable.PullAsync(
                     "allTodoItems",
                     this.todoTable.CreateQuery());
@@ -100,7 +103,7 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
                     syncErrors = exc.PushResult.Errors;
                 }
             }
-  
+
             // Simple error/conflict handling.
             if (syncErrors != null)
             {
@@ -116,13 +119,13 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
                         // Discard local change.
                         await error.CancelAndDiscardItemAsync();
                     }
-  
+
                     Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.",
                         error.TableName, error.Item["id"]);
                 }
             }
         }
-  
+
     This sample uses simple error handling with the default sync handler. A real application would handle the various errors like network conditions and server conflicts by using a custom **IMobileServiceSyncHandler** implementation.
 
 ## Offline sync considerations
@@ -148,11 +151,11 @@ items, these changes are held in the local store, but not synced to the backend 
 
 1. In the Solution Explorer, open the Constants.cs project file from the **Portable** project and change the value
    of `ApplicationURL` to point to an invalid URL:
-   
+
         public static string ApplicationURL = @"https://your-service.azurewebsites.net/";
 2. Open the TodoItemManager.cs file from the **Portable** project, then add a **catch** for the base **Exception** class
    to the **try...catch** block in **SyncAsync**. This **catch** block writes the exception message to the console, as follows:
-   
+
             catch (Exception ex)
             {
                 Console.Error.WriteLine(@"Exception: {0}", ex.Message);
@@ -162,7 +165,7 @@ items, these changes are held in the local store, but not synced to the backend 
    behaves as if it is connected to the backend, supporting all create, read, update, delete (CRUD) operations.
 4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 5. (Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed.
-   
+
     In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database
     and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
 
@@ -175,7 +178,7 @@ perform the refresh gesture, data is synced to your mobile backend.
    are logged in the debug console.
 3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler or [Postman][6]. Notice the data has been
    synchronized between the backend database and the local store.
-   
+
     Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.
 
 ## Additional Resources
@@ -185,9 +188,9 @@ perform the refresh gesture, data is synced to your mobile backend.
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [2]: app-service-mobile-offline-data-sync.md
-[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
-[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
+[3]: https://go.microsoft.com/fwlink/p/?LinkID=716919
+[4]: https://go.microsoft.com/fwlink/p/?LinkID=716920
+[5]: https://sqlite.org/2016/sqlite-uwp-3120200.vsix
 [6]: https://www.getpostman.com/
-[7]: http://www.telerik.com/fiddler
+[7]: https://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

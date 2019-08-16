@@ -1,9 +1,9 @@
 ---
 title: Azure API Management FAQ | Microsoft Docs
-description: Learn the answers to common questions, patterns, and best practices in Azure API Management.
+description: Learn the answers to frequently asked questions (FAQ), patterns, and best practices in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,15 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
 ---
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Contact us
 * [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## Frequently asked questions
 * [What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -30,11 +31,10 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
 * [How do I add a user to the Administrators group?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Why is the policy that I want to add unavailable in the policy editor?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [How do I use API versioning in API Management?](#how-do-i-use-api-versioning-in-api-management)
 * [How do I set up multiple environments in a single API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Can I use SOAP with API Management?](#can-i-use-soap-with-api-management)
 * [Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* [Can I configure an OAuth 2.0 authorization server with AD FS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
+* [Can I configure an OAuth 2.0 authorization server with AD FS security?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [What routing method does API Management use in deployments to multiple geographic locations?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Can I use an Azure Resource Manager template to create an API Management service instance?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
@@ -58,47 +58,42 @@ When a feature is in preview, it means that we're actively seeking feedback on h
 ### How can I secure the connection between the API Management gateway and my back-end services?
 You have several options to secure the connection between the API Management gateway and your back-end services. You can:
 
-* Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
+* Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
 * Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
-* Use IP whitelisting on your back-end service. If you have a Standard or Premium tier API Management instance, the IP address of the gateway remains constant. You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
-* Connect your API Management instance to an Azure Virtual Network. 
+* Use IP whitelisting on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few [caveats](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
+* Connect your API Management instance to an Azure Virtual Network.
 
 ### How do I copy my API Management service instance to a new instance?
 You have several options if you want to copy an API Management instance to a new instance. You can:
 
 * Use the backup and restore function in API Management. For more information, see [How to implement disaster recovery by using service backup and restore in Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
-* Create your own backup and restore feature by using the [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Use the REST API to save and restore the entities from the service instance that you want.
+* Create your own backup and restore feature by using the [API Management REST API](/rest/api/apimanagement/). Use the REST API to save and restore the entities from the service instance that you want.
 * Download the service configuration by using Git, and then upload it to a new instance. For more information, see [How to save and configure your API Management service configuration by using Git](api-management-configuration-repository-git.md).
 
 ### Can I manage my API Management instance programmatically?
 Yes, you can manage API Management programmatically by using:
 
-* The [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
-* The [Microsoft Azure ApiManagement Service Management Library SDK](http://aka.ms/apimsdk).
-* The [Service deployment](https://msdn.microsoft.com/library/mt619282.aspx) and [Service management](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell cmdlets.
+* The [API Management REST API](/rest/api/apimanagement/).
+* The [Microsoft Azure ApiManagement Service Management Library SDK](https://aka.ms/apimsdk).
+* The [Service deployment](https://docs.microsoft.com/powershell/module/wds) and [Service management](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
 
 ### How do I add a user to the Administrators group?
 Here's how you can add a user to the Administrators group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Go to the resource group that has the API Management instance you want to update.
-3. In API Management, assign the **Api Management Contributor** role to the user.
+3. In API Management, assign the **Api Management Service Contributor** role to the user.
 
-Now the newly added contributor can use Azure PowerShell [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx). Here's how to sign in as an administrator:
+Now the newly added contributor can use Azure PowerShell [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Here's how to sign in as an administrator:
 
-1. Use the `Login-AzureRmAccount` cmdlet to sign in.
-2. Set the context to the subscription that has the service by using `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
-3. Get a single sign-on URL by using `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+1. Use the `Connect-AzAccount` cmdlet to sign in.
+2. Set the context to the subscription that has the service by using `Set-AzContext -SubscriptionID <subscriptionGUID>`.
+3. Get a single sign-on URL by using `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Use the URL to access the admin portal.
+
 ### Why is the policy that I want to add unavailable in the policy editor?
-If the policy that you want to add appears dimmed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for you to use in specific scopes and policy sections. To review the policy sections and scopes for a policy, see the policy's Usage section in [API Management policies](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+If the policy that you want to add appears dimmed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for you to use in specific scopes and policy sections. To review the policy sections and scopes for a policy, see the policy's Usage section in [API Management policies](/azure/api-management/api-management-policies).
 
-### How do I use API versioning in API Management?
-You have a few options to use API versioning in API Management:
-
-* In API Management, you can configure APIs to represent different versions. For example, you might have two different APIs, MyAPIv1 and MyAPIv2. A developer can choose the version that the developer wants to use.
-* You also can configure your API with a service URL that doesn't include a version segment, for example, https://my.api. Then, configure a version segment on each operation's [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) template. For example, you can have an operation with a [URL template](api-management-howto-add-operations.md#url-template) called /resource and a [Rewrite URL](api-management-howto-add-operations.md#rewrite-url-template) template called /v1/Resource. You can change the version segment value separately for each operation.
-* If you'd like to keep a "default" version segment in the API's service URL, on selected operations, set a policy that uses the [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) policy to change the back-end request path.
 ### How do I set up multiple environments in a single API?
 To set up multiple environments, for example, a test environment and a production environment, in a single API, you have two options. You can:
 
@@ -106,10 +101,10 @@ To set up multiple environments, for example, a test environment and a productio
 * Host the same APIs on different tenants.
 
 ### Can I use SOAP with API Management?
-[SOAP pass-through](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
+[SOAP pass-through](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
 
 ### Is the API Management gateway IP address constant? Can I use it in firewall rules?
-At the Standard and Premium tiers, the public IP address (VIP) of the API Management tenant is static for the lifetime of the tenant, with some exceptions. The IP address changes in these circumstances:
+In all tiers of API Management, the public IP address (VIP) of the API Management tenant is static for the lifetime of the tenant, with some exceptions. The IP address changes in these circumstances:
 
 * The service is deleted and then re-created.
 * The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
@@ -125,16 +120,25 @@ You can get your IP address (or addresses, in a multi-region deployment) on the 
 To learn how to configure an OAuth 2.0 authorization server with Active Directory Federation Services (AD FS) security, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### What routing method does API Management use in deployments to multiple geographic locations?
-API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Can I use an Azure Resource Manager template to create an API Management service instance?
-Yes. See the [Azure API Management Service](http://aka.ms/apimtemplate) QuickStart templates.
+Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) QuickStart templates.
 
 ### Can I use a self-signed SSL certificate for a back end?
-Yes. Here's how to use a self-signed Secure Sockets Layer (SSL) certificate for a back end:
+Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
 
-1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity by using API Management.
-2. Set the **skipCertificateChainValidation** property to **true**.
+#### Powershell method ####
+Use the [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. 
+
+```powershell
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
+
+#### Direct API update method ####
+1. Create a [Backend](/rest/api/apimanagement/) entity by using API Management.		
+2. Set the **skipCertificateChainValidation** property to **true**.		
 3. If you no longer want to allow self-signed certificates, delete the Backend entity, or set the **skipCertificateChainValidation** property to **false**.
 
 ### Why do I get an authentication failure when I try to clone a Git repository?

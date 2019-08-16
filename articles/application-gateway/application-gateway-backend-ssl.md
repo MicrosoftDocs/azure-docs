@@ -1,5 +1,5 @@
 ---
-title: Enabling SSL Policy and end to end SSL on Application Gateway | Microsoft Docs
+title: Enabling end to end SSL on Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of the Application Gateway end to end SSL support.
 documentationcenter: na
 services: application-gateway
@@ -10,15 +10,15 @@ editor: amsriva
 ms.assetid: 3976399b-25ad-45eb-8eb3-fdb736a598c5
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/19/2017
 ms.author: amsriva
 
 ---
-# Overview of end to end SSL and SSL Policy on Application Gateway
+# Overview of end to end SSL with Application Gateway
 
 Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This feature allows web servers to be unburdened from costly encryption and decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This unencrypted communication could be due to security requirements, compliance requirements, or the application may only accept a secure connection. For such applications, application gateway supports end to end SSL encryption.
 
@@ -36,17 +36,9 @@ In this example, requests using TLS1.2 are routed to backend servers in Pool1 us
 
 Application gateway only communicates with known backend instances that have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway (not the root certificate). Only connections to known and whitelisted backends are then allowed. The remaining backends results in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates have to be whitelisted with the application gateway as described in the preceding steps before they can be used.
 
-## Application Gateway SSL Policy
-
-Application gateway supports user configurable SSL negotiation policies, which allow customers more control over SSL connections at the application gateway.
-
-1. SSL 2.0 and 3.0 disabled by default for all Application Gateways. These policies are not configurable at all.
-2. SSL policy definition gives you option to disable any of the following three protocols - **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
-3. If no SSL policy is defined all three (TLSv1\_0, TLSv1\_1, TLSv1_2) are enabled.
-
 ## Next steps
 
-After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end to end SSL.
+After learning about end to end SSL, go to [enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end to end SSL.
 
 <!--Image references-->
 

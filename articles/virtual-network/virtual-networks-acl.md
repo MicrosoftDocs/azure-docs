@@ -1,11 +1,12 @@
 ---
-title: What is a Network Access Control List (ACL)?
-description: Learn about ACLs
+title: What is an Azure network access control list?
+description: Learn about access control lists in Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: tysonn
+author: genlin
+manager: cshepard
+editor: ''
+tags: azure-service-management
 
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
@@ -14,27 +15,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 
 ---
-# What is an endpoint Access Control List (ACLs)?
-An endpoint Access Control List (ACL) is a security enhancement available for your Azure deployment. An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint. This packet filtering capability provides an additional layer of security. You can specify network ACLs for endpoints only. You can't specify an ACL for a virtual network or a specific subnet contained in a virtual network.
+# What is an endpoint access control list?
 
 > [!IMPORTANT]
-> It is recommended to use Network Security Groups (NSGs) instead of ACLs whenever possible. To learn more about NSGs, see [What is a Network Security Group?](virtual-networks-nsg.md).
-> 
-> 
+> Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager deployment model. 
 
-ACLs can be configured by using either PowerShell or the Management Portal. To configure a network ACL by using PowerShell, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md). To configure a network ACL by using the Management Portal, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+An endpoint access control list (ACL) is a security enhancement available for your Azure deployment. An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint. This packet filtering capability provides an additional layer of security. You can specify network ACLs for endpoints only. You can't specify an ACL for a virtual network or a specific subnet contained in a virtual network. It is recommended to use network security groups (NSGs) instead of ACLs, whenever possible. When using NSGs, endpoint access control list will be replaced and no longer enforced. To learn more about NSGs, see [Network security group overview](security-overview.md)
+
+ACLs can be configured by using either PowerShell or the Azure portal. To configure a network ACL by using PowerShell, see [Managing access control lists for endpoints using PowerShell](virtual-networks-acl-powershell.md). To configure a network ACL by using the Azure portal, see [How to set up endpoints to a virtual machine](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Using Network ACLs, you can do the following:
 
 * Selectively permit or deny incoming traffic based on remote subnet IPv4 address range to a virtual machine input endpoint.
 * Blacklist IP addresses
 * Create multiple rules per virtual machine endpoint
-* Specify up to 50 ACL rules per virtual machine endpoint
 * Use rule ordering to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest)
 * Specify an ACL for a specific remote subnet IPv4 address.
+
+See the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) article for ACL limits.
 
 ## How ACLs work
 An ACL is an object that contains a list of rules. When you create an ACL and apply it to a virtual machine endpoint, packet filtering takes place on the host node of your VM. This means the traffic from remote IP addresses is filtered by the host node for matching ACL rules instead of on your VM. This prevents your VM from spending the precious CPU cycles on packet filtering.
@@ -81,10 +82,10 @@ Because multiple rules can be specified for an endpoint, there must be a way to 
 | 200 |175.0.0.0/8 |80 |Permit |
 
 ## Network ACLs and load balanced sets
-Network ACLs can be specified on a Load balanced set (LB Set) endpoint. If an ACL is specified for a LB Set, the Network ACL is applied to all Virtual Machines in that LB Set. For example, if a LB Set is created with "Port 80" and the LB Set contains 3 VMs, the Network ACL created on endpoint "Port 80" of one VM will automatically apply to the other VMs.
+Network ACLs can be specified on a load balanced set endpoint. If an ACL is specified for a load balanced set, the network ACL is applied to all virtual machines in that load balanced set. For example, if a load balanced set is created with "Port 80" and the load balanced set contains 3 VMs, the network ACL created on endpoint "Port 80" of one VM will automatically apply to the other VMs.
 
 ![Network ACLs and load balanced sets](./media/virtual-networks-acl/IC674733.png)
 
 ## Next Steps
-[How to manage Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md)
+[Manage access control lists for endpoints using PowerShell](virtual-networks-acl-powershell.md)
 

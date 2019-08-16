@@ -3,8 +3,8 @@ title: Perform network intrusion detection with Azure Network Watcher and open s
 description: This article describes how to use Azure Network Watcher and open source tools to perform network intrusion detection
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: twooley
 editor:
 
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: kumud
 ---
 
 # Perform network intrusion detection with Network Watcher and open source tools
@@ -35,7 +35,7 @@ Both open source tools can be set up on an Azure VM, allowing you to perform thi
 
 ### Install Suricata
 
-For all other methods of installation, visit http://suricata.readthedocs.io/en/latest/install.html
+For all other methods of installation, visit https://suricata.readthedocs.io/en/latest/install.html
 
 1. In the command-line terminal of your VM run the following commands:
 
@@ -54,7 +54,7 @@ At this stage, we do not have any rules for Suricata to run. You can create your
 Download the rule set and copy them into the directory:
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
@@ -77,7 +77,8 @@ While the logs that Suricata produces contain valuable information about what’
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java install, refer to documentation on [Oracle's website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](https://aka.ms/azure-jdks).
+
 1. Download the correct binary package for your system:
 
     ```
@@ -250,7 +251,7 @@ You can also create your own visualizations and dashboards tailored towards metr
 
 The sample dashboard provides several visualizations of the Suricata alert logs:
 
-1. Alerts by GeoIP – a map showing the distribution of alerts by their country of origin based on geographic location (determined by IP)
+1. Alerts by GeoIP – a map showing the distribution of alerts by their country/region of origin based on geographic location (determined by IP)
 
     ![geo ip][3]
 

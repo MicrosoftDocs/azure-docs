@@ -1,94 +1,52 @@
 ---
-title: Azure Functions Mobile Apps bindings | Microsoft Docs
+title: Mobile Apps bindings for Azure Functions 
 description: Understand how to use Azure Mobile Apps bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: erikre
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.assetid: faad1263-0fa5-41a9-964f-aecbc0be706a
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 10/31/2016
-ms.author: glenga
-
+ms.date: 11/21/2017
+ms.author: cshoe
 ---
-# Azure Functions Mobile Apps bindings
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindings in Azure Functions. 
-Azure Functions supports input and output bindings for Mobile Apps.
+# Mobile Apps bindings for Azure Functions 
 
-The Mobile Apps input and output bindings let you [read from and write to data tables](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations)
-in your mobile app.
+> [!NOTE]
+> Azure Mobile Apps bindings are only available to Azure Functions 1.x. They are not supported in Azure Functions 2.x.
+
+This article explains how to work with [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
+
+The Mobile Apps bindings let you read and update data tables in mobile apps.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## Packages - Functions 1.x
 
-## Mobile Apps input binding
-The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function. 
-In a C# and F# functions, any changes made to the record are automatically sent back to the table when the function exits successfully.
+Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub repository.
 
-The Mobile Apps input to a function uses the following JSON object in the `bindings` array of function.json:
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-```json
-{
-    "name": "<Name of input parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "id" : "<Id of the record to retrieve - see below>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "in"
-}
-```
+## Input
 
-Note the following:
+The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function. In C# and F# functions, any changes made to the record are automatically sent back to the table when the function exits successfully.
 
-* `id` can be static, or it can be based on the trigger that invokes the function. For example, if you use a [queue trigger]() for your function, then 
-  `"id": "{queueTrigger}"` uses the string value of the queue message as the record ID to retrieve.
-* `connection` should contain the name of an app setting in your function app, which in turn contains the URL of your mobile app. The function 
-  uses this URL to construct the required REST operations against your mobile app. You [create an app setting in your function app]() that contains 
-  your mobile app's URL (which looks like `http://<appname>.azurewebsites.net`), then specify the name of the app setting in the `connection` property 
-  in your input binding. 
-* You need to specify `apiKey` if you [implement an API key in your Node.js mobile app backend](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key),
-  or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To do this,
-  you [create an app setting in your function app]() that contains the API key, then add the `apiKey` property in your input binding with the name of the 
-  app setting. 
-  
-  > [!IMPORTANT]
-  > This API key must not be shared with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. 
-  > 
-  > [!NOTE]
-  > Azure Functions stores your connection information and API keys as app settings so that they are not checked into your 
-  > source control repository. This safeguards your sensitive information.
-  > 
-  > 
+## Input - example
 
-<a name="inputusage"></a>
+See the language-specific example:
 
-## Input usage
-This section shows you how to use your Mobile Apps input binding in your function code. 
+* [C# script (.csx)](#input---c-script-example)
+* JavaScript
 
-When the record with the specified table and record ID is found, it is passed into the named 
-[JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter (or, in Node.js,
-it is passed into the `context.bindings.<name>` object). When the record is not found, the parameter is `null`. 
+### Input - C# script example
 
-In C# and F# functions, any changes you make to the input record (input parameter) is automatically sent back to the 
-Mobile Apps table when the function exits successfully. 
-In Node.js functions, use `context.bindings.<name>` to access the input record. You cannot modify a record in Node.js.
+The following example shows a Mobile Apps input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
 
-<a name="inputsample"></a>
-
-## Input sample
-Suppose you have the following function.json, that retrieves a Mobile App table record with the id of the queue trigger message:
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -109,19 +67,12 @@ Suppose you have the following function.json, that retrieves a Mobile App table 
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
+The [configuration](#input---configuration) section explains these properties.
 
-See the language-specific sample that uses the input record from the binding. The C# and F# samples also modify the record's `text` property.
-
-* [C#](#inputcsharp)
-* [Node.js](#inputnodejs)
-
-<a name="inputcsharp"></a>
-
-### Input sample in C# #
+Here's the C# script code:
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -136,21 +87,37 @@ public static void Run(string myQueueItem, JObject record)
 }
 ```
 
-<!--
-<a name="inputfsharp"></a>
-### Input sample in F# ## 
+### Input - JavaScript
 
-```fsharp
-#r "Newtonsoft.Json"    
-open Newtonsoft.Json.Linq
-let Run(myQueueItem: string, record: JObject) =
-  inputDocument?text <- "This has changed."
+The following example shows a Mobile Apps input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "id" : "{queueTrigger}",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "in"
+    }
+]
+}
 ```
--->
+The [configuration](#input---configuration) section explains these properties.
 
-<a name="inputnodejs"></a>
-
-### Input sample in Node.js
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, myQueueItem) {    
@@ -159,56 +126,113 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## Input - attributes
 
-## Mobile Apps output binding
-Use the Mobile Apps output binding to write a new record to a Mobile Apps table endpoint.  
+In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
 
-The Mobile Apps output for a function uses the following JSON object in the `bindings` array of function.json:
+For information about attribute properties that you can configure, see [the following configuration section](#input---configuration).
 
-```json
+## Input - configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `MobileTable` attribute.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+| **type**|| Must be set to "mobileTable"|
+| **direction**||Must be set to "in"|
+| **name**|| Name of input parameter in function signature.|
+|**tableName** |**TableName**|Name of the mobile app's data table|
+| **id**| **Id** | The identifier of the record to retrieve. Can be static or based on the trigger that invokes the function. For example, if you use a queue trigger for your function, then `"id": "{queueTrigger}"` uses the string value of the queue message as the record ID to retrieve.|
+|**connection**|**Connection**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKey**|The name of an app setting that has your mobile app's API key. Provide the API key if you [implement an API key in your Node.js mobile app](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), or [implement an API key in your .NET mobile app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Don't share the API key with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. Azure Functions stores your connection information and API keys as app settings so that they are not checked into your source control repository. This safeguards your sensitive information.
+
+## Input - usage
+
+In C# functions, when the record with the specified ID is found, it is passed into the named 
+[JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter. When the record is not found, the parameter value is `null`. 
+
+In JavaScript functions, the record is passed into the `context.bindings.<name>` object. When the record is not found, the parameter value is `null`. 
+
+In C# and F# functions, any changes you make to the input record (input parameter) are automatically sent back to the table when the function exits successfully. You can't modify a record in JavaScript functions.
+
+## Output
+
+Use the Mobile Apps output binding to write a new record to a Mobile Apps table.  
+
+## Output - example
+
+See the language-specific example:
+
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### Output - C# example
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that is triggered by a queue message and creates a record in a mobile app table.
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
 {
-    "name": "<Name of output parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "out"
+    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
 }
 ```
 
-Note the following:
+### Output - C# script example
 
-* `connection` should contain the name of an app setting in your function app, which in turn contains the URL of your mobile app. The function 
-  uses this URL to construct the required REST operations against your mobile app. You [create an app setting in your function app]() that contains 
-  your mobile app's URL (which looks like `http://<appname>.azurewebsites.net`), then specify the name of the app setting in the `connection` property 
-  in your input binding. 
-* You need to specify `apiKey` if you [implement an API key in your Node.js mobile app backend](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key),
-  or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To do this,
-  you [create an app setting in your function app]() that contains the API key, then add the `apiKey` property in your input binding with the name of the 
-  app setting. 
-  
-  > [!IMPORTANT]
-  > This API key must not be shared with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. 
-  > 
-  > [!NOTE]
-  > Azure Functions stores your connection information and API keys as app settings so that they are not checked into your 
-  > source control repository. This safeguards your sensitive information.
-  > 
-  > 
+The following example shows a Mobile Apps output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
 
-<a name="outputusage"></a>
+Here's the binding data in the *function.json* file:
 
-## Output usage
-This section shows you how to use your Mobile Apps output binding in your function code. 
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+    "name": "record",
+    "type": "mobileTable",
+    "tableName": "MyTable",
+    "connection": "My_MobileApp_Url",
+    "apiKey": "My_MobileApp_Key",
+    "direction": "out"
+    }
+]
+}
+```
 
-In C# functions, use a named output parameter of type `out object` to access the output record. In Node.js functions, use 
-`context.bindings.<name>` to access the output record.
+The [configuration](#output---configuration) section explains these properties.
 
-<a name="outputsample"></a>
+Here's the C# script code:
 
-## Output sample
-Suppose you have the following function.json, that defines a queue trigger and a Mobile Apps output:
+```cs
+public static void Run(string myQueueItem, out object record)
+{
+    record = new {
+        Text = $"I'm running in a C# function! {myQueueItem}"
+    };
+}
+```
+
+### Output - JavaScript example
+
+The following example shows a Mobile Apps output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
+
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -233,34 +257,9 @@ Suppose you have the following function.json, that defines a queue trigger and a
 }
 ```
 
-See the language-specific sample that creates a record in the Mobile Apps table endpoint with the content of the queue message.
+The [configuration](#output---configuration) section explains these properties.
 
-* [C#](#outcsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### Output sample in C# #
-
-```cs
-public static void Run(string myQueueItem, out object record)
-{
-    record = new {
-        Text = $"I'm running in a C# function! {myQueueItem}"
-    };
-}
-```
-
-<!--
-<a name="outfsharp"></a>
-### Output sample in F# ## 
-```fsharp
-
-```
--->
-<a name="outnodejs"></a>
-
-### Output sample in Node.js
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -273,6 +272,54 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Next steps
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## Output - attributes
 
+In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
+
+For information about attribute properties that you can configure, see [Output - configuration](#output---configuration). Here's a `MobileTable` attribute example in a method signature:
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
+{
+    ...
+}
+```
+
+For a complete example, see [Output - C# example](#output---c-example).
+
+## Output - configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `MobileTable` attribute.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+| **type**|| Must be set to "mobileTable"|
+| **direction**||Must be set to "out"|
+| **name**|| Name of output parameter in function signature.|
+|**tableName** |**TableName**|Name of the mobile app's data table|
+|**connection**|**MobileAppUriSetting**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKeySetting**|The name of an app setting that has your mobile app's API key. Provide the API key if you [implement an API key in your Node.js mobile app backend](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Don't share the API key with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. Azure Functions stores your connection information and API keys as app settings so that they are not checked into your source control repository. This safeguards your sensitive information.
+
+## Output - usage
+
+In C# script functions, use a named output parameter of type `out object` to access the output record. In C# class libraries, the `MobileTable` attribute can be used with any of the following types:
+
+* `ICollector<T>` or `IAsyncCollector<T>`, where `T` is either `JObject` or any type with a `public string Id` property.
+* `out JObject`
+* `out T` or `out T[]`, where `T` is any Type with a `public string Id` property.
+
+In Node.js functions, use `context.bindings.<name>` to access the output record.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

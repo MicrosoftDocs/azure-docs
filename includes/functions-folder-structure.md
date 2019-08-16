@@ -1,21 +1,40 @@
+---
+title: include file
+description: include file
+services: functions
+author: ggailey777
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/12/2018
+ms.author: glenga
+ms.custom: include file
+---
 
-The code for all of the functions in a given function app lives in a root folder that contains a host configuration file and one or more subfolders, each of which contain the code for a separate function, as in the following example:
+The code for all the functions in a specific function app is located in a root project folder that contains a host configuration file and one or more subfolders. Each subfolder contains the code for a separate function. The folder structure is shown in the following representation:
 
 ```
-wwwroot
+FunctionApp
  | - host.json
- | - mynodefunction
+ | - Myfirstfunction
  | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
+ | | - ...  
+ | - mysecondfunction
  | | - function.json
- | | - run.csx
+ | | - ...  
+ | - SharedCode
+ | - bin
 ```
 
-The *host.json* file contains some runtime-specific configuration and sits in the root folder of the function app. For information on settings that are available, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
+In version 2.x of the Functions runtime, all functions in the function app must share the same language stack.  
 
-Each function has a folder that contains one or more code files, the function.json configuration and other dependencies.
+The [host.json](../articles/azure-functions/functions-host-json.md) file contains runtime-specific configurations and is in the root folder of the function app. A *bin* folder contains packages and other library files that the function app requires. See the language-specific requirements for a function app project:
+
+* [C# class library (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [C# script (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [F# script](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+
+
 

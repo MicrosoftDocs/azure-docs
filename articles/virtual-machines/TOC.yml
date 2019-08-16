@@ -1,0 +1,32 @@
+- name: Virtual Machines Documentation
+  href: index.yml
+- name: Linux Virtual Machines in Azure
+  href: linux/overview.md
+- name: Windows Virtual Machines in Azure
+  href: windows/overview.md
+- name: VM Extensions Documentation
+  href: extensions/overview.md
+- name: Workloads
+  items:
+  - name: Oracle
+    href: workloads/oracle/oracle-considerations.md
+  - name: SAP
+    href: workloads/sap/get-started.md
+  - name: High performance computing
+    href: workloads/hpc/overview.md
+  - name: Mainframe rehosting
+    href: workloads/mainframe-rehosting/overview.md
+- name: Classic deployments
+  items:
+  - name: Linux VMs using classic deployment
+    href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+  - name: Windows VMs using classic deployment
+    href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

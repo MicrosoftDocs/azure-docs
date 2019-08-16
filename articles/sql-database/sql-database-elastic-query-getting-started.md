@@ -1,23 +1,20 @@
 ---
 title: Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Docs
-description: how to use cross database database queries
+description: Use cross database database queries to report across multiple databases.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
-ms.custom: multiple databases
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2016
-ms.author: ddove
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MladjoA
+ms.author: mlandzic
+ms.reviewer: sstein
+ms.date: 12/18/2018
 
 ---
 # Report across scaled-out cloud databases (preview)
+
 You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
 
 If you have an existing database, see [Migrating existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
@@ -25,6 +22,7 @@ If you have an existing database, see [Migrating existing databases to scaled-ou
 To understand the SQL objects needed to query, see [Query across horizontally partitioned databases](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## Prerequisites
+
 Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
 
 ## Create a shard map manager using the sample app

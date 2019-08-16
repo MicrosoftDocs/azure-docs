@@ -1,0 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: batch
+ author: laurenhughes
+ ms.service: batch
+ ms.topic: include
+ ms.date: 04/06/2018
+ ms.author: lahugh
+ ms.custom: include file
+---
+
+A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged or when the node leaves the pool. Tasks may also have a file retention period, after which files created by the task are deleted. For these reasons, it's important to persist task output that you'll need later to a data store such as [Azure Storage](https://docs.microsoft.com/azure/storage/).
+
+For storage account options in Batch, see the [Batch feature overview](../articles/batch/batch-api-basics.md#azure-storage-account).

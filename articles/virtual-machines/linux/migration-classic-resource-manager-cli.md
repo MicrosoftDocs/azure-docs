@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of reso
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -19,7 +19,7 @@ ms.author: kasing
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
-These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI](../../cli-install-nodejs.md).
+These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure classic CLI](../../cli-install-nodejs.md). Since Azure CLI is only applicable for Azure Resource Manager resources, it cannot be used for this migration.
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
@@ -45,7 +45,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 > 
 
 ## Step 2: Set your subscription and register the provider
-For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../../cli-install-nodejs.md) and [select your subscription](../../xplat-cli-connect.md).
+For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../../cli-install-nodejs.md) and [select your subscription](/cli/azure/authenticate-azure-cli).
 
 Sign-in to your account.
 
@@ -74,14 +74,14 @@ Now switch CLI to the `asm` mode.
 
     azure config mode asm
 
-## Step 3: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
+## Step 3: Make sure you have enough Azure Resource Manager Virtual Machine vCPUs in the Azure region of your current deployment or VNET
 For this step you'll need to switch to `arm` mode. Do this with the following command.
 
 ```
 azure config mode arm
 ```
 
-You can use the following CLI command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

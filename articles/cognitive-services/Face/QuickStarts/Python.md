@@ -1,300 +1,261 @@
 ---
-title: Face API Python quick start | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Face API with Python in Cognitive Services.
+title: "Quickstart: Detect faces in an image with the Azure REST API and Python"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you will use the Azure Face REST API with Python to detect faces in an image.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-ms.date: 03/21/2017
-ms.author: anroth
+ms.subservice: face-api
+ms.topic: quickstart
+ms.date: 07/03/2019
+ms.author: pafarley
+#Customer intent: As a Python developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
-# Face API Python Quick Starts
-This article provides information and code samples to help you quickly get started using the Face API with Python to accomplish the following tasks: 
-* [Detect Faces in Images](#Detect) 
-* [Create a Person Group](#Create)
+# Quickstart: Detect faces in an image using the Face REST API and Python
 
-Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
+In this quickstart, you will use the Azure Face REST API with Python to detect human faces in an image. The script will draw frames around the faces and superimpose gender and age information on the image.
 
-## Detect Faces in Images With Face API Using Python <a name="Detect"> </a>
-Use the [Face - Detect method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
-* Face ID: Unique ID used in a number of Face API scenarios. 
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
+![A man and a woman, each with a rectangle drawn around their faces and age and sex displayed on the image](../images/labelled-faces-python.png)
 
-#### Face Detect Python Example Request
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+
+## Prerequisites
+
+- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+
+## Run the Jupyter notebook
+
+You can run this quickstart as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the button below. Then follow the instructions in the notebook.
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
+
+## Create and run the sample
+
+Alternately, you can run this quickstart from the command line with the following steps:
+
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscription_key` with your subscription key.
+    1. Replace the value of `face_api_url` with the endpoint URL for the Face API resource in the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of `image_url` with the URL of a different image that you want to analyze.
+1. Save the code as a file with an `.py` extension. For example, `detect-face.py`.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python detect-face.py`.
 
 ```python
-########### Python 2.7 #############
-import httplib, urllib, base64
+import requests
+import json
 
-headers = {
-    # Request headers
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '{subscription key}',
-}
+subscription_key = None
+assert subscription_key
 
-params = urllib.urlencode({
-    # Request parameters
+face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+
+image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
+
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+
+params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': '{string}',
-})
-
-try:
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/face/v1.0/detect?%s" % params, "{body}", headers)
-    response = conn.getresponse()
-    data = response.read()
-    print(data)
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-
-####################################
-
-########### Python 3.2 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64
-
-headers = {
-    # Request headers
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '{subscription key}',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
 }
 
-params = urllib.parse.urlencode({
-    # Request parameters
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': '{string}',
-})
-
-try:
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/face/v1.0/detect?%s" % params, "{body}", headers)
-    response = conn.getresponse()
-    data = response.read()
-    print(data)
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-
-####################################	
-
+response = requests.post(face_api_url, params=params,
+                         headers=headers, json={"url": image_url})
+print(json.dumps(response.json()))
 ```
-#### Face - Detect Response
-A successful response will be returned in JSON. Following is an example of a successful response: 
+
+## Examine the response
+
+A successful response is returned in JSON.
 
 ```json
 [
-    {
-        "faceId": "c5c24a82-6845-4031-9d5d-978df9175426",
-        "faceRectangle": {
-            "width": 78,
-            "height": 78,
-            "left": 394,
-            "top": 54
-        },
-        "faceLandmarks": {
-            "pupilLeft": {
-                "x": 412.7,
-                "y": 78.4 
-            },
-            "pupilRight": {
-                "x": 446.8,
-                "y": 74.2 
-            },
-            "noseTip": {
-                "x": 437.7,
-                "y": 92.4 
-            },
-            "mouthLeft": {
-                "x": 417.8,
-                "y": 114.4 
-            },
-            "mouthRight": {
-                "x": 451.3,
-                "y": 109.3 
-            },
-            "eyebrowLeftOuter": {
-                "x": 397.9,
-                "y": 78.5 
-            },
-            "eyebrowLeftInner": {
-                "x": 425.4,
-                "y": 70.5 
-            },
-            "eyeLeftOuter": {
-                "x": 406.7,
-                "y": 80.6 
-            },
-            "eyeLeftTop": {
-                "x": 412.2,
-                "y": 76.2 
-            },
-            "eyeLeftBottom": {
-                "x": 413.0,
-                "y": 80.1 
-            },
-            "eyeLeftInner": {
-                "x": 418.9,
-                "y": 78.0 
-            },
-            "eyebrowRightInner": {
-                "x": 4.8,
-                "y": 69.7 
-            },
-            "eyebrowRightOuter": {
-                "x": 5.5,
-                "y": 68.5 
-            },
-            "eyeRightInner": {
-                "x": 441.5,
-                "y": 75.0 
-            },
-            "eyeRightTop": {
-                "x": 446.4,
-                "y": 71.7 
-            },
-            "eyeRightBottom": {
-                "x": 447.0,
-                "y": 75.3 
-            },
-            "eyeRightOuter": {
-                "x": 451.7,
-                "y": 73.4 
-            },
-            "noseRootLeft": {
-                "x": 428.0,
-                "y": 77.1 
-            },
-            "noseRootRight": {
-                "x": 435.8,
-                "y": 75.6 
-            },
-            "noseLeftAlarTop": {
-                "x": 428.3,
-                "y": 89.7 
-            },
-            "noseRightAlarTop": {
-                "x": 442.2,
-                "y": 87.0 
-            },
-            "noseLeftAlarOutTip": {
-                "x": 424.3,
-                "y": 96.4 
-            },
-            "noseRightAlarOutTip": {
-                "x": 446.6,
-                "y": 92.5 
-            },
-            "upperLipTop": {
-                "x": 437.6,
-                "y": 105.9 
-            },
-            "upperLipBottom": {
-                "x": 437.6,
-                "y": 108.2 
-            },
-            "underLipTop": {
-                "x": 436.8,
-                "y": 111.4 
-            },
-            "underLipBottom": {
-                "x": 437.3,
-                "y": 114.5 
-            }
-        },
-        "faceAttributes": {
-            "age": 71.0,
-            "gender": "male",
-            "smile": 0.88,
-            "facialHair": {
-                "mustache": 0.8,
-                "beard": 0.1,
-                "sideburns": 0.02
-            },
-            "glasses": "sunglasses",
-            "headPose": {
-                "roll": 2.1,
-                "yaw": 3,
-                "pitch": 0
-            }
-        }
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    },
+    "faceAttributes": {
+      "smile": 0,
+      "headPose": {
+        "pitch": 0,
+        "roll": 6.8,
+        "yaw": 3.7
+      },
+      "gender": "male",
+      "age": 37,
+      "facialHair": {
+        "moustache": 0.4,
+        "beard": 0.4,
+        "sideburns": 0.1
+      },
+      "glasses": "NoGlasses",
+      "emotion": {
+        "anger": 0,
+        "contempt": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happiness": 0,
+        "neutral": 0.999,
+        "sadness": 0.001,
+        "surprise": 0
+      },
+      "blur": {
+        "blurLevel": "high",
+        "value": 0.89
+      },
+      "exposure": {
+        "exposureLevel": "goodExposure",
+        "value": 0.51
+      },
+      "noise": {
+        "noiseLevel": "medium",
+        "value": 0.59
+      },
+      "makeup": {
+        "eyeMakeup": true,
+        "lipMakeup": false
+      },
+      "accessories": [],
+      "occlusion": {
+        "foreheadOccluded": false,
+        "eyeOccluded": false,
+        "mouthOccluded": false
+      },
+      "hair": {
+        "bald": 0.04,
+        "invisible": false,
+        "hairColor": [
+          {
+            "color": "black",
+            "confidence": 0.98
+          },
+          {
+            "color": "brown",
+            "confidence": 0.87
+          },
+          {
+            "color": "gray",
+            "confidence": 0.85
+          },
+          {
+            "color": "other",
+            "confidence": 0.25
+          },
+          {
+            "color": "blond",
+            "confidence": 0.07
+          },
+          {
+            "color": "red",
+            "confidence": 0.02
+          }
+        ]
+      }
     }
+  },
+  {
+    "faceId": "37c7c4bc-fda3-4d8d-94e8-b85b8deaf878",
+    "faceRectangle": {
+      "top": 693,
+      "left": 1503,
+      "width": 180,
+      "height": 180
+    },
+    "faceAttributes": {
+      "smile": 0.003,
+      "headPose": {
+        "pitch": 0,
+        "roll": 2,
+        "yaw": -2.2
+      },
+      "gender": "female",
+      "age": 56,
+      "facialHair": {
+        "moustache": 0,
+        "beard": 0,
+        "sideburns": 0
+      },
+      "glasses": "NoGlasses",
+      "emotion": {
+        "anger": 0,
+        "contempt": 0.001,
+        "disgust": 0,
+        "fear": 0,
+        "happiness": 0.003,
+        "neutral": 0.984,
+        "sadness": 0.011,
+        "surprise": 0
+      },
+      "blur": {
+        "blurLevel": "high",
+        "value": 0.83
+      },
+      "exposure": {
+        "exposureLevel": "goodExposure",
+        "value": 0.41
+      },
+      "noise": {
+        "noiseLevel": "high",
+        "value": 0.76
+      },
+      "makeup": {
+        "eyeMakeup": false,
+        "lipMakeup": false
+      },
+      "accessories": [],
+      "occlusion": {
+        "foreheadOccluded": false,
+        "eyeOccluded": false,
+        "mouthOccluded": false
+      },
+      "hair": {
+        "bald": 0.06,
+        "invisible": false,
+        "hairColor": [
+          {
+            "color": "black",
+            "confidence": 0.99
+          },
+          {
+            "color": "gray",
+            "confidence": 0.89
+          },
+          {
+            "color": "other",
+            "confidence": 0.64
+          },
+          {
+            "color": "brown",
+            "confidence": 0.34
+          },
+          {
+            "color": "blond",
+            "confidence": 0.07
+          },
+          {
+            "color": "red",
+            "confidence": 0.03
+          }
+        ]
+      }
+    }
+  }
 ]
 ```
-## Create a Person Group With Face API Using Python <a name="Create"> </a>
-Use the [Person Group - Create a Person Group method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 
-to create a new person group with specified personGroupId, name, and user-provided userData. A person group is one of the most important parameters for the Face - Identify API. The Identify API searches for persons' faces in a specified person group. 
 
-#### Person Group - Create a Person Group Example
-```python
-########### Python 2.7 #############
-import httplib, urllib, base64
+## Next steps
 
-headers = {
-    # Request headers. Replace the placeholder key below with your subscription key.
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
+Next, explore the Face API reference documentation to learn more about the supported scenarios.
 
-# Replace 'examplegroupid' with an ID you haven't used for creating a group before.
-# The valid characters for the ID include numbers, English letters in lower case, '-' and '_'. 
-# The maximum length of the ID is 64.
-personGroupId = 'examplegroupid'
-
-# The userData field is optional. The size limit for it is 16KB.
-body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
-
-try:
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
-    response = conn.getresponse()
-
-	# 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-	# If you get 'Conflict', change the value of personGroupId above and try again.
-	# If you get 'Access Denied', verify the validity of the subscription key above and try again.
-    print(response.reason)
-
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-####################################
-
-########### Python 3.2 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64, sys
-
-headers = {
-    # Request headers. Replace the placeholder key below with your subscription key.
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
-
-# Replace 'examplegroupid' with an ID you haven't used for creating a group before.
-# The valid characters for the ID include numbers, English letters in lower case, '-' and '_'. 
-# The maximum length of the ID is 64.
-personGroupId = 'examplegroupid'
-
-# The userData field is optional. The size limit for it is 16KB.
-body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
-
-try:
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("PUT", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
-    response = conn.getresponse()
-
-	# 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-	# If you get 'Conflict', change the value of personGroupId above and try again.
-	# If you get 'Access Denied', verify the validity of the subscription key above and try again.
-    print(response.reason)
-
-    conn.close()
-except Exception as e:
-    print(e.args)
-####################################
+> [!div class="nextstepaction"]
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

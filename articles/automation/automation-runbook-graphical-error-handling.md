@@ -1,20 +1,14 @@
 ---
-title: Error handling in Azure Automation graphical runbooks | Microsoft Docs
-description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.  
+title: Error handling in Azure Automation graphical runbooks
+description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.
 services: automation
-documentationcenter: ''
-author: mgoedtel
-manager: jwhit
-editor: tysonn
-
-ms.assetid:
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/26/2016
-ms.author: magoedte
+ms.subservice: process-automation
+author: bobbytreed
+ms.author: robreed
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
 ---
 
 # Error handling in Azure Automation graphical runbooks
@@ -37,7 +31,7 @@ Azure Automation graphical runbooks have been improved with the capability to i
 
 Whenever there is a critical activity that throws an error or exception, it's important to prevent the next activity in your runbook from processing and to handle the error appropriately. This is especially critical when your runbooks are supporting a business or service operations process.
 
-For each activity that can produce an error, the runbook author can add an error link pointing to any other activity.  The destination activity can be of any type, including code activities, invoking a cmdlet, invoking another runbook, and so on.
+For each activity that can produce an error, the runbook author can add an error link pointing to any other activity. The destination activity can be of any type, including code activities, invoking a cmdlet, invoking another runbook, and so on.
 
 In addition, the destination activity can also have outgoing links. These links can be regular links or error links. This means the runbook author can implement complex error-handling logic without resorting to a code activity. The recommended practice is to create a dedicated error-handling runbook with common functionality, but it's not mandatory. Error-handling logic in a PowerShell code activity it isn't the only option.  
 
@@ -60,7 +54,7 @@ After configuring this setting, you create an activity that handles the error. I
 
 In the following example, a runbook retrieves a variable that contains the computer name of a virtual machine. It then attempts to start the virtual machine with the next activity.<br><br> ![Automation runbook error-handling example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-The **Get-AutomationVariable** activity and **Start-AzureRmVm** are configured to convert exceptions to errors.  If there are problems getting the variable or starting the VM, then errors are generated.<br><br> ![Automation runbook error-handling activity settings](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+The **Get-AutomationVariable** activity and **Start-AzureRmVm** are configured to convert exceptions to errors. If there are problems getting the variable or starting the VM, then errors are generated.<br><br> ![Automation runbook error-handling activity settings](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 Error links flow from these activities to a single **error management** activity (a code activity). This activity is configured with a simple PowerShell expression that uses the *Throw* keyword to stop processing, along with *$Error.Exception.Message* to get the message that describes the current exception.<br><br> ![Automation runbook error-handling code example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
@@ -70,3 +64,4 @@ Error links flow from these activities to a single **error management** activity
 * To learn more about links and link types in graphical runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
+

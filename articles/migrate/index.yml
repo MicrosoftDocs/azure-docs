@@ -1,0 +1,43 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Migrate Documentation
+metadata:
+  title: Azure Migrate Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to assess on-premises machines for migration to Azure
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: Azure Migrate helps you migrate to the Azure cloud. Azure Migrate provides a central hub to track discovery, assessment, and migration of on-premises workloads, and cloud VMs. The hub provides Azure Migrate tools for assessment and migration, as well as integrated tools from independent software vendors (ISVs).
+sections:
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to assess and migrate VMware VMs to Azure
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-vmware">Prepare VMware VMs for assessment and migration to Azure</a>
+    - html: <a href="tutorial-assess-vmware">Assess VMware VMs for migration to Azure</a>
+    - html: <a href="tutorial-migrate-vmware">Migrate VMware VMs to Azure with agentless migration</a>   
+    - html: <a href="tutorial-migrate-vmware-agent">Migrate VMware VMs to Azure with agent-based migration</a>
+  - type: paragraph
+    text: Learn how to assess and migrate Hyper-V VMs to Azure
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-hyper-v">Prepare Hyper-V VMs for assessment and migration to Azure</a>
+    - html: <a href="tutorial-assess-hyper-v">Assess Hyper-V VMs for migration to Azure</a>
+    - html: <a href="tutorial-migrate-hyper-v">Migrate Hyper-V VMs to Azure</a>
+  - type: paragraph
+    text: Learn how to migrate physical servers, virtualized machines, and cloud VMs to Azure
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-migrate-physical-virtual-machines">Migrate physical or virtualized servers to Azure</a>

@@ -3,8 +3,8 @@ title: Example Azure Infrastructure Walkthrough | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -14,15 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: iainfou
+ms.date: 12/15/2017
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
 # Example Azure infrastructure walkthrough for Linux VMs
-
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
 This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 ## Example workload
@@ -53,7 +50,7 @@ All the above follow these naming conventions:
 
 * Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
   * For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
-* Virtual networks use AZOS-USE-VN**[number]**
+* Virtual networks use AZOS-USE-VN<strong>[number]</strong>
 * Availability sets use azos-use-as-**[role]**
 * Virtual machine names use azos-use-vm-**[vmname]**
 
@@ -114,7 +111,3 @@ This configuration incorporates:
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 * A single resource group
-
-## Next steps
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-

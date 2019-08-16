@@ -1,104 +1,82 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: shants123
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 4/30/2019
+ ms.author: shants
+ ms.custom: include file
+---
 
+Azure periodically updates its platform to improve the reliability, performance, and security of the host infrastructure for virtual machines. The purpose of these updates ranges from patching software components in the hosting environment to upgrading networking components or decommissioning hardware. 
 
-## Memory-preserving updates
-For a class of updates in Microsoft Azure, customers do not see any impact to their running virtual machines. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.
+Updates rarely affect the hosted VMs. When updates do have an effect, Azure chooses the least impactful method for updates:
 
-These updates are accomplished with technology that enables in-place live migration, also called a “memory-preserving” update. When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches. The virtual machine is resumed within 30 seconds of being paused. After resuming, the clock of the virtual machine is automatically synchronized.
+- If the update doesn't require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host.
 
-Not all updates can be deployed by using this mechanism, but given the short pause period, deploying updates in this way greatly reduces impact to virtual machines.
+- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 30 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. 
 
-Multi-instance updates (for virtual machines in an availability set) are applied one update domain at a time.  
+This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](../articles/virtual-machines/windows/manage-availability.md) or the corresponding article for [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-## Virtual machine configurations
-There are two kinds of virtual machine configurations: multi-instance and single-instance. In a multi-instance configuration, similar virtual machines are placed in an availability set.
+Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](../articles/virtual-machines/windows/scheduled-events.md) or for [Linux](../articles/virtual-machines/linux/scheduled-events.md).
 
-The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
+For instructions on managing planned maintenance, see [Handling planned maintenance notifications for Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or the corresponding article for [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## Maintenance that doesn't require a reboot
 
-By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA) that requires deploying two or more virtual machines in the same availability set.
+As stated earlier, most platform updates don't affect customer VMs. When a no-impact update isn't possible, Azure chooses the update mechanism that's least impactful to customer VMs. 
 
-For more information about SLAs, see the "Cloud Services and Virtual Machines" sections of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM for up to 30 seconds and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
 
-## Multi-instance configuration updates
-During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. The update causes a reboot to these virtual machines with approximately 15 minutes of downtime.
+Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 
-A multi-instance configuration update assumes that each virtual machine serves a similar function as the others in the availability set. In this setting, virtual machines are updated in a way that preserves availability throughout the process.
+These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals. 
 
-Each virtual machine in an availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
+These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](../articles/virtual-machines/windows/scheduled-events.md) or [Linux](../articles/virtual-machines/linux/scheduled-events.md) for such applications. Azure is working on maintenance-control features for these sensitive applications. 
 
+### Live migration
 
-For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Live migration is an operation that doesn't require a reboot and that preserves memory for the VM. It causes a pause or freeze, typically lasting no more than 5 seconds. Except for G, M, N, and H series, all infrastructure as a service (IaaS) VMs, are eligible for live migration. Eligible VMs represent more than 90 percent of the IaaS VMs that are deployed to the Azure fleet. 
 
-To maintain availability through an update, Azure performs the maintenance by update domain, updating one domain at a time. The maintenance in an update domain consists of shutting down each virtual machine in the domain, applying the update to the host machines, and then restarting the virtual machines. When the maintenance in the domain completes, Azure repeats the process with the next update domain, and continues with each domain until all are updated.
+The Azure platform starts live migration in the following scenarios:
+- Planned maintenance
+- Hardware failure
+- Allocation optimizations
 
-The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. Today, Azure offers 1-week advanced notification for planned maintenance of virtual machines in the multi-instance configuration.
+Some planned-maintenance scenarios use live migration, and you can use Scheduled Events to know in advance when live migration operations will start.
 
-After a virtual machine is restored, here is an example of what your Windows Event Viewer might display:
+Live migration can also be used to move VMs when Azure Machine Learning algorithms predict an impending hardware failure or when you want to optimize VM allocations. For more information about predictive modeling that detects instances of degraded hardware, see [Improving Azure VM resiliency with predictive machine learning and live migration](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Live-migration notifications appear in the Azure portal in the Monitor and Service Health logs as well as in Scheduled Events if you use these services.
 
-<!--Image reference-->
-![][image2]
+## Maintenance that requires a reboot
 
+In the rare case where VMs need to be rebooted for planned maintenance, you'll be notified in advance. Planned maintenance has two phases: the self-service phase and a scheduled maintenance phase.
 
-Use the viewer to report the virtual machines that are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, using the Azure portal, you can add the _Availability Set_ to the **virtual machines (classic)** browse dialog. The virtual machines that report the same availability set are part of a multi-instance configuration. In the following example, the multi-instance configuration consists of virtual machines SQLContoso01 and SQLContoso02.
+During the *self-service phase*, which typically lasts four weeks, you start the maintenance on your VMs. As part of the self-service, you can query each VM to see its status and the result of your last maintenance request.
 
-<!--Image reference-->
-  ![Virtual machines (classic) view from the Azure portal][image4]
+When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with the virtual network interface are updated.
 
-## Single-instance configuration updates
-After the multi-instance configuration updates are complete, Azure performs single-instance configuration updates. These updates also cause reboots to your virtual machines that are not running in availability sets.
+If an error arises during self-service maintenance, the operation stops, the VM isn't updated, and you get the option to retry the self-service maintenance. 
 
-> [!NOTE]
-> If an availability set has only one virtual machine instance running, the Azure platform treats it as a multi-instance configuration update.
->
+When the self-service phase ends, the *scheduled maintenance phase* begins. During this phase, you can still query for the maintenance phase, but you can't start the maintenance yourself.
 
-Maintenance in a single-instance configuration consists of shutting down each virtual machine running on a host machine, updating the host machine, and then restarting the virtual machines. The maintenance requires approximately 15 minutes of downtime. The planned maintenance event runs across all virtual machines in a region in a single maintenance window.
+For more information on managing maintenance that requires a reboot, see [Handling planned maintenance notifications for Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or the corresponding article for [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
+### Availability considerations during scheduled maintenance 
 
-Planned maintenance events impact the availability of your application for single-instance configurations. Azure offers a one-week advanced notification for planned maintenance of virtual machines in single-instance configurations.
+If you decide to wait until the scheduled maintenance phase, there are a few things you should consider to maintain the highest availability of your VMs. 
 
-## Email notification
-For single-instance and multi-instance virtual machine configurations only, Azure sends an email alert of the upcoming planned maintenance (one week in advance). This email is sent to the subscription administrator and co-administrator email accounts. Here is an example of this type of email:
+#### Paired regions
 
-<!--Image reference-->
-![][image1]
+Each Azure region is paired with another region within the same geographical vicinity. Together, they make a region pair. During the scheduled maintenance phase, Azure updates only the VMs in a single region of a region pair. For example, while updating the VM in North Central US, Azure doesn't update any VM in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-## Region pairs
+#### Availability sets and scale sets
 
-When executing maintenance, Azure only updates the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
+When deploying a workload on Azure VMs, you can create the VMs within an *availability set* to provide high availability to your application. Using availability sets, you can ensure that during either an outage or maintenance events that require a reboot, at least one VM is available.
 
-See the following table for current region pairs:
+Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During scheduled maintenance, only one UD is updated at any given time. UDs aren't necessarily updated sequentially. 
 
-| Region 1 | Region 2 |
-|:--- | ---:|
-| East US |West US |
-| East US 2 |Central US |
-| North Central US |South Central US |
-| West Central US |West US 2 |
-| Canada East |Canada Central |
-| Brazil South |South Central US |
-| US Gov Iowa |US Gov Virginia |
-| US DoD East |US DoD Central |
-| North Europe |West Europe |
-| UK West |UK South |
-| Germany Central |Germany Northeast |
-| South East Asia |East Asia |
-| Australia Southeast |Australia East |
-| India Central |India South |
-| India West |India South |
-| Japan East |Japan West |
-| Korea Central |Korea South |
-| East China |North China |
+Virtual machine *scale sets* are an Azure compute resource that you can use to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across UDs, like VMs in an availability set. As with availability sets, when you use scale sets, only one UD is updated at any given time during scheduled maintenance.
 
-
-<!--Anchors-->
-[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
-[image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
-
-
-<!--Link references-->
-[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](../articles/virtual-machines/windows/manage-availability.md) or the corresponding article for [Linux](../articles/virtual-machines/linux/manage-availability.md).

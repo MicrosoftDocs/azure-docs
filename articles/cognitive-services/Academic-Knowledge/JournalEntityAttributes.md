@@ -1,21 +1,23 @@
 ---
-title: Journal entity attributes in the Academic Knowledge API | Microsoft Docs
+title: Journal entity attributes - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
 description: Learn the attributes you can use with the Journal entity in the Academic Knowledge API in Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: academic-knowledge
-ms.topic: article
+ms.subservice: academic-knowledge
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
+ROBOTS: NOINDEX
 ---
 
 # Journal Entity
 
 <sub>
-*Below attributes are specific to journal entity. (Ty = '2')
+*Following attributes are specific to journal entity. (Ty = '2')
 </sub>
 
 Name	|Description							|Type       | Operations
@@ -25,4 +27,3 @@ DJN		|Journal normalized name				|String		|none
 JN		|Journal display name					|String		|Equals
 CC		|Journal total citation count			|Int32		|none  
 ECC		|Journal total estimated citation count	|Int32		|none
-SSD		|Satori data 							|String		|none

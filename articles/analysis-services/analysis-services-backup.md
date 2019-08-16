@@ -1,34 +1,26 @@
 ---
 title: Azure Analysis Services database backup and restore | Microsoft Docs
 description: Describes how to backup and restore an Azure Analysis Services database.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: 
-
-ms.assetid: 
-ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/17/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 
 # Backup and restore
 
-Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
+Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
 
 > [!NOTE]
 > Creating a storage account can result in a new billable service. To learn more, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 > 
 > 
 
-Backups are saved with a .abf extension. For in-memory tabular models, both model data and metadata are stored. For Direct Query tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose. 
-
+Backups are saved with an .abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose.
 
 
 ## Configure storage settings
@@ -50,7 +42,7 @@ Before backing up, you need to configure storage settings for your server.
 
     ![Select container](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Save your backup settings. You must save your changes whenever you change storage settings, or enable or disable backup.
+5. Save your backup settings.
 
     ![Save backup settings](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -62,7 +54,7 @@ Before backing up, you need to configure storage settings for your server.
 
 2. In **Backup Database** > **Backup file**, click **Browse**.
 
-3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. By default, the file name is given a .abf extension. 
+3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. 
 
 4. In the **Backup Database** dialog, select options.
 
@@ -76,12 +68,17 @@ Before backing up, you need to configure storage settings for your server.
 
 
 ### PowerShell
-Use [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
+Use [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) cmdlet.
 
 ## Restore
-When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/storage-use-azcopy.md) command-line utility. 
+When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/common/storage-use-azcopy.md) command-line utility. 
 
-If you're restoring a tabular 1200 model database from an on-premises SQL Server Analysis Services server, you must first remove all of the domain users from the model's roles, and add them back to the roles as Azure Active Directory users. The roles will be the same.
+
+
+> [!NOTE]
+> If you're restoring from an on-premises server, you must remove all the domain users from the model's roles and add them back to the roles as Azure Active Directory users.
+> 
+> 
 
 ### To restore by using SSMS
 
@@ -98,11 +95,11 @@ If you're restoring a tabular 1200 model database from an on-premises SQL Server
 
 ### PowerShell
 
-Use [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
+Use [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase) cmdlet.
 
 
 ## Related information
 
-[Azure storage accounts](../storage/storage-create-storage-account.md)  
-[High availablility](analysis-services-bcdr.md)     
+[Azure storage accounts](../storage/common/storage-create-storage-account.md)  
+[High availability](analysis-services-bcdr.md)     
 [Manage Azure Analysis Services](analysis-services-manage.md)

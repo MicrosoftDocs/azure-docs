@@ -4,17 +4,17 @@ description: Learn about Service Fabric's Reliable Service programming model, an
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: vturecek; mani-ramaswamy
 
 ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
-ms.author: masnider;
+ms.date: 3/9/2018
+ms.author: masnider
 
 ---
 # Reliable Services overview
@@ -31,7 +31,7 @@ Service Fabric manages the lifetime of services, from provisioning and deploymen
 ## What are Reliable Services?
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. With the Reliable Services programming model, you get:
 
-* Access to the rest of the Service Fabric programming APIs. Unlike Service Fabric Services modeled as [Guest Executables](service-fabric-deploy-existing-app.md), Reliable Services get to use the rest of the Service Fabric APIs directly. This allows services to:
+* Access to the rest of the Service Fabric programming APIs. Unlike Service Fabric Services modeled as [Guest Executables](service-fabric-guest-executables-introduction.md), Reliable Services get to use the rest of the Service Fabric APIs directly. This allows services to:
   * query the system
   * report health about entities in the cluster
   * receive notifications about configuration and code changes
@@ -41,13 +41,6 @@ Reliable Services gives you a simple, powerful, top-level programming model to h
 * A simple model for running your own code that looks like programming models you are used to. Your code has a well-defined entry point and easily managed lifecycle.
 * A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, or anything else. Reliable Services provide some great out-of-the-box options you can use, or you can provide your own.
 * For stateful services, the Reliable Services programming model allows you to consistently and reliably store your state right inside your service by using [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Reliable Collections are a simple set of highly available and reliable collection classes that will be familiar to anyone who has used C# collections. Traditionally, services needed external systems for Reliable state management. With Reliable Collections, you can store your state next to your compute with the same high availability and reliability you've come to expect from highly available external stores. This model also improves latency because you are co-locating the compute and state it needs to function.
-
-Watch this Microsoft Virtual Academy video for an overview of Reliable services:
-<center>
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
-<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
-</a>
-</center>
 
 ## What makes Reliable Services different?
 Reliable Services in Service Fabric are different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.
@@ -79,16 +72,12 @@ When a call is made from a client, the appropriate method is invoked, and the ca
 
 Not storing any internal state makes this example calculator simple. But most services aren't truly stateless. Instead, they externalize their state to some other store. (For example, any web app that relies on keeping session state in a backing store or cache is not stateless.)
 
-A common example of how stateless services are used in Service Fabric is as a front-end that exposes the public-facing API for a web application. The front-end service then talks to stateful services to complete a user request. In this case, calls from clients are directed to a known port, such as 80, where the stateless service is listening. This stateless service receives the call and determines whether the call is from a trusted party and which service it's destined for.  Then, the stateless service forwards the call to the correct partition of the stateful service and waits for a response. When the stateless service receives a response, it replies to the original client. An example of such a service is in our samples [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). This is only one example of this pattern in the samples, there are others in other samples as well.
+A common example of how stateless services are used in Service Fabric is as a front-end that exposes the public-facing API for a web application. The front-end service then talks to stateful services to complete a user request. In this case, calls from clients are directed to a known port, such as 80, where the stateless service is listening. This stateless service receives the call and determines whether the call is from a trusted party and which service it's destined for.  Then, the stateless service forwards the call to the correct partition of the stateful service and waits for a response. When the stateless service receives a response, it replies to the original client. An example of such a service is in our samples [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started). This is only one example of this pattern in the samples, there are others in other samples as well.
 
 ### Stateful Reliable Services
 A stateful service is one that must have some portion of state kept consistent and present in order for the service to function. Consider a service that constantly computes a rolling average of some value based on updates it receives. To do this, it must have the current set of incoming requests it needs to process and the current average. Any service that retrieves, processes, and stores information in an external store (such as an Azure blob or table store today) is stateful. It just keeps its state in the external state store.
 
 Most services today store their state externally, since the external store is what provides reliability, availability, scalability, and consistency for that state. In Service Fabric, services aren't required to store their state externally. Service Fabric takes care of these requirements for both the service code and the service state.
-
-> [!NOTE]
-> Support for Stateful Reliable Services is not available on Linux yet (for C# or Java).
->
 
 Let's say we want to write a service that processes images. To do this, the service takes in an image and the series of conversions to perform on that image. This service returns a communication listener (let's suppose it's a WebAPI) that exposes an API like `ConvertImage(Image i, IList<Conversion> conversions)`. When it receives a request, the service stores it in a `IReliableQueue`, and returns some id to the client so it can track the request.
 
@@ -113,5 +102,5 @@ If any of the following characterize your application service needs, then you sh
 
 ## Next steps
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
+* [Reliable collections](service-fabric-reliable-services-reliable-collections.md)
 * [The Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)

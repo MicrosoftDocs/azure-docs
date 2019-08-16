@@ -3,9 +3,9 @@ title: Add push notifications to your Android app with Mobile Apps | Microsoft D
 description: Learn how to use Mobile Apps to send push notifications to your Android app.
 services: app-service\mobile
 documentationcenter: android
-manager: adrianha
+manager: crdun
 editor: ''
-author: ysxu
+author: elamalani
 
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
@@ -13,19 +13,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: yuaxu
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Add push notifications to your Android app
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-get-started-push) today.
+>
+
 ## Overview
+
 In this tutorial, you add push notifications to the [Android quick start] project so that a push notification is sent to the device every time a record is inserted.
 
 If you do not use the downloaded quick start server project, you need the push notification extension package. For more information, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## Prerequisites
+
 You need the following:
 
 * An IDE, depending on your project's back end:
@@ -36,37 +42,47 @@ You need the following:
 * Complete the [Android quick start].
 
 ## Create a project that supports Firebase Cloud Messaging
+
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## Configure a notification hub
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## Configure Azure to send push notifications
+
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
 ## Enable push notifications for the server project
+
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ## Add push notifications to your app
+
 In this section, you update your client Android app to handle push notifications.
 
 ### Verify Android SDK version
+
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the manifest must conform to.
+Your next step is to install Google Play services. Firebase Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the manifest must conform to.
 
-If you are testing with an older device, consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
+If you are testing with an older device, consult [Add Firebase to Your Android Project] to determine how low you can set this value, and set it appropriately.
 
-### Add Google Play services to the project
-[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### Add Firebase Cloud Messaging to the project
+
+[!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### Add code
+
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
 ## Test the app against the published mobile service
+
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
 ## Next steps
+
 Now that you completed this tutorial, consider continuing on to one of the following tutorials:
 
 * [Add authentication to your Android app](app-service-mobile-android-get-started-users.md).
@@ -76,5 +92,4 @@ Now that you completed this tutorial, consider continuing on to one of the follo
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
-
-[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
+[Add Firebase to Your Android Project]:https://firebase.google.com/docs/android/setup

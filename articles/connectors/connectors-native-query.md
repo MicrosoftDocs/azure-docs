@@ -24,10 +24,11 @@ By using the query action, you can work with batches and arrays to accomplish wo
 * Create a task for all high-priority records from a database.
 * Save all PDF attachments for emails into an Azure blob.
 
-To get started using the query action in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To get started using the query action in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the query action
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
+An action is an operation that is carried out by the workflow that is defined in a logic app. 
+[Learn more about actions](../connectors/apis-list.md).  
 
 The query action currently has one operation, called the filter array, that is exposed in the designer. This allows you to query an array and return a set of filtered results.
 
@@ -45,6 +46,8 @@ Here's how you can add it in a logic app:
    
     The action will output a new array that contains only results that met the filter requirements.
 6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
+
+\* If you're calling an HTTP endpoint, and receiving a JSON response, use the _Parse JSON_ action to parse the JSON response. Without taking this step, _Filter Array_ will see only Body and not understand the structure of the JSON payload.
 
 ## Query action
 Here are the details for the action that this connector supports. The connector has one possible action.
@@ -75,5 +78,5 @@ The following are output details for the HTTP response.
 | Filtered array |array |An array that contains an object for each filtered result |
 
 ## Next steps
-Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 

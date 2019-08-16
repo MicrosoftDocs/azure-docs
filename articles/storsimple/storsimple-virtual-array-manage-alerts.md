@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
@@ -34,8 +34,7 @@ You can choose whether you want to be notified by email of the alert conditions 
 > [!NOTE]
 > You can enter a maximum of 20 email addresses per virtual array.
 
-
-After you enable email notification for a virtual array, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+After you enable email notification for a virtual array, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply\@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
 #### To enable email notification for alerts
 
@@ -49,7 +48,7 @@ After you enable email notification for a virtual array, members of the notifica
    
    1. In the **Enable email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
-   3. In the **Additional email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device.
+   3. In the **Additional email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone\@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device.
       
        ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
@@ -58,8 +57,8 @@ After you enable email notification for a virtual array, members of the notifica
       
       > [!NOTE]
       > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again.
-      > 
-      > 
+      >
+      >
    5. At the bottom of the page, click **Save** to save your configuration. When prompted for confirmation, click **Yes**.
       
       ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
@@ -97,11 +96,11 @@ Click an alert in the list to get additional details for the alert, including th
 
 You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the list. Select the alert from the list and then click **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared.
 
-When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
+When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue.
 
 ![alert comments](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
-Some events will be cleared by the system if another event is triggered with new information. 
+Some events will be cleared by the system if another event is triggered with new information.
 
 ## Sort and review alerts
 
@@ -121,49 +120,46 @@ The following tables list some of the StorSimple alerts that you might encounter
 * [Job failure alerts](#job-failure-alerts)
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
-* [Update alerts](#update-alerts)
 
 ### Cloud connectivity alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Device *<device name>* is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
+| Device <*device name*> is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
 
 ### Configuration alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | On-premises virtual device configuration unsupported. |Slow performance. |The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md). |
-| You are running out of provisioned disk space on <*device name*>. |Disk space warning. |You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data. |
+| You are running out of provisioned disk space on <*device name*\>. |Disk space warning. |You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data. |
 
 ### Job failure alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Backup of <*device name*> couldn’t be completed. |Backup job failure. |Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation. |
-| Clone of <*device name*> couldn’t be completed. |Clone job failure. |Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation. |
+| Backup of <*device name*\> couldn’t be completed. |Backup job failure. |Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation. |
+| Clone of <*device name*\> couldn’t be completed. |Clone job failure. |Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation. |
+
+### Networking alerts
+
+| Alert text | Event | More information / recommended actions |
+|:--- |:--- |:--- |
+| Could not connect to the authentication service. |Datapath error |The URL that is used to authenticate is not reachable. Ensure that your firewall rules include the URL patterns specified for the StorSimple device. For more information on URL patterns in Azure portal, go to [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### Performance alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| You are experiencing unexpected delays in data transfer. |Slow data transfer. |Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md). |
-| You are running low on local reservation disk space on <*device name*>. |Slow response time. |10% of the total provisioned size for <*device name*> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul> |
+| You are experiencing unexpected delays in data transfer. |Slow data transfer. |Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
+| You are running low on local reservation disk space on <*device name*\>. |Slow response time. |10% of the total provisioned size for <*device name*\> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*\> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul> |
 
 ### Security alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
-
-### Update alerts
-
-| Alert text | Event | More information / recommended actions |
-|:--- |:--- |:--- |
-| New updates are available for your device. |Updates to the StorSimple Virtual Array are available. |You can install new updates from the **Maintenance** page. |
-| Could not scan for new updates on <*device name*>. |Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md). |
+| Password for <*device name*\> will expire in <*number*\> days. |Password warning. |Your password will expire in <*number*\> days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## Next steps
 
 * [Learn about the StorSimple Virtual Array](storsimple-ova-overview.md).
-

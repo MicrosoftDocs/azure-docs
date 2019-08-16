@@ -4,14 +4,14 @@ description: There are two major backup possibilities for SAP HANA on Azure virt
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
-manager: timlt
+manager: gwallace
 editor: 
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
 
 ---
@@ -24,9 +24,9 @@ This is part of a three-part series of related articles on SAP HANA backup. [Bac
 
 When using a VM backup feature for a single-instance all-in-one demo system, one should consider doing a VM backup instead of managing HANA backups at the OS level. An alternative is to take Azure blob snapshots to create copies of individual virtual disks, which are attached to a virtual machine, and keep the HANA data files. But a critical point is app consistency when creating a VM backup or disk snapshot while the system is up and running. See _SAP HANA data consistency when taking storage snapshots_ in the related article [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md). SAP HANA has a feature that supports these kinds of storage snapshots.
 
-## SAP HANA snapshots
+## SAP HANA snapshots as central part of application consistent backups
 
-There is a feature in SAP HANA that supports taking a storage snapshot. However, as of December 2016, there is a restriction to single-container systems. Multitenant container configurations do not support this kind of database snapshot (see [Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
+There is a functionality in SAP HANA that supports taking a storage snapshot. There is a restriction to single-container systems. Scenarios sing SAP HANA MCS with more than one tenant do not support this kind of SAP HANA database snapshot (see [Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
 
 It works as follows:
 
@@ -55,7 +55,9 @@ Once the storage snapshot is done, it is critical to confirm the SAP HANA snapsh
 
 ## HANA VM backup via Azure Backup service
 
-As of December 2016, the backup agent of the Azure Backup service is not available for Linux VMs. To make use of Azure backup on the file/directory level, one would copy SAP HANA backup files to a Windows VM and then use the backup agent. Otherwise, only a full Linux VM backup is possible via the Azure Backup service. See [Overview of the features in Azure Backup](../../../backup/backup-introduction-to-azure-backup.md) to find out more.
+The backup agent of the Azure Backup service is not available for Linux VMs. Moreover Linux does not have similar functionality as Windows has it with VSS.  To make use of Azure backup on the file/directory level, one would copy SAP HANA backup files to a Windows VM and then use the backup agent. 
+
+Otherwise, only a full Linux VM backup is possible via the Azure Backup service. See [Overview of the features in Azure Backup](../../../backup/backup-introduction-to-azure-backup.md) to find out more.
 
 The Azure Backup service offers an option to back up and restore a VM. More information about this service and how it works can be found in the article [Plan your VM backup infrastructure in Azure](../../../backup/backup-azure-vms-introduction.md).
 
@@ -71,53 +73,32 @@ That article states:
 
 _&quot;It is strongly recommended to confirm or abandon a storage snapshot as soon as possible after it has been created. While the storage snapshot is being prepared or created, the snapshot-relevant data is frozen. While the snapshot-relevant data remains frozen, changes can still be made in the database. Such changes will not cause the frozen snapshot-relevant data to be changed. Instead, the changes are written to positions in the data area that are separate from the storage snapshot. Changes are also written to the log. However, the longer the snapshot-relevant data is kept frozen, the more the data volume can grow.&quot;_
 
-Azure Backup takes care of the file system consistency via Azure VM extensions. These extensions are not available standalone, and work only in combination with Azure Backup service. Nevertheless, it is still a requirement to manage an SAP HANA snapshot to guarantee app consistency.
+Azure Backup takes care of the file system consistency via Azure VM extensions. These extensions are not available standalone, and work only in combination with Azure Backup service. Nevertheless, it is still a requirement to provide scripts to create and delete an SAP HANA snapshot to guarantee app consistency.
 
-Azure Backup has two major phases:
+Azure Backup has four major phases:
 
+- Execute prepare script - script needs to create an SAP HANA snapshot
 - Take Snapshot
+- Execute post-snapshot script - script needs to delete the SAP HANA created by the prepare script
 - Transfer data to vault
 
-So one could confirm the SAP HANA snapshot once the Azure Backup service phase of taking a snapshot is completed. It might take several minutes to see in the Azure portal.
+For details on where to copy these scripts and details on how Azure Backup works exactly, check the following articles:
 
-![This figure shows part of the backup job list of an Azure Backup service](media/sap-hana-backup-storage-snapshots/image014.png)
+- [Plan your VM backup infrastructure in Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+- [Application-consistent backup of Azure Linux VMs](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-This figure shows part of the backup job list of an Azure Backup service, which was used to back up the HANA test VM.
 
-![To show the job details, click the backup job in the Azure portal](media/sap-hana-backup-storage-snapshots/image015.png)
 
-To show the job details, click the backup job in the Azure portal. Here, one can see the two phases. It might take a few minutes until it shows the snapshot phase as completed. Most of the time is spent in the data transfer phase.
+At this point in time, Microsoft has not published prepare scripts and post-snapshot scripts for SAP HANA. You as customer or system integrator would need to create those scripts and configure the procedure based on the documentation referenced above.
 
-## HANA VM backup automation via Azure Backup service
 
-One could manually confirm the SAP HANA snapshot once the Azure Backup snapshot phase is completed, as described earlier, but it is helpful to consider automation because an admin might not monitor the backup job list in the Azure portal.
+## Restore from application consistent backup against a VM
+The restore process of an application consistent backup taken by Azure backup is documented in the article [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
-Here is an explanation how it could be accomplished via Azure PowerShell cmdlets.
+> [!IMPORTANT]
+> In the article [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) is a list of exceptions and steps listed when using disk stripe sets. Striped disks are likely the regular VM configuration for SAP HANA. Therefore, it is essential to read the article and test the restore process for such cases as listed in the article. 
 
-![An Azure Backup service was created with the name hana-backup-vault](media/sap-hana-backup-storage-snapshots/image016.png)
 
-An Azure Backup service was created with the name &quot;hana-backup-vault.&quot; The PS command
-**Get-AzureRmRecoveryServicesVault -Name hana-backup-vault** retrieves the corresponding object. This object is then used to set the backup context as seen on the next figure.
-
-![One can check for the backup job currently in progress](media/sap-hana-backup-storage-snapshots/image017.png)
-
-After setting the correct context, one can check for the backup job currently in progress, and then look for its job details. The subtask list shows if the snapshot phase of the Azure backup job is already completed:
-
-```
-$ars = Get-AzureRmRecoveryServicesVault -Name hana-backup-vault
-Set-AzureRmRecoveryServicesVaultContext -Vault $ars
-$jid = Get-AzureRmRecoveryServicesBackupJob -Status InProgress | select -ExpandProperty jobid
-Get-AzureRmRecoveryServicesBackupJobDetails -Jobid $jid | select -ExpandProperty subtasks
-```
-
-![Poll the value in a loop until it turns to Completed](media/sap-hana-backup-storage-snapshots/image018.png)
-
-Once the job details are stored in a variable, it is simply PS syntax to get to the first array entry and retrieve the status value. To complete the automation script, poll the value in a loop until it turns to &quot;Completed.&quot;
-
-```
-$st = Get-AzureRmRecoveryServicesBackupJobDetails -Jobid $jid | select -ExpandProperty subtasks
-$st[0] | select -ExpandProperty status
-```
 
 ## HANA license key and VM restore via Azure Backup service
 
@@ -141,7 +122,7 @@ Instead of using the Azure Backup service, one could configure an individual bac
 
 It provides more flexibility but does not resolve the issues explained earlier in this document:
 
-- One still must make sure that SAP HANA is in a consistent state
+- You still must make sure that SAP HANA is in a consistent state by creating an SAP HANA snapshot
 - The OS disk cannot be overwritten even if the VM is deallocated because of an error stating that a lease exists. It only works after deleting the VM, which would lead to a new unique VM ID and the need to install a new SAP license.
 
 ![It is possible to restore only the data disks of an Azure VM](media/sap-hana-backup-storage-snapshots/image021.png)
@@ -164,5 +145,5 @@ If it was possible to shut down SAP HANA before the blob snapshots, the procedur
 
 ## Next steps
 * [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md) gives an overview and information on getting started.
-* [SAP HANA backup based on file level](sap-hana-backup-file-level.md) describes the storage snapshot-based backup option.
+* [SAP HANA backup based on file level](sap-hana-backup-file-level.md) covers the file-based backup option.
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).

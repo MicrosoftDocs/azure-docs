@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -58,7 +58,7 @@ The **Bandwidth** graph displays the amount of bandwidth used for the current pl
 The **Status Codes** graph indicates how often certain HTTP response codes are occurring over the selected time span.
 
 > [!TIP]
-> For a description of each HTTP status code option, see [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx).
+> For a description of each HTTP status code option, see [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100)).
 > 
 > 
 
@@ -72,7 +72,7 @@ You can temporarily hide logged data for a particular status code.  From the leg
 The **Cache Statuses** graph indicates how often certain types of cache statuses are occurring over the selected time span. 
 
 > [!TIP]
-> For a description of each cache status code option, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx).
+> For a description of each cache status code option, see [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)).
 > 
 > 
 

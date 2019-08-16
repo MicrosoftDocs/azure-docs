@@ -1,41 +1,33 @@
 ---
-title: Call, trigger, or nest workflows with HTTP endpoints - Azure Logic Apps | Microsoft Docs
+title: Call, trigger, or nest workflows with HTTP endpoints - Azure Logic Apps
 description: Set up HTTP endpoints to call, trigger, or nest workflows for Azure Logic Apps
 services: logic-apps
-keywords: workflows, HTTP endpoints
-author: jeffhollan
-manager: anneta
-editor: ''
-documentationcenter: ''
-
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
 ---
 
-# Call, trigger, or nest workflows with HTTP endpoints in logic apps
+# Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps
 
-You can natively expose synchronous HTTP endpoints as triggers on logic apps 
-so that you can trigger or call your logic apps through a URL. 
-You can also nest workflows in your logic apps by using a pattern of callable endpoints.
+You can natively expose synchronous HTTP endpoints as triggers on logic apps so that you can trigger or call your logic apps through a URL. You can also nest workflows in your logic apps by using a pattern of callable endpoints.
 
-To create HTTP endpoints, you can add these triggers 
-so that your logic apps can receive incoming requests:
+To create HTTP endpoints, you can add these triggers so that your logic apps can receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 
-* [API Connection Webhook](logic-apps-workflow-actions-triggers.md#api-connection)
+* [API Connection Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
-* [HTTP Webhook](../connectors/connectors-native-http.md)
+* [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Although our examples use the **Request** trigger, 
+   > Although these examples use the **Request** trigger, 
    > you can use any of the listed HTTP triggers, 
    > and all principles identically apply to the other trigger types.
 
@@ -79,7 +71,7 @@ that you expect the trigger to receive.
     > [!TIP]
     > 
     > You can generate a schema for a sample JSON payload 
-    > from a tool like [jsonschema.net](http://jsonschema.net/), 
+    > from a tool like [jsonschema.net](https://jsonschema.net/), 
     > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
     > Enter your sample payload, and choose **Done**.
 
@@ -94,7 +86,7 @@ that you expect the trigger to receive.
     generates this schema:
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -194,6 +186,7 @@ but replace `{customerID}` with `123456`, and press Enter.
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### Tokens generated from JSON schemas for your logic app
 
 When you provide a JSON schema in your **Request** trigger, 
@@ -244,12 +237,16 @@ After you create your HTTP endpoint,
 you can trigger your logic app through a `POST` method to the full URL. 
 Logic apps have built-in support for direct-access endpoints.
 
+> [!NOTE] 
+> To manually run a logic app at any time, 
+> on the Logic App Designer or Logic App Code View toolbar, choose **Run**.
+
 ## Reference content from an incoming request
 
 If the content's type is `application/json`, 
 you can reference properties from the incoming request. 
 Otherwise, content is treated as a single binary unit that you can pass to other APIs. 
-You can't reference this content inside the workflow without converting that content. 
+To reference this content inside the workflow, you must convert that content. 
 For example, if you pass `application/xml` content, you can use `@xpath()` 
 for an XPath extraction, or `@json()` for converting XML to JSON. 
 Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
@@ -295,7 +292,7 @@ of your workflow.
 ### Construct the response
 
 You can include more than one header and any type of content in the response body. 
-In our example response, the header specifies 
+In the example response, the header specifies 
 that the response has content type `application/json`. 
 and the body contains `title` and `name`, based on 
 the JSON schema updated previously for the **Request** trigger.
@@ -346,6 +343,14 @@ the trigger name, and the operation that's performed.
 So unless someone has access to the secret logic app key, 
 they cannot generate a valid signature.
 
+   > [!IMPORTANT]
+   > For production and secure systems, we strongly recommend against 
+   > calling your logic app directly from the browser because:
+   > 
+   > * The shared access key appears in the URL.
+   > * You can't manage secure content policies 
+   > due to shared domains across Logic App customers.
+
 #### Q: Can I configure HTTP endpoints further?
 
 A: Yes, HTTP endpoints support more advanced configuration 
@@ -379,7 +384,7 @@ To ask questions, answer questions, and learn what other Azure Logic Apps users 
 visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

@@ -1,84 +1,104 @@
 ---
-title: Get started with Bing Speech Recognition in C# for .Net Windows | Microsoft Docs
+title: Get started with the Bing Speech Recognition API by using the C# desktop library | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Develop basic Windows applications that use the Bing Speech Recognition API to convert spoken audio to text.
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
-
+author: zhouwangzw
+manager: wolfma
 ms.service: cognitive-services
-ms.technology: speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 02/17/2017
-ms.author: prrajan
+ms.date: 09/18/2018
+ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
+# Quickstart: Use the Bing Speech Recognition API in C&#35; for .NET on Windows
 
-# Getting Started with Bing Speech Recognition in C&#35; for .Net Windows
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Develop a basic Windows application that uses Bing Speech Recognition API to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Using the Client Library allows for real-time streaming, which means that at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. This page describes use of the Client Library, which currently supports speech in seven languages, the example below defaults to American English, “en-US”. For client library API reference, see [Microsoft Bing Speech SDK](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+This page shows how to develop a basic Windows application that uses the Speech Recognition API to convert spoken audio to text. Using the client library allows for real-time streaming, which means that when your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back.
 
-<a name="Prerequisites"></a>
+Developers who want to use Speech Service from apps that run on any device can use the C# desktop library. To use the library, install the [NuGet package Microsoft.ProjectOxford.SpeechRecognition-x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) for a 32-bit platform and the [NuGet package Microsoft.ProjectOxford.SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) for a 64-bit platform. For the client library API reference, see [Microsoft Speech C# desktop library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+
+The following sections describe how to install, build, and run the C# sample application by using the C# desktop library.
+
 ## Prerequisites
-#### Platform Requirements
-The below example has been developed for Windows 8+ and .NET Framework 4.5+ using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
-#### Get the Client Library and Example
-You may download the Speech API client library and example through [SDK](https://github.com/microsoft/cognitive-speech-stt-windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
-#### Subscribe to Speech API and Get a Free Trial Subscription Key
-Before creating the example, you must subscribe to Speech API which is part of Microsoft Cognitive Services (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
 
-<a name="Step1"></a>
-## Step 1: Install the Example Application
-1.	Start Microsoft Visual Studio 2015 and click **File**, select **Open**, then **Project/Solution**.
-2.	Browse to the folder where you saved the downloaded Speech API files. Click on **Speech**, then **Windows**, and then the **Sample-WPF** folder.
-3.	Double-click to open the Visual Studio 2015 Solution (.sln) file named **SpeechToText-WPF-Samples.sln**. This will open the solution in Visual Studio.
+### Platform requirements
 
-<a name="Step2"></a>
-## Step 2: Build the Example Application
-1.	Press Ctrl+Shift+B, or click **Build** on the ribbon menu, then select **Build Solution**.
+The following sample was developed for Windows 8+ and .NET Framework 4.5+ by using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-<a name="Step3"></a>
-## Step 3: Run the Example Application
-1.	After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.
-2.	Locate the **Project Oxford Speech to Text** window with the **text edit box** reading **"Paste your subscription key here to start"**. Paste your subscription key into the text box as shown in below screenshot. You may choose to persist your subscription key on your PC or laptop by clicking the **Save Key** button. When you want to delete the subscription key from the system, click **Delete Key** to remove it from your PC or laptop.
+### Get the sample application
 
-  ![Speech Recognition paste in key](../Images/SpeechRecog_paste_key.PNG)
+Clone the sample from the [Speech C# desktop library sample](https://github.com/microsoft/cognitive-speech-stt-windows) repository.
 
-3.	Under **Speech Recognition Source** choose one of the six speech sources, which fall into two main input categories.
-  *  Using your computer’s microphone, or an attached microphone, to capture speech.
-  *  Playing an audio file.
+### Subscribe to the Speech Recognition API, and get a free trial subscription key
 
-Each category has three recognition modes.
- * **ShortPhrase Mode**: An utterance up to 15 seconds long. As data is sent to the server, the client will receive multiple partial results and one final multiple N-best choice result.
- * **LongDictation Mode**: An utterance up to 2 minutes long. As data is sent to the server, the client will receive multiple partial results and multiple final results, based on where the server indicates sentence pauses.
- * **Intent Detection**: The server returns additional structured information about the speech input. To use Intent you will need to first train a model. See details [here](https://www.luis.ai/).
+The Speech API is part of Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, select **Get API Key** to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you can use either key.
 
-There are example audio files to be used with this example application. You find the files in the repository you downloaded with this example under **SpeechToText**, in the **Windows** folder, under **samples**, in the **SpeechRecognitionServiceExample** folder. These example audio files will run automatically if no other files are chosen when selecting the **Use wav file for Shortphrase mode** or **Use wav file for Longdictation mode** as your speech input. Currently only wav audio format is supported.
+> [!IMPORTANT]
+> * Get a subscription key. Before you use the Speech client libraries, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
+>
+> * Use your subscription key. With the provided C# desktop sample application, paste your subscription key into the text box when you run the sample. For more information, see [Run the sample application](#step-3-run-the-sample-application).
 
-![Speech to Text Interface](../Images/HelloJones.PNG)
+## Step 1: Install the sample application
 
-<a name="Review"></a>
-## Review and Learn
+1. Start Visual Studio 2015, and select **File** > **Open** > **Project/Solution**.
 
-### Events
-#### Partial Results Event:
-This event gets called every time the Speech Recognition Server has an idea of what the speaker might be saying – even before he or she has finished speaking (if you are using the Microphone Client) or have finished transferring data (if you are using the Data Client).
-#### Intent Event:
-Called on WithIntent clients (only in ShortPhrase mode) after the final reco result has been parsed into structured JSON intent.
-#### Result Event:
-When you have finished speaking (in ShortPhrase mode), this event is called. You will be provided with n-best choices for the result. In LongDictation mode, the handler associated with this event will be called multiple times, based on where the server thinks sentence pauses are.
+2. Browse to the folder where you saved the downloaded Speech Recognition API files. Select **Speech** > **Windows**, and then select the Sample-WP folder.
 
-Eventhandlers are already pointed out in the code in form of code comments.
+3. Double-click to open the Visual Studio 2015 Solution (.sln) file named SpeechToText-WPF-Samples.sln. The solution opens in Visual Studio.
 
- **Return Format** |  Description |
- ------|------
- **LexicalForm** |  This form is optimal for use by applications that need raw, unprocessed speech recognition results.
- **DisplayText**  |  The recognized phrase with inverse text normalization, capitalization, punctuation and profanity masking applied. Profanity is masked with asterisks after the initial character, e.g. "d***". This form is optimal for use by applications that display the speech recognition results to a user.
-**Inverse Text Normalization (ITN) has been applied**  |  An example of ITN is converting result text from "go to fourth street" to "go to 4th st". This form is optimal for use by applications that display the speech recognition results to a user.
-**InverseTextNormalizationResult**  | Inverse text normalization (ITN) converts phrases like "one two three four" to a normalized form such as "1234". Another example is converting result text from "go to fourth street" to "go to 4th st". This form is optimal for use by applications that interpret the speech recognition results as commands or perform queries based on the recognized text.
-**MaskedInverseTextNormalizationResult**  |  The recognized phrase with inverse text normalization and profanity masking applied, but no capitalization or punctuation. Profanity is masked with asterisks after the initial character, e.g. "d***". This form is optimal for use by applications that display the speech recognition results to a user. Inverse Text Normalization (ITN) has also been applied. An example of ITN is converting result text from "go to fourth street" to "go to 4th st". This form is optimal for use by applications that use the unmasked ITN results but also need to display the command or query to the user.
+## Step 2: Build the sample application
 
-<a name="RelatedTopics"></a>
-## Related Topics
-* [Get started with Bing Speech Recognition and/or intent in Java on Android](GetStartedJavaAndroid.md)
-* [Get started with Bing Speech Recognition and/or intent in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)
-* [Get started with Bing Speech API in JavaScript](GetStartedJS.md)
-* [Get started with Bing Speech API in cURL](GetStarted-cURL.md)
+1. If you want to use *recognition with intent*, you first need to sign up for the [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). Then use the endpoint URL of your LUIS app to set the value of the key `LuisEndpointUrl` in the app.config file in the samples/SpeechRecognitionServiceExample folder. For more information on the endpoint URL of the LUIS app, see [Publish your app](../../luis/luis-get-started-create-app.md#publish-your-app).
+
+   > [!TIP]
+   > Replace the `&` character in the LUIS endpoint URL with `&amp;` to ensure that the URL is correctly interpreted by the XML parser.
+
+2. Press Ctrl+Shift+B, or select **Build** on the ribbon menu. Then select **Build Solution**.
+
+## Step 3: Run the sample application
+
+1. After the build is finished, press F5 or select **Start** on the ribbon menu to run the sample.
+
+2. Go to the **Project Oxford Speech to Text Sample** window. Paste your subscription key into the **Paste your subscription key here to start** text box as shown. To persist your subscription key on your PC or laptop, select **Save Key**. To delete the subscription key from the system, select **Delete Key** to remove it from your PC or laptop.
+
+   ![Speech recognition paste-in key](../Images/SpeechRecog_paste_key.PNG)
+
+3. Under **Speech Recognition Source**, choose one of the six speech sources, which fall into two main input categories:
+
+   * Use your computer's microphone or an attached microphone to capture speech.
+   * Play an audio file.
+
+   Each category has three recognition modes:
+
+    * **ShortPhrase mode**: An utterance up to 15 seconds long. As data is sent to the server, the client receives multiple partial results and one final result with multiple n-best choices.
+    * **LongDictation mode**: An utterance up to two minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server indicates sentence pauses.
+    * **Intent detection**: The server returns additional structured information about the speech input. To use intent detection, you need to first train a model by using [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+
+Use sample audio files with this sample application. Find the files in the repository you downloaded with this sample under the samples/SpeechRecognitionServiceExample folder. These sample audio files run automatically if no other files are chosen when you select **Use wav file for Shortphrase mode** or **Use wav file for Longdictation mode** as your speech input. Currently, only WAV audio format is supported.
+
+![Speech to Text interface](../Images/HelloJones.PNG)
+
+## Samples explained
+
+### Recognition events
+
+* **Partial Results events**: This event gets called every time Speech Service predicts what you might be saying, even before you finish speaking (if you use `MicrophoneRecognitionClient`) or finish sending data (if you use `DataRecognitionClient`).
+* **Error events**: Called when the service detects an error.
+* **Intent events**: Called on "WithIntent" clients (only in ShortPhrase mode) after the final recognition result is parsed into a structured JSON intent.
+* **Result events**:
+  * In `ShortPhrase` mode, this event is called and returns the n-best results after you finish speaking.
+  * In `LongDictation` mode, the event handler is called multiple times, based on where the service identifies sentence pauses.
+  * **For each of the n-best choices**, a confidence value and a few different forms of the recognized text are returned. For more information, see [Output format](../Concepts.md#output-format).
+
+Event handlers are already pointed out in the code in the form of code comments.
+
+## Related topics
+
+* [Microsoft Speech desktop library reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
+* [Get started with the Microsoft Speech Recognition API in Java on Android](GetStartedJavaAndroid.md)
+* [Get started with the Microsoft Speech Recognition API in Objective-C on iOS](Get-Started-ObjectiveC-iOS.md)
+* [Get started with the Microsoft Speech Recognition API in JavaScript](GetStartedJSWebsockets.md)
+* [Get started with the Microsoft Speech Recognition API via REST](GetStartedREST.md)

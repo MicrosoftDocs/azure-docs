@@ -1,0 +1,182 @@
+- name: DNS Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure DNS?
+    href: dns-overview.md
+  - name: What is Azure Private DNS?
+    href: private-dns-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Name resolution - portal
+    href: dns-getstarted-portal.md
+  - name: Name resolution - PowerShell
+    href: dns-getstarted-powershell.md
+  - name: Name resolution - CLI
+    href: dns-getstarted-cli.md
+- name: Tutorials
+  items:
+  - name: Public DNS
+    items:
+    - name: Host your domain in Azure DNS
+      href: dns-delegate-domain-azure-dns.md
+    - name: Create custom DNS records for a web app
+      href: dns-web-sites-custom-domain.md
+    - name: Alias records for Traffic Manager
+      href: tutorial-alias-tm.md
+    - name: Alias records for Public IP addresses
+      href: tutorial-alias-pip.md
+    - name: Alias records for zone records
+      href: tutorial-alias-rr.md
+  - name: Private DNS
+    items:
+    - name: Create private DNS zone and record
+      href: private-dns-portal.md
+
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Concepts
+  items:
+  - name: Public DNS
+    items:
+    - name: Zones and records
+      href: dns-zones-records.md
+    - name: Alias records
+      href: dns-alias.md
+    - name: Delegation with Azure DNS
+      href: dns-domain-delegation.md
+    - name: FAQ
+      href: dns-faq.md
+    - name: DNS metrics and alerts
+      href: dns-alerts-metrics.md
+    - name: Reverse DNS
+      href: dns-reverse-dns-overview.md
+    - name: Disaster recovery using Azure DNS and Traffic Manager
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
+  - name: Private DNS
+    items:
+    - name: FAQ - Private DNS
+      href: dns-faq-private.md
+    - name: Private DNS scenarios
+      href: private-dns-scenarios.md
+- name: How to
+  items:
+  - name: Private DNS
+    items:
+    - name: Create private zone - CLI
+      href: private-dns-getstarted-cli.md
+    - name: Create private zone - PowerShell
+      href: private-dns-getstarted-powershell.md
+  - name: Public DNS
+    items:
+    - name: Alias records for load balanced web apps
+      href: dns-alias-appservice.md
+    - name: Manage DNS zones
+      items:
+      - name: Azure portal
+        href: dns-operations-dnszones-portal.md
+      - name: Azure PowerShell
+        href: dns-operations-dnszones.md
+      - name: Azure CLI
+        href: dns-operations-dnszones-cli.md
+    - name: Manage DNS records
+      items:
+      - name: Azure portal
+        href: dns-operations-recordsets-portal.md
+      - name: Azure PowerShell
+        href: dns-operations-recordsets.md
+      - name: Azure CLI
+        href: dns-operations-recordsets-cli.md
+    - name: Manage reverse DNS
+      items:
+      - name: Host reverse lookup zones in Azure DNS
+        href: dns-reverse-dns-hosting.md
+      - name: Manage reverse DNS records for Azure services
+        href: dns-reverse-dns-for-azure-services.md
+    - name: Import and export a DNS zone file
+      href: dns-import-export.md
+    - name: Delegate a subdomain
+      href: delegate-subdomain.md
+    - name: Delegate a subdomain using PowerShell
+      href: delegate-subdomain-ps.md
+    - name: Integrate with other Azure services
+      href: dns-for-azure-services.md
+    - name: Protect DNS zones and records
+      href: dns-protect-zones-recordsets.md
+    - name: Automate DNS operations with the .NET SDK
+      href: dns-sdk.md
+    - name: Custom domains for Azure resources
+      href: dns-custom-domain.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshooting guide
+      href: dns-troubleshoot.md
+- name: Reference
+  items:
+  - name: Public DNS
+    items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?service=dns
+    - name: Azure PowerShell
+      href: /powershell/module/az.dns
+    - name: Azure CLI
+      href: /cli/azure/network/dns
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.dns.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.dns
+    - name: Node.js
+      href: https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/
+    - name: Ruby
+      href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
+    - name: Python
+      href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
+    - name: REST
+      href: /rest/api/dns/
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.network/dns-allversions
+  - name: Private DNS
+    items:
+    - name: Azure CLI
+      href: /cli/azure/network/private-dns
+    - name: Azure PowerShell
+      href: /powershell/module/az.PrivateDns
+    - name: .NET
+      href: /dotnet/api/overview/azure/privatedns/management
+    - name: REST
+      href: /rest/api/dns/privatedns/privatezones
+- name: Related
+  items:
+  - name: Application Gateway
+    href: /azure/application-gateway/
+  - name: Virtual Network
+    href: /azure/virtual-network/
+  - name: Virtual Machine
+    href: /azure/virtual-machines/
+  - name: Load Balancer
+    href: /azure/load-balancer/
+  - name: Traffic Manager
+    href: /azure/traffic-manager/
+  - name: Web apps
+    href: /azure/app-service/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Feature requests
+    href: https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/dns/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=dns
+  - name: Private DNS zone migration guide
+    href: private-dns-migration-guide.md

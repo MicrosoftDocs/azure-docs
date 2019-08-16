@@ -1,24 +1,18 @@
 ---
-title: Use Job Browser and Job View for Azure Data Lake Analytics jobs | Microsoft Docs
-description: 'Learn how to use Job Browser and Job View for Azure Data Lake Analytics jobs. '
+title: Use Job Browser and Job View for Azure Data Lake Analytics jobs
+description: This article describes how to use Job Browser and Job View for Azure Data Lake Analytics jobs.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/17/2016
-ms.author: jgao
+author: jasonwhowell
+ms.author: jasonh
 
+ms.reviewer: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
+ms.date: 08/02/2017
 ---
-# Use Job Browser and Job View for Azure Data lake Analytics jobs
-The Azure Data Lake Analytics service archives the submitted jobs in a [query store](#query-store). In this article, you learn how to use Job Browser and Job View in Azure Data Lake Tools for Visual Studio to find the historical job information. 
+# Use Job Browser and Job View for Azure Data Lake Analytics
+The Azure Data Lake Analytics service archives submitted jobs in a query store. In this article, you learn how to use Job Browser and Job View in Azure Data Lake Tools for Visual Studio to find the historical job information. 
 
 By default, the Data Lake Analytics service archives the jobs for 30 days. The expiration period can be configured from the Azure portal by configuring the customized expiration policy. You will not be able to access the job information after expiration. 
 
@@ -26,7 +20,7 @@ By default, the Data Lake Analytics service archives the jobs for 30 days. The e
 See [Data Lake Tools for Visual Studio prerequisites](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## Open the Job Browser
-The Job Browser is accessible via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the browser, you can access the query store of a Data Lake Analytics account. Job Browser shows Query Store in the left which shows basic information about jobs, and Job View on the right which provides the detailed information about a job.
+Access the Job Browser via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the Job Browser, you can access the query store of a Data Lake Analytics account. Job Browser displays Query Store on the left, showing basic job information, and Job View on the right showing detailed job information.
 
 ## Job View
 Job View shows the detailed information of a job. To open a job, you can double-click a job in the Job Browser, or open it from the Data Lake menu by clicking Job View. You should see a dialog populated with the job URL.
@@ -46,7 +40,7 @@ Job View contains:
       ![Azure Data Lake Analytics job phases status](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparing: Upload your script to the cloud, compiling and optimizing the script using the compile service.
-    * Queued: Jobs are queued whey they are waiting for enough resources, or the jobs exceed the max concurrent jobs per account limitation. The priority setting determines the sequence of queued jobs - the lower the number, the higher the priority.
+    * Queued: Jobs are queued when they are waiting for enough resources, or the jobs exceed the max concurrent jobs per account limitation. The priority setting determines the sequence of queued jobs - the lower the number, the higher the priority.
     * Running: The job is actually running in your Data Lake Analytics account.
     * Finalizing: The job is completing (for example, finalizing the file).
       
@@ -127,7 +121,7 @@ Job View contains:
     
       ![Azure Data Lake Analytics job graph heap map example](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Progress: The job execution progress, see Information in [stage information](#stage-information).
+    * Progress: The job execution progress, see Information in stage information.
     * Data read/written: The heat map of total data read/written in each stage.
     * Compute time: The heat map of SUM (every vertex execution time), you can consider this as how long it would take if all work in the stage is executed with only 1 vertex.
     * Average execution time per node: The heat map of SUM (every vertex execution time) / (Vertex Number). Which means if you could assign all the vertices executed in parallelism, the whole stage will be done in this time frame.
@@ -169,12 +163,7 @@ Job Detail shows the detailed information of the job, including Script, Resource
     It shows vertices execution details. The Job Profile archives every vertex execution log, such as total data read/written, runtime, state, etc. Through this view, you can get more details on how a job ran. For more information, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## Next Steps
-* To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-* To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-* For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 * To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * To use vertex execution view, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-* To learn Data Lake Tools for Visual Studio code, see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 

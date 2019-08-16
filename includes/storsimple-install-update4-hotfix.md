@@ -1,10 +1,16 @@
-<!--author=alkohli last changed: 02/10/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To download hotfixes
 
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 
     ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -14,22 +20,21 @@ Perform the following steps to download the software update from the Microsoft U
     The hotfix listing appears, for example, **Cumulative Software Bundle Update 4.0 for StorSimple 8000 Series**.
    
     ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Click **Add**. The update is added to the basket.
-5. Search for any additional hotfixes listed in the table above (**4011841**), and add each to the basket.
-6. Click **View Basket**.
-7. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
+
+4. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. Click the files to download to the specified location and folder. The folder can also be copied to a network share that is reachable from the device.
+5. Search for any additional hotfixes listed in the table above (**4011841**), and download the corresponding files to the specific folders as listed in the preceding table.
 
 > [!NOTE]
-> The hotfixes must be accessible from both controllers to detect any potential error messages from the peer > controller.
+> The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
 >
-> The hotfixes must be copied in 3 separate folders. For example, the device software update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
+> The hotfixes must be copied in 3 separate folders. For example, the device software/Cis/MDS agent update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
 
 #### To install and verify regular mode hotfixes
 
 Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure classic portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
-2. Select **Option 1** to log on to the device with full access. We recommend that you install the hotfix on the passive controller first.
+1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
+2. Select option 1, **Log in with full access**. We recommend that you install the hotfix on the passive controller first.
 3. To install the hotfix, at the command prompt, type:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -42,7 +47,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -53,7 +58,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 4. Type **Y** when prompted to confirm the hotfix installation.
 5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
    
@@ -79,24 +84,27 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     Controller1Events   :
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
-1. After the software update is complete, verify the system software versions. Type:
+6. After the software update is complete, verify the system software versions. Type:
    
     `Get-HcsSystem`
    
     You should see the following versions:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
+     If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
      
-    > [!IMPORTANT]
-    > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
+     > [!IMPORTANT]
+     > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
      
-7. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+7. Repeat steps 3-5 to install the Cis/MDS agent downloaded to your _FirstOrderUpdate_ folder. 
+8. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update. 
+
+After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -151,7 +159,7 @@ To install the disk firmware updates, follow the instructions below.
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
-4. After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
+4. After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Sign in as option 1, **Log in with full access**, and verify the disk firmware version. Type:
    
    `Get-HcsFirmwareVersion`
    

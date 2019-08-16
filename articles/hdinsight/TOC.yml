@@ -1,0 +1,18 @@
+- name: HDInsight Documentation
+  href: index.yml
+- name: Apache Hadoop
+  href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
+- name: Apache Spark
+  href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
+- name: Apache HBase
+  href: ./hbase/query-hbase-with-hbase-shell.md
+- name: Interactive Query
+  href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
+- name: Apache Kafka
+  href: ./kafka/apache-kafka-get-started.md
+- name: Apache Storm
+  href: ./storm/apache-storm-quickstart.md
+- name: ML Services
+  href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
+- name: Enterprise readiness
+  href: ./domain-joined/apache-domain-joined-run-hbase.md

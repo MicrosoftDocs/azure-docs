@@ -1,9 +1,9 @@
 ---
-title: Create Service Bus namespace using an Azure Resource Manager template | Microsoft Docs
-description: Use Azure Resource Manager template to create a Service Bus namespace
+title: Create Service Bus Messaging namespace using Azure Resource Manager template | Microsoft Docs
+description: Use Azure Resource Manager template to create a Service Bus Messaging namespace
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,135 +13,91 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/12/2017
-ms.author: sethm;shvija
-
+ms.date: 06/21/2019
+ms.author: spelluru
 ---
 
-# Create a Service Bus namespace using an Azure Resource Manager template
+# Create a Service Bus namespace by using an Azure Resource Manager template
 
-This article describes how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard/Basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
+Learn how to deploy an Azure Resource Manager template to create a Service Bus namespace. You can use this template for your own deployments, or customize it to meet your requirements. For more information about creating templates, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
 
-For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
+The following templates are also available for creating Service Bus namespaces:
 
-For the complete template, see the [Service Bus namespace template][Service Bus namespace template] on GitHub.
+* [Create a Service Bus namespace with queue](./service-bus-resource-manager-namespace-queue.md)
+* [Create a Service Bus namespace with topic and subscription](./service-bus-resource-manager-namespace-topic.md)
+* [Create a Service Bus namespace with queue and authorization rule](./service-bus-resource-manager-namespace-auth-rule.md)
+* [Create a Service Bus namespace with topic, subscription, and rule](./service-bus-resource-manager-namespace-topic-with-rule.md)
 
-> [!NOTE]
-> The following Azure Resource Manager templates are available for download and deployment. 
-> 
-> * [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
-> * [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
-> * [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
-> 
-> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Service Bus.
-> 
-> 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## What will you deploy?
-With this template, you will deploy a Service Bus namespace with a [Basic, Standard, or Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-To run the deployment automatically, click the following button:
+## Create a service bus namespace
 
-[![Deploy to Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+In this quickstart, you use an [existing Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/):
 
-## Parameters
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
+[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
 
-This template defines the following parameters.
+To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
-### serviceBusNamespaceName
-The name of the Service Bus namespace to create.
+To create a service bus namespace by deploying a template:
 
-```json
-"serviceBusNamespaceName": {
-"type": "string",
-"metadata": { 
-    "description": "Name of the Service Bus namespace" 
-    }
-}
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
+
+    ```azurepowershell-interactive
+    $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${serviceBusNamespaceName}rg"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    The resource group name is the service bus namespace name with **rg** appended.
+
+2. Select **Copy** to copy the PowerShell script.
+3. Right-click the shell console, and then select **Paste**.
+
+It takes a few moments to create an event hub.
+
+## Verify the deployment
+
+To see the deployed service bus namespace, you can either open the resource group from the Azure portal, or use the following Azure PowerShell script. If the Cloud shell is still open, you don't need to copy/run the first and second lines of the following script.
+
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
+
+Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBusNamespaceName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
-### serviceBusSKU
-The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) to create.
+Azure PowerShell is used to deploy the template in this tutorial. For other template deployment methods, see:
 
-```json
-"serviceBusSku": { 
-    "type": "string", 
-    "allowedValues": [ 
-        "Basic", 
-        "Standard",
-        "Premium" 
-    ], 
-    "defaultValue": "Standard", 
-    "metadata": { 
-        "description": "The messaging tier for service Bus namespace" 
-    } 
+* [By using the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* [By using Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* [By using REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
-```
+## Clean up resources
 
-The template defines the values that are permitted for this parameter (Basic, Standard, or Premium) and assigns a default value (Standard) if no value is specified.
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud shell is still open, you don't need to copy/run the first and second lines of the following script.
 
-For more information about Service Bus pricing, see [Service Bus pricing and billing][Service Bus pricing and billing].
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
 
-### serviceBusApiVersion
-The Service Bus API version of the template.
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
-```json
-"serviceBusApiVersion": { 
-       "type": "string", 
-       "defaultValue": "2015-08-01", 
-       "metadata": { 
-           "description": "Service Bus ApiVersion used by the template" 
-       } 
-```
-
-## Resources to deploy
-### Service Bus namespace
-Creates a standard Service Bus namespace of type **Messaging**.
-
-```json
-"resources": [
-    {
-        "apiVersion": "[parameters('serviceBusApiVersion')]",
-        "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
-        "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
-        },
-        "properties": {
-        }
-    }
-]
-```
-
-## Commands to run deployment
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
-
-### PowerShell
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
-```
-
-### Azure CLI
-```CLI
-azure config mode arm
-
-azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
-Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by reading these articles:
 
-* [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
-* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+In this article, you created a Service Bus namespace. See the other quickstarts to learn how to create queues, topics/subscriptions, and use them:
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-[Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: service-bus-pricing-billing.md
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [Get started with Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)

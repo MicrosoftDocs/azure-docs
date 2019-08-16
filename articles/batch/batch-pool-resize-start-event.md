@@ -1,19 +1,20 @@
 ---
-title: "Pool resize start event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 8bd33e8b-6390-4a34-95dc-2e63d8bce941
-caps.latest.revision: 6
-author: "tamram"
-ms.author: "tamram"
-manager: "timlt"
+title: "Azure Batch pool resize start event | Microsoft Docs"
+description: Reference for Batch pool resize start event.
+services: batch
+author: laurenhughes
+manager: gwallace
+
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: 
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: lahugh
 ---
+
 # Pool resize start event
 
  This event is emitted when a pool resize has started. Since the pool resize is an asynchronous event, you can expect a pool resize complete event to be emitted once the resize operation completes.
@@ -38,4 +39,4 @@ manager: "timlt"
 |currentDedicated|Int32|The number of compute nodes currently assigned to the pool.|
 |targetDedicated|Int32|The number of compute nodes that are requested for the pool.|
 |enableAutoScale|Bool|Specifies whether the pool size automatically adjusts over time.|
-|isAutoPool|Bool|Speficies whether the pool was created via a job's AutoPool mechanism.|
+|isAutoPool|Bool|Specifies whether the pool was created via a job's AutoPool mechanism.|

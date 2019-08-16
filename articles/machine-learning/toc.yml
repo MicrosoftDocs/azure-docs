@@ -1,0 +1,6 @@
+- name: Azure Machine Learning Service
+  href: service/index.yml
+- name: Azure Machine Learning Studio
+  href: studio/index.yml
+- name: Compare ML products at Microsoft
+  href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context

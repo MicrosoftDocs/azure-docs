@@ -1,0 +1,94 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Key Vault Documentation
+metadata:
+  title: Azure Key Vault Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  author: barclayn
+  manager: barbkess
+  layout: LandingPage
+  ms.service: key-vault
+  ms.topic: landing-page
+  ms.date: 09/14/2018
+  ms.author: barclayn
+abstract:
+  description: Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys and secrets that access and encrypt your resources and solutions.
+sections:
+
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - href: /azure/key-vault/key-vault-whatis
+        html: <p>Learn foundational concepts related to Azure Key Vault.</p>
+        image:
+          src: https://docs.microsoft.com/media/common/i_article.svg
+        title: Concepts
+
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: ''
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: /azure/key-vault/quick-create-cli
+    - image: 
+        src: media/index/logo_powershell.svg
+      text: PowerShell
+      href: /azure/key-vault/quick-create-powershell
+    - image: 
+        src: media/index/portal.svg
+      text: Azure Portal
+      href: /azure/key-vault/quick-create-portal
+    - image: 
+        src: media/index/logo_NET.svg
+      text: .NET
+      href: /azure/key-vault/quick-create-net
+    - image: 
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/key-vault/quick-create-node
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Key Vault in various scenarios
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Get Started with Key Vault from a Web Application</a>
+    - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine</a></li>
+    - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">How to use Azure Key Vault with Azure Windows Virtual Machine</a>
+    - html: <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine</a>
+    - html: <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">How to use Azure Key Vault with Azure Windows Virtual Machine</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Manage secrets in your server apps with Azure Key Vault
+      href: /learn/modules/manage-secrets-with-azure-key-vault/
+      image: 
+        src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
+        href: /learn/modules/manage-secrets-with-azure-key-vault/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-key-vault">More interactive learning...</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Commandline
+      html: <p><a href="/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault">PowerShell</a></p><p><a href="/cli/azure/keyvault">Azure CLI 2</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p><p><a href="/java/api/overview/azure/keyvault">Java</a></p><p><a href="/python/api/overview/azure/key-vault">Python</a></p><p><a href="/javascript/api/overview/azure/key-vault">Node.js</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/keyvault">REST API</a></p>

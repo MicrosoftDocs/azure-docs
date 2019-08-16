@@ -1,9 +1,9 @@
 ---
-title: Create an Azure Event Hubs namespace and consumer group using a template | Microsoft Docs
+title: Create an event hub with consumer group - Azure Event Hubs | Microsoft Docs
 description: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,137 +13,92 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/07/2017
-ms.author: sethm;shvija
+ms.date: 07/02/2019
+ms.author: shvija
 
 ---
-# Create an Event Hubs namespace with an event hub and consumer group using an Azure Resource Manager template
-This article shows how to use an Azure Resource Manager template that creates a namespace of type Event Hubs, with one event hub and one consumer group. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
-For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
+# Quickstart: Create an event hub by using an Azure Resource Manager template
 
-For the complete template, see the [Event hub and consumer group template][Event Hub and consumer group template] on GitHub.
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-> [!NOTE]
-> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
-> 
-> 
+In this quickstart, you create an event hub by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). You deploy an Azure Resource Manager template to create a namespace of type [Event Hubs](event-hubs-what-is-event-hubs.md), with one event hub. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates]. For the JSON syntax and properties to use in a template, see [Microsoft.EventHub resource types](/azure/templates/microsoft.eventhub/allversions).
 
-## What will you deploy?
-With this template, you will deploy an Event Hubs namespace with an event hub and a consumer group.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability.
+## Create an event hub
 
-To run the deployment automatically, click the following button:
+In this quickstart, you use an [existing quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json):
 
-[![Deploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+[!code-json[create-azure-event-hub-namespace](~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)]
 
-## Parameters
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value in the template defines the resources that are deployed.
+To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
-The template defines the following parameters.
+To deploy the template:
 
-### eventHubNamespaceName
-The name of the Event Hubs namespace to create.
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
 
-```json
-"eventHubNamespaceName": {
-"type": "string"
-}
+   ```azurepowershell-interactive
+   $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
+
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
+
+   Write-Host "Press [ENTER] to continue ..."
+   ```
+
+   It takes a few moments to create an event hub.
+
+1. Select **Copy** to copy the PowerShell script.
+1. Right-click the shell console, and then select **Paste**.
+
+## Verify the deployment
+
+To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+$namespaceName = "${projectName}ns"
+
+Get-AzEventHub -ResourceGroupName $resourceGroupName -Namespace $namespaceName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
-### eventHubName
-The name of the event hub created in the Event Hubs namespace.
+## Clean up resources
 
-```json
-"eventHubName": {
-"type": "string"
-}
-```
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
 
-### eventHubConsumerGroupName
-The name of the consumer group created for the event hub.
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
 
-```json
-"eventHubConsumerGroupName": {
-"type": "string"
-}
-```
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
-### apiVersion
-The API version of the template.
-
-```json
-"apiVersion": {
-"type": "string"
-}
-```
-
-## Resources to deploy
-Creates a namespace of type **EventHubs**, with an event hub and a consumer group.
-
-```json
-"resources":[  
-      {  
-         "apiVersion":"[variables('ehVersion')]",
-         "name":"[parameters('namespaceName')]",
-         "type":"Microsoft.EventHub/namespaces",
-         "location":"[variables('location')]",
-         "sku":{  
-            "name":"Standard",
-            "tier":"Standard"
-         },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]"
-               },
-               "resources":[  
-                  {  
-                     "apiVersion":"[variables('ehVersion')]",
-                     "name":"[parameters('consumerGroupName')]",
-                     "type":"ConsumerGroups",
-                     "dependsOn":[  
-                        "[parameters('eventHubName')]"
-                     ],
-                     "properties":{  
-
-                     }
-                  }
-               ]
-            }
-         ]
-      }
-   ],
-```
-
-## Commands to run deployment
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
-
-## PowerShell
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
-```
-
-## Azure CLI
-```cli
-azure config mode arm
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
-You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this article, you created an Event Hubs namespace, and an event hub in the namespace. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials:
+
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (send only)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
+
+
+[3]: ./media/event-hubs-quickstart-powershell/sender1.png
+[4]: ./media/event-hubs-quickstart-powershell/receiver1.png
+[5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs

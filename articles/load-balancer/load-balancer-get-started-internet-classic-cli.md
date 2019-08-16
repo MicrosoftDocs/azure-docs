@@ -1,28 +1,25 @@
 ---
-title: Create an Internet-facing load balancer - Azure CLI classic | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI
+title: Create an Internet-facing Load Balancer - Azure classic CLI
+titlesuffix: Azure Load Balancer
+description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
-tags: azure-service-management
-
-ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
+author: genlin
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-ms.author: kumud
+ms.date: 10/31/2018
+ms.author: genli
 ---
 
-# Get started creating an Internet facing load balancer (classic) in the Azure CLI
+# Get started creating an Internet facing Load Balancer (classic) in the Azure classic CLI
 
 > [!div class="op_single_selector"]
-> * [Azure classic portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure classic CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -30,13 +27,15 @@ ms.author: kumud
 > [!IMPORTANT]
 > Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
+[!INCLUDE [requires-classic-cli](../../includes/contains-classic-cli-content.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Step by step creating an Internet facing load balancer using CLI
+## Create an Internet facing load balancer using CLI
 
 This guide shows how to create an Internet load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure classic CLI, see [Install and Configure the Azure classic CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
@@ -60,7 +59,7 @@ Create the first endpoint and load balancer set using `azure network vm endpoint
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## Step 2
+### Step 2
 
 Add a second virtual machine "web2" to the load balancer set.
 
@@ -68,7 +67,7 @@ Add a second virtual machine "web2" to the load balancer set.
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## Step 3
+### Step 3
 
 Verify the load balancer configuration using `azure vm show` .
 

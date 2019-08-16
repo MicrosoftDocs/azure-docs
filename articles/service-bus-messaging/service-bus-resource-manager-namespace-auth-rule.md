@@ -1,11 +1,11 @@
 ---
-title: Create Service Bus authorization rule using Azure Resource Manager template | Microsoft Docs
+title: Create a Service Bus authorization rule using Azure Resource Manager template | Microsoft Docs
 description: Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
 ms.service: service-bus-messaging
@@ -13,13 +13,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/18/2017
-ms.author: sethm;shvija
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates an [authorization rule](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) for a Service Bus namespace and queue. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+This article shows how to use an Azure Resource Manager template that creates an [authorization rule](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) for a Service Bus namespace and queue. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -33,12 +33,13 @@ For the complete template, see the [Service Bus authorization rule template][Ser
 > * [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for "Service Bus."
-> 
-> 
+> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for **Service Bus**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## What will you deploy?
-With this template, you will deploy a Service Bus authorization rule for a namespace and messaging entity (in this case, a queue).
+
+With this template, you deploy a Service Bus authorization rule for a namespace and messaging entity (in this case, a queue).
 
 This template uses [Shared Access Signature (SAS)](service-bus-sas.md) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
 
@@ -83,9 +84,12 @@ The name of the queue in the Service Bus namespace.
 The Service Bus API version of the template.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## Resources to deploy
@@ -100,8 +104,7 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
             "location": "[variables('location')]",
             "kind": "Messaging",
             "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
+                "name": "Standard",
             },
             "resources": [
                 {
@@ -142,16 +145,18 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
     ]
 ```
 
+For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces), [queues](/azure/templates/microsoft.servicebus/namespaces/queues), and [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
+
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## Azure CLI
-```cli
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>

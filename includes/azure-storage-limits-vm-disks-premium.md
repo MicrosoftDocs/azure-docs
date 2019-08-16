@@ -1,28 +1,33 @@
-**Premium unmanaged virtual machine disks: per account limits**
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: rogarana
+---
+**Premium unmanaged virtual machine disks: Per-account limits**
 
-| Resource | Default Limit |
+| Resource | Default limit |
 | --- | --- |
 | Total disk capacity per account |35 TB |
 | Total snapshot capacity per account |10 TB |
-| Max bandwidth per account (ingress + egress<sup>1</sup>) |<=50 Gbps |
+| Maximum bandwidth per account (ingress + egress)<sup>1</sup> |<=50 Gbps |
 
-<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
+<sup>1</sup>*Ingress* refers to all data from requests that are sent to a storage account. *Egress* refers to all data from responses that are received from a storage account.
 
-**Premium unmanaged virtual machine disks: per disk limits**
+**Premium unmanaged virtual machine disks: Per-disk limits**
 
-| Premium Storage Disk Type | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |
-| Max IOPS per disk |500 |2300 |5000 |
-| Max throughput per disk |100 MB/s | 150 MB/s |200 MB/s |
-| Max number of disks per storage account |280 |70 |35 |
+| Premium storage disk type | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- |
+| Disk size |128 GiB |512 GiB |1,024 GiB (1 TB) |2,048 GiB (2 TB)|4,095 GiB (4 TB)|
+| Maximum IOPS per disk |500 |2,300 |5,000 |7,500 |7,500 |
+| Maximum throughput per disk |100 MB/sec | 150 MB/sec |200 MB/sec |250 MB/sec |250 MB/sec |
+| Maximum number of disks per storage account |280 |70 |35 | 17 | 8 |
 
-**Premium unmanaged virtual machine disks: per VM limits**
+**Premium unmanaged virtual machine disks: Per-VM limits**
 
-| Resource | Default Limit |
+| Resource | Default limit |
 | --- | --- |
-| Max IOPS Per VM |80,000 IOPS with GS5 VM<sup>1</sup> |
-| Max throughput per VM |2,000 MB/s with GS5 VM<sup>1</sup> |
-
-<sup>1</sup>Refer to [VM Size](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for limits on other VM sizes. 
+| Maximum IOPS per VM |80,000 IOPS with GS5 VM |
+| Maximum throughput per VM |2,000 MB/sec with GS5 VM |
 

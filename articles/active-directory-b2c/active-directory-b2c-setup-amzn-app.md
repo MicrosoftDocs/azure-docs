@@ -1,47 +1,40 @@
 ---
-title: 'Azure Active Directory B2C: Amazon configuration | Microsoft Docs'
-description: Provide sign-up and sign-in to consumers with Amazon accounts in your applications that are secured by Azure Active Directory B2C.
+title: Set up sign-up and sign-in with an Amazon account - Azure Active Directory B2C | Microsoft Docs
+description: Provide sign-up and sign-in to customers with Amazon accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: mmacy
+manager: celestedg
 
-ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/06/2016
-ms.author: swkrish
-
+ms.topic: conceptual
+ms.date: 09/21/2018
+ms.author: marsma
+ms.subservice: B2C
 ---
-# Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Amazon accounts
+
+# Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C
+
 ## Create an Amazon application
-To use Amazon as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an Amazon application and supply it with the right parameters. You need an Amazon account to do this. If you don’t have one, you can get it at [http://www.amazon.com/](http://www.amazon.com/).
 
-1. Go to the [Amazon Developer Center](https://login.amazon.com/) and sign in with your Amazon account credentials.
+To use an Amazon account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have an Amazon account you can get it at [https://www.amazon.com/](https://www.amazon.com/).
+
+1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
 2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
-3. Click **Register new application**.
-   
-    ![Registering a new application at the Amazon website](./media/active-directory-b2c-setup-amzn-app/amzn-new-app.png)
-4. Provide application information (**Name**, **Description**, and **Privacy Notice URL**) and click **Save**.
-   
-    ![Providing application information for registering a new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
-5. In the **Web Settings** section, copy the values of **Client ID** and **Client Secret**. (You need to click the **Show Secret** button to see this.) You need both of them to configure Amazon as an identity provider in your tenant. Click **Edit** at the bottom of the section. **Client Secret** is an important security credential.
-   
-    ![Providing Client ID and Client Secret for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
-6. Enter `https://login.microsoftonline.com` in the **Allowed JavaScript Origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Allowed Return URLs** field. Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Save**. The **{tenant}** value is case-sensitive.
-   
-    ![Providing JavaScript Origins and Return URLs for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
+3. Select **Register new application**.
+4. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**. The privacy notice is a page that you manage that provides privacy information to users.
+5. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
+6. In the **Web Settings** section, select **Edit**, and then enter `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+7. Click **Save**.
 
-## Configure Amazon as an identity provider in your tenant
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
-2. On the B2C features blade, click **Identity providers**.
-3. Click **+Add** at the top of the blade.
-4. Provide a friendly **Name** for the identity provider configuration. For example, enter "Amzn".
-5. Click **Identity provider type**, select **Amazon**, and click **OK**.
-6. Click **Set up this identity provider** and enter the client ID and client secret of the Amazon application that you created earlier.
-7. Click **OK** and then click **Create** to save your Amazon configuration.
+## Configure an Amazon account as an identity provider
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+4. Select **Identity providers**, and then select **Add**.
+5. Enter a **Name**. For example, enter *Amazon*.
+6. Select **Identity provider type**, select **Amazon**, and click **OK**.
+7. Select **Set up this identity provider** and enter the Client ID that you recorded earlier as the **Client ID** and enter the Client Secret that you recorded as the **Client secret** of the Amazon application that you created earlier.
+8. Click **OK** and then click **Create** to save your Amazon configuration.
 

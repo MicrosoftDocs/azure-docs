@@ -1,23 +1,26 @@
 ---
-title: Evaluate method in the Knowledge Exploration Service API | Microsoft Docs
-description: Learn how to use the Evaluate method in the Knowledge Exploration Service (KES) API in Cognitive Services.
+title: Evaluate method - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Learn how to use the Evaluate method in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: kes
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ---
 
 # evaluate Method
+
 The *evaluate* method evaluates and returns the output of a structured query expression based on the index data.
 
 Typically, an expression will be obtained from a response to the interpret method.  But you can also compose query expressions yourself (see [Structured Query Expression](Expressions.md)).  
 
 ## Request 
+
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
 Name|Value|Description

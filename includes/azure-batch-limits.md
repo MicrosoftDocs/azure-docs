@@ -1,14 +1,24 @@
-| **Resource** | **Default Limit** | **Maximum Limit** |
+---
+ title: include file
+ description: include file
+ services: batch
+ author: laurenhughes
+ ms.service: batch
+ ms.topic: include
+ ms.date: 05/28/2019
+ ms.author: lahugh
+ ms.custom: include file
+---
+
+| **Resource** | **Default limit** | **Maximum limit** |
 | --- | --- | --- |
-| Batch accounts per region per subscription |3 |50 |
-| Cores per Batch account<sup>1</sup> |20 |N/A<sup>2</sup> |
-| Active jobs and job schedules<sup>3</sup> per Batch account |20 |5000<sup>4</sup> |
-| Pools per Batch account |20 |2500 |
+| Azure Batch accounts per region per subscription | 1-3 |50 |
+| Dedicated cores per Batch account | 90-900 | Contact support |
+| Low-priority cores per Batch account | 10-100 | Contact support |
+| **[Active](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>1</sup> |
+| Pools per Batch account | 20-100 | 500<sup>1</sup> |
 
-<sup>1</sup> Cores quotas shown are for accounts in Batch service mode. In user subscription mode, cores quotas are based on the regional VM cores quotas in your subscription.
+> [!NOTE]
+> Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>2</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact customer support to discuss increase options.
-
-<sup>3</sup> Completed jobs and job schedules are not limited.
-
-<sup>4</sup> Contact customer support if you want to request an increase beyond this limit.
+<sup>1</sup>To request an increase beyond this limit, contact Azure Support.

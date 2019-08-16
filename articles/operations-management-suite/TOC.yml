@@ -1,0 +1,124 @@
+- name: Overview
+  items:
+  - name: Agent Monitoring
+    href: ../monitoring/index.md
+- name: Get started
+  items:
+  - name: Azure Monitor logs
+    href: ../log-analytics/log-analytics-get-started.md
+  - name: Automation
+    href: /azure/automation/
+  - name: Backup
+    href: ../backup/backup-introduction-to-azure-backup.md
+  - name: Site Recovery
+    href: ../site-recovery/site-recovery-overview.md
+- name: How to
+  items:
+  - name: Analyze
+    items:
+    - name: Azure Monitor logs
+      href: ../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+  - name: Automate
+    items:
+    - name: Azure Automation overview
+      href: ../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+  - name: Backup
+    items:
+    - name: Backup overview
+      href: ../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+    - name: Site Recovery overview
+      href: ../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+  - name: Secure
+    items:
+    - name: Monitor resources
+      href: ../security-center/security-center-monitoring.md
+    - name: Respond to security alerts
+      href: ../security-center/security-center-managing-and-responding-alerts.md
+    - name: Baseline assessment
+      href: ../security-center/security-center-customize-os-security-config.md
+    - name: Malware assessment
+      href: ../security-center/security-center-install-endpoint-protection.md
+    - name: Connect security products
+      href: ../security-center/quick-security-solutions.md
+    - name: Web baseline assessment
+      href: ../security-center/security-center-customize-os-security-config.md
+  - name: Use solutions
+    items:
+    - name: Management solutions
+      href: ../azure-monitor/insights/solutions.md
+    - name: Target solutions
+      href: ../azure-monitor/insights/solution-targeting.md
+    - name: Insight & analytics
+      items:
+      - name: AD Assessment
+        href: ../azure-monitor/insights/ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: AD Replication Status
+        href: ../azure-monitor/insights/ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Agent Health
+        href: oms-solution-agenthealth.md
+      - name: Alert Management
+        href: ../azure-monitor/platform/alert-management-solution.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Azure Networking Analytics
+        href: ../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Containers
+        href: ../azure-monitor/insights/containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Key Vault Analytics
+        href: ../azure-monitor/insights/azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Network Performance Monitor
+        href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Office 365
+        href: oms-solution-office-365.md
+      - name: Service Fabric Analytics
+        href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Service Map
+        items:
+        - name: Use
+          href: ../azure-monitor/insights/service-map.md
+        - name: Configure
+          href: ../azure-monitor/insights/service-map-configure.md
+        - name: Integration with Operations Manager
+          href: ../azure-monitor/insights/service-map-scom.md
+      - name: SQL Assessment
+        href: ../azure-monitor/insights/sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Surface Hub
+        href: ../azure-monitor/insights/surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Upgrade Analytics
+        href: https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396
+      - name: VMware Analytics
+        href: ../azure-monitor/insights/vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Wire Data
+        href: ../azure-monitor/insights/wire-data.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+    - name: Automation & control
+      items:
+      - name: Change Tracking
+        href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+      - name: Update Management
+        href: oms-solution-update-management.md
+    - name: Security & compliance
+      items:
+      - name: Antimalware Assessment
+        href: ../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+  - name: Create solutions
+    items:
+    - name: Design and build
+      href: ../azure-monitor/insights/solutions-creating.md
+    - name: Solution file
+      href: ../azure-monitor/insights/solutions-solution-file.md
+    - name: Automation resources
+      href: ../azure-monitor/insights/solutions-resources-automation.md
+    - name: Log searches and alerts
+      href: ../azure-monitor/insights/solutions-resources-searches-alerts.md
+    - name: Views
+      href: ../azure-monitor/insights/solutions-resources-views.md
+    - name: Best practices
+      href: ../azure-monitor/insights/solutions-best-practices.md
+  - name: Management scenarios
+    items:
+    - name: Collect analytics data from runbook
+      href: ../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

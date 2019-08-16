@@ -1,58 +1,41 @@
 ---
-title: 'Azure Active Directory B2C: Google+ configuration | Microsoft Docs'
-description: Provide sign-up and sign-in to consumers with Google+ accounts in your applications that are secured by Azure Active Directory B2C.
+title: Set up sign-up and sign-in with a Google account - Azure Active Directory B2C | Microsoft Docs
+description: Provide sign-up and sign-in to customers with Google accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: mmacy
+manager: celestedg
 
-ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/06/2016
-ms.author: swkrish
-
+ms.topic: conceptual
+ms.date: 03/25/2019
+ms.author: marsma
+ms.subservice: B2C
 ---
-# Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Google+ accounts
-## Create a Google+ application
-To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Google+ application and supply it with the right parameters. You need a Google+ account to do this. If you don’t have one, you can get it at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
-1. Go to the [Google Developers Console](https://console.developers.google.com/) and sign in with your Google+ account credentials.
-2. Click **Create project**, enter a **Project name**, and then click **Create**.
-   
-    ![Google+ - Get started](./media/active-directory-b2c-setup-goog-app/google-get-started.png)
-   
-    ![Google+ - New project](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
-3. Click **API Manager** and then click **Credentials** in the left navigation.
-4. Click the **OAuth consent screen** tab at the top.
-   
-    ![Google+ - Credentials](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
-5. Select or specify a valid **Email address**, provide a **Product name**, and click **Save**.
-   
-    ![Google+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
-6. Click **New credentials** and then choose **OAuth client ID**.
-   
-    ![Google+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-add-oauth2-client-id.png)
-7. Under **Application type**, select **Web application**.
-   
-    ![Google+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
-8. Provide a **Name** for your application, enter `https://login.microsoftonline.com` in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). The **{tenant}** value is case-sensitive. Click **Create**.
-   
-    ![Google+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
-9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your tenant. **Client secret** is an important security credential.
-   
-    ![Google+ - Client secret](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
+# Set up sign-up and sign-in with a Google account using Azure Active Directory B2C
 
-## Configure Google+ as an identity provider in your tenant
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
-2. On the B2C features blade, click **Identity providers**.
-3. Click **+Add** at the top of the blade.
-4. Provide a friendly **Name** for the identity provider configuration. For example, enter "G+".
-5. Click **Identity provider type**, select **Google**, and click **OK**.
-6. Click **Set up this identity provider** and enter the client ID and client secret of the Google+ application that you created earlier.
-7. Click **OK** and then click **Create** to save your Google+ configuration.
+## Create a Google application
+
+To use a Google account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Google account you can get it at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+
+1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
+2. In the upper-left corner of the page, select the project list, and then select **New Project**.
+3. Enter a **Project Name**, click **Create**, and then make sure you are using the new project.
+4. Select **Credentials** in the left menu, and then select **Create credentials** > **Oauth client ID**.
+5. Under **Application type**, select **Web application**.
+6. Enter a **Name** for your application, enter `https://your-tenant-name.b2clogin.com` in **Authorized JavaScript origins**, and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorized redirect URIs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+7. Click **Create**.
+8. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
+
+## Configure a Google account as an identity provider
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+4. Select **Identity providers**, and then select **Add**.
+5. Enter a **Name**. For example, enter *Google*.
+6. Select **Identity provider type**, select **Google**, and click **OK**.
+7. Select **Set up this identity provider** and enter the Client ID that you recorded earlier as the **Client ID** and enter the Client Secret that you recorded as the **Client secret** of the Google application that you created earlier.
+8. Click **OK** and then click **Create** to save your Google configuration.
 

@@ -3,8 +3,8 @@ title: Static internal private IP - Azure VM - Classic
 description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2016
-ms.author: jdial
+ms.date: 10/31/2018
+ms.author: genli
 
 ---
 # How to set a static internal private IP address using PowerShell (Classic)
@@ -24,9 +24,14 @@ In most cases, you won’t need to specify a static internal IP address for your
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the [Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
+> ## Install the Azure PowerShell Service Management module
+
+Before you run the following commands, make sure that the [Azure PowerShell Service Management module](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
+) is installed on the machine. For the version history of Azure PowerShell Service Management module, see [Azure module in PowerShell Gallery](https://www.powershellgallery.com/packages/Azure/5.3.0).
 
 ## How to verify if a specific IP address is available
-To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, run the following PowerShell command and verify the value for *IsAvailable*:
+To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, run the following PowerShell command and verify the value for *IsAvailable*.
+
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 
@@ -37,7 +42,7 @@ To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, 
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> If you want to test the command above in a safe environment follow the guidelines in [Create a Virtual Network](virtual-networks-create-vnet-classic-portal.md) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
+> If you want to test the command above in a safe environment follow the guidelines in [Create a virtual network (classic)](virtual-networks-create-vnet-classic-pportal.md) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
 > 
 > 
 
@@ -92,7 +97,7 @@ To remove the static internal IP added to the VM in the script above, run the fo
     | Update-AzureVM
 
 ## How to add a static internal IP to an existing VM
-To add a static internal IP to the VM created using the script above, runt he following command:
+To add a static internal IP to the VM created using the script above, run the following command:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `

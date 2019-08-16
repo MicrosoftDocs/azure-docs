@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 1/5/2017
-ms.author: markgal;
+ms.author: sogup
 
 ---
 # Azure Government Backup
@@ -35,7 +35,7 @@ If you're new to Azure Backup and would like an overview of the available featur
 
 ## Azure Backup components available in Azure Government Backup
 
-You can use Azure Backup to protect: files, folders, volumes, virtual machines, applications, and workloads. Depending on what you want to protect, and where that data exists, you use a different Azure Backup component. The following sections have links to articles in the Azure Backup public documentation for each component. The sections are broken out by classic portal or Azure portal. Use the Azure portal version if you are planning to use Resource Manager deployments.
+You can use Azure Backup to protect: files, folders, volumes, virtual machines, applications, and workloads. Depending on what you want to protect, and where that data exists, you use a different Azure Backup component. The following sections have links to articles in the Azure Backup public documentation for each component. 
 
 ### Using Windows Server and Windows computers in Azure portal
 
@@ -43,13 +43,6 @@ You can use Azure Backup to protect: files, folders, volumes, virtual machines, 
 - [Restore Windows Server and Windows client computers](../backup/backup-azure-restore-windows-server.md)
 - [Manage Windows Server and Windows client computer backups](../backup/backup-azure-manage-windows-server.md)
 - [Using PowerShell to back up Windows Server](../backup/backup-client-automation.md)
-
-### Using Windows Server and Windows computers in classic portal
-
-- [Back up Windows Server and Windows client computers](../backup/backup-configure-vault-classic.md)
-- [Restore Windows Server and Windows client computers](../backup/backup-azure-restore-windows-server-classic.md)
-- [Manage Windows Server and Windows client computer backups](../backup/backup-azure-manage-windows-server-classic.md)
-- [Using PowerShell to back up Windows Server](../backup/backup-client-automation-classic.md)
 
 ### Using Virtual Machines in Azure portal
 
@@ -59,21 +52,9 @@ You can use Azure Backup to protect: files, folders, volumes, virtual machines, 
 - [Manage virtual machines](../backup/backup-azure-manage-vms.md)
 - [Using PowerShell to back up virtual machines](../backup/backup-azure-vms-automation.md)
 
-### Using Virtual Machines in classic portal
-
-- [Prepare your virtual machine environment](../backup/backup-azure-vms-prepare.md)
-- [Back up virtual machines](../backup/backup-azure-vms-first-look.md)
-- [Restore virtual machines](../backup/backup-azure-restore-vms.md)
-- [Manage virtual machines](../backup/backup-azure-manage-vms-classic.md)
-- [Using PowerShell to back up virtual machines](../backup/backup-azure-vms-classic-automation.md)
-
 ### Using System Center Data Protection Manager in Azure portal
 
 - [Back up System Center Data Protection Manager](../backup/backup-azure-dpm-introduction.md)
-
-### Using System Center Data Protection Manager in classic portal
-
-- [Back up System Center Data Protection Manager](../backup/backup-azure-dpm-introduction-classic.md)
 
 ### Using Azure Backup Server in Azure portal
 
@@ -81,13 +62,13 @@ Azure Backup Server is an Azure Backup component that functions similarly to Sys
 
 - [Azure Backup Server](../backup/backup-azure-microsoft-azure-backup.md)
 
-### Using Azure Backup Server in classic portal
+### Upgrade a Backup vault to a Recovery Services vault
 
-- [Azure Backup Server](../backup/backup-azure-microsoft-azure-backup-classic.md)
+- [Upgrade now](../backup/backup-azure-upgrade-backup-to-recovery-services.md)
 
 
 ## Next steps
 
-If you aren't sure where to begin, start with the article, [Back up a Windows server or client to Azure using the classic deployment model](../backup/backup-configure-vault-classic.md). This tutorial leads you through the steps for setting up a backup project on a Windows Server or computer.
+If you aren't sure where to begin, start with the article, [Back up Windows Server and Windows client computers](../backup/backup-configure-vault.md). This tutorial leads you through the steps for setting up a backup project on a Windows Server or computer.
 
-If you already know that you could use Azure Backup, but want to know the costs, see the [Backup Pricing page](http://azure.microsoft.com/pricing/details/backup/). There is a list of Frequently Asked Questions that may provide useful information. Also note there are two Azure Government regions in the **Region** dropdown menu.
+If you already know that you could use Azure Backup, but want to know the costs, see the [Backup Pricing page](https://azure.microsoft.com/pricing/details/backup/). There is a list of Frequently Asked Questions that may provide useful information. Also note there are multiple Azure Government regions in the **Region** dropdown menu.

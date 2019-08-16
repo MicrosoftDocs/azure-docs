@@ -1,89 +1,179 @@
 ---
-title: Create a path-based rule - Azure Application Gateway - Azure Portal | Microsoft Docs
-description: Learn how to create a Path-based rule for an application gateway by using the portal
+title: Create an application gateway with URL path-based routing rules - Azure portal
+description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
-documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: ''
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
-ms.author: gwallace
+ms.date: 3/26/2018
+ms.author: victorh
 
 ---
-# Create a Path-based rule for an application gateway by using the portal
+# Create an application gateway with path-based routing rules using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
+You can use the Azure portal to configure [URL path-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines. You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
-URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL listed in the Application Gateway and sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
+In this article, you learn how to:
 
-URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and path-based rules. The basic rule type, provides round-robin service for the back-end pools while path-based rules in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the appropriate backend pool.
+> [!div class="checklist"]
+> * Create an application gateway
+> * Create virtual machines for backend servers
+> * Create backend pools with the backend servers
+> * Create a backend listener
+> * Create a path-based routing rule
 
-## Scenario
+![URL routing example](./media/application-gateway-create-url-route-portal/scenario.png)
 
-The following scenario goes through creating a Path-based rule in an existing application gateway.
-The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-![url route][scenario]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="createrule"></a>Create the Path-based rule
+## Log in to Azure
 
-A Path-based rule requires its own listener, before creating the rule be sure to verify you have an available listener to use.
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
-### Step 1
+## Create an application gateway
 
-Navigate to the [Azure portal](http://portal.azure.com) and select an existing application gateway. Click **Rules**
+A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-![Application Gateway overview][1]
+1. Click **New** found on the upper left-hand corner of the Azure portal.
+2. Select **Networking** and then select **Application Gateway** in the Featured list.
+3. Enter these values for the application gateway:
 
-### Step 2
+   - *myAppGateway* - for the name of the application gateway.
+   - *myResourceGroupAG* - for the new resource group.
 
-Click **Path-based** button to add a new Path-based rule.
+     ![Create new application gateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-### Step 3
+4. Accept the default values for the other settings and then click **OK**.
+5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-The **Add path-based rule** blade has two sections. The first section is where you defined the listener, the name of the rule and the default path settings. The default path settings are for routes that do not fall under the custom path-based route. 
-The second section of the **Add path-based rule** blade is where you define the path-based rules themselves.
+   - *myVNet* - for the name of the virtual network.
+   - *10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-**Basic Settings**
+     ![Create virtual network](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-* **Name** - This is a friendly name to the rule that is accessible in the portal.
-* **Listener** - This is the listener that is used for the rule.
-* **Default backend pool** - This setting is the setting that defines the back-end to be used for the default rule
-* **Default HTTP settings** - This setting is the setting that defines the HTTP settings to be used for the default rule.
+6. Click **OK** to create the virtual network and subnet.
+7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
+8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
+9. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
+   the deployment finishes successfully before moving on to the next section.
 
-**Path-based rules**
+### Add a subnet
 
-* **Name** - This is a friendly name to path-based rule.
-* **Paths** - This setting defines the path the rule will look for when forwarding traffic
-* **Backend Pool** - This setting is the setting that defines the back-end to be used for the rule
-* **HTTP setting** - This setting is the setting that defines the HTTP settings to be used for the rule.
+1. Click **All resources** in the left-hand menu, and then click **myVNet** from the resources list.
+2. Click **Subnets**, and then click **Subnet**.
 
-> [!IMPORTANT]
-> Paths: The list of path patterns to match. Each must start with / and the only place a "\*" is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*.  
+    ![Create subnet](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-![Add path-based rule blade with information filled out][2]
+3. Enter *myBackendSubnet* for the name of the subnet and then click **OK**.
 
-Adding a path-based rule to an existing application gateway is an easy process through the portal. Once a path-based rule has been created, it can be edited to add additional rules easily. 
+## Create virtual machines
 
-![adding additional path-based rules][3]
+In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
 
-This configures a path based route. It is important to understand that requests are not re-written, as requests come in application gateway inspects the request and basic on the url pattern sends the request to the appropriate back-end.
+1. Click **New**.
+2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+3. Enter these values for the virtual machine:
+
+    - *myVM1* - for the name of the virtual machine.
+    - *azureuser* - for the administrator user name.
+    - *Azure123456!* for the password.
+    - Select **Use existing**, and then select *myResourceGroupAG*.
+
+4. Click **OK**.
+5. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
+6. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**. 
+7. Click **Disabled** to disable boot diagnostics.
+8. Click **OK**, review the settings on the summary page, and then click **Create**.
+
+### Install IIS
+
+1. Open the interactive shell and make sure that it is set to **PowerShell**.
+
+    ![Install custom extension](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. Run the following command to install IIS on the virtual machine: 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzVMExtension.
+
+## Create backend pools with the virtual machines
+
+1. Click **All resources** and then click **myAppGateway**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
+3. Click **Add target** to add *myVM1* to appGatewayBackendPool.
+
+    ![Add backend servers](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. Click **Save**.
+5. Click **Backend pools** and then click **Add**.
+6. Enter a name of *imagesBackendPool* and add *myVM2* using **Add target**.
+7. Click **OK**.
+8. Click **Add** again to add another backend pool with a name of *videoBackendPool* and add *myVM3* to it.
+
+## Create a backend listener
+
+1. Click **Listeners** and the click **Basic**.
+2. Enter *myBackendListener* for the name, *myFrontendPort* for the name of the frontend port, and then *8080* as the port for the listener.
+3. Click **OK**.
+
+## Create a path-based routing rule
+
+1. Click **Rules** and then click **Path-based**.
+2. Enter *rule2* for the name.
+3. Enter *Images* for the name of the first path. Enter */images/*\* for the path. Select **imagesBackendPool** for the backend pool.
+4. Enter *Video* for the name of the second path. Enter */video/*\* for the path. Select **videoBackendPool** for the backend pool.
+
+    ![Create a path-based rule](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. Click **OK**.
+
+## Test the application gateway
+
+1. Click **All resources**, and then click **myAGPublicIPAddress**.
+
+    ![Record application gateway public IP address](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//40.121.222.19.
+
+    ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. Change the URL to http://&lt;ip-address&gt;:8080/images/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+
+    ![Test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+
+    ![Test video URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## Next steps
 
-To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
+In this article, you learned how to
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+> [!div class="checklist"]
+> * Create an application gateway
+> * Create virtual machines for backend servers
+> * Create backend pools with the backend servers
+> * Create a backend listener
+> * Create a path-based routing rule
+
+To learn more about application gateways and their associated resources, continue to the how-to articles.

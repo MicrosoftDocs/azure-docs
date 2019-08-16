@@ -1,99 +1,172 @@
 ---
-title: Azure portal dashboards | Microsoft Docs
-description: This article explains how to create and edit dashboards in the Azure portal.
+title: Create and share Azure portal dashboards | Microsoft Docs
+description: This article describes how to create, customize, publish, and share dashboards in the Azure portal.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: timlt
+manager: mtillman
 editor: tysonn
 
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/06/2016
-ms.author: sewatson
+ms.date: 07/01/2019
+ms.author: kfollis
 
 ---
-# Creating and sharing dashboards in the Azure portal
-You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This post goes through the basics of creating/editing, publishing, and managing access to dashboards.
+# Create and share dashboards in the Azure portal
 
-## Customizing dashboards versus blades
-Since launching dashboards a few months ago, there has been a steady decline in blade customizations and a rapid increase in dashboard customizations. This strong usage trend shows that you prefer customizing dashboards over blades. To support that trend, we will remove the ability to customize blades and dedicate our efforts to enhancing dashboard functionality. If you customized a blade, your customization will soon be removed. To preserve that customization, pin the customized tiles to a dashboard. Simply right-click the tile and select **Pin to dashboard** as shown in the following image.
+Dashboards provide a way for you to create a focused and organized view in the Azure portal of your cloud resources. Use dashboards as a workspace where you can quickly launch tasks for day-to-day operations and monitor resources.  Build custom dashboards based on projects, tasks, or user roles, for example.  The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard, create and customize additional dashboards, and publish and share dashboards to make them available to other users. This article describes how to create a new dashboard, customize the interface, and publish and share dashboards.
 
-![save customized tile](./media/azure-portal-dashboards/save-customization.png)
+## Create a new dashboard
 
-## Create a dashboard
-To create a dashboard, select the **New dashboard** button next to the current dashboard's name.  
+In this example, we create a new, private dashboard and assign a name. Follow these steps to get started:
 
-![create dashboard](./media/azure-portal-dashboards/new-dashboard.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Dashboard** from the upper section of the left sidebar. Your default view might already be set to dashboard.
+1. Select **+ New dashboard**.
 
-This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), by resource type, by [tag](../azure-resource-manager/resource-group-using-tags.md), or by searching for your resource by name.  
+    ![Screenshot of default dashboard](./media/azure-portal-dashboards/dashboard-new.png)
 
-![customize dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
+4. This action opens the **Tile Gallery**, from which you'll select tiles, and an empty grid where you'll arrange the tiles.
 
-Add tiles by dragging and dropping them onto the dashboard surface wherever you want.
+    ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
 
-There's a new category called **General** for tiles that are not associated with a particular resource.  In this example, we pin the Markdown tile.  You use this tile to add custom content to your dashboard.  The tile supports plain text, [Markdown syntax](https://daringfireball.net/projects/markdown/syntax), and a limited set of HTML.  (For safety, you can't do things like inject `<script>` tags or use certain styling element of CSS that might interfere with the portal.) 
+5. Select the **My Dashboard** text in the dashboard label and enter a name that will help you easily identify the custom dashboard.
+1. Select **Done customizing** in the page header to exit edit mode.
 
-![add markdown](./media/azure-portal-dashboards/add-markdown.png)
+The dashboard view now shows your empty dashboard. Select the drop-down next to the dashboard name to see dashboards available to you – the list might include dashboards that other users have created and shared.
 
 ## Edit a dashboard
-After creating your dashboard, you can pin tiles from the tile gallery or the tile representation of blades. Let's pin the representation of our resource group. You can either pin when browsing the item, or from the resource group blade. Both approaches result in pinning the tile representation of the resource group.
 
-![pin to dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
+Now, let's edit the dashboard to add, resize, and arrange tiles that represent your Azure resources.
 
-After pinning the item, it appears on your dashboard.
+### Add tiles
 
-![view dashboard](./media/azure-portal-dashboards/view-dashboard.png)
+To add tiles to a dashboard, follow these steps:
+1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the page header.
 
-Now that we have a Markdown tile and a resource group pinned to the dashboard, we can resize and rearrange the tiles into a suitable layout.
+    ![Screenshot of dashboard highlighting edit](./media/azure-portal-dashboards/dashboard-edit.png)
 
-By hovering and selecting "…" or right-clicking on a tile you can see all the contextual commands for that tile. By default, there are two items:
+2. Browse the **Tile Gallery** or use the search field to find the tile you want.
+1. Select **Add** to automatically add the tile to the dashboard with a default size and location. Or, drag the tile to the grid and place it where you want.
 
-1. **Unpin from dashboard** – removes the tile from the dashboard
-2. **Customize** – enters customize mode
+Many resource pages (also known as “blades”) include a pushpin icon in the command bar. If you select the icon, a tile representing the source page is pinned to the dashboard that is currently active. This method is an alternative way to add tiles to your dashboard.
 
-![customize tile](./media/azure-portal-dashboards/customize-tile.png)
+![Screenshot of page command bar with pin icon](./media/azure-portal-dashboards/dashboard-pin-blade.png)
 
-By selecting customize, you can resize and reorder tiles. To resize a tile, select the new size from the contextual menu, as shown in the following image.
+> [!TIP]
+> If you work with more than one organization, add the **Organization identity** tile to your dashboard to clearly show which organization the resources belong to.
+>
+>
+### Resize or rearrange tiles
+To change the size of a tile or to rearrange the tiles on a dashboard, follow these steps:
 
-![resize tile](./media/azure-portal-dashboards/resize-tile.png)
+1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the page header.
+1. Select the context menu in the upper right corner of a tile. Then, choose a tile size. Tiles that support any size also include a "handle" in the lower right corner that lets you drag the tile to the size you want.
 
-Or, if the tile supports any size, you can drag the bottom right-hand corner to the desired size.
+   ![Screenshot of dashboard with tile size menu open](./media/azure-portal-dashboards/dashboard-tile-resize.png)
 
-![resize tile](./media/azure-portal-dashboards/resize-corner.png)
+3. Select a tile and drag it to a new location on the grid to arrange your dashboard.
 
-After resizing tiles, view the dashboard.
+### Additional tile configuration
 
-![view tile](./media/azure-portal-dashboards/view-tile.png)
+Some tiles may need more  configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from **Azure Monitor**. You can also customize tile data to override the dashboard's default time settings.
 
-Once you are finished customizing a dashboard, simply select the **Done customizing** to exit customize mode or right-click and select **Done customizing** from the context menu.
+Any tile that needs to be set up displays a **Configure tile** banner until you customize the tile. Select that banner, then do the required setup.
 
-## Publish a dashboard and manage access control
-When you create a dashboard, it is private by default, which means you are the only person who can see it.  To make it visible to others, use the **Share** button that appears alongside the other dashboard commands.
+![Screenshot of tile that requires configuration](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
-![share dashboard](./media/azure-portal-dashboards/share-dashboard.png)
+> [!NOTE]
+> A markdown tile lets you display custom, static content on your dashboard. This could be basic instructions, an image, a set of hyperlinks, or even contact information. For more information about using a markdown tile, see [Use a custom markdown tile](azure-portal-markdown-tile.md).
+>
+>
+### Customize tile data
 
-You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
+Data on the dashboard automatically shows activity for the past 24 hours. To show a different time span for just this tile, follow these steps:
 
-Let's say you have an Azure subscription and members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within that subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a shared dashboard, but are not able to publish those changes back to the server.  However, they can make a private copy of the dashboard for their own use.  As always, individual tiles on the dashboard enforce their own access control rules based on the resources they correspond to.  
+1. Select the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter icon from the upper left corner of the tile or select **Customize tile data** from the context menu.
 
-For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  
+   ![Screenshot of tile context menu](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
-![publish dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
+2. Select the checkbox to **Override the dashboard time settings at the tile level**.
 
-You can also choose to publish a dashboard to a particular resource group.  The access control for that dashboard matches the access control for the resource group.  Users that can manage the resources in that resource group also have access to the dashboards.
+   ![Screenshot of dialog to configure tile time settings](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
-![publish dashboard to resource group](./media/azure-portal-dashboards/publish-to-resource-group.png)
+3. Choose the time span to show for this tile. You can choose from the past 30 minutes to the past 30 days or define a custom range.
+1. Choose the time granularity to display. You can show anywhere from one-minute increments to one-month.
+1. Select **Apply**.
 
-After your dashboard is published, the **Sharing + access** control pane will refresh and show you information about the published dashboard, including a link to manage user access to the dashboard.  This link launches the standard Role Based Access Control blade used to manage access for any Azure resource.  You can always get back to this view by selecting **Share**.
+## Delete a tile
 
-![manage access control](./media/azure-portal-dashboards/manage-access.png)
+To remove a tile from a dashboard, follow these steps:
+
+* Select the context menu in the upper right corner of the tile, then select **Remove from dashboard**. Or,
+* Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** to enter customization mode. Hover in the upper right corner of the tile, then select the ![delete icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) delete icon to remove the tile from the dashboard.
+
+   ![Screenshot showing how to remove tile from dashboard](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+
+## Clone a dashboard
+
+To use an existing dashboard as a template for a new dashboard, follow these steps:
+
+1. Make sure that the dashboard view is showing the dashboard that you want to copy.
+1. In the page header, select ![clone icon](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
+1. A copy of the dashboard, named "Clone of *your dashboard name*" opens in edit mode. Use the preceding steps in this article to rename and customize the dashboard.
+
+## Publish and share a dashboard
+
+When you create a dashboard, it's private by default, which means you're the only one who can see it. To make dashboards available to others, you can share them with other users. First, you have to publish the dashboard as an Azure resource. To publish and share a custom dashboard, follow these steps:
+
+1. Select ![share icon](./media/azure-portal-dashboards/dashboard-share-icon.png) **Share** from the page header. The **Sharing + access control** form appears.
+1. Verify that the correct dashboard name is shown.
+1. Select a **Subscription name**. Users with access to the subscription can use the shared dashboard. Access to the resources represented by the individual tiles is determined by Azure role-based access control.
+1. Select the checkbox to publish this dashboard to the 'dashboards' resource group for the selected subscription. Or, clear the checkbox and choose to publish to an existing resource group instead.
+1. Choose a location for the dashboard resource. We recommend you locate the dashboard with other resources. Note: if you choose from existing resource groups, the dashboard is automatically located with that resource group.
+1. Select **Publish**.
+
+   ![Screenshot of dashboard publishing dialog](./media/azure-portal-dashboards/dashboard-publish.png)
+
+### Set access control on a shared dashboard
+
+After the dashboard is published, manage who has access to the dashboard by following these steps:
+
+1. In the **Sharing + access control** pane, select **Manage users**.
+
+   ![Screenshot of dashboard sharing + access control dialog](./media/azure-portal-dashboards/dashboard-share-access-control.png)
+
+2. The **Access Control** page opens. On this page, you can review the level of access for someone or add a new role assignment. When you add a role assignment here, you're granting permissions to the dashboard.
+
+> [!NOTE]
+> Tiles are representative views of resources in your organization. Access to resources is managed through role-based access control assignment and permissions are inherited from the subscription down to the resource. Giving access to a dashboard doesn’t automatically assign permissions to the resources shown on the dashboard. For more information about permissions to shared dashboards and role-based access control for resources, see [Share dashboards with role-based access control](azure-portal-dashboard-share-access.md).
+
+### Open a shared dashboard
+
+To find and open a shared dashboard, follow these steps:
+
+1. Select the drop-down next to the dashboard name.
+1. Select from the displayed list of dashboards or **Browse all dashboards** if the dashboard you want to open isn't listed.
+
+   ![Screenshot of dashboard selection menu](./media/azure-portal-dashboards/dashboard-browse.png)
+
+3. In the **Type** field, select **Shared dashboards**.
+1. Select one or more subscriptions. You can also enter text to filter dashboards by name.
+1. Select a dashboard from the list of shared dashboards.
+
+## Delete a dashboard
+
+To permanently delete a private or shared dashboard, follow these steps:
+
+1. Select the dashboard you want to delete from the drop-down list next to the dashboard name.
+1. Select ![delete icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) **Delete** from the page header.
+1. For a private dashboard, select **OK** on the confirmation dialog to remove the dashboard. For a shared dashboard, on the confirmation dialog, select the checkbox to confirm that the published dashboard will no longer be viewable by others. Then, select **OK**.
+
+   ![Screenshot of delete confirmation](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## Next steps
-* To manage resources, see [Manage Azure resources through portal](../azure-resource-manager/resource-group-portal.md).
-* To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
+* [Share dashboards with role-based access control](azure-portal-dashboard-share-access.md)
+* [Programmatically create Azure dashboards](azure-portal-dashboards-create-programmatically.md)

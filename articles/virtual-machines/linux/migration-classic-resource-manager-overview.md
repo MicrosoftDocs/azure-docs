@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of reso
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 10/10/2017
 ms.author: kasing
 
 ---

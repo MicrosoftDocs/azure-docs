@@ -3,7 +3,7 @@ title: Create Azure Service Bus namespace and queue using Azure Resource Manager
 description: Create a Service Bus namespace and a queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,13 +13,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/18/2017
-ms.author: sethm;shvija
+ms.date: 01/23/2019
+ms.author: spelluru
 
 ---
 # Create a Service Bus namespace and a queue using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a queue within that namespace. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a queue within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -33,13 +33,13 @@ For the complete template, see the [Service Bus namespace and queue template][Se
 > * [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for "Service Bus."
-> 
-> 
+> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for **Service Bus**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## What will you deploy?
 
-With this template, you will deploy a Service Bus namespace with a queue.
+With this template, you deploy a Service Bus namespace with a queue.
 
 [Service Bus queues](service-bus-queues-topics-subscriptions.md#queues) offer First In, First Out (FIFO) message delivery to one or more competing consumers.
 
@@ -78,9 +78,12 @@ The name of the queue created in the Service Bus namespace.
 The Service Bus API version of the template.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## Resources to deploy
@@ -94,8 +97,7 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
+            "name": "Standard",
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
@@ -111,25 +113,30 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
     }]
 ```
 
+For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces) and [queues](/azure/templates/microsoft.servicebus/namespaces/queues).
+
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## Azure CLI
 
-```cli
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## Next steps
-Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
+See the following topic that shows how to create an authorization rule for the namespace/queue: 
+[Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template](service-bus-resource-manager-namespace-auth-rule.md)
+
+Learn how to manage these resources by viewing these articles:
 
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

@@ -3,8 +3,8 @@ title: Example Azure Infrastructure Walkthrough | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
 documentationcenter: ''
 services: virtual-machines-windows
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -14,19 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: iainfou
+ms.date: 12/15/2017
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
 # Example Azure infrastructure walkthrough for Windows VMs
-
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
-This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
+This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple online store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 ## Example workload
-Adventure Works Cycles wants to build an on-line store application in Azure that consists of:
+Adventure Works Cycles wants to build an online store application in Azure that consists of:
 
 * Two IIS servers running the client front-end in a web tier
 * Two IIS servers processing data and orders in an application tier
@@ -38,7 +35,7 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
 
 ![Diagram of different tiers for application infrastructure](./media/infrastructure-example/example-tiers.png)
 
-Incoming secure web traffic must be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers must be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
+Incoming secure web traffic must be load-balanced among the web servers as customers browse the online store. Order processing traffic in the form of HTTP requests from the web servers must be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
 The resulting design must incorporate:
 
@@ -52,7 +49,7 @@ The resulting design must incorporate:
 All the above follow these naming conventions:
 
 * Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
-  * For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
+  * For this example, "**azos**" (Azure Online Store) is the IT workload name and "**use**" (East US 2) is the location
 * Virtual networks use AZOS-USE-VN**[number]**
 * Availability sets use azos-use-as-**[role]**
 * Virtual machine names use azos-use-vm-**[vmname]**
@@ -61,7 +58,7 @@ All the above follow these naming conventions:
 Adventure Works Cycles is using their Enterprise subscription, named Adventure Works Enterprise Subscription, to provide billing for this IT workload.
 
 ## Storage
-Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both storage available storage tiers are used:
+Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both available storage tiers are used:
 
 * **Standard storage** for the web servers, application servers, and domain controllers and their data disks.
 * **Premium storage** for the SQL Server VMs and their data disks.
@@ -82,7 +79,7 @@ They created a cloud-only virtual network with the following settings using the 
   * Address space: 10.0.2.0/24
 
 ## Availability sets
-To maintain high availability of all four tiers of their on-line store, Adventure Works Cycles decided on four availability sets:
+To maintain high availability of all four tiers of their online store, Adventure Works Cycles decided on four availability sets:
 
 * **azos-use-as-web** for the web servers
 * **azos-use-as-app** for the application servers
@@ -109,12 +106,8 @@ This configuration incorporates:
 
 * A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
 * Azure Managed Disks with both Standard and Premium disks
-* Four availability sets, one for each tier of the on-line store
+* Four availability sets, one for each tier of the online store
 * The virtual machines for the four tiers
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 * A single resource group
-
-## Next steps
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-

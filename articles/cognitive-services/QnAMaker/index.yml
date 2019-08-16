@@ -1,0 +1,94 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: QnA Maker Documentation 
+metadata:
+  title: QnA Maker Documentation - Microsoft Cognitive Services | Microsoft Docs
+  description: Learn about the QnA Maker service and how this service's knowledge bases work with your questions and answers.
+  services: cognitive-services
+  author: diberry
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: qna-maker
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/18/2018
+  ms.author: diberry
+abstract:
+  description: QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. The QnA Maker service answers your users' natural language questions by matching it with the best possible answer from the QnAs in your Knowledge base.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/qnamaker-landing-page-video.png
+      width: 250  
+    title: Build a Bot in Minutes with QnA Maker (8:54)
+    href: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+    width: 250
+sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/qnamaker/overview/overview
+          html: <p>Learn about QnA Maker.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is QnA Maker?
+        - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
+          html: <p>Learn how to create, train, and publish a knowledge base.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+          title: Create, train, and publish a knowledge base
+        - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
+          html: <p>Learn how to publish a knowledge base.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+          title: Understand data sources
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Create a knowledge base for your question and answer content:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/logo_Csharp.svg
+      text: C&#35;
+      href: Quickstarts/create-new-kb-csharp
+    - image:
+        src: media/index/Go-Logo_Blue.svg
+      text: Go
+      href: Quickstarts/create-new-kb-go
+    - image: 
+        src: media/index/logo_java.svg
+      text: Java
+      href: Quickstarts/create-new-kb-java
+    - image: 
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: Quickstarts/create-new-kb-nodejs
+    - image: 
+        src: media/index/logo_python.svg
+      text: Python
+      href: Quickstarts/create-new-kb-python
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using QnA Maker:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Create a knowledge base and answer questions</a></li>
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Create a QnA Maker bot</a></li>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2092179">QnA Maker API</a></p>
+

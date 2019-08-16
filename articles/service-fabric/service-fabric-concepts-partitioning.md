@@ -3,18 +3,18 @@ title: Partitioning Service Fabric services | Microsoft Docs
 description: Describes how to partition Service Fabric stateful services. Partitions enables data storage on the local machines so data and compute can be scaled together.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/17/2017
-ms.author: msfussell
+ms.date: 06/30/2017
+ms.author: atsenthi
 
 ---
 # Partition Service Fabric reliable services
@@ -55,7 +55,7 @@ Before implementing a service, you should always consider the partitioning strat
 
 A good approach is to think about the structure of the state that needs to be partitioned, as the first step.
 
-Let's take a simple example. If you were to build a service for a countywide poll, you could create a partition for each city in the county. Then, you could store the votes for every person in the city in the partition that corresponds to that city. Figure 3 illustrates a set of people and the city in which they reside.
+Let's take a simple example. If you were to build a service for a county-wide poll, you could create a partition for each city in the county. Then, you could store the votes for every person in the city in the partition that corresponds to that city. Figure 3 illustrates a set of people and the city in which they reside.
 
 ![Simple partition](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -109,7 +109,7 @@ An important part of hashing is selecting your hash algorithm. A consideration i
 
 The characteristics of a good distribution hashing algorithm are that it is easy to compute, it has few collisions, and it distributes the keys evenly. A good example of an efficient hash algorithm is the [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) hash algorithm.
 
-A good resource for general hash code algorithm choices is the [Wikipedia page on hash functions](http://en.wikipedia.org/wiki/Hash_function).
+A good resource for general hash code algorithm choices is the [Wikipedia page on hash functions](https://en.wikipedia.org/wiki/Hash_function).
 
 ## Build a stateful service with multiple partitions
 Let's create your first reliable stateful service with multiple partitions. In this example, you will build a very simple application where you want to store all last names that start with the same letter in the same partition.
@@ -125,9 +125,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 1. Open **Visual Studio** > **File** > **New** > **Project**.
 2. In the **New Project** dialog box, choose the Service Fabric application.
 3. Call the project "AlphabetPartitions".
-4. In the **Create a Service** dialog box, choose **Stateful** service and call it "Alphabet.Processing" as shown in the image below.
-   
-    ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)
+4. In the **Create a Service** dialog box, choose **Stateful** service and call it "Alphabet.Processing".
 5. Set the number of partitions. Open the Applicationmanifest.xml file located in the ApplicationPackageRoot folder of the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
    
     ```xml
@@ -161,7 +159,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
    
     Multiple replicas of this service may be hosted on the same computer, so this address needs to be unique to the replica. This is why   partition ID + replica ID are in the URL. HttpListener can listen on multiple addresses on the same port as long as the URL prefix    is unique.
    
-    The extra GUID is there for an advanced case where secondary replicas also listen for read-only requests. When that's the case, you want to make sure that a new unique address is used when transitioning from primary to secondary to force clients to re-resolve the address. '+' is used as the address here so that the replica listens on all available hosts (IP, FQDM, localhost, etc.) The code below shows an example.
+    The extra GUID is there for an advanced case where secondary replicas also listen for read-only requests. When that's the case, you want to make sure that a new unique address is used when transitioning from primary to secondary to force clients to re-resolve the address. '+' is used as the address here so that the replica listens on all available hosts (IP, FQDN, localhost, etc.) The code below shows an example.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -228,7 +226,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
             return String.Format(
                 "User {0} {1}",
                 user,
-                addResult ? "sucessfully added" : "already exists");
+                addResult ? "successfully added" : "already exists");
         }
     }
     ```
@@ -358,6 +356,9 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 
 The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
+## Reliable Services and Actor forking subprocesses
+Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancellation tokens are only sent to registered processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancellation token. 
+
 ## Next steps
 For information on Service Fabric concepts, see the following:
 
@@ -366,3 +367,5 @@ For information on Service Fabric concepts, see the following:
 * [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
+
+[1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png

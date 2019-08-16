@@ -1,22 +1,21 @@
 ---
-title: Azure SQL Data Warehouse Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
+title: Azure SQL Data Warehouse Documentation - Tutorials, Concepts | Microsoft Docs
+description: Learn how to use an Azure SQL Data Warehouse, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse. 
 services: sql-data-warehouse
-author: carolz
-manager: carolz
+author: hirokib
+manager: craigg
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
+ms.topic: overview
+ms.subservice: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: igorstan
 ---
 
 # SQL Data Warehouse Documentation
 
-Learn how to use SQL Data Warehouse, which combines the SQL Server relational database with massively parallel processing. Tutorials and other documentation show you how to load data into the warehouse, then analyze, manage, and export it.
+Learn how to use an Azure SQL Data Warehouse, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,7 +97,6 @@ Learn how to use SQL Data Warehouse, which combines the SQL Server relational da
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Capacity limits</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">T-SQL language elements</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">T-SQL statements</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">T-SQL system views</a></p>

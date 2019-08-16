@@ -1,30 +1,31 @@
 ---
-title: Help secure communication for services in Azure Service Fabric | Microsoft Docs
-description: Overview of how to help secure communication for reliable services that are running in an Azure Service Fabric cluster.
+title: Secure service remoting communications with Java in Azure Service Fabric | Microsoft Docs
+description: Learn how to secure service remoting based communication for Java reliable services that are running in an Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
 
 ---
-# Help secure communication for services in Azure Service Fabric
+# Secure service remoting communications in a Java service
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java on Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## Help secure a service when you're using service remoting
-We'll be using an existing [example](service-fabric-reliable-services-communication-remoting-java.md) that explains how to set up remoting for reliable services. To help secure a service when you're using service remoting, follow these steps:
+Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article discusses how to improve security when you're using service remoting in a Java service. It builds on an existing [example](service-fabric-reliable-services-communication-remoting-java.md) that explains how to set up remoting for reliable services written in Java. 
+
+To help secure a service when you're using service remoting with Java services, follow these steps:
 
 1. Create an interface, `HelloWorldStateless`, that defines the methods that will be available for a remote procedure call on your service. Your service will use `FabricTransportServiceRemotingListener`, which is declared in the `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` package. This is an `CommunicationListener` implementation that provides remoting capabilities.
 
@@ -50,11 +51,13 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
     ```
 2. Add listener settings and security credentials.
 
-    Make sure that the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. There are two ways that you can provide listener settings and security credentials:
+    Make sure the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. For services running on Linux, the certificate must be available as a PEM-formmatted file; either a `.pem` file that contains the certificate and private key or a `.crt` file that contains the certificate and a `.key` file that contains the private key. To learn more, see [Location and format of X.509 certificates on Linux nodes](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    
+    There are two ways that you can provide listener settings and security credentials:
 
-   1. Provide them by using a [config package](service-fabric-application-model.md):
+   1. Provide them by using a [config package](service-fabric-application-and-service-manifests.md):
 
-       Add a `TransportSettings` section in the settings.xml file.
+       Add a named `TransportSettings` section in the settings.xml file.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -89,7 +92,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
             ...
         </Section>
         ```
-        In this case, the `CreateServiceReplicaListeners` method will look like this:
+        In this case, the `CreateServiceInstanceListeners` method will look like this:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {

@@ -1,22 +1,14 @@
 ---
-title: Health monitoring overview for Azure Application Gateway | Microsoft Docs
+title: Health monitoring overview for Azure Application Gateway
 description: Learn about the monitoring capabilities in Azure Application Gateway
 services: application-gateway
-documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: ''
-tags: azure-resource-manager
+author: vhorne
+manager: jpconnock
 
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: gwallace
-
+ms.date: 8/6/2018
+ms.author: victorh
 ---
 
 # Application Gateway health monitoring overview
@@ -27,8 +19,7 @@ Azure Application Gateway by default monitors the health of all resources in its
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
-> [!NOTE]
-> If there is an NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on the Application Gateway subnet for Inbound traffic. These ports are required for the backend health API to work.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Default health probe
 
@@ -38,19 +29,44 @@ For example: You configure your application gateway to use back-end servers A, B
 
 If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
 
+### Probe Matching
+
+By default, an HTTP(S) response with status code between 200 and 399 is considered healthy. Custom health probes additionally support two matching criteria. Matching criteria can be used to optionally modify the default interpretation of what constitutes a healthy response.
+
+The following are matching criteria: 
+
+- **HTTP response status code match** - Probe matching criterion for accepting user specified http response code or response code ranges. Individual comma-separated response status codes or a range of status code is supported.
+- **HTTP response body match** - Probe matching criterion that looks at HTTP response body and matches with a user specified string. The match only looks for presence of user specified string in response body and is not a full regular expression match.
+
+Match criteria can be specified using the `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
+
+For example:
+
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
+
 ### Default health probe settings
 
 | Probe property | Value | Description |
 | --- | --- | --- |
 | Probe URL |http://127.0.0.1:\<port\>/ |URL path |
-| Interval |30 |Probe interval in seconds |
-| Time-out |30 |Probe time-out in seconds |
-| Unhealthy threshold |3 |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+| Interval |30 |The amount of time in seconds to wait before the next health probe is sent.|
+| Time-out |30 |The amount of time in seconds the application gateway waits for a probe response before marking the probe as unhealthy. If a probe returns as healthy, the corresponding backend is immediately marked as healthy.|
+| Unhealthy threshold |3 |Governs how many probes to send in case there is a failure of the regular health probe. These additional health probes are sent in quick succession to determine the health of the backend quickly and do not wait for the probe interval. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 > [!NOTE]
 > The port is the same port as the back-end HTTP settings.
 
-The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps:
+The default probe looks only at http:\//127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes.
+
+### Probe intervals
+
+All instances of Application Gateway probe the backend independent of each other. The same probe configuration applies to each Application Gateway instance. For example, if the probe configuration is to send health probes every 30 seconds and the application gateway has two instances, then both instances send the health probe every 30 seconds.
+
+Also if there are multiple listeners, then each listener probes the backend independent of each other. For example, if there are two listeners pointing to the same backend pool on two different ports (configured by two backend http settings) then each listener probes the same backend independently. In this case, there are two probes from each application gateway instance for the two listeners. If there are two instances of the application gateway in this scenario, the backend virtual machine would see four probes per the configured probe interval.
 
 ## Custom health probe
 
@@ -73,6 +89,12 @@ The following table provides definitions for the properties of a custom health p
 > [!IMPORTANT]
 > If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 > For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>. The port used will be the same port as defined in the back-end HTTP settings.
+
+## NSG considerations
+
+If there is a network security group (NSG) on an application gateway subnet, port ranges 65503-65534 must be opened on the application gateway subnet for inbound traffic. These ports are required for the backend health API to work.
+
+Additionally, outbound Internet connectivity can't be blocked, and inbound traffic coming from the AzureLoadBalancer tag must be allowed.
 
 ## Next steps
 After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.

@@ -3,9 +3,9 @@ title: SQLRuleAction syntax reference in Azure | Microsoft Docs
 description: Details about SQLRuleAction grammar.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
-ms.author: sethm
+ms.date: 09/05/2018
+ms.author: aschhab
 
 ---
 
@@ -22,7 +22,7 @@ ms.author: sethm
 
 A *SqlRuleAction* is an instance of the [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
-This topic lists details about the SQL rule action grammar.  
+This article lists details about the SQL rule action grammar.  
   
 ```  
 <statements> ::=

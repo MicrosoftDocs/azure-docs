@@ -1,82 +1,73 @@
 ---
 title: Service Fabric project creation next steps | Microsoft Docs
-description: This article contains links to a set of core development tasks for Service Fabric
+description: Learn about the application project you just created in Visual Studio.  Learn how to build services using tutorials and learn more about developing services for Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/28/2017
-ms.author: seanmck
+ms.date: 12/07/2017
+ms.author: atsenthi
 
 ---
 # Your Service Fabric application and next steps
-Your Azure Service Fabric application has been created. This article describes the makeup of your project and some potential next steps.
+Your Azure Service Fabric application has been created. This article describes some tutorials to try out, the makeup of your project, some more information you might be interested in, and potential next steps.
 
-## Your application
+## Get started with tutorials, walk-throughs, and samples
+Ready to get started?  
+
+Work through the .NET application tutorial. Learn how to [build an app](service-fabric-tutorial-create-dotnet-app.md) with an ASP.NET Core front-end and a stateful back-end, [deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md) to a cluster, [configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), and [set up monitoring and diagnostics](service-fabric-tutorial-monitoring-aspnet.md).
+
+Or, try out one of the following walk-throughs and create your first...
+- [C# Reliable Services service on Windows](service-fabric-reliable-services-quick-start.md) 
+- [C# Reliable Actors service on Windows](service-fabric-reliable-actors-get-started.md) 
+- [Guest executable service on Windows](quickstart-guest-app.md) 
+- [Windows container application](service-fabric-get-started-containers.md) 
+
+You may also be interested in trying out our [sample applications](https://aka.ms/servicefabricsamples).
+
+## Have questions or feedback?  Need to report an issue?
+Read through [common questions](service-fabric-common-questions.md) and find answers on what Service Fabric can do and how it should be used.
+
+[Support options](service-fabric-support.md) lists forums on StackOverflow and MSDN for asking questions as well as options for reporting issues, getting support, and submitting product feedback.
+
+## The application project
 Every new application includes an application project. There may be one or two additional projects, depending on the type of service chosen.
 
-### The application project
 The application project consists of:
 
 * A set of references to the services that make up your application.
 * Three publish profiles (1-Node Local, 5-Node Local, and Cloud) that you can use to maintain preferences for working with different environments--such as preferences related to a cluster endpoint and whether to perform upgrade deployments by default.
-* Three application parameter files (same as above) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service.
-* A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline.
-* The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder.
-
-### Stateless service
-When you add a new stateless service, Visual Studio adds a service project to your solution that includes a type descended from `StatelessService`. The service increments a local variable in a counter.
-
-### Stateful service
-When you add a new stateful service, Visual Studio adds a service project to your solution that includes a type descended from `StatefulService`. The service increments a counter in its `RunAsync` method and stores the result in a `ReliableDictionary`.
-
-### Actor service
-When you add a new reliable actor, Visual Studio adds two projects to your solution: an actor project and an interface project.
-
-The actor project provides methods for setting and getting the value of a counter that is reliably persisted within the actor's state. The interface project provides an interface that other services can use to invoke the actor.
-
-### Stateless Web API
-The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
+* Three application parameter files (same as above) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service. Learn how to [configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
+* A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline. Learn more about [deploying applications using PowerShell](service-fabric-deploy-remove-applications.md).
+* The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder. Learn more about [application and service manifests](service-fabric-application-model.md).
 
 
-### ASP.NET core
-The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
 
-### Guest executables and guest containers
+## Learn more about the programming models
+Service Fabric offers multiple ways to write and manage your services.  Here's overview and conceptual information on [stateless and stateful Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [containers](service-fabric-containers-overview.md), [guest executables](service-fabric-guest-executables-introduction.md), and [stateless and stateful ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
 
-A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest either [directly in the application package](service-fabric-deploy-existing-app.md) or [through a container image](service-fabric-deploy-container.md). In both cases, Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
+## Learn about service communication
+A Service Fabric application is composed of different services, where each service performs a specialized task. These services may communicate with each other and there may be client applications outside the cluster that connect to and communicate with services. Learn how to [set up communication with and between your services](service-fabric-connect-and-communicate-with-services.md) in Service Fabric. 
+
+## Learn about configuring application security
+You can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.  Learn how to [configure security policies for your application](service-fabric-application-runas-security.md).
+
+Your application may contain sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. Learn how to [manage secrets in your application](service-fabric-application-secret-management.md).
+
+## Learn about the application lifecycle
+As with other platforms, a Service Fabric application usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. [This article](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
 ## Next steps
-### Create an Azure cluster
-The Service Fabric SDK provides a local cluster for development and testing. To create a cluster in Azure, see [Setting up a Service Fabric cluster from the Azure portal][create-cluster-in-portal].
+- [Create a Windows cluster in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+- Visualize your cluster, including deployed applications and physical layout, with [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+- [Version and upgrade your services](service-fabric-application-upgrade-tutorial.md)
 
-### Publish your application to Azure
-You can publish your application directly from Visual Studio to an Azure cluster. To learn how, see [Publishing your application to Azure][publish-app-to-azure].
 
-### Use Service Fabric Explorer to visualize your cluster
-Service Fabric Explorer offers an easy way to visualize your cluster, including deployed applications and physical layout. To learn more, see [Visualizing your cluster by using Service Fabric Explorer][visualize-with-sfx].
-
-### Version and upgrade your services
-Service Fabric enables independent versioning and upgrading of independent services in an application. To learn more, see [Versioning and upgrading your services][app-upgrade-tutorial].
-
-### Configure continuous integration with Visual Studio Team Services
-To learn how you can set up a continuous integration process for your Service Fabric application, see [Configure continuous integration with Visual Studio Team Services][ci-with-vso].
-
-<!-- Links -->
-[add-web-frontend]: service-fabric-add-a-web-frontend.md
-[create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
-[visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: service-fabric-set-up-continuous-integration.md
-[reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
-[app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
-[aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
-[aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html

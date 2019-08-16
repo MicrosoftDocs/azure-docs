@@ -1,21 +1,13 @@
 ---
-title: Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio | Microsoft Docs
+title: Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio
 description: Troubleshooting potential solutions for data-skew problems by using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager:
-editor:
-
-ms.assetid:
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/16/2016
 ms.author: yanacai
-
+ms.reviewer: jasonwhowell
+ms.service: data-lake-analytics
+ms.topic: conceptual
+ms.date: 12/16/2016
 ---
 
 # Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio
@@ -31,29 +23,29 @@ In our scenario, the data is unevenly distributed across all tax examiners, whic
 
 Azure Data Lake Tools for Visual Studio can help detect whether your job has a data-skew problem. If a problem exists, you can resolve it by trying the solutions in this section.
 
-### Solution 1: Improve table partitioning
+## Solution 1: Improve table partitioning
 
-#### Option 1: Filter the skewed key value in advance
+### Option 1: Filter the skewed key value in advance
 
 If it does not affect your business logic, you can filter the higher-frequency values in advance. For example, if there are a lot of 000-000-000 in column GUID, you might not want to aggregate that value. Before you aggregate, you can write “WHERE GUID != “000-000-000”” to filter the high-frequency value.
 
-#### Option 2: Pick a different partition or distribution key
+### Option 2: Pick a different partition or distribution key
 
-In the preceding example, if you want only to check the tax-audit workload all over the country, you can improve the data distribution by selecting the ID number as your key. Picking a different partition or distribution key can sometimes distribute the data more evenly, but you need to make sure that this choice doesn’t affect your business logic. For instance, to calculate the tax sum for each state, you might want to designate _State_ as the partition key. If you continue to experience this problem, try using Option 3.
+In the preceding example, if you want only to check the tax-audit workload all over the country/region, you can improve the data distribution by selecting the ID number as your key. Picking a different partition or distribution key can sometimes distribute the data more evenly, but you need to make sure that this choice doesn’t affect your business logic. For instance, to calculate the tax sum for each state, you might want to designate _State_ as the partition key. If you continue to experience this problem, try using Option 3.
 
-#### Option 3: Add more partition or distribution keys
+### Option 3: Add more partition or distribution keys
 
 Instead of using only _State_ as a partition key, you can use more than one key for partitioning. For example, consider adding _ZIP Code_ as an additional partition key to reduce data-partition sizes and distribute the data more evenly.
 
-#### Option 4: Use round-robin distribution
+### Option 4: Use round-robin distribution
 
-If you cannot find an appropriate key for partition and distribution, you can try to use round-robin distribution. Round-robin distribution treats all rows equally and randomly puts them into corresponding buckets. The data gets evenly distributed, but it loses locality information, a drawback that can also reduce job performance for some operations. Additionally, if you are doing aggregation for the skewed key anyway, the data-skew problem will persist. To learn more about round-robin distribution, see the U-SQL Table Distributions section in [CREATE TABLE (U-SQL): Creating a Table with Schema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
+If you cannot find an appropriate key for partition and distribution, you can try to use round-robin distribution. Round-robin distribution treats all rows equally and randomly puts them into corresponding buckets. The data gets evenly distributed, but it loses locality information, a drawback that can also reduce job performance for some operations. Additionally, if you are doing aggregation for the skewed key anyway, the data-skew problem will persist. To learn more about round-robin distribution, see the U-SQL Table Distributions section in [CREATE TABLE (U-SQL): Creating a Table with Schema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
-### Solution 2: Improve the query plan
+## Solution 2: Improve the query plan
 
-#### Option 1: Use the CREATE STATISTICS statement
+### Option 1: Use the CREATE STATISTICS statement
 
-U-SQL provides the CREATE STATISTICS statement on tables. This statement gives more information to the query optimizer about the data characteristics, such as value distribution, that are stored in a table. For most queries, the query optimizer already generates the necessary statistics for a high-quality query plan. Occasionally, you might need to improve query performance by creating additional statistics with CREATE STATISTICS or by modifying the query design. For more information, see the [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) page.
+U-SQL provides the CREATE STATISTICS statement on tables. This statement gives more information to the query optimizer about the data characteristics, such as value distribution, that are stored in a table. For most queries, the query optimizer already generates the necessary statistics for a high-quality query plan. Occasionally, you might need to improve query performance by creating additional statistics with CREATE STATISTICS or by modifying the query design. For more information, see the [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics) page.
 
 Code example:
 
@@ -62,7 +54,7 @@ Code example:
 >[!NOTE]
 >Statistics information is not updated automatically. If you update the data in a table without re-creating the statistics, the query performance might decline.
 
-#### Option 2: Use SKEWFACTOR
+### Option 2: Use SKEWFACTOR
 
 If you want to sum the tax for each state, you must use GROUP BY state, an approach that doesn't avoid the data-skew problem. However, you can provide a data hint in your query to identify data skew in keys so that the optimizer can prepare an execution plan for you.
 
@@ -100,6 +92,7 @@ Code example:
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
+### Option 3: Use ROWCOUNT  
 In addition to SKEWFACTOR, for specific skewed-key join cases, if you know that the other joined row set is small, you can tell the optimizer by adding a ROWCOUNT hint in the U-SQL statement before JOIN. This way, optimizer can choose a broadcast join strategy to help improve performance. Be aware that ROWCOUNT does not resolve the data-skew problem, but it can offer some additional help.
 
     OPTION(ROWCOUNT = n)
@@ -124,11 +117,11 @@ Code example:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-### Solution 3: Improve the user-defined reducer and combiner
+## Solution 3: Improve the user-defined reducer and combiner
 
 You can sometimes write a user-defined operator to deal with complicated process logic, and a well-written reducer and combiner might mitigate a data-skew problem in some cases.
 
-#### Option 1: Use a recursive reducer, if possible
+### Option 1: Use a recursive reducer, if possible
 
 By default, a user-defined reducer runs in non-recursive mode, which means that reduce work for a key is distributed into a single vertex. But if your data is skewed, the huge data sets might be processed in a single vertex and run for a long time.
 
@@ -152,7 +145,7 @@ Code example:
         }
     }
 
-#### Option 2: Use row-level combiner mode, if possible
+### Option 2: Use row-level combiner mode, if possible
 
 Similar to the ROWCOUNT hint for specific skewed-key join cases, combiner mode tries to distribute huge skewed-key value sets to multiple vertices so that the work can be executed concurrently. Combiner mode can’t resolve data-skew issues, but it can offer some additional help for huge skewed-key value sets.
 

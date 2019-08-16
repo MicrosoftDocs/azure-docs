@@ -1,19 +1,20 @@
 ---
-title: "Pool create event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 8473bab4-6c16-4ee2-8d78-22fa3ca87487
-caps.latest.revision: 4
-author: "tamram"
-ms.author: "tamram"
-manager: "timlt"
+title: "Azure Batch pool create event | Microsoft Docs"
+description: Reference for Batch pool create event.
+services: batch
+author: laurenhughes
+manager: gwallace
+
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: 
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: lahugh
 ---
+
 # Pool create event
 
  This event is emitted once a pool has been created. The content of the log will expose general information about the pool. Note that if the target size of the pool is greater than 0 compute nodes, a pool resize start event will follow immediately after this event.
@@ -46,7 +47,7 @@ manager: "timlt"
 |-------------|----------|-----------|
 |id|String|The id of the pool.|
 |displayName|String|The display name of the pool.|
-|vmSize|String|The size of the virtual machines in the pool. All virtual machines in a pool are the same size. <br/><br/> For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see [Sizes for Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except `ExtraSmall`.<br/><br/> For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see [Sizes for Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) or [Sizes for Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch supports all Azure VM sizes except `STANDARD_A0` and those with premium storage (`STANDARD_GS`, `STANDARD_DS`, and `STANDARD_DSV2` series).|
+|vmSize|String|The size of the virtual machines in the pool. All virtual machines in a pool are the same size. <br/><br/> For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see [Sizes for Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except `ExtraSmall`.<br/><br/> For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see [Sizes for Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) or [Sizes for Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch supports all Azure VM sizes except `STANDARD_A0` and those with premium storage (`STANDARD_GS`, `STANDARD_DS`, and `STANDARD_DSV2` series).|
 |[cloudServiceConfiguration](#bk_csconf)|Complex Type|The cloud service configuration for the pool.|
 |[virtualMachineConfiguration](#bk_vmconf)|Complex Type|The virtual machine configuration for the pool.|
 |[networkConfiguration](#bk_netconf)|Complex Type|The network configuration for the pool.|
@@ -54,7 +55,7 @@ manager: "timlt"
 |targetDedicated|Int32|The number of compute nodes that are requested for the pool.|
 |enableAutoScale|Bool|Specifies whether the pool size automatically adjusts over time.|
 |enableInterNodeCommunication|Bool|Specifies whether the pool is set up for direct communication between nodes.|
-|isAutoPool|Bool|Speficies whether the pool was created via a job's AutoPool mechanism.|
+|isAutoPool|Bool|Specifies whether the pool was created via a job's AutoPool mechanism.|
 |maxTasksPerNode|Int32|The maximum number of tasks that can run concurrently on a single compute node in the pool.|
 |vmFillType|String|Defines how the Batch service distributes tasks between compute nodes in the pool. Valid values are Spread or Pack.|
 
