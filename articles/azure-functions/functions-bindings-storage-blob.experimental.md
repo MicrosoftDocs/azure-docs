@@ -1158,36 +1158,10 @@ In JavaScript, access the blob data using `context.bindings.<name from function.
 
 # [Python](#tab/python)
 
-To write out to a blob, add an output binding to *function.json*.
+You can use the following types to write out to blob storage:
 
-```json
-{
-  "name": "outblob",
-  "type": "blob",
-  "direction": "out",
-  "path": "output/{name}",
-  "connection": "AzureWebJobsStorage"
-}
-```
-
-In your function, declare a parameter as `outblob: func.Out[str]` and call in the body of your `outblob.set("data")` to write data to the blob.
-
-```python
-import logging
-import azure.functions as func
-
-def main(myblob: func.InputStream, outblob: func.Out[str]):
-
-    output = "test"
-    outblob.set(output)
-
-    logging.info(f"Python blob trigger function processed blob \n"
-                 f"Name: {myblob.name}\n"
-                 f"Blob Size: {myblob.length} bytes")
-
-```
-
-With this configuration, a new blob is created at the `path` location defined in *function.json* with the same name as the file that triggered the function.
+* Strings as `func.Out(str)`
+* Streams as `func.Out(func.InputStream)`
 
 # [Java](#tab/java)
 
