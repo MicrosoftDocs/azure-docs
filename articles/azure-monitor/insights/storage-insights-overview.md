@@ -188,7 +188,7 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
     ![Edit column settings](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop-down list **Column renderer" select **Hidden**. 
+5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop-down list **Column renderer** select **Hidden**. 
 
 6. Select **Save and close** to commit your change.
 
