@@ -41,19 +41,19 @@ This guide uses the following libraries:
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware that enables an application to use OpenIdConnect for authentication|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware that enables an application to maintain a user session by using cookies|
-|[Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb)|Enables OWIN-based applications to run on Internet Information Services (IIS) by using the ASP.NET request pipeline|
+|[Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb)|Middleware that enables OWIN-based applications to run on Internet Information Services (IIS) by using the ASP.NET request pipeline|
 
 ## Set up your project
 
 This section describes how to install and configure the authentication pipeline through OWIN middleware on an ASP.NET project by using OpenID Connect.
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#register-your-application) to configure the code sample before executing.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Register your application](#register-your-application) to configure the code sample before executing.
 
 ### Create your ASP.NET project
 
 1. In Visual Studio: Go to **File** > **New** > **Project**.
 2. Under **Visual C#\Web**, select **ASP.NET Web Application (.NET Framework)**.
-3. Name your application and click **OK**.
+3. Name your application and select **OK**.
 4. Select **Empty**, and then select the check box to add **MVC** references.
 
 ## Add authentication components
@@ -177,10 +177,10 @@ The following steps are used to create an OWIN middleware Startup class to confi
 
 To create a new controller to expose sign-in and sign-out methods, follow these steps:
 
-1.	Right click the **Controllers** folder and select **Add** > **Controller**.
+1.	Right-click the **Controllers** folder and select **Add** > **Controller**.
 2.	Select **MVC (.NET version) Controller – Empty**.
-3.	Click *Add*.
-4.	Name it **HomeController** and then click **Add**.
+3.	Select **Add**.
+4.	Name it **HomeController** and then select **Add**.
 5.	Add **OWIN** references to the class:
 
     ```csharp
@@ -221,7 +221,7 @@ To create a new controller to expose sign-in and sign-out methods, follow these 
 
 In Visual Studio, create a new view to add the sign-in button and to display user information after authentication:
 
-1.	Right click the **Views\Home** folder and select **Add View**.
+1.	Right-click the **Views\Home** folder and select **Add View**.
 2.	Name the new view **Index**.
 3.	Add the following HTML, which includes the sign-in button, to the file:
 
@@ -265,15 +265,15 @@ In Visual Studio, create a new view to add the sign-in button and to display use
 
 <!--start-collapse-->
 > ### More information
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to the [Branding guidelines](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
 ## Add a controller to display user's claims
-This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by allowing only authenticated users. The following code makes use of the attribute to display user claims that were retrieved as part of the sign-in:
+This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by allowing only authenticated users. The following code makes use of the attribute to display user claims that were retrieved as part of sign-in:
 
-1.	Right-click the **Controllers** folder, and then seelct **Add** > **Controller**.
+1.	Right-click the **Controllers** folder, and then select **Add** > **Controller**.
 2.	Select **MVC {version} Controller – Empty**.
-3.	Click **Add**.
+3.	Select **Add**.
 4.	Name it **ClaimsController**.
 5.	Replace the code of your controller class with the following code. This adds the `[Authorize]` attribute to the class:
 
@@ -368,17 +368,17 @@ To register your application and add the app's registration information to your 
 1. Open Visual Studio, and then:
    1. in Solution Explorer, select the project and view the Properties window (if you don’t see a Properties window, press F4).
    1. Change SSL Enabled to `True`.
-   1. Right-click the project in Visual Studio, select **Properties**, and then select the **Web** tab. In the **Servers** section, change the **Project Url** setting to the SSL URL.
-   1. Copy the SSL URL. You'll add this URL to the list of Redirect URLs in the Registration portal’s list of Redirect URLs in the next step:<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   1. Right-click the project in Visual Studio, select **Properties**, and then select the **Web** tab. In the **Servers** section, change the **Project Url** setting to the **SSL URL**.
+   1. Copy the SSL URL. You'll add this URL to the list of Redirect URLs in the Registration portal’s list of Redirect URLs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account, or by using a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the upper-right corner, and set your portal session to the Azure AD tenant that you want.
 1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Select **New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, like **ASPNET-Tutorial**.
-   1. Add the SSL URL you copied from Visual Studio in step 1 (for instance `https://localhost:44368/`) in **Reply URL**, and select **Register**.
-1. Select the **Authentication** menu, set **ID tokens** under **Implicit Grant**, and then select **Save**.
-1. Add the following in the web.config file, located in the root folder under the `configuration\appSettings` section:
+   1. Add the SSL URL you copied from Visual Studio in step 1 (for expample, `https://localhost:44368/`) in **Reply URL**, and select **Register**.
+1. Select the **Authentication** menu, select **ID tokens** under **Implicit Grant**, and then select **Save**.
+1. Add the following in the web.config file, located in the root folder in the `configuration\appSettings` section:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -402,7 +402,7 @@ When you're ready to run your test, use an Azure AD account (work or school acco
 
 #### View application results
 
-After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that's specified in your application registration info in the Microsoft Application Registration Portal. The home page includes a welcome message *"Hello \<user>,"* a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the Claims controller that you created earlier.
+After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that's specified in your application registration info in the Microsoft Application Registration Portal. The home page includes a *"Hello \<user>"* welcome message, a link to sign out, and a link to view the user’s claims. The link for the user's claims connects to the Claims controller that you created earlier.
 
 ### View the user's claims
 
@@ -414,10 +414,10 @@ After you browse to the controller view, you should see a table that contains th
 
 |Property |Value |Description |
 |---|---|---|
-|**Name** |User's full name | The user’s first and last name.
-|**Username** |user<span>@domain.com</span> | The username that's used to identify the user.
-|**Subject** |Subject |A string that uniquely identifies the user across the web.|
-|**Tenant ID** |Guid | A **guid** that uniquely represents the user’s Azure AD organization.|
+|**Name** |User's full name | The user’s first and last name
+|**Username** |user<span>@domain.com</span> | The username that's used to identify the user|
+|**Subject** |Subject |A string that uniquely identifies the user across the web|
+|**Tenant ID** |Guid | A **guid** that uniquely represents the user’s Azure AD organization|
 
 Additionally, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an Azure AD ID token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -464,7 +464,7 @@ You can restrict sign-in access to only those user accounts that are in an Azure
 
 #### Option 3: Use a custom method to validate issuers
 
-You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](/previous-versions/visualstudio/dn464192(v=vs.114)).
+You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, see [TokenValidationParameters class](/previous-versions/visualstudio/dn464192(v=vs.114)).
 
 ## Next steps
 
