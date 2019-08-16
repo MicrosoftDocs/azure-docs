@@ -186,6 +186,8 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
 4. We are going to remove the **Account used capacity timeline** column, so select **Column Settings** in the metrics grid.
 
+    ![Edit column settings](./media/edit-capacity-workbook-resource-grid.png)
+
 5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop-down list **Column renderer" select **Hidden**. 
 
 6. Select **Save and close** to commit your change.
@@ -202,7 +204,7 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 ### Modify the availability threshold
 
-In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold. By default, the tile and grid reporting percent availability are configured with a minimum threshold of 90 and maximum threshold of 99. We are going to change the minimum threshold value of the **Availability %** in the **Availability by API** grid to 85%, which means the health state changes to critical if the threshold is 85 percent or less. 
+In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold. By default, the tile and grid reporting percent availability are configured with a minimum threshold of 90 and maximum threshold of 99. We are going to change the minimum threshold value of the **Availability %** in the **Availability by API name** grid to 85%, which means the health state changes to critical if the threshold is less than 85 percent. 
 
 1. Select **Storage accounts** from the portal and then select a storage account from the list.
 
