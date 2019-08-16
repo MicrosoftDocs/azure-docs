@@ -13,10 +13,14 @@ ms.date: 07/11/2019
 ---
 # Quickstart: Create an Azure Search index in Java
 > [!div class="op_single_selector"]
+> * [JavaScript](search-get-started-nodejs.md)
+> * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
+> * [PowerShell](search-create-index-rest-api.md)
+> * [Python](search-get-started-python.md)
+> * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, load and queries an Azure search index using [IntelliJ] (https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
+Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ] (https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,7 +32,7 @@ We used the following software to build and test this sample:
 
 + [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 
-+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 
@@ -42,7 +46,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
    Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -52,20 +56,21 @@ Begin by opening IntelliJ IDEA and creating a new project.
 
 ### Create the project
 
-1. Select Maven and the Java 11 SDK.
-1. For `GroupId` and `ArtifactId`, enter "AzureSearchSample".
+1. Open IntelliJ IDEA, and select **Create New Project**.
+1. Select **Maven** and the Java 11 SDK.
+
+1. For `GroupId` and `ArtifactId`, enter "AzureSearchQuickstart".
 1. Accept the remaining defaults to open the project.
-1. In the **Project** panel, expand the main tree. The picture below show how it should look when you're done.
-1. In 'main' > `java`, add a package named `com.microsoft.azure.search.samples`.
-1. In this new package, add two new packages `app` and `service`.
-1. In `main` > `resources`, add a package named `com.microsoft.azure.search.samples`.
-1. In this new package, add two new packages `app` and `service`.
-1. When you are done, the project tree should look similar to the picture.
+1. In the **Project** panel, expand the `src` and `main` folders.
+1. Select `main` > `java` and add `app` and `service` packages. (**File** > **New** > **Package**):
+1. Select `main` > `resources`and add `app` and `service` directories. (**File** > **New** > **Directory**):
+
+When you're done, the project tree should look similar to the picture.
 <INSERT IMAGE>
 
 ### Add Azure Search service information
 
-1. In `main` > `resources.com.microsoft.azure.search.samples` > `app`, add a `config.properties` file.
+1. Select `main` > `java` > `app` and add a `config.properties` text file (**File** > **New** > **File**).
 1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>` and `<YOUR-API-KEY>` with your service name and key. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
 ```java
@@ -74,13 +79,14 @@ Begin by opening IntelliJ IDEA and creating a new project.
     IndexName=hotels-quickstart
     ApiVersion=2019-05-06
 ```
-1. In `src` > `main` > `java.com.microsoft.azure.search.samples` > `app`, create an `App` class.
-1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The commented code will be covered later in the article. The uncommented code reads the search service parameters and uses them to create a instance of the search client.
- 
-```java
-package com.microsoft.azure.search.samples.app;
 
-import com.microsoft.azure.search.samples.service.SearchServiceClient;
+1. Select `src` > `main` >  > `app` and create an `App` class (**File** > **New** > **Class**).
+1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The commented code will be covered later in the article. The uncommented code reads the search service parameters and uses them to create an instance of the search client.
+
+```java
+package app;
+
+import service.SearchServiceClient;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -102,6 +108,7 @@ public class App {
                     config.getProperty("ApiVersion"),
                     config.getProperty("IndexName")
             );
+
 //Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
 //            if(client.indexExists()){ client.deleteIndex();}
 //            client.createIndex("index.json");
@@ -111,7 +118,7 @@ public class App {
 //            client.uploadDocuments();
 //            Thread.sleep(2000L); // wait 2 seconds for data to upload
 
-//Uncomment the following 5 search querys in the 3 - Search an index of the quickstart
+//Uncomment the following 5 search queries in the 3 - Search an index of the quickstart
 //            // Query 1
 //            client.logMessage("\n*QUERY 1****************************************************************");
 //            client.logMessage("Search for: Atlanta'");
@@ -165,10 +172,13 @@ public class App {
 ```
 
 ### Add the HTTP operations
-1.  In `src` > `main` > `java.com.microsoft.azure.search.samples` > `service`, create a `SearchServiceClient`class.
-1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST service. Additional methods for creating the index, uploading documents and querying the index will be added later in this quickstart.
+
+1. Select `src` > `main` > `java` and create a `SearchServiceClient` class (**File** > **New** > **Class**).
+1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating the index, uploading documents, and querying the index will be added later in later sections.
 
 ```java
+package service;
+
 import javax.json.Json;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
@@ -279,7 +289,8 @@ private static URI buildURI(Consumer<Formatter> fmtFn)
 ```
 
 ### Specify Maven dependencies
-1. Open the pom.xml file, and replace the contents with the following xml code.
+
+1. Open the pom.xml file and replace the contents with the follow Maven configuration details.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -314,7 +325,7 @@ private static URI buildURI(Consumer<Formatter> fmtFn)
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.microsoft.azure.search.samples.app.App</mainClass>
+                    <mainClass>app.App</mainClass>
                     <cleanupDaemonThreads>false</cleanupDaemonThreads>
                 </configuration>
             </plugin>
@@ -330,105 +341,60 @@ private static URI buildURI(Consumer<Formatter> fmtFn)
 
 </project>
 ```
+
 1. Open the maven panel, and execute the following maven goal: `verify exec:java`
 <<<INSERT IMAGE?>>>>>
 
 A BUILD SUCCESS method should appear with a 0 exit code.
 
 ## 1 - Create index
+
 The hotels index consists of simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index is specified using JSON.
 
-1. In `main` > `resources.com.microsoft.azure.search.samples` > `service`, add an `index.json` file.
+1. Select `main` > `resources` > `service`, add an `index.json` file (**File** > **New** > **File**).
 
-1. Copy the following index definition into the file. The name field defines the index name "hotels-quickstart". Attributes on the field determine how it is used in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search.
+1. Open the file and insert the following index definition. 
+
+The name field defines the index name "hotels-quickstart". Attributes on the field determine how it's used in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search.
 
 ```json
-{
-  "name": "hotels-quickstart",
-  "fields": [
     {
-      "name": "HotelId",
-      "type": "Edm.String",
-      "key": true,
-      "filterable": true
-    },
-    {
-      "name": "HotelName",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "sortable": true,
-      "facetable": false
-    },
-    {
-      "name": "Description",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "sortable": false,
-      "facetable": false,
-      "analyzer": "en.lucene"
-    },
-    {
-      "name": "Description_fr",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "sortable": false,
-      "facetable": false,
-      "analyzer": "fr.lucene"
-    },
-    {
-      "name": "Category",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": true,
-      "sortable": true,
-      "facetable": true
-    },
-    {
-      "name": "Tags",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "filterable": true,
-      "sortable": false,
-      "facetable": true
-    },
-    {
-      "name": "ParkingIncluded",
-      "type": "Edm.Boolean",
-      "filterable": true,
-      "sortable": true,
-      "facetable": true
-    },
-    {
-      "name": "LastRenovationDate",
-      "type": "Edm.DateTimeOffset",
-      "filterable": true,
-      "sortable": true,
-      "facetable": true
-    },
-    {
-      "name": "Rating",
-      "type": "Edm.Double",
-      "filterable": true,
-      "sortable": true,
-      "facetable": true
-    },
-    {
-      "name": "Address",
-      "type": "Edm.ComplexType",
+      "name": "hotels-quickstart",
       "fields": [
         {
-          "name": "StreetAddress",
+          "name": "HotelId",
           "type": "Edm.String",
+          "key": true,
+          "filterable": true
+        },
+        {
+          "name": "HotelName",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": true,
+          "facetable": false
+        },
+        {
+          "name": "Description",
+          "type": "Edm.String",
+          "searchable": true,
           "filterable": false,
           "sortable": false,
           "facetable": false,
-          "searchable": true
+          "analyzer": "en.lucene"
         },
         {
-          "name": "City",
+          "name": "Description_fr",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": false,
+          "facetable": false,
+          "analyzer": "fr.lucene"
+        },
+        {
+          "name": "Category",
           "type": "Edm.String",
           "searchable": true,
           "filterable": true,
@@ -436,84 +402,132 @@ The hotels index consists of simple fields and one complex field. Examples of a 
           "facetable": true
         },
         {
-          "name": "StateProvince",
-          "type": "Edm.String",
+          "name": "Tags",
+          "type": "Collection(Edm.String)",
           "searchable": true,
+          "filterable": true,
+          "sortable": false,
+          "facetable": true
+        },
+        {
+          "name": "ParkingIncluded",
+          "type": "Edm.Boolean",
           "filterable": true,
           "sortable": true,
           "facetable": true
         },
         {
-          "name": "PostalCode",
-          "type": "Edm.String",
-          "searchable": true,
+          "name": "LastRenovationDate",
+          "type": "Edm.DateTimeOffset",
           "filterable": true,
           "sortable": true,
           "facetable": true
         },
         {
-          "name": "Country",
-          "type": "Edm.String",
-          "searchable": true,
+          "name": "Rating",
+          "type": "Edm.Double",
           "filterable": true,
           "sortable": true,
           "facetable": true
+        },
+        {
+          "name": "Address",
+          "type": "Edm.ComplexType",
+          "fields": [
+            {
+              "name": "StreetAddress",
+              "type": "Edm.String",
+              "filterable": false,
+              "sortable": false,
+              "facetable": false,
+              "searchable": true
+            },
+            {
+              "name": "City",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "StateProvince",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "PostalCode",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "Country",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            }
+          ]
         }
       ]
     }
-  ]
-}
-```json
+```
 
-In this index, the Description fields the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
+In this index, the Description field uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
 
 1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to delete and create an index and to determine if the index exists.
 
 ```java
-       public boolean indexExists() throws IOException, InterruptedException {
-            logMessage("\n Checking if index exists...");
-            var uri = buildURI(strFormatter -> strFormatter.format(
-                    "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=*",
-                    _serviceName,_indexName,_apiVersion));
-            var request = httpRequest(uri, "HEAD", "");
-            var response = sendRequest(request);
-            return isSuccessResponse(response);
-        }
+    public boolean indexExists() throws IOException, InterruptedException {
+        logMessage("\n Checking if index exists...");
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=*",
+                _serviceName,_indexName,_apiVersion));
+        var request = httpRequest(uri, "HEAD", "");
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
 
-        public boolean deleteIndex() throws IOException, InterruptedException {
-            logMessage("\n Deleting index...");
-            var uri = buildURI(strFormatter -> strFormatter.format(
-                    "https://%s.search.windows.net/indexes/%s?api-version=%s",
-                    _serviceName,_indexName,_apiVersion));
-            var request = httpRequest(uri, "DELETE", "*");
-            var response = sendRequest(request);
-            return isSuccessResponse(response);
-        }
+    public boolean deleteIndex() throws IOException, InterruptedException {
+        logMessage("\n Deleting index...");
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        var request = httpRequest(uri, "DELETE", "*");
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
 
 
-        public boolean createIndex(String indexDefinitionFile) throws IOException, InterruptedException {
-            logMessage("\n Creating index...");
-            //Build the search service URL
-            var uri = buildURI(strFormatter -> strFormatter.format(
-                    "https://%s.search.windows.net/indexes/%s?api-version=%s",
-                    _serviceName,_indexName,_apiVersion));
-            //Read in index definition file
-            var inputStream = SearchServiceClient.class.getResourceAsStream("index.json");
-            var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-            //Send HTTP PUT request to create the index in the search service
-            var request = httpRequest(uri, "PUT", indexDef);
-            var response = sendRequest(request);
-            return isSuccessResponse(response);
-        }
+    public boolean createIndex(String indexDefinitionFile) throws IOException, InterruptedException {
+        logMessage("\n Creating index...");
+        //Build the search service URL
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        //Read in index definition file
+        var inputStream = SearchServiceClient.class.getResourceAsStream("index.json");
+        var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        //Send HTTP PUT request to create the index in the search service
+        var request = httpRequest(uri, "PUT", indexDef);
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
 ```
 
 1. Uncomment the following code in the `App` class. This code deletes the index "hotels-quickstart", if it exists,  and creates a new index. To ensure the index is created before you upload any documents, a one-second pause is inserted after you make the REST service request to create the index.
 
 ```java
-    //Delete the index if it exists and then create a new one
     if(client.indexExists()){ client.deleteIndex();}
-    client.createIndex("index.json");
-    Thread.sleep(1000L); // wait a second to create the index
+      client.createIndex("index.json");
+      Thread.sleep(1000L); // wait a second to create the index
 ```
 
 1. Open the maven panel, and execute the following maven goal: `verify exec:java`
@@ -527,86 +541,86 @@ As the code runs, a message should appear telling you that the index is created 
 1. Copy the following hotel documents into the file.
 
 ```json
-{
-  "value": [
     {
-      "@search.action": "upload",
-      "HotelId": "1",
-      "HotelName": "Secret Point Motel",
-      "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
-      "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
-      "Category": "Boutique",
-      "Tags": [ "pool", "air conditioning", "concierge" ],
-      "ParkingIncluded": "false",
-      "LastRenovationDate": "1970-01-18T00:00:00Z",
-      "Rating": 3.60,
-      "Address": {
-        "StreetAddress": "677 5th Ave",
-        "City": "New York",
-        "StateProvince": "NY",
-        "PostalCode": "10022",
-        "Country": "USA"
-      }
-    },
-    {
-      "@search.action": "upload",
-      "HotelId": "2",
-      "HotelName": "Twin Dome Motel",
-      "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
-      "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
-      "Category": "Boutique",
-      "Tags": [ "pool", "free wifi", "concierge" ],
-      "ParkingIncluded": "false",
-      "LastRenovationDate": "1979-02-18T00:00:00Z",
-      "Rating": 3.60,
-      "Address": {
-        "StreetAddress": "140 University Town Center Dr",
-        "City": "Sarasota",
-        "StateProvince": "FL",
-        "PostalCode": "34243",
-        "Country": "USA"
-      }
-    },
-    {
-      "@search.action": "upload",
-      "HotelId": "3",
-      "HotelName": "Triple Landscape Hotel",
-      "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
-      "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
-      "Category": "Resort and Spa",
-      "Tags": [ "air conditioning", "bar", "continental breakfast" ],
-      "ParkingIncluded": "true",
-      "LastRenovationDate": "2015-09-20T00:00:00Z",
-      "Rating": 4.80,
-      "Address": {
-        "StreetAddress": "3393 Peachtree Rd",
-        "City": "Atlanta",
-        "StateProvince": "GA",
-        "PostalCode": "30326",
-        "Country": "USA"
-      }
-    },
-    {
-      "@search.action": "upload",
-      "HotelId": "4",
-      "HotelName": "Sublime Cliff Hotel",
-      "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
-      "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
-      "Category": "Boutique",
-      "Tags": [ "concierge", "view", "24-hour front desk service" ],
-      "ParkingIncluded": "true",
-      "LastRenovationDate": "1960-02-06T00:00:00Z",
-      "Rating": 4.60,
-      "Address": {
-        "StreetAddress": "7400 San Pedro Ave",
-        "City": "San Antonio",
-        "StateProvince": "TX",
-        "PostalCode": "78216",
-        "Country": "USA"
-      }
+      "value": [
+        {
+          "@search.action": "upload",
+          "HotelId": "1",
+          "HotelName": "Secret Point Motel",
+          "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+          "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+          "Category": "Boutique",
+          "Tags": [ "pool", "air conditioning", "concierge" ],
+          "ParkingIncluded": "false",
+          "LastRenovationDate": "1970-01-18T00:00:00Z",
+          "Rating": 3.60,
+          "Address": {
+            "StreetAddress": "677 5th Ave",
+            "City": "New York",
+            "StateProvince": "NY",
+            "PostalCode": "10022",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "2",
+          "HotelName": "Twin Dome Motel",
+          "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+          "Category": "Boutique",
+          "Tags": [ "pool", "free wifi", "concierge" ],
+          "ParkingIncluded": "false",
+          "LastRenovationDate": "1979-02-18T00:00:00Z",
+          "Rating": 3.60,
+          "Address": {
+            "StreetAddress": "140 University Town Center Dr",
+            "City": "Sarasota",
+            "StateProvince": "FL",
+            "PostalCode": "34243",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "3",
+          "HotelName": "Triple Landscape Hotel",
+          "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+          "Category": "Resort and Spa",
+          "Tags": [ "air conditioning", "bar", "continental breakfast" ],
+          "ParkingIncluded": "true",
+          "LastRenovationDate": "2015-09-20T00:00:00Z",
+          "Rating": 4.80,
+          "Address": {
+            "StreetAddress": "3393 Peachtree Rd",
+            "City": "Atlanta",
+            "StateProvince": "GA",
+            "PostalCode": "30326",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "4",
+          "HotelName": "Sublime Cliff Hotel",
+          "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+          "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+          "Category": "Boutique",
+          "Tags": [ "concierge", "view", "24-hour front desk service" ],
+          "ParkingIncluded": "true",
+          "LastRenovationDate": "1960-02-06T00:00:00Z",
+          "Rating": 4.60,
+          "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+          }
+        }
+      ]
     }
-  ]
-}
 ```
 1. Insert the following code into the SearchServiceClient class. This code builds REST service URLs to upload the hotel documents to the index.
 
@@ -710,7 +724,7 @@ The `SearchPlus` method creates the search query URL, makes the search request, 
     }
 ```
 
-1. In the `App` class, uncomment the following code. This code sets up 5 different queries, including the search text, query parameters, and data fields to return. 
+1. In the `App` class, uncomment the following code. This code sets up five different queries, including the search text, query parameters, and data fields to return. 
 
 ```java
         // Query 1
@@ -761,11 +775,11 @@ The `SearchPlus` method creates the search query URL, makes the search request, 
 
 There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
 
-1. Open the maven panel, and execute the following maven goal: `verify exec:java`. 
+1. Open the maven panel, and execute the following maven goal: `verify exec:java`.
 
-Each query and it's results should appear in the console window, and the process should exit with a 0 exit code.
+Each query and its results should appear in the console window, and the process should exit with a 0 exit code.
 
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
@@ -773,6 +787,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for an exploration of alternative approaches and concepts that will deepen your knowledge.
+In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for deeper learning.
 
-[Create a basic index in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index)
+[Index operations](https://docs.microsoft.com/en-us/rest/api/searchservice/index-operations)
+[Document operations](https://docs.microsoft.com/en-us/rest/api/searchservice/document-operations)
+[Indexer operations](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
