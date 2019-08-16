@@ -356,6 +356,8 @@
     href: service-fabric-concept-resource-model.md
   - name: Managed Identity 
     href: concepts-managed-identity.md
+  - name: Configure container repository credentials
+    href: configure-container-repository-credentials.md
   
 - name: How-to guides
   items:
