@@ -277,7 +277,7 @@ Response Body:
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
             "endDate": "2019-06-29",
-            "termUnit": "P1M"
+            "termUnit": "P1M" //where P1M: Monthly, P1Y: Yearly 
         },
 }
 ```
@@ -789,6 +789,8 @@ Internal server error.
 ## Implementing a webhook on the SaaS service
 
 The publisher must implement a webhook in this SaaS service to proactively notify users of changes in its service. The SaaS service is expected to call the operations API to validate and authorize before taking an action on the webhook notification.
+
+To ensure secure communications, Microsoft includes the Azure Active Directory JWT token in the authorization header as part of the call. SaaS providers are encouraged to validate the JWT token as described in the [Microsoft identity platform access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) article in order to ensure that only valid calls are accepted.
 
 ```json
 {

@@ -308,6 +308,7 @@ To delete the entire sample namespace, use the `kubectl delete` command and spec
 
 ```console
 kubectl delete namespace ingress-basic
+kubectl delete namespace cert-manager
 ```
 
 Then, remove the Helm repo for the AKS hello world app:
