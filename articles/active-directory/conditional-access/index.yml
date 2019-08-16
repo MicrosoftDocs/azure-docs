@@ -64,7 +64,7 @@ landingContent:
           - text: Require MFA for administrators
             url: howto-conditional-access-policy-admin-mfa.md
           - text: Require MFA for Azure management
-            url: howto-conditional-access-policy-azure-mamgement.md
+            url: howto-conditional-access-policy-azure-management.md
           - text: Block legacy authentication
             url: howto-conditional-access-policy-block-legacy.md
           - text: Risk-based Conditional Access (Requires Azure AD Premium P2)
