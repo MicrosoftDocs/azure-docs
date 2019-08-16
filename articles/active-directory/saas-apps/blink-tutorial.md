@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Blink | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Blink | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Blink.
 services: active-directory
 documentationCenter: na
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Blink
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Blink
 
 In this tutorial, you'll learn how to integrate Blink with Azure Active Directory (Azure AD). When you integrate Blink with Azure AD, you can:
 
@@ -72,15 +72,15 @@ To configure and test Azure AD SSO with Blink, complete the following building b
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Blink** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Blink** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, use one the following URL pattern:
+	a. In the **Sign on URL** text box, type a URL using one of the following pattern:
 	
 	| | |
 	|-|-|
@@ -93,6 +93,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Blink Client support team](https://help.joinblink.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. Blink Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+
+	![image](common/edit-attribute.png)
+
+1. In addition to above, Blink Meetings application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
+
+	| Name | Source Attribute|
+	| ---------------|  --------- |
+	|   first_name    | user.givenname |
+	|   second_name    | user.surname |
+	|   email       | user.mail |
+    | | |
+
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. Leave the **Namespace** blank.
+
+	d. Select Source as **Attribute**.
+
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+
+	f. Click **Save**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
