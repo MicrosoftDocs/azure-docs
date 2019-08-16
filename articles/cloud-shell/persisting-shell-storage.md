@@ -90,6 +90,9 @@ justin@Azure:~$
 The `Get-CloudDrive` cmdlet retrieves the Azure file share information currently mounted by the `clouddrive` in the Cloud Shell. <br>
 ![Running Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
+> [!NOTE]
+> For mounting a clouddrive, you have to use Bash.
+
 ### Unmount `clouddrive`
 You can unmount an Azure file share that's mounted to Cloud Shell at any time. If the Azure file share has been removed, you will be prompted to create and mount a new Azure file share at the next session.
 
