@@ -90,7 +90,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-For the full PowerShell documentation for this cmdlet consult the [Azure PowerShell documentation](https://docs.microsoft.com/en-us/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+For the full PowerShell documentation for this cmdlet, consult the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
 ### Azure CLI
 
@@ -108,7 +108,7 @@ az monitor app-insights component create --app
 ```azurecli
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
 ```
-For the full Azure CLI documentation for this command consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
+For the full Azure CLI documentation for this command, consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
 
 ## Next steps
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
