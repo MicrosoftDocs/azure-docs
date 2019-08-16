@@ -89,16 +89,6 @@ landingContent:
             url: data-box-portal-admin.md
 
   # Card
-  - title: FAQs
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: FAQ - Data Box
-            url: data-box-faq.md
-          - text: FAQ - Data Box Disk
-            url: data-box-disk-faq.md
-
-  # Card
   - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide
@@ -111,3 +101,15 @@ landingContent:
             url: data-box-troubleshoot.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
+
+  # Card
+  - title: FAQs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: FAQ - Data Box
+            url: data-box-faq.md
+          - text: FAQ - Data Box Disk
+            url: data-box-disk-faq.md
+
+
