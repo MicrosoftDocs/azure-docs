@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Configure Container Repository Credentials | Microsoft Docs
+title: Azure Service Fabric - Configure container repository credentials | Microsoft Docs
 description: Configure repository credentials to download images from container registry
 services: service-fabric
 documentationcenter: .net
@@ -97,7 +97,7 @@ Here is an example of what can be added inside the `Hosting` section in the Clus
 
 ### Leveraging the Managed Identity of the virtual machine scale set using Managed Identity Service (MSI)
 
-Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the managed identity of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for more on MSI.  Using this feature requires the follows steps:
+Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the managed identity of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for more on MSI.  Using this feature requires the follows steps:
 
 1.  Ensure that System Assigned Managed Identity is enabled for the VM (see screenshot below)
 
@@ -119,6 +119,7 @@ Service Fabric supports using tokens as credentials to download images for your 
         <ResourceGovernancePolicy CodePackageRef="NodeService.Code" MemoryInMB="256"/>
       </Policies>
       </ServiceManifestImport>
-  ```
+    ```
 
-Note that the flag `UseDefaultRepositoryCredentials` set to true while `UseTokenAuthenticationCredentials` is true as it will cause an error during deployment.  
+    > [!NOTE]
+    > The flag `UseDefaultRepositoryCredentials` set to true while `UseTokenAuthenticationCredentials` is true will cause an error during deployment.
