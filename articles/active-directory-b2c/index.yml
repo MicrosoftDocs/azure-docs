@@ -20,6 +20,23 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD B2C?
+            url: active-directory-b2c-overview.md
+      - linkListType: get-started
+        links:
+          - text: Create an Azure AD B2C tenant
+            url: tutorial-create-tenant.md
+          - text: Register an application
+            url: tutorial-register-applications.md
+          - text: Create user flows
+            url: tutorial-create-user-flows.md
+
   # Card
   - title: Build ASP.NET apps
     linkLists:
