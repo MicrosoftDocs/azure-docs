@@ -243,7 +243,7 @@ Create a Job that runs the notebook that you created earlier. Later, you'll crea
 Create an Azure Function that runs the Job.
 
 1. In the upper corner of the Databricks workspace, choose the people icon, and then choose **User settings**.
- 
+
    ![Manage account](./media/data-lake-storage-events/generate-token.png "User settings")
 
 2. Click the **Generate new token** button, and then click the **Generate** button.
@@ -375,6 +375,8 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
    ```
 
    The returned table shows the latest record.
+
+   ![Latest record appears in table](./media/data-lake-storage-events/final_query.png "Latest record appears in table")
 
 ## Clean up resources
 
