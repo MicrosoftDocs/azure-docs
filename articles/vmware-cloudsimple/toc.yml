@@ -111,7 +111,9 @@
     - name: Set up VMware virtual machines for the private cloud
       items:
       - name: Create a VM in Azure
-        href: https://docs.azure.cloudsimple.com/azure-create-vm/
+        href: azure-create-vm.md
+      - name: Manage VMs in Azure
+        href: azure-manage-vm.md
   - name: How-to guides
     items:
     - name: Secure your environment
@@ -137,7 +139,7 @@
       - name: vCenter identity sources
         href: set-vcenter-identity.md
       - name: Azure Application Gateway with VMware VMs
-        href: https://docs.azure.cloudsimple.com/azure-application-gateway/
+        href: azure-application-gateway.md
       - name: Configure private cloud vCenter server as vRealize automation endpoint
         href: https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/
       - name: Migrating workload VMs to a private cloud
