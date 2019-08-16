@@ -17,10 +17,10 @@ This article describes the scenarios that aren't currently supported and the ste
 The following scenarios aren't yet supported:
 
 * Managed Disks in Availability Zones can't be moved to a different subscription.
-* Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 * Virtual machines in an existing virtual network but you aren't moving all resources in the virtual network.
+* Low priority virtual machines within virtual machine scale set and standalone low priority virtual machines cannot be moved to a different resource group or subscription.
 
 ## Virtual machines with Azure Backup
 
