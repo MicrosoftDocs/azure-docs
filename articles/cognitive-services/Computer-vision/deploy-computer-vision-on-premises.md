@@ -182,11 +182,31 @@ Successfully packaged chart and saved it to: .\text-recognizer-1.0.0.tgz
 To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument.
 
 ```console
-helm install -f text-recognizer/config-values.yaml text-recognizer-1.0.0.tgz
-    --name text-recognizer
+helm install -f text-recognizer/config-values.yaml \
+    text-recognizer-1.0.0.tgz --name text-recognizer
 ```
 
-Here is an example output you might expect to see from a successful install execution
+Here is an example output you might expect to see from a successful install execution:
+
+```console
+NAME:   text-recognizer
+LAST DEPLOYED: Thu Aug 15 13:11:47 2019
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/Pod(related)
+NAME                              READY  STATUS   RESTARTS  AGE
+text-recognizer-669c747754-2qh5w  0/1    Pending  0         0s
+
+==> v1/Service
+NAME             TYPE          CLUSTER-IP     EXTERNAL-IP  PORT(S)         AGE
+text-recognizer  LoadBalancer  10.102.195.88  localhost    5000:30842/TCP  0s
+
+==> v1beta1/Deployment
+NAME             READY  UP-TO-DATE  AVAILABLE  AGE
+text-recognizer  0/1    0           0          0s
+```
 
 The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
 
