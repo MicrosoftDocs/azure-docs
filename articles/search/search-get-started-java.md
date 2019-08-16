@@ -63,16 +63,16 @@ Begin by opening IntelliJ IDEA and creating a new project.
 1. For `GroupId` and `ArtifactId`, enter `AzureSearchQuickstart`.
 1. Accept the remaining defaults to open the project.
 1. Select **File** > **Settings**, and select the **Import Maven projects automatically** check box, and click **OK**. This option appears under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importaing**.
-1. In the **Project** window, expand the the project tree to access the `src` and `main` folders.
+1. In the **Project** window, expand the project tree to access the `src` and `main` folders.
 1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and select **Package**.
-1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and and select **Directory**
+1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and select **Directory**
 
 When you're done, the project tree should look like the picture.
 ![Project directory structure](media/java-quickstart-basic-code-tree.png)
 
 ### Add Azure Search service information
 
-1. In the **Project** window, in the `resources` folder, in the `app` directory, add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, and and select **File**.
+1. In the **Project** window, in the `resources` folder, in the `app` directory, add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, and select **File**.
 1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>` and `<YOUR-API-KEY>` with your service name and key. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
     
     ```java
@@ -175,8 +175,8 @@ When you're done, the project tree should look like the picture.
 
 ### Add the HTTP operations
 
-1. In the **Project** window, in the `java` folder, in the `app` directory, add a `SearchServiceClient` class. To do this, select the `app` folder, press Alt + Insert, and and select **Java Class**.
-1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added later in later in this article.
+1. In the **Project** window, in the `java` folder, in the `app` directory, add a `SearchServiceClient` class. To do this, select the `app` folder, press Alt + Insert, and select **Java Class**.
+1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added later in this article.
 
     ```java
     package service;
@@ -292,7 +292,7 @@ When you're done, the project tree should look like the picture.
 
 ### Specify Maven dependencies
 
-1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include the references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -484,7 +484,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
     
     The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
 
-1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs and make the requests to create and delete an index, and that will determine if an index exists.
+1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to create and delete an index, and that will determine if an index exists. These methods also make the HTTP request.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -526,7 +526,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
 
 1. Uncomment the following code in the `App` class. This code deletes the "hotels-quickstart" index, if it exists, and creates a new index based on the index definition in the "index.json" file. 
 
-    To ensure the index is created before you upload any documents, a one-second pause is inserted after you make the REST service request to create the index.
+    A one-second pause is inserted after the index creation request. This pause ensures that the index is created before you upload documents.
     
     ```java
         if(client.indexExists()){ client.deleteIndex();}
@@ -536,7 +536,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-    As the code runs, look for an "Creating index" message followed by a 201 response code. This confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
+    As the code runs, look for a "Creating index" message followed by a 201 response code. This confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
     
 ## 2 - Upload documents
 
@@ -647,7 +647,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
 
 1. Uncomment the following code in the `App` class. This code uploads the documents in "hotels.json" to the index.
 
-To ensure that documents are uploaded before you query the index, a two-second pause is inserted after the documents are uploaded.
+The two-second pause after the upload request ensures that the document loading process completes before you query the index.
 
     ```java
     client.uploadDocuments();
