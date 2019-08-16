@@ -62,7 +62,7 @@ After you've successfully created the product in the portal, the product is disp
 1. Select the created product link found on the **Product** page in the product column. The state should be in draft state.
 1. Select the **Edit** link next to **Product information** header. Enter information about your product in the product information page, and make sure you complete all the required fields.
 1. Select **Save**. The **Save** button only appears when you complete all the required fields. If the fields are incomplete, the button says **Save and finish later**.
-1. Review the content you entered.
+1. Review the content you entered. You need to complete all the required fields in order to publish the device to the device catalog. You can always go back to make edits to the product information in product detail page by clicking the **edit** link next to PRODUCT INFORMATION header.
 
 ## Connect and discover interfaces
 
@@ -92,7 +92,7 @@ On the review page, you can review the discovered IoT Plug and Play interfaces. 
 1. To run the tests for the implemented IoT Plug and Play interfaces, select **Run tests**.
 1. All the tests run automatically. If any test fails, select **View logs** to view the error messages from AICS and the raw telemetry sent to Azure IoT Hub.
 1. To complete the certification tests, select **Finish**.
-1. Publish the certified IoT Plug and Play device to the catalog. To add the certified device to the catalog, select **Add to Catalog** on the toolbar.
+1. Publish the certified IoT Plug and Play device to the catalog. To add the certified device to the catalog, select **Add to catalog** on the toolbar. If the **Add to catalog** is greyed out, it means either the product information is incomplete or the tests have failed. 
 1. Select the "CERTIFIED AND IN THE CATALOG" link to view your published device on in the device catalog.
 
 ## Next steps
