@@ -233,8 +233,8 @@ Additionally, the service automatically uses one of the Ubuntu Linux-based [base
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
-myenv.docker.base_image
-myenv.docker.base_image_registry
+myenv.docker.base_image="your_base-image"
+myenv.docker.base_image_registry="your_registry_location"
 
 # Specify GPU image
 myenv.docker.gpu_support=True
