@@ -37,8 +37,8 @@ To access vCenter, start from the CloudSimple portal. On the Home page, under **
 
 ## Upload an ISO or vSphere template
 
-!!! warning
-    For ISO upload, use the vSphere HTML5 client.  Using Flash client may result in an error.
+  > [!WARNING]
+  > For ISO upload, use the vSphere HTML5 client.  Using Flash client may result in an error.
 
 1. Obtain the ISO or vSphere template that you want to upload to vCenter to create a VM and have it available on your local system.
 2. In vCenter, click the **Disk** icon and select **vsanDatastore**. Click **Files** and then click **New Folder**.
@@ -91,9 +91,10 @@ The following sections contain optional information about setting up DNS and DHC
 
 ## Add Users and Identity Sources to vCenter (Optional)
 
-CloudSimple assigns a default vCenter user account with username **cloudowner@cloudsimple.local**. No additional account setup is required for you to get started.  CloudSimple normally assigns administrators the privileges they need to perform normal operations.  Set up your on-premises active directory or Azure AD  as an [additional identity source](set-vcenter-identity.md) on your Private Cloud.
+CloudSimple assigns a default vCenter user account with username `cloudowner@cloudsimple.local`. No additional account setup is required for you to get started.  CloudSimple normally assigns administrators the privileges they need to perform normal operations.  Set up your on-premises active directory or Azure AD  as an [additional identity source](set-vcenter-identity.md) on your Private Cloud.
 
 ## Create a DNS and DHCP Server (Optional)
+
 Applications and workloads running in a Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine in vCenter to provide these services in your Private Cloud environment.
 
 Prerequisites
@@ -107,20 +108,18 @@ Prerequisites
 The following links provide guidance on setting up DHCP and DNS servers on Linux and Windows.
 
 #### Linux-Based DNS Server Setup
+
 Linux offers various packages for setting up DNS servers.  Here is a link to instructions for setting up an open-source BIND DNS server.
 
-[Example setup][6]
-
-[6]: https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7
+[Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
 #### Windows-Based Setup
-These Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
-<br>
-[Windows Server as DNS Server][2]
-[2]: https://docs.microsoft.com/en-us/windows-server/networking/dns/dns-top
 
-[Windows Server as DHCP Server][3]
-[3]:https://docs.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-top
+These Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
+
+[Windows Server as DNS Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+
+[Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
 
 ## Customize Networking Configuration (Optional)
 
@@ -214,6 +213,7 @@ Start a browser on your desktop and point it to port 80 for the public IP addres
 You can also modify the way your traffic is secured, using the Firewall Rules feature. For more information, see [Set up firewall tables and rules](firewall.md).
 
 ## Install Solutions (Optional)
+
 You can install solutions on your CloudSimple Private Cloud to take full advantage of your Private Cloud vCenter environment. You can set up backup, disaster recovery, replication, and other functions to protect your virtual machines. Examples include VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
 
 To install a solution, you must request additional privileges for a limited period. See [Escalate privileges](escalate-private-cloud-privileges.md).
