@@ -276,6 +276,22 @@
     - name: Troubleshoot State Configuration (DSC)
       href: troubleshoot/desired-state-configuration.md
       displayName: Desired State Configuration, troubleshoot
+  - name: Reference
+    items:
+    - name: Community Solutions
+      items:
+      - name: Configuration data at scale
+        href: automation-dsc-config-data-at-scale.md
+        displayName: DSC, Configuration Data, ConfigData
+      - name: Create configurations from servers
+        href: automation-dsc-config-from-server.md
+        displayName: DSC, ReverseDSC
+      - name: Configuration based on STIG
+        href: automation-dsc-configuration-based-on-stig.md
+        displayName: DSC, Configuration
+      - name: Convert configurations to composite resources
+        href: automation-dsc-create-composite.md
+        displayName: DSC, composite
 - name: Manage Shared Resources
   items:
     - name: Certificates
