@@ -38,11 +38,11 @@ After reading this article, you will be able to answer the following questions:
 
 ADF offers a serverless architecture that allows parallelism at different levels, which allows developers to build pipelines to fully utilize your network bandwidth as well as storage IOPS and bandwidth to maximize data movement throughput for your environment.  This means the throughput you can achieve can be estimated by measuring the minimum throughput offered by the source data store, the destination data store, and network bandwidth in between the source and destination.  The table below calculates the copy duration based on data size and the bandwidth limit for your environment. 
 
-![copy duration estimation](media\copy-activity-performance\copy-duration-estimation.png)
+![copy duration estimation](media/copy-activity-performance/copy-duration-estimation.png)
 
 ADF copy is scalable at different levels:
 
-![how ADF copy scales](media\copy-activity-performance\adf-copy-scalability.png)
+![how ADF copy scales](media/copy-activity-performance/adf-copy-scalability.png)
 
 - A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify [up to 256 DIUs](#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), and a single copy activity will partition its file set across all nodes.
 - A single copy activity reads from and writes to the data store using multiple threads.
