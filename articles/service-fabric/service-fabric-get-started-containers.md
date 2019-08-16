@@ -263,7 +263,7 @@ Configure a host port used to communicate  with the container. The port binding 
 
 ## Configure container repository authentication
 
-See [Container Repository Authentication](service-fabric-configure-container-repository-credentials.md)to learn how to configure different types of authentication for container image downloading.
+See [Container Repository Authentication](configure-container-repository-credentials.md)to learn how to configure different types of authentication for container image downloading.
 
 ## Configure isolation mode
 Windows supports two isolation modes for containers: process and Hyper-V. With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default  is process isolation mode on Windows Server hosts. On Windows 10 hosts, only Hyper-V isolation mode is supported, so the container runs in Hyper-V isolation mode regardless of its isolation mode setting. The following snippet shows how the isolation mode is specified in the application manifest file.

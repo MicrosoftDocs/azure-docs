@@ -178,7 +178,7 @@ Specify the port mapping in the appropriate format. For this article, you need t
 
 ## Configure container repository authentication
 
-See [Container Repository Authentication](service-fabric-configure-container-repository-credentials.md)to learn how to configure different types of authentication for container image downloading.
+See [Container Repository Authentication](configure-container-repository-credentials.md)to learn how to configure different types of authentication for container image downloading.
 
 ## Configure isolation mode
 With the 6.3 runtime release, VM isolation is supported for Linux containers, thereby supporting two isolation modes for containers: process and Hyper-V. With the Hyper-V isolation mode, the kernels are isolated between each container and the container host. The Hyper-V isolation is implemented using [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). The isolation mode is specified for Linux clusters in the `ServicePackageContainerPolicy` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default is process isolation mode. The following snippet shows how the isolation mode is specified in the application manifest file.
