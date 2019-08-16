@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk restore deleted users (preview) in the Azure Active Directory
+# Bulk restore deleted users (preview) in Azure Active Directory
 
 Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 

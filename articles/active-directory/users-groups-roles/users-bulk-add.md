@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk import users (preview) in the Azure Active Directory
+# Bulk import users (preview) in Azure Active Directory
 
 Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
@@ -39,14 +39,14 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
 Next, you can check to see that the users you created exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 
-## View created users in the Azure portal
+## Verify users in the Azure portal
 
 1. [Sign in to the Azure AD admin center](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** and verify that the users you created are listed.
 
-### View users with PowerShell
+### Verify users with PowerShell
 
 Run the following command:
 
