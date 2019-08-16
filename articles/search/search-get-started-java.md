@@ -46,7 +46,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
    Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Get the service name and admin and query keys](media/search-get-started-java/search-get-started-nodejs/service-name-and-keys.png)
+![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -345,7 +345,7 @@ Begin by opening IntelliJ IDEA and creating a new project.
     ```
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
-![Execute maven goal: verify exec: java](media/java-quickstart-execute-maven-goal.png)
+![Execute maven goal: verify exec: java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
 When processing completes, look for a BUILD SUCCESS message followed by a zero (0) exit code.
 
