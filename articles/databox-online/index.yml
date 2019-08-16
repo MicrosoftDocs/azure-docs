@@ -33,6 +33,8 @@ landingContent:
         links:
           - text: Choose Azure data transfer options
             url: /azure/storage/common/storage-choose-data-transfer-solution
+          - text: Use online or offline data transfer
+            url: /azure/storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
           - text: 1905 release notes
