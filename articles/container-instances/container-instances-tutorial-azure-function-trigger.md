@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 08/16/2019
 ms.author: danlep
 ms.custom: 
 ---
@@ -217,6 +217,7 @@ See the [Azure Functions documentation](/azure/azure-functions/) for detailed gu
 
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-show]: /cli/azure/group#az-group-show
+[az-group-delete]: /cli/azure/group#az-group-delete
 [az-functionapp-identity-app-assign]: /cli/azure/functionapp/identity#az-functionapp-identity-assign
 [new-azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [az-container-logs]: /cli/azure/container#az-container-logs
