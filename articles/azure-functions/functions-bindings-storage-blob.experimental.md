@@ -353,13 +353,11 @@ Access blob data using `context.bindings.<name from function.json>`.
 
 # [Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python).
-
-For instance through parameter like `myblob: func.InputStream`.
+Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). For instance through parameter declared as `myblob: func.InputStream`.
 
 # [Java](#tab/java)
 
-??
+Access blob data via the [@BlobInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.blobinput?view=azure-java-stable) attribute.
 
 ---
 
@@ -422,13 +420,14 @@ module.exports = function (context, myBlob) {
     context.done();
 };
 ```
+
 # [Python](#tab/python)
 
-Access function context data via a property declared as `context: func.Context`.
+Access function metadata via the execution context. You can access this information from a property declared as `context: func.Context`.
 
 # [Java](#tab/java)
 
-??
+Access function metadata via the execution context. You can access this information from an instance of the [ExecutionContext](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.executioncontext?view=azure-java-stable) interface.
 
 ---
 
@@ -795,7 +794,7 @@ For instance through parameter like `myblob: func.InputStream`.
 
 # [Java](#tab/java)
 
-??
+Use the `@BlobInput` attribute or `InputBinding<T>` with `String` or `byte[]`. If you use the byte array with `@BlobInput`, you need to set the `dataType` to `binary`.
 
 ---
 
@@ -1165,7 +1164,9 @@ You can use the following types to write out to blob storage:
 
 # [Java](#tab/java)
 
-??
+Use the `@BlobOutput` attribute or `OutputBinding<T>` with `String` or `byte[]`.
+
+If you use the byte array with `@BlobOutput`, you need to set the `dataType` to `binary`.
 
 ---
 
