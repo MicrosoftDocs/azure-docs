@@ -15,6 +15,7 @@ ms.author: spelluru
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
 Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Event Hubs relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
 
+## Overview
 Azure Event Hubs now supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys (Bring Your Own Key – BYOK). This feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Event Hubs data at rest.
 
 Enabling the BYOK feature is a one time setup process on your namespace.
@@ -39,7 +40,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
     ![Enable customer managed key](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
-## Set up a key vault and add keys
+## Set up a key vault with keys
 After you enable customer-managed keys, you need to associate the customer managed key with your Azure Event Hubs namespace. Event Hubs supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) or [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
 
 1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/key-vault-overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md).
@@ -79,10 +80,10 @@ Once the encryption key is revoked, the Event Hubs service on the encrypted name
 > [!NOTE]
 > If you delete an existing encryption key from your key vault and replace it with a new key on the Event Hubs namespace, since the delete key is still valid (as it is cached) for up to an hour, your old data (which was encrypted with the old key) may still be accessible along with the new data, which is now accessible only using the new key. This behavior is by design in the preview version of the feature. 
 
-## Set up diagnostic logs for BYOK enabled Event Hubs namespace
+## Set up diagnostic logs 
 Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations when a namespace is encrypted with customer-managed keys. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-## Enable user logs for customer-managed keys
+## Enable user logs
 Follow these steps to enable logs for customer-managed keys.
 
 1. In the Azure portal, navigate to the namespace that has BYOK enabled.
@@ -97,7 +98,7 @@ Follow these steps to enable logs for customer-managed keys.
 
     ![Select customer-managed key user logs option](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
 
-## CustomerManagedKeyUserLogs logs schema 
+## Log schema 
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following table. 
 
 | Name | Description |
@@ -145,7 +146,7 @@ Here's an example of the  log for a customer managed key:
 }
 ```
 
-## Troubleshooting
+## Troubleshoot
 As a best practice, always enable logs like shown in the previous section. It helps in tracking the activities when BYOK encryption is enabled. It also helps in scoping down the problems.
 
 Following are the common errors codes to look for when BYOK encryption is enabled.
