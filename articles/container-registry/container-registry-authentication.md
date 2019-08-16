@@ -46,25 +46,7 @@ The available roles for a container registry include:
 
 For a complete list of roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).
 
-For CLI scripts to create a service principal app ID and password for authenticating with an Azure container registry, or to use an existing service principal, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
-
-Service principals enable headless connectivity to a registry in both pull and push scenarios like the following:
-
-  * *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
-
-  * *Push*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
-
-You can also log in directly with a service principal. When you run the following command, interactively provide the service principal appID (username) and password when prompted. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference:
-
-```
-docker login myregistry.azurecr.io
-```
-
-Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
-
-> [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest) command.
->
+For CLI scripts to create a service principal for authenticating with an Azure container registry, and guidance on using a service principal, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
 ## Admin account
 
@@ -80,6 +62,7 @@ The admin account is provided with two passwords, both of which can be regenerat
 docker login myregistry.azurecr.io 
 ```
 
+For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
 To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) command in the Azure CLI:
 
