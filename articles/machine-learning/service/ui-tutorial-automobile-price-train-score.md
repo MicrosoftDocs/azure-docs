@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/21/2019
+ms.date: 08/16/2019
 ---
 
 # Tutorial: Predict automobile price with the visual interface
@@ -23,9 +23,11 @@ In part one, you'll set up your environment, drag-and-drop datasets and analysis
 In part one of the tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Import and clean data
+> * Create a new experiment
+> * Import data
+> * Prepare data
 > * Train a machine learning model
-> * Score and evaluate a model
+> * Evaluate a machine learning model
 
 In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service so you can use it to predict the price of any car based on technical specifications you send it. 
 
@@ -33,13 +35,17 @@ A completed version of this tutorial is available as a sample experiment.
 
 To find it, from the **Experiments page**, select **Add New**, then select the **Sample 1 - Regression: Automobile Price Prediction(Basic)** experiment.
 
-## Create a workspace
+## Create a new experiment
+
+To create a visual interface experiment, you first need  an Azure Machine Learnings service workspace. In this section you learn how to create both these resources.
+
+### Create a new workspace
 
 If you have an Azure Machine Learning service workspace, skip to the next section.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Create new experiment
+### Create an experiment
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).
 
@@ -53,7 +59,7 @@ If you have an Azure Machine Learning service workspace, skip to the next sectio
 
 1. Select the default experiment name **"Experiment created on ...**" at the top of the canvas and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
 
-## Specify data
+## Import data
 
 Machine learning depends on data. Luckily, there are several sample datasets included in this interface available for you to experiment with. For this tutorial, use the sample dataset **Automobile price data (Raw)**. 
 
@@ -87,7 +93,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 1. On the lower right, select **OK** to close the column selector.
 
-## Run the experiment
+### Run the experiment
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Visualize** option is disabled, you first need to run the experiment.
 
@@ -96,7 +102,7 @@ At any time, click the output port of a dataset or module to see what the data l
 After the compute target is available, the experiment runs. When the run is complete, a green check mark appears on each module.
 
 
-## Visualize the data
+### Visualize the data
 
 Now that you have run your initial experiment, you can visualize the data to understand more about the dataset you have.
 
@@ -165,7 +171,7 @@ When you train a model, you have to do something about the data that is missing.
     
     ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
 
-## Train the model
+## Train a machine learning model
 
 Now that the data is ready, you can construct a predictive model. You'll use your data to train the model. Then you'll test the model to see how closely it's able to predict prices.
 
@@ -201,7 +207,7 @@ Use your data for both training the model and testing it by splitting the data i
 
     ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-## Score and evaluate the model
+## Evaluate a machine learning model
 
 Now that you've trained the model using 70 percent of your data, you can use it to score the other 30 percent of the data to see how well your model functions.
 
