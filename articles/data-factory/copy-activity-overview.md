@@ -1,6 +1,6 @@
 ---
-title: Copy Activity in Azure Data Factory | Microsoft Docs
-description: Learn about the copy activity in Azure Data Factory that you can use to copy data from a supported source data store to a supported sink data store.
+title: Copy activity in Azure Data Factory | Microsoft Docs
+description: Learn about the copy activity in Azure Data Factory. You can use it to copy data from a supported source data store to a supported sink data store.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -16,24 +16,24 @@ ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
-# Copy Activity in Azure Data Factory
+# Copy activity in Azure Data Factory
 
 ## Overview
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Current version](copy-activity-overview.md)
 
-In Azure Data Factory, you can use Copy Activity to copy data among data stores located on-premises and in the cloud. After the data is copied, it can be further transformed and analyzed using other activities. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
+In Azure Data Factory, you can use the copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
-![Role of Copy Activity](media/copy-activity-overview/copy-activity.png)
+![The role of the copy activity](media/copy-activity-overview/copy-activity.png)
 
-Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, different flavors of Integration Runtime can be leveraged:
+The copy activity is executed on an [integration runtime](concepts-integration-runtime.md). You can use different types of integration runtimes for different data copy scenarios:
 
-* When copying data between data stores that both are publicly accessible through the internet from any IPs, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
-* When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
+* When you're copying data between two data stores that are publicly accessible through the internet from any IP, you can use the Azure integration runtime for the copy activity. This integration runtime is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
+* When you're copying data to and from data stores that are located on-premises or in a network with access control (for example, an Azure virtual network), you need to set up a self-hosted integration runtime.
 
-Integration Runtime needs to be associated with each source and sink data store. Learn details on how copy activity [determines which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
+An integration runtime needs to be associated with each source and sink data store. Learn details on how copy activity [determines which integration runtime to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
 
