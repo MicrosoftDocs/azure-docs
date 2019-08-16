@@ -22,6 +22,7 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 | Number of device capability models (DCMs) or interfaces that can be registered per hub | 1500 ||
 | Maximum number of interfaces that can be registered per device | 40 ||
 | Maximum number of DCMs that can be registered per device | 1 ||
+| Maximum size of interface/DCM file | 512 chars ||
 | Maximum size of an interface name | 256 chars ||
 | Maximum size of a property name  | 64 bytes, 7 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore. |
 | Maximum size of a property value | 512 bytes ||
