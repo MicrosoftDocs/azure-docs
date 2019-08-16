@@ -22,7 +22,7 @@ Currently, there’s an issue where [network security group (NSG) flow logs](net
 
 ## Run PowerShell script delete NSG flow logs
  
-1. Copy and save the following script to a location such as your current working directory. 
+Copy and save the following script to a location such as your current working directory. 
 
 ```powershell
 # This powershell script deletes all NSG flow log blobs that should not be retained anymore as per configured retention policy.
@@ -118,16 +118,18 @@ foreach ($Psflowlog in $FlowLogsList)
 }
 
 Write-Output ('Retention policy for all NSGs evaluated and completed successfully')
-
 ```
-2. Enter the following parameters in the script as needed:
-    1. **SubscriptionId** [Mandatory]: The subscription ID from where you would like to delete NSG Flow Log blobs.
-    2. **Location** [Mandatory]: The _location string_ of the region of the NSGs for which you would like to delete NSG Flow Log blobs. You can view this information on the Azure portal or from the [list here](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-    3. **Confirm** [Optional]: Pass the confirm flag if you want to manually confirm the deletion of each storage blob.
-3. Run the saved script as shown in the following example, where the script file was saved as **Delete-NsgFlowLogsBlobs.ps1**:
-     ```
-    .\Delete-NsgFlowLogsBlobs.ps1 -SubscriptionId <subscriptionId> -Location  <location> -Confirm
-    ```
+
+1. Enter the following parameters in the script as needed:
+   - **SubscriptionId** [Mandatory]: The subscription ID from where you would like to delete NSG Flow Log blobs.
+   - **Location** [Mandatory]: The _location string_ of the region of the NSGs for which you would like to delete NSG Flow Log blobs. You can view this information on the Azure portal or on [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Confirm** [Optional]: Pass the confirm flag if you want to manually confirm the deletion of each storage blob.
+
+1. Run the saved script as shown in the following example, where the script file was saved as **Delete-NsgFlowLogsBlobs.ps1**:
+   ```
+   .\Delete-NsgFlowLogsBlobs.ps1 -SubscriptionId <subscriptionId> -Location  <location> -Confirm
+   ```
+    
 ## Next steps
 - To learn more about NSG logging, see [Azure Monitor logs for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
