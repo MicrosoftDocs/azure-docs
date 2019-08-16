@@ -264,7 +264,8 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > forwarding the request on to the Function API.
 
 ## [Optional] Test the API from the Developer Portal
-> [!NOTE] The following section does not apply to the **Consumption** tier, which does not support the developer portal.
+> [!NOTE] 
+> The following section does not apply to the **Consumption** tier, which does not support the developer portal.
 > Hence this part is only relevant if you configured this up earlier in the document, if not then please skip this step.
 
 1. From the overview blade of the API Management portal, click 'Developer Portal' to sign in as an administrator of the API.
