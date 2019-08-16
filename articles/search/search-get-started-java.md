@@ -44,7 +44,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   This quickstart uses It's a best practice to issue query requests with read-only access.
+   Create a query key, too. It's a best practice to issue query requests with read-only access.
 
 ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
@@ -69,7 +69,7 @@ Begin by opening IntelliJ IDEA and creating a new project.
 1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and select **Directory**
 
     When you're done, the project tree should look like the picture.
-    
+
     ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree.png)
 
 ### Add Azure Search service information
