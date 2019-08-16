@@ -72,10 +72,6 @@ landingContent:
             url: data-box-gateway-manage-access-power-connectivity.md
           - text: Data Box Edge power, access, connectivity
             url: data-box-edge-manage-access-power-connectivity.md
-          - text: Data Box Gateway via PowerShell
-            url: data-box-gateway-connect-powershell-interface.md
-          - text: Data Box Edge via PowerShell
-            url: data-box-edge-connect-powershell-interface.md
 
 
   # Card
