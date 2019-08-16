@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 08/16/2019
 ms.author: diberry
 ---
 
@@ -55,7 +55,7 @@ You can delete all versions except the active version from the Versions list on 
 Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
 ## Collaborators
-The owner and all [collaborators](luis-how-to-collaborate.md) have full access to all versions of the app.
+Learn more about authoring [collaborators](luis-how-to-collaborate.md).
 
 ## Next steps
 
