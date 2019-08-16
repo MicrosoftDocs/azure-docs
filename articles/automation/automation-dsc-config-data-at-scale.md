@@ -1,7 +1,7 @@
 ---
-ms.date:  11/13/2018
-keywords:  dsc,powershell,configuration,setup
-title:  Configuration Data At Scale for use in Azure State Configuration
+title: Configuration data at scale - Azure Automation
+description: Learn how to configure data at scale for state configuration in Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
