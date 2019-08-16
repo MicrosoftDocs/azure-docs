@@ -19,8 +19,8 @@ ms.author: iainfou
 
 The most common reasons for a user account that can't sign in to an Azure AD DS managed domain include the following scenarios:
 
-* [The account isn't synchronized into Azure AD DS yet.](#account-isn't-synchronized-into-azure-ad-ds-yet)
-* [Azure AD DS doesn't have the password hashes to let the account sign in.](#azure-ad-ds-doesn't-have-the-password-hashes)
+* [The account isn't synchronized into Azure AD DS yet.](#account-isnt-synchronized-into-azure-ad-ds-yet)
+* [Azure AD DS doesn't have the password hashes to let the account sign in.](#azure-ad-ds-doesnt-have-the-password-hashes)
 * [The account is locked out.](#the-account-is-locked-out)
 
 > [!TIP]
@@ -54,10 +54,11 @@ For more information, see [How password hash synchronization works for Azure AD 
 Azure AD DS managed domains with no on-premises synchronization, only accounts in Azure AD, also need to generate the required NTLM or Kerberos password hashes. If a cloud-only account can't sign in, has a password change process successfully completed for the account after enabling Azure AD DS?
 
 * **No, the password has not been changed.**
-    * [Change the password for this account][enable-user-accounts] to generate the required password hashes, then wait for 15 minutes before you try to sign in again.
+    * [Change the password for the account][enable-user-accounts] to generate the required password hashes, then wait for 15 minutes before you try to sign in again.
     * If you disable Azure AD DS and then re-enable, each account must follow the steps again to change their password and generate the required password hashes.
 * **Yes, the password has been changed.**
-    * Try to sign in using the *UPN* format, such as `driley@contoso.com`, instead of the *SAMAccountName* format like `CONTOSO\deeriley`. The *SAMAccountName* may be automatically generated for users whose UPN prefix is overly long or is the same as another user on the managed domain. The *UPN* format is guaranteed to be unique within an Azure AD tenant.
+    * Try to sign in using the *UPN* format, such as `driley@contoso.com`, instead of the *SAMAccountName* format like `CONTOSO\deeriley`.
+    * The *SAMAccountName* may be automatically generated for users whose UPN prefix is overly long or is the same as another user on the managed domain. The *UPN* format is guaranteed to be unique within an Azure AD tenant.
 
 ## The account is locked out
 

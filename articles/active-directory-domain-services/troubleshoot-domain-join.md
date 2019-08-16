@@ -22,7 +22,7 @@ When you try to join a virtual machine (VM) or connect an application to an Azur
 * If you don't receive an authentication prompt, the VM or application can't connect to the Azure AD DS managed domain.
     * Start to troubleshoot [connectivity issues for domain-join](#connectivity-issues-for-domain-join).
 * If you receive an error during authentication, the connection to the Azure AD DS managed domain is successful.
-    * Start to troubleshoot [credentials-related issues during domain-join](credentials-related-issues-during-domain-join).
+    * Start to troubleshoot [credentials-related issues during domain-join](#credentials-related-issues-during-domain-join).
 
 ## Connectivity issues for domain-join
 
