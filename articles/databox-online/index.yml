@@ -33,10 +33,10 @@ landingContent:
         links:
           - text: Choose Azure data transfer options
             url: /azure/storage/common/storage-choose-data-transfer-solution
-      - linkListType: learn
+      - linkListType: whats-new
         links:
-          - text: Import data online with Data Box 
-            url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+          - text: 1905 release notes
+            url: data-box-gateway-1905-release-notes
 
   # Card
   - title: Deploy Data Box Edge
@@ -98,6 +98,24 @@ landingContent:
           - text: Data Box Edge via PowerShell
             url: data-box-edge-connect-powershell-interface.md
 
+
+  # Card
+  - title: Develop, manage Edge compute
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Develop C# compute module
+            url: data-box-edge-manage-compute.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Edge compute
+            url: data-box-edge-manage-compute.md
+          - text: Manage Edge compute network
+            url: data-box-edge-extend-compute-access-modules.md
+          - text: Return or replace Data Box Edge
+            url: data-box-edge-return-device.md
+          - text: Open Support ticket
+            url: data-box-edge-contact-microsoft-support.md
 
   # Card
   - title: Troubleshoot
