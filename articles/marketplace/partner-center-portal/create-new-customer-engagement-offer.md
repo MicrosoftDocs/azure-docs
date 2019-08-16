@@ -81,6 +81,8 @@ Select from the following options:
 
 See [Lead management overview](./commercial-marketplace-get-customer-leads.md) for more information.
 
+Remember to Save before moving on to the next section!
+
 ## Properties
 
 The **Properties** page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer. Select **Save** after completing this page. 
