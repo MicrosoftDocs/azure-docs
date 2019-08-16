@@ -22,9 +22,9 @@ This article describes how to manually delete network security group (NSG) flow 
 
 [Network security group flow logs](network-watcher-nsg-flow-logging-overview.md) are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. Flow logs are stored within a storage account and are maintained based on the value set for the retention policy. You can set log retention policy from one day to 2,147,483,647 days. If a retention policy is not set, the logs are maintained forever.
 
-Retention policies on NSG flow logs were recently turned off. As a result, storage blobs created by NSG Flow logs will no longer be automatically deleted. If you have an existing non-zero retention policy, we recommend you periodically delete the storage blobs that are past their retention period to avoid  incurring any charges. 
+Retention policies on NSG flow logs were recently turned off. As a result, you can no longer use retention policies for Network Watcher NSG flow logs to automatically delete the logs from Blob storage. You must now run a PowerShell script to manually delete the flow logs from your storage account as described in this article.
 
-## Delete NSG flow logs from storage account using Azure PowerShell
+## Delete NSG flow logs from storage account using an Azure PowerShell script
  
 1. Download and save the following script to the current working directory or relevant path folders. 
 
