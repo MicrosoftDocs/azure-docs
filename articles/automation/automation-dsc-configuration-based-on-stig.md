@@ -28,7 +28,7 @@ following a "baseline" that hopefully aligns to an industry recommendation.
 A community project named
 [PowerSTIG](https://github.com/microsoft/powerstig)
 aims to resolve this issue by generating DSC content based on
-[public information](https://iase.disa.mil/stigs/Pages/index.aspx)
+[public information](https://public.cyber.mil/stigs/)
 provided about STIG (Security Technical Implementation Guide),
 
 Dealing with baselines is more complicated than it sounds.
