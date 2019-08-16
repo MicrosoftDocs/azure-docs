@@ -400,6 +400,15 @@ When you're ready to run your test, use a Microsoft Azure Active Directory (Azur
 <br/><br/>
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
+<!--start-collapse-->
+> ###  Permissions and consent in the Microsoft identity platform endpoint
+>  Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with Azure AD to access this application, they will be prompted to consent to the permissions requested by the application (i.e. "View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
+>  > - The application developer adds any additional permissions that require **Admin consent**.
+>  > - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
+>
+> For more information, please refer to [Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+<!--end-collapse-->
+
 #### View application results
 
 After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message *"Hello \<User>,"* a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the *Claims* controller that you created earlier.
