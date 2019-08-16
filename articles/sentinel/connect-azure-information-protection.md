@@ -35,7 +35,7 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
 
 ## Connect to Azure Information Protection
 
-Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. If this has already been [configured for Azure Information Protection analytics](/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), select that workspace when you configure the data connector. If you select a different workspace, Sentinel won't be able to get the logging information from Azure Information Protection.
+Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. If this has already been [configured for Azure Information Protection analytics](https://docs.microsoft.com/azure//information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), select that workspace when you configure the data connector. If you select a different workspace, Sentinel won't be able to get the logging information from Azure Information Protection.
 
 If a workspace isn't yet configured for Azure Information Protection analytics, you can configure it when you configure the data connector.
 
@@ -53,8 +53,7 @@ If a workspace isn't yet configured for Azure Information Protection analytics, 
 
 5. When you have selected a workspace, select **OK** and the connector **STATUS** should now change to **Connected**.
 
-6. To use the relevant schema for the Azure Information Protection reporting data, search for **InformationProtectionLogs_CL**.
-
+6. To use the relevant schema for the Azure Information Protection reporting data, search for **InformationProtectionEvents**. For information about the event functions, see the [Friendly schema reference for event functions](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) section from the Azure Information Protection documentation.
 
 ## Next steps
 In this document, you learned how to connect Azure Information Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
