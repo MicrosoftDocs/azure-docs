@@ -102,7 +102,7 @@
       - name: REST
         href: network-watcher-nsg-flow-logging-rest.md
     - name: Delete NSG flow log storage blobs
-      items: network-watcher-delete-nsg-flow-log-blobs.md
+      href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Analyze NSG flow logs
       items:
       - name: Read NSG flow logs
