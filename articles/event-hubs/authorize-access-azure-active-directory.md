@@ -7,7 +7,7 @@ documentationcenter: ''
 author: spelluru
 
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 08/16/2019
 ms.author: spelluru
 
 ---
@@ -23,7 +23,7 @@ When a security principal (a user, group, or application) attempts to access an 
 
 The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure VM,  a virtual machine scale set, or an Azure Function app, it can use a managed identity to access the resources. To learn how to authenticate requests made by a managed identity to Event Hubs service, see [Authenticate access to Azure Event Hubs resources with Azure Active Directory and managed identities for Azure Resources](authenticate-managed-identity.md). 
 
-The authorization step requires that one or more RBAC roles be assigned to the security principal. Azure Event Hubs provides RBAC roles that encompass sets of permissions for Event Hubs resources. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning RBAC roles to Azure Event Hubs, see [Built-in RBAC roles for Azure Event Hubs](#built-in-rbac-roles-for-azure-event-hubs). 
+The authorization step requires that one or more RBAC roles be assigned to the security principal. Azure Event Hubs provides RBAC roles that encompass sets of permissions for Event Hubs resources. The roles that are assigned to a security principal determine the permissions that the principal will have. For more information about RBAC roles, see [Built-in RBAC roles for Azure Event Hubs](#built-in-rbac-roles-for-azure-event-hubs). 
 
 Native applications and web applications that make requests to Event Hubs can also authorize with Azure AD. To learn how to request an access token and use it to authorize requests for Event Hubs resources, see [Authenticate access to Azure Event Hubs with Azure AD from an application](authenticate-application.md). 
 
