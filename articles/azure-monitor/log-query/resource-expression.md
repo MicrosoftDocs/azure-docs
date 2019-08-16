@@ -30,8 +30,8 @@ The `resource` expression is used in a Azure Monitor query [scoped to a resource
 
 | Identifier | Description | Example
 |:---|:---|:---|
-| Resource | Includes data for the resource. |
-| Resource Group or Subscription | Includes data for the resource and all resources that it contains.  |
+| Resource | Includes data for the resource. | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
+| Resource Group or Subscription | Includes data for the resource and all resources that it contains.  | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
 
 
 ## Notes
