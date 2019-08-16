@@ -271,16 +271,16 @@
       displayName: Desired State Configuration, troubleshoot
   - name: Reference
     items:
-    -name: Configuration Data at Scale
+    - name: Configuration Data at Scale
       href: automation-dsc-config-data-at-scale.md
       displayName: DSC, Configuration Data, ConfigData
-    -name: Create Configurations from Servers
+    - name: Create Configurations from Servers
       href: automation-dsc-config-from-server.md
       displayName: DSC, ReverseDSC
-    -name: Configuration Based On STIG
+    - name: Configuration Based On STIG
       href: automation-dsc-configuration-based-on-stig.md
       displayName: DSC, Configuration
-    -name: Convert Configurations to Composite Resources
+    - name: Convert Configurations to Composite Resources
       href: automation-dsc-create-composite.md
       displayName: DSC, composite
 - name: Manage Shared Resources
