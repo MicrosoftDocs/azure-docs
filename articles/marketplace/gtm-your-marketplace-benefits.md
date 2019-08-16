@@ -44,7 +44,7 @@ To access these benefits, you will need to:
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
-## MarketplaceList, trial, and consulting benefits
+## List, trial, and consulting benefits
 
 If you publish a trial or consulting proof of concept, implementation, or workshop, you will be assigned an engagement manager for three months, who will help guide you in a successful go-to-market plan. You can repeat this three-month engagement each time you publish a new offer, to help get each of your new offers started with success.
 
