@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Cisco Webex Meetings | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco Webex Meetings | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Webex Meetings.
 services: active-directory
 documentationCenter: na
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate Cisco Webex Meetings with Azure Active Directory
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco Webex Meetings
 
 In this tutorial, you'll learn how to integrate Cisco Webex Meetings with Azure Active Directory (Azure AD). When you integrate Cisco Webex Meetings with Azure AD, you can:
 
@@ -65,7 +65,7 @@ To configure and test Azure AD SSO with Cisco Webex Meetings, complete the follo
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
 	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure Cisco Webex Meetings SSO](#configure-cisco-webex-meetings-sso)** - to configure the Single Sign-On settings on application side.
+2. **[Configure Cisco Webex Meetings SSO](#configure-cisco-webex-meetings-sso)** - to configure the single sign-on settings on application side.
 	1. **[Create Cisco Webex Meetings test user](#create-cisco-webex-meetings-test-user)** - to have a counterpart of B.Simon in Cisco Webex Meetings that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -73,9 +73,9 @@ To configure and test Azure AD SSO with Cisco Webex Meetings, complete the follo
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Cisco Webex Meetings** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. In the [Azure portal](https://portal.azure.com/), on the **Cisco Webex Meetings** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -119,7 +119,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	f. Click **Save**.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+4. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -163,11 +163,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Common Site Settings** and navigate to **SSO Configuration**.
  
-	![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+	![Configure single sign-on](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. On the **Webex Administration** page, perform the following steps:
 
-	![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+	![Configure single sign-on](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
 	a. select **SAML 2.0** as **Federation Protocol**.
 
@@ -205,3 +205,4 @@ When you click the Cisco Webex Meetings tile in the Access Panel, you should be 
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Try ServiceNow with Azure AD](https://aad.portal.azure.com)
