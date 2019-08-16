@@ -36,3 +36,8 @@ Azure Lighthouse includes multiple ways to help streamline customer engagement a
 
 > [!NOTE]
 > The capabilities described above are currently available in public clouds. For regional availability of individual services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+
+## Next steps
+
+- Learn about [Azure delegated resource management](azure-delegated-resource-management.md).
+- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
