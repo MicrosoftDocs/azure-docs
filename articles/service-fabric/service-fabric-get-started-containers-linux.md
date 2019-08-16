@@ -177,26 +177,8 @@ Specify the port mapping in the appropriate format. For this article, you need t
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Configure container repository authentication
- If your container needs to authenticate with a private repository, then add `RepositoryCredentials`. For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-	<Policies>
-	    <ContainerHostPolicies CodePackageRef="Code">
-		<RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-		<PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-	    </ContainerHostPolicies>
-	</Policies>
-   </ServiceManifestImport>
-``` 
-
-We recommend that you encrypt the repository password. Refer to [
-Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md) for instructions.
-
-### Configure cluster-wide credentials
-Refer to [documentation here](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
+Refer to the [Container Repository Authentication](service-fabric-configure-container-repository-credentials.md) section on how to configure different types of authentication for container image downloading.
 
 ## Configure isolation mode
 With the 6.3 runtime release, VM isolation is supported for Linux containers, thereby supporting two isolation modes for containers: process and hyperv. With the hyperv isolation mode, the kernels are isolated between each container and the container host. The hyperv isolation is implemented using [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). The isolation mode is specified for Linux clusters in the `ServicePackageContainerPolicy` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default is process isolation mode. The following snippet shows how the isolation mode is specified in the application manifest file.
