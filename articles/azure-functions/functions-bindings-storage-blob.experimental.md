@@ -427,7 +427,7 @@ Access function metadata via the execution context. You can access this informat
 
 # [Java](#tab/java)
 
-Access function metadata via the execution context. You can access this information from an instance of the [ExecutionContext](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.executioncontext?view=azure-java-stable) interface.
+Access function metadata via the execution context. You can access this information from an instance of the [ExecutionContext](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.executioncontext?view=azure-java-stable) interface. Refer to the [input](#input---example) and [output](#output---example) examples to see how the context is used.
 
 ---
 
@@ -794,7 +794,10 @@ For instance through parameter like `myblob: func.InputStream`.
 
 # [Java](#tab/java)
 
-Use the `@BlobInput` attribute or `InputBinding<T>` with `String` or `byte[]`. If you use the byte array with `@BlobInput`, you need to set the `dataType` to `binary`.
+You can use the following types to read blob data:
+
+* `@BlobInput` attribute. If you use a byte array, set the `dataType` to `binary`.
+* `InputBinding<T>` with `String` or `byte[]`
 
 ---
 
@@ -1164,9 +1167,10 @@ You can use the following types to write out to blob storage:
 
 # [Java](#tab/java)
 
-Use the `@BlobOutput` attribute or `OutputBinding<T>` with `String` or `byte[]`.
+You can use the following types to write out to blob storage:
 
-If you use the byte array with `@BlobOutput`, you need to set the `dataType` to `binary`.
+* *[@BlobOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.bloboutput?view=azure-java-stable) attribute. If you use a byte array, set the `dataType` property to `binary`.
+* `OutputBinding<T>` with `String` or `byte[]`
 
 ---
 
