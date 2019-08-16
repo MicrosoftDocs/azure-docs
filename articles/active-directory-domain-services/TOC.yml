@@ -1,7 +1,6 @@
 - name: Azure AD Domain Services Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items: 
     - name: What is Azure AD Domain Services?
       href: overview.md
@@ -11,6 +10,11 @@
       href: active-directory-ds-compare-with-azure-ad-join.md
     - name: Features
       href: active-directory-ds-features.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Configure password hash sync
+      href: tutorial-configure-password-hash-sync.md
 - name: Samples
   items: 
     - name: Create an Azure AD DS instance using Azure PowerShell
