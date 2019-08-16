@@ -186,7 +186,7 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
 4. We are going to remove the **Account used capacity timeline** column, so select **Column Settings** in the metrics grid.
 
-    ![Edit column settings](./media/edit-capacity-workbook-resource-grid.png)
+    ![Edit column settings](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
 5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop-down list **Column renderer" select **Hidden**. 
 
