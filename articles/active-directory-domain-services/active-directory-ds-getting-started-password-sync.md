@@ -28,7 +28,7 @@ The steps involved are different for cloud-only user accounts vs user accounts t
 | **Type of user account** | **Steps to perform** |
 | --- |---|
 | **Cloud user accounts created in Azure AD** |**&#x2713;** [Follow the instructions in this article](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
-| **User accounts synchronized from an on-premises directory** |**&#x2713;** [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
+| **User accounts synchronized from an on-premises directory** |**&#x2713;** [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain](tutorial-configue-password-hash-sync.md) | 
 
 <br>
 
@@ -77,7 +77,7 @@ A few minutes after you have changed your password, the new password is usable i
 ## Related Content
 * [How to update your own password](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Getting started with Password Management in Azure AD](../active-directory/authentication/quickstart-sspr.md)
-* [Enable password hash synchronization to Azure Active Directory Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+* [Enable password hash synchronization to Azure Active Directory Domain Services for a synced Azure AD tenant](tutorial-configue-password-hash-sync.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [Join a Windows virtual machine to an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

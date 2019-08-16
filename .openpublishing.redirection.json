@@ -41241,6 +41241,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configue-password-hash-sync",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Translator/quickstart-python-dictionary.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-dictionary",
       "redirect_document_id": false
