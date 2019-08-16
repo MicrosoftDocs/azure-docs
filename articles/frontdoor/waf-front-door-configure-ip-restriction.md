@@ -52,7 +52,7 @@ In the following examples:
 -  Replace *IPAllowPolicyExampleCLI* with your unique policy created earlier.
 -  Replace *ip-address-range-1*, *ip-address-range-2* with your own range.
 
-First, create an IP allow rule for the policy created from the previous step. Note **--defer** is required because a rule must have a match condition to be added in the next step.
+First, create an IP allow rule for the policy created from the previous step. Note **--defer** is required because a rule must include at least one match condition. 
 
 ```azurecli
 az network front-door waf-policy rule create \
