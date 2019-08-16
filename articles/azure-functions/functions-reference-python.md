@@ -17,9 +17,9 @@ ms.author: glenga
 
 # Azure Functions Python developer guide
 
-This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
+This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md). 
 
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
+For examples of complete Function projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). 
 
 ## Programming model
 
@@ -450,6 +450,39 @@ class TestFunction(unittest.TestCase):
 ## Known issues and FAQ
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
+
+### Cross-origin resource sharing
+
+Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. For more information, see [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
+
+The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. This means that you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Define the allow origin headers.
+    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
+
+    # Set the headers in the response.
+    return func.HttpResponse(
+            f"Allowed origin '{headers}'.",
+            headers=headers, status_code=200
+    )
+``` 
+
+Make sure that you also update your function.json to support the OPTIONS HTTP method:
+
+```json
+    ...
+      "methods": [
+        "get",
+        "post",
+        "options"
+      ]
+    ...
+```
+
+This method is used by the Chrome browser to negotiate the allowed origins list. 
 
 ## Next steps
 
