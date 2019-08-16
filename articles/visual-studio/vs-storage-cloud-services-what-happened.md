@@ -3,7 +3,7 @@ title: What happened to my cloud service project? | Microsoft Docs
 description: Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure

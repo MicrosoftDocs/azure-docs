@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro",
+      "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
         "redirect_url": "/azure/azure-government/documentation-government-welcome",
         "redirect_document_id": false
@@ -11,9 +16,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/setup-create-workspace.md",
       "redirect_url": "/azure/machine-learning/service/how-to-manage-workspace",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/concept-accelerate-with-fpgas.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-deploy-fpga-web-service",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
@@ -1238,6 +1253,16 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-qsg.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/immersive-reader/ios-picture-immersive-reader-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-ios-picture-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/immersive-reader/tutorial.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-nodejs",
       "redirect_document_id": true
     },
     {
@@ -3251,6 +3276,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-powershell-sas-token.md",
+      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-cli-sas-token.md",
+      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
       "redirect_document_id": false
@@ -4885,6 +4920,11 @@
       "redirect_url": "/azure/application-gateway/quick-create-powershell",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/application-gateway/create-vmss-template.md",
+      "redirect_url": "/azure/application-gateway/resource-manager-template-samples",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
@@ -7475,6 +7515,11 @@
       "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial",
       "redirect_document_id": true
     },
+	{
+      "source_path": "articles/active-directory/saas-apps/cisco-spark-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/active-directory/active-directory-saas-cisco-webex-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-tutorial",
@@ -9001,8 +9046,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/active-directory-saas-scalexenterprise-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/scalexenterprise-tutorial",
+      "source_path": "articles/active-directory/saas-apps/scalexenterprise-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/scalex-enterprise-tutorial",
       "redirect_document_id": true
     },
     {
@@ -23737,6 +23782,11 @@
     {
       "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-1.md",
       "redirect_url": "/azure/storage/common/storage-dotnet-shared-access-signature-part-1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-dotnet-shared-access-signature-part-1.md",
+      "redirect_url": "/azure/storage/common/storage-sas-overview",
       "redirect_document_id": true
     },
     {
@@ -25822,6 +25872,36 @@
     {
       "source_path": "articles/security-center/security-center-alert-export.md",
       "redirect_url": "/azure/security-center/security-center-detection-capabilities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-alerts-type.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-ueba-mcas.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-service-layer#azure-management-layer-azure-resource-manager-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-encryption-for-storage-account.md",
+      "redirect_url": "/azure/storage/common/storage-service-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-vm-agent.md",
+      "redirect_url": "/azure/security-center/security-center-enable-data-collection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-remediate-os-vulnerabilities.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-update-os-version.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
       "redirect_document_id": false
     },
     {
@@ -30990,6 +31070,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/http-response-codes.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/how-to/metadata-generateanswer-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/glossary.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs#publish-a-knowledge-base",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
       "redirect_document_id": false
@@ -33646,7 +33746,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/user-help-my-apps-overview.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-overview",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-overview",
       "redirect_document_id": false
     },
     {
@@ -33656,7 +33756,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/active-directory-saas-access-panel-user-help.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-troubleshoot",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot",
       "redirect_document_id": false
     },
     {

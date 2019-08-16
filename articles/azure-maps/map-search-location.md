@@ -1,6 +1,6 @@
 ---
 title: Show search results with Azure Maps | Microsoft Docs
-description: How to perform a search request with Azure Maps then display the results on a Javascript map
+description: How to perform a search request with Azure Maps then display the results on the Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
