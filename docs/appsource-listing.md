@@ -8,8 +8,6 @@ localization_priority: Normal
 
 You enter the AppSource listing information on the Marketplace listings page in Partner Center. For Office Add-ins, this is also the listing that appears in the in-product experience. Your AppSource listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the listing information for each language; you must complete an AppSource listing page for at least one language.
 
-If you're adding AppSource listings for multiple languages, it might be convenient to use the **Export** and **Import** feature and add your listing information in an offline .csv file. You can then make updates to multiple listings at one time.
-
 > [!NOTE]
 > We recommend that you follow the guidelines in [Create effective AppSource listings](create-effective-office-store-listings.md) when you create your AppSource listing.
 
@@ -41,7 +39,7 @@ For additional guidance for descriptions, see [Write compelling descriptions](cr
 
 ### Search terms
 
-Add keywords related to your add-in that customers will use in search queries in AppSource. You can add up to seven terms, and they can be words or short phrases, with a maximum of 40 characters each, for a total of 21 words across all seven entries.
+Add keywords related to your add-in that customers will use in search queries in AppSource. You can add up to three terms, and they can be words or short phrases, with a maximum of 40 characters each, for a total of 21 words across all seven entries.
 
 As a best practice, choose search terms that are not part of your add-in name. Don't choose terms that aren't relevant to your add-in.
 
@@ -61,7 +59,7 @@ You can upload a logo that you would like to associate with your AppSource listi
 
 ### Additional information
 
-You can provide up to three links to a video about your solution. Your URL must include https://. AppSource supports YouTube and Vimeo video links.
+You can provide a link to a video about your solution. Your URL must include https://. AppSource supports YouTube and Vimeo video links.
 
 ## See also
 

@@ -37,8 +37,11 @@ By default, your solution will be made available and discoverable in AppSource a
 - **as soon as possible** - Your solution will be available as soon as it is validated and published.
 - **at** - Your solution will be discoverable on the day and time that you specify. You must select the time in UTC. Your solution will be made available at the same time in all markets; you can't customize the availability for different markets.
 
-If you choose not to make your solution discoverable in AppSource, you can't choose a schedule option.
+If you choose not to make your solution discoverable in AppSource, you can't schedule the release date.
 
 ## Pricing
 
 Your add-in will be free. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). You can monetize your add-in through the Microsoft Commercial Marketplace; for details, see [Monetize your add-in](monetize-addins-through-microsoft-commercial-marketplace.md).
+
+> [!NOTE]
+> If you’re submitting a freemium add-in or an add-in that requires the purchase of an additional external service, see the **Associated service purchase** option on the **Add-in setup** page. 

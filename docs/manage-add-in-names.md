@@ -22,8 +22,8 @@ To delete one of your reserved names, find the name you no longer want to use an
 
 Note that your add-in must have at least one reserved name. 
 
-## Remove an unpublished add-in
-To remove an unpublished add-in from Partner Center (and release all the names you've reserved), select **Delete** on the **Add-in setup** page. Note that if you've already published your add-in to AppSource, you can't delete it from Partner Center. 
+## Remove a draft add-in
+To remove a draft add-in from Partner Center (and release all the names you've reserved), select **Delete** on the **Add-in setup** page. Note that if you've already published your add-in to AppSource, you can't remove it from Partner Center. 
 
 
 ## Rename an add-in that has already been published

@@ -11,7 +11,7 @@ Create or delete client IDs and secrets, update or replace expiring client secre
 
 ### To update expiring client secrets in SharePoint Add-ins
 
-1. Generate and add a new client secret in the Seller Dashboard to associate with that particular add-in client ID. For specific steps, see **To generate additional client secrets** in [Update the client secret associated with your client ID](#update-the-client-secret-associated-with-your-client-id) later in this article.
+1. Generate and add a new client secret in Partner Center to associate with that particular add-in client ID. For specific steps, see **To generate additional client secrets** in [Update the client secret associated with your client ID](#update-the-client-secret-associated-with-your-client-id) later in this article.
 
 2. Update your remote web application to use the new client secret. For information about how to do this using Microsoft Office Developer Tools for Visual Studio, see **Update the remote web application in Visual Studio to use the new secret** in [Replace an expiring client secret in a SharePoint Add-in](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/replace-an-expiring-client-secret-in-a-sharepoint-add-in). 
 
