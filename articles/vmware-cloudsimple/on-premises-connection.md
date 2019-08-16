@@ -1,5 +1,5 @@
 --- 
-title: On-premises connection using ExpressRoute 
+title: Azure VMware Solution by CloudSimple - On-premises connection using ExpressRoute 
 description: Describes how to request an on-premises connection using ExpressRoute from CloudSimple region network 
 author: sharaths-cs
 ms.author: b-shsury 
@@ -49,8 +49,8 @@ To establish the ExpressRoute connection, you must create an authorization on yo
 5. Copy the resource ID and authorization key by clicking the copy icon. Paste the ID and key into a text file.
     [![ExpressRoute Circuit Authorization Copy](media/azure-expressroute-transit-authorization-copy.png)](media/azure-expressroute-transit-authorization-copy.png)
 
-    !!! note "Important"
-        **Resource ID** must be copied from the UI and should be in the format ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` when you provide it to support.
+    > [!IMPORTANT]
+    > **Resource ID** must be copied from the UI and should be in the format ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` when you provide it to support.
 
 6. File a ticket with <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">Support</a> for the connection to be created.
     * Issue type: **Technical**
