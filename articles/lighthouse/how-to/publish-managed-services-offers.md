@@ -4,7 +4,7 @@ description: Learn how to publish a managed service offer that onboards customer
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/16/2019
 ms.topic: overview
 manager: carmonm
 ---
