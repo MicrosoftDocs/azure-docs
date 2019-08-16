@@ -133,15 +133,11 @@ First, remove the **normalized-losses** column completely.
 
     * On the lower right, select **OK** to close the column selector.
 
-    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.gif)
         
     Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except **normalized-losses**.
         
     The properties pane shows that the **normalized-losses** column is excluded.
-        
-    ![Property pane](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
-        
-    You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. 
 
 1. Double-click the **Select Columns in Dataset** module and type the comment "Exclude normalized losses." 
     
@@ -192,8 +188,6 @@ Use your data for both training the model and testing it by splitting the data i
 1. Expand the **Machine Learning** then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms.
 
 1. For this experiment, select **Regression** > **Linear Regression** and drag it to the experiment canvas.
-
-    ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/linear-regression-module.png)
 
 1. Find and drag the **Train Model** module to the experiment canvas. Connect the output of the Linear Regression module to the left input of the Train Model module, and connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
