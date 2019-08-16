@@ -60,7 +60,7 @@ Before starting, review the following requirements.
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Azure Monitor for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
 >A new management pack has been released for the following versions of Operations Manager:
 
-> - There is no separate management pack for 2019, it is provided with the Operations Manager build
+> - For System Center Operations Manager 2019, management pack is provided with the Operations Manager build.
 >- Operations Manager 1801 management pack is also applicable for Operations Manager 1807
 >- For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)
 >- For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
