@@ -197,8 +197,8 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3 style="font-color: #666666;font-size: 0.80rem;margin-left: 1.0rem;margin-bottom: 1rem;">Language</h3>
-                        <h4>Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.</h4>
+                        <h3>Language</h3>
+                        <h4 style="font-color: #666666;font-size: 0.80rem;margin-left: 1.0rem;margin-bottom: 1rem;">Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.</h4>
                         <p><a href="/azure/cognitive-services/immersive-reader"><span>Immersive Reader&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
                         <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
