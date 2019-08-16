@@ -1,7 +1,7 @@
 ---
 title: Create, use and manage environments for model training and deployment
 titleSuffix: Azure Machine Learning service
-description: Create, use and manage environments for model training and deployment. Manage Python packages and other settings for the environment.
+description: Create and manage environments for model training and deployment. Manage Python packages and other settings for the environment.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -31,9 +31,9 @@ The examples in this article show how to:
 
 ## What are environments
 
-Environments specify the Python packages, environment variables, and software settings around your training and scoring scripts, and run times (Python, Spark, or Docker). They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable and portable machine learning workflows across different compute targets.
+Environments specify the Python packages, environment variables, and software settings around your training and scoring scripts, and run times (Python, Spark, or Docker). They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
 
-You can use an environment object on your local compute to develop your training script, re-use that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment.
+You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment.
 
 The following illustrates that the same environment object can be used in both your run configuration for training and in your inferencing and deployment configuration for web service deployments.
 
@@ -58,7 +58,7 @@ There are multiple ways to create an environment for your experiments.
 
 ### Instantiate an environment object
 
-To manually create an environment simply import the Environment class from the SDK and instantiate an environment object with the following code.
+To manually create an environment import the Environment class from the SDK and instantiate an environment object with the following code.
 
 ```python
 from azureml.core import Environment
@@ -118,7 +118,7 @@ Similarly, if you use an [`Estimator`](https://docs.microsoft.com//python/api/az
 
 ## Add packages to an environment
 
-Add packages to an environment with Conda, pip or private wheel files. Specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py), and add it to the environment's PythonSection.
+Add packages to an environment with Conda, pip, or private wheel files. Specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py), and add it to the environment's PythonSection.
 
 ### Conda and pip packages
 
@@ -155,7 +155,7 @@ myenv.python.conda_dependencies=conda_dep
 
 ## Manage environments
 
-Manage environments so you can update, track and re-use them across compute targets and with other users of the workspace.
+Manage environments so you can update, track, and reuse them across compute targets and with other users of the workspace.
 
 ### Register environments
 
@@ -175,7 +175,7 @@ The Environment class offers methods that allow you to retrieve existing environ
 
 #### View list of environments
 
-View the environments in your workspace with [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-), and then select one to re-use.
+View the environments in your workspace with [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-), and then select one to reuse.
 
 ```python
 from azureml.core import Environment
@@ -204,7 +204,7 @@ Run.get_environment()
 
 If you make changes to an existing environment, such as add a Python package, a new version of an environment is created when you either submit run, deploy model or manually register the environment. The versioning allows you to view changes to the environment over time.
 
-To update a Python package version of an existing environment, specify the exact version number for that package. Otherwise, the Azure Machine Learning will re-use the existing environment with package versions from when the environment was created.
+To update a Python package version of an existing environment, specify the exact version number for that package. Otherwise, the Azure Machine Learning will reuse the existing environment with package versions from when the environment was created.
 
 ### Debug the image build
 
@@ -227,7 +227,7 @@ When you `enable` Docker, the service builds a Docker image and creates a Python
 myenv.docker.enabled = True
 ```
 
-Once built, the Docker image appears in the Azure Container Registry that's associated with the workspace, by default.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuuid*) part corresponds to a hash computed from the environment configuration. This allows the service to determine whether an image corresponding to the given environment already exists for re-use.
+Once built, the Docker image appears in the Azure Container Registry that's associated with the workspace, by default.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuuid*) part corresponds to a hash computed from the environment configuration. This allows the service to determine whether an image corresponding to the given environment already exists for reuse.
 
 Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions, and you can specify the GPU image by setting  `gpu_support=True`.
 
@@ -305,7 +305,7 @@ run = experiment.submit(sk_est)
 
 You can use environments when deploying your model as a web service. This enables a reproducible, connected workflow where you can train, test, and deploy your model using the exact same libraries in both your training and inferencing computes.
 
-To deploy a web service, combine the environment, inference compute, scoring script and registered model in your deployment object, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Learn more about [deploying web services](how-to-deploy-and-where.md).
+To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Learn more about [deploying web services](how-to-deploy-and-where.md).
 
 In this example, assume you have completed a training run want to deploy that model to an Azure Container Instance (ACI). When building the web service, the model and scoring files are mounted on the image and the Azure Machine Learning inferencing stack is added to the image.
 
