@@ -52,7 +52,7 @@ After you've determined the appropriate scope for a role assignment, navigate to
         
         ![User in the list](./media/authenticate-application/user-in-list.png)
 
-You can follow similar steps to assign a role scoped to Event Hubs namespace, resource group, or subscription. Once you define the role and its scope, you can test this behavior with the samples on GitHub (https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
+You can follow similar steps to assign a role scoped to Event Hubs namespace, resource group, or subscription. Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
 
 
 ## Authenticate from an application
