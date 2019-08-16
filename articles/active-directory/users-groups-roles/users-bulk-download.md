@@ -38,3 +38,4 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
 - [Bulk add users](users-bulk-add.md)
 - [Bulk delete users](users-bulk-delete.md)
+- [Bulk restore users](users-bulk-restore.md)

@@ -60,3 +60,4 @@ You should see that the users that you created are listed.
 
 - [Bulk delete users](users-bulk-delete.md)
 - [Download list of users](users-bulk-download.md)
+- [Bulk restore users](users-bulk-restore.md)

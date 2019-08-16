@@ -61,3 +61,4 @@ Verify that the users that you deleted are no longer listed.
 
 - [Bulk add users](users-bulk-add.md)
 - [Download list of users](users-bulk-download.md)
+- [Bulk restore users](users-bulk-restore.md)
