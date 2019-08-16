@@ -17,7 +17,7 @@ ms.author: bwren
 
 # resource() expression in Azure Monitor log query
 
-The `resource` expression is used in a Azure Monitor query [scoped to a resource](scope#query-scope.md) to retrieve data from other resources. 
+The `resource` expression is used in a Azure Monitor query [scoped to a resource](scope.md#query-scope) to retrieve data from other resources. 
 
 
 ## Syntax
