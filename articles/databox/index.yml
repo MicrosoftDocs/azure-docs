@@ -36,7 +36,6 @@ landingContent:
           - text: Choose Azure data transfer options
             url: /azure/storage/common/storage-choose-data-transfer-solution
 
-
   # Card
   - title: Get started
     linkLists:
@@ -53,7 +52,6 @@ landingContent:
           - text: Import data offline with Data Box 
             url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
 
-
   # Card
   - title: View requirements
     linkLists:
@@ -68,49 +66,17 @@ landingContent:
           - text: For Data Box Heavy
             url: data-box-heavy-system-requirements.md
 
-
   # Card
-  - title: Deploy Data Box
+  - title: Order, set up, copy, return
     linkLists:
-      - linkListType: tutorial
+      - linkListType: deploy
         links:
-          - text: Order
+          - text: Data Box
             url: data-box-deploy-ordered.md
-          - text: Cable 
-            url: data-box-deploy-set-up.md
-          - text: Connect, copy data via SMB
-            url: data-box-deploy-copy-data.md
-          - text: Return, upload, verify Azure data
-            url: data-box-deploy-picked-up.md
-
-
-  # Card
-  - title: Deploy Data Box Disk
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Order
+          - text: Data Box Disk
             url: data-box-disk-deploy-ordered.md
-          - text: Unlock and connect
-            url: data-box-disk-deploy-set-up.md
-          - text: Copy, validate data
-            url: data-box-disk-deploy-copy-data.md
-          - text: Return, upload, verify Azure data
-            url: data-box-disk-deploy-picked-up.md
-
-  # Card
-  - title: Deploy Data Box Heavy
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Order 
+          - text: Data Box Heavy
             url: data-box-heavy-deploy-ordered.md
-          - text: Cable 
-            url: data-box-heavy-deploy-set-up.md
-          - text: Connect, copy data via SMB
-            url: data-box-heavy-deploy-copy-data.md
-          - text: Return, upload, verify Azure data
-            url: data-box-heavy-deploy-picked-up.md
 
   # Card
   - title: Manage device
@@ -123,7 +89,6 @@ landingContent:
             url: data-box-local-web-ui-admin.md
           - text: Data Box Disk in Azure
             url: data-box-portal-ui-admin.md
-
 
   # Card
   - title: FAQs
@@ -140,11 +105,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Data Box, Data Box Heavy
+          - text: Data Box
             url: data-box-troubleshoot.md
-          - text: Data Box Blob storage
-            url: data-box-troubleshoot-rest.md
           - text: Data Box Disk
             url: data-box-disk-troubleshoot.md
+          - text: Data Box Heavy
+            url: data-box-troubleshoot.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
