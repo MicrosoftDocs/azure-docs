@@ -179,7 +179,7 @@ azure config mode asm
 
 ### Step 2. Set the shared key and create the connection
 
-When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. For example, the name of the VNet that you created for this exercise would show up as something similar to "Groupt TestRG1 TestVNet1", rather than just "TestVNet1". The following steps help you export the network configuration file to obtain the exact values for the names. 
+When you create a classic VNet in the portal, the names of resources are not the names the Azure expects to see when using PowerShell. For example, the name of the VNet that you created for this exercise would show up as something similar to "Group TestRG1 TestVNet1", rather than just "TestVNet1". The following steps help you export the network configuration file to obtain the exact values for the names. 
 
 1. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to C:\AzureNet.
 
