@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Workday | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workday.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Workday
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday
 
 In this tutorial, you'll learn how to integrate Workday with Azure Active Directory (Azure AD). When you integrate Workday with Azure AD, you can:
 
@@ -250,7 +250,7 @@ In this section, you create a user called B.Simon in Workday. Work with [Workday
 
 When you select the Workday tile in the Access Panel, you should be automatically signed in to the Workday for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
