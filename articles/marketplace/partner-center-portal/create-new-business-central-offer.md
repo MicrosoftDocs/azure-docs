@@ -81,7 +81,7 @@ Select from the following options:
 
 See [Lead management overview](./commercial-marketplace-get-customer-leads.md) for more information.
 
-Remember to Save before moving on to the next section!
+Remember to **Save** before moving on to the next section!
 
 ## Properties
 

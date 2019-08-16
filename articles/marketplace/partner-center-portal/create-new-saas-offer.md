@@ -152,7 +152,7 @@ By enabling test drive, you will be asked to configure a demonstration environme
 
 See [Lead management overview](./commercial-marketplace-get-customer-leads.md) for more information.
 
-Remember to Save before moving on to the next section!
+Remember to **Save** before moving on to the next section!
 
 ## Properties
 The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
