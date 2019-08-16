@@ -143,7 +143,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
   "name": "demoApp",
   "provisioningState": "Succeeded",
   "requestSource": "rest",
-  "resourceGroup": "OpsConfig_Wordpress",
+  "resourceGroup": "demoApp",
   "samplingPercentage": null,
   "tags": {},
   "tenantId": {tenantID},
