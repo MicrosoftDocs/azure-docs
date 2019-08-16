@@ -118,7 +118,7 @@ List your offer to customers with a link to a free trial by providing a valid UR
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### Contact me
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](./commercial-marketplace-get-customer-leads.md#connect-to-your-crm-system). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
 ## Example marketplace offer listing
 
@@ -145,6 +145,12 @@ By enabling test drive, you will be asked to configure a demonstration environme
 - [Test Drive Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Test Drive Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Test Drive Overview One Pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+
+## Connect lead management
+
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+
+See [Lead management overview](./commercial-marketplace-get-customer-leads.md) for more information.
 
 ## Properties
 The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
