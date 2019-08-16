@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What are baseline policies?
 
-Baseline policies are a set of predefined  policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
+Baseline policies are a set of predefined  policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
 
 Managing customized Conditional Access policies requires an Azure AD Premium license.
 
@@ -38,7 +38,7 @@ All four of these policies will impact legacy authentication flows like POP, IMA
 
 Due to the power and access that administrator accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign in. In Azure Active Directory, you can get a stronger account verification by requiring administrators to register for and use Azure Multi-Factor Authentication.
 
-[Require MFA for admins (preview)](howto-baseline-protect-administrators.md) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
+[Require MFA for admins (preview)](howto-baseline-protect-administrators.md) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
 
 * Global administrator
 * SharePoint administrator
@@ -49,7 +49,7 @@ Due to the power and access that administrator accounts have, you should treat t
 * Billing administrator
 * User administrator
 
-If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md).
+If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md).
 
 ### End user protection (preview)
 
@@ -84,11 +84,11 @@ To protect privileged actions, this **Require MFA for service management (previe
 
 To enable a baseline policy:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select a baseline policy you’d like to enable.
 1. Set **Enable policy** to **On**.
-1. Click Save.
+1. Click Save.
 
 ## Next steps
 
