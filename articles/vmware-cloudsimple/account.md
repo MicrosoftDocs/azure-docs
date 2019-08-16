@@ -1,6 +1,6 @@
 --- 
-title: Account management - Azure VMware Solution by CloudSimple portal 
-description: Describes how to manage accounts on the Azure VMware Solution by CloudSimple portal 
+title: Account management - VMware Solution by CloudSimple portal 
+description: Describes how to manage accounts on the VMware Solution by CloudSimple portal 
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/14/2019 
@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Manage accounts on the Azure VMware Solution by CloudSimple portal
+# Manage accounts on the VMware Solution by CloudSimple portal
 
 When you create your CloudSimple service, it creates an account on CloudSimple. The account is associated with your Azure subscription where the service is located. All users with owner and contributor roles in the subscription have access to the CloudSimple portal. The Azure subscription ID and tenant ID associated with the CloudSimple service are found on the Accounts page.
 
