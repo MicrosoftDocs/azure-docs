@@ -39,42 +39,7 @@ landingContent:
             url: data-box-gateway-1905-release-notes.md
 
   # Card
-  - title: Deploy Data Box Edge
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Prepare
-            url: data-box-edge-deploy-prep.md
-          - text: Install
-            url: data-box-edge-deploy-install.md
-          - text: Connect, set up, activate
-            url: data-box-edge-deploy-connect-setup-activate.md
-          - text: Add, connect to shares
-            url: data-box-edge-deploy-add-shares.md
-          - text: Configure compute (simple)
-            url: data-box-edge-deploy-configure-compute.md
-          - text: Configure compute (advanced)
-            url: data-box-edge-deploy-configure-compute-advanced.md
-
-  # Card
-  - title: Deploy Data Box Gateway
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Prepare
-            url: data-box-gateway-deploy-prep.md
-          - text: Provision in Hyper-V
-            url: data-box-gateway-deploy-provision-hyperv.md
-          - text: Provision in VMware
-            url: data-box-gateway-deploy-provision-vmware.md
-          - text: Connect, set up, activate
-            url: data-box-gateway-deploy-connect-setup-activate.md
-          - text: Add, connect to shares
-            url: data-box-gateway-deploy-add-shares.md
-
-
-  # Card
-  - title: View requirements
+  - title: "View requirements & deploy"
     linkLists:
       - linkListType: concept
         links:
@@ -82,6 +47,12 @@ landingContent:
             url: data-box-gateway-system-requirements.md
           - text: For Data Box Edge
             url: data-box-edge-system-requirements.md
+      - linkListType: tutorial
+        links:
+          - text: Data Box Gateway
+            url: data-box-gateway-deploy-prep.md
+          - text: Data Box Edge
+            url: data-box-edge-deploy-prep.md
 
 
   # Card
