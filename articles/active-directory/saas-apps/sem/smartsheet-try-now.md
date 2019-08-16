@@ -20,7 +20,7 @@ Accelerate adoption of Smartsheet across your organization and increase user ado
 ![Shows the Smartsheet app logo](./media/smartsheet.png)
 
 > [!div class="nextstepaction"]
-> [Try Smartsheet with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
+> [Try Smartsheet with Azure AD >](https://aka.ms/SmartsheetTryItNow)
 
 ## What can you do with Smartsheet and Azure AD?
 
@@ -30,6 +30,6 @@ Accelerate adoption of Smartsheet across your organization and increase user ado
 
 ## Get started
 
-Set up [user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/Smartsheet-provisioning-tutorial) and [single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/Smartsheet-tutorial) for Smartsheet with our easy configuration guides.
+Set up [user provisioning](https://aka.ms/SmartsheetProvisioningDoc) and [single sign-on](https://aka.ms/SmartsheetSSODoc) for Smartsheet with our easy configuration guides.
 
 ![Shows Azure AD and some of the many apps that integrate with Azure AD](./media/azure-ad-app-image.png)

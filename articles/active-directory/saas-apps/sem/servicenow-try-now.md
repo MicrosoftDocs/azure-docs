@@ -20,7 +20,7 @@ Accelerate adoption of ServiceNow across your organization and increase user ado
 ![Shows the ServiceNow app logo](./media/servicenow.png)
 
 > [!div class="nextstepaction"]
-> [Try ServiceNow with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
+> [Try ServiceNow with Azure AD >](https://aka.ms/ServiceNowTryItNow)
 
 ## What can you do with ServiceNow and Azure AD?
 
@@ -30,6 +30,6 @@ Accelerate adoption of ServiceNow across your organization and increase user ado
 
 ## Get started
 
-Set up [user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial) and [single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-tutorial) for ServiceNow with our easy configuration guides.
+Set up [user provisioning](https://aka.ms/ServiceNowProvisioning) and [single sign-on](https://aka.ms/ServiceNowSSO) for ServiceNow with our easy configuration guides.
 
 ![Shows Azure AD and some of the many apps that integrate with Azure AD](./media/azure-ad-app-image.png)

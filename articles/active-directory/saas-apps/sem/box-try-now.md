@@ -20,7 +20,7 @@ Accelerate adoption of Box across your organization and increase user adoption w
 ![Shows the Box app logo](./media/box.png)
 
 > [!div class="nextstepaction"]
-> [Try Box with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
+> [Try Box with Azure AD >](https://aka.ms/BoxTryItNow)
 
 ## What can you do with Box and Azure AD?
 
@@ -30,6 +30,6 @@ Accelerate adoption of Box across your organization and increase user adoption w
 
 ## Get started
 
-Set up [user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/Box-provisioning-tutorial) and [single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/box-tutorial) for Box with our easy configuration guides.
+Set up [user provisioning](https://aka.ms/BoxSSODoc) and [single sign-on](https://aka.ms/BoxProvisioningDoc) for Box with our easy configuration guides.
 
 ![Shows Azure AD and some of the many apps that integrate with Azure AD](./media/azure-ad-app-image.png)

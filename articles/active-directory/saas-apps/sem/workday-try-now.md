@@ -20,7 +20,7 @@ Connect Workday with Azure Active Directory (Azure AD) using our pre-built integ
 ![Shows the Workday app logo](./media/workday.png)
 
 > [!div class="nextstepaction"]
-> [Try Workday with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
+> [Try Workday with Azure AD >](https://aka.ms/WorkdayTryItNow)
 
 ## What can you do with Workday and Azure AD?
 
@@ -31,6 +31,6 @@ Connect Workday with Azure Active Directory (Azure AD) using our pre-built integ
 
 ## Get started
 
-Set up [user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/Workday-provisioning-tutorial) and [single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/Workday-tutorial) for Workday with our easy configuration guides.
+Set up [user provisioning](https://aka.ms/WorkdayProvisioning) and [single sign-on](https://aka.ms/WorkdaySSODoc) for Workday with our easy configuration guides.
 
 ![Shows Azure AD and some of the many apps that integrate with Azure AD](./media/azure-ad-app-image.png)
