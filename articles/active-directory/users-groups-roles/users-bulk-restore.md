@@ -1,5 +1,5 @@
 ---
-title: Bulk restore deleted users in the Azure Active Directory portal | Microsoft Docs
+title: Bulk restore deleted users (preview) in the Azure Active Directory portal | Microsoft Docs
 description: Restore deleted users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory 
 author: curtand

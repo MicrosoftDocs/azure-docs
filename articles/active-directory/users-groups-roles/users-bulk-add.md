@@ -1,5 +1,5 @@
 ---
-title: Bulk import to add users in the Azure Active Directory portal | Microsoft Docs
+title: Bulk import to add users (preview) in the Azure Active Directory portal | Microsoft Docs
 description: Add users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory 
 author: curtand

@@ -1,6 +1,6 @@
 ---
 
-title: Download a list of users in the Azure Active Directory portal | Microsoft Docs
+title: Download a list of users (preview) in the Azure Active Directory portal | Microsoft Docs
 description: Download user records in bulk in the Azure admin center in Azure Active Directory. 
 services: active-directory 
 author: curtand
@@ -16,7 +16,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Download a list of users in the Azure Active Directory portal
+# Download a list of users (preview) in the Azure Active Directory portal
 
 Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
