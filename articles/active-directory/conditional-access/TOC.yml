@@ -23,7 +23,6 @@
     href: howto-conditional-access-adoption-kit.md
   - name: Common Conditional Access policies
     href: concept-conditional-access-policy-common.md
-    href: concept-baseline-protection.md
   - name: Conditions
     href: conditions.md
   - name: Location conditions

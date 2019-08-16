@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Block access by location
+title: Conditional Access - Block access by location - Azure Active Directory
 description: Create a custom Conditional Access policy to block access to resources by IP location
 
 services: active-directory
@@ -25,7 +25,7 @@ With the location condition in Conditional Access, you can control access to you
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. Choose **New location**.
 1. Give your location a name.
-1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**
+1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
    1. Provide the **IP ranges** or select the **Countries/Regions** for the location you are specifying.
       * If you chose Countries/Regions, you can optionally choose to include unknown areas.
 1. Choose **Save**

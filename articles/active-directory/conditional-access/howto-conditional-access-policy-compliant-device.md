@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Require compliant devices
+title: Conditional Access - Require compliant devices - Azure Active Directory
 description: Create a custom Conditional Access policy to require compliant devices
 
 services: active-directory

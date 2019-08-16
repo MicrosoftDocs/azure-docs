@@ -1,6 +1,6 @@
 ---
-title: Common Conditional Access policies
-description: Commonly used conditional access policies for organizations
+title: Common Conditional Access policies - Azure Active Directory
+description: Commonly used Conditional Access policies for organizations
 
 services: active-directory
 ms.service: active-directory
@@ -31,7 +31,7 @@ More information about emergency access accounts and why they are important can 
 ## Typical policies deployed by organizations
 
 * [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
-* [Require MFA for Azure management](howto-conditional-access-policy-azure-mamgement.md)
+* [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
 * [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
 * [Risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Require trusted location for MFA registration](howto-conditional-access-policy-registration.md)
