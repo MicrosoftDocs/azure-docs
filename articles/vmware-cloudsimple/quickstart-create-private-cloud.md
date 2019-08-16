@@ -42,8 +42,8 @@ Private Clouds are managed through the CloudSimple portal. They have their own v
 
     **CIDR range options:** /24, /23, /22, or /21. A /24 CIDR range supports up to nine nodes, a /23 CIDR range supports up to 41 nodes, and a /22 and /21 CIDR range supports up to 64 nodes (the maximum number of nodes in a Private Cloud).
 
-    !!! error "Important"
-        IP addresses in the vSphere/vSAN CIDR range are reserved for use by the Private Cloud infrastructure.  Don't use the IP address in this range on any virtual machine.
+      > [!IMPORTANT]
+      > IP addresses in the vSphere/vSAN CIDR range are reserved for use by the Private Cloud infrastructure.  Don't use the IP address in this range on any virtual machine.
 
 11. Click **Next: Review and create**.
 12. Review the settings. If you need to change any settings, click **Previous**.
