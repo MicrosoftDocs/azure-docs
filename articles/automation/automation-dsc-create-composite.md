@@ -1,6 +1,7 @@
 ---
-keywords:  dsc,powershell,configuration,setup
-title:  Convert Configurations to Composite Resources for use in Azure State Configuration
+title: Convert configurations to composite resources for state configuration - Azure Automation
+description: Learn how to convert configurations to composite resources for state configuration in Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
