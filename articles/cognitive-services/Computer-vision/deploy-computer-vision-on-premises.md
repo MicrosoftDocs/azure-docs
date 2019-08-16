@@ -94,7 +94,7 @@ version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-recognize-text to a Kubernetes cluster
 ```
 
-Next, we'll configure our Helm chart default values. Copy and paste the following YAML into a file named `values.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
+To configure the Helm chart default values, copy and paste the following YAML into a file named `values.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
