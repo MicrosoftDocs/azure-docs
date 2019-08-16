@@ -59,8 +59,6 @@ landingContent:
         links:
           - text: For Data Box
             url: data-box-system-requirements.md
-          - text: For Data Box Blob storage
-            url: data-box-system-requirements-rest.md
           - text: For Data Box Disk
             url: data-box-disk-system-requirements.md
           - text: For Data Box Heavy
@@ -83,12 +81,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Data Box, Data Box Heavy in Azure
+          - text: Data Box in Azure
             url: data-box-portal-admin.md
-          - text: Data Box, Data Box Heavy via local UI
-            url: data-box-local-web-ui-admin.md
           - text: Data Box Disk in Azure
             url: data-box-portal-ui-admin.md
+          - text: Data Box Heavy in Azure
+            url: data-box-portal-admin.md
 
   # Card
   - title: FAQs
