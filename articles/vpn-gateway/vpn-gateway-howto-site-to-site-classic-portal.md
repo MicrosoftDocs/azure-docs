@@ -179,7 +179,7 @@ azure config mode asm
 
 ### Step 2. Set the shared key and create the connection
 
-When you create a classic VNet in the portal, Azure adds the the resource group name on the backend to the short name you select. For example, the name of the VNet that you created for this exercise would show up as something similar to "Group TestRG1 TestVNet1", rather than just "TestVNet1". PowerShell requires the full name, not the short name that appears in the portal. The following steps help you export the network configuration file to obtain the exact values for the names. 
+When you create a classic VNet in the portal (not using PowerShell), Azure adds the the resource group name on the back end to the short name you select. For example, the name of the VNet that you created for this exercise is "Group TestRG1 TestVNet1", not "TestVNet1". PowerShell requires the full name of the virtual network, not the short name that appears in the portal. The long name is not visible in the portal. The following steps help you export the network configuration file to obtain the exact values for the virtual network name. 
 
 1. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to C:\AzureNet.
 
