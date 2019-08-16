@@ -977,6 +977,8 @@
         href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
+      - name: ProNovos Analytics
+        href: pronovos-analytics-tutorial.md
       - name: ProNovos Ops Manager
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
