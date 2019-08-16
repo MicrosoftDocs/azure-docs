@@ -84,6 +84,7 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 - dc.services.visualstudio.com 443
 - *.microsoftonline.com        443
 - *.monitoring.azure.com       443
+- login.microsoftonline.com    443
 
 ## Next steps
 
