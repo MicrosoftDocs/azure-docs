@@ -1,7 +1,7 @@
 ---
-title: Run experiments and inference in a virtual network
+title: Secure experiments and inference in a virtual network
 titleSuffix: Azure Machine Learning service
-description: Run machine learning experiments and inference securing within an Azure virtual network. Learn how to create compute targets for model training and how to run inference within a virtual network. Learn about requirements for secured virtual networks, such as requiring inbound and outbound ports.
+description: learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,23 +13,21 @@ author: aashishb
 ms.date: 08/05/2019
 ---
 
-# Run experiments and inference securely within an Azure virtual network
+# Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
 
-In this article, you learn how to run experiments and inference, or model scoring, within a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference. Inference, or model scoring, is the phase during which the deployed model is used for prediction, most commonly on production data.
+In this article, you'll learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). 
 
-The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources, or compute targets, are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+A **virtual network** acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
-This article provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
+The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources, or [compute targets](concept-compute-target.md), are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+This article also provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
 
 ## Prerequisites
 
 + An Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
 
-+ Working knowledge of both the Azure Virtual Network service and IP networking in general. If you're unfamiliar with the Azure Virtual Network service, learn more with these articles:
-  * [IP addressing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
-  * [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
-  * [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-  * [Filter network traffic](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
++ General working knowledge of both the [Azure Virtual Network service](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and [IP networking](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
 + A pre-existing virtual network and subnet to use with your compute resources. 
 
