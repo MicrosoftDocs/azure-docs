@@ -62,12 +62,14 @@ Begin by opening IntelliJ IDEA and creating a new project.
 ![Create a maven project](media/search-get-started-java/java-quickstart-create-new-maven-project.png)
 1. For `GroupId` and `ArtifactId`, enter `AzureSearchQuickstart`.
 1. Accept the remaining defaults to open the project.
-1. Select **File** > **Settings**, and select the **Import Maven projects automatically** check box, and click **OK**. This option appears under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+1. Select **File** > **Settings**, select the **Import Maven projects automatically** check box, and then click **OK**. If  this option doesn't immediately appear, you can find it under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+    [Maven importing options in IntelliJ settings](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 1. In the **Project** window, expand the project tree to access the `src` and `main` folders.
 1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and select **Package**.
 1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and select **Directory**
 
     When you're done, the project tree should look like the picture.
+    
     ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree.png)
 
 ### Add Azure Search service information
