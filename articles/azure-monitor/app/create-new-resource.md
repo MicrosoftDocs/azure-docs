@@ -136,7 +136,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
   "flowType": "Bluefield",
   "hockeyAppId": null,
   "hockeyAppToken": null,
-  "id": "/subscriptions/adfa5ff9-becf-4282-8863-85633667b5ba/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
+  "id": "/subscriptions/{subid}/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
   "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
   "kind": "web",
   "location": "eastus",
