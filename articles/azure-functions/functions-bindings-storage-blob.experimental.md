@@ -1110,19 +1110,19 @@ public static void Run(
 
 # [C# Script](#tab/csharp-script)
 
-Attributes are a feature of C# class libraries and so do not apply to C# Script.
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-Attributes are a feature of C# class libraries and so do not apply to JavaScript.
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-Attributes are a feature of C# class libraries and so do not apply to Python.
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-Attributes are a feature of C# class libraries and so do not apply to Java.
+The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`.
 
 ---
 
@@ -1161,7 +1161,7 @@ In JavaScript, access the blob data using `context.bindings.<name from function.
 
 # [Python](#tab/python)
 
-You can use the following types to write out to blob storage:
+You can declare function parameters as the following types to write out to blob storage:
 
 * Strings as `func.Out(str)`
 * Streams as `func.Out(func.InputStream)`
