@@ -98,7 +98,7 @@ For the full PowerShell documentation for this cmdlet, and to learn how to retri
 
 ### Azure CLI (preview)
 
-To access the preview Application Insights Azure CLI commands you first need "to run:
+To access the preview Application Insights Azure CLI commands you first need to run:
 
 ```azurecli
  az extension add -n application-insights
