@@ -57,307 +57,307 @@ Begin by opening IntelliJ IDEA and creating a new project.
 ### Create the project
 
 1. Open IntelliJ IDEA, and select **Create New Project**.
-1. Select **Maven** and the Java 11 SDK.
-
-1. For `GroupId` and `ArtifactId`, enter "AzureSearchQuickstart".
+1. Select **Maven**.
+1. In the **Project SDK** list, select the Java 11 SDK.
+![Create a maven project](media/java-quickstart-create-new-maven-project.png)
+1. For `GroupId` and `ArtifactId`, enter `AzureSearchQuickstart`.
 1. Accept the remaining defaults to open the project.
-1. In the **Project** panel, expand the `src` and `main` folders.
-1. Select `main` > `java` and add `app` and `service` packages. (**File** > **New** > **Package**):
-1. Select `main` > `resources`and add `app` and `service` directories. (**File** > **New** > **Directory**):
+1. Select **File** > **Settings**, and select the **Import Maven projects automatically** check box, and click **OK**. This option appears under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importaing**.
+1. In the **Project** window, expand the the project tree to access the `src` and `main` folders.
+1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and select **Package**.
+1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and and select **Directory**
 
-When you're done, the project tree should look similar to the picture.
-<INSERT IMAGE>
+When you're done, the project tree should look like the picture.
+![Project directory structure](media/java-quickstart-basic-code-tree.png)
 
 ### Add Azure Search service information
 
-1. Select `main` > `java` > `app` and add a `config.properties` text file (**File** > **New** > **File**).
+1. In the **Project** window, in the `resources` folder, in the `app` directory, add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, and and select **File**.
 1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>` and `<YOUR-API-KEY>` with your service name and key. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+    
+    ```java
+        SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
+        SearchServiceApiKey=<YOUR-API-KEY>
+        IndexName=hotels-quickstart
+        ApiVersion=2019-05-06
+    ```
 
-```java
-    SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
-    SearchServiceApiKey=<YOUR-API-KEY>
-    IndexName=hotels-quickstart
-    ApiVersion=2019-05-06
-```
+1. in the `java` folder, in the `app` directory, add an `App` class. To do this, select the `app` folder, press Alt + Insert, and select **Class**.
+1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The commented code will be covered (and uncommented) later in the article. The uncommented code reads the search service parameters and uses them to create an instance of the search service client.
 
-1. Select `src` > `main` >  > `app` and create an `App` class (**File** > **New** > **Class**).
-1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The commented code will be covered later in the article. The uncommented code reads the search service parameters and uses them to create an instance of the search client.
-
-```java
-package app;
-
-import service.SearchServiceClient;
-import java.io.IOException;
-import java.util.Properties;
-
-public class App {
-
-    private static Properties loadPropertiesFromResource(String resourcePath) throws IOException {
-        var inputStream = App.class.getResourceAsStream(resourcePath);
-        var configProperties = new Properties();
-        configProperties.load(inputStream);
-        return configProperties;
-    }
-
-    public static void main(String[] args) {
-        try {
-            var config = loadPropertiesFromResource("config.properties");
-            var client = new SearchServiceClient(
-                    config.getProperty("SearchServiceName"),
-                    config.getProperty("SearchServiceApiKey"),
-                    config.getProperty("ApiVersion"),
-                    config.getProperty("IndexName")
-            );
-
-//Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
-//            if(client.indexExists()){ client.deleteIndex();}
-//            client.createIndex("index.json");
-//            Thread.sleep(1000L); // wait a second to create the index
-
-//Uncomment the next 2 lines in the 2 - Load Documents section of the quickstart
-//            client.uploadDocuments();
-//            Thread.sleep(2000L); // wait 2 seconds for data to upload
-
-//Uncomment the following 5 search queries in the 3 - Search an index of the quickstart
-//            // Query 1
-//            client.logMessage("\n*QUERY 1****************************************************************");
-//            client.logMessage("Search for: Atlanta'");
-//            client.logMessage("Return: All fields'");
-//            client.searchPlus("Atlanta");
-//
-//            // Query 2
-//            client.logMessage("\n*QUERY 2****************************************************************");
-//            client.logMessage("Search for: Atlanta");
-//            client.logMessage("Return: HotelName, Tags, Address");
-//            SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
-//            options2.select = "HotelName,Tags,Address";
-//            client.searchPlus("Atlanta", options2);
-//
-//            //Query 3
-//            client.logMessage("\n*QUERY 3****************************************************************");
-//            client.logMessage("Search for: wifi & restaurant");
-//            client.logMessage("Return: HotelName, Description, Tags");
-//            SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
-//            options3.select = "HotelName,Description,Tags";
-//            client.searchPlus("wifi,restaurant", options3);
-//
-//            // Query 4 -filtered query
-//            client.logMessage("\n*QUERY 4****************************************************************");
-//            client.logMessage("Search for: all");
-//            client.logMessage("Filter: Ratings greater than 4");
-//            client.logMessage("Return: HotelName, Rating");
-//            SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
-//            options4.filter="Rating%20gt%204";
-//            options4.select = "HotelName,Rating";
-//            client.searchPlus("*",options4);
-//
-//            // Query 5 - top 2 results, ordered by
-//            client.logMessage("\n*QUERY 5****************************************************************");
-//            client.logMessage("Search for: boutique");
-//            client.logMessage("Get: Top 2 results");
-//            client.logMessage("Order by: Rating in descending order");
-//            client.logMessage("Return: HotelId, HotelName, Category, Rating");
-//            SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
-//            options5.top=2;
-//            options5.orderby = "Rating%20desc";
-//            options5.select = "HotelId,HotelName,Category,Rating";
-//            client.searchPlus("boutique", options5);
-
-        } catch (Exception e) {
-            System.err.println("Exception:" + e.getMessage());
-            e.printStackTrace();
+    ```java
+    package app;
+    
+    import service.SearchServiceClient;
+    import java.io.IOException;
+    import java.util.Properties;
+    
+    public class App {
+    
+        private static Properties loadPropertiesFromResource(String resourcePath) throws IOException {
+            var inputStream = App.class.getResourceAsStream(resourcePath);
+            var configProperties = new Properties();
+            configProperties.load(inputStream);
+            return configProperties;
+        }
+    
+        public static void main(String[] args) {
+            try {
+                var config = loadPropertiesFromResource("config.properties");
+                var client = new SearchServiceClient(
+                        config.getProperty("SearchServiceName"),
+                        config.getProperty("SearchServiceApiKey"),
+                        config.getProperty("ApiVersion"),
+                        config.getProperty("IndexName")
+                );
+    
+    //Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
+    //            if(client.indexExists()){ client.deleteIndex();}
+    //            client.createIndex("index.json");
+    //            Thread.sleep(1000L); // wait a second to create the index
+    
+    //Uncomment the next 2 lines in the 2 - Load Documents section of the quickstart
+    //            client.uploadDocuments();
+    //            Thread.sleep(2000L); // wait 2 seconds for data to upload
+    
+    //Uncomment the following 5 search queries in the 3 - Search an index of the quickstart
+    //            // Query 1
+    //            client.logMessage("\n*QUERY 1****************************************************************");
+    //            client.logMessage("Search for: Atlanta'");
+    //            client.logMessage("Return: All fields'");
+    //            client.searchPlus("Atlanta");
+    //
+    //            // Query 2
+    //            client.logMessage("\n*QUERY 2****************************************************************");
+    //            client.logMessage("Search for: Atlanta");
+    //            client.logMessage("Return: HotelName, Tags, Address");
+    //            SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
+    //            options2.select = "HotelName,Tags,Address";
+    //            client.searchPlus("Atlanta", options2);
+    //
+    //            //Query 3
+    //            client.logMessage("\n*QUERY 3****************************************************************");
+    //            client.logMessage("Search for: wifi & restaurant");
+    //            client.logMessage("Return: HotelName, Description, Tags");
+    //            SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
+    //            options3.select = "HotelName,Description,Tags";
+    //            client.searchPlus("wifi,restaurant", options3);
+    //
+    //            // Query 4 -filtered query
+    //            client.logMessage("\n*QUERY 4****************************************************************");
+    //            client.logMessage("Search for: all");
+    //            client.logMessage("Filter: Ratings greater than 4");
+    //            client.logMessage("Return: HotelName, Rating");
+    //            SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
+    //            options4.filter="Rating%20gt%204";
+    //            options4.select = "HotelName,Rating";
+    //            client.searchPlus("*",options4);
+    //
+    //            // Query 5 - top 2 results, ordered by
+    //            client.logMessage("\n*QUERY 5****************************************************************");
+    //            client.logMessage("Search for: boutique");
+    //            client.logMessage("Get: Top 2 results");
+    //            client.logMessage("Order by: Rating in descending order");
+    //            client.logMessage("Return: HotelId, HotelName, Category, Rating");
+    //            SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
+    //            options5.top=2;
+    //            options5.orderby = "Rating%20desc";
+    //            options5.select = "HotelId,HotelName,Category,Rating";
+    //            client.searchPlus("boutique", options5);
+    
+            } catch (Exception e) {
+                System.err.println("Exception:" + e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
-}
-```
+    ```
 
 ### Add the HTTP operations
 
-1. Select `src` > `main` > `java` and create a `SearchServiceClient` class (**File** > **New** > **Class**).
-1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating the index, uploading documents, and querying the index will be added later in later sections.
+1. In the **Project** window, in the `java` folder, in the `app` directory, add a `SearchServiceClient` class. To do this, select the `app` folder, press Alt + Insert, and and select **Java Class**.
+1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added later in later in this article.
 
-```java
-package service;
+    ```java
+    package service;
 
-import javax.json.Json;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.IOException;
-import java.io.StringReader;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
-import java.util.Formatter;
-import java.util.function.Consumer;
-
-/**
- * This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
-public class SearchServiceClient {
-    private final String _apiKey;
-    private final String _apiVersion;
-    private final String _serviceName;
-    private final String _indexName;
-    private final static HttpClient client = HttpClient.newHttpClient();
-
-
-    public SearchServiceClient(String serviceName, String apiKey, String apiVersion, String indexName) {
-        this._serviceName = serviceName;
-        this._apiKey = apiKey;
-        this._apiVersion = apiVersion;
-        this._indexName = indexName;
-    }
-
-    private HttpRequest httpRequest(URI uri, String method, String contents)
-    {
-        return httpRequest(uri, _apiKey, method, contents);
-    }
-
-    private static HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
-        logMessage(String.format("%s: %s", request.method(), request.uri()));
-        return client.send(request, HttpResponse.BodyHandlers.ofString());
-    }
-
-private static URI buildURI(Consumer<Formatter> fmtFn)
-    {
-        Formatter strFormatter = new Formatter();
-        fmtFn.accept(strFormatter);
-        String url = strFormatter.out().toString();
-        strFormatter.close();
-        return URI.create(url);
-    }
-
-    public static void logMessage(String message) {
-        System.out.println(message);
-    }
-
-    public static boolean isSuccessResponse(HttpResponse<String> response) {
-        try {
-            int responseCode = response.statusCode();
-
-            logMessage("\n Response code = " + responseCode);
-
-            if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_ACCEPTED
-                    || responseCode == HttpURLConnection.HTTP_NO_CONTENT || responseCode == HttpsURLConnection.HTTP_CREATED) {
-                return true;
-            }
-
-            // We got an error
-            var msg = response.body();
-            if (msg != null) {
-                logMessage(String.format("\n MESSAGE: %s", msg));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+    import javax.json.Json;
+    import javax.net.ssl.HttpsURLConnection;
+    import java.io.IOException;
+    import java.io.StringReader;
+    import java.net.HttpURLConnection;
+    import java.net.URI;
+    import java.net.http.HttpClient;
+    import java.net.http.HttpRequest;
+    import java.net.http.HttpResponse;
+    import java.nio.charset.StandardCharsets;
+    import java.util.Formatter;
+    import java.util.function.Consumer;
+    
+    /**
+     * This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
+    public class SearchServiceClient {
+        private final String _apiKey;
+        private final String _apiVersion;
+        private final String _serviceName;
+        private final String _indexName;
+        private final static HttpClient client = HttpClient.newHttpClient();
+    
+    
+        public SearchServiceClient(String serviceName, String apiKey, String apiVersion, String indexName) {
+            this._serviceName = serviceName;
+            this._apiKey = apiKey;
+            this._apiVersion = apiVersion;
+            this._indexName = indexName;
         }
-
-        return false;
-    }
-
-    public static HttpRequest httpRequest(URI uri, String apiKey, String method, String contents) {
-        contents = contents == null ? "" : contents;
-        var builder = HttpRequest.newBuilder();
-        builder.uri(uri);
-        builder.setHeader("content-type", "application/json");
-        builder.setHeader("api-key", apiKey);
-
-        switch (method) {
-            case "GET":
-                builder = builder.GET();
-                break;
-            case "HEAD":
-                builder = builder.GET();
-                break;
-            case "DELETE":
-                builder = builder.DELETE();
-                break;
-            case "PUT":
-                builder = builder.PUT(HttpRequest.BodyPublishers.ofString(contents));
-                break;
-            case "POST":
-                builder = builder.POST(HttpRequest.BodyPublishers.ofString(contents));
-                break;
-            default:
-                throw new IllegalArgumentException(String.format("Can't create request for method '%s'", method));
+    
+        private HttpRequest httpRequest(URI uri, String method, String contents)
+        {
+            return httpRequest(uri, _apiKey, method, contents);
         }
-        return builder.build();
+    
+        private static HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
+            logMessage(String.format("%s: %s", request.method(), request.uri()));
+            return client.send(request, HttpResponse.BodyHandlers.ofString());
+        }
+    
+    private static URI buildURI(Consumer<Formatter> fmtFn)
+        {
+            Formatter strFormatter = new Formatter();
+            fmtFn.accept(strFormatter);
+            String url = strFormatter.out().toString();
+            strFormatter.close();
+            return URI.create(url);
+        }
+    
+        public static void logMessage(String message) {
+            System.out.println(message);
+        }
+    
+        public static boolean isSuccessResponse(HttpResponse<String> response) {
+            try {
+                int responseCode = response.statusCode();
+    
+                logMessage("\n Response code = " + responseCode);
+    
+                if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_ACCEPTED
+                        || responseCode == HttpURLConnection.HTTP_NO_CONTENT || responseCode == HttpsURLConnection.HTTP_CREATED) {
+                    return true;
+                }
+    
+                // We got an error
+                var msg = response.body();
+                if (msg != null) {
+                    logMessage(String.format("\n MESSAGE: %s", msg));
+                }
+    
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    
+            return false;
+        }
+    
+        public static HttpRequest httpRequest(URI uri, String apiKey, String method, String contents) {
+            contents = contents == null ? "" : contents;
+            var builder = HttpRequest.newBuilder();
+            builder.uri(uri);
+            builder.setHeader("content-type", "application/json");
+            builder.setHeader("api-key", apiKey);
+    
+            switch (method) {
+                case "GET":
+                    builder = builder.GET();
+                    break;
+                case "HEAD":
+                    builder = builder.GET();
+                    break;
+                case "DELETE":
+                    builder = builder.DELETE();
+                    break;
+                case "PUT":
+                    builder = builder.PUT(HttpRequest.BodyPublishers.ofString(contents));
+                    break;
+                case "POST":
+                    builder = builder.POST(HttpRequest.BodyPublishers.ofString(contents));
+                    break;
+                default:
+                    throw new IllegalArgumentException(String.format("Can't create request for method '%s'", method));
+            }
+            return builder.build();
+        }
     }
-}
-
-```
+    
+    ```
 
 ### Specify Maven dependencies
 
-1. Open the pom.xml file and replace the contents with the follow Maven configuration details.
+1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include the references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+    
+        <groupId>AzureSearchQuickstart</groupId>
+        <artifactId>AzureSearchQuickstart</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>app.App</mainClass>
+                        <cleanupDaemonThreads>false</cleanupDaemonThreads>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.json</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+        </dependencies>
+    
+    </project>
+    ```
 
-    <groupId>AzureSearchQuickstart</groupId>
-    <artifactId>AzureSearchQuickstart</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <mainClass>app.App</mainClass>
-                    <cleanupDaemonThreads>false</cleanupDaemonThreads>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    <dependencies>
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-    </dependencies>
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
+![Execute maven goal: verify exec: java](media/java-quickstart-execute-maven-goal.png)
 
-</project>
-```
-
-1. Open the maven panel, and execute the following maven goal: `verify exec:java`
-<<<INSERT IMAGE?>>>>>
-
-A BUILD SUCCESS method should appear with a 0 exit code.
+When processing completes, look for a BUILD SUCCESS message followed by a zero (0) exit code.
 
 ## 1 - Create index
 
 The hotels index consists of simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index is specified using JSON.
 
-1. Select `main` > `resources` > `service`, add an `index.json` file (**File** > **New** > **File**).
+1. In the **Project** window, in the `resources` folder, in the `service` directory, add an `index.json` file. To do this, select the `service` folder, press Alt + Insert, and select **File**.
 
-1. Open the file and insert the following index definition. 
+1. Open the `index.json` file and insert the following index definition.
 
-The name field defines the index name "hotels-quickstart". Attributes on the field determine how it's used in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search.
-
-```json
+    ```json
     {
       "name": "hotels-quickstart",
       "fields": [
@@ -478,13 +478,15 @@ The name field defines the index name "hotels-quickstart". Attributes on the fie
         }
       ]
     }
-```
+    ```
 
-In this index, the Description field uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
+    The index name will be "hotels-quickstart". Attributes on the index fields determine how the indexed data can be searched in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. To learn more about attributes, see [Fields collection and field attributes](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index#fields-collection).
+    
+    The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
 
-1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to delete and create an index and to determine if the index exists.
+1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs and make the requests to create and delete an index, and that will determine if an index exists.
 
-```java
+    ```java
     public boolean indexExists() throws IOException, InterruptedException {
         logMessage("\n Checking if index exists...");
         var uri = buildURI(strFormatter -> strFormatter.format(
@@ -494,7 +496,7 @@ In this index, the Description field uses the optional `analyzer` property to ov
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
-
+    
     public boolean deleteIndex() throws IOException, InterruptedException {
         logMessage("\n Deleting index...");
         var uri = buildURI(strFormatter -> strFormatter.format(
@@ -504,8 +506,8 @@ In this index, the Description field uses the optional `analyzer` property to ov
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
-
-
+    
+    
     public boolean createIndex(String indexDefinitionFile) throws IOException, InterruptedException {
         logMessage("\n Creating index...");
         //Build the search service URL
@@ -520,27 +522,28 @@ In this index, the Description field uses the optional `analyzer` property to ov
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
-```
+    ```
 
-1. Uncomment the following code in the `App` class. This code deletes the index "hotels-quickstart", if it exists,  and creates a new index. To ensure the index is created before you upload any documents, a one-second pause is inserted after you make the REST service request to create the index.
+1. Uncomment the following code in the `App` class. This code deletes the "hotels-quickstart" index, if it exists, and creates a new index based on the index definition in the "index.json" file. 
 
-```java
-    if(client.indexExists()){ client.deleteIndex();}
-      client.createIndex("index.json");
-      Thread.sleep(1000L); // wait a second to create the index
-```
+    To ensure the index is created before you upload any documents, a one-second pause is inserted after you make the REST service request to create the index.
+    
+    ```java
+        if(client.indexExists()){ client.deleteIndex();}
+          client.createIndex("index.json");
+          Thread.sleep(1000L); // wait a second to create the index
+    ```
 
-1. Open the maven panel, and execute the following maven goal: `verify exec:java`
-<<<INSERT IMAGE?>>>>>
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-As the code runs, a message should appear telling you that the index is created and finish with a 0 exit code.
-
+    As the code runs, look for an "Creating index" message followed by a 201 response code. This confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
+    
 ## 2 - Upload documents
 
-1. In `main` > `resources.com.microsoft.azure.search.samples` > `service`, add a `hotels.json` file.
-1. Copy the following hotel documents into the file.
+1. In the **Project** window, in the `resources` folder, in the `service` directory, add an `hotels.json` file. To do this, select the `service` folder, press Alt + Insert, and select **File**.
+1. Insert the following hotel documents into the file.
 
-```json
+    ```json
     {
       "value": [
         {
@@ -621,10 +624,11 @@ As the code runs, a message should appear telling you that the index is created 
         }
       ]
     }
-```
-1. Insert the following code into the SearchServiceClient class. This code builds REST service URLs to upload the hotel documents to the index.
+    ```
 
-```java
+1. Insert the following code into the SearchServiceClient class. This code builds the REST service URL to upload the hotel documents to the index, and then makes the HTTP POST request.
+
+    ```java
     public boolean uploadDocuments() throws IOException, InterruptedException {
         logMessage("\n Uploading documents...");
         //Build the search service URL
@@ -639,19 +643,22 @@ As the code runs, a message should appear telling you that the index is created 
         var response = sendRequest(request);
         return isSuccessResponse(response);
     }
-```
-1. Uncomment the following code in the `App` class. This code uploads the documents to the index. To ensure that documents are uploaded before you query the index, a two-second pause is inserted after the documents are uploaded.
+    ```
 
-```java
+1. Uncomment the following code in the `App` class. This code uploads the documents in "hotels.json" to the index.
+
+To ensure that documents are uploaded before you query the index, a two-second pause is inserted after the documents are uploaded.
+
+    ```java
     client.uploadDocuments();
     Thread.sleep(2000L); // wait 2 seconds for data to upload
+    ```
 
-```
-1. Open the maven panel, and execute the following maven goal: `verify exec:java`
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-Because you created a "hotels-quickstart" index in the previous step, the code will now delete it and recreate it again, and then will load the hotel documents. 
+    Because you created a "hotels-quickstart" index in the previous step, the code will now delete it and recreate it again before loading the hotel documents.
 
-The process should exit with a 0 exit code.
+    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
 
 ## 3 - Search an index
 
@@ -659,11 +666,11 @@ Now that you've loaded the hotels documents, you can create search queries to ac
 
 1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to search the indexed data and prints the search results.
 
-The `SearchOptions` class and `createSearchOptions` let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+    The `SearchOptions` class and `createSearchOptions` let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
 
-The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
+    The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
 
-```java
+    ```java
     public SearchOptions createSearchOptions() { return new SearchOptions();}
 
     //Defines available search parameters that can be set
@@ -691,14 +698,14 @@ The `SearchPlus` method creates the search query URL, makes the search request, 
         }
         return optionsString;
     }
-
+    
     public void searchPlus(String queryString)
     {
         searchPlus( queryString, null);
     }
-
+    
     public void searchPlus(String queryString, SearchOptions options) {
-
+    
         try {
             String optionsString = createOptionsString(options);
             var uri = buildURI(strFormatter -> strFormatter.format(
@@ -713,71 +720,72 @@ The `SearchPlus` method creates the search query URL, makes the search request, 
             for (int i = 0; i <= resultsCount - 1; i++) {
                 logMessage(jsonArray.get(i).toString());
             }
-
+    
             jsonReader.close();
-
+    
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-
+    
     }
-```
+    ```
 
 1. In the `App` class, uncomment the following code. This code sets up five different queries, including the search text, query parameters, and data fields to return. 
 
-```java
-        // Query 1
-        client.logMessage("\n*QUERY 1****************************************************************");
-        client.logMessage("Search for: Atlanta'");
-        client.logMessage("Return: All fields'");
-        client.searchPlus("Atlanta");
+    ```java
+    // Query 1
+    client.logMessage("\n*QUERY 1****************************************************************");
+    client.logMessage("Search for: Atlanta'");
+    client.logMessage("Return: All fields'");
+    client.searchPlus("Atlanta");
 
-        // Query 2
-        client.logMessage("\n*QUERY 2****************************************************************");
-        client.logMessage("Search for: Atlanta");
-        client.logMessage("Return: HotelName, Tags, Address");
-        SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
-        options2.select = "HotelName,Tags,Address";
-        client.searchPlus("Atlanta", options2);
+    // Query 2
+    client.logMessage("\n*QUERY 2****************************************************************");
+    client.logMessage("Search for: Atlanta");
+    client.logMessage("Return: HotelName, Tags, Address");
+    SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
+    options2.select = "HotelName,Tags,Address";
+    client.searchPlus("Atlanta", options2);
 
-        //Query 3
-        client.logMessage("\n*QUERY 3****************************************************************");
-        client.logMessage("Search for: wifi & restaurant");
-        client.logMessage("Return: HotelName, Description, Tags");
-        SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
-        options3.select = "HotelName,Description,Tags";
-        client.searchPlus("wifi,restaurant", options3);
+    //Query 3
+    client.logMessage("\n*QUERY 3****************************************************************");
+    client.logMessage("Search for: wifi & restaurant");
+    client.logMessage("Return: HotelName, Description, Tags");
+    SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
+    options3.select = "HotelName,Description,Tags";
+    client.searchPlus("wifi,restaurant", options3);
 
-        // Query 4 -filtered query
-        client.logMessage("\n*QUERY 4****************************************************************");
-        client.logMessage("Search for: all");
-        client.logMessage("Filter: Ratings greater than 4");
-        client.logMessage("Return: HotelName, Rating");
-        SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
-        options4.filter="Rating%20gt%204";
-        options4.select = "HotelName,Rating";
-        client.searchPlus("*",options4);
+    // Query 4 -filtered query
+    client.logMessage("\n*QUERY 4****************************************************************");
+    client.logMessage("Search for: all");
+    client.logMessage("Filter: Ratings greater than 4");
+    client.logMessage("Return: HotelName, Rating");
+    SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
+    options4.filter="Rating%20gt%204";
+    options4.select = "HotelName,Rating";
+    client.searchPlus("*",options4);
 
-        // Query 5 - top 2 results, ordered by
-        client.logMessage("\n*QUERY 5****************************************************************");
-        client.logMessage("Search for: boutique");
-        client.logMessage("Get: Top 2 results");
-        client.logMessage("Order by: Rating in descending order");
-        client.logMessage("Return: HotelId, HotelName, Category, Rating");
-        SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
-        options5.top=2;
-        options5.orderby = "Rating%20desc";
-        options5.select = "HotelId,HotelName,Category,Rating";
-        client.searchPlus("boutique", options5);
+    // Query 5 - top 2 results, ordered by
+    client.logMessage("\n*QUERY 5****************************************************************");
+    client.logMessage("Search for: boutique");
+    client.logMessage("Get: Top 2 results");
+    client.logMessage("Order by: Rating in descending order");
+    client.logMessage("Return: HotelId, HotelName, Category, Rating");
+    SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
+    options5.top=2;
+    options5.orderby = "Rating%20desc";
+    options5.select = "HotelId,HotelName,Category,Rating";
+    client.searchPlus("boutique", options5);
+    ```
 
-```
+    There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
 
-There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
+1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-1. Open the maven panel, and execute the following maven goal: `verify exec:java`.
+    Look for a summary of each query and its results. The run should complete with BUILD SUCCESS message and a zero (0) exit code.
 
-Each query and its results should appear in the console window, and the process should exit with a 0 exit code.
+## Clean up
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
