@@ -35,20 +35,15 @@ This article describes how to set up your Marketo CRM system to process sales le
 8. Marketo Embed Code displays code similar to the following example.
 
     ```
-    <script src="//app-ys12.marketo.com/js/forms2/js/forms2.min.js"></script>
-    ```
-
-    Copy 
-    ```
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-9. Copy the values shown in Embed Code. You will use these values to configure your offer to receive leads in the next step. Use the next example as a guide for getting the Ids you need from the Marketo Embed Code example.
+9. Copy the values for the below fields shown in the Embed Code form. You will use these values to configure your offer to receive leads in the next step. Use the next example as a guide for getting the Ids you need from the Marketo Embed Code example.
 
     - Server ID = **ys12**
     - Munchkin ID = **123-PQR-789**
-    - Form ID = **1179**\
+    - Form ID = **1179**
 
     **Another way to figure out these values**
 

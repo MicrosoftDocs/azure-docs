@@ -9,7 +9,7 @@ ms.date: 07/30/2019
 ms.author: evansma
 ---
 
-# Lead management instructions for Azure Table
+# Configure lead management using an Azure Table
 
 If your Customer Relationship Management (CRM) system is not explicitly supported in Partner Center for receiving Azure Marketplace and AppSource leads, you can use an Azure Table to handle these leads. You can then choose to export the data and import it into your CRM system. The instructions in this article will walk you through the process of creating an Azure Storage account, and an Azure Table under that account. In addition, you can create a new flow using Microsoft Flow to send an email notification when your offer receives a lead.
 
@@ -95,13 +95,15 @@ In next set of steps, you’ll connect to your Azure table, and set up the proce
 
         ![Azure Table storage.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-    * *Table* – Select the name of your Azure Table Storage (from step 6 of instructions on how to configure an Azure table). The next screen capture shows the prompt when “marketplaceleads” table is selected for this example.
+    After clicking Create you will see a *Get entities* window. Here select **Show advanced options** and provide information for the following fields:
 
-        ![Azure Table get entities.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
+       * *Table* – Select the name of your Azure Table Storage (from step 6 of instructions on how to configure an Azure table). The next screen capture shows the prompt when “marketplaceleads” table is selected for this example.
 
-    * *Filter Query* – Select this field and paste this function into the field: `Timestamp gt datetime'@{body('Get_past_time')}'`
+            ![Azure Table get entities.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        ![Azure Table get entities - Filter Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+        * *Filter Query* – Select this field and paste this function into the field: `Timestamp gt datetime'@{body('Get_past_time')}'`
+
+            ![Azure Table get entities - Filter Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 12. Now that you’ve completed setting up the connection to the Azure table, select **New step** to add a condition to scan the Azure table for new leads. 
 

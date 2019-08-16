@@ -34,9 +34,6 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
 
 7. On the *When a HTTP request is received* window copy and paste the JSON schema below into the **Request Body JSON Schema** text box. This schema is used by Microsoft to contain your lead data.
 
-    >[!Note]
-    >At this point in the configuration, you can select to either connect to a CRM system or configure an email notification. Follow the remaining instructions based on your choice.
-
     ![request connector - Triggers](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
 
     **JSON schema**

@@ -63,7 +63,10 @@ Each lead you receive during the customer acquisition process has data in specif
 
 **Sources**: The value for this field is populated based on the marketplace that generated the lead. Possible values are `"AzureMarketplace"`, `"AzurePortal"`, and `"AppSource (SPZA)"`.
 
-**Actions**:
+**Actions**: The value for this field is populated based on the action the customer took in the marketplace which generated the lead. 
+
+Possible values are:
+
 - "INS" -- Installation. This action is on Azure Marketplace or
 AppSource when a customer buys your product.
 - "PLT" -- Stands for Partner Led Trial. This action is on AppSource when a customer uses the Contact me option.
@@ -108,15 +111,15 @@ The customer’s information is sent via multiple fields. The following example 
 
 ### Where can I get help in setting up my lead destination?
 
-You can find documentation [here](#connect-to-your-crm-system) or submit a support ticket through aka.ms/marketplacepublishersupport by selecting the offer type and lead management.
+You can find documentation [here](#connect-to-your-crm-system) or submit a support ticket through aka.ms/marketplacepublishersupport then select **‘offer creation’** → **your type of offer** → **‘lead management configuration.’**
 
-### Am I required to configure a lead destination in order to publish an offer on Marketplace?
+### Am I required to configure a lead destination in order to publish an offer on the marketplace?
 
-Only if you are publishing a Contact Me SaaS app, or a Consulting Services. However, it is recommended you configure a lead destination so you don’t miss business opportunities.
+The answer depends on the type of offer you are publishing. SaaS and Dynamics 365 for Customer Engagement offers listing as 'Contact Me', all Dynamics 365 for Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers require a connection to a lead destination. If your offer type was not listed then it is not required. However, it is recommended you configure a lead destination so you don’t miss business opportunities.
 
 ### How can I find the test lead?
 
-Search for `“MSFT_TEST”` in your lead destination, here’s a sample test lead data:
+Search for `“MSFT_TEST”` in your lead destination, here’s a sample test lead from Microsoft:
 
 ```
 company = MSFT_TEST_636573304831318844
@@ -135,8 +138,9 @@ title = MSFT_TEST_636573304831318844
 
 ### I have a live offer, but I’m not seeing any leads?
 
-Make sure your connection to the lead destination is valid. We will send you a test lead after hitting publish on your offer in Partner Center. If you see the test lead, then the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step by clicking “get it now” or “contact me” on the marketplace.
-Also, make sure you are looking for the right data. The content in the [Understand lead data]() section of this document describes the lead data we send to your lead destination.
+Make sure your connection to the lead destination is valid. We will send you a test lead after you hit publish on your offer in Partner Center. If you see the test lead, then the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step by clicking “get it now”, “contact me” or "free trial" on the listing in the marketplace.
+
+Also, make sure you are looking for the right data. The content in the [Understand lead data](#understand-lead-data) section of this document describes the lead data we send to your lead destination.
 
 ### I have configured Azure BLOB as my lead destination, why don't I see the lead?
 
@@ -148,11 +152,11 @@ It's possible that the end user's email domain is from .edu. For privacy reasons
 
 ### I have configured Azure Table as my lead destination, how can I view the leads?
 
-You can access the table from the Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account’s tables.
+You can access the lead data stored in the Azure Table from the Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account’s tables data.
 
 ### I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?
 
-Yes, follow the instructions to set up a Microsoft flow with an Azure Table on the documentation [here](./commercial-marketplace-lead-management-instructions-azure-table.md).
+Yes, follow the instructions to set up a Microsoft flow that sends an email if a lead is added to the Azure Table on the documentation [here](./commercial-marketplace-lead-management-instructions-azure-table.md).
 
 ### I have configured Salesforce as my lead destination, why can't I find the leads?
 

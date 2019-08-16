@@ -12,10 +12,10 @@ ms.author: evansma
 
 # Configure lead management for Dynamics 365 for Customer Engagement
 
-This article describes how to set up Dynamics 365 for Customer Engagement Online, read more about the change [here](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) to process sales leads from your marketplace offer. 
+This article describes how to set up Dynamics 365 for Customer Engagement (previously Dynamics CRM Online), read more about the change [here](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) to process sales leads from your marketplace offer. 
 
 >[!Note]
->These instructions are specific for the Microsoft hosted cloud Dynamics 365 for Customer Engagement environment. If you want to connect to a Dynamics on-prem environment, you should look at setting up a [https endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
+>These instructions are specific for the Microsoft hosted cloud Dynamics 365 for Customer Engagement environment. Connecting directly to a Dynamics on-prem environment is not currently supported, there are other options for you to receive leads such as configuring an [https endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ To write leads into your Dynamics 365 for Customer Engagement instance, you must
 Use the following steps to create the service account and assign permissions. You can use **Azure Active Directory** or **Office 365**.
 
 >[!Note]
->Based on the authentication option you select, you can skip to the corresponding instructions based on your choice. See [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/) or [Office 365](??).
+>Based on the authentication option you select, you can skip to the corresponding instructions based on your choice. See [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) or [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
 
 ### Azure Active Directory
 
