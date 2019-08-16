@@ -1,6 +1,6 @@
 ---
 keywords:  dsc,powershell,configuration,setup
-title:  Create Configurations from Servers for use in Azure State Configuration
+title:  Create Configurations from Existing Servers for use in Azure State Configuration
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,7 +10,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Create configurations from servers
+# Create configurations from existing servers
 
 > Applies To: Windows PowerShell 5.1
 
