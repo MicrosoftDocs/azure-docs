@@ -89,11 +89,11 @@ The basic setup is now complete. You can start using your Private Cloud similar 
 
 The following sections contain optional information about setting up DNS and DHCP servers for Private Cloud workloads and modifying the default networking configuration.
 
-## Add Users and Identity Sources to vCenter (Optional)
+## Add Users and identity sources to vCenter (Optional)
 
 CloudSimple assigns a default vCenter user account with username `cloudowner@cloudsimple.local`. No additional account setup is required for you to get started.  CloudSimple normally assigns administrators the privileges they need to perform normal operations.  Set up your on-premises active directory or Azure AD  as an [additional identity source](set-vcenter-identity.md) on your Private Cloud.
 
-## Create a DNS and DHCP Server (Optional)
+## Create a DNS and DHCP server (Optional)
 
 Applications and workloads running in a Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine in vCenter to provide these services in your Private Cloud environment.
 
@@ -107,13 +107,13 @@ Prerequisites
 
 The following links provide guidance on setting up DHCP and DNS servers on Linux and Windows.
 
-#### Linux-Based DNS Server Setup
+#### Linux-based DNS server setup
 
 Linux offers various packages for setting up DNS servers.  Here is a link to instructions for setting up an open-source BIND DNS server.
 
 [Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
-#### Windows-Based Setup
+#### Windows-based setup
 
 These Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
 
@@ -121,7 +121,7 @@ These Microsoft topics describe how to set up a Windows server as a DNS server a
 
 [Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
 
-## Customize Networking Configuration (Optional)
+## Customize networking configuration (Optional)
 
 The Network pages in the CloudSimple portal allow you to specify the configuration for firewall tables and public IP addresses for VMs.
 
@@ -202,7 +202,7 @@ python3 -m http.server 80
 ```
 Start a browser on your desktop and point it to port 80 for the public IP address to browse the files on your VM. 
 
-### Default CloudSimple Firewall Rules for Public IP
+### Default CloudSimple firewall rules for public IP
 
 * VPN traffic: All traffic between (from/to) the VPN and all the workload networks and management network is allowed.
 * Private cloud internal traffic: All east-west traffic between (from/to) workload networks and the management network (shown above) is allowed.
@@ -212,7 +212,7 @@ Start a browser on your desktop and point it to port 80 for the public IP addres
 
 You can also modify the way your traffic is secured, using the Firewall Rules feature. For more information, see [Set up firewall tables and rules](firewall.md).
 
-## Install Solutions (Optional)
+## Install solutions (Optional)
 
 You can install solutions on your CloudSimple Private Cloud to take full advantage of your Private Cloud vCenter environment. You can set up backup, disaster recovery, replication, and other functions to protect your virtual machines. Examples include VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
 

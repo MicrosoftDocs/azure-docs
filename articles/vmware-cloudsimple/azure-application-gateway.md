@@ -24,7 +24,7 @@ This Azure Application Gateway solution requires you to:
 * Create & Configure your Private Cloud.
 * Create & Configure your Azure Application Gateway.
 
-## Azure Application Gateway Deployment Scenario
+## Azure Application Gateway deployment scenario
 
 In this scenario, the Azure Application Gateway runs in your Azure virtual network. The virtual network is connected to your Private Cloud over an ExpressRoute circuit. All the subnets in the Private Cloud are IP reachable from the virtual network subnets.
 
