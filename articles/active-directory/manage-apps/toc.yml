@@ -28,7 +28,8 @@
       - name: Planning a cloud app integration
         items:
         - name: Get started with app integration
-          href: plan-an-application-integration.md
+          href: Plan an Access panel deployment
+          href: paccess-panel-deployment-plan.md
         - name: Guidance for developers
           href: developer-guidance-for-integrating-applications.md
       - name: Single sign-on
