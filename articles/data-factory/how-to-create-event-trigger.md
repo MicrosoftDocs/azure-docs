@@ -43,10 +43,7 @@ This section shows you how to create an event trigger within the Azure Data Fact
 5. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is optional, but be mindful that selecting all containers can lead to a large number of events.
 
    > [!NOTE]
-   > The Event Trigger currently supports only version 2 Storage accounts (General purpose).
-
-   > [!NOTE]
-   > Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 event triggers per storage account.
+   > The Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 event triggers per storage account.
 
 6. The **Blob path begins with** and **Blob path ends with** properties allow you to specify the containers, folders, and blob names for which you want to receive events. Your event trigger requires at least one of these properties to be defined. You can use variety of patterns for both **Blob path begins with** and **Blob path ends with** properties, as shown in the examples later in this article.
 

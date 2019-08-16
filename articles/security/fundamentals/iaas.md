@@ -75,7 +75,7 @@ You should install antimalware protection to help identify and remove viruses, s
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 
-You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for ease of deployment and built-in detections (alerts and incidents).
+You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](../../security-center/index.yml) for ease of deployment and built-in detections (alerts and incidents).
 
 **Best practice**: Install an antimalware solution to protect against malware.   
 **Detail**: [Install a Microsoft partner solution or Microsoft Antimalware](../../security-center/security-center-install-endpoint-protection.md)

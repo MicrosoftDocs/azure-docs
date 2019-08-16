@@ -3,7 +3,7 @@ title: Errors and exceptions (MSAL) | Azure
 description: Learn how to handle errors and exceptions, Conditional Access, and claims challenge in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ---

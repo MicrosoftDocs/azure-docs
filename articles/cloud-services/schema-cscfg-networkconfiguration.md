@@ -39,7 +39,7 @@ The following example shows the `NetworkConfiguration` element and its child ele
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="<site-name>"/>
+    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
     <AddressAssignments>
       <InstanceAddress roleName="<role-name>">
         <Subnets>

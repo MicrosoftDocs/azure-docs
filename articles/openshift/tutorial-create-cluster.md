@@ -139,8 +139,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 > [!NOTE]
 > If you get an error that the host name is not available, it may be because your
 > cluster name is not unique. Try deleting your original app registration and
-> redoing the steps with a different cluster name in [Create a new app registration]
-> (howto-aad-app-configuration.md#create-a-new-app-registration), omitting the
+> redoing the steps with a different cluster name in [Create a new app registration](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), omitting the
 > step of creating a new user and security group.
 
 After a few minutes, `az openshift create` will complete.

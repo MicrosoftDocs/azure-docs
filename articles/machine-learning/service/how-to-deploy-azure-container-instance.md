@@ -46,6 +46,9 @@ To deploy a model to Azure Container Instances, create a __deployment configurat
 ### Using the SDK
 
 ```python
+from azureml.core.webservice import AciWebservice, Webservice
+from azureml.core.model import Model
+
 deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
 service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)

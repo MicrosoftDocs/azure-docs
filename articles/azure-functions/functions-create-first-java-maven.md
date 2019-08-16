@@ -119,7 +119,7 @@ public class Function {
 
 ## Run the function locally
 
-Change directory to the newly created project folder and build and run the function with Maven:
+Change directory to the newly created project folder (the one containing your host.json and pom.xml files) and build and run the function with Maven:
 
 ```CMD
 cd fabrikam-function
@@ -198,13 +198,13 @@ Hello AzureFunctions!
 Edit the `src/main.../Function.java` source file in the generated project to alter the text returned by your Function app. Change this line:
 
 ```java
-return request.createResponse(200, "Hello, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
 ```
 
 To the following:
 
 ```java
-return request.createResponse(200, "Hi, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hi, " + name).build();
 ```
 
 Save the changes. Run mvn clean package and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:

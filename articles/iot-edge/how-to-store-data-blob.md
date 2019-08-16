@@ -1,10 +1,10 @@
 ---
 title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs 
 description: Understand tiering and time-to-live features, see supported blob storage operations, and connect to your blob storage account.
-author: arduppal
+author: kgremban
 manager: mchad
-ms.author: arduppal
-ms.reviewer: arduppal
+ms.author: kgremban
+ms.reviewer: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
@@ -17,13 +17,13 @@ ms.custom: seodec18
 Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure block blob service, except the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 This module is useful in scenarios:
-* where data needs to be stored locally until it can be processed or transferred to the cloud. This data may be videos, images, finance data, hospital data, or any other unstructured data.
+* where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
 * when devices are located in a place with limited connectivity.
 * when you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
 * when you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.
 
 Watch the video for quick introduction
-> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
 This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features.
 
