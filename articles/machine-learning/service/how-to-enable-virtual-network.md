@@ -231,6 +231,9 @@ When the creation process finishes, you train your model by using the cluster in
 
 ## Use a virtual machine or HDInsight cluster
 
+> [!IMPORTANT]
+> The Azure Machine Learning service supports only virtual machines that are running Ubuntu.
+
 To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, do the following:
 
 1. Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
@@ -262,9 +265,6 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
 1. Attach the VM or HDInsight cluster to your Azure Machine Learning service workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
-> [!IMPORTANT]
-> The Azure Machine Learning service supports only virtual machines that are running Ubuntu.
-
 ## Use Azure Kubernetes Service (AKS)
 
 To add AKS in a virtual network to your workspace, do the following:
@@ -272,9 +272,7 @@ To add AKS in a virtual network to your workspace, do the following:
 > [!IMPORTANT]
 > Before you begin the following procedure, check the prerequisites and plan the IP addressing for your cluster. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 >
-> Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
->
-> The AKS instance and the Azure virtual network should be in the same region.
+> The AKS instance and the Azure virtual network must be in the same region.
 
 1. In the [Azure portal](https://portal.azure.com), make sure that the NSG that controls the virtual network has an inbound rule that's enabled for the Azure Machine Learning service by using __AzureMachineLearning__ as the **SOURCE**.
 
@@ -303,13 +301,12 @@ To add AKS in a virtual network to your workspace, do the following:
    ![Azure Machine Learning service: Machine Learning Compute virtual network settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
 1. Make sure that the NSG group that controls the virtual network has an inbound security rule enabled for the scoring endpoint so that it can be called from outside the virtual network.
+   > [!IMPORTANT]
+   > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+  
+   ![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
 
-    ![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
-
-    > [!TIP]
-    > If you already have an AKS cluster in a virtual network, you can attach it to the workspace. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
-
-You can also use the Azure Machine Learning SDK to add AKS in a virtual network. The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
+You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-to-aks.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
