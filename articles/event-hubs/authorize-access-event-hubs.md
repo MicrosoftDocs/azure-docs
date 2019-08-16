@@ -33,8 +33,9 @@ For more information about authorization using SAS, see [Authorizing access to E
 ## Next steps
 See the following articles:
 
-- [Authenticating requests to Azure Event Hubs using Azure Active Directory](authenticate-application.md)
+- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
+- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
 - [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
-- [Authenticating requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
-- [Authorizing access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
+- [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
 

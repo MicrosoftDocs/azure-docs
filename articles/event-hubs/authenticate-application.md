@@ -104,3 +104,10 @@ For a list of scenarios for which acquiring tokens is supported, see the [Scenar
     - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)
     - [Manage role-based access control (RBAC) with the REST API](../role-based-access-control/role-assignments-rest.md)
     - [Manage role-based access control (RBAC) with Azure Resource Manager Templates](../role-based-access-control/role-assignments-template.md)
+
+See the following related articles:
+- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
+- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
+

@@ -63,11 +63,11 @@ The following recommendations for using shared access signatures can help mitiga
 Share access signatures are useful for providing limited permissions to Event Hubs resources to your clients. They are vital part of the security model for any application using Azure Event Hubs. If you follow the best practices listed in this article, you can use SAS to provide greater flexibility of access to your resources, without compromising the security of your application.
 
 ## Next Steps
-See the following articles: 
+See the following related articles: 
 
-- [Authenticating with SAS for Event Hubs resources](authenticate-shared-access-signature.md)
-- [Authorizing access to Azure Event Hubs](authorize-access-event-hubs.md)
-- [Authorizing access to Azure Event Hubs using Azure Active Directory](authenticate-shared-access-signature.md)
-- [Azure Event Hubs metrics](event-hubs-metrics-azure-monitor.md)
+- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
+- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
+- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
 
 

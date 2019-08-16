@@ -214,4 +214,9 @@ See the following articles:
 - [Authorize using Role-base access control (RBAC)](authenticate-shared-access-signature.md)
 - [Learn more about Event Hubs](event-hubs-about.md)
 
+See the following related articles:
 
+- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
+- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)

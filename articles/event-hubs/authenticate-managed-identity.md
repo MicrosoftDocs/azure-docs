@@ -31,7 +31,7 @@ To authorize a request to Event Hubs service from a managed identity in your app
 
 For more information about assigning RBAC roles, see [Authenticate with Azure Active Directory for access to Event Hubs resources](authorize-access-azure-active-directory.md).
 
-## Use Event Hubs with managed identities for Azure resources
+## Use Event Hubs with managed identities
 To use Event Hubs with managed identities, you need to assign the identity the role and the appropriate scope. The procedure in this section uses a simple application that runs under a managed identity and accesses Event Hubs resources.
 
 Here we're using a sample web application hosted in [Azure App Service](https://azure.microsoft.com/services/app-service/). For step-by-step instructions for creating a web application, see [Create an ASP.NET Core web app in Azure](../app-service/app-service-web-get-started-dotnet.md)
@@ -65,7 +65,10 @@ To assign a role to Event Hubs resources, navigate to that resource in the Azure
     
     ![Identity assigned to a role](./media/authenticate-managed-identity/role-assigned.png)
 
-Once you've assigned the role, the web application will have access to the Event Hubs resources under the defined scope. You can now launch you web application and point your browser to the sample aspx page. You can find the sample web application that sends and receives data from Event Hubs resources in the [GitHub repo](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
+Once you've assigned the role, the web application will have access to the Event Hubs resources under the defined scope. 
+
+### Test the Web application
+You can now launch you web application and point your browser to the sample aspx page. You can find the sample web application that sends and receives data from Event Hubs resources in the [GitHub repo](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
 
 Install the latest package from [Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/), and start sending to and receiving data from Event hubs using the EventHubClient as shown in the following code: 
 
@@ -74,13 +77,13 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 ```
 
 ## Next Steps
-See the following article to learn about managed identities for Azure resources:
+See the following article to learn about managed identities for Azure resources: [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
-- [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+See the [sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-For more information about Event Hubs, visit the following links:
-- Get started with an [Event Hubs tutorial](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
-- [Event Hubs FAQ](../event-hubs/event-hubs-faq.md)
-- [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/)
-- [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+See the following related articles:
 
+- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
+- [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
+- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
