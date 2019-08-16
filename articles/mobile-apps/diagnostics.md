@@ -1,6 +1,6 @@
 ---
 title: Monitor your application for Crashes
-description: Learn why it is important to monitor your application for crashes and services to fix pesky issues in your mobile apps
+description: Learn the importance of monitoring your mobile application for crashes and pesky errors
 author: elamalani
 
 ms.assetid: 12a8a079-9b3c-4faf-8588-ccff02097224
@@ -10,12 +10,12 @@ ms.date: 08/09/2019
 ms.author: emalani
 ---
 
-# Monitoring your application for Crashes and Errors
+# Monitoring your mobile application for Crashes and Errors
 Once your application is in the wild and in use by thousands of users, it is bound to have bugs and believe it or not, your users might run into unexpected app crashes once in a while. From the user perspective, all they want is a working and reliable app. Applications that are buggy and crashes don't provide a good user experience and as a result, disappointed users will uninstall the app, leave a bad review, or publicly criticize and complain about your app.  
 
 Therefore, understanding real-world crash behavior is essential for mobile applications. Your job as a developer is not complete as soon as you release your application testers or to the App Store. It is just as important to continuously monitor and measure the performance in order to ensure app stability and maintain user satisfaction. What you really need is a way to monitor your application and understand what went wrong so you can spend your time prioritizing and fixing issues that are critical for your business needs.
 
-## Why monitoring your application for Crashes is super important?
+## Why monitoring your application for Crashes is important?
 As a developer, you need to:
 - Know details about the health of your application and how its performing for end users.
 - Find the root cause and reasons why and where the crash occurred on users device.
