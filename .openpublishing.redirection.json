@@ -26526,8 +26526,13 @@
 		},
 		{
 			"source_path": "articles/hdinsight/hdinsight-troubleshoot-hbase.md",
-			"redirect_url": "/azure/hdinsight/hbase/apache-troubleshoot-hbase",
-			"redirect_document_id": true
+			"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/hdinsight/hbase/apache-troubleshoot-hbase.md",
+			"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+			"redirect_document_id": false
 		},
 		{
 			"source_path": "articles/hdinsight/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
