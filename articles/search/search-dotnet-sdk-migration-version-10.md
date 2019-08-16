@@ -30,7 +30,7 @@ Version 10 adds several features and bug fixes, bringing it to the same function
 Version 10 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API (`2019-05-06`) with these updates:
 
 * Introduction of two new skills - [Conditional skill](cognitive-search-skill-conditional.md) and [Text Translation skill](cognitive-search-skill-text-translation.md).
-* [Shaper skill](cognitive-search-skill-shaper.md) inputs have been restructured to accommodate consolidation from nested contexts. For more information, see this [example json definition](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
+* [Shaper skill](cognitive-search-skill-shaper.md) inputs have been restructured to accommodate consolidation from nested contexts. For more information, see this [example JSON definition](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
 * Addition of 2 new [field mapping functions](search-indexer-field-mappings.md):
     - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
     - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
@@ -63,7 +63,7 @@ There are several breaking changes in version 10 that may require code changes i
 
 The definition of the [Custom Web API skill](cognitive-search-custom-skill-web-api.md) was incorrectly specified in version 9 and older. 
 
-The model for `WebApiSkill` specified `HttpHeaders` as an object property that _contains_ a dictionary. Creating a skillset with a `WebApiSkill` constructed in this manner would result in an exception because the REST API would consider the request badly formed. This has been corrected, by making `HttpHeaders` **a top-level dictionary property** on `WebApiSkill` model itself - which is considered a valid request from the REST API.
+The model for `WebApiSkill` specified `HttpHeaders` as an object property that _contains_ a dictionary. Creating a skillset with a `WebApiSkill` constructed in this manner would result in an exception because the REST API would consider the request badly formed. This has been corrected, by making `HttpHeaders` **a top-level dictionary property** on the `WebApiSkill` model itself - which is considered a valid request from the REST API.
 
 For example, if you previously attempted to instantiate a `WebApiSkill` as follows:
 
@@ -106,20 +106,20 @@ var webApiSkill = new WebApiSkill(
 
 Shaper skill can now allow input consolidation from nested contexts. To enable this change, we modified `InputFieldMappingEntry` so that it can be instantiated by specifying just a `Source` property, or both the `SourceContext` and `Inputs` properties.
 
-You will most likely not need to make any code changes - however note that only either of those 2 combinations are allowed. This means:
+You will most likely not need to make any code changes; however note that only one of these two combinations is allowed. This means:
 
 - Creating an `InputFieldMappingEntry` where only `Source` is initialized is valid.
-- Creating an `InputFieldMappingEntry` where exactly both `SourceContext` and `Inputs` are initialized is valid.
+- Creating an `InputFieldMappingEntry` where only `SourceContext` and `Inputs` are initialized is valid.
 - All other combinations involving those three properties are invalid.
 
-If you decide to start making use of this new capability, make sure all your clients are updated to use version 10 first, before rolling out that change. Otherwise, there is a possibility that an update by a client (using an older version of the SDK) to the shaper skill may result in validation errors.
+If you decide to start making use of this new capability, make sure all your clients are updated to use version 10 first, before rolling out that change. Otherwise, there is a possibility that an update by a client (using an older version of the SDK) to the Shaper skill may result in validation errors.
 
 > [!NOTE]
-> Even though the underlying `InputFieldMappingEntry` model has been modified to allow consolidation from nested contexts, it's use is only valid withing the definition of a shaper skill, at the moment. Using this capability in other skills, while valid at compile time, will result in a validation error at runtime.
+> Even though the underlying `InputFieldMappingEntry` model has been modified to allow consolidation from nested contexts, it's use is only valid within the definition of a Shaper skill. Using this capability in other skills, while valid at compile time, will result in a validation error at runtime.
 
 ## Skills can be identified by a name
 
-Each skill within a skillset now has a new property `Name`, which can be initialized in your code to help identify the skill, in case you'd like to pinpoint errors/warnings during the indexer execution. This is optional - when unspecified (which is the default, if no explicit code change was made), it is assigned a default name using the 1-based index of the skill in the skillset. For example, in the following skillset definition (most initializations skipped for brevity):
+Each skill within a skillset now has a new property `Name`, which can be initialized in your code to help identify the skill. This is optional - when unspecified (which is the default, if no explicit code change was made), it is assigned a default name using the 1-based index of the skill in the skillset, prefixed with the '#' character. For example, in the following skillset definition (most initializations skipped for brevity):
 
 ```csharp
 var skillset = new Skillset()
@@ -136,11 +136,7 @@ var skillset = new Skillset()
 
 `SentimentSkill` is assigned a name `#1`, `WebApiSkill` is assigned `#2`, `ShaperSkill` is assigned `#3` and so on.
 
-If you choose to identify skills by a custom name, make sure to update all instances of your clients to version 10 of the SDK. Otherwise, there is a possibility that a client using an older version of the SDK could possibly `null` out the `Name` property of a skill, causing the client to fall back on the default naming scheme.
-
-> [!NOTE]
->This does not cause any material change to the execution of the pipeline *at the moment*, but in future versions skillset execution *could potentially* utilize skill names to avoid repeating work (when possible).
-
+If you choose to identify skills by a custom name, make sure to update all instances of your clients to version 10 of the SDK first. Otherwise, there is a possibility that a client using an older version of the SDK could possibly `null` out the `Name` property of a skill, causing the client to fall back on the default naming scheme.
 
 ## Additional details for errors and warnings as part of indexer execution status
 
@@ -155,7 +151,7 @@ If you choose to identify skills by a custom name, make sure to update all insta
 
 ## Next steps
 
-- Changes to the shaper skill have the most potential impact on new or existing code. As a next step, be sure to revisit this example illustrating the input structure: [Shaper skill JSON definition example](cognitive-search-skill-shaper.md)
+- Changes to the Shaper skill have the most potential impact on new or existing code. As a next step, be sure to revisit this example illustrating the input structure: [Shaper skill JSON definition example](cognitive-search-skill-shaper.md)
 - Go through the [introduction to cognitive search guide](cognitive-search-concept-intro.md).
 - We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
 
