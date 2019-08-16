@@ -128,7 +128,7 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
     1. SubscriptionId [Mandatory]: The subscription ID from where you would like to delete NSG Flow Log blobs.
     2. Location [Mandatory]: The _location string_ of the region of the NSGs for which you would like to delete NSG Flow Log blobs. You can view this information on the Azure portal or from the [list here](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
     3. Confirm [Optional]: Pass the confirm flag if you want to manually confirm the deletion of each storage blob.
-3. Run the saved script as follows. In the following example, the script was saved as **Delete-NsgFlowLogsBlobs.ps1**:
+3. Run the saved script as shown in the following example, where the script file was saved as **Delete-NsgFlowLogsBlobs.ps1**:
      ```
     .\Delete-NsgFlowLogsBlobs.ps1 -SubscriptionId "99999999-9999-9999-9999-999999999999" -Location  "eastus2euap" -Confirm
     ```
