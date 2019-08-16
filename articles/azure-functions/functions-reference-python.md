@@ -320,7 +320,7 @@ To deploy to Azure and perform a remote build, use the following command:
 func azure functionapp publish <app name> --build remote
 ```
 
-If you're not using remote build, and using a package that requires a compiler and does not support the installation of many linux-compatible wheels from PyPI, publishing to Azure without building locally will fail with the following error: 
+If you're not using remote build, and using a package that requires a compiler and does not support the installation of many Linux-compatible wheels from PyPI, publishing to Azure without building locally will fail with the following error:
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  

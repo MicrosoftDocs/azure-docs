@@ -57,22 +57,28 @@ When you change any of your triggers, the Functions infrastructure must be aware
 
 ### Remote build
 
-Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds will not be performed if an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode.
+Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds are not performed when an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. 
+
+> [!NOTE]
+> If you're having issues with remote build, it might be because your app was created before the feature was made available. Try creating a new function app.
 
 #### Remote build on Windows
 
-All function apps running on Windows have a small management app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions (and Azure App Service).
+All function apps running on Windows have a small management app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions.
 
 When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
-#### Remote build on Linux
+#### Remote build on Linux (preview)
 
-To enable remote build on Linux, you must set the following application settings:
+To enable remote build on Linux, you must set the following [application settings](functions-how-to-use-azure-function-app-settings.md#settings):
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-When apps are built remotely on Linux, they will [run from package](run-functions-from-deployment-package.md).
+When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
+
+> [!NOTE]
+> Remote build on the Linux Dedicated (App Service) plan is currently only supported for Node.js and Python.
 
 ##### Consumption (preview) plan
 
@@ -107,6 +113,8 @@ To perform a zip deploy with a remote build, use the following [Core Tools](func
 ```bash
 func azure functionapp publish <app name> --build remote
 ```
+
+Alternatively, you can instruct VS Code to perform a remote build when deploying by adding the ``azureFunctions.scmDoBuildDuringDeployment" flag. To learn how to add a flag to VS Code, read the instructions in the [Azure Functions Extension Wiki](https://github.com/microsoft/vscode-azurefunctions/wiki).
 
 >When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI. 
 
