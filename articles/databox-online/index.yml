@@ -106,8 +106,6 @@ landingContent:
         links:
           - text: Develop C# compute module
             url: data-box-edge-manage-compute.md
-      - linkListType: how-to-guide
-        links:
           - text: Manage Edge compute
             url: data-box-edge-manage-compute.md
           - text: Manage Edge compute network
