@@ -42,7 +42,7 @@ The following example shows you how to allow Key Vault to manage your storage ac
 
 Authenticate your PowerShell session using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) cmdlet. 
 ```azurepowershell-interactive
-https://microsoft.com/devicelogin
+Connect-AzAccount
 ```
 If you have multiple Azure subscriptions, you can list them using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) cmdlet, and specify the subscription you wish to use with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) cmdlet. 
 
