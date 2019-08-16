@@ -228,14 +228,9 @@ In this example, we are working with the storage account capacity workbook and d
 
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Storage (preview). Use the list below to locate the information relevant to your specific issue.
 
-### Workbooks are not reporting any information
+### Resolving performance, capacity, or availability issues
 
-When viewing any of the charts or grids in Azure Monitor for Storage (preview) if no data is presented, it could be caused by: 
-
-* Storage account is inactive
-* Metric collection has been disabled on the account
-
-Refer to the following article for [configuring data collection]().
+To help troubleshoot any storage-related issues you identify with Azure Monitor for Storage (preview), see the Azure Storage [troubleshooting guidance](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).  
 
 ## Next steps
 
