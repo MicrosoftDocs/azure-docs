@@ -137,10 +137,9 @@ AuthorizedKeysPath | String | Path on node where public keypair will be placed. 
 
 CycleCloud supports tagging VMs and VMSS.
 
-Attribute | Type | Definition
+Attribute | String | Definition
 ------ | ----- | ----------
-Tags. | String | Use `tags.my-tag = my-tag-value` to add tags to the deployment in
-addition to the tags assigned by CycleCloud by default.
+Tags | String | Use `tags.my-tag = my-tag-value` to add tags to the deployment in addition to the tags assigned by CycleCloud by default.
 
 ### Nodearray-Specific Attributes
 
