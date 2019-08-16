@@ -20,7 +20,7 @@ ms.author: damendo
 
 Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. You must now run a PowerShell script to manually delete the flow logs from your storage account as described in this article.
 
-## Run PowerShell script delete NSG flow logs
+## Run PowerShell script to delete NSG flow logs
  
 Copy and save the following script to a location such as your current working directory. 
 
