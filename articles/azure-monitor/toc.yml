@@ -218,7 +218,7 @@
             href: app/nodejs.md
         - name: Web pages
           items:
-          - name: client-side JavaScript
+          - name: Client-side JavaScript
             href: app/javascript.md
         - name: Application Insights API summary
           displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
@@ -509,6 +509,10 @@
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
+    - name: Storage
+      items:
+      - name: Azure Monitor for Storage
+        href: insights/storage-insights-overview.md
     - name: Virtual machines
       items: 
       - name: Agents
