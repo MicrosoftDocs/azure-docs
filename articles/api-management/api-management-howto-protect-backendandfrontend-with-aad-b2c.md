@@ -39,7 +39,7 @@ To follow the steps in this article, you must have:
 Here is a quick overview of the steps:
 
 1. Create the AAD Calling (Frontend, API Management) and API Applications with scopes and grant API Access
-2. Create the Sign-up or sign-in policies to allow users to sign in with AAD B2C
+2. Create the Signup or Signin policies to allow users to sign in with AAD B2C
 3. Configure API Management with the new AAD B2C Client IDs and keys to Enable OAuth2 user authorization in the Developer Console
 4. Build the Function API
 5. Configure the Function API to enable EasyAuth with the new AAD B2C Client ID’s and Keys and lock down to APIM VIP 
@@ -77,7 +77,7 @@ Open the AAD B2C blade in the portal and do the following steps.
 12. Grant them access to the backend API scope and the default one that was already there "login as user".
 13. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
 
-## Create a B2C "Sign-up or sign-in" user flow
+## Create a B2C "Signup or Signin" user flow
 1. Return to the root of the AAD B2C Blade 
 2. Then select “User Flows (Policies) ” and click ‘New user flow'
 3. Choose the 'Sign up and sign in' user flow type
@@ -90,9 +90,9 @@ Open the AAD B2C blade in the portal and do the following steps.
 
 > [!NOTE]
 > B2C Policies allow you to expose the AAD B2C login endpoints to be able to capture different data components and sign in users in different ways. 
-> In this case we configured a sign up and sign in endpoint, which exposed a well-known configuration endpoint, specifically our created policy was identified in the URL by the p= parameter.
+> In this case we configured a Signup or Signin endpoint, which exposed a well-known configuration endpoint, specifically our created policy was identified in the URL by the p= parameter.
 > Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
-> If you want to you can click 'run now' here (to go through the sign up and sign in process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
+> If you want to you can click 'run now' here (to go through the Signup or Signin process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
 
 ## [Optional] Configure Oauth2 for the API Management Developer Console 
 
@@ -175,7 +175,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 4. Turn on the App Service Authentication feature.
 5. Under 'Authentication Providers' choose ‘Azure Active Directory’, and choose ‘Advanced’ from the Management Mode switch.
 6. Paste the ] API's application ID (from AAD B2C into the ‘Client ID’ box)
-7. Paste the Well-known open-id configuration from the signup/signin policy into the Issuer URL box (we recorded this configuration earlier).
+7. Paste the Well-known open-id configuration from the Signup or Signin policy into the Issuer URL box (we recorded this configuration earlier).
 
 > [!NOTE]
 > Now your Function API is deployed and should throw 401 or 403 errors for unauthorized requests, and should return data when a valid request is presented.
@@ -219,7 +219,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. Browse to any operation under the `Echo API` in the developer portal, and select **Try it** to bring you to the Developer Console.
 2. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
 3. Select **Authorization code** from the authorization drop-down list, and you're prompted to sign in to the Azure AD tenant. If you're already signed in with the account, you might not be prompted.
-4. After successful sign-in, an `Authorization: Bearer` header is added to the request, with an access token from Azure AD B2C encoded in Base64. 
+4. After successful Sign in, an `Authorization: Bearer` header is added to the request, with an access token from Azure AD B2C encoded in Base64. 
 5. Select **Send** and you can call the API successfully.
 
 > [!NOTE]
@@ -256,7 +256,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
             </expose-headers>
         </cors>
 ```
-3. Edit the openid-config url to match your well known B2C endpoint for the sign in and sign up policy.
+3. Edit the openid-config url to match your well known B2C endpoint for the Signup or Signin policy.
 4. Edit the claim value to match the valid application ID, also known as a client ID for the backend API application.
 
 > [!NOTE]
@@ -465,8 +465,8 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 ## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
-2. Click “Sign In” in the top-right-hand corner, this click will pop up your B2C sign in / up profile.
-3. Post sign in the "Logged in as" section of the screen will be populated from your JWT.
+2. Click “Sign In” in the top-right-hand corner, this click will pop up your B2C Signup or Signin profile.
+3. Post Sign in the "Logged in as" section of the screen will be populated from your JWT.
 4. Now Click "Call Web Api", and you the page should update with the values sent back from your secured API.
 
 ## And we're done 
