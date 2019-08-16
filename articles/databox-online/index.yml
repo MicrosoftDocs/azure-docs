@@ -99,6 +99,7 @@ landingContent:
             url: data-box-edge-connect-powershell-interface.md
 
 
+
   # Card
   - title: Develop, manage Edge compute
     linkLists:
@@ -112,10 +113,11 @@ landingContent:
             url: data-box-edge-manage-compute.md
           - text: Manage Edge compute network
             url: data-box-edge-extend-compute-access-modules.md
-          - text: Return or replace Data Box Edge
-            url: data-box-edge-return-device.md
-          - text: Open Support ticket
-            url: data-box-edge-contact-microsoft-support.md
+      - linkListType: download
+        links:
+          - text: "Samples - C# for Data Box Edge"
+            url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+
 
   # Card
   - title: Troubleshoot
