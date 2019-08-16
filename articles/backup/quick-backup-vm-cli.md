@@ -1,7 +1,6 @@
 ---
-title: Azure Quick Start - Back up a VM with Azure CLI
+title: Azure Quickstart - Back up a VM with Azure CLI
 description: Learn how to back up your virtual machines with the Azure CLI
-
 author: dcurwin
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
@@ -16,7 +15,7 @@ ms.custom: mvc
 # Back up a virtual machine in Azure with the CLI
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or in the [Azure portal](quick-backup-vm-portal.md).
 
-This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
+This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -136,7 +135,7 @@ az group delete --name myResourceGroup
 
 
 ## Next steps
-In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
+In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
 > [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
