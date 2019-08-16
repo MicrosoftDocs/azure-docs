@@ -66,10 +66,14 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
  [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### Example
+#### Example
 
 ```powershell
-PS C:\>  New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+```
+#### Results
+
+```powershell
 Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
 ResourceGroupName  : testgroup
 Name               : test1027
@@ -83,7 +87,7 @@ CreationDate       : 10/27/2017 4:56:40 PM
 FlowType           :
 HockeyAppId        :
 HockeyAppToken     :
-InstrumentationKey : 083112ed-ed9b-464e-a9b0-8cf126fbfced
+InstrumentationKey : 00000000-aaaa-bbbb-cccc-dddddddddddd
 ProvisioningState  : Succeeded
 RequestSource      : AzurePowerShell
 SamplingPercentage :
@@ -94,7 +98,7 @@ For the full PowerShell documentation for this cmdlet, and to learn how to retri
 
 ### Azure CLI (preview)
 
-To access the Application Insights Azure CLI commands you first need to run:
+To access the preview Application Insights Azure CLI commands you first need "to run:
 
 ```azurecli
  az extension add -n application-insights
@@ -113,12 +117,41 @@ az monitor app-insights component create --app
                                          [--tags]
 ```
 
-### Example
+#### Example
 
 ```azurecli
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
 ```
-For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
+
+#### Results
+
+```azurecli
+az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+{
+  "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
+  "applicationId": "demoApp",
+  "applicationType": "web",
+  "creationDate": "2019-08-16T18:15:59.740014+00:00",
+  "etag": "\"0300edb9-0000-0100-0000-5d56f2e00000\"",
+  "flowType": "Bluefield",
+  "hockeyAppId": null,
+  "hockeyAppToken": null,
+  "id": "/subscriptions/adfa5ff9-becf-4282-8863-85633667b5ba/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
+  "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
+  "kind": "web",
+  "location": "eastus",
+  "name": "demoApp",
+  "provisioningState": "Succeeded",
+  "requestSource": "rest",
+  "resourceGroup": "OpsConfig_Wordpress",
+  "samplingPercentage": null,
+  "tags": {},
+  "tenantId": {tenantID},
+  "type": "microsoft.insights/components"
+}
+```
+
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## Next steps
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
