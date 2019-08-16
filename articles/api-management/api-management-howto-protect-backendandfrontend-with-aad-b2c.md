@@ -135,7 +135,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 ```
 
 > [!NOTE]
-> The c# script function code you just pasted simply logs a line to the console, and returns the text "Hello World" with some dynamic data.
+> The c# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
 
 4. Select “Integrate” from the left-hand blade, then select ‘Advanced Editor’ in the top-right-hand corner of the pane.
 5. Paste the sample code below over the existing json.
@@ -164,7 +164,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 ```
 
 > [!NOTE]
-> The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URI https://functionappname.azurewebsites.net/api/celebration 
+> The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URI https://functionappname.azurewebsites.net/api/hello 
 >
 > Now we have a scalable serverless https API, that is capable of returning a very simple payload.
 
@@ -174,7 +174,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 3. Next Select the 'Platform features' tab and select 'Authentication / Authorization'.
 4. Turn on the App Service Authentication feature.
 5. Under 'Authentication Providers' choose ‘Azure Active Directory’, and choose ‘Advanced’ from the Management Mode switch.
-6. Paste the BACKEND API's application ID (from AAD B2C into the ‘Client ID’ box)
+6. Paste the ] API's application ID (from AAD B2C into the ‘Client ID’ box)
 7. Paste the Well-known open-id configuration from the signup/signin policy into the Issuer URL box (we recorded this configuration earlier).
 
 > [!NOTE]
@@ -205,7 +205,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 2. Select the 'Settings' Tab.
 3. Update your settings by selecting “Oauth 2.0” from the user authorization radio button.
 4. Select the OAuth server that you defined earlier.
-5. Check the ‘Override scope’ checkbox and enter the scope you recorded for the BACKEND API call earlier on.
+5. Check the ‘Override scope’ checkbox and enter the scope you recorded for the backend API call earlier on.
 
 ## [Optional] Configure the redirect URIs for the developer portal
 
@@ -213,8 +213,6 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 
 1. Open the AAD B2C blade and navigate to the application registration for the Developer Portal
 2. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
-
-> The following section does not apply to the **Consumption** tier, which does not support the developer portal.
 
 Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token for the user, before calling the API.
 
@@ -228,6 +226,9 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > Now API management is able to acquire tokens for the developer portal to test your API and is able to understand it's definition and render the appropriate test page in the dev portal.
 
 ## Set up the **CORS** policy and add the **validate-jwt** policy
+
+> The following sections should be followed regardless of the APIM tier being used. 
+
 1. Switch back to the design tab and choose “All Operations”, then click the code view button to show the policy editor.
 2. In the inbound section after <base/> paste the below xml.
 
@@ -256,14 +257,14 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
         </cors>
 ```
 3. Edit the openid-config url to match your well known B2C endpoint for the sign in and sign up policy.
-4. Edit the claim value to match the valid application ID, also known as a client ID for the BACKEND API APPLICATION.
+4. Edit the claim value to match the valid application ID, also known as a client ID for the backend API application.
 
 > [!NOTE]
 > Now API management is able respond to cross origin requests to JS SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE 
 > forwarding the request on to the Function API.
 
 ## [Optional] Test the API from the Developer Portal
->  [!NOTE] The following section does not apply to the **Consumption** tier, which does not support the developer portal.
+> [!NOTE] The following section does not apply to the **Consumption** tier, which does not support the developer portal.
 > Hence this part is only relevant if you configured this up earlier in the document, if not then please skip this step.
 
 1. From the overview blade of the API Management portal, click 'Developer Portal' to sign in as an administrator of the API.
