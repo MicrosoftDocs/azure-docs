@@ -62,7 +62,7 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 |              | **General Purpose** | **Memory Optimized** |
 |:-------------|:--------------------|:---------------------|
 | Storage type | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 32 GB to 16 TB| 32 to 16 TB |
+| Storage size | 32 GB to 16 TB| 32 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
