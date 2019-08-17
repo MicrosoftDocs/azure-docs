@@ -35,7 +35,7 @@ On the Product overview page, add the details associated with your submission. T
 
 |**Task**|**More information**|
 |:-------------|:-------|
-|Add setup details|[Add-in setup](add-in-setup.md)|
+|Add setup and lead management details|[Add-in setup](add-in-setup.md)|
 |Upload your add-in manifest or app package|[Upload your submission package](upload-package.md)|
 |Define your Store settings|[Define properties](define-add-in-properties.md) and [Create your AppSource listing](appsource-listing.md)|
 |Define your pricing and availability|[Set pricing and availability](set-pricing-and-availability.md)|

@@ -12,27 +12,7 @@ On the Properties page in [Partner Center](https://partner.microsoft.com/en-us/d
 
 Choose the right categories to help customers find your add-in more easily in AppSource. You must choose at least one and can choose up to three categories. These categories appear on your AppSource listing.
 
-The following are the categories that you can choose from:
-
-- Accounting + finance
-- Data + analytics
-- Maps
-- Reference
-- Training & Tutorial
-- Collaboration
-- File managers
-- News + weather
-- Sales + marketing
-- Utilities + tools
-- Content management
-- IT/admin
-- Productivity
-- Site design
-- Workflow & Process Management
-- CRM
-- Legal + HR
-- Project management
-- Social
+The list of categories that you can choose from varies based on your solution type. 
 
 ## Add industries
 
