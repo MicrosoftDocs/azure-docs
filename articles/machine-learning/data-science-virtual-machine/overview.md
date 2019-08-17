@@ -29,6 +29,10 @@ The DSVM is available on:
 + Windows Server 2016, Windows Server 2012
 + Ubuntu 16.04 LTS and CentOS 7.4
 
+> [!NOTE]
+> **All Deep Learning VM** tools have been folded into Data Science VM. 
+
+
 ## What can I do with the DSVM?
 The goal of the Data Science Virtual Machine (DSVM) is to provide data professionals of all skill levels and across industries with a friction-free, pre-configured, and fully-integrated data science environment. Instead of rolling out a comparable workspace on your own, you can provision a DSVM - saving you days or even _weeks_ on the installation, configuration, and package management processes. After your DSVM has been allocated, you can immediately begin working on your data science project.
 
