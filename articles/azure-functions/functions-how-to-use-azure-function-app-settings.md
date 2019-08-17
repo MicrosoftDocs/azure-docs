@@ -13,14 +13,20 @@ ms.custom: cc996988-fb4f-47
 ---
 # Manage your function app 
 
-In Azure Functions, a function app provides the execution context for your individual functions. Function app behaviors apply to all functions hosted by a given function app. All functions in a function app must be of the same [language](supported-languages.md).
+In Azure Functions, a function app provides the execution context for your individual functions. Function app behaviors apply to all functions hosted by a given function app. All functions in a function app must be of the same [language](supported-languages.md). 
 
-This topic describes how to configure and manage your function apps in the Azure portal. 
+Individual functions in a function app are deployed together and are scaled together. All functions in the same function app share resources, per instance, as the function app scales. 
+
+Connection strings, environment variables, and other application settings are defined separately for each function app. Any data that must be shared between function apps should be stored externally in a persisted store.
+
+This article describes how to configure and manage your function apps. 
 
 > [!TIP]  
-> Many configuration options can also be set by using the [Azure CLI]. 
+> Many configuration options can also be managed by using the [Azure CLI]. 
 
-To begin, go to the [Azure portal](https://portal.azure.com) and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
+## Get started in the Azure portal
+
+To begin, go to the [Azure portal] and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
 
 ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -69,7 +75,7 @@ Function apps run in, and are maintained, by the Azure App Service platform. As 
 > [!NOTE]
 > Not all App Service features are available when a function app runs on the Consumption hosting plan.
 
-The rest of this topic focuses on the following App Service features in the Azure portal that are useful for Functions:
+The rest of this article focuses on the following App Service features in the Azure portal that are useful for Functions:
 
 + [App Service editor](#editor)
 + [Console](#console)
@@ -85,7 +91,7 @@ For more information about how to work with App Service settings, see [Configure
 
 ![The App Service editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-The App Service editor is an advanced in-portal editor that you can use to modify JSON configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with the Git repository, run and debug code, and modify function app settings. This editor provides an enhanced development environment for your functions compared with the default function app blade.  
+The App Service editor is an advanced in-portal editor that you can use to modify JSON configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with the Git repository, run and debug code, and modify function app settings. This editor provides an enhanced development environment for your functions compared with the built-in function editor.  
 
 We recommend that you consider developing your functions on your local computer. When you develop locally and publish to Azure, your project files are read-only in the portal. To learn more, see [Code and test Azure Functions locally](functions-develop-local.md).
 
@@ -134,7 +140,7 @@ Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-
 
 ![Configure authentication for a function app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
-When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Azure Active Directory authentication and sign in with social providers, such as Facebook, Microsoft, and Twitter. For details on configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md). 
+When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Azure Active Directory authentication and sign-in with social providers, such as Facebook, Microsoft, and Twitter. For details on configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md). 
 
 
 ## Next steps
@@ -143,4 +149,4 @@ When functions use an HTTP trigger, you can require calls to first be authentica
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
 [Azure CLI]: /cli/azure/
-
+[Azure portal]: https://portal.azure.com

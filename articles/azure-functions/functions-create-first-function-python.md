@@ -101,7 +101,7 @@ A subfolder named _HttpTrigger_ is created, which contains the following files:
 
 The following command starts the function app, which runs locally using the same Azure Functions runtime that is in Azure.
 
-```bash
+```console
 func host start
 ```
 
