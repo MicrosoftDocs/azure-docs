@@ -75,7 +75,6 @@ Tools and platforms:
 + [Data exploration and visualization tools](dsvm-tools-explore-and-visualize.md)
 
 
-
 | **Tool**                                                           | **Windows Edition** | **Linux Edition** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) with popular packages pre-installed   |Y                      | Y             |
