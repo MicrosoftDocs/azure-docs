@@ -42,10 +42,10 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
  
 - If an Azure Resource Manager virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md##create-a-virtual-network) for your Azure-SSIS IR to join. Then configure an Azure Resource Manager-to-Azure Resource Manager virtual network connection. Or create a [classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS IR to join. Then configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection. 
 
-## Access to Azure services with virtual network service endpoints
+## Access to Azure services
 If your SSIS packages access Azure service resources supported with [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and you want to secure those resources to Azure-SSIS IR, you can join your Azure-SSIS IR to the virtual network subnet configured with virtual network service endpoints. Meanwhile, add a virtual network rule to the Azure service resources to allow access from same subnet.
 
-## Hosting the SSIS catalog in Azure SQL Database
+## Hosting the SSIS catalog in SQL Database
 If you host your SSIS catalog in Azure SQL Database with virtual network service endpoints, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
 To join your Azure-SSIS IR to the same virtual network as the managed instance, make sure that the Azure-SSIS IR is in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or a connection from virtual network to virtual network. For more information, see [Connect your application to Azure SQL Database managed instance](../sql-database/sql-database-managed-instance-connect-app.md).
@@ -54,9 +54,9 @@ In all cases, the virtual network can be deployed only through the Azure Resourc
 
 The following sections provide more details. 
 
-## Requirements for virtual network configuration
+## Virtual network configuration
 
-To set up your virtual network: 
+Set up your virtual network to meet these requirements: 
 
 -   Make sure that `Microsoft.Batch` is a registered provider under the subscription of your virtual network subnet that hosts the Azure-SSIS IR. If you use a classic virtual network, also join `MicrosoftAzureBatch` to the Classic Virtual Machine Contributor role for that virtual network. 
 
@@ -125,7 +125,7 @@ If you need to implement an NSG for the subnet used by your Azure-SSIS IR, allow
 ### <a name="route"></a> Use Azure ExpressRoute or a UDR
 When you connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to your virtual network infrastructure to extend your on-premises network to Azure, a common configuration uses forced tunneling (advertising a BGP route, 0.0.0.0/0, to the virtual network). This tunneling forces outbound internet traffic from the virtual network flow to an on-premises network appliance for inspection and logging. 
  
-Or you might define [UDRs](../virtual-network/virtual-networks-udr-overview.md) to force outbound internet traffic from the subnet that hosts the Azure-SSIS IR to another subnet that hosts a virtual network appliance (NVA) as a firewall or Azure Firewall for inspection and logging. 
+Or you might define [UDRs](../virtual-network/virtual-networks-udr-overview.md) to force outbound internet traffic from the subnet that hosts the Azure-SSIS IR to another subnet that hosts a network virtual appliance (NVA) as a firewall or Azure Firewall for inspection and logging. 
 
 In both cases, the traffic route will break required inbound connectivity from dependent Azure Data Factory services (specifically, Azure Batch management services) to the Azure-SSIS IR in the virtual network. To avoid this, define one or more UDRs on the subnet that contains the Azure-SSIS IR. 
 
