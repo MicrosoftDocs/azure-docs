@@ -57,7 +57,6 @@ The data science VM can be used for training models using deep learning algorith
  
 Learn more about [available deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
 
-
 ## What's included in the Data Science VM?
 The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products such as, Microsoft ML Server (R, Python) for building predictive models or SQL Server 2017 for large-scale data set exploration. The Data Science VM includes a host of other tools from the open-source community and from Microsoft, as well as [sample code and notebooks](dsvm-samples-and-walkthroughs.md). 
 
