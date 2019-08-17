@@ -23,17 +23,7 @@ For standalone Function sample projects in Python, see the [Python Functions sam
 
 ## Programming model
 
-An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file.
-
-You can change the default configuration by specifying the `scriptFile` and `entryPoint` properties in the *function.json* file. For example, the _function.json_ below tells the runtime to use the `customentry()` method in the _main.py_ file, as the entry point for your Azure Function.
-
-```json
-{
-  "scriptFile": "main.py",
-  "entryPoint": "customentry",
-  ...
-}
-```
+Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).
 
 Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
@@ -63,7 +53,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Optionally, to leverage the intellisense and auto-complete features provided by your code editor, you can also declare the attribute types and return type in the function using Python type annotations. 
+you can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
 
 ```python
 import azure.functions
@@ -76,9 +66,23 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods.
 
+## Alternate entry point
+
+You can change the default behavior of a function by optionally specifying the `scriptFile` and `entryPoint` properties in the *function.json* file. For example, the _function.json_ below tells the runtime to use the `customentry()` method in the _main.py_ file, as the entry point for your Azure Function.
+
+```json
+{
+  "scriptFile": "main.py",
+  "entryPoint": "customentry",
+  "bindings": [
+      ...
+  ]
+}
+```
+
 ## Folder structure
 
-The folder structure for a Python Functions project looks like the following:
+The folder structure for a Python Functions project looks like the following example:
 
 ```
  FunctionApp
@@ -224,11 +228,11 @@ Additional logging methods are available that let you write to the console at di
 
 | Method                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| logging.**critical(_message_)**   | Writes a message with level CRITICAL on the root logger.  |
-| logging.**error(_message_)**   | Writes a message with level ERROR on the root logger.    |
-| logging.**warning(_message_)**    | Writes a message with level WARNING on the root logger.  |
-| logging.**info(_message_)**    | Writes a message with level INFO on the root logger.  |
-| logging.**debug(_message_)** | Writes a message with level DEBUG on the root logger.  |
+| **`critical(_message_)`**   | Writes a message with level CRITICAL on the root logger.  |
+| **`error(_message_)`**   | Writes a message with level ERROR on the root logger.    |
+| **`warning(_message_)`**    | Writes a message with level WARNING on the root logger.  |
+| **`info(_message_)`**    | Writes a message with level INFO on the root logger.  |
+| **`debug(_message_)`** | Writes a message with level DEBUG on the root logger.  |
 
 ## Async
 
@@ -242,7 +246,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-If the main() function is synchronous (no `async` qualifier) we automatically run the function in an `asyncio` thread-pool.
+If the main() function is synchronous (no  qualifier), we automatically run the function in an `asyncio` thread-pool.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -294,6 +298,26 @@ def main(req):
     # ... use CACHED_DATA in code
 ```
 
+## Environment variables
+
+In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
+
+The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
+
+```python
+import logging
+import os
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Get the setting named 'myAppSetting'
+    my_app_setting_value = os.environ["myAppSetting"]
+    logging.info(f'My app setting value:{my_app_setting_value}')
+```
+
+For local development, application settings are [maintained in the local.settings.json file](functions-run-local.md#local-settings-file).  
+
 ## Python version and package management
 
 Currently, Azure Functions only supports Python 3.6.x (official CPython distribution).
@@ -325,9 +349,9 @@ To automatically build and configure the required binaries, [install Docker](htt
 func azure functionapp publish <app name> --build-native-deps
 ```
 
-Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
+Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it will then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure DevOps Pipelines](functions-how-to-azure-devops.md). 
+To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md). 
 
 ## Unit Testing
 
@@ -446,25 +470,6 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
-## Environment variables
-
-In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
-
-The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
-
-```python
-import logging
-import os
-import azure.functions as func
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    # Get the setting named 'myAppSetting'
-    my_app_setting_value = os.environ["myAppSetting"]
-    logging.info(f'My app setting value:{my_app_setting_value}')
-```
-
-For local development, application settings are [maintained in the local.settings.json file](functions-run-local.md#local-settings-file).  
 
 ## Known issues and FAQ
 
@@ -474,7 +479,7 @@ All known issues and feature requests are tracked using [GitHub issues](https://
 
 Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. For more information, see [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
 
-The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. This means that you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
+The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. Because of this limitation, you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
