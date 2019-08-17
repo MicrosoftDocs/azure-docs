@@ -90,6 +90,8 @@
       href: reserve-add-in-name.md
     - name: Add-in setup
       href: add-in-setup.md
+    - name: Add lead management details
+      href: add-lead-management-details.md
     - name: Upload your package
       href: upload-package.md
     - name: Define add-in properties
