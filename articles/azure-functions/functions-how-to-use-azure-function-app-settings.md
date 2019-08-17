@@ -83,7 +83,6 @@ The rest of this article focuses on the following App Service features in the Az
 + [Deployment options](#deployment)
 + [CORS](#cors)
 + [Authentication](#auth)
-+ [API definition](#swagger)
 
 For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/configure-common.md).
 
