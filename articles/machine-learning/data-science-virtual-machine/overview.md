@@ -21,12 +21,15 @@ ms.author: vijetaj
 
 # What is Azure Data Science Virtual Machine for Linux and Windows?
 
-The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. It is available on Windows Server and Linux. We offer Windows edition of DSVM on Server 2016 and Server 2012. We offer Linux editions of the DSVM on Ubuntu 16.04 LTS and CentOS 7.4.
+The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. 
 
-This article discusses what you can do with the Data Science VM. It outlines some of the key scenarios for using the VM and itemizes the key features available on the Windows and Linux versions. The article also provides instructions on how to get started using them.
+The tool configurations are rigorously tested by data scientists and developers at Microsoft and by the broader data science community to ensure stability and general viability.
 
+The DSVM is available on:
++ Windows Server 2016, Windows Server 2012
++ Ubuntu 16.04 LTS and CentOS 7.4
 
-## What can I do with the Data Science Virtual Machine?
+## What can I do with the DSVM?
 The goal of the Data Science Virtual Machine (DSVM) is to provide data professionals of all skill levels and across industries with a friction-free, pre-configured, and fully-integrated data science environment. Instead of rolling out a comparable workspace on your own, you can provision a DSVM - saving you days or even _weeks_ on the installation, configuration, and package management processes. After your DSVM has been allocated, you can immediately begin working on your data science project.
 
 The Data Science VM is designed and configured for working with a broad range of usage scenarios. You can scale your environment up or down as your project requirements change. You can also use your preferred language to program data science tasks and install other tools to customize the system for your exact needs.
