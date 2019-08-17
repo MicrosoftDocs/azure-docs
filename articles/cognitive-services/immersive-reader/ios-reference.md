@@ -98,5 +98,5 @@ The Immersive Reader iOS SDK is supported for iOS 9.0 or higher, on iPad and iPh
 
 ## Next steps
 
-* Explore the [Immersive Reader iOS SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk/iOS)
+* Explore the [Immersive Reader iOS SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS)
 * [Quickstart: Create an iOS app that launches the Immersive Reader (Swift)](./ios-quickstart.md)

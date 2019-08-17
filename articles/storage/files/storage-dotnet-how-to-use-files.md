@@ -216,7 +216,7 @@ if (share.Exists())
 }
 ```
 
-For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## Copy files
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to perform these copy operations programmatically.

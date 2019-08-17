@@ -4,7 +4,7 @@ description: Learn how to set provisioned throughput for your Azure Cosmos conta
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: rimman
 
 ---
@@ -36,7 +36,7 @@ The following image shows how a physical partition hosts one or more logical par
 
 ## Set throughput on a database
 
-When you provision throughput on an Azure Cosmos database, the throughput is shared across all the containers in the database. An exception is if you specified a provisioned throughput on specific containers in the database. Sharing the database-level provisioned throughput among its containers is analogous to hosting a database on a cluster of machines. Because all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To learn how to configure provisioned throughput on a database, see [Configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+When you provision throughput on an Azure Cosmos database, the throughput is shared across all the containers (called shared database containers) in the database. An exception is if you specified a provisioned throughput on specific containers in the database. Sharing the database-level provisioned throughput among its containers is analogous to hosting a database on a cluster of machines. Because all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To learn how to configure provisioned throughput on a database, see [Configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
 Setting throughput on an Azure Cosmos database guarantees that you receive the provisioned throughput for that database all the time. Because all containers within the database share the provisioned throughput, Azure Cosmos DB doesn't provide any predictable throughput guarantees for a particular container in that database. The portion of the throughput that a specific container can receive is dependent on:
 
@@ -56,7 +56,9 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-Multiple logical partitions that belong to different containers that share the throughput provisioned to a database can be hosted on a single physical partition. While a single logical partition of a container is always scoped within a physical partition, *"L"* logical partitions across *"C"* containers that share the provisioned throughput of a database can be mapped and hosted on *"R"* physical partitions. 
+Throughput provisioned on a database can be shared by the containers within that database. A maximum of 25 containers can share the throughput provisioned on the database. Beyond 25 containers, for every new container created within that database can share a portion of database throughput with other collections already available in the database. The amount of throughput that can be shared is dependent on the number of the containers provisioned in the database. 
+
+If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation.
 
 The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
@@ -73,6 +75,9 @@ You can combine the two models. Provisioning throughput on both the database and
 
 * The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container’s throughput.
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
+
+> [!NOTE]
+> A container with provisioned throughput cannot be converted to shared database container. Conversely a shared database container cannot be converted to have a dedicated throughput.
 
 ## Update throughput on a database or a container
 

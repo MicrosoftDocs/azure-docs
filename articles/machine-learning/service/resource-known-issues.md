@@ -45,6 +45,15 @@ Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
+**Error message: `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+Anaconda's Python 3.7.4 distribution has a bug that breaks azureml-sdk install. This issue is discussed in this [GitHub Issue](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
+This can be worked around by creating a new Conda Environment using this command:
+```bash
+conda create -n <env-name> python=3.7.3
+```
+Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
+
 ## Trouble creating Azure Machine Learning Compute
 
 There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately.

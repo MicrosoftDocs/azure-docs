@@ -289,5 +289,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 In this article, you trained and registered a TensorFlow model. To learn how to deploy a model to a GPU-enabled cluster, continue on to our GPU model deployment article.
 
-[How to deploy for inferencing with GPUs](how-to-deploy-inferencing-gpus.md)
-[How to monitor with TensorBoard](how-to-monitor-tensorboard.md)
+> [!div class="nextstepaction"]
+> [How and where to deploy models](how-to-deploy-and-where.md)
+* [Track run metrics during training](how-to-track-experiments.md)
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
