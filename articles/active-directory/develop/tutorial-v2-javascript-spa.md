@@ -410,20 +410,20 @@ After the browser loads your *index.html* file, select **Sign In**. You're promp
 
 ### Provide consent for application access
 
-The first time that you sign in to your application, you're prompted to give it access to your profile and sign you in:
+The first time that you sign in to your application, you're prompted to grant it access to your profile and sign you in:
 
 ![The "Permissions requested" window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### View application results
 
-After you sign in, your user profile information is returned in the Microsoft Graph API response that's displayed on the page:
+After you sign in, your user profile information is returned in the Microsoft Graph API response that's displayed:
 
 ![Results from the Microsoft Graph API call](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Calendars.Read* scope to list the user’s calendars.
+The Microsoft Graph API requires the *user.read* scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Calendars.Read* scope in order to list the user’s calendars.
 
 To access the user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call.
 
