@@ -126,18 +126,16 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
-| **Big Data Platform (Devtest only)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* Local [Spark](https://spark.apache.org/) Standalone | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* Local [Hadoop](https://hadoop.apache.org/) (HDFS, YARN) | N | Y |
-
-## Get started
-
-### Windows Data Science VM
-* For more information on how to create a Windows DSVM and use it, see [Provision the Windows Data Science Virtual Machine](provision-vm.md). For more information on how to perform various tasks needed for your data science project on the Windows DSVM, see [Ten things you can do on the Data Science Virtual Machine](vm-do-ten-things.md).
-
-### Linux Data Science VM
-* For more information on how to create an Ubuntu DSVM and use it, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](dsvm-ubuntu-intro.md). For more information on how to create a CentOS DSVM and use it, see [Provision a Linux CentOS Data Science Virtual Machine on Azure](linux-dsvm-intro.md).
-* For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, both CentOS and Ubuntu, see [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md).
 
 ## Next steps
-[R developer's guide to Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)
+
+Learn more with these articles:
+
++ Windows:
+  + [Set up a Windows DSVM](provision-vm.md)
+  + [Ten things you can do on a Windows DSVM](vm-do-ten-things.md)
+
++ Linux:
+  + [Set up a Linux DSVM (Ubuntu)](dsvm-ubuntu-intro.md)
+  + [Set up a Linux DSVM (CentOS)](linux-dsvm-intro.md)
+  + [Data science on a Linux DSVM](linux-dsvm-walkthrough.md)
