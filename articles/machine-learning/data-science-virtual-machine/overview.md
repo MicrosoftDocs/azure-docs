@@ -29,13 +29,13 @@ The DSVM is available on:
 + Windows Server 2016, Windows Server 2012
 + Ubuntu 16.04 LTS and CentOS 7.4
 
-## What can I do with the DSVM?
+**All Deep Learning VM** tools have been folded into Data Science VM. 
+
+
+## What can I do with DSVM?
 The goal of the Data Science Virtual Machine (DSVM) is to provide data professionals of all skill levels and across industries with a friction-free, pre-configured, and fully-integrated data science environment. Instead of rolling out a comparable workspace on your own, you can provision a DSVM - saving you days or even _weeks_ on the installation, configuration, and package management processes. After your DSVM has been allocated, you can immediately begin working on your data science project.
 
 The Data Science VM is designed and configured for working with a broad range of usage scenarios. You can scale your environment up or down as your project requirements change. You can also use your preferred language to program data science tasks and install other tools to customize the system for your exact needs.
-
-## Key usage scenarios
-This section suggests some key scenarios for which the Data Science VM can be deployed.
 
 ### Preconfigured analytics desktop in the cloud
 The Data Science VM provides a baseline configuration for data science teams looking to replace their local desktops with a managed cloud desktop. This baseline ensures that all the data scientists on a team have a consistent setup with which to verify experiments and promote collaboration. It also lowers costs by reducing the sysadmin burden. This burden reduction saves on time needed to evaluate, install, and maintain the various software packages needed to do advanced analytics.
@@ -57,7 +57,9 @@ The data science VM can be used for training models using deep learning algorith
  
 Learn more about [available deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
 
-## What's included in the Data Science VM?
+<a name="included"></a>
+
+## What's included on DSVM?
 The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products such as, Microsoft ML Server (R, Python) for building predictive models or SQL Server 2017 for large-scale data set exploration. The Data Science VM includes a host of other tools from the open-source community and from Microsoft, as well as [sample code and notebooks](dsvm-samples-and-walkthroughs.md). 
 
 Tools and platforms:
