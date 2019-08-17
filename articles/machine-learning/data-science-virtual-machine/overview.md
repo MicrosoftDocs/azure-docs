@@ -31,7 +31,7 @@ The goal of the Data Science Virtual Machine (DSVM) is to provide data professio
 
 The Data Science VM is designed and configured for working with a broad range of usage scenarios. You can scale your environment up or down as your project requirements change. You can also use your preferred language to program data science tasks and install other tools to customize the system for your exact needs.
 
-## Key Scenarios
+## Key usage scenarios
 This section suggests some key scenarios for which the Data Science VM can be deployed.
 
 ### Preconfigured analytics desktop in the cloud
@@ -44,17 +44,32 @@ Enterprise trainers and educators that teach data science classes usually provid
 Data science hackathons/competitions or large-scale data modeling and exploration require scaled out hardware capacity, typically for short duration. The Data Science VM can help replicate the data science environment quickly on demand, on scaled out servers that allow experiments that  high-powered computing resources to be run.
 
 ### Custom compute power for Azure Notebooks
-
-[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) is a free hosted service to develop, run, and share Jupyter notebooks in the cloud with no installation. The free service  tier, however,  is limited to 4GB of memory and 1GB of data. To release all limits, you can then attach a Notebooks project to a Data Science VM or any other VM running Jupyter server. If you sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account), Notebooks automatically shows Data Science VMs in any subscriptions associated with that account. For more information, see [Manage and configure projects - Compute tier](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) is a free hosted service to develop, run, and share Jupyter notebooks in the cloud with no installation. The free service  tier, however,  is limited to 4GB of memory and 1GB of data. To release all limits, you can then attach a Notebooks project to a Data Science VM or any other VM running Jupyter server. If you sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account), Notebooks automatically shows Data Science VMs in any subscriptions associated with that account. You can [attach a Data Science VM to Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) to expand the available compute power.
 
 ### Short-term experimentation and evaluation
 The Data Science VM can be used to evaluate or learn tools such as Microsoft ML Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios. These scenarios include replicating published experiments, executing demos, following walkthroughs in online sessions and conference tutorials.
 
 ### Deep learning
-The data science VM can be used for training models using deep learning algorithms on GPU (Graphics processing units) based hardware. Utilizing VM scaling capabilities of Azure cloud, DSVM helps you use GPU-based hardware on the cloud as per need. One can switch to a GPU-based VM when training large models or need high-speed computations while keeping the same OS disk.  The Windows Server 2016 edition of DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPU is enabled on both the CentOS and Ubuntu DSVMs. You can deploy the Ubuntu, CentOS, or Windows 2016 edition of Data Science VM to a non GPU-based Azure virtual machine. In this case, all the deep learning frameworks will fall back to the CPU mode.
+The data science VM can be used for training models using deep learning algorithms on GPU (Graphics processing units) based hardware. Utilizing VM scaling capabilities of Azure cloud, DSVM helps you use GPU-based hardware on the cloud as per need. One can switch to a GPU-based VM when training large models or need high-speed computations while keeping the same OS disk.  The Windows Server 2016 edition of DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPU is enabled on both the CentOS and Ubuntu DSVMs. You can deploy the Ubuntu, CentOS, or Windows 2016 edition of Data Science VM to a non GPU-based Azure virtual machine. In this case, all the deep learning frameworks will fall back to the CPU mode. Learn more about [available deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
+ 
 
 ## What's included in the Data Science VM?
-The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products such as, Microsoft ML Server (R, Python) for building predictive models or SQL Server 2017 for large-scale data set exploration. The Data Science VM includes a host of other tools from the open-source community and from Microsoft, as well as sample code and notebooks. The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
+The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products such as, Microsoft ML Server (R, Python) for building predictive models or SQL Server 2017 for large-scale data set exploration. The Data Science VM includes a host of other tools from the open-source community and from Microsoft, as well as [sample code and notebooks](dsvm-samples-and-walkthroughs.md). The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
+
+Tools and platforms:
++ [Supported programming languages](dsvm-languages.md)
+
++ [Supported data platforms](dsvm-data-platforms.md)
+
++ [Development tools and IDEs](dsvm-tools-development.md)
+
++ [Deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
+
++ [Machine learning and data science tools](dsvm-ml-data-science-tools.md)
+
++ [Data ingestion tools](dsvm-tools-ingestion.md)
+
++ [Data exploration and visualization tools](dsvm-tools-explore-and-visualize.md)
 
 
 | **Tool**                                                           | **Windows Edition** | **Linux Edition** |
