@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath
 ---
 
-# Escalate Private Cloud vCenter privileges from the CloudSimple portal 
+# Escalate Private Cloud vCenter privileges from the CloudSimple portal
 
 For administrative access to your Private Cloud vCenter, you can temporarily escalate your CloudSimple privileges.  Using elevated privileges, you can install VMware solutions, add identity sources, and manage users.
 

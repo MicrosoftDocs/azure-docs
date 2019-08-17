@@ -14,4 +14,4 @@ manager: dikamath
 
 From the CloudSimple portal, you can launch an instance of the vSphere client for your CloudSimple Private Cloud. You can also extend privileges temporarily if you need to perform administrative tasks.
 
-To access the vSphere Client, [go to the CloudSimple portal](access-cloudsimple-portal.md). On the [summary page](manage-private-cloud.md#summary) for a selected Private Cloud, click **Launch vSphere client**. The client interface opens in a new browser window.
+To access the vSphere Client, [go to the CloudSimple portal](access-cloudsimple-portal.md). On the [summary page](manage-private-cloud.md#private-cloud-summary) for a selected Private Cloud, click **Launch vSphere client**. The client interface opens in a new browser window.

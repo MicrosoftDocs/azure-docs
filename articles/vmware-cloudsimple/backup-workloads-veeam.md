@@ -257,20 +257,20 @@ Create a public IP address for the Veeam backup and recovery server. For instruc
 
 Create a firewall rule using to allow the Veeam backup server to create an outbound connection to Veeam website for downloading updates/patches on TCP port 80. For instructions, see [Set up firewall tables and rules](firewall.md).
 
-To de-scalate privileges, see [De-escalate privileges](escalate-privileges.md#de-escalate-privileges).
+To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
 > [!NOTE]
 > CloudSimple is exploring possibility of providing a managed Veeam solution. More details will be shared soon.
 
 ## References
 
-### CoudSimple References
+### CloudSimple References
 
 * [Create a Private Cloud](create-private-cloud.md)
 * [Create and manage VLANs/Subnets](create-vlan-subnet.md)
 * [vCenter Identity Sources](set-vcenter-identity.md)
 * [Workload DNS and DHCP Setup](dns-dhcp-setup.md)
-* [Escalate privileges](vsphere-access.md#escalate-privileges)
+* [Escalate privileges](escalate-privileges.md)
 * [Set up firewall tables and rules](firewall.md)
 * [Private Cloud permissions](learn-private-cloud-permissions.md)
 * [Allocate public IP Addresses](public-ips.md)

@@ -3,7 +3,7 @@ title: Azure VMware Solution by CloudSimple - Private Cloud permission model
 description: Describes the CloudSimple Private Cloud permission model, groups, and categories 
 author: sharaths-cs
 ms.author: b-shsury 
-ms.date: 08/26/2019 
+ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
