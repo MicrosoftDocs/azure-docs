@@ -27,6 +27,11 @@ The easiest way to connect to the storage emulator from your application is to c
 </appSettings>
 ```
 
+> [!NOTE]
+> Using the shortcut connection string (`UseDevelopmentStorage=true`), will cause the Storage Emulator to be started automatically.
+>
+> If you intend to use another local emulator other such as Azurite, you must set the connection string explicitly.
+
 #### Connect to the emulator account using the well-known account name and key
 To create a connection string that references the emulator account name and key, you must specify the endpoints for each of the services you wish to use from the emulator in the connection string. This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account. For example, the value of your connection string will look like this:
 
