@@ -19,6 +19,10 @@
 - name: Concepts
   expanded: false
   items:
+  - name: Adopting Conditional Access
+    href: howto-conditional-access-adoption-kit.md
+  - name: Common Conditional Access policies
+    href: concept-conditional-access-policy-common.md
   - name: Conditions
     href: conditions.md
   - name: Location conditions
@@ -38,6 +42,22 @@
     href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
+  - name: Common policy templates
+    items: 
+    - name: Require MFA for administrators
+      href: howto-conditional-access-policy-admin-mfa.md
+    - name: Require MFA for Azure management
+      href: howto-conditional-access-policy-azure-management.md
+    - name: Block legacy authentication
+      href: howto-conditional-access-policy-block-legacy.md
+    - name: Risk-based Conditional Access
+      href: howto-conditional-access-policy-risk.md
+    - name: Require trusted location for MFA registration
+      href: howto-conditional-access-policy-registration.md
+    - name: Block access by location
+      href: howto-conditional-access-policy-location.md
+    - name: Require compliant devices
+      href: howto-conditional-access-policy-compliant-device.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Conditional Access for MFA registration
