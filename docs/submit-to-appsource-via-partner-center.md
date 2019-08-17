@@ -49,7 +49,7 @@ After you submit your solution:
    > [!NOTE]
    > The validation team tests Office Add-ins on all the platforms that the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](/office/dev/add-ins/overview/office-add-in-availability).
 
-   For a seamless validation experience, provide detailed test notes with your submission, including:
+   For a seamless certification experience, provide detailed test notes with your submission, including:
 
    - Information about any sample data your app or add-in needs.
    - Configuration instructions, if required.
@@ -58,7 +58,7 @@ After you submit your solution:
    > [!NOTE]
    > Because our team is located in multiple time zones, we request that you do not configure test accounts that require developer interaction before we can test.
 
-3. When the validation process is complete, you receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the status of your submission in Partner Center:
+3. When the certification process is complete, you receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the status of your submission in Partner Center:
 
    - Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview).
    - On the **Add-in overview** tab, under **Retail**, the status of your submission will be one of the following:
@@ -69,11 +69,11 @@ After you submit your solution:
         > [!NOTE]
         > After your submission is certified, there might be a delay before it is published. After certification, a submission typically appears in AppSource within one hour.
 
-      - If the status is **changes requested**, your submission needs changes to be approved. Choose your submission, and then on the summary page, select **View the add-in report** for details about the required changes.
+      - If the status is **Attention needed**, your submission needs changes to be approved. Choose your submission, and then on the summary page, select **View report** for details about the required changes.
 
 If you make changes after your submission is certified, it must go through the certification process again.
 
-If you have questions about policies or requirements in your report, you can engage with the AppSource Validation Team via [Stack Overflow](https://stackoverflow.com/search?q=appsource). Tag your question with "AppSource".
+If you have questions about policies or requirements in your report, you can engage with the Office Validation Team via [Stack Overflow](https://stackoverflow.com/search?q=appsource). Tag your question with "AppSource".
 
 ## See also
 

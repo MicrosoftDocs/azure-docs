@@ -10,7 +10,7 @@ On the Add-in setup page, you can indicate whether you want your add-in to be av
 
 ## Setup details
 
-If you want your add-in to be available in the Apple Store, select the **iOS** check box.
+If you want your Word, Excel, Outlook, or PowerPoint add-in to be available in the Apple Store, select the iOS check box. Currently, only Outlook add-ins can be made available for Android. 
 
 > [!NOTE]
 > To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. After you add your ID in Account settings, remember to refresh the **Add-in setup** page.
