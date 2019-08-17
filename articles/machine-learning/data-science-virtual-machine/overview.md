@@ -55,9 +55,11 @@ The Data Science VM can be used to evaluate or learn tools such as Microsoft ML 
 ### Deep learning
 The data science VM can be used for training models using deep learning algorithms on GPU (Graphics processing units) based hardware. Utilizing VM scaling capabilities of Azure cloud, DSVM helps you use GPU-based hardware on the cloud as per need. One can switch to a GPU-based VM when training large models or need high-speed computations while keeping the same OS disk.  The Windows Server 2016 edition of DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPU is enabled on both the CentOS and Ubuntu DSVMs. You can deploy the Ubuntu, CentOS, or Windows 2016 edition of Data Science VM to a non GPU-based Azure virtual machine. In this case, all the deep learning frameworks will fall back to the CPU mode. Learn more about [available deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
  
+Learn more about [available deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
+
 
 ## What's included in the Data Science VM?
-The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products such as, Microsoft ML Server (R, Python) for building predictive models or SQL Server 2017 for large-scale data set exploration. The Data Science VM includes a host of other tools from the open-source community and from Microsoft, as well as [sample code and notebooks](dsvm-samples-and-walkthroughs.md). The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
+The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products such as, Microsoft ML Server (R, Python) for building predictive models or SQL Server 2017 for large-scale data set exploration. The Data Science VM includes a host of other tools from the open-source community and from Microsoft, as well as [sample code and notebooks](dsvm-samples-and-walkthroughs.md). 
 
 Tools and platforms:
 + [Supported programming languages](dsvm-languages.md)
@@ -74,7 +76,7 @@ Tools and platforms:
 
 + [Data exploration and visualization tools](dsvm-tools-explore-and-visualize.md)
 
-
+The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
 | **Tool**                                                           | **Windows Edition** | **Linux Edition** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) with popular packages pre-installed   |Y                      | Y             |
