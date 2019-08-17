@@ -76,6 +76,7 @@ Tools and platforms:
 + [Data exploration and visualization tools](dsvm-tools-explore-and-visualize.md)
 
 The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
+
 | **Tool**                                                           | **Windows Edition** | **Linux Edition** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) with popular packages pre-installed   |Y                      | Y             |
