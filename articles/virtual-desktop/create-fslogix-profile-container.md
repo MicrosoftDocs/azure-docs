@@ -1,15 +1,15 @@
 ---
-title: Create an FSLogix profile container in Windows Virtual Desktop - Azure
-description: How to create an FSLogix profile container in Windows Virtual Desktop.
+title: Create an FSLogix profile container for a host pool using Azure NetApp Files in Windows Virtual Desktop - Azure
+description: How to create an FSLogix profile container using Azure NetApp Files in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 08/16/2019
 ms.author: helohr
 ---
-# Create an FSLogix profile container in Windows Virtual Desktop
+# Create an FSLogix profile container for a host pool using Azure NetApp Files
 
 We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop Preview service](https://aka.ms/wvdpreview). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
 
@@ -24,10 +24,13 @@ The instructions in this guide are specifically for Windows Virtual Desktop user
 >[!NOTE]
 >This article doesn't cover best practices for securing access to the Azure NetApp Files share.
 
-## Prerequisites 
+## Prerequisites
 
-- Windows Virtual Desktop set up and configured
-- [Subscription is enabled for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-register)
+Before you can create an FSLogix profile container for a host pool, you must:
+
+- Set up and configure Windows Virtual Desktop
+- Provision a Windows Virtual Desktop host pool
+- [Enable your Azure NetApp Files subscription](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
 
 ## Set up your Azure NetApp Files account
 
