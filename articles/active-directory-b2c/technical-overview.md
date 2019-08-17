@@ -21,64 +21,65 @@ If you've not yet read [About Azure Active Directory B2C](active-directory-b2c-o
 
 ## Azure AD B2C tenant
 
-In Azure Active Directory B2C (Azure AD B2C), a *tenant* represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. The Azure AD B2C tenant is a different tenant than an Azure Active Directory tenant, which you may already have.
+In Azure Active Directory B2C (Azure AD B2C), a *tenant* represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. An Azure AD B2C tenant is different than an Azure Active Directory tenant, which you may already have.
 
-These are the primary resources you work with in an Azure AD B2C tenant:
+The primary resources you work with in an Azure AD B2C tenant are:
 
 * **Directory** - The *directory* is where Azure AD B2C stores your users’ credentials and their profile data.
 * **Applications** - You register your web, mobile, and native applications with Azure AD B2C to enable identity management. Also, any APIs you want to protect with Azure AD B2C.
-* **User flows** and **custom policies** - These provide the built-in (user flows) and fully customizable (custom policies) identity experiences for your users.
+* **User flows** and **custom policies** - These provide the built-in (user flows) and fully customizable (custom policies) identity user journeys for your applications.
   * Use *user flows* for quick configuration and enablement of common identity tasks like sign up, sign in, and profile editing.
   * Use *custom policies* to enable user experiences not only for the common identity tasks, but also for crafting support for complex identity workflows unique to your organization, customers, employees, partners, and citizens.
-* **Identity providers** - These are the federation settings for each social identity provider like Facebook, LinkedIn, or Twitter that you want to support in your applications. You can add support for any identity provider that supports OpenID Connect, and "local" accounts, which enable users to sign up and sign in with a username (or email address) and password.
+* **Identity providers** - These are the federation settings for:
+  * The *social* identity providers like Facebook, LinkedIn, or Twitter that you want to support in your applications.
+  * Any *external* identity providers that support standard identity protocols like OAuth 2.0, OpenID Connect, and more.
+  * *Local* accounts that enable users to sign up and sign in with a username (or email address or other ID) and password.
 * **Keys** - Add and manage encryption keys for signing and validating tokens.
 
 ## Accounts in Azure AD B2C
 
-Azure AD B2C defines several different types of user accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share these user account types:
+Azure AD B2C defines several different types of user accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share types of accounts:
 
 * **Work account** - Users with work accounts can manage resources in a tenant, and with an administrator role, can also manage tenants. Users with work accounts can create new consumer accounts, reset passwords, block/unblock accounts, and set permissions or assign an account to a security group.
 * **Guest account** - External users you invite to your tenant as guests. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities.
-* **Consumer account** - Consumer accounts are the accounts created in your Azure AD B2C directory when users complete the sign-up user flow in an application you've registered in your tenant.
+* **Consumer account** - Consumer accounts are the accounts created in your Azure AD B2C directory when users complete the sign-up user journey in an application you've registered in your tenant.
 
-![User management](media/technical-overview/user-mng.png)
+![Azure AD B2C user management page in the Azure portal](media/technical-overview/user-mng.png)
 
 ### Consumer accounts
 
 With a *consumer* account, users can sign in to the applications that you've secured with Azure AD B2C. Users with consumer accounts can't, however, access Azure resources, for example the Azure portal.
 
-A consumer account can be provided by these identity types:
+A consumer account can be associated with these identity types:
 
 * **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these as as "local accounts."
 * **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider like Facebook, Microsoft, Twitter, or Google.
 
-An user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
+A user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
 
 ![Consumer account identities](media/technical-overview/identities.png)<br/><sup>*A single consumer account with multiple identities in Azure AD B2C*</sup>
 
-Azure AD B2C lets you manage common attributes of your consumer account profiles like display name, surname, given name, city, and others.
-
-You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
+Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
 
 ## External identity providers
 
-You can configure Azure AD B2C to allow users to sign-in to your application with credentials from external social or enterprise identity providers, such as Facebook, Microsoft account, Google, Twitter, or any identity provider that supports OAuth1, OAuth2, OpenID Connect, SAML, and WS-Federation protocols.
+You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, Twitter, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, SAML, or WS-Federation protocols.
 
 ![External identity providers](media/technical-overview/external-idps.png)
 
-With external identity providers federation, you can offer your consumers the ability to sign-in with an existing social or enterprise accounts, without the need to create a new account only for your application.
+With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
-On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers user can choose to sign-in. Once the user clicks on one of the external identity providers, the user is taken (redirect) to the selected identity to complete the sign-in. After the user has successfully signed-in, the user is return back to Azure AD B2C that authenticate the account into your application.
+On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned back to Azure AD B2C for authentication of the account in your application.
 
-![Sign-in with social account](media/technical-overview/external-idp.png)
+![Mobile sign-in example with a social account (Facebook)](media/technical-overview/external-idp.png)
 
 ## Built-in or fully custom user journeys
 
-Flexibility is a key part of Azure Active Directory B2C. You can choose from two configuration options to suit your needs. Use user flow to create a login experience in minutes. For more complex scenarios, you can use Identity Experience Framework custom policies to create your own user journeys. Both "user flow" and "custom policy" are served by Azure AD B2C Identity Experience Framework.
+Flexibility is a key part of Azure Active Directory B2C. You can choose from two configuration options to suit your needs. Use *user flows* to create a login experience in minutes. For more complex scenarios, you can use *custom policies* to create your own user journeys.
 
-The custom policy is a fully configurable, policy-driven that orchestrates trust between entities in standard protocol formats such as OpenID Connect, OAuth, SAML, WS-Fed, and a few non-standard ones, for example REST API-based system-to-system claims exchanges
+User flows and custom policies are both served by a powerful orchestration engine called the *Identity Experience Framework*.
 
-## User Flow
+## User flow
 
 The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**.
 
@@ -88,13 +89,22 @@ Set of claims in a token that application receives after user complete the user 
 
 ## Custom policy
 
-The power of Azure AD B2C lies in the Identity Experience Framework (IEF). This framework is an extremely powerful orchestration engine which can be used to build almost any authentication, user registration, or profile editing experience that you can imagine. The Identity Experience Framework gives you the ability to construct user journeys out of any combination of steps such as: federation with other identity providers, first party and 3rd party MFA challenges, collecting user input, and integration with external systems using REST API communication.
+Custom policies provide you access to the full power of the Identity Experience Framework (IEF) orchestration engine. With custom policies, you can leverage IEF to build almost any authentication, user registration, or profile editing experience that you can imagine.
 
-Each of these user journeys is defined by a policy, and you can build as many or as few policies as you need to enable the best user experience for your business.
+The Identity Experience Framework gives you the ability to construct user journeys with any combination of steps, for example:
 
-![Custom policy](media/technical-overview/custom-policy.png)
+* Federation with other identity providers
+* First- third-party multi-factor authentication (MFA) challenges
+* Collect any user input
+* Integration with external systems using REST API communication
 
-A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, and user journey orchestration steps, among other elements. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
+Each such user journey is defined by a policy, and you can build as many or as few policies as you need to enable the best user experience for your business.
+
+![Diagram showing an example of a complex user journey enabled by IEF](media/technical-overview/custom-policy.png)
+
+A custom policy is defined by several XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, and user journey orchestration steps, among other elements.
+
+While powerful, custom policies are most appropriate for complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 
 ## Protocols and tokens
 
