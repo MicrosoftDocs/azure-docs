@@ -266,42 +266,42 @@ To de-scalate privileges, see [De-escalate privileges](escalate-privileges.md#de
 
 ### CoudSimple References
 
-* [Create a Private Cloud](create-private-cloud)
-* [Create and manage VLANs/Subnets](create-vlan-subnet)
-* [vCenter Identity Sources](set-vcenter-identity)
-* [Workload DNS and DHCP Setup](dns-dhcp-setup)
-* [Escalate privileges](vsphere-access/#escalate-privileges)
-* [Set up firewall tables and rules](firewall)
-* [Private Cloud permissions](learn-private-cloud-permissions)
-* [Allocate public IP Addresses](public-ips)
+* [Create a Private Cloud](create-private-cloud.md)
+* [Create and manage VLANs/Subnets](create-vlan-subnet.md)
+* [vCenter Identity Sources](set-vcenter-identity.md)
+* [Workload DNS and DHCP Setup](dns-dhcp-setup.md)
+* [Escalate privileges](vsphere-access.md#escalate-privileges)
+* [Set up firewall tables and rules](firewall.md)
+* [Private Cloud permissions](learn-private-cloud-permissions.md)
+* [Allocate public IP Addresses](public-ips.md)
 
 ### Veeam References
 
-* <a href="https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95" target="_blank">Used Ports</a>
-* <a href="https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95" target="_blank">Required Permissions</a>
-* <a href="https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95" target="_blank">System Requirements</a>
-* <a href="https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95" target="_blank">Installing Veeam Backup & Replication</a>
-* <a href="https://www.veeam.com/kb2216" target="_blank">Required modules and permissions for Multi-OS FLR and Repository support for Linux</a>
-* <a href="https://www.youtube.com/watch?v=b4BqC_WXARk" target="_blank">Veeam Backup & Replication v9 - Installation and Deployment - Video</a> 
-* <a href="https://www.youtube.com/watch?v=YHxcUFEss4M" target="_blank">Veeam v9 Creating a Backup Job - Video</a>
-* <a href="https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s" target="_blank">Veeam v9 Creating a Backup Copy Job - Video</a>
+* [Used Ports](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95)
+* [Required Permissions](https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95)
+* [System Requirements](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95)
+* [Installing Veeam Backup & Replication](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95)
+* [Required modules and permissions for Multi-OS FLR and Repository support for Linux](https://www.veeam.com/kb2216)
+* [Veeam Backup & Replication v9 - Installation and Deployment - Video](https://www.youtube.com/watch?v=b4BqC_WXARk)
+* [Veeam v9 Creating a Backup Job - Video](https://www.youtube.com/watch?v=YHxcUFEss4M)
+* [Veeam v9 Creating a Backup Copy Job - Video](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s)
 
 ### Microsoft Azure References
 
-* <a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager" target="_blank">Configure a virtual network gateway for ExpressRoute using the Azure portal</a>
-* <a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription" target="_blank">Connect a VNet to a circuit - different subscription</a>
-* <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal" target="_blank">Create a Linux virtual machine in the Azure portal</a>
-* <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal" target="_blank">How to attach a managed data disk to a Windows VM in the Azure portal</a>
-* <a href="https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage/" target="_blank">Getting Started with Azure Storage - Video</a>
-* <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/create-container" target="_blank">Create Container</a>
-* <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux" target="_blank">Transfer data with AzCopy on Linux</a>
+* [Configure a virtual network gateway for ExpressRoute using the Azure portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)
+* [Connect a VNet to a circuit - different subscription](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
+* [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md)
+* [Getting Started with Azure Storage - Video](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
+* [Create Container](https://docs.microsoft.com/en-us/rest/api/storageservices/create-container)
+* [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md)
 
 ### VMware References
 
-* <a href="https://www.youtube.com/watch?v=wpCd5ZbPOpA" target="_blank">Creating a Distributed Port Group in the vSphere Web Client - Video</a>
+* [Creating a Distributed Port Group in the vSphere Web Client - Video](https://www.youtube.com/watch?v=wpCd5ZbPOpA)
 
 ### Other References
 
-* <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs" target="_blank">Create an XFS volume on the managed disk - RedHat</a>
-* <a href="https://www.howtoforge.com/nfs-server-and-client-on-centos-7" target="_blank">How To Set Up an NFS Mount on CentOS 7 - HowToForge</a>
-* <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">Configuring the DHCP Server - Netgate </a>
+* [Create an XFS volume on the managed disk - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
+* [How To Set Up an NFS Mount on CentOS 7 - HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
+* [Configuring the DHCP Server - Netgate](https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html)
