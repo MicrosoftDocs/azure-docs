@@ -133,7 +133,7 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
