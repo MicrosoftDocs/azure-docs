@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/06/2018
+ms.date: 08/16/2019
 ms.author: robinsh
 ---
 

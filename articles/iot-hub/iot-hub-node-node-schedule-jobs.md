@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 10/06/2017
+ms.date: 08/16/2019
 ---
 
 # Schedule and broadcast jobs (Node.js)

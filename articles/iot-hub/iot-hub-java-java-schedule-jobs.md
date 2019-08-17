@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 07/10/2017
+ms.date: 08/16/2019
 ---
 
 # Schedule and broadcast jobs (Java)
