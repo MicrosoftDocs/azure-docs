@@ -70,7 +70,7 @@ See the [PTVS documentation](https://aka.ms/ptvsdocs) for additional details on 
 
 Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](https://aka.ms/ptvsdocs).
 
-## 2. Using Jupyter Notebooks
+## 2. Use Jupyter Notebooks
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
 
 To launch the Jupyter Notebook, click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or want to create new notebooks.  
@@ -89,7 +89,7 @@ Once you have started Jupyter, you should see a directory that contains a few ex
 
 Once you are in the notebook you can explore your data, build the model, test the model using your choice of libraries.
 
-## 3. Train and deploy models with Azure Machine Learning
+## 3. Train & deploy models with Azure Machine Learning
 Once you have built and validated your model the next step is usually to deploy it into production. This allows your client applications to invoke the model predictions on a real-time or on a batch mode basis. Azure Machine Learning provides a mechanism to operationalize a model built in either R or Python.
 
 When you operationalize your model in Azure Machine Learning, a web service is exposed that allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.   
@@ -207,21 +207,20 @@ ans = consume(ep, sleepstudy)$ans
 
 More information about the Azure Machine Learning R library can be found [here](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
 
-## 4. Manage Azure resources using Azure portal or Powershell
+## 4. Manage Azure resources
 The DSVM not only allows you to build your analytics solution locally on the virtual machine, but also allows you to access services on Microsoft's Azure cloud. Azure provides several compute, storage, data analytics services, and other services that you can administer and access from your DSVM.
 
-To administer your Azure subscription and cloud resources you can use your browser and point to the
-[Azure portal](https://portal.azure.com). You can also use Azure Powershell to administer your Azure subscription and resources via a script.
-You can run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell." Refer to
-[Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
+To administer your Azure subscription and cloud resources, you have two options:
++ **Azure portal**: use your browser and point to the [Azure portal](https://portal.azure.com)
+
++ **Azure Powershell**: use Windows Powershell scripts. Run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell." See the 
+[Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for full details. 
 
 ## 5. Extend storage with shared file systems
 Data scientists can share large datasets, code, or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
 
 > [!NOTE]
 > The maximum space of the Azure File Service share is 5 TB and individual file size limit is 1 TB. 
-> 
-> 
 
 You can use Azure Powershell to create an Azure File Service share. Here is the script to run under Azure PowerShell to create an Azure File service share.
 
@@ -257,7 +256,7 @@ net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
 
 Now you can access this drive as you would any normal drive on the VM.
 
-## 6. Share code using GitHub
+## 6. Share code in GitHub
 GitHub is a code repository where you can find many sample code and sources for different tools using various technologies shared by the developer community. It uses Git as the technology to track and store versions of the code files. GitHub is also a platform where you can create your own repository to store your team's shared code and documentation, implement version control and also control who have access to view and contribute code. Visit the [GitHub help pages](https://help.github.com/) for more information on using Git. You can use GitHub as one of the ways to collaborate with your team, use code developed by the community and contribute code back to the community.
 
 The DSVM already comes loaded with client tools on both command-line as well GUI to access GitHub repository. The command-line tool to work with Git and GitHub is called Git Bash. Visual Studio installed on the DSVM has the Git extensions. You can find start-up icons for these tools on the start menu and the desktop.
@@ -897,12 +896,12 @@ Similarly, if your need for VM processing capacity reduces (for example: you mov
 
 ![VM instance settings](./media/vm-do-ten-things/VMScaling.PNG)
 
-## 10. Install more tools on VM
+## 10. Add more tools
 There are several tools pre-built into the DSVM that can address many of the common data analytics needs. This saves you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
 
 You can utilize other Azure data and analytics services profiled in this article to enhance your analytics environment. In some cases your needs may require additional tools, including some proprietary third-party tools. You have full administrative access on the virtual machine to install new tools you need. You can also install additional packages in Python and R that are not pre-installed. For Python you can use either ```conda``` or ```pip```. For R you can use the ```install.packages()``` in the R console or use the IDE and choose "**Packages** -> **Install Packages...**".
 
-## Deep Learning tutorials and walkthroughs
+## Deep Learning
 
 In addition to the framework-based samples, a set of comprehensive walkthroughs is also provided that have been validated on the DLVM. These walkthroughs help you jump-start your development of deep learning applications in domains like image and text/language understanding. More end-to-end tutorials across different domains and technology will continue to be added.   
 
