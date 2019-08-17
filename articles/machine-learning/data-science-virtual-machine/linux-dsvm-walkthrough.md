@@ -225,6 +225,8 @@ To try it out on the first 10 rows of the test set:
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
 ## Deep Learning tutorials and walkthroughs
 
 In addition to the framework-based samples, a set of comprehensive walkthroughs is also provided that have been validated on the DLVM. These walkthroughs help you jump-start your development of deep learning applications in domains like image and text/language understanding. More end-to-end tutorials across different domains and technology will continue to be added.   
