@@ -33,28 +33,32 @@ These are the primary resources you work with in an Azure AD B2C tenant:
 * **Identity providers** - These are the federation settings for each social identity provider like Facebook, LinkedIn, or Twitter that you want to support in your applications. You can add support for any identity provider that supports OpenID Connect, and "local" accounts, which enable users to sign up and sign in with a username (or email address) and password.
 * **Keys** - Add and manage encryption keys for signing and validating tokens.
 
-## Azure AD B2C accounts
+## Accounts in Azure AD B2C
 
-In Azure Active Directory (Azure AD) B2C, you can use different types of accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share in the types of user accounts that can be used.
+Azure AD B2C defines several different types of user accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share these user account types:
 
-* **Work account** - Access resources in a tenant, and with an administrator role, can manage tenants.
-* **Guest account** - You can invite external users to your tenant as a guest user. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities.
-* **Consumer account** - A consumer account is created by going through a sign-up user flow in an Azure AD B2C application, and is used by users of the applications that are registered with Azure AD B2C.
-
-Work and guest accounts are intended to manage your Azure AD B2C tenant. From Azure Portal, you create new account, reset password, block/unblock an account, set permissions or assign an account to a security group.
+* **Work account** - Users with work accounts can manage resources in a tenant, and with an administrator role, can also manage tenants. Users with work accounts can create new consumer accounts, reset passwords, block/unblock accounts, and set permissions or assign an account to a security group.
+* **Guest account** - External users you invite to your tenant as guests. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities.
+* **Consumer account** - Consumer accounts are the accounts created in your Azure AD B2C directory when users complete the sign-up user flow in an application you've registered in your tenant.
 
 ![User management](media/technical-overview/user-mng.png)
 
-With Azure AD B2C consumer account, users can sign in to your applications that are secured by Azure AD B2C. Consumer accounts cannot access Azure resources such as the Azure portal. The consumer account can have:
+### Consumer accounts
 
-* **Local identity** with username and password stored localy in Azure AD B2C directory .
-* **social** or **enterprise identities**, the identity of the user is managed by a federated identity provider, such as Facebook, Microsoft, Twitter, or Google.
+With a *consumer* account, users can sign in to the applications that you've secured with Azure AD B2C. Users with consumer accounts can't, however, access Azure resources, for example the Azure portal.
 
-An account can sign-in with multiple identities, such as username, email, employee id, social security number and more. A single account can have multiple identities, local and social identities.
+A consumer account can be provided by these identity types:
 
-![Consumer account identities](media/technical-overview/identities.png)
+* **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these as as "local accounts."
+* **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider like Facebook, Microsoft, Twitter, or Google.
 
-Azure AD B2C lets you manager your consumer accounts profile including common attributes, such as: display name, surname, given name, city, and more. You can extend the Azure AD schema to store more information about your users, such as country or residency, preferred language, user preferences such as subscribe to a newsletter, of ever apply multi-factor authentication.
+An user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
+
+![Consumer account identities](media/technical-overview/identities.png)<br/><sup>*A single consumer account with multiple identities in Azure AD B2C*</sup>
+
+Azure AD B2C lets you manage common attributes of your consumer account profiles like display name, surname, given name, city, and others.
+
+You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
 
 ## External identity providers
 
