@@ -304,12 +304,12 @@ For information about SQL Server Agent, see [SQL Server Agent](https://docs.micr
 
 ### Tables
 
-The following tables aren't supported:
+The following table types aren't supported:
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (not supported only in General Purpose tier)
 
 For information about how to create and alter tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
@@ -334,9 +334,9 @@ A managed instance can't access file shares and Windows folders, so the followin
 
 Undocumented DBCC statements that are enabled in SQL Server aren't supported in managed instances.
 
-- `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
-- `DBCC TRACEOFF` isn't supported. See [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
-- `DBCC TRACEON` isn't supported. See [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+- Only a limited number of Global `Trace flags` is supported. Session-level `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) and [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) work with the limited number of global trace-flags.
+- [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) with options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST, and REPAIR_REBUILD cannot be used because database cannot be set in `SINGLE_USER` mode - see [ALTER DATABASE differences](#alter-database-statement). Potential database corruptions are handled by Azure support team. Contact Azure support if you are noticing database corruption that should be fixed.
 
 ### Distributed transactions
 
@@ -376,7 +376,7 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 
 Linked servers in managed instances support a limited number of targets:
 
-- Supported targets are managed instances, Single Databases, and SQL Server instances. 
+- Supported targets are Managed Instances, Single Databases, and SQL Server instances. 
 - Linked servers don't support distributed writable transactions (MS DTC).
 - Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
 
@@ -394,7 +394,7 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-- Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
+- Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
 - [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on managed instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but Publisher and Distributor cannot be placed on different instances.
     - Managed instances can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
@@ -463,10 +463,12 @@ The following database options are set or overridden and can't be changed later:
 
 Limitations: 
 
+- Backups of the corrupted databases might be restored depending on the type of the corruption, but automated backups will not be taken until the corruption is fixed. Make sure that you run `DBCC CHECKDB` on the source instance and use backup `WITH CHECKSUM` in order to prevent this issue.
+- Restore of `.BAK` file of a database that contains any limitation described in this document (for example, `FILESTREAM` or `FILETABLE` objects) cannot be restored on Managed Instance.
 - `.BAK` files that contain multiple backup sets can't be restored. 
 - `.BAK` files that contain multiple log files can't be restored.
-- Restore fails if .bak contains `FILESTREAM` data.
-- Backups that contain databases that have active in-memory objects can't be restored on a General Purpose instance. 
+- Backups that contain databases bigger than 8TB, active in-memory OLTP objects, or more than 280 files can't be restored on a General Purpose instance. 
+- Backups that contain databases bigger than 4TB or in-memory OLTP objects with the total size larger than the size described in [resource limits](sql-database-managed-instance-resource-limits.md) cannot be restored on Business Critical instance.
 For information about restore statements, see [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### Service broker
@@ -543,11 +545,6 @@ This example illustrates that under certain circumstances, due to a specific dis
 In this example, existing databases continue to work and can grow without any problem as long as new files aren't added. New databases can't be created or restored because there isn't enough space for new disk drives, even if the total size of all databases doesn't reach the instance size limit. The error that's returned in that case isn't clear.
 
 You can [identify the number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) by using system views. If you reach this limit, try to [empty and delete some of the smaller files by using the DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or switch to the [Business Critical tier, which doesn't have this limit](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-
-### Incorrect configuration of the SAS key during database restore
-
-`RESTORE DATABASE` that reads the .bak file might be constantly retrying to read the .bak file and return an error after a long period of time if the shared access signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before you restore a database to be sure that the SAS key is correct.
-Make sure that you remove the leading `?` from the SAS key that's generated by using the Azure portal.
 
 ### Tooling
 

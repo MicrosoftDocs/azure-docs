@@ -936,7 +936,7 @@ az group deployment create \
 
 ## Template for metric alert that monitors multiple resources
 
-The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This preview feature is currently available only via Azure Resource Manager templates and REST API and is only supported for virtual Machines.
+The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This feature is currently only supported in Azure public cloud and only for virtual Machines and Databox Edge Devices.
 
 Dynamic Thresholds alerts rule can also help create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 

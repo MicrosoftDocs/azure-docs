@@ -4,7 +4,7 @@ description: Learn how to set provisioned throughput for your Azure Cosmos conta
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: rimman
 
 ---
@@ -56,7 +56,9 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-The shards of shared database containers are co-located, and up to 25 containers can potentially use the provisioned throughput. Beyond 25 containers, for every additional 25 containers added throughput accessible for all the containers reduces linearly.
+Throughput provisioned on a database can be shared by the containers within that database. A maximum of 25 containers can share the throughput provisioned on the database. Beyond 25 containers, for every new container created within that database can share a portion of database throughput with other collections already available in the database. The amount of throughput that can be shared is dependent on the number of the containers provisioned in the database. 
+
+If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation.
 
 The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
