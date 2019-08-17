@@ -25,7 +25,6 @@ The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) supports a number
 
 Here are the details on all the deep learning frameworks available on the DSVM.
 
-All tools will work on a GPU or CPU.
 
 ## TensorFlow
 
@@ -261,8 +260,3 @@ The service takes about one minute to start. Start a web browser and navigate to
 | Related Tools on the DSVM      | Keras      |
 | How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the CNTK directory for samples. |
 
-|Tool|On Windows DSVM|On Linux DSVM|Notes|
-|---------|:-------------------:|:------------------:|-----|
-|[TensorFlow](https://www.tensorflow.org/) | Yes (Windows 2016) | Yes |A deep learning framework.<br/><br/>TensorFlow is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).<br/><br/>Sample Jupyter notebooks are included.<br/><br/>**To run it**:<br/>*  At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the TensorFlow directory for samples.  |
-|[PyTorch](https://pytorch.org/)| No | Yes |A deep learning framework. PyTorch is installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).<br/><br/>Sample Jupyter notebooks are included, and samples can also be found in /dsvm/samples/pytorch.   * At a terminal: activate the correct environment, then run Python. <br/><br/>**To run it**, connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
-|[Keras](https://keras.io/)| Yes | Yes |A high-level deep learning API. Installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). [Samples](https://github.com/fchollet/keras/tree/master/examples)<br/><br/>**To run it**:<br/>*  At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Download the samples from the GitHub location, connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the sample directory. |
