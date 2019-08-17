@@ -331,7 +331,7 @@ Add the following code to your `index.html` file within the `<script></script>` 
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. In the **Redirect URI** section, select the **Web** platform from the drop-down list, and then set the value to the application URL that's based on your web server.
 
-   For information about how to set and obtain the redirect URL for Node.js and Visual Studio, see [Set a redirect URL for Node.js](#set-a-redirect-url-for-node-.js) and [Set a redirect URL for Visual Studio](#set-a-redirect-url-for-visual-studio).
+   For information about how to set and obtain the redirect URL for Node.js and Visual Studio, see [Set a redirect URL for Node.js](#set-a-redirect-url-for-node.js) and [Set a redirect URL for Visual Studio](#set-a-redirect-url-for-visual-studio).
 
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
