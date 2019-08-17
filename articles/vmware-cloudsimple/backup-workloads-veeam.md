@@ -62,7 +62,7 @@ For environments with more than 30 TB to back up, CloudSimple recommends the fol
 * Linux backup repository in Azure as a target for backup copy jobs for longer duration retention. This repository should be configured as a scale-out backup repository.
 * `azcopy` used to copy the data from the primary backup repository to an Azure blob container that is replicated to another region.
 
-![Basic deployment scenarios](../media/veeam-advanceddeployment.png)
+![Basic deployment scenarios](media/veeam-advanceddeployment.png)
 
 In the previous figure, notice that the backup proxy is a VM with Hot Add access to workload VM disks on the vSAN datastore. Veeam uses Virtual Appliance backup proxy transport mode for vSAN.
 
@@ -154,7 +154,7 @@ To continue the setup, you need the authorization key and peer circuit URI and a
 
 The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install VEEAM, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
 
-###Azure Portal: Connect your virtual network to the Private Cloud
+### Azure Portal: Connect your virtual network to the Private Cloud
 
 Connect your virtual network to the Private Cloud by following the instructions in [Azure Virtual Network Connection using ExpressRoute](azure-expressroute-connection.md).
 
