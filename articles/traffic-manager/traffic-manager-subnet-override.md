@@ -139,7 +139,19 @@ az network traffic-manager endpoint update \
 
 ```
 
+You can remove the IP address ranges by running the [az network traffic-manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) with the **--remove** option.
+
+```azurecli
+
+az network traffic-manager endpoint update \
+    --name MyEndpoint \
+    --profile-name MyTmProfile \
+    --resource-group MyResourceGroup \
+    --remove subnets \
+    --type AzureEndpoints
+
+```
 ## Next Steps
 Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
-
+Learn about the [Subnet traffic-routing method](https://review.docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods?branch=pr-en-us-85549#subnet)
