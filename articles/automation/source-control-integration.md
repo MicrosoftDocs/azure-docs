@@ -167,6 +167,13 @@ Select the source control you want to remove. On the **Source Control Summary** 
 
 If multiple people are editing runbooks in your source control repository with different editors, there's a chance to run into encoding issues. This situation can lead to incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
+## Updating the access token
+
+Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
+
+* Through the [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
+
 ## Next steps
 
 To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)

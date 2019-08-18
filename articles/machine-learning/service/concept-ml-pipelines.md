@@ -1,5 +1,5 @@
 ---
-title: 'Pipelines: optimize machine learning workflows'
+title: 'What are ML Pipelines'
 titleSuffix: Azure Machine Learning service
 description: In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines. Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their machine learning workflows.
 services: machine-learning
@@ -13,11 +13,9 @@ ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
-# Build reusable ML pipelines in Azure Machine Learning service
+# What are ML pipelines in Azure Machine Learning service?
 
-In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python, and the advantages to using pipelines.
-
-## What are machine learning pipelines?
+Learn how about the machine learning pipelines you can build and manage with Azure Machine Learning service. 
 
 Using machine learning (ML) pipelines, data scientists, data engineers, and IT professionals can collaborate on the steps involved in:
 + Data preparation, such as normalizations and transformations
@@ -25,7 +23,7 @@ Using machine learning (ML) pipelines, data scientists, data engineers, and IT p
 + Model evaluation
 + Deployment
 
-The following diagram shows an example pipeline process:
+Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
 ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -42,9 +40,7 @@ The Azure cloud provides several other pipelines, each with a different purpose.
 
 ## Why build pipelines with Azure Machine Learning?
 
-You can use the [Azure Machine Learning SDK for Python](#the-python-sdk-for-pipelines) to create ML pipelines, as well as to submit and track individual pipeline runs.
-
-With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on your expertise, machine learning, rather than on infrastructure and automation.
+Machine learning pipelines optimize your workflow with speed, portability, and reuse so you can focus on your expertise, machine learning, rather than on infrastructure and automation.
 
 Pipelines are constructed from multiple **steps**, which are distinct computational units in the pipeline. Each step can run independently and use isolated compute resources. This allows multiple data scientists to work on the same pipeline at the same time without over-taxing compute resources, and also makes it easy to use different compute types/sizes for each step.
 
@@ -68,20 +64,20 @@ The key advantages of using pipelines for your machine learning workflows are:
 
 ## The Python SDK for pipelines
 
-Use Python to create your ML pipelines. The Azure Machine Learning SDK offers imperative constructs for sequencing and parallelizing the steps in your pipelines when no data dependency is present. You can interact with it in Jupyter notebooks, or in another preferred IDE.
+[Use Python SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) to create your ML pipelines in your preferred IDE or Jupyter notebooks. The Azure Machine Learning SDK offers imperative constructs for sequencing and parallelizing the steps in your pipelines when no data dependency is present. 
 
-Using declarative data dependencies, you can optimize your tasks. The SDK includes a framework of pre-built modules for common tasks, such as data transfer and model publishing. You can extend the framework to model your own conventions, by implementing custom steps that are reusable across pipelines. You can also manage compute targets and storage resources directly from the SDK.
+Using declarative data dependencies, you can optimize your tasks. The SDK includes a framework of pre-built modules for common tasks, such as data transfer and model publishing. You can extend the framework to model your own conventions by implementing custom steps reusable across pipelines. You can also manage compute targets and storage resources directly from the SDK.
 
-You can save pipelines as templates, and deploy them to a REST endpoint so you can schedule batch-scoring or retraining jobs.
+Save your pipelines as templates, and deploy them to a REST endpoint for batch-scoring or retraining jobs.
 
-To see how to build your own, see the [Python SDK reference docs for pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and the notebook in the next section.
-
-## Example notebooks
-
-The following notebooks demonstrate pipelines with Azure Machine Learning:  [how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+There are two Python packages for pipelines with Azure Machine Learning: [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [azureml-pipeline-steps](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 
 ## Next steps
 
-Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
++ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
+
++ Learn how to [run batch predictions on large data](how-to-run-batch-predictions.md).
+
++ Read the [SDK reference docs for pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)
+
++ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](samples-notebooks.md).

@@ -24,7 +24,7 @@ You can't delete a Recovery Services vault that has dependencies, such as protec
 
   ![Delete vault error](./media/backup-azure-delete-vault/error.png)
 
-- If you delete a on-premises protected item from a portal that contains dependencies, a warning message displays:
+- If you delete an on-premises protected item from a portal that contains dependencies, a warning message displays:
 
   ![Delete protected server error](./media/backup-azure-delete-vault/error-message.jpg)
 
@@ -46,7 +46,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 
 To stop protection and delete the backup data, perform the following steps:
 
-1. From the portal, go to **Recovery Services vault** and then to **Backup items**. Then, choose the protected items in the cloud (for example, Azure Virtual Machines, Azure Storage [specifically the Azure Files service], or SQL Server on Azure Virtual Machines).
+1. From the portal, go to **Recovery Services vault** and then to **Backup items**. Then, choose the protected items in the cloud (for example, Azure Virtual Machines, Azure Storage [the Azure Files service], or SQL Server on Azure Virtual Machines).
 
     ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
@@ -195,12 +195,12 @@ For more information on ARMClient command, refer to [ARMClient README](https://g
 
 1. Run the following command by using your subscription ID, resource group name, and vault name. If you don’t have any dependencies, the vault is deleted when you run the following command:
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 2. If the vault is not empty, you'll receive the following error message: *Vault cannot be deleted as there are existing resources within this vault.* To remove a protected item or container within a vault, run the following command:
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 

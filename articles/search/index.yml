@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/02/2019
+  ms.date: 08/12/2019
   ms.author: heidist
 abstract:
-  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Cognitive search</b></a> is now generally available, with AI enrichments supported for production scenarios.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge store (Preview)</b></a> extends cognitive search. Save AI enrichments to storage where you can view, reshape, and consume enrichments in other apps besides Azure Search. <a href="/azure/search/knowledge-store-howto"><b>Get started</b></a> today.
+  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Cognitive search</b></a> is a feature of Azure Search that attaches AI processes to indexing, detecting text and characteristics in image files, and finding patterns in large blocks of unstructured text. AI processes are backed by Cognitive Services.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge store (Preview)</b></a> extends cognitive search, saving AI enrichments to storage where you can view, reshape, and consume them in client apps or downstream processes.
   aside:
     image:
       alt: 
