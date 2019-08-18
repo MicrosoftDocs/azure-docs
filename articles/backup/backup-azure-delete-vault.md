@@ -34,9 +34,9 @@ To delete the vault, choose the scenario that matches your setup and follow the 
 Scenario | Steps to remove dependencies to delete vault |
 -- | --
 I have on-premises files and folders protected by using the Azure Backup agent, backing up to Azure. | Perform the steps in [Delete backup items from the MARS management console](#delete-backup-items-from-the-mars-management-console)
-I have on-premises machines protected by using MABS (Microsoft Azure Backup Server) or DPM (System Center Data Protection Manager) to Azure. | Perform the steps in [Delete backup items from the MABS management console](#delete-backup-items-from-the-mabs-management-console)
+I have on-premises machines that are protected by using MABS (Microsoft Azure Backup Server) or DPM (System Center Data Protection Manager) to Azure. | Perform the steps in [Delete backup items from the MABS management console](#delete-backup-items-from-the-mabs-management-console)
 I have protected items in the cloud (for example, an laaS virtual machine or an Azure Files share).  | Perform the steps in [Delete protected items in the cloud](#delete-protected-items-in-the-cloud)
-I have protected items both on premises and in the cloud. | Perform the steps in all of the the following sections, in the following order: <br> 1. [Delete protected items in the cloud](#delete-protected-items-in-cloud)<br> 2. [Delete backup items from the MARS management console](#delete-backup-items-from-the-mars-management-console) <br> 3. [Delete backup items from the MABS Management console](#delete-backup-items-from-the-mabs-management-console)
+I have protected items both on premises and in the cloud. | Perform the steps in all of the following sections, in the following order: <br> 1. [Delete protected items in the cloud](#delete-protected-items-in-cloud)<br> 2. [Delete backup items from the MARS management console](#delete-backup-items-from-the-mars-management-console) <br> 3. [Delete backup items from the MABS Management console](#delete-backup-items-from-the-mabs-management-console)
 I don't have any protected items on-premises or cloud; however, I am still getting the Vault deletion error. | Perform the steps in [Delete the Recovery Services vault by using Azure Resource Manager](#delete-the-recovery-services-by-vault-using-azure-resource-manager)
 
 
@@ -108,7 +108,7 @@ After this process completes, you can delete the backup items from management co
 ### Delete backup items from the MARS management console
 
 1. Open the MARS management console, go to the **Actions** pane, and select **Schedule Backup**.
-2. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule and delete all the stored backups**, and then select **Next**.
+2. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule and delete all the stored backups**. Then, select **Next**.
 
     ![Modify or Stop a Scheduled Backup](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
@@ -174,7 +174,7 @@ After you delete the on-premises backup items, follow the next steps from the po
 
 This option to delete the Recovery Services vault is recommended only if all of the dependencies are removed and you're still getting the *Vault deletion error*. Try any or all of the following tips:
 
-- From the **Essentials** pane in the vault menu, verify that there aren't any backup items, backup management servers, or replicated items listed. If there are backup items, refer the [Before you start](#before-you-start) section..
+- From the **Essentials** pane in the vault menu, verify that there aren't any backup items, backup management servers, or replicated items listed. If there are backup items, refer the [Before you start](#before-you-start) section.
 - Retry [deleting the vault from portal](#delete-the-recovery-services-vault).
 - If all of the dependencies are removed and you're still getting the *Vault deletion error*, use the ARMClient tool to perform the following steps, after the note:
 
@@ -189,7 +189,7 @@ This option to delete the Recovery Services vault is recommended only if all of 
 
 3. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
 
-For more information on ARMClient command, refer to [ARMClient README](https://github.com/projectkudu/ARMClient/blob/master/README.md).
+For more information on the ARMClient command, refer to [ARMClient README](https://github.com/projectkudu/ARMClient/blob/master/README.md).
 
 ### Use Azure Resource Manager client to delete a Recovery Services vault
 
