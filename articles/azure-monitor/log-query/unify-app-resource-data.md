@@ -15,7 +15,7 @@ ms.author: magoedte
 ---
 
 # Unify multiple Azure Monitor Application Insights resources 
-This article describes how to query and view all your Application Insights application log data in one place, even when they are in different Azure subscriptions, as a replacement for the deprecation of the Application Insights Connector. The number of resources Application Insights resources that you can include in a single query is limited to 100.  
+This article describes how to query and view all your Application Insights log data in one place, even when they are in different Azure subscriptions, as a replacement for the deprecation of the Application Insights Connector. The number of Application Insights resources that you can include in a single query is limited to 100.
 
 ## Recommended approach to query multiple Application Insights resources 
 Listing multiple Application Insights resources in a query can be cumbersome and difficult to maintain. Instead, you can leverage function to separate the query logic from the applications scoping.  
@@ -27,7 +27,14 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Create a function using union operator with the list of applications, then save the query in your workspace as function with the alias *applicationsScoping*.  
+Create a function using union operator with the list of applications, then save the query in your workspace as function with the alias *applicationsScoping*. 
+
+You can modify the listed applications at any time in the portal by navigating to Query explorer in your workspace and selecting the function for editing and then saving, or using the `SavedSearch` PowerShell cmdlet. 
+
+>[!NOTE]
+>This method can’t be used in Log Alerts since the access validation to resources is performed at alert creation, while changing the list in the function isn’t supported. If you use function for resource scoping in Log Alerts, you need to edit the alert rule in the portal or via ARM template in order to get the scoped resources updated. Alternatively, you can include the list of resources in Log Alert query itself.
+
+The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. The parse operator is optional in this example and uses to extracts the application name from SourceApp property. 
 
 ```
 union withsource=SourceApp 
@@ -38,13 +45,6 @@ app('Contoso-app4').requests,
 app('Contoso-app5').requests 
 | parse SourceApp with * "('" applicationName "')" *  
 ```
-
->[!NOTE]
->You can modify the listed applications at any time in the portal by navigating to Query explorer in your workspace and selecting the function for editing and then saving, or using the `SavedSearch` PowerShell cmdlet. The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. 
->
->The query uses Application Insights schema, although the query is executed in the workspace since the applicationsScoping function returns the Application Insights data structure. 
->
->The parse operator is optional in this example, it extracts the application name from SourceApp property. 
 
 You are now ready to use applicationsScoping function in the cross-resource query:  
 
@@ -57,7 +57,7 @@ applicationsScoping
 | render timechart
 ```
 
-The function alias returns the union of the requests from all the defined applications. The query then filters for failed requests and visualizes the trends by application.
+The query uses Application Insights schema, although the query is executed in the workspace since the applicationsScoping function returns the Application Insights data structure. The function alias returns the union of the requests from all the defined applications. The query then filters for failed requests and visualizes the trends by application.
 
 ![Cross-query results example](media/unify-app-resource-data/app-insights-query-results.png)
 
