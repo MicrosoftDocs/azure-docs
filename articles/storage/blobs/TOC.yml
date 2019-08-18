@@ -310,6 +310,8 @@
       items:
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
+      - name: Create and manage blob snapshots (.NET)
+        href: storage-blob-snapshots.md
     - name: Secure blob data
       items:
       - name: Authorize access to blob data
