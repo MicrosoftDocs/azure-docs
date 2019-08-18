@@ -61,7 +61,7 @@ A user with a consumer account can sign in with multiple identities, for example
 
 Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
 
-Learn more the user account types in Azure AD B2C in [Overview of user accounts in Azure Active Directory B2C](user-overview.md).
+Learn more about the user account types in Azure AD B2C in [Overview of user accounts in Azure Active Directory B2C](user-overview.md).
 
 ## External identity providers
 
@@ -85,7 +85,7 @@ User flows and custom policies are both served by a powerful orchestration engin
 
 ## User flow
 
-The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**.
+The extensible policy framework of Azure AD B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**.
 
 A user flow enables you to control behaviors in your applications by configuring the following settings: Account types used for sign-in, such as social accounts like a Facebook or local accounts. Attributes to be collected from the consumer, such as first name, postal code, or country of residency.
 Azure Multi-Factor Authentication. Customization of the user interface.
