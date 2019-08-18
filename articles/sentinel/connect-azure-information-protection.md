@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/14/2019
+ms.date: 08/19/2019
 ms.author: rkarlin
 
 ---
@@ -30,8 +30,23 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
 
 ## Prerequisites
 
-- User with Global administrator, Security administrator, or Azure Information Protection Azure AD roles
-- Permissions to read the Log Analytics workspace that is configured for Azure Information Protection
+- User with one of the following Azure AD roles:
+    - Azure Information Protection administrator
+    - Security administrator
+    - Compliance administrator
+    - Compliance data administrator
+    - Global administrator
+    
+    > [!NOTE]
+    > You cannot use the Azure Information Protection administrator role if your tenant is on the unified labeling platform to support unified sensitivity labels.
+    > 
+    > If Azure Information Protection is already configured for [central reporting](https://docs.microsoft.com/azure//information-protection/reports-aip), you can also use the **Security reader** role to connect to the existing Log Analytics workspace that's been configured for Azure Information Protection analytics.
+
+- Permissions to read the Log Analytics workspace that is configured for Azure Information Protection. For example, a user with the Log Analytics Reader role or Azure role or Reader.
+    
+    If a workspace isn't yet configured for Azure Information Protection analytics, you'll need write permissions for the workspace that will store this reporting information. For example, a user with the Log Analytics Contributor role, or the Azure role of Owner.
+    
+    For information about read and write permissions to workspaces, see [Manage log data and workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access).
 
 ## Connect to Azure Information Protection
 
