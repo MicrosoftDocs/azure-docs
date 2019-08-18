@@ -28,7 +28,8 @@
       - name: Planning a cloud app integration
         items:
         - name: Get started with app integration
-          href: Plan an access panel deployment
+          href: plan-an-application-integration.md
+        - name: Plan an access panel deployment
           href: access-panel-deployment-plan.md
         - name: Guidance for developers
           href: developer-guidance-for-integrating-applications.md
