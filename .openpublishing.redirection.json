@@ -16,6 +16,21 @@
 			"redirect_document_id": true
 		},
 		{
+			"source_path": "articles/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview.md",
+			"redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/machine-learning/data-science-virtual-machine/use-deep-learning-dsvm.md",
+			"redirect_url": "/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough#deep-learning",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-overview.md",
+			"redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview#included",
+			"redirect_document_id": false
+		},
+		{
 			"source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
 			"redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
 			"redirect_document_id": false
