@@ -1,6 +1,6 @@
 ---
-title: Plan an Azure Active Directory Access Panel Deployment
-description: Guidance on deploying Azure AD Access Panel functionality
+title: Plan an Azure Active Directory access panel deployment
+description: Guidance on deploying Azure AD access panel functionality
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -17,36 +17,31 @@ ms.reviewer: mimart
 ms.collection: M365-identity-device-management
 ---
 
-# Plan an Azure Active Directory Access Panel Deployment
+# Plan an Azure Active Directory access panel deployment
 
-The Azure Active Directory Access Panel is a web-based portal that enables you to lower support costs, increase productivity and security, and reduce user frustration. The system includes detailed reporting that tracks when users access the system, and notifies administrators to misuse or abuse.
+The Azure Active Directory access panel is a web-based portal that enables you to lower support costs, increase productivity and security, and reduce user frustration. The system includes detailed reporting that tracks when users access the system, and notifies administrators to misuse or abuse.
 
-The Azure Active Directory Access Panel enables users to:
+The Azure Active Directory access panel enables users to:
 
-* Discover and access all their company’s Azure Active Directory connected resources, such as applications
-
-* Request access to new apps and groups or manage access to these resources for others
-
-* Manage self-service password resets and multi-factor authentication settings
-
-* Manage their devices
+* Discover and access all their company’s Azure Active Directory connected resources, such as applications.
+* Request access to new apps and groups or manage access to these resources for others.
+* Manage self-service password resets and multi-factor authentication settings.
+* Manage their devices.
 
 It also allows administrators to manage:
 
-* terms of service
-
-* organizations
-
-* access reviews
+* Terms of service
+* Organizations
+* Access reviews
 
 
-## Benefits of Azure Active Directory Access Panel integration
+## Benefits of Azure Active Directory access panel integration
 
 The Microsoft Azure Active Directory (Azure AD) access panel benefits businesses in the following ways:
 
 **Provides intuitive user experience**: Enabling the access panel provides users with the ability to have single launch pad for all their Azure single-sign on connected applications. As capabilities like group management and self-service password reset are added, users continue to have a unified portal to find these settings. The intuitive experience will allow users to get back to work faster and be more productive, while reducing their frustration.
 
-**Increases productivity**: All user applications in the Access Panel have single sign-on (SSO) enabled. Enabling single sign-on across enterprise applications and Office 365 provides a superior sign in experience for existing users, reducing or eliminating additional sign in prompts. The Access Panel enables self-service and dynamic membership, and improves the overall security of your identity system by ensuring the right people manage access to the applications. The access panel serves as a coherent landing page for a user to quickly find resources and continue work tasks.
+**Increases productivity**: All user applications in the access panel have single sign-on (SSO) enabled. Enabling single sign-on across enterprise applications and Office 365 provides a superior sign in experience for existing users, reducing or eliminating additional sign in prompts. The access panel enables self-service and dynamic membership, and improves the overall security of your identity system by ensuring the right people manage access to the applications. The access panel serves as a coherent landing page for a user to quickly find resources and continue work tasks.
 
 **Manages cost**: Enabling the access panel with Azure Active Directory may allow divestment of on-premise infrastructures. It reduces support costs by enabling users to have a consistent portal to find all their apps, request access to resources, and manage their account.
 
@@ -56,9 +51,9 @@ The Microsoft Azure Active Directory (Azure AD) access panel benefits businesses
 
 ### Licensing considerations
 
-The Access Panel is free and requires no licenses to use at a basic all users. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. Common Azure AD scenarios include the following security features that do have licensing requirements.
+The access panel is free and requires no licenses to use at a basic all users. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. Common Azure AD scenarios include the following security features that do have licensing requirements.
 
-* [Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
+* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
 * [Group based membership](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
@@ -66,17 +61,17 @@ The Access Panel is free and requires no licenses to use at a basic all users. H
 
 * [Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
-[See the full licensing guide for Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+See the [full licensing guide for Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### Prerequisites for deploying the Azure AD Access Panel
+### Prerequisites for deploying the Azure AD access panel
 
-The following must be in place before the beginning of this project.
+The following prerequisites must be completed before the beginning of this project.
 
 * [Application SSO integration](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
 
 * [Azure AD user and group infrastructure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
-## Plan the Azure AD Access Panel deployment
+## Plan the Azure AD access panel deployment
 
 The following table outlines the key use cases for an access panel deployment:
 
@@ -94,7 +89,7 @@ The following table outlines the key use cases for an access panel deployment:
 | User Experience| Users are aware of browser compatibility. |
 | Support| Users can find support for access panel issues. |
 
-### Best practices for deploying the Azure AD Access Panel
+### Best practices for deploying the Azure AD access panel
 
 The functionality of the access panel can be enabled gradually. We recommend the following order of deployment:
 
@@ -104,7 +99,6 @@ The functionality of the access panel can be enabled gradually. We recommend the
    * Microsoft Office 365 integration
 
 1. Self-service app discovery
-
    * Self-service password reset
    * Multi-factor authentication settings
    * Device management
@@ -118,7 +112,7 @@ The functionality of the access panel can be enabled gradually. We recommend the
 
 Starting with My Apps introduces users to the portal as a common place for accessing resources. The addition of self-service application discovery builds on the My Apps experience. My Groups and access reviews build on the self-service capabilities.
 
-### Plan configurations for the Azure AD Access Panel
+### Plan configurations for the Azure AD access panel
 
 The following table lists several important access panel configurations and the typical values you might use:
 
@@ -147,7 +141,7 @@ For more information, see [Configure the way end-users consent to an application
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so becuase of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan communications
 
@@ -157,7 +151,7 @@ While the access panel doesn't typically create user issues, it's important to p
 
 #### Communications templates
 
-Microsoft provides [customizable templates for emails and other communications](https://aka.ms/APTemplates) for Access panel. You can adapt these assets for use in other communications channels as appropriate for your corporate culture.
+Microsoft provides [customizable templates for emails and other communications](https://aka.ms/APTemplates) for the access panel. You can adapt these assets for use in other communications channels as appropriate for your corporate culture.
 
 ## Plan your SSO configuration
 
@@ -168,17 +162,17 @@ To launch applications in My Apps, single sign-on (SSO) must be enabled for the 
 Azure AD supports three different ways to enable [single sign-on to applications](what-is-single-sign-on.md):
 
 * **Federated single sign-on** 
-    * enables an application to redirect to Azure AD for user authentication instead of prompting for a password. 
+    * Enables an application to redirect to Azure AD for user authentication instead of prompting for a password. 
     * Is supported for applications using protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.
 
 * **Password-based single sign-on** 
-    * enables secure application password storage and replay using a web browser extension or mobile app. 
-    * leverages the existing sign in process provided by the application but enables an administrator to manage the passwords. User is not required to know the password.
+    * Enables secure application password storage and replay using a web browser extension or mobile app. 
+    * Leverages the existing sign in process provided by the application but enables an administrator to manage the passwords. User is not required to know the password.
 
 * **Existing single sign-on** 
-    * enables Azure AD to leverage any existing single sign-on that has been configured for the application
-    * enables these applications to be linked to the Office 365 or Azure AD access panel portals 
-    * enables additional reporting in Azure AD when the applications are launched there. 
+    * Enables Azure AD to leverage any existing single sign-on that has been configured for the application.
+    * Enables these applications to be linked to the Office 365 or Azure AD access panel portals. 
+    * Enables additional reporting in Azure AD when the applications are launched there. 
     * Includes using Azure Application Proxy and the linked single sign-on mode.
 
 Learn how to configure an application’s SSO mode here: [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -229,7 +223,7 @@ Any Azure AD SSO-enabled application can be added to the My Apps launcher. Other
 
 #### Plan whether to use My Apps or an existing portal
 
-Your users may already have an application or other portalother than My Apps. If so, decide whether to support both portals, or if you will only use one.
+Your users may already have an application or portal other than My Apps. If so, decide whether to support both portals, or if you will only use one.
 
 If an existing portal is already being used as a starting point for users, you can integrate My Apps functionality by using “user access URLs.” User access URLs function as direct links to the applications available in the My Apps portal. These URLs can be embedded within any existing website. When a user clicks the link, it launches the application from the My Apps portal.
 
@@ -241,8 +235,8 @@ You can find the User access URL property in the Properties area of the applicat
 ## Plan self-service application discovery and access
 
 Once a core set of applications are deployed to a user’s My Apps page, we recommend enabling self-service app management features. Self-service app discovery enables:
-* users to find new apps they may add to their My Apps. 
-* users to add optional apps that you may not know they need during setup.
+* Users to find new apps they may add to their My Apps. 
+* Users to add optional apps that you may not know they need during setup.
 
 Approval workflows are available for explicit approval to access applications. Users who are approvers will receive notifications within the My Apps portal when there are pending request for access to the application.
 
@@ -257,7 +251,7 @@ To plan for self-service group membership, determine if you'll allow all users i
 
 Azure AD provides [reports that offer technical and business insights](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Work with your business and technical application owners to assume ownership of and consume these reports on a regular basis. The table below provides some examples of typical reporting scenarios.
 
-|   | Manage Risk| Increase Productivity| Governance & Compliance |
+|   | Manage risk| Increase productivity| Governance and compliance |
 |  - |- | - | - |
 | Report types|  Application permissions and usage.| Account provisioning activity| Review who is accessing the applications |
 | Potential actions| Audit access; revoke permissions| Remediate any provisioning errors| Revoke access |
@@ -342,7 +336,7 @@ Microsoft recommends using the least privileged role to accomplish a required ta
 
 We recommend using [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
-### Troubleshooting Access Panel issues
+### Troubleshoot access panel issues
 
 Create troubleshooting guides for your support organization with common scenarios and pointing to Microsoft documentation on their resolutions. You may want to create guides that break support into the tiers used by your organization.
 
@@ -358,6 +352,6 @@ See the below troubleshooting guides for reference:
 
 [Issues with the browser extension](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
 
-## Next Steps
+## Next steps
 
 [Plan a deployment of Azure Active Directory Multi-factor authentication](https://aka.ms/deploymentplans/mfa)
