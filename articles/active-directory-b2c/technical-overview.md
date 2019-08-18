@@ -17,8 +17,6 @@ ms.subservice: B2C
 
 A companion to [About Azure Active Directory B2C](active-directory-b2c-overview.md), this article provides a more in-depth introduction to the service. Discussed here are the primary resources you work with in the service, its features, and how these enable you to provide a fully custom identity experience for your customers in your applications.
 
-If you've not yet read [About Azure Active Directory B2C](active-directory-b2c-overview.md), we recommend you start there, then return here for a more in-depth overview of the service.
-
 ## Azure AD B2C tenant
 
 In Azure Active Directory B2C (Azure AD B2C), a *tenant* represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. An Azure AD B2C tenant is different than an Azure Active Directory tenant, which you may already have.
@@ -35,6 +33,8 @@ The primary resources you work with in an Azure AD B2C tenant are:
   * Any *external* identity providers that support standard identity protocols like OAuth 2.0, OpenID Connect, and more.
   * *Local* accounts that enable users to sign up and sign in with a username (or email address or other ID) and password.
 * **Keys** - Add and manage encryption keys for signing and validating tokens.
+
+An Azure AD B2C tenant is the first resource you need to create to get started with Azure AD B2C. Learn how in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 
 ## Accounts in Azure AD B2C
 
@@ -61,6 +61,8 @@ A user with a consumer account can sign in with multiple identities, for example
 
 Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
 
+Learn more the user account types in Azure AD B2C in [Overview of user accounts in Azure Active Directory B2C](user-overview.md).
+
 ## External identity providers
 
 You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, Twitter, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, SAML, or WS-Federation protocols.
@@ -72,6 +74,8 @@ With external identity provider federation, you can offer your consumers the abi
 On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned back to Azure AD B2C for authentication of the account in your application.
 
 ![Mobile sign-in example with a social account (Facebook)](media/technical-overview/external-idp.png)
+
+To see how to add identity providers in Azure AD B2C, see [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md).
 
 ## Built-in or fully custom user journeys
 
