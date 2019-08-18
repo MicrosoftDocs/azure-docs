@@ -51,13 +51,13 @@ For details, see [subnet size requirements for single instances](sql-database-ma
 
 These are the main use cases where instance pools should be considered:
 
-- Migration of *a group of SQL instances* at the same time, where the majority are a smaller size (for example 2 or 4 vCores).
+- Migration of *a group of SQL instances* at the same time, where the majority is a smaller size (for example 2 or 4 vCores).
 
 - Scenarios where *predictable and short instance creation or scaling* is important. For example, deployment of a new tenant in a multi-tenant SaaS application environment that requires instance-level surface area.
 
 - Scenarios when having *fixed cost* or *spending limit* is important. For example, running shared dev-test or demo environments of a fixed (or infrequently changing) size, where you periodically deploy managed instances when needed.
 
-- Scenarios where *minimal IP address allocation* in a VNet subnet is important. All instances in a pool are sharing a virtual machine, so the number of allocated IP addresses is significantly lower than in the case of single instances.
+- Scenarios where *minimal IP address allocation* in a VNet subnet is important. All instances in a pool are sharing a virtual machine, so the number of allocated IP addresses is lower than in the case of single instances.
 
 ## How to deploy managed instances in pools
 
@@ -92,7 +92,7 @@ Choosing between these two pricing options is not possible at the level of indiv
 
 If you create instance pools on [subscriptions eligible for dev-test benefit](https://azure.microsoft.com/pricing/dev-test/), you automatically receive discounted rates of up to 55 percent on Azure SQL managed instance.
 
-For full details on instance pools pricing, refer to the *Instance pools* section on the [managed instance pricing page](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+For full details on instance pools pricing, refer to the *instance pools* section on the [managed instance pricing page](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 ## Architecture of instance pools
 
@@ -134,12 +134,12 @@ The public preview has the following limitations:
 
 - Only the General Purpose service tier is available at this time. Business Critical service tier is planned to be added at GA time.
 
-- Instance pools cannot be scaled during the public preview. This requires careful capacity planning before required deployment.
+- Instance pools cannot be scaled during the public preview so careful capacity planning before deployment is important.
 
 - No Azure portal support for instance pool creation and configuration exists at this time. All operations on instance pools are supported through PowerShell only. Initial instance deployment in a pre-created pool is also supported through PowerShell only. Once deployed in a pool, managed instances can be update using Azure portal.
 
 - Managed instances created outside of the pool cannot be moved to an existing pool and vice versa, instances created inside pool cannot be moved outside as standalone managed instances or to another pool.
-- Reserved Instance price (license included or with Azure Hybrid Benefit) is not available.
+- Reserved instance price (license included or with Azure Hybrid Benefit) is not available.
 
 ## SQL features supported
 
@@ -151,7 +151,7 @@ Optional features or features that require you to choose specific values (such a
 
 ## Performance considerations
 
-Although managed instances within pools do have dedicated vCore and RAM memory, they share local disk (for tempdb usage) and network resources. Although not very much likely, it is possible to experience the *noisy neighbor* effect if multiple instances in the pool have high resource consumption at the same time. If you observe this behavior consider deploying these instances in a bigger pool or as single instances.
+Although managed instances within pools do have dedicated vCore and RAM memory, they share local disk (for tempdb usage) and network resources. Although not very much likely, it is possible to experience the *noisy neighbor* effect if multiple instances in the pool have high resource consumption at the same time. If you observe this behavior, consider deploying these instances in a bigger pool or as single instances.
 
 ## Security considerations
 
@@ -166,11 +166,11 @@ List of available [PowerShell commands](https://docs.microsoft.com/powershell/mo
 
 |Cmdlet |Description |
 |:---|:---|
-|New-AzSqlInstancePool | Creates an Azure SQL Database managed instance pool |
-|Get-AzSqlInstancePool | Returns information about Azure SQL managed instance pool |
-|Set-AzSqlInstancePool | Sets properties for an Azure SQL Database managed instance pool |
-|Remove-AzSqlInstancePool | Removes an Azure SQL Managed Database managed instance pool |
-|Get-AzSqlInstancePoolUsage | Returns information about Azure SQL managed instance pool usage |
+|New-AzSqlInstancePool | Creates an Azure SQL Database managed instance pool. |
+|Get-AzSqlInstancePool | Returns information about Azure SQL managed instance pool. |
+|Set-AzSqlInstancePool | Sets properties for an Azure SQL Database managed instance pool. |
+|Remove-AzSqlInstancePool | Removes an Azure SQL Database managed instance pool. |
+|Get-AzSqlInstancePoolUsage | Returns information about Azure SQL managed instance pool usage. |
 
 
 To use PowerShell, make sure you [install the latest version of PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core).
@@ -218,7 +218,9 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 ## How-to guide
 
-This how-to section walks you through basic scenarios available in instance pools during public preview. While just a couple of operations will be available through Azure portal experience in public preview, PowerShell will cover all of them. Following table shows the available commands related to managed instance and managed instance pools and their availability in Azure Portal and PowerShell.
+This how-to section walks you through basic scenarios available in instance pools during public preview. While just a couple of operations will be available through Azure portal experience in public preview, PowerShell will cover all of them. 
+
+The following table shows the available commands related to managed instance and managed instance pools and their availability in the Azure portal and PowerShell.
 
 
 |Command|Azure Portal|PowerShell|
@@ -244,7 +246,7 @@ Resources required and steps for creating managed instance pool include:
 
 ### Create Virtual Network with subnet 
  
-If you consider placing multiple Instance pools inside the same Virtual Network, please refer to following articles:
+If you consider placing multiple instance pools inside the same Virtual Network, please refer to following articles:
 
 - [Determine VNet subnet size for Azure SQL Database managed instance](sql-database-managed-instance-determine-size-vnet-subnet.md)
 - [Create a virtual network for an Azure SQL Database managed instance](sql-database-managed-instance-create-vnet-subnet.md)
@@ -272,9 +274,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 
 ### Preparing Virtual Network and subnet for managed instance 
  
-Managed instance pools must be deployed within an Azure virtual network and the subnet dedicated for managed instances pools only. Same guidelines are applied for managed instance and managed instances pools [](sql-database-managed-instance-configure-vnet-subnet.md)
+Managed instance pools must be deployed within an Azure virtual network and the subnet dedicated for managed instances pools only. The same guidelines are applied for managed instance and managed instances pools [](sql-database-managed-instance-configure-vnet-subnet.md)
 
-For preparing Virtual Network and Subnet execute the following command with your subscription id, and names for resource group, virtual network and subnet used in the previous step.
+For preparing Virtual Network and Subnet execute the following command with your subscription id, and names for resource group, virtual network, and subnet used in the previous step.
 
 
 ```powershell
@@ -299,13 +301,14 @@ Several restrictions to follow:
 - Only General Purpose and Gen5 are available in public preview.
 - Pool name can contain only lowercase, numbers and hyphen, and can't start with a hyphen.
 - In order to get subnet ID, use `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
-- If you want to use AHB (Azure Hybrid Benefit), it is applied on instance pool level. You can set the license type during pool creation or update it any time after creation.
+- If you want to use AHB (Azure Hybrid Benefit), it is applied on instance pool level. You can set the license type during pool creation or update it anytime after creation.
 
 > [!IMPORTANT]
 > Deploying an instance pool is a long running operation that takes approximately 4.5 hours.
 
 To create an instance pool:
 
+```powershell
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
@@ -315,6 +318,8 @@ $instancePool = New-AzSqlInstancePool `
   -Edition "GeneralPurpose" `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
+```
+
 
 Because deploying an instance pool is a long running operation, you need to wait until it completes before running any of the following steps. 
 
