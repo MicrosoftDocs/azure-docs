@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
 ---
 
@@ -28,13 +28,17 @@ Some services require additional considerations when moving resources. If you're
 * [App Services](./move-limitations/app-service-move-limitations.md)
 * [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Classic deployment model](./move-limitations/classic-model-move-limitations.md)
+* [Networking](./move-limitations/networking-move-limitations.md)
 * [Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
-* [Virtual Networks](./move-limitations/virtual-network-move-limitations.md)
 
 ## Large requests
 
 When possible, break large moves into separate move operations. Resource Manager immediately returns an error when there are more than 800 resources in a single operation. However, moving less than 800 resources may also fail by timing out.
+
+## Resource not in succeeded state
+
+If you get an error message that indicates a resource can't be moved because it isn't in a succeeded state, it may actually be a dependent resource that is blocking the move. See [State of dependent resources](./move-limitations/networking-move-limitations.md#state-of-dependent-resources).
 
 ## Next steps
 
