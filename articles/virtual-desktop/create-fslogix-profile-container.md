@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/19/2019
 ms.author: helohr
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
@@ -154,7 +154,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 3. In the file, go to **x64** > **Releases** and run **FSLogixAppsSetup.exe**. The installation menu will open.
 
-4.  If you have a product key, enter it in the Product Key text box. If not, leave the box blank to start a 30-day trial.
+4.  If you have a product key, enter it in the Product Key text box.
 
 5. Select the check box next to **I agree to the license terms and conditions**.
 
@@ -170,7 +170,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 11.  Create a value named **Enabled** with a **REG_DWORD** type set to a data value of **1**.
 
-12. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure Files share.
+12. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure NetApp Files share.
 
 ## Assign users to session host
 
