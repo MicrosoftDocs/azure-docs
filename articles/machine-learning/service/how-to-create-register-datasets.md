@@ -42,7 +42,7 @@ To create and work with datasets, you need:
 ## Dataset Types
 Datasets are categorized into various types based on how users consume them in training. Currently we support TabularDatasets which represent data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas DataFrame. TabularDataset can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our documentation.
 
-To find out more about about upcoming API changes, please visit [here](https://aka.ms/tabular-dataset).  
+To find out more about upcoming API changes, see [What is Azure Machine Learning service?](https://aka.ms/tabular-dataset) 
 
 ## Create datasets 
 
