@@ -134,6 +134,7 @@ Add the following starter JSON to the file and save it.
             "location": "[location()]"
         }
     }
+}
 ```
 
 To learn more, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).

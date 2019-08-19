@@ -31,14 +31,25 @@ Direct Line Speech and its associated functionality for custom voice-first virtu
 |[Text to speech](text-to-speech.md) | Textual responses from your bot will be synthesized using [Text-to-speech](text-to-speech.md) from Azure Speech Services. This synthesis will then be made available to your client application as an audio stream. Microsoft offers the ability to build your own custom, high-quality Neural TTS voice that gives a voice to your brand, to learn more [contact us](mailto:mstts@microsoft.com).
 |[Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | As a channel within the Bot Framework, Direct Line Speech enables a smooth and seamless connection between your client application, a compatible bot, and the capabilities of Azure Speech Services. For more information on configuring your bot to use the Direct Line Speech channel, see [its page in the Bot Framework documentation](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
+## Get started with virtual assistants
+
+We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of voice-first virtual assistant quickstarts organized by language.
+
+| Quickstart | Platform | API reference |
+|------------|----------|---------------|
+| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+
 ## Sample code
 
 Sample code for creating a voice-first virtual assistant is available on GitHub. These samples cover the client application for connecting to your bot in several popular programming languages.
 
 * [Voice-first virtual assistant samples (SDK)](https://aka.ms/csspeech/samples)
-* [Quickstart: voice-first virtual assistants (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [Quickstart: voice-first virtual assistants (Java)](quickstart-virtual-assistant-java-jre.md)
-* [Direct Line Speech Client (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [Tutorial: Voice enable your bot with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## Tutorial
+A tutorial on how to [voice-enable your bot using the Speech SDK and Direct Line Speech channel](tutorial-voice-enable-your-bot-speech-sdk.md).
 
 ## Customization
 

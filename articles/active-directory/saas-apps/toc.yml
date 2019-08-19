@@ -1082,7 +1082,7 @@
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: ScaleX Enterprise
-        href: scalexenterprise-tutorial.md
+        href: scalex-enterprise-tutorial.md
       - name: SCC LifeCycle
         href: scclifecycle-tutorial.md
       - name: Screencast-O-Matic
@@ -1309,7 +1309,7 @@
         href: veritas-tutorial.md
       - name: Versal
         href: versal-tutorial.md
-      - name: Viareport's Inativ Portal (Europe)
+      - name: Viareport (Europe)
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
@@ -1494,6 +1494,8 @@
         href: merchlogix-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
+      - name: Mindtickle
+        href: mindtickle-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netsuite
@@ -1526,12 +1528,20 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Symantec Web Security Service (WSS)
+        href: symantec-web-security-service.md
+      - name: Smartfile
+        href: smartfile-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
+      - name: Templafy
+        href: templafy-provisioning-tutorial.md
+      - name: TheOrgWiki
+        href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Workday

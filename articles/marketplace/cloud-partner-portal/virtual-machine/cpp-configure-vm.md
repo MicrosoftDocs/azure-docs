@@ -65,7 +65,7 @@ For more information about running sysprep, see [Steps to generalize a VHD](http
 
 ### Linux
 
-Following two-step process will generalize a Linux VM and redeploy it as a separate VM.  For more information, see [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md). 
+The following two-step process generalizes a Linux VM and redeploys it as a separate VM. These two steps are just the essentials of the process. For more information about these two steps and why they must be done, see [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md). For the purposes of creating the VHD for your Azure Marketplace offer, you can stop when you reach the section "Create a VM from the captured image".
 
 #### Remove the Azure Linux agent
 1.  Connect to your Linux VM using an SSH client.
@@ -90,4 +90,4 @@ Creating copies of VM is often useful for backup, testing, customized fail-over 
 
 ## Next steps
 
-After your VM is configured, you are ready to [deploy a virtual machine from a virtual hard disk](./cpp-deploy-vm-vhd.md).
+After your VM is generalized, has been deallocated, and you have created an image of the VM, you are ready to [deploy a virtual machine from a virtual hard disk](./cpp-deploy-vm-vhd.md).

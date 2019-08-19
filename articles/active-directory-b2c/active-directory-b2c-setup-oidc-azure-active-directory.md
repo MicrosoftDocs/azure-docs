@@ -17,8 +17,6 @@ ms.subservice: B2C
 
 To use an Azure Active Directory (Azure AD) as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure AD B2C, you need to create an application that represents it. This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ## Create an Azure AD app
 
 To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as your Azure AD B2C tenant.

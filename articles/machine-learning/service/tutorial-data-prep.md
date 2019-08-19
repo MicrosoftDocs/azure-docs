@@ -32,40 +32,15 @@ In this tutorial, you:
 
 ## Prerequisites
 
-Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server. To run the notebook you will need:
+* Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
+    * Create a workspace
+    * Create a cloud notebook server
+    * Launch the Jupyter notebook dashboard
 
-* A Python 3.6 notebook server with the following installed:
-    * The `azureml-dataprep` package from the Azure Machine Learning SDK
-* The tutorial notebook
+* After you launch the Jupyter notebook dashboard, open the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-* Use a [cloud notebook server in your workspace](#azure) 
-* Use [your own notebook server](#server)
+This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed the `azureml-dataprep` package from the Azure Machine Learning SDK.
 
-### <a name="azure"></a>Use a cloud notebook server in your workspace
-
-It's easy to get started with your own cloud-based notebook server. The Azure Machine Learning SDK for Python is already installed and configured for you once you create this cloud resource.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* After you launch the notebook webpage, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
-
-### <a name="server"></a>Use your own Jupyter notebook server
-
-Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
-
-1. Complete the installation steps in [Azure Machine Learning Python quickstart](setup-create-workspace.md#sdk) to create a Miniconda environment and install the SDK.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
-1. The `azureml-dataprep` package is automatically installed when you install the SDK.
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
-
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Start the notebook server from your cloned directory.
-
-    ```shell
-    jupyter notebook
-    ```
 
 ## <a name="start"></a>Set up your development environment
 
@@ -97,10 +72,11 @@ Download two different NYC taxi data sets into dataflow objects. The datasets ha
 
 ```python
 from IPython.display import display
-dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
-green_path = "/".join([dataset_root, "green-small/*"])
-yellow_path = "/".join([dataset_root, "yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"
+
+# (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 green_df_raw = dprep.read_csv(
     path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
@@ -110,9 +86,6 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
-
-> [!Note]
-> The URL in this same example is not a complete URL. Instead, it refers to the demo folder in the blob. The full URL to some of the data is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 A `Dataflow` object is similar to a dataframe, and represents a series of lazily-evaluated, immutable operations on data. Operations can be added by invoking the different transformation and filtering methods available. The result of adding an operation to a `Dataflow` is always a new `Dataflow` object.
 
@@ -153,7 +126,7 @@ green_df = (green_df_raw
                 "Trip_distance": "distance"
             })
             .keep_columns(columns=useful_columns))
-green_df.head(5)
+display(green_df.head(5))
 ```
 
 <div>
@@ -290,7 +263,7 @@ yellow_df = (yellow_df_raw
                  "trip_distance": "distance"
              })
              .keep_columns(columns=useful_columns))
-yellow_df.head(5)
+display(yellow_df.head(5))
 ```
 
 Call the `append_rows()` function on the green taxi data to append the yellow taxi data. A new combined dataframe is created.

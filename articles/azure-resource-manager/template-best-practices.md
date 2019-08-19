@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2019
+ms.date: 08/16/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager template best practices
@@ -144,6 +144,8 @@ The information in this section can be helpful when you work with [parameters](r
 ## Variables
 
 The following information can be helpful when you work with [variables](resource-group-authoring-templates.md#variables):
+
+* Use camel case for variable names.
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 

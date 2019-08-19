@@ -5,7 +5,7 @@ author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 06/04/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
@@ -14,8 +14,9 @@ manager: dikamath
 
 To get started with Azure VMware Solution by CloudSimple, create the Azure VMware Solution by CloudSimple service in the Azure portal.
 
-> [!NOTE]
-> Before you create the CloudSimple service, you must register the Microsoft.VMwareCloudSimple resource provider on your Azure subscription. Follow the steps in [Enable the Microsoft.VMwareCloudSimple resource provider on your Azure subscription](enable-cloudsimple-service.md).
+## Before you begin
+
+Allocate a /28 CIDR block for gateway subnet.  A gateway subnet is required per CloudSimple service and is unique to the region in which it's created. The gateway subnet is used for edge network services and requires a /28 CIDR block. The gateway subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks.
 
 ## Sign in to Azure
 

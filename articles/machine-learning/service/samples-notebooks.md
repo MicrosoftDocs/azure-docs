@@ -32,7 +32,7 @@ This article shows you how to access the repository from the following environme
 <a name="notebookvm"></a>
 ## Get samples on Azure Machine Learning Notebook VM
 
-The easiest way to get started with the samples is to complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the sample repository. No downloads or installation necessary.
+The easiest way to get started with the samples is to complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the sample repository. No downloads or installation necessary.
 
 <a name="byo"></a>
 

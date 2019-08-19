@@ -5,7 +5,7 @@ author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 06/10/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
@@ -27,6 +27,11 @@ When you create a Private Cloud, you get a single vSphere cluster and all the ma
 ## Before you begin
 
 Nodes must be provisioned before you can create your Private Cloud.  For more information on provisioning nodes, see [Provision nodes for VMware Solution by CloudSimple - Azure](create-nodes.md) article.
+
+Allocate a CIDR range for vSphere/vSAN subnets for the Private Cloud. A Private Cloud is created as an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX) environment managed by a vCenter server. Management components are deployed in the network selected for vSphere/vSAN subnets CIDR. The network CIDR range is divided into different subnets during the deployment.  The vSphere/vSAN subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks.  For more information on vSphere/vSAN subnets, see [VLANs and subnets overview](cloudsimple-vlans-subnets.md).
+
+* Minimum vSphere/vSAN subnets CIDR range prefix: /24 
+* Maximum vSphere/vSAN subnets CIDR range prefix: /21
 
 ## Sign in to Azure
 
