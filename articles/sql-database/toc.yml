@@ -223,7 +223,7 @@
       href: sql-database-managed-instance.md
     - name: Managed instance FAQ
       href: sql-database-managed-instance-faq.md
-    - name: Instance pools
+    - name: Instance pools overview
       href: sql-database-instance-pools.md
       items:
       - name: Instance pools how-to guide
