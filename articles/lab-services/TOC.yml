@@ -121,7 +121,7 @@
       - name: Post announcement in a lab
         href: devtest-lab-announcements.md
       - name: Enable browser connection on VMs
-        href: enable-browser-connection-on-lab-virtual-machines.md        
+        href: enable-browser-connection-lab-virtual-machines.md        
       - name: Configure cost management
         href: devtest-lab-configure-cost-management.md
       - name: Send autoshutdown notifications
