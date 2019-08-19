@@ -127,6 +127,8 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
     While you are on the **Properties** page, also copy the **Workspace Resource ID**. This value is required if you decide you want to delete the Log Analytics workspace later. Deleting the Log Analytics workspace is not performed as part of this process. 
 
+    Edit the values for **aksResourceTagValues** to match the existing tag values specified for the AKS cluster.
+
 5. Save this file as **OptOutParam.json** to a local folder.
 
 6. You are ready to deploy this template. 
