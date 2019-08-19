@@ -28655,11 +28655,6 @@
 			"redirect_document_id": false
 		},
 		{
-			"source_path": "articles/operations-management-suite/operations-management-suite-service-map-configure.md",
-			"redirect_url": "/azure/monitoring/monitoring-service-map-configure",
-			"redirect_document_id": false
-		},
-		{
 			"source_path": "articles/operations-management-suite/operations-management-suite-service-map-scom.md",
 			"redirect_url": "/azure/monitoring/monitoring-service-map-scom",
 			"redirect_document_id": false
@@ -35526,11 +35521,6 @@
 		{
 			"source_path": "articles/monitoring/monitoring-service-map.md",
 			"redirect_url": "/azure/azure-monitor/insights/service-map",
-			"redirect_document_id": "false"
-		},
-		{
-			"source_path": "articles/monitoring/monitoring-service-map-configure.md",
-			"redirect_url": "/azure/azure-monitor/insights/service-map-configure",
 			"redirect_document_id": "false"
 		},
 		{
