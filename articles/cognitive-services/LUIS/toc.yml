@@ -7,7 +7,7 @@
     href: what-is-luis.md
   - name: What's new
     href: whats-new.md
-  - name: Migrating your authoring key
+  - name: Migrate your authoring key
     items: 
     - name: Overview   
       href: luis-migration-authoring.md
