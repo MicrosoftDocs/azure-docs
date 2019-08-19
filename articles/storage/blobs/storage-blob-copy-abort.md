@@ -1,86 +1,19 @@
 ---
-title: Copy or abort a blob copy operation with .NET - Azure Storage
-description: Learn how to copy a blob or abort a pending copy operation in your Azure Storage account using the .NET client library.
+title: Abort a pending blob copy operation with .NET - Azure Storage
+description: Learn how to abort a pending copy operation in your Azure Storage account using the .NET client library.
 services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/09/2019
+ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ---
 
-# Copy or abort a blob copy operation with .NET
+# Abort a pending blob copy operation with .NET
 
-This article shows how to copy a blob with an Azure Storage account. It also shows how to abort a pending blob copy operation. The example code uses the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
-
-## Copy a blob
-
-The Copy Blob operation copies a blob to a destination within the storage account.
-
-In version 2012-02-12 and later, the source for a Copy Blob operation can be a committed blob in any Azure storage account.
-
-Beginning with version 2015-02-21, the source for a Copy Blob operation can be an Azure file in any Azure storage account.
-
-The following code example gets a reference to a blob created previously and copies it to a new blob in the same container.
-
-```csharp
-private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
-{
-    CloudBlockBlob sourceBlob = null;
-    CloudBlockBlob destBlob = null;
-    string leaseId = null;
-
-    try
-    {
-        // Get a block blob from the container to use as the source.
-        sourceBlob = container.ListBlobs().OfType<CloudBlockBlob>().FirstOrDefault();
-
-        // Lease the source blob for the copy operation to prevent another client from modifying it.
-        // Specifying null for the lease interval creates an infinite lease.
-        leaseId = await sourceBlob.AcquireLeaseAsync(null);
-
-        // Get a reference to a destination blob (in this case, a new blob).
-        destBlob = container.GetBlockBlobReference("copy of " + sourceBlob.Name);
-
-        // Ensure that the source blob exists.
-        if (await sourceBlob.ExistsAsync())
-        {
-            // Get the ID of the copy operation.
-            string copyId = await destBlob.StartCopyAsync(sourceBlob);
-
-            // Fetch the destination blob's properties before checking the copy state.
-            await destBlob.FetchAttributesAsync();
-
-            Console.WriteLine("Status of copy operation: {0}", destBlob.CopyState.Status);
-            Console.WriteLine("Completion time: {0}", destBlob.CopyState.CompletionTime);
-            Console.WriteLine("Bytes copied: {0}", destBlob.CopyState.BytesCopied.ToString());
-            Console.WriteLine("Total bytes: {0}", destBlob.CopyState.TotalBytes.ToString());
-            Console.WriteLine();
-        }
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-    finally
-    {
-        // Break the lease on the source blob.
-        if (sourceBlob != null)
-        {
-            await sourceBlob.FetchAttributesAsync();
-
-            if (sourceBlob.Properties.LeaseState != LeaseState.Available)
-            {
-                await sourceBlob.BreakLeaseAsync(new TimeSpan(0));
-            }
-        }
-    }
-}
-```
+This article shows how to abort a pending blob copy operation. The example code uses the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 
 ## Abort a blob copy operation
 
@@ -182,5 +115,4 @@ private static async Task CopyLargeBlockBlobAsync(CloudBlobContainer container, 
 
 ## See also
 
-- [Copy Blob operation](/rest/api/storageservices/copy-blob)
 - [Abort Copy Blob operation](/rest/api/storageservices/abort-copy-blob)
