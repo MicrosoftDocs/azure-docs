@@ -234,6 +234,43 @@ Additional logging methods are available that let you write to the console at di
 | **`info(_message_)`**    | Writes a message with level INFO on the root logger.  |
 | **`debug(_message_)`** | Writes a message with level DEBUG on the root logger.  |
 
+To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
+
+## HTTP Trigger and bindings
+
+The HTTP trigger is defined in the function.jon file. The `name` of the binding must match the named parameter in the function. 
+In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
+
+From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. 
+
+The following example is from the [HTTP trigger template for Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    headers = {"my-http-header": "some-value"}
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+            
+    if name:
+        return func.HttpResponse(f"Hello {name}!", headers=headers)
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             headers=headers, status_code=400
+        )
+```
+
+In this function, the value of the `name` query parameter is obtained from the `params` parameter of the [HttpRequest] object. The JSON-encoded message body is read using the `get_json` method. 
+
+Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
+                                                              
 ## Async
 
 We recommend that you write your Azure Function as an asynchronous coroutine using the `async def` statement.
@@ -519,3 +556,7 @@ For more information, see the following resources:
 * [HTTP and Webhook bindings](functions-bindings-http-webhook.md)
 * [Queue storage bindings](functions-bindings-storage-queue.md)
 * [Timer trigger](functions-bindings-timer.md)
+
+
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python
