@@ -216,9 +216,6 @@
     - name: Troubleshoot changes on a VM
       href: automation-tutorial-troubleshoot-changes.md
       displayName: inventory
-    - name: Manage a VM with inventory collection
-      href: automation-vm-inventory.md
-      displayName: inventory
   - name: Troubleshoot
     items:
     - name: Onboarding
