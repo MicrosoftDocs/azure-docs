@@ -36,11 +36,11 @@ Proxy servers are installed between the backup server and other components of th
 * Encryption
 * Transmission of data to the backup repository
 
-**Backup Repository**
+**Backup repository**
 
 The backup repository is the storage location where Veeam keeps backup files, VM copies, and metadata for replicated VMs.  The repository can be a Windows or Linux server with local disks (or mounted NFS/SMB) or a hardware storage deduplication appliance.
 
-### Veeam Deployment Scenarios
+### Veeam deployment scenarios
 You can leverage Azure to provide a backup repository and a storage target for long term backup and archiving. All the backup network traffic between VMs in the Private Cloud and the backup repository in Azure travels over a high bandwidth, low latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
 
 **Basic deployment**
@@ -66,7 +66,7 @@ For environments with more than 30 TB to back up, CloudSimple recommends the fol
 
 In the previous figure, notice that the backup proxy is a VM with Hot Add access to workload VM disks on the vSAN datastore. Veeam uses Virtual Appliance backup proxy transport mode for vSAN.
 
-## Requirements for using the Veeam solution on CloudSimple
+## Requirements for Veeam solution on CloudSimple
 
 The Veeam solution requires you to do the following:
 
@@ -77,7 +77,7 @@ This solution provides you with full control over the Veeam backup tool and offe
 
 If you are an existing Veeam user, you can skip the section on Veeam Solution Components and directly proceed to [Veeam Deployment Scenarios](#veeam-deployment-scenarios).
 
-## Install and Configure Veeam Backups in your CloudSimple Private Cloud
+## Install and configure Veeam backups in your CloudSimple Private Cloud
 
 The following sections describe how to install and configure a Veeam backup solution for your CloudSimple Private Cloud.
 
@@ -86,9 +86,9 @@ The deployment process consists of these steps:
 1. [vCenter UI: Set up infrastructure services in your Private Cloud](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
 2. [CloudSimple portal: Set up Private Cloud networking for Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
 3. [CloudSimple portal: Escalate Privileges](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
-4. [Azure Portal: Connect your virtual network to the Private Cloud](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-5. [Azure Portal: Create a backup repository in Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-6. [Azure Portal: Configure Azure blob storage for long term data retention](#configure-azure-blob-storage-for-long-term-data-retention)
+4. [Azure portal: Connect your virtual network to the Private Cloud](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+5. [Azure portal: Create a backup repository in Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+6. [Azure portal: Configure Azure blob storage for long term data retention](#configure-azure-blob-storage-for-long-term-data-retention)
 7. [vCenter UI of Private Cloud: Install Veeam B&R](#vcenter-console-of-private-cloud-install-veeam-br)
 8. [Veeam Console: Configure Veeam Backup & Recovery software](#veeam-console-install-veeam-backup-and-recovery-software)
 9. [CloudSimple portal: Set up Veeam access and de-escalate privileges](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
@@ -150,15 +150,15 @@ By default, CloudSimple provides a 1Gbps ExpressRoute link. For larger environme
 
 To continue the setup, you need the authorization key and peer circuit URI and access to your Azure Subscription.  This information is available on the Virtual Network Connection page in the CloudSimple portal. For instructions, see [Obtain peering information for Azure virtual network to CloudSimple connection](virtual-network-connection.md). If you have any trouble obtaining the information, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### CloudSimple Private Cloud: Escalate Privileges for cloudowner
+### CloudSimple Private Cloud: Escalate privileges for cloudowner
 
 The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install VEEAM, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
 
-### Azure Portal: Connect your virtual network to the Private Cloud
+### Azure portal: Connect your virtual network to the Private Cloud
 
 Connect your virtual network to the Private Cloud by following the instructions in [Azure Virtual Network Connection using ExpressRoute](azure-expressroute-connection.md).
 
-### Azure Portal: Create a Backup Repository VM
+### Azure portal: Create a backup repository VM
 
 1. Create a standard D2 v3 VM with (2 vCPUs and 8 GB memory).
 2. Select the CentOS 7.4 based image.
@@ -190,7 +190,7 @@ Connect your virtual network to the Private Cloud by following the instructions 
 ### Configure Azure blob storage for long term data retention
 
 1. Create a general purpose storage account (GPv2) of standard type and a blob container as described in the Microsoft video [Getting Started with Azure Storage](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
-2. Create an Azure storage container, as described in the [Create Container](https://docs.microsoft.com/en-us/rest/api/storageservices/create-container) reference.
+2. Create an Azure storage container, as described in the [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container) reference.
 2. Download the `azcopy` command line utility for Linux from Microsoft. You can use the following commands in the bash shell in CentOS 7.5.
 
     ```
@@ -203,7 +203,7 @@ Connect your virtual network to the Private Cloud by following the instructions 
 
 3. Use the `azcopy` command to copy backup files to and from the blob container.  See [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md) for detailed commands.
 
-### vCenter Console of Private Cloud: Install Veeam B&R
+### vCenter console of Private Cloud: Install Veeam B&R
 
 Access vCenter from your Private Cloud to create a Veeam service account, install Veeam B&R 9.5, and configure Veeam using the service account.
 
@@ -219,7 +219,7 @@ Access vCenter from your Private Cloud to create a Veeam service account, instal
 7. Using an RDP session to the Windows 2012 R2 machine (the target for the Veeam installation), [install Veeam B&R 9.5u3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) in a Windows 2012 R2 VM.
 8. Find the internal IP address of the Veeam backup server VM and configure the IP address to be static in the DHCP server. The exact steps required to do this depend on the DHCP server. As an example, the Netgate article <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">static DHCP mappings</a> explains how to configure a DHCP server using a pfSense router.
 
-### Veeam Console: Install Veeam backup and recovery software
+### Veeam console: Install Veeam backup and recovery software
 
 Using the Veeam console, configure Veeam backup and recovery software. For details, see [Veeam Backup & Replication v9 - Installation and Deployment](https://www.youtube.com/watch?v=b4BqC_WXARk).
 
@@ -259,12 +259,9 @@ Create a firewall rule using to allow the Veeam backup server to create an outbo
 
 To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
-> [!NOTE]
-> CloudSimple is exploring possibility of providing a managed Veeam solution. More details will be shared soon.
-
 ## References
 
-### CloudSimple References
+### CloudSimple references
 
 * [Create a Private Cloud](create-private-cloud.md)
 * [Create and manage VLANs/Subnets](create-vlan-subnet.md)
@@ -286,21 +283,21 @@ To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-p
 * [Veeam v9 Creating a Backup Job - Video](https://www.youtube.com/watch?v=YHxcUFEss4M)
 * [Veeam v9 Creating a Backup Copy Job - Video](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s)
 
-### Microsoft Azure References
+### Azure references
 
 * [Configure a virtual network gateway for ExpressRoute using the Azure portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)
 * [Connect a VNet to a circuit - different subscription](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Getting Started with Azure Storage - Video](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
-* [Create Container](https://docs.microsoft.com/en-us/rest/api/storageservices/create-container)
+* [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md)
 
-### VMware References
+### VMware references
 
 * [Creating a Distributed Port Group in the vSphere Web Client - Video](https://www.youtube.com/watch?v=wpCd5ZbPOpA)
 
-### Other References
+### Other references
 
 * [Create an XFS volume on the managed disk - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
 * [How To Set Up an NFS Mount on CentOS 7 - HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
