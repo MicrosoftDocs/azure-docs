@@ -33,14 +33,17 @@ Upon clicking, you will be directed to a form to provide the corresponding detai
 
 ## Fix a business place or a residential address 
 
-The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix address of the location if it is not correct. To provide feedback to fix the address, use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place".
+The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix the address or the pin location, if it they are not correct. To provide feedback to fix the address, use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place".
 
   ![search place to fix](./media/how-to-use-feedback-tool/fix-place.png)
 
-Fill out the "Fix a place" form then click on the "submit" button.
+To provide feedback to fix the address, fill out the "Fix a place" form then click on the "submit" button.
 
   ![fix form](./media/how-to-use-feedback-tool/fix-form.png)
 
+If you feel like the pin location for the address is wrong, check the checkbox on the "Fix a place" form that says "The pin location is incorrect" and move the pin to the correct location and click the "submit" button.
+
+  ![move pin location](./media/how-to-use-feedback-tool/move-pin.png)
 
 ## Add a comment 
 
