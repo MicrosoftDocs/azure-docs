@@ -263,6 +263,8 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
 1. Attach the VM or HDInsight cluster to your Azure Machine Learning service workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
+<a id="aksvnet"></a>
+
 ## Use Azure Kubernetes Service (AKS)
 
 To add AKS in a virtual network to your workspace, do the following:
