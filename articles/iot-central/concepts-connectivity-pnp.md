@@ -203,11 +203,7 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Device properties | Device twin reported properties |
 | Settings | Device twin desired and reported properties |
 
-To learn more about using the Device SDKs, see one of the following articles for example code:
-
-- [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Connect a Raspberry Pi device to your Azure IoT Central application](howto-connect-raspberry-pi-python-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+To learn more about using the Device SDKs, see [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) for example code.
 
 ### Protocols
 
@@ -231,6 +227,4 @@ Now that you've learned about device connectivity in Azure IoT Central, here are
 
 - [Connect an IoT Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Prepare and connect a DevKit device](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [C SDK: Provisioning Device Client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
