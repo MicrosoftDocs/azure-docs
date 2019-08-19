@@ -130,7 +130,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 2. Initialize Kerberos. In your SSH terminal, type the following command:
 
     > [!TIP]
-    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
+    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)
     > * Specify the domain name in capital letters, else kinit fails.
     >
 
