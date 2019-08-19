@@ -120,8 +120,10 @@
       href: https://docs.azure.cloudsimple.com/private-cloud-secure/
     - name: Private cloud management
       items:
+      - name: Escalate Private Cloud privileges
+        href: escalate-privileges.md
       - name: Workload DNS and DHCP setup
-        href: https://docs.azure.cloudsimple.com/dns-dhcp-setup/  
+        href: dns-dhcp-setup.md  
       - name: NSX Layer 2 VPN for migration 
         href: https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn
     - name: Private cloud networking
@@ -135,7 +137,7 @@
     - name: VMware platform
       items:
       - name: Learn private cloud permission model
-        href: https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/
+        href: learn-private-cloud-permissions.md
       - name: vCenter identity sources
         href: set-vcenter-identity.md
       - name: Azure Application Gateway with VMware VMs
@@ -148,8 +150,8 @@
         href: https://docs.azure.cloudsimple.com/ensuring-high-availability/
     - name: VMware ecosystem
       items:
-      - name: Backup workload virtual machines
-        href: https://docs.azure.cloudsimple.com/backup-workloads-veeam/
+      - name: Back up workload virtual machines
+        href: backup-workloads-veeam.md
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
       - name: Configure vSAN encryption for your private cloud

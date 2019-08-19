@@ -507,6 +507,10 @@ Cross-instance service broker isn't supported:
 - After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and managed instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access managed instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
+### TEMPDB size
+
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+
 ## <a name="Changes"></a> Behavior changes
 
 The following variables, functions, and views return different results:
@@ -521,13 +525,31 @@ The following variables, functions, and views return different results:
 
 ## <a name="Issues"></a> Known issues and limitations
 
-### TEMPDB size
+### Cross-database Service Broker dialogs don't work after service tier upgrade
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved. 
+**Date:** Aug 2019
 
-### Can't restore contained database
+Cross-database Service Broker dialogs fail to deliver the messages after change service tier operation. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database by GUID, will not be able to deliver messages.
 
-Managed instance can't restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases doesn't work on managed instance. In the meantime, we recommend that you remove the containment option from your databases that are placed on managed instance. Don't use the containment option for the production databases. 
+**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after.
+
+### @query parameter not supported in sp_send_db_mail
+
+**Date:** April 2019
+
+The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
+
+### AAD logins and users are not supported in tools
+
+**Date:** April 2019
+
+SQL Server Management Studio and SQL Server Data Tools don't fuly support Azure Acctive directory logins and users.
+- Using Azure AD server principals (logins) and users (public preview) with SQL Server Data Tools currently isn't supported.
+- Scripting for Azure AD server principals (logins) and users (public preview) isn't supported in SQL Server Management Studio.
+
+### TEMPDB structure is re-created
+
+The `tempdb` database is always split into 12 data files and the file structure cannot be changed. The maximum size per file can't be changed, and new files cannot be added to `tempdb`. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved.
 
 ### Exceeding storage space with small database files
 
@@ -546,24 +568,9 @@ In this example, existing databases continue to work and can grow without any pr
 
 You can [identify the number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) by using system views. If you reach this limit, try to [empty and delete some of the smaller files by using the DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or switch to the [Business Critical tier, which doesn't have this limit](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### Tooling
-
-SQL Server Management Studio and SQL Server Data Tools might have some issues while they access a managed instance.
-
-- Using Azure AD server principals (logins) and users (public preview) with SQL Server Data Tools currently isn't supported.
-- Scripting for Azure AD server principals (logins) and users (public preview) isn't supported in SQL Server Management Studio.
-
-### Incorrect database names in some views, logs, and messages
+### GUID values shown instead of database names
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Don't rely on these GUID identifiers because they're replaced with actual database names in the future.
-
-### Database mail
-
-The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
-
-### Database Mail profile
-
-The Database Mail profile used by the SQL Server Agent must be called `AzureManagedInstance_dbmail_profile`. There are no restrictions for other Database Mail profile names.
 
 ### Error logs aren't persisted
 
