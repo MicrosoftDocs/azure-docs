@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app

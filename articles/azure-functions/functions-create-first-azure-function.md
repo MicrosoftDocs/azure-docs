@@ -1,5 +1,5 @@
 ---
-title: Create your first function from the Azure Portal | Microsoft Docs
+title: Create your first function from the Azure portal | Microsoft Docs
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 services: functions
 documentationcenter: na
@@ -18,14 +18,14 @@ ms.custom: mvc, devcenter, cc996988-fb4f-47
 ---
 # Create your first function in the Azure portal
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. In this topic, learn how to use Functions to create a "hello world" function in the Azure portal.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. In this article, learn how to use Functions to create a "hello world" function in the Azure portal.
 
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> C# developers should consider [creating your first function in Visual Studio 2017](functions-create-your-first-function-visual-studio.md) instead of in the portal. 
+> C# developers should consider [creating your first function in Visual Studio 2019](functions-create-your-first-function-visual-studio.md) instead of in the portal. 
 
 ## Log in to Azure
 
@@ -43,7 +43,7 @@ Next, you create a function in the new function app.
 
 1. Expand your new function app, then select the **+** button next to **Functions**, choose **In-portal**, and select **Continue**.
 
-    ![Functions quickstart choose platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Functions quickstart for choosing a platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
 1. Choose **WebHook + API** and then select **Create**.
 
@@ -77,7 +77,7 @@ Now, you can run the new function by sending an HTTP request.
 
 ## Next steps
 
-You have created a function app with a simple HTTP triggered function.  
+You've created a function app with a simple HTTP triggered function.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

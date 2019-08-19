@@ -2,20 +2,20 @@
 title: Best practices for Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-author: ronortloff
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: design
 ms.date: 11/26/2018
-ms.author: rortloff
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
 # Best practices for Azure SQL Data Warehouse
 This article is a collection of best practices to help you to achieve optimal performance from your Azure SQL Data Warehouse.  Some of the concepts in this article are basic and easy to explain, other concepts are more advanced and we just scratch the surface in this article.  The purpose of this article is to give you some basic guidance and to raise awareness of important areas to focus as you build your data warehouse.  Each section introduces you to a concept and then point you to more detailed articles which cover the concept in more depth.
 
-If you are just getting started with Azure SQL Data Warehouse, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Date Warehouse, come back and look at a few more concepts.  It won't take long for everything to make sense.
+If you are just getting started with Azure SQL Data Warehouse, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Data Warehouse, come back and look at a few more concepts.  It won't take long for everything to make sense.
 
 For loading guidance, see [Guidance for loading data](guidance-for-loading-data.md).
 

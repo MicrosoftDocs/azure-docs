@@ -4,8 +4,8 @@ description: Describes the details of how a runbook in Azure Automation is proce
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
@@ -72,6 +72,9 @@ else
 ### Time dependant scripts
 
 Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails, it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are run only during specific times.
+
+> [!NOTE]
+> The local time on the Azure sandbox process is set to UTC time. Calculations for date and time in your runbooks need to take this into consideration.
 
 ### Tracking progress
 
@@ -295,7 +298,7 @@ foreach ($log in $JobActivityLogs)
     $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
 
     if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
-    { 
+    {
         # Get runbook
         $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
                                             -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
@@ -318,4 +321,4 @@ Another option is to optimize the runbook by using child runbooks. If your runbo
 ## Next steps
 
 * To learn more about the different methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
-
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).

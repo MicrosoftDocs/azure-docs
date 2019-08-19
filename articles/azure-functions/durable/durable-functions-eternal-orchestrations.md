@@ -40,7 +40,7 @@ One use case for eternal orchestrations is code that needs to do periodic work i
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("DoCleanup");
+    await context.CallActivityAsync("DoCleanup", null);
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
@@ -61,7 +61,7 @@ module.exports = df.orchestrator(function*(context) {
 
     // sleep for one hour between cleanups
     const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
-    yield context.df.createTimer(nextCleanup);
+    yield context.df.createTimer(nextCleanup.toDate());
 
     context.df.continueAsNew(undefined);
 });

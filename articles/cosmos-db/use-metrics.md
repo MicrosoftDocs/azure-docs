@@ -6,18 +6,42 @@ author: kanshiG
 ms.author: govindk
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 06/18/2019
 ms.reviewer: sngun
 ---
 # Monitor and debug with metrics in Azure Cosmos DB
 
-Azure Cosmos DB provides metrics for throughput, storage, consistency, availability, and latency. The [Azure portal](https://portal.azure.com) provides an aggregated view of these metrics. For more granular metrics, both the client SDK and the [diagnostic logs](./logging.md) are available.
+Azure Cosmos DB provides metrics for throughput, storage, consistency, availability, and latency. The Azure portal provides an aggregated view of these metrics. You can also view Azure Cosmos DB metrics from Azure Monitor API. To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) article. 
 
 This article walks through common use cases and how Azure Cosmos DB metrics can be used to analyze and debug these issues. Metrics are collected every five minutes and are kept for seven days.
 
+## View metrics from Azure portal
+
+1. Sign into [Azure portal](https://portal.azure.com/)
+
+1. Open the **Metrics** pane. By default, the metrics pane shows the storage, index, request units metrics for all the databases in your Azure Cosmos account. You can filter these metrics per database, container, or a region. You can also filter the metrics at a specific time granularity. More details on the throughput, storage, availability, latency, and consistency metrics are provided on separate tabs. 
+
+   ![Cosmos DB performance metrics in Azure portal](./media/use-metrics/performance-metrics.png)
+
+The following metrics are available from the **Metrics** pane: 
+
+* **Throughput metrics** - This metric shows the number of requests consumed or failed (429 response code) because the throughput or storage capacity provisioned for the container has exceeded.
+
+* **Storage metrics** - This metric shows the size of data and index usage.
+
+* **Availability metrics** - This metric shows the percentage of successful requests over the total requests per hour. The success rate is defined by the Azure Cosmos DB SLAs.
+
+* **Latency metrics** - This metric shows the read and write latency observed by Azure Cosmos DB in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. This metric doesn't represent the end-to-end request latency.
+
+* **Consistency metrics** - This metric shows how eventual is the consistency for the consistency model you choose. For multi-region accounts, this metric also shows the replication latency between the regions you have selected.
+
+* **System metrics** - This metric shows how many metadata requests are served by the master partition. It also helps to identify the throttled requests.
+
+The following sections explain common scenarios where you can use Azure Cosmos DB metrics. 
+
 ## Understand how many requests are succeeding or causing errors
 
-To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Metrics** blade. In the blade, find the **Number of requests exceeded capacity per 1 minute** chart. This chart shows a minute by minute total requests segmented by the status code. For more information about HTTP status codes, see [HTTP status codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Metrics** blade. In the blade, find the **Number of requests exceeded capacity per 1-minute chart. This chart shows a minute by minute total requests segmented by the status code. For more information about HTTP status codes, see [HTTP status codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 The most common error status code is 429 (rate limiting/throttling). This error means that requests to Azure Cosmos DB are more than the provisioned throughput. The most common solution to this problem is to [scale up the RUs](./set-throughput.md) for the given collection.
 
@@ -82,5 +106,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 You've now learned how to monitor and debug issues using the metrics provided in the Azure portal. You may want to learn more about improving database performance by reading the following articles:
 
+* To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) article. 
 * [Performance and scale testing with Azure Cosmos DB](performance-testing.md)
 * [Performance tips for Azure Cosmos DB](performance-tips.md)

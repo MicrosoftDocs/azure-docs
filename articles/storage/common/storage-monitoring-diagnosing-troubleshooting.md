@@ -1,12 +1,12 @@
 ---
 title: Monitor, diagnose, and troubleshoot Azure Storage | Microsoft Docs
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
-services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
 ---
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
@@ -420,7 +420,7 @@ If the **PercentThrottlingError** metric show an increase in the percentage of r
 An increase in **PercentThrottlingError** often occurs at the same time as an increase in the number of storage requests, or when you are initially load testing your application. This may also manifest itself in the client as "503 Server Busy" or "500 Operation Timeout" HTTP status messages from storage operations.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Transient increase in PercentThrottlingError
-If you are seeing spikes in the value of **PercentThrottlingError** that coincide with periods of high activity for the application, you implement an exponential (not linear) back-off strategy for retries in your client. Back-off retries reduce the immediate load on the partition and help your application to smooth out spikes in traffic. For more information about how to implement retry policies using the Storage Client Library, see [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+If you are seeing spikes in the value of **PercentThrottlingError** that coincide with periods of high activity for the application, you implement an exponential (not linear) back-off strategy for retries in your client. Back-off retries reduce the immediate load on the partition and help your application to smooth out spikes in traffic. For more information about how to implement retry policies using the Storage Client Library, see the [Microsoft.Azure.Storage.RetryPolicies namespace](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > You may also see spikes in the value of **PercentThrottlingError** that do not coincide with periods of high activity for the application: the most likely cause here is the storage service moving partitions to improve load balancing.
@@ -463,15 +463,15 @@ If your client application is throwing HTTP 403 (Forbidden) errors, a likely cau
 
 | Source | Verbosity | Verbosity | Client request ID | Operation text |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Starting operation with location Primary per location mode PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Waiting for response. |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |Exception thrown while waiting for response: The remote server returned an error: (403) Forbidden. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Response received. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |Exception thrown during the operation: The remote server returned an error: (403) Forbidden.. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Checking if the operation should be retried. Retry count = 0, HTTP status code = 403, Exception = The remote server returned an error: (403) Forbidden.. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |The next location has been set to Primary, based on the location mode. |
-| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Starting operation with location Primary per location mode PrimaryOnly. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Waiting for response. |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |Exception thrown while waiting for response: The remote server returned an error: (403) Forbidden. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Response received. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |Exception thrown during the operation: The remote server returned an error: (403) Forbidden.. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Checking if the operation should be retried. Retry count = 0, HTTP status code = 403, Exception = The remote server returned an error: (403) Forbidden.. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |The next location has been set to Primary, based on the location mode. |
+| Microsoft.Azure.Storage |Error |1 |85d077ab -… |Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. |
 
 In this scenario, you should investigate why the SAS token is expiring before the client sends the token to the server:
 

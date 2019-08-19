@@ -21,7 +21,7 @@ Significant changes have been made to Azure Monitor recently, with different ser
 After the consolidation of different services under Azure Monitor, we're taking the next step by modifying terminology in our documentation to better describe the Azure Monitor service and its different components. 
 
 ### Log Analytics
-Azure Monitor log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service, but we are changing the term _Log Analytics_ in many places to _Azure Monitor logs_. This term better reflects its role in Azure Monitor and provides better consistency [metrics in Azure Monitor](platform/data-platform-metrics.md).
+Azure Monitor log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service, but we are changing the term _Log Analytics_ in many places to _Azure Monitor logs_. This term better reflects its role in Azure Monitor and provides better consistency with [metrics in Azure Monitor](platform/data-platform-metrics.md).
 
 The term _log analytics_ now primarily applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of [metrics explorer](platform/metrics-charts.md), which is the page in the Azure portal used to analyze metric data.
 

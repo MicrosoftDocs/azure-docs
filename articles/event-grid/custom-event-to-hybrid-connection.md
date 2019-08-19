@@ -74,7 +74,7 @@ Notice that an [expiration date](concepts.md#event-subscription-expiration) is s
 
 You need an application that can retrieve events from the hybrid connection. The [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) performs that operation. You've already finished the prerequisite steps.
 
-1. Make sure you have Visual Studio 2017 Version 15.5 or later.
+1. Make sure you have Visual Studio 2019 or later.
 
 1. Clone the repository to your local machine.
 

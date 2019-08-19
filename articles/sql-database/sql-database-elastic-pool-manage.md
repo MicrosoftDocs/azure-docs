@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
 ms.custom: seoapril2019
 ---

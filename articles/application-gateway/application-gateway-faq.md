@@ -6,13 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 6/1/2019
 ms.author: victorh
 ---
 
 # Frequently asked questions about Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+The following are common questions asked about Azure Application Gateway.
 
 ## General
 
@@ -38,7 +40,7 @@ See [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/config
 
 ### What resources are supported as part of a backend pool?
 
-See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool).
+See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
 
 ### In what regions is Application Gateway available?
 
@@ -94,7 +96,7 @@ Yes. See [Modifications to a request](https://docs.microsoft.com/azure/applicati
 
 New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size or count aren't disruptive, and the gateway remains active during this time.
 
-Deployments that use the v2 SKU can take up to 6 minutes to provision.
+Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. 
 
 ### Can I use Exchange Server as a backend with Application Gateway?
 
@@ -114,7 +116,7 @@ Use Traffic Manager to distribute traffic across multiple application gateways i
 
 ### Does Application Gateway support autoscaling?
 
-Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and zone-redundant Application Gateway (public preview)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
 ### Does manual scale up or scale down cause downtime?
 
@@ -182,13 +184,18 @@ See [Order of processing rules](https://docs.microsoft.com/azure/application-gat
 
 The Host field specifies the name to send the probe to when you've configured multisite on Application Gateway. Otherwise use '127.0.0.1'. This value is different from the virtual machine host name. Its format is \<protocol\>://\<host\>:\<port\>\<path\>.
 
-### Can I whitelist Application Gateway access to only a few source IPs?
+### Can I allow Application Gateway access to only a few source IP addresses?
 
-Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### Can I use the same port for both public-facing and private-facing listeners?
 
 No.
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
 
 ## Configuration - SSL
 
@@ -262,7 +269,7 @@ Application Gateway supports up to 10 authentication certificates. The default i
 
 ### Does Application Gateway natively integrate with Azure Key Vault?
 
-No.
+Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
 
 ### How do I configure HTTPS listeners for .com and .net sites? 
 
@@ -307,6 +314,10 @@ For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/i
 ### Does WAF support DDoS protection?
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
 ## Diagnostics and logging
 

@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajani-janaki-ram
+ms.author: rajanaki
 
 ---
 # Delete a Site Recovery Services vault
@@ -17,6 +17,10 @@ Dependencies can prevent you from deleting an Azure Site Recovery vault. The act
 
 ## Delete a Site Recovery vault 
 To delete the vault, follow the recommended steps for your scenario.
+### Azure VMs to Azure
+
+1. Delete all protected VMs by following the steps in [Disable protection for a VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure).
+2. Delete the vault.
 
 ### VMware VMs to Azure
 

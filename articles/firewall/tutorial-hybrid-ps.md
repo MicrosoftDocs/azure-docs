@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -55,9 +55,9 @@ There are three key requirements for this scenario to work correctly:
 See the [Create Routes](#create-the-routes) section in this tutorial to see how these routes are created.
 
 >[!NOTE]
->Azure Firewall must have direct internet connectivity. By default, AzureFirewallSubnet should only allow a UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**.
+>Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.
 >
->If you enable forced tunneling to on-premises via ExpressRoute or Application Gateway, you may need to explicitly configure a UDR 0.0.0.0/0 with the NextHopType value set as **Internet** and associate it with your AzureFirewallSubnet. If your organization requires forced tunneling for Azure Firewall traffic, please contact Support so that we can whitelist your subscription and ensure the required firewall Internet connectivity is maintained.
+>However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll whitelist your subscription and ensure the required firewall Internet connectivity is maintained.
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
@@ -132,7 +132,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Request a public IP address to be allocated to the VPN gateway you will create for your virtual network. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your VPN gateway. 
+Request a public IP address to be allocated to the VPN gateway you'll create for your virtual network. Notice that the *AllocationMethod* is **Dynamic**. You can't specify the IP address that you want to use. It's dynamically allocated to your VPN gateway.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -171,7 +171,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Request a public IP address to be allocated to the gateway you will create for the virtual network. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
+Request a public IP address to be allocated to the gateway you'll create for the virtual network. Notice that the *AllocationMethod* is **Dynamic**. You can't specify the IP address that you want to use. It's dynamically allocated to your gateway.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -466,7 +466,7 @@ From **VM-Onprem**, open a remote desktop to **VM-spoke-01** at the private IP a
 
 Your connection should succeed, and you should be able to sign in using your chosen username and password.
 
-So now you have verified that the firewall rules are working:
+So now you've verified that the firewall rules are working:
 
 <!---- You can ping the server on the spoke VNet.--->
 - You can browse web server on the spoke virtual network.

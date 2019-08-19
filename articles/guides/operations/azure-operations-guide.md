@@ -1,21 +1,13 @@
 ---
 title: Get started guide for Azure IT operators | Microsoft Docs
 description: Get started guide for Azure IT operators
-services:
-documentationcenter:
-author: themichaelbender-ms
-manager: timlt
-editor: tysonn
+author: RicksterCDN
+ms.author: rclaus
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: azure
-ms.devlang:
 ms.topic: overview
-ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.author: mibender
 ---
 
 # Get started for Azure IT operators
@@ -69,7 +61,7 @@ Azure provides several PaaS compute offerings, including the Web Apps feature of
 
 #### SaaS: Software as a service
 
-SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription. SaaS software typically is licensed through a monthly or annual subscription. SaaS software vendors are responsible for all components of the software stack so all you manage is the services provided.
+SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription. SaaS software vendors are responsible for all components of the software stack so all you manage is the services provided.
 
 Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
 
@@ -141,7 +133,7 @@ For detailed documentation on Azure services, see [Azure service documentation](
 
 Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
 
-One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries.
+One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries/regions.
 
 ### Azure portal
 

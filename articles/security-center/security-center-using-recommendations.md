@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/26/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Use Azure Security Center recommendations to enhance security

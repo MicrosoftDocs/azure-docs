@@ -1,15 +1,15 @@
 ---
-title: Connect with the Windows Virtual Desktop Preview web client  - Azure
-description: How to connect to the Windows Virtual Desktop Preview HTML5 web client.
+title: Connect to Windows Virtual Desktop Preview from a web browser  - Azure
+description: How to connect to the Windows Virtual Desktop Preview from a web browser.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 03/21/2019
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: helohr
 ---
-# Connect with the web client
+# Connect from a web browser
 
 The web client lets you access your Windows Virtual Desktop Preview resources from a web browser without the lengthy installation process.
 
@@ -33,6 +33,6 @@ While any HTML5-capable browser should work, we officially support the following
 In a browser, navigate to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient) and sign in with your user account.
 
 >[!NOTE]
->If you are already signed in using an Azure AD account that is different than the one you would like to use for Windows Virtual Desktop, you may need to sign out or use a private browser window.
+>If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign out or use a private browser window.
 
 After signing in, you should now see a list of resources. You can launch resources by selecting them like you would a normal app in the **All Resources** tab.

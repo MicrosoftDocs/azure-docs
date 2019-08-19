@@ -1,7 +1,6 @@
 ---
 title: Phoenix performance in Azure HDInsight 
 description: Best practices to optimize Phoenix performance.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 

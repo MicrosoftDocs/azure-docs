@@ -1,12 +1,13 @@
 ---
 title: Back up and restore Azure Files using Azure Backup and PowerShell
 description: Back up and restore Azure Files using Azure Backup and PowerShell. 
-author: pvrk
-manager: shivamg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: pullabhk
+ms.author: dacurwin
+ms.reviewer: pullabhk
 ---
 
 # Back up and restore Azure Files with PowerShell
@@ -103,7 +104,7 @@ Follow these steps to create a Recovery Services vault.
 3. Specify the type of redundancy to use for the vault storage.
 
    - You can use [locally redundant storage](../storage/common/storage-redundancy-lrs.md) or [geo-redundant storage](../storage/common/storage-redundancy-grs.md).
-   - The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd for **testvault** set to **GeoRedundant**.
+   - The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -161,7 +162,7 @@ A backup policy specifies the schedule for backups, and how long backup recovery
 - View the default backup policy schedule using [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 -  You use the [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) cmdlet to create a new backup policy. You input the schedule and retention policy objects.
 
-The following example stores the schedule policy and the retention policy in variables. It then uses those variable as parameters for a new policy (**NewAFSPolicy**). **NewAFSPolicy** takes a daily backup and retains it for 30 days.
+The following example stores the schedule policy and the retention policy in variables. It then uses those variables as parameters for a new policy (**NewAFSPolicy**). **NewAFSPolicy** takes a daily backup and retains it for 30 days.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -276,7 +277,7 @@ You can restore an entire file share or specific files on the share. You can res
 
 ### Fetch recovery points
 
-Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) to list all recovery points for the backed up item.
+Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) to list all recovery points for the backed-up item.
 
 In the following script:
 
@@ -312,7 +313,7 @@ After the relevant recovery point is selected, you restore the file share or fil
 
 ### Restore an Azure file share to an alternate location
 
-Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location: 
+Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location: 
 
 - **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
 - **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
@@ -335,7 +336,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### Restore an Azure file to an alternate location
 
-Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location, and to uniquely identify the file you want to restore.
+Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location, and to uniquely identify the file you want to restore.
 
 * **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
 * **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.

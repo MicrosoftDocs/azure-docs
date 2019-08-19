@@ -1,15 +1,15 @@
 ---
 title: Troubleshooting Azure Storage with diagnostics & Message Analyzer | Microsoft Docs
 description: A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2017
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
+
 # End-to-end troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 

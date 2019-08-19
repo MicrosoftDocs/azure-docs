@@ -127,11 +127,11 @@ For this technique, you attach distinct property values to all the telemetry tha
 
 In the Application Insights portal, filter and split your data on the property values, so as to compare the different versions.
 
-To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
+To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+
+**ASP.NET apps**
 
 ```csharp
-
-
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
@@ -150,8 +150,24 @@ In the web app initializer such as Global.asax.cs:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
+         .Add(new MyTelemetryInitializer());
     }
+```
+
+**ASP.NET Core apps**
+
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+
+For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.

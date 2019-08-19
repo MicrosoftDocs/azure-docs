@@ -2,8 +2,8 @@
 title: Application and service principal objects in Azure Active Directory 
 description: Learn about the relationship between application and service principal objects in Azure Active Directory.
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 services: active-directory
 editor: ''
 
@@ -15,8 +15,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
-ms.custom: aaddev
+ms.author: ryanwi
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
 ---
@@ -79,7 +79,7 @@ The following diagram illustrates the relationship between an application's appl
 - **Contoso** - The tenant used by the Contoso organization, which is a consumer of the **HR app**
 - **Fabrikam** - The tenant used by the Fabrikam organization, which also consumes the **HR app**
 
-![Relationship between an application object and a service principal object](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Relationship between app object and service principal object](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 In this example scenario:
 

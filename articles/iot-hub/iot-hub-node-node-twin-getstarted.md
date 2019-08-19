@@ -10,7 +10,7 @@ ms.date: 08/25/2017
 ms.author: elioda
 ---
 
-# Get started with device twins (Node)
+# Get started with device twins (Node.js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -26,7 +26,7 @@ At the end of this tutorial, you will have two Node.js console apps:
 
 To complete this tutorial you need the following:
 
-* Node.js version 4.0.x or later.
+* Node.js version 10.0.x or later.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
@@ -34,11 +34,15 @@ To complete this tutorial you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### Retrieve connection string for IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## Get the IoT hub connection string
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## Create the service app
 
@@ -58,7 +62,7 @@ In this section, you create a Node.js console app that adds location metadata to
 
 3. Using a text editor, create a new **AddTagsAndQuery.js** file in the **addtagsandqueryapp** folder.
 
-4. Add the following code to the **AddTagsAndQuery.js** file, and substitute the **{iot hub connection string}** placeholder with the IoT Hub connection string you copied when you created your hub:
+4. Add the following code to the **AddTagsAndQuery.js** file, and replace the **{iot hub connection string}** placeholder value with the IoT Hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
    ``` javascript
         'use strict';

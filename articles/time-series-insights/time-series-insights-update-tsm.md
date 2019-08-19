@@ -2,13 +2,13 @@
 title: 'Time Series Model in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understanding Azure Time Series Insights Time Series Model.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
@@ -16,35 +16,35 @@ ms.custom: seodec18
 
 This article describes the Time Series Model part of Azure Time Series Insights Preview. It discusses the model itself, its capabilities, and how to get started building and updating your own model.
 
-Traditionally, the data that's collected from IoT devices lacks contextual information, which makes it difficult to find and analyze sensors quickly. The main motivation for Time Series Model is to simplify finding and analyzing IoT data. It achieves this objective by enabling the curation, maintenance, and enrichment of time series data to help prepare consumer-ready datasets. 
+Traditionally, the data that's collected from IoT devices lacks contextual information, which makes it difficult to find and analyze sensors quickly. The main motivation for Time Series Model is to simplify finding and analyzing IoT data. It achieves this objective by enabling the curation, maintenance, and enrichment of time series data to help prepare consumer-ready datasets.
 
 Time Series Models play a vital role in queries and navigation because they contextualize device and non-device entities. Data that's persisted in Time Series Model powers time-series query computations by taking advantage of the formulas stored in them.
 
-![tsm][1]
+[![Time Series Model overview](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## Key capabilities
 
 With the goal to make it simple and effortless to manage time series contextualization, Time Series Model enables the following capabilities in Time Series Insights Preview. It helps you:
 
 * Author and manage computations or formulas, transform data leveraging scalar functions, aggregate operations, and so on.
-
 * Define parent-child relationships to enable navigation and reference and provide context to time series telemetry.
-
 * Define properties that are associated with the instances part of *instance fields* and use them to create hierarchies.
 
-## Times Series Model key components
+## Entity components
 
-Time Series Model has three major components:
+Time Series Models have three core components:
 
-* Time Series Model *types*
-* Time Series Model *hierarchies*
-* Time Series Model *instances*
+* <a href="#time-series-model-types">Time Series Model types</a>
+* <a href="#time-series-model-hierarchies">Time Series Model hierarchies</a>
+* <a href="#time-series-model-instances">Time Series Model instances</a>
+
+These components are combined to specify a Time Series Model and to organize your Azure Time Series Insights data.
 
 ## Time Series Model types
 
 Time Series Model *types* help you define variables or formulas for doing computations. The types are associated with a specific Time Series Insights instance. A type can have one or more variables. For example, a Time Series Insights instance might be of type *Temperature Sensor*, which consists of the variables *avg temperature*, *min temperature*, and *max temperature*. We create a default type when the data starts flowing into Time Series Insights. The default type can be retrieved and updated from model settings. Default types have a variable that counts the number of events.
 
-## Time Series Model type JSON example
+### Time Series Model type JSON example
 
 Sample:
 
@@ -71,32 +71,20 @@ Sample:
 
 For more information about Time Series Model types, see the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-## Variables
+### Variables
 
 Time Series Insights types have variables, which are named calculations over values from the events. Time Series Insights variable definitions contain formula and computation rules. Variable definitions include *kind*, *value*, *filter*, *reduction*, and *boundaries*. Variables are stored in the type definition in Time Series Model and can be provided inline via Query APIs to override the stored definition.
 
 The following matrix works as a legend for variable definitions:
 
-![table][2]
+[![Type variable definition table](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-### Variable kind
-
-The following variable kinds are supported:
-
-* *Numeric*
-* *Aggregate*
-
-### Variable filter
-
-Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions.
-
-### Variable value
-
-Variable values are and should be used in computation. This is the column in the events that we should refer to.
-
-### Variable aggregation
-
-The aggregate function of the variable enables part of computation. Time Series Insights supports regular aggregates (namely, *min*, *max*, *avg*, *sum*, and *count*).
+| Definition | Description |
+| --- | ---|
+| Variable kind |  *Numeric* and *Aggregate* kinds are supported |
+| Variable filter | Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions. |
+| Variable value | Variable values are and should be used in computation. The relevant field to refer to for the data point in question. |
+| Variable aggregation | The aggregate function of the variable enables part of computation. Time Series Insights supports regular aggregates (namely, *min*, *max*, *avg*, *sum*, and *count*). |
 
 ## Time Series Model hierarchies
 
@@ -141,7 +129,7 @@ Depending on the *instance fields*, the hierarchy attributes and values appear a
 | ID4 | “building” = “1000”, “floor” = “10”  |
 | ID5 | None of “building”, “floor” or “room” is set |
 
-In the preceding example, ID1 and ID4 shows as part of hierarchy H1 in the Azure Time Series Insights explorer, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
+In the preceding example, **ID1** and **ID4** show as part of hierarchy H1 in the Azure Time Series Insights explorer, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
 
 ## Time Series Model instances
 
@@ -151,9 +139,9 @@ Instances are defined by *typeId*, *timeSeriesId*, *name*, *description*, *hiera
 
 *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
 
-The *name* property is optional and case sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer). 
+The *name* property is optional and case-sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer).
 
-## Time Series Model instance JSON example
+### Time Series Model instance JSON example
 
 Sample:
 
@@ -175,7 +163,7 @@ Sample:
 
 For more information about Time Series Model instances, see the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
-## Time Series Model settings example
+### Time Series Model settings example
 
 Sample:
 
@@ -198,10 +186,6 @@ For more information about Time Series Model settings, see the [Reference docume
 
 ## Next steps
 
-See [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
+- See [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-See the new [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
-
-<!-- Images -->
-[1]: media/v2-update-tsm/tsm.png
-[2]: media/v2-update-tsm/table.png
+- See the new [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).

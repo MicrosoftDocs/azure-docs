@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
-ms.date: 10/05/2018
+ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
 ---

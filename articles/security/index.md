@@ -10,7 +10,7 @@ ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/16/2019
+ms.date: 06/11/2019
 ms.author: angrobe
 ---
 # Azure Security Documentation
@@ -64,7 +64,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-infrastructure">
+        <a href="/azure/security/fundamentals/infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -116,12 +116,12 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-log-audit">
+        <a href="/azure/security/develop">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">What monitoring and logging options are available in Azure?</p>
+                            <p style="font-size: 1.12rem;">Develop and deploy secure applications</p>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-encryption-atrest">
+        <a href="/azure/security/fundamentals/encryption-atrest">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -162,6 +162,23 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_code-samples.svg" alt="" /></div>
+                        <h3>Developers</h3>
+                        <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/develop/secure-dev-overview">Secure development best practices</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li style="list-style: none;">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_article.svg" alt="" /></div>
 					    <h3>White papers</h3>
                         <ul class="noBullet">
@@ -169,13 +186,13 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
                             	<a class="barLink" href="https://aka.ms/SecurityResponsepaper">Azure security response in the cloud</a>
                             </li>
 			                <li style="list-style: none;">
-                            	<a class="barLink" href="/azure/security/azure-threat-detection">Azure advanced threat detection</a>
+                            	<a class="barLink" href="/azure/security/fundamentals/threat-detection">Azure advanced threat detection</a>
                             </li>
 			                <li style="list-style: none;">
-                            	<a class="barLink" href="/azure/security/abstract-azure-network-security">Azure network security</a>
+                            	<a class="barLink" href="/azure/security/fundamentals/abstract-network-security>Azure network security"</a>
                             </li>
                             <li style="list-style: none;">
-                            	<a class="barLink" href="/azure/security/abstract-develop-secure-apps">Develop secure applications on Azure</a>
+                            	<a class="barLink" href="/azure/security/fundamentals/abstract-develop-secure-apps">Develop secure applications on Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -195,25 +212,25 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
                                 <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Security best practices for Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Network security</a>
+                                <a class="barLink" href="/azure/security/fundamentals/network-best-practices">Network security</a>
                             </li>
 						    <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-data-encryption-best-practices">Data security</a>
+                                <a class="barLink" href="/azure/security/fundamentals/data-encryption-best-practices">Data security</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-best-practices-vms">Virtual machine security</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-identity-management-best-practices">Identity and access</a>
+                                <a class="barLink" href="/azure/security/fundamentals/identity-management-best-practices">Identity and access</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-iaas">IaaS security</a>
+                                <a class="barLink" href="/azure/security/fundamentals/iaas">IaaS security</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/security-paas-deployments">Secure PaaS deployments</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-global-admin">Secure Azure Admin accounts</a>
+                                <a class="barLink" href="/azure/security/fundamentals/global-admin">Secure Azure Admin accounts</a>
                             </li>
                         </ul>
                     </div>
@@ -221,29 +238,6 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
             </div>
         </div>
     </li>
-    <li style="list-style: none;">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardText">
-                     <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_tasks.svg" alt="" /></div>
-					 <h3>Checklists</h3>
-                     <ul class="noBullet">
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/azure-database-security-checklist">Securing databases</a>
-                        </li>
-						<li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/azure-operational-security-checklist">Operational security</a>
-                        </li>
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/azure-service-fabric-security-checklist">Service Fabric security</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</li>
 </ul>
 
 <ul class="cardsFTitle panelContent">
@@ -380,7 +374,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-cyber-services">
+        <a href="/azure/security/fundamentals/cyber-services">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -393,7 +387,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-pen-testing">
+        <a href="/azure/security/fundamentals/pen-testing">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

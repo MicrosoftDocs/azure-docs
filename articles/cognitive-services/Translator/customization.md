@@ -1,15 +1,15 @@
 ---
 title: Translation Customization - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Microsoft Translator Hub to build your own machine translation system using your preferred terminology and style.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Customize your text translations
@@ -38,7 +38,7 @@ More details about the various levels of customization based on available data c
 ## Microsoft Translator Hub
 
 > [!NOTE]
-> The legacy Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
+> The legacy Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
 
 ## Custom Translator versus Hub
 
@@ -55,8 +55,6 @@ More details about the various levels of customization based on available data c
 
 > [!NOTE]
 > As of February 1, 2018, AddTranslation() and AddTranslationArray() are no longer available for use with the Translator Text API V2.0. These methods will fail and nothing will be written. The Translator Text API V3.0 does not support these methods.
-> 
-> Similar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 ## Next steps
 

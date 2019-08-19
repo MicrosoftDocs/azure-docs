@@ -1,22 +1,13 @@
 ---
-title: How to fill out the Offer Settings form | Microsoft Docs
+title: How to fill out the Offer Settings form  | Azure Marketplace
 description: Explains the various fields that require values in the Offer Settings form for a new Dynamics 365 Business Central application.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 How to fill out the Offer Settings form
 =======================================

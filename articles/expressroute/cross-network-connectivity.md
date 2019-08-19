@@ -116,7 +116,7 @@ The following table shows the route table of the private peering of the ExpressR
 
 See [virtual network FAQ][VNet-FAQ], for any further questions on VNet and VNet-peering. See [ExpressRoute FAQ][ER-FAQ] for any further questions on ExpressRoute and virtual network connectivity.
 
-Global Reach is rolled out on a country by country basis. To see if Global Reach is available in the countries that you want, see [ExpressRoute Global Reach][Global Reach].
+Global Reach is rolled out on a country/region by country/region basis. To see if Global Reach is available in the countries/regions that you want, see [ExpressRoute Global Reach][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "The Application scenario"

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Zscaler Three, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Zscaler Three single sign-on enabled subscription
 
 ## Scenario description
@@ -106,7 +106,7 @@ To configure Azure AD single sign-on with Zscaler Three, perform the following s
     In the **Sign-on URL** text box, type a URL:
     `https://login.zscalerthree.net/sfc_sso`
 
-5. Your Zscaler Three application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+5. Your Zscaler Three application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -151,9 +151,17 @@ To configure Azure AD single sign-on with Zscaler Three, perform the following s
 
 ### Configure Zscaler Three Single Sign-On
 
-1. In a different web browser window, sign in to your Zscaler Three company site as an administrator.
+1. To automate the configuration within Zscaler Three, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup Zscaler Three** will direct you to the Zscaler Three application. From there, provide the admin credentials to sign into Zscaler Three. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup sso](common/setup-sso.png)
+
+3. If you want to setup Zscaler Three manually, open a new web browser window and sign into your Zscaler Three company site as an administrator and perform the following steps:
+
+4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
 	![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
@@ -161,7 +169,7 @@ To configure Azure AD single sign-on with Zscaler Three, perform the following s
 
 	b. Click **Configure SAML**.
 
-3. On the **Edit SAML** window, perform the following steps: and click Save.  
+5. On the **Edit SAML** window, perform the following steps: and click Save.  
    			
 	![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
 	
@@ -181,7 +189,7 @@ To configure Azure AD single sign-on with Zscaler Three, perform the following s
 
 	h. Click **Save**.
 
-4. On the **Configure User Authentication** dialog page, perform the following steps:
+6. On the **Configure User Authentication** dialog page, perform the following steps:
 
 	![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
@@ -238,7 +246,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -295,5 +303,5 @@ When you click the Zscaler Three tile in the Access Panel, you should be automat
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -59,7 +59,7 @@ Navigate to `iOS/Objective-C/`.
 cd ./iOS/Objective-C/
 ```
 
-***
+---
 
 Run `pod install --repo-update` to install the CocoaPods for the project.
 
@@ -77,7 +77,7 @@ open ./SampleSwift.xcworkspace
 open ./SampleObjC.xcworkspace
 ```
 
-***
+---
 
 ## Configure account identifier and key
 
@@ -85,21 +85,21 @@ The next step is to configure the app to use your account identifier and account
 
 # [Swift](#tab/openproject-swift)
 
-Open `iOS/Swift/SampleSwift/ViewController.swift`.
+Open `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+Locate the `spatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+Locate the `spatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
 # [Objective-C](#tab/openproject-objc)
 
-Open `iOS/Objective-C/SampleObjC/ViewController.m`.
+Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-***
+---
 
 ## Deploy the app to your iOS device
 

@@ -4,7 +4,7 @@ description: Automate Linux VM configuration tasks by using the Custom Script Ex
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -72,7 +72,7 @@ These items should be treated as sensitive data and specified in the extensions 
 ```json
 {
   "name": "config-app",
-  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "type": "Extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -110,7 +110,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (e.g) | python MyPythonScript.py <my-param1> | string |
+| commandToExecute (e.g) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (e.g) | false | boolean |
 | timestamp  (e.g) | 123456789 | 32-bit integer |

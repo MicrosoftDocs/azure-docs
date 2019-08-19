@@ -1,16 +1,19 @@
 ---
-title: Manage read replicas for Azure Database for PostgreSQL from the Azure portal
-description: Learn how to manage Azure Database for PostgreSQL read replicas from the Azure portal.
+title: Manage read replicas for Azure Database for PostgreSQL - Single Server from the Azure portal
+description: Learn how to manage read replicas Azure Database for PostgreSQL - Single Server from the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 5/6/2019
 ---
 
-# Create and manage read replicas from the Azure portal
+# Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
+
+> [!IMPORTANT]
+> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 
 ## Prerequisites
@@ -53,9 +56,15 @@ To create a read replica, follow these steps:
 
    ![Add a replica](./media/howto-read-replicas-portal/add-replica.png)
 
-4. Enter a name for the read replica. Select **OK** to confirm the creation of the replica.
+4. Enter a name for the read replica. 
 
-   ![Name the replica](./media/howto-read-replicas-portal/name-replica.png) 
+    ![Name the replica](./media/howto-read-replicas-portal/name-replica.png)
+
+5. Select a location for the replica. You can create a replica in any Azure region. The default location is the same as the master server's.
+
+    ![Select a location](./media/howto-read-replicas-portal/location-replica.png)
+
+6. Select **OK** to confirm the creation of the replica.
 
 A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 

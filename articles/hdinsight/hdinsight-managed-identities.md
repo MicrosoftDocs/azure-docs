@@ -1,7 +1,6 @@
 ---
 title: Managed identities in Azure HDInsight
 description: Provides an overview of the implementation of managed identities in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -36,7 +35,7 @@ The remaining steps for configuring the managed identity depend on the scenario 
 
 Managed identities are used in Azure HDInsight in multiple scenarios. See the related documents for detailed setup and configuration instructions:
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 

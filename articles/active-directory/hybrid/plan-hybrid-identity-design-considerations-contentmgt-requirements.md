@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -23,7 +23,7 @@ Understanding the content management requirements for your business may direct a
 
 Your identity solution will be leveraged by different technical controls in order to provide content management as shown in the figure below:
 
-![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![security controls](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Security controls that will be leveraging your identity management system**
 

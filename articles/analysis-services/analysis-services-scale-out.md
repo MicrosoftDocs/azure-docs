@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -34,25 +34,27 @@ While an automatic synchronization is performed only when you scale-out a server
 
 When performing a subsequent scale-out operation, for example, increasing the number of replicas in the query pool from two to five, the new replicas are hydrated with data from the second set of files in blob storage. There is no synchronization. If you were to then perform a synchronization after scaling out, the new replicas in the query pool would be hydrated twice - a redundant hydration. When performing a subsequent scale-out operation, it's important to keep in mind:
 
-* Perform a synchronization *before the scale-out operation* to avoid redundant hydration of the added replicas.
+* Perform a synchronization *before the scale-out operation* to avoid redundant hydration of the added replicas. Concurrent synchronization and scale-out operations running at the same time are not allowed.
 
 * When automating both processing *and* scale-out operations, it's important to first process data on the primary server, then perform a synchronization, and then perform the scale-out operation. This sequence assures minimal impact on QPU and memory resources.
 
 * Synchronization is allowed even when there are no replicas in the query pool. If you are scaling out from zero to one or more replicas with new data from a processing operation on the primary server, perform the synchronization first with no replicas in the query pool, and then scale-out. Synchronizing before scaling out avoids redundant hydration of the newly added replicas.
 
-* When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell command that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool.
+* When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell command that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool. To determine if a model database exists on replicas in the query pool but not on the primary server, ensure the **Separate the processing server from querying pool** setting is to **Yes**. Then use SSMS to connect to the primary server using the `:rw` qualifier to see if the database exists. Then connect to replicas in the query pool by connecting without the `:rw` qualifier to see if the same database also exists. If the database exists on replicas in the query pool but not on the primary server, run a sync operation.   
 
 * When renaming a database on the primary server, there's an additional step necessary to ensure the database is properly synchronized to any replicas. After renaming, perform a synchronization by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) command specifying the `-Database` parameter with the old database name. This synchronization removes the database and files with the old name from any replicas. Then perform another synchronization specifying the `-Database` parameter with the new database name. The second synchronization copies the newly named database to the second set of files and hydrates any replicas. These synchronizations cannot be performed by using the Synchronize model command in the portal.
 
 ### Separate processing from query pool
 
-For maximum performance for both processing and query operations, you can choose to separate your processing server from the query pool. When separated, existing and new client connections are assigned to query replicas in the query pool only. If processing operations only take up a short amount of time, you can choose to separate your processing server from the query pool only for the amount of time it takes to perform processing and synchronization operations, and then include it back into the query pool. 
+For maximum performance for both processing and query operations, you can choose to separate your processing server from the query pool. When separated, new client connections are assigned to query replicas in the query pool only. If processing operations only take up a short amount of time, you can choose to separate your processing server from the query pool only for the amount of time it takes to perform processing and synchronization operations, and then include it back into the query pool. When separating the processing server from the query pool, or adding it back into the query pool can take up to five minutes for the operation to complete.
 
 ## Monitor QPU usage
 
 To determine if scale-out for your server is necessary, monitor your server in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
 
 Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with that of the query pool. 
+
+![Query scale out metrics](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### To configure QPU by ServerResourceType
 1. In a Metrics line chart, click **Add metric**. 
@@ -66,7 +68,7 @@ To learn more, see [Monitor server metrics](analysis-services-monitor.md).
 
 ### In Azure portal
 
-1. In the portal, click **Scale-out**. Use the slider to select the number of query replica servers. The number of replicas you choose is in addition to your existing server.
+1. In the portal, click **Scale-out**. Use the slider to select the number of query replica servers. The number of replicas you choose is in addition to your existing server.  
 
 2. In **Separate the processing server from the querying pool**, select yes to exclude your processing server from query servers. Client [connections](#connections) using the default connection string (without `:rw`) are redirected to replicas in the query pool. 
 
@@ -124,6 +126,8 @@ To set the number of query replicas, use [Set-AzAnalysisServicesServer](https://
 
 To separate the processing server from the query pool, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-DefaultConnectionMode` parameter to use `Readonly`.
 
+To learn more, see [Using a service principal with the Az.AnalysisServices module](analysis-services-service-principal.md#azmodule).
+
 ## Connections
 
 On your server's Overview page, there are two server names. If you haven't yet configured scale-out for a server, both server names work the same. Once you configure scale-out for a server, you need to specify the appropriate server name depending on the connection type. 
@@ -134,11 +138,17 @@ For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and A
 
 ![Server names](media/analysis-services-scale-out/aas-scale-out-name.png)
 
+## Scale-up, Scale-down vs. Scale-out
+
+You can change the pricing tier on a server with multiple replicas. The same pricing tier applies to all replicas. A scale operation will first bring down all replicas all at once then bring up all replicas on the new pricing tier.
+
 ## Troubleshoot
 
 **Issue:** Users get error **Cannot find server '\<Name of the server>' instance in connection mode 'ReadOnly'.**
 
 **Solution:** When selecting the **Separate the processing server from the querying pool** option, client connections using the default connection string (without `:rw`) are redirected to query pool replicas. If replicas in the query pool are not yet online because synchronization has not yet been completed, redirected client connections can fail. To prevent failed connections, there must be at least two servers in the query pool when performing a synchronization. Each server is synchronized individually while others remain online. If you choose to not have the processing server in the query pool during processing, you can choose to remove it from the pool for processing, and then add it back into the pool after processing is complete, but prior to synchronization. Use Memory and QPU metrics to monitor synchronization status.
+
+
 
 ## Related information
 

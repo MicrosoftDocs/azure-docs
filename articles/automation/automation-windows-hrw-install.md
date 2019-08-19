@@ -4,9 +4,9 @@ description: This article provides information on installing an Azure Automation
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 09/17/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -54,8 +54,10 @@ Perform the following steps to automate the installation and configuration of th
    * *SubscriptionID* (mandatory): The Azure subscription ID that your Automation account is in.
    * *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
 
-     > [!NOTE]
-     > Currently, the only Automation regions supported for integration with Azure Monitor logs are **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but warns you that it can't link them together.
+   > [!NOTE]
+   > When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+   >
+   > For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 2. On your computer, open **Windows PowerShell** from the **Start** screen in Administrator mode.
 3. From the PowerShell command-line shell, browse to the folder that contains the script that you downloaded. Change the values for the parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*. Then run the script.
@@ -85,9 +87,13 @@ If you don't already have a Log Analytics workspace, create one by using the ins
 
 #### 2. Add the Automation solution to the Log Analytics workspace
 
-Solutions add functionality to Azure Monitor logs. The Automation solution adds functionality for Azure Automation, including support for Hybrid Runbook Worker. When you add the solution to your workspace, it automatically pushes worker components to the agent computer that you will install in the next step.
+The Automation Azure Monitor logs solution adds functionality for Azure Automation, including support for Hybrid Runbook Worker. When you add the solution to your workspace, it automatically pushes worker components to the agent computer that you will install in the next step.
 
-To add the **Automation** solution to your Log Analytics workspace, follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics/log-analytics-add-solutions.md).
+To add the **Automation** Azure Monitor logs solution to your workspace, run the following PowerShell.
+
+```powershell-interactive
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+```
 
 #### 3. Install the Microsoft Monitoring Agent
 

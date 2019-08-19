@@ -3,6 +3,7 @@ title: Use a starting command line in Azure Container Instances
 description: Override the entrypoint configured in a container image when you deploy an Azure container instance
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -18,9 +19,17 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 ## Command line guidelines
 
-* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. 
+* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. The process can specify additional parameters or arguments.
 
-* To execute multiple commands, begin your command line by setting a shell environment in the container operating system (examples: `bin/sh`, `/bin/bash`, `cmd`). Follow the conventions of the shell to combine multiple commands to run in sequence.
+* To execute multiple commands, begin your command line by setting a shell environment that is supported in the container operating system. Examples:
+
+  |Operating system  |Default shell  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  |Windows     |    `cmd`     |
+
+  Follow the conventions of the shell to combine multiple commands to run in sequence.
 
 * Depending on the container configuration, you might need to set a full path to the command line executable or arguments.
 
@@ -59,7 +68,7 @@ To see the output of the [microsoft/aci-wordcount][aci-wordcount] container when
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --environment-variables NumWords=3 MinLength=5 \
     --restart-policy OnFailure
 ```
@@ -84,7 +93,7 @@ For example, to determine the top 3 words that are at least five letters long in
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -107,7 +116,7 @@ Output:
 Task-based scenarios, such as batch processing a large dataset with several containers, can benefit from custom command lines at runtime. For more information about running task-based containers, see [Run containerized tasks with restart policies](container-instances-restart-policy.md).
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

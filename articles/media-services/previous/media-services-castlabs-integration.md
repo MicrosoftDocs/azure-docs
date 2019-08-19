@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: Mingfeiy;willzhan;Juliako
+ms.author: Juliako
+ms.reviewer: willzhan
 
 ---
 # Using castLabs to deliver Widevine licenses to Azure Media Services 
@@ -28,7 +29,7 @@ ms.author: Mingfeiy;willzhan;Juliako
 
 This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by **castLabs** license server.
 
-To play back streaming content protected by CENC (PlayReady and/or Widevine), you can use  [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). See [AMP document](https://amp.azure.net/libs/amp/latest/docs/) for details.
+To play back streaming content protected by CENC (PlayReady and/or Widevine), you can use  [Azure Media Player](https://aka.ms/azuremediaplayer). See [AMP document](https://amp.azure.net/libs/amp/latest/docs/) for details.
 
 The following diagram demonstrates a high-level Azure Media Services and castLabs integration architecture.
 
@@ -97,10 +98,10 @@ To use the Web Application (STS):
 
 ## Playing back a video
 
-To play back a video encrypted with common encryption (PlayReady and/or Widevine), you can use the [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). When running the console app, the Content Key ID and the Manifest URL are echoed.
+To play back a video encrypted with common encryption (PlayReady and/or Widevine), you can use the [Azure Media Player](https://aka.ms/azuremediaplayer). When running the console app, the Content Key ID and the Manifest URL are echoed.
 
 1. Open a new tab and launch your STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
-2. Go to [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Go to [Azure Media Player](https://aka.ms/azuremediaplayer).
 3. Paste in the streaming URL.
 4. Click the **Advanced Options** checkbox.
 5. In the **Protection** dropdown, select PlayReady and/or Widevine.

@@ -1,5 +1,5 @@
 ---
-title: v1 to v2 API Migration  
+title: v1 to v2 API Migration
 titleSuffix: Azure Cognitive Services
 description: The version 1 endpoint and authoring Language Understanding APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
 services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ---
 
 # API v1 to v2 Migration guide for LUIS apps
-The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
 
 ## New Azure regions
 LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different portal for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
@@ -164,6 +164,6 @@ See [LUIS API response codes](luis-reference-response-codes.md).
 
 ## Next steps
 
-Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -3,9 +3,9 @@ title: Manage Azure Service Fabric Mesh Application Secrets | Microsoft Docs
 description: Manage application Secrets so you can securely create and deploy a Service Fabric Mesh application.
 services: service-fabric-mesh
 keywords: secrets
-author: aljo-microsoft
-ms.author: aljo
-ms.date: 11/28/2018
+author: athinanthny
+ms.author: atsenthi
+ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
@@ -27,37 +27,42 @@ Managing Secrets consists of the following steps:
 5. Use Azure "az" CLI commands for Secure Store Service lifecycle management.
 
 ## Declare a Mesh Secrets resource
-A Mesh Secrets resource is declared in an Azure Resource Model JSON or YAML file using inlinedValue kind and SecretsStoreRef contentType definitions. The Mesh Secrets resource supports Secure Store Service sourced secrets. 
+A Mesh Secrets resource is declared in an Azure Resource Model JSON or YAML file using inlinedValue kind definition. The Mesh Secrets resource supports Secure Store Service sourced secrets. 
 >
 The following is an example of how to declare Mesh Secrets resources in a JSON file:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
-    },
+    }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
       "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
-    },
+    }
   ]
 }
 ```
@@ -99,49 +104,49 @@ The following is an example of how to declare Mesh Secrets/Values resources in a
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
-      }
-    },
-    "my-secret-value-v1": {
-      "type": "string",
-      "metadata": {
-        "description": "My Mesh Application Secret Value."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
     }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
+      "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
     },
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "mysecret:1.0",
+      "name": "sfbpHttpsCertificate.pfx/2019.02.28",
       "type": "Microsoft.ServiceFabricMesh/secrets/values",
       "location": "[parameters('location')]",
       "dependsOn": [
-        'Microsoft.ServiceFabricMesh/secrets/MySecret.txt'
+        "Microsoft.ServiceFabricMesh/secrets/sfbpHttpsCertificate.pfx"
       ],
       "properties": {
-        "value": "[parameters('my-secret-value-v1)]"
+        "value": "[parameters('sfbpHttpsCertificate')]"
       }
     }
-  ]
+  ],
 }
 ```
 The following is an example of how to declare Mesh Secrets/Values resources in a YAML file:
@@ -199,7 +204,7 @@ Pass either **template-file** or **template-uri** (but not both).
 
 For example:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az mesh deployment create --https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az mesh deployment create --https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### Show a Secret
 Returns the description of the secret (but not the value).

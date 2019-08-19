@@ -1,10 +1,10 @@
 ---
-title: Problems signing in to an Azure AD Gallery application configured for password single sign-on | Microsoft Docs
-description: Discusses problem areas that provide guidance to troubleshoot issues related to signing in to Azure AD Gallery applications configured for password single sign-on
+title: Password-based single sign-on (SSO) in Access Panel | Microsoft Docs
+description: Discusses problem areas that provide guidance to troubleshoot issues related to signing in to Azure AD Gallery applications configured for password single sign-on.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 
 ms.collection: M365-identity-device-management

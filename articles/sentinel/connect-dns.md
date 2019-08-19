@@ -4,16 +4,17 @@ description: Learn how to connect DNS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
 
 ---
@@ -33,21 +34,33 @@ When you enable DNS log connection you can:
 - View request load on DNS servers
 - View dynamic DNS registration failures
 
-## How it works
+## Connected sources
 
-DNS connection is accomplished by installing an agent on the DNS machine. The agent pulls events from the DNS and passes them to Log Analytics.
+The following table describes the connected sources that are supported by this solution:
+
+| **Connected source** | **Support** | **Description** |
+| --- | --- | --- |
+| [Windows agents](../azure-monitor/platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
+| [Linux agents](../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [System Center Operations Manager management group](../azure-monitor/platform/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
+| [Azure storage account](../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure storage isn't used by the solution. |
+
+### Data collection details
+
+The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](https://technet.microsoft.com/library/dn800669.aspx#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
+
 
 ## Connect your DNS appliance
 
 1. In the Azure Sentinel portal, select **Data connectors** and choose the **DNS** tile.
 1. If your DNS machines are in Azure:
-    1. Click **Download & install agent for Windows virtual machines**.
+    1. Click **Install agent on Azure Windows virtual machine**.
     1. In the **Virtual machines** list, select the DNS machine you want to stream into Azure Sentinel. Make sure this is a Windows VM.
     1. In the window that opens for that VM, click **Connect**.  
     1. Click **Enable** in the **DNS connector** window. 
 
 2. If your DNS machine is not an Azure VM:
-    1. Click **Download & install agent for Windows non-Azure machines**.
+    1. Click **Install agent on non-Azure machines**.
     1. In the **Direct agent** window, select either **Download Windows agent (64 bit)** or **Download Windows agent (32 bit)**.
     1. Install the agent on your DNS machine. Copy the **Workspace ID**, **Primary key**, and **Secondary key** and use them when prompted during the installation.
 

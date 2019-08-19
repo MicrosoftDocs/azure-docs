@@ -4,7 +4,7 @@ description: Learn to manage return values for Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.devlang: multiple

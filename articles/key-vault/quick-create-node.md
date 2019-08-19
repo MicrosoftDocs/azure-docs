@@ -2,12 +2,10 @@
 title: Quickstart - Set and retrieve a secret from Azure Key Vault by using a Node web app | Microsoft Docs
 description: In this quickstart, you set and retrieve a secret from Azure Key Vault by using a Node web app 
 services: key-vault
-documentationcenter: 
-author: prashanthyv
+author: msmbaldwin
 manager: sumedhb
 
 ms.service: key-vault
-ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
@@ -23,7 +21,7 @@ This quickstart shows you how to store a secret in Azure Key Vault and how to re
 * Store a secret in the key vault.
 * Retrieve a secret from the key vault.
 * Create an Azure web application.
-* Enable a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for the web app.
+* Enable a [managed identity](../active-directory/managed-service-identity/overview.md) for the web app.
 * Grant the required permissions for the web application to read data from the key vault.
 
 Before you proceed, make sure that you're familiar with the [basic concepts for Key Vault](key-vault-whatis.md#basic-concepts).

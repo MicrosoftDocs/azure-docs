@@ -1,14 +1,15 @@
 ---
 title: Copy data into Azure Data Lake Storage Gen2 using DistCp| Microsoft Docs
 description: Use DistCp tool to copy data to and from Data Lake Storage Gen2
-services: storage
-author: seguler
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: stewu
 ---
+
 # Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2
 
 You can use [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) to copy data between a general purpose V2 storage account and a general purpose V2 storage account with hierarchical namespace enabled. This article provides instructions on how use the DistCp tool.
@@ -59,7 +60,7 @@ Because DistCp’s lowest granularity is a single file, setting the maximum numb
 
 **Example**
 
-	hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
+	hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
 ### How do I determine the number of mappers to use?
 

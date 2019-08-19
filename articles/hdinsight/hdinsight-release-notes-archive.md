@@ -1,7 +1,6 @@
 ---
-title: Release notes for Azure HDInsight 
+title: Archived release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,7 +9,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ---
-# Release notes for Azure HDInsight
+# Archived release notes
 
 > [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).

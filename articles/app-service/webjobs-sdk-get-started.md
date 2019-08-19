@@ -19,23 +19,23 @@ ms.author: glenga
 
 # Get started with the Azure WebJobs SDK for event-driven background processing
 
-This article shows how to use Visual Studio 2017 to create an Azure WebJobs SDK project, run it locally, and then deploy it to [Azure App Service](overview.md). The project you create is a .NET Core console app, which uses version 3.x of the WebJobs SDK. If you are interested in version 2.x, which uses the .NET Framework, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+This article shows how to use Visual Studio 2019 to create an Azure WebJobs SDK project, run it locally, and then deploy it to [Azure App Service](overview.md). Version 3.x of the WebJobs SDK supports both .NET Core and .NET Framework console apps. To learn more about working with the WebJobs SDK, see [How to use the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-how-to.md).
 
-To learn more about working with the WebJobs SDK, see [How to use the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-how-to.md).
+This article shows you how to deploy WebJobs as a .NET Core console app. To deploy WebJobs as a .NET Framework console app, see [WebJobs as .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). If you are interested in WebJobs SDK version 2.x, which only supports .NET Framework, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## Prerequisites
 
-* [Install Visual Studio 2017](/visualstudio/install/) with the **Azure development** workload. If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**.
+* [Install Visual Studio 2019](/visualstudio/install/) with the **Azure development** workload. If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**.
 
 * You must have [an Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) to publish your WebJobs SDK project to Azure.
 
 ## Create a project
 
-1. In Visual Studio, select **File > New > Project**.
+1. In Visual Studio, select **Create a New Project**.
 
-2. Select **.NET Core > Console App (.NET Core)**.
+2. Select **Console App (.NET Core)**.
 
-3. Name the project *WebJobsSDKSample*, and then select **OK**.
+3. Name the project *WebJobsSDKSample*, and then select **Create**.
 
    ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -192,7 +192,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
    The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
 
-   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
+   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
 ## Create a storage account
 
@@ -367,7 +367,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 To take advantage of [Application Insights](../azure-monitor/app/app-insights-overview.md) logging, update your logging code to do the following:
 
 * Add an Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering); all Information and higher-level logs goes to both the console and Application Insights when you're running locally.
-* Put the `LoggerFactory` object in a `using` block to ensure that log output is flushed when the host exits.
+* Put the [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) object in a `using` block to ensure that log output is flushed when the host exits.
 
 1. Install the latest stable 3.x version of the NuGet package for the Application Insights logging provider:  `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 

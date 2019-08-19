@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Moderate Facebook content - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
 author: PatrickFarley
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As the moderator of a Facebook page, I want to use Azure's machine learning technology to automate and streamline the process of post moderation.
 ---
@@ -25,11 +25,14 @@ This tutorial shows you how to:
 > * Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
 > * Link a Facebook page to Content Moderator using a Facebook application.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 This diagram illustrates each component of this scenario:
 
 ![Diagram of Content Moderator receiving information from Facebook through "FBListener" and sending information through "CMListener"](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> In 2018, Facebook implemented a more strict vetting of Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
 
 ## Prerequisites
 
@@ -42,11 +45,11 @@ Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for i
 
 ## Configure image moderation workflow
 
-Refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide to create a custom image workflow. This will allow Content Moderator to automatically check images on Facebook and send some to the Review tool. Take note of the workflow **name**.
+Refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide to create a custom image workflow. Content Moderator will use this workflow to automatically check images on Facebook and send some to the Review tool. Take note of the workflow **name**.
 
 ## Configure text moderation workflow
 
-Again, refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide; this time create a custom text workflow. This will allow Content Moderator to automatically check text content. Take note of the workflow **name**.
+Again, refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide; this time, create a custom text workflow. Content Moderator will use this workflow to automatically check text content. Take note of the workflow **name**.
 
 ![Configure Text Workflow](images/text-workflow-configure.PNG)
 
@@ -56,68 +59,71 @@ Test your workflow using the **Execute Workflow** button.
 
 ## Create Azure Functions
 
-Sign in to the [Azure Portal](https://portal.azure.com/) and follow these steps:
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
 
 1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
-2. Go to the newly created Function App.
-3. Within the App, go to the **Platform features** tab and select **Application settings**. In the **Application settings** section of the next page, scroll to the bottom of the list and click **Add new setting**. Add the following key/value pairs
+1. Go to the newly created Function App.
+1. Within the App, go to the **Platform features** tab and select **Configuration**. In the **Application settings** section of the next page, select **New application setting** to add the following key/value pairs:
     
     | App Setting name | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | Your Content Moderator TeamId  | 
-    | cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) | 
-    | cm:Region | Your Content Moderator region name, without the spaces. See preceding note. |
+    | cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) |
+    | cm:Region | Your Content Moderator region name, without the spaces. |
     | cm:ImageWorkflow | Name of the workflow to run on Images |
     | cm:TextWorkflow | Name of the workflow to run on Text |
-    | cm:CallbackEndpoint | Url for the CMListener Function App that you create later in this guide |
-    | fb:VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
-    | fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
+    | cm:CallbackEndpoint | Url for the CMListener Function App that you will create later in this guide |
+    | fb:VerificationToken | A secret token that you create, used to subscribe to the Facebook feed events |
+    | fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. You will get this token at a later step. |
 
     Click the **Save** button at the top of the page.
 
-1. Using the **+** button on the left pane, to bring up the New function pane.
+1. Go back to the **Platform features** tab. Use the **+** button on the left pane to bring up the **New function** pane. The function you are about to create will receive events from Facebook.
 
     ![Azure Functions pane with the Add Function button highlighted.](images/new-function.png)
-
-    Then click **+ New function** at the top of the page. This function receives events from Facebook. Create this function by following these steps:
 
     1. Click on the tile that says **Http trigger**.
     1. Enter the name **FBListener**. The **Authorization Level** field should be set to **Function**.
     1. Click **Create**.
     1. Replace the contents of the **run.csx** with the contents from **FbListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
 1. Create a new **Http trigger** function named **CMListener**. This function receives events from Content Moderator. Replace the contents of the **run.csx** with the contents from **CMListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
 ---
 
 ## Configure the Facebook page and App
+
 1. Create a Facebook App.
 
     ![facebook developer page](images/facebook-developer-app.png)
 
     1. Navigate to the [Facebook developer site](https://developers.facebook.com/)
-    2. Click on **My Apps**.
-    3. Add a New App.
+    1. Click on **My Apps**.
+    1. Add a New App.
     1. name it something
     1. Select **Webhooks -> Set Up**
     1. Select **Page** in the dropdown menu and select **Subscribe to this object**
     1. Provide the **FBListener Url** as the Callback URL and the **Verify Token** you configured under the **Function App Settings**
     1. Once subscribed, scroll down to feed and select **subscribe**.
+    1. Click on the **Test** button of the **feed** row to send a test message to your FBListener Azure Function, then hit the **Send to My Server** button. You should see the request being received on your FBListener.
 
-2. Create a Facebook Page.
+1. Create a Facebook Page.
+
+    > [!IMPORTANT]
+    > In 2018, Facebook implemented a more strict vetting of Facebook apps. You will not be able to execute sections 2, 3 and 4 if your app has not been reviewed and approved by the Facebook review team.
 
     1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a **new Facebook Page**.
-    2. Allow the Facebook App to access this page by following these steps:
+    1. Allow the Facebook App to access this page by following these steps:
         1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
-        2. Select **Application**.
-        3. Select **Page Access Token**, Send a **Get** request.
-        4. Click the **Page ID** in the response.
-        5. Now append the **/subscribed_apps** to the URL and Send a **Get** (empty response) request.
-        6. Submit a **Post** request. You get the response as **success: true**.
+        1. Select **Application**.
+        1. Select **Page Access Token**, Send a **Get** request.
+        1. Click the **Page ID** in the response.
+        1. Now append the **/subscribed_apps** to the URL and Send a **Get** (empty response) request.
+        1. Submit a **Post** request. You get the response as **success: true**.
 
 3. Create a non-expiring Graph API access token.
 

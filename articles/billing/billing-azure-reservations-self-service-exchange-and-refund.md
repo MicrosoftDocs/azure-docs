@@ -1,17 +1,14 @@
 ---
-title: Self-service exchanges and refunds for Azure Reservations | Microsoft Docs
+title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations.
-services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 08/05/2019
 ms.author: banders
 ---
 
@@ -20,6 +17,8 @@ ms.author: banders
 Azure Reservations provide flexibility to help meet your evolving needs. You can exchange a reservation for another reservation of the same type. You can also refund a reservation, up to $50,000 USD per year, if you no longer need it.
 
 Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and CSP are supported.
+
+You must have owner access on the Reservation Order to exchange or refund an existing reservation.
 
 ## Exchange an existing reserved instance
 
@@ -34,7 +33,7 @@ You can exchange your reservation with three quick steps in the [Azure portal](h
 
 To refund a reservation, go to **Reservation Details** and click **Refund**.
 
-## How return and exchange transactions are processed
+## How transactions are processed
 
 First, Microsoft cancels the existing reservation and refunds the pro-rated amount for that reservation. If there's an exchange, the new purchase is processed. Microsoft processes refunds using one of the following methods, depending on your account type and payment method:
 
@@ -44,7 +43,7 @@ Money is added to the monetary commitment for exchanges and refunds if the origi
 
 If the original purchase was made as an overage, Microsoft issues a credit memo.
 
-### Pay-as-you-go invoice payment customers and Cloud solution provider program
+### Pay-as-you-go invoice payments and CSP program
 
 The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase.
 
@@ -52,10 +51,14 @@ The original reservation purchase invoice is canceled and then a new invoice is 
 
 The original invoice is canceled, and a new invoice is created. The money is refunded to the credit card that was used for the original purchase. If you've changed your card, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Exchange policies
+## Cancel, exchange, and refund policies
+
+Azure has the following policies for cancellations, exchanges, and refunds.
+
+**Exchange policies**
 
 - You can return multiple existing reservations to purchase a new reservation of the same type. You can't exchange reservations of one type for another. For example, you can't return a VM reservation to purchase a SQL reservation.
-- Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+- Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - An exchange is processed as a refund and repurchase – different transactions are created for the cancellation and the new purchase. The prorated reservation amount is refunded for the reservations that you trade-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
 - You can change any reservation property such as size, region, quantity, and term with an exchange.
@@ -63,13 +66,15 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 - The new reservation purchased as part of exchange has a new term starting from the time of exchange.
 - There's no penalty or annual limits for exchanges.
 
-## Refund policies
-
+**Refund policies**
+- If you cancel a reservation, there may be a 12% early termination fee.
+- The refund you receive for a cancellation is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
 - Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
+- Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation owners can process a refund. [Learn how to Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft reserves the right to charge a 12% penalty for any returns, although the penalty isn't currently charged.
+- Microsoft reserves the right to charge a 12% penalty for any returns. The penalty isn't currently charged, but will be charged in future.
 
-## Exchange a non-premium storage VM reservation for a premium storage reservation
+## Exchange non-premium storage for premium storage
 
 You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and click **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction.
 

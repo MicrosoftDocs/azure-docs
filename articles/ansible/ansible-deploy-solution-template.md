@@ -1,16 +1,17 @@
 ---
-title: Deploy the Ansible solution template for Azure to CentOS
-description: Learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
-ms.service: azure
+title: Quickstart - Deploy the Ansible solution template for Azure to CentOS | Microsoft Docs
+description: In this quickstart, learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 04/30/2019
 ---
 
-# Deploy the Ansible solution template for Azure to CentOS
+# Quickstart: Deploy the Ansible solution template for Azure to CentOS
+
 The Ansible solution template for Azure is designed to configure an Ansible instance on a CentOS virtual machine along with Ansible and a suite of tools configured to work with Azure. The tools include:
 
 - **Ansible modules for Azure** - The [Ansible modules for Azure](./ansible-matrix.md) are a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version of these modules is deployed by default. However, during the solution-template deployment process, you can specify a version number that is appropriate for your environment.
@@ -18,9 +19,10 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 - **managed identities for Azure resources** - The [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) feature addresses the issue of keeping cloud application credentials secure.
 
 ## Prerequisites
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Deploy the Ansible solution template from the Azure Marketplace
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## Deploy the Ansible solution template
 
 1. Browse to the [Ansible solution template in the Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -41,7 +43,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
    - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group. For demo purposes, a new resource group named `ansiblerg` is used.
    - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
 
-     ![Azure portal tab for Ansible basic settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Azure portal tab for Ansible basic settings](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Select **OK**.
 
@@ -55,19 +57,19 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
    - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
    - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Select the information icon next to **Ansible version** to see more information about available versions.
 
-     ![Azure portal tab for Ansible additional settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Azure portal tab for Ansible additional settings](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Select **OK**.
 
 1. In the **Ansible Integration Settings** tab, specify the authentication type. For more information about securing Azure resources, see [What is managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-    ![Azure portal tab for Ansible integration settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)
+    ![Azure portal tab for Ansible integration settings](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. Select **OK**.
 
 1. The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible deployment. A link at the bottom of the tab allows you to **Download the template and parameters** for use with supported Azure languages and platforms. 
 
-     ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Azure portal tab for Ansible Summary tab](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. Select **OK**.
 
@@ -75,10 +77,11 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once the deployment is complete, select  **Go to resource group**. 
 
-     ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Azure portal tab for Ansible Summary tab](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. On the resource group page, get the IP address of your Ansible host and sign in to manage your Azure resources using Ansible.
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
-> [Use Ansible to create a Linux virtual machine in Azure](/azure/virtual-machines/linux/ansible-create-vm)
+> [Quickstart: Configure a Linux virtual machine in Azure using Ansible](/azure/virtual-machines/linux/ansible-create-vm)
