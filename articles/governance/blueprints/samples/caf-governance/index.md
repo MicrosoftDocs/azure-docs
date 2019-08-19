@@ -25,7 +25,7 @@ This implementation incorporates several Azure services used to provide a secure
 composed of:
 
 - An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used for the VMs deployed in the shared services environment
-- Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions and services log to a central location from the moment you start your secure deployment in to [Storage Accounts](../../../../storage.md) for diagnostic logging 
+- Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions and services log to a central location from the moment you start your secure deployment in to [Storage Accounts](../../../../storage/common/storage-introduction.md) for diagnostic logging 
 - Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard version) provides threat protection for your migrated workloads
 - The blueprint also defines and deploys [Azure Policies](../../../policy/overview.md), for 
     - Tagging (CostCenter) applied to resources groups
