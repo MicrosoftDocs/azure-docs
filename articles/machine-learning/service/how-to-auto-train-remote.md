@@ -81,8 +81,11 @@ import pandas as pd
 
 data_train = datasets.load_digits()
 
-pd.DataFrame(data_train.data[100:,:]).to_csv(\'data/X_train.csv\', index=False)
-pd.DataFrame(data_train.target[100:]).to_csv(\'data/y_train.csv\', index=False)
+pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+
+ds = ws.get_default_datastore()
+ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 
 X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
 y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
