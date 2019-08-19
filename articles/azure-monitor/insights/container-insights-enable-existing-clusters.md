@@ -228,7 +228,11 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 4. Edit the values for **aksResourceId** and **aksResourceLocation** using the values on the **AKS Overview** page for the AKS cluster. The value for **workspaceResourceId** is the full resource ID of your Log Analytics workspace, which includes the workspace name. 
+
+    Edit the values for **aksResourceTagValues** to match the existing tag values specified for the AKS cluster.
+
 5. Save this file as **existingClusterParam.json** to a local folder.
+
 6. You are ready to deploy this template. 
 
    * To deploy with Azure PowerShell, use the following commands in the folder that contains the template:
