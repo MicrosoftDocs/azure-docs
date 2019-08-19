@@ -69,15 +69,3 @@ For more details, please see [Vaults - Update Access Policy](https://docs.micros
 * [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
-## Next Steps
-
-* Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
-
-* [Deploy a new](./configure-new-azure-service-fabric-enable-managed-identity.md) Azure Service Fabric cluster with managed identity support 
-
-* [Enable managed identity](./configure-existing-cluster-enable-managed-identity-token-service.md) in an existing Azure Service Fabric cluster
-
-* Leverage a Service Fabric application's [managed identity from source code](./how-to-managed-identity-service-fabric-app-code.md)
-
-* Consult the list of [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md)
