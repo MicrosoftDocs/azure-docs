@@ -33,7 +33,7 @@ The KMS server cluster runs in your Azure virtual network and is IP reachable fr
 
 The deployment process has the following steps:
 
-1. [Verify that prerequisites are met](#verify-that-prerequisites-are-met)
+1. [Verify that prerequisites are met](#verify-prerequisites-are-met)
 2. [CloudSimple portal: Obtain ExpressRoute Peering Information](#cloudsimple-portal-obtain-expressroute-peering-information)
 3. [Azure portal: Connect your virtual network to the Private Cloud](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
 4. [Azure portal: Deploy a HyTrust KeyControl Cluster in your virtual network](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
