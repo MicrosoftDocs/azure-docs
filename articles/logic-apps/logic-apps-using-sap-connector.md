@@ -268,9 +268,9 @@ Your logic app is now ready to receive messages from your SAP system.
 1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
 
 ## Receive packet of IDOCs from SAP
-SAP can be configured to <a href="https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html"> send IDOCs in packets </a>, which is a batch or group of IDOCs. SAP connector and specifically trigger does not require any extra configuration to receive IDOC packets. However, once the trigger receives them, to process each items in the IDOC packet, some additional steps are required to split them into individual IDOCs. In the below example, we are using [xpath function](./workflow-definition-language-functions-reference.md#xpath) to extract the individual IDOCs from the packet. 
+SAP can be configured to <a href="https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html"> send IDOCs in packets </a>, which is a batch or group of IDOCs. SAP connector and specifically trigger does not require any extra configuration to receive IDOC packets. However, once the trigger receives them, to process each item in the IDOC packet, some additional steps are required to split them into individual IDOCs. In the below example, we are using [xpath function](./workflow-definition-language-functions-reference.md#xpath) to extract the individual IDOCs from the packet. 
 
-1. Before you start, you need a Logic App with SAP trigger. If you do not have it already, follow the steps mentioned earlier in this document to setup [Logic App with SAP trigger.](./logic-apps-using-sap-connector.md#receive-from-sap). Here's an example of Logic App with SAP trigger
+1. Before you start, you need a Logic App with SAP trigger. If you do not have it already, follow the steps mentioned earlier in this document to set up [Logic App with SAP trigger.](./logic-apps-using-sap-connector.md#receive-from-sap). Here's an example of Logic App with SAP trigger
 
    ![SAP trigger](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -299,7 +299,7 @@ SAP can be configured to <a href="https://help.sap.com/viewer/8f3819b0c24149b595
 
    ![Send IDOC](./media/logic-apps-using-sap-connector/loop-batch.png)
 
-   Note that each IDOC item needs to be updated to include root namespace. This is why the file content is wrapped in *Receive* element along with root namespace before sending the IDOC to the downstream application, SFTP server in this case.
+   Each IDOC item needs to be updated to include root namespace. This is why the file content is wrapped in *Receive* element along with root namespace before sending the IDOC to the downstream application, SFTP server in this case.
 
 5. We have also published template for this pattern, which can be chosen from Logic Apps designer when you create a new Logic App. 
 
