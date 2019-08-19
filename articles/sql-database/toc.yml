@@ -221,10 +221,13 @@
       href: sql-database-managed-instance-index.yml
     - name: Managed instance capabilities
       href: sql-database-managed-instance.md
-    - name: Managed instance pools
-      href: sql-database-managed-instance-pools.md
     - name: Managed instance FAQ
       href: sql-database-managed-instance-faq.md
+    - name: Instance pools
+      href: sql-database-instance-pools.md
+      items:
+      - name: Instance pools how-to guide
+        href: sql-database-instance-pools-how-to.md
     - name: Management API reference
       href: sql-database-managed-instance-create-manage.md
     - name: Resource limits
