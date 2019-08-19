@@ -63,7 +63,7 @@ To enable browser connect on lab virtual machines, follow these steps:
 1. Select **Configuration and policies**.
 1. In **Settings**, select **Browser connect (Preview)**.
 
-![Enable browser connection](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
+    ![Enable browser connection](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
 ## Next Steps
 See the following article to learn how to connect to your VMs using a browser: [Connect to your virtual machines through a browser](connect-virtual-machine-through-browser.md)
