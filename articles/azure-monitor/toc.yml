@@ -218,7 +218,7 @@
             href: app/nodejs.md
         - name: Web pages
           items:
-          - name: client-side JavaScript
+          - name: Client-side JavaScript
             href: app/javascript.md
         - name: Application Insights API summary
           displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency

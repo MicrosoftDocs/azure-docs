@@ -4,7 +4,7 @@ description: Use the IoT extension for Azure CLI to deploy modules to an IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 08/16/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
