@@ -18,7 +18,7 @@ In this how-to article, you:
 
 - Get the connection details from your IoT Central application.
 - Prepare the device and connect it to your IoT Central application.
-- View the telemetry and properties from the device, write properties and send commands to the device.
+- View the telemetry and properties from the device.
 
 ## Prerequisites
 
@@ -73,31 +73,11 @@ The DevKit first registers a new device in IoT Central application and then star
 
 ## View the telemetry in IoT Central
 
-In this step, you view the telemetry and reported property values, and send commands in Azure IoT Central.
+In this step, you view the telemetry in Azure IoT Central.
 
-1. In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry coming from the DevKit.
+In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry coming from the DevKit.
 
    ![IoT Central device overview](media/howto-connect-devkit-pnp/overview-page.png)
-
-## Troubleshooting
-
-You can open a serial monitor to see the device output log.
-
-1. Download a serial client such as [Tera Term](https://tera-term.en.lo4d.com/windows).
-
-1. Connect the DevKit to your computer by USB.
-
-1. Open Tera Term, select **serial**, and then expand the port. The device should appear as an STMicroelectronics device. Choose **STMicroelectronics STLink Virtual COM Port**. Select OK.
-
-   ![Select COM port](media/howto-connect-devkit-pnp/select-port.png)
-
-1. Select **Setup** on the menu bar, select **serial port**, and configure the connection speed to **115200** baud. Then choose **OK** to open the serial monitor.
-
-   ![Select COM speed](media/howto-connect-devkit-pnp/configure-speed.png)
-
-1. You can see the log output in the window.
-
-    ![Serial monitor output](media/howto-connect-devkit-pnp/serial-message.png)
 
 ## Review the code
 
