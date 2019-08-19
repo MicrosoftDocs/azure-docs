@@ -100,6 +100,9 @@ In this quickstart, you use the public DCM for an MxChip IoT DevKit device. You 
 
 ![Model repository and DCM](./media/quick-create-pnp-device-pnp/public-repository.png)
 
+> [!NOTE]
+> To work with IoT Central, the device capability model must have all the interfaces defined inline in the same file.
+
 ## Generate the C code stub
 
 Now you have the **MXChip IoT DevKit** DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS code:
