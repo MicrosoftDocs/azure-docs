@@ -120,7 +120,7 @@ You must register a device with your IoT hub before it can connect. In this sect
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-1. To get the *device connection string* for the device that you just registered, run the following commands in Cloud Shell:
+1. To get the *device connection string* for the device that you just registered, run the following command in Cloud Shell:
 
    > [!NOTE]
    > Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
