@@ -7,10 +7,10 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 03/22/2019
+ms.date: 08/30/2019
 ---
 # Azure SQL Database and SQL Data Warehouse data discovery & classification
 
