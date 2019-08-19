@@ -507,6 +507,10 @@ Cross-instance service broker isn't supported:
 - After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and managed instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access managed instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
+### TEMPDB size
+
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+
 ## <a name="Changes"></a> Behavior changes
 
 The following variables, functions, and views return different results:
@@ -521,13 +525,9 @@ The following variables, functions, and views return different results:
 
 ## <a name="Issues"></a> Known issues and limitations
 
-### TEMPDB size
+### TEMPDB layout
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved. 
-
-### Can't restore contained database
-
-Managed instance can't restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases doesn't work on managed instance. In the meantime, we recommend that you remove the containment option from your databases that are placed on managed instance. Don't use the containment option for the production databases. 
+The `tempdb` database is always split into 12 data files and the file structure cannot be changed. The maximum size per file can't be changed, and new files cannot be added to `tempdb`. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved.
 
 ### Exceeding storage space with small database files
 
