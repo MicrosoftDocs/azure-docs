@@ -52,6 +52,16 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
  ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
 
+## Security considerations
+
+Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in
+azure](../security/fundamentals/network-best-practices),
+[Best practices for Network
+security](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fsecurity%2Ffundamentals%2Fnetwork-best-practices&data=02%7C01%7Crkarlin%40microsoft.com%7Ca2891e6ea2044d5e2a6808d72470aa45%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637017938614262395&sdata=x86pn2LyPC2hWcGz5ZAVADD%2Fe89e6XuII6tIfF8TaBw%3D&reserved=0).
+
+To use TLS communication between the security solution and the Syslog machine, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS: [Encrypting Syslog Traffic with TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html),[Encrypting log messages with TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+
+
 ## Step 1: Configure your Syslog VM
 
 You need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. 
