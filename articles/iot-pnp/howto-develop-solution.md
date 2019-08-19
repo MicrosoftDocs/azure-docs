@@ -43,7 +43,7 @@ Use the following samples to explore the capabilities of the Node.js service SDK
 
 **invoke_command.js** invokes a synchronous command on your device digital twin. For it to succeed, the device sample needs to be running at the same time. Success looks like the device sample is printing something about acknowledging a command, and the service client printing the result of the command in the terminal.
 
-### Connect to the global repository and retrieve a model definition using the Node service SDK
+### Connect to the public repository and retrieve a model definition using the Node service SDK
 
 Using the same instructions as for the service and device samples, you need to set the following four environment variables:
 
