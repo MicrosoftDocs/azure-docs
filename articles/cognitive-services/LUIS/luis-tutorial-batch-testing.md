@@ -108,7 +108,7 @@ There are almost three times as many examples for **ApplyForJob** than **GetJobI
 
 Notice that both intents have the same count of errors. An incorrect prediction in one intent affects the other intent as well. They both have errors because the utterances were incorrectly predicted for one intent, and also incorrectly not predicted for another intent. 
 
-<a href="fix-the-app"></a>
+<a name="fix-the-app"></a>
 
 ## How to fix the app
 
