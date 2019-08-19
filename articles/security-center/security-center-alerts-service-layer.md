@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: "v-mohabe"
 ---
 
@@ -42,6 +42,7 @@ Security Center network-layer analytics are based on sample [IPFIX data](https:/
 |**Suspicious incoming SSH network activity**|Sampled network traffic analysis detected anomalous incoming SSH communication to a resource in your deployment. Relatively high number of incoming connections to your resource is considered abnormal for this environment. This activity may indicate an attempt to brute force your SSH interface.
 |**Suspicious incoming RDP network activity from multiple sources**|Sampled network traffic analysis detected anomalous incoming RDP communications from multiple sources to a resource in your deployment. Various unique IPs connecting to your resource is considered abnormal for this environment. This activity may indicate an attempt to brute force your RDP interface from multiple hosts (Botnet).|
 |**Suspicious incoming RDP network activity**|Sampled network traffic analysis detected anomalous incoming RDP communication to a resource in your deployment. Relatively high number of incoming connections to your resource is considered abnormal for this environment. This activity may indicate an attempt to brute force your SSH interface.|
+|**Network communication with a malicious address has been detected**|Sampled network traffic analysis detected communication originating from a resource in your deployment with a possible command and control (C&C) server. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|
 
 To understand how Security Center can use network related signals to apply threat protection, see [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 ## Azure Management layer (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
