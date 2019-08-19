@@ -48,8 +48,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
   + **azureml-core**
     + Fixed issue with blob_cache_timeout parameter ordering.
-    + Adding external fit and transform exception types to system errors.
-    + Support for Key Vault secrets for remote runs. Add a azureml.core.keyvault.Keyvault class to add, get and list secrets from the keyvault associated with your workspace. Supported operations are:
+    + Added external fit and transform exception types to system errors.
+    + Added support for Key Vault secrets for remote runs. Add a azureml.core.keyvault.Keyvault class to add, get and list secrets from the keyvault associated with your workspace. Supported operations are:
       + azureml.core.workspace.Workspace.get_default_keyvault()
       + azureml.core.keyvault.Keyvault.set_secret(name, value)
       + azureml.core.keyvault.Keyvault.set_secrets(secrets_dict)
@@ -74,13 +74,13 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added pytorch support and tests for azureml-explain-model package.
   + **azureml-opendatasets**
     + Support detecting and logging auto test environment.
-    + Add classes to get US population by county and zip.
+    + Added classes to get US population by county and zip.
   + **azureml-pipeline-core**
     + Added label property to input and output port definitions.
   + **azureml-telemetry**
     + Fixed an incorrect telemetry configuration.
   + **azureml-train-automl**
-    + Fix the bug where on setup failure, error was not getting logged in "errors" field for the setup run and hence was not stored in parent run "errors".
+    + Fixed the bug where on setup failure, error was not getting logged in "errors" field for the setup run and hence was not stored in parent run "errors".
     + Fixed an issue in AutoML where rows with missing labels were not removed properly.
     + Allow AutoML users to drop training series that are not long enough when forecasting.
     + Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
