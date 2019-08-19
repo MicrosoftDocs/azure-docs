@@ -525,6 +525,11 @@ The following variables, functions, and views return different results:
 
 ## <a name="Issues"></a> Known issues and limitations
 
+### @query parameter not suppored in sp_send_db_mail
+
+**Date:** April 2019
+The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
+
 ### TEMPDB layout
 
 The `tempdb` database is always split into 12 data files and the file structure cannot be changed. The maximum size per file can't be changed, and new files cannot be added to `tempdb`. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved.
@@ -553,13 +558,9 @@ SQL Server Management Studio and SQL Server Data Tools might have some issues wh
 - Using Azure AD server principals (logins) and users (public preview) with SQL Server Data Tools currently isn't supported.
 - Scripting for Azure AD server principals (logins) and users (public preview) isn't supported in SQL Server Management Studio.
 
-### Incorrect database names in some views, logs, and messages
+### GUID values shown instead of database names
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Don't rely on these GUID identifiers because they're replaced with actual database names in the future.
-
-### Database mail
-
-The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
 ### Database Mail profile
 
