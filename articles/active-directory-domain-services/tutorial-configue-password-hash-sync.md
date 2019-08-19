@@ -79,7 +79,7 @@ In this tutorial, you learned:
 > * How to configure legacy password hash synchronization for Azure AD Connect
 
 > [!div class="nextstepaction"]
-> [How password hash sync works for Azure AD Domain Services](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services?context=/azure/active-directory-domain-services/context/azure-ad-ds-context)
+> [How password hash sync works for Azure AD Domain Services](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context#password-hash-sync-process-for-azure-ad-domain-services)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
