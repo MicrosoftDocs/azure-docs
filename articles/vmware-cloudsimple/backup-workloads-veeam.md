@@ -243,14 +243,10 @@ Using the Veeam console, configure Veeam backup and recovery software. For detai
     * To configure backup jobs, follow the instructions in [Creating a Backup Job](https://www.youtube.com/watch?v=YHxcUFEss4M).
     * Enable encryption of backup files under **Advanced Settings > Storage**.
 
-    ![Configure backup jobs](media/veeam-veeamconsole01.png)
-
 6. Configure backup copy jobs.
 
     * To configure backup copy jobs, follow the instructions in the video [Creating a Backup Copy Job](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s).
     * Enable encryption of backup files under **Advanced Settings > Storage**.
-
-    ![Configure backup jobs](media/veeam-veeamconsole02.png)
 
 ### CloudSimple portal: Set up Veeam access and de-escalate privileges
 Create a public IP address for the Veeam backup and recovery server. For instructions, see [Allocate public IP addresses](public-ips.md).
