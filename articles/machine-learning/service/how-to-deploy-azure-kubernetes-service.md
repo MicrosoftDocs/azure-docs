@@ -177,6 +177,9 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 ### Using the SDK
 
 ```python
+from azureml.core.webservice import AksWebservice, Webservice
+from azureml.core.model import Model
+
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by

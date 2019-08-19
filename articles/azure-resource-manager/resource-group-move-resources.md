@@ -89,6 +89,23 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
+1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
+
+   If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be consolidated into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
+    
+For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
+
+## Scenario for move across subscriptions
+Moving resources from one subscription to another is a three-step process:
+
+![cross-subscription move scenario](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+For illustration purposes, we have only one dependent resource.
+
+* Step 1: If dependent resources are distributed across different resource groups, first move them into one resource group.
+* Step 2: Move the resource and dependent resources together from the source subscription to the target subscription.
+* Step 3: Optionally, redistribute the dependent resources to different resource groups within the target subscription. 
+
 ## Validate move
 
 The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
