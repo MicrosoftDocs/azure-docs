@@ -6,9 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-[!INCLUDE [Setup and use environment variables](includes/prerequisites-go.md)]
+[!INCLUDE [Setup and use environment variables](prerequisites-go.md)]
 
-[!INCLUDE [Setup and use environment variables](includes/setup-env-variables.md)]
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## Create a project and import required modules
 
