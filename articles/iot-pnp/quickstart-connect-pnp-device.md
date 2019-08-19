@@ -74,7 +74,7 @@ You should expect this operation to take several minutes to complete.
 
 ## Build the code
 
-You use the device SDK to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
 1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder:
 
@@ -118,7 +118,7 @@ The device application starts sending data to IoT Hub.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
+1. Expand the interface with ID **urn:YOUR_COMPANY_NAME:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
