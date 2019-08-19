@@ -29,6 +29,8 @@
         items:
         - name: Get started with app integration
           href: plan-an-application-integration.md
+        - name: Plan an access panel deployment
+          href: access-panel-deployment-plan.md
         - name: Guidance for developers
           href: developer-guidance-for-integrating-applications.md
       - name: Single sign-on
