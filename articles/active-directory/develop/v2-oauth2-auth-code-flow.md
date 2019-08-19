@@ -61,7 +61,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter    | Required/optional | Description |
 |--------------|-------------|--------------|
 | `tenant`    | required    | The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | required    | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app.  |
+| `client_id`   | required    | The **Client (application) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app.  |
 | `response_type` | required    | Must include `code` for the authorization code flow.       |
 | `redirect_uri`  | required | The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | required    | A space-separated list of [scopes](v2-permissions-and-consent.md) that you want the user to consent to.  For the `/authorize` leg of the request, this can cover multiple resources, allowing your app to get consent for multiple web APIs you want to call. |
@@ -149,12 +149,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter  | Required/optional | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | required   | The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | required  | The Application (client) ID that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `client_id` | required  | The client ID for the application that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `grant_type` | required   | Must be `authorization_code` for the authorization code flow.   |
 | `scope`      | required   | A space-separated list of scopes. The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](v2-permissions-and-consent.md). |
 | `code`          | required  | The authorization_code that you acquired in the first leg of the flow. |
 | `redirect_uri`  | required  | The same redirect_uri value that was used to acquire the authorization_code. |
-| `client_secret` | required for web apps | The application secret that you created in the app registration portal for your app. You shouldn't use the application secret in a native app because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  The client secret must be URL-encoded before being sent.  |
+| `client_secret` | required for web apps | The client secret for the application that you created in the app registration portal for your app. You shouldn't use the client secret for the application in a native app because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  The client secret must be URL-encoded before being sent.  |
 | `code_verifier` | optional  | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### Successful response
@@ -264,7 +264,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter     |                | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | required     | The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | required    | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+| `client_id`     | required    | The **Client (application) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `grant_type`    | required    | Must be `refresh_token` for this leg of the authorization code flow. |
 | `scope`         | required    | A space-separated list of scopes. The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original authorization_code request leg. If the scopes specified in this request span multiple resource server, then the Microsoft identity platform endpoint will return a token for the resource specified in the first scope. For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](v2-permissions-and-consent.md). |
 | `refresh_token` | required    | The refresh_token that you acquired in the second leg of the flow. |
