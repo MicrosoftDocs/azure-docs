@@ -250,12 +250,12 @@
     - name: Using Azure resources for LUIS
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
-    - name: Manage versions
-      href: luis-how-to-manage-versions.md
-      diplayName: import, export, container
     - name: Manage authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
+    - name: Manage versions
+      href: luis-how-to-manage-versions.md
+      diplayName: import, export, container
     - name: Spread endpoint quota across keys with Traffic Manager
       href: luis-traffic-manager.md
   - name: Migrate API
