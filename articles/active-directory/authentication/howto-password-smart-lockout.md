@@ -45,7 +45,7 @@ When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you n
 For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on prem AD is set to 1 minute (60 seconds).
 
 > [!IMPORTANT]
-> Currently an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire.
+> Currently an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire. However, the user, from a trusted device or location, can unlock by using Self-service Password Reset.
 
 ## Verify on-premises account lockout policy
 
