@@ -13,7 +13,7 @@ ms.date: 08/25/2019
 ms.author: diberry
 ---
 
-# Authoring and query prediction endpoint keys in LUIS
+# Authoring and runtime keys
 
 
 >[!NOTE]
