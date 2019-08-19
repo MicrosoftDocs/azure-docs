@@ -12,9 +12,9 @@ ms.date: 05/08/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure App Service
+# Security controls for Azure App Service
 
-This article documents the security attributes built into Azure App Service.
+This article documents the security controls built into Azure App Service.
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 

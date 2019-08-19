@@ -6,6 +6,6 @@ ms.date: 07/23/2019
 ms.author: mbaldwin
 ---
 
-A security attribute is a quality or feature of an Azure service. It contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
+A security control is a quality or feature of an Azure service that contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
 
-In each category, we show "Yes" or "No" to indicate whether an attribute is used. For some services, we show "N/A" for an attribute that is not applicable. We might also provide a note or a link to more information about an attribute.
+For each control we use "Yes" or "No" to indicate whether it is currently in place for the service; we use "N/A" for an control that is not applicable to the service. We might also provide a note or a link to more information about an attribute.
