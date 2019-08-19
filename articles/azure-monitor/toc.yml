@@ -210,7 +210,7 @@
             href: app/nodejs.md
         - name: Web pages
           items:
-          - name: client-side JavaScript
+          - name: Client-side JavaScript
             href: app/javascript.md
         - name: Application Insights API summary
           displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
@@ -501,6 +501,10 @@
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
+    - name: Storage
+      items:
+      - name: Azure Monitor for Storage
+        href: insights/storage-insights-overview.md
     - name: Operating System (VMs and more)
       items: 
       - name: Agents
@@ -1069,6 +1073,10 @@
       href: platform/diagnostic-logs-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure CLI - Application Insights (Preview)
+    href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
+  - name: Azure Functions
+    href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
     items:
     - name: Application Insights

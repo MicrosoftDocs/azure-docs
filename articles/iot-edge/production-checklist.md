@@ -72,7 +72,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
 
 * **Helpful**
     * Be consistent with upstream protocol
-    * Store system module statues in the host filesystem
+    * Set up host storage for system modules
     * Reduce memory space used by the IoT Edge hub
     * Do not use debug versions of module images
 
@@ -84,11 +84,11 @@ You only have to configure the UpstreamProtocol environment variable for the IoT
 
 An example of this process is provided in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
-### Store system module states in the host filesystem
+### Set up host storage for system modules
 
 The IoT Edge hub and agent modules use local storage to maintain state and enable messaging between modules, devices, and the cloud. For better reliability and performance, configure the system modules to use storage on the host filesystem.
 
-For more information, see [Store system module states in the host filesystem](offline-capabilities.md#store-system-module-states-in-the-host-filesystem).
+For more information, see [Host storage for system modules](offline-capabilities.md#host-storage-for-system-modules).
 
 ### Reduce memory space used by IoT Edge hub
 
