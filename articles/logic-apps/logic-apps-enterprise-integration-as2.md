@@ -43,10 +43,9 @@ To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, wh
 This article shows how to add the AS2 encoding and decoding actions to an existing logic app.
 
 > [!IMPORTANT]
-> This topic's examples use the AS v2 connector because this most recent 
-> version provides the same capabilities as the previous version, is native 
-> to the Logic Apps runtime, and provides significant performance improvements 
-> in terms of throughput and message size.
+> The original AS2 connector is going to be deprecated, so make sure that you use the **AS2 (v2)** connector instead. 
+> This version provides the same capabilities as the original version, is native to the Logic Apps runtime, 
+> and provides significant performance improvements in terms of throughput and message size.
 
 ## Prerequisites
 
