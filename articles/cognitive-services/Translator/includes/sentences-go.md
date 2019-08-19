@@ -18,15 +18,13 @@ Create a new Go project using your favorite IDE or editor. Then copy this code s
 package main
 
 import (
+    "bytes"
     "encoding/json"
     "fmt"
-    "io/ioutil"
     "log"
     "net/http"
+    "net/url"
     "os"
-    "strconv"
-    "strings"
-    "time"
 )
 ```
 
@@ -45,18 +43,20 @@ func main() {
     * want to use env variables. If so, be sure to delete the "os" import.
     */
     if "" == os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY") {
-           log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_SUBSCRIPTION_KEY.")
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_SUBSCRIPTION_KEY.")
     }
-    var subscriptionKey string = os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY")
-
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY")
     if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
-       log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
     }
-    var uriBase string = os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
-    // The path to the breaksentence endpoint
-    const uriPath = "/breaksentence?api-version=3.0"
-    // The constructed URI
-    var uri string = uriBase + uriPath
+    endpoint := os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    uri := endpoint + "/breaksentence?api-version=3.0"
+    /*
+     * This calls our breakSentence function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    breakSentence(subscriptionKey, uri)
 }
 ```
 
@@ -65,7 +65,7 @@ func main() {
 Let's create a function to determine sentence length. This function will take a single argument, your Translator Text subscription key.
 
 ```go
-func breakSentence(subscriptionKey string) {
+func breakSentence(subscriptionKey string, uri string)
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -79,7 +79,7 @@ Copy this code into the `breakSentence` function.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0")
+u, _ := url.Parse(uri)
 q := u.Query()
 q.Add("languages", "en")
 u.RawQuery = q.Encode()
@@ -133,7 +133,7 @@ Add this code to the `breakSentence` function to decode the JSON response, and t
 // Decode the JSON response
 var result interface{}
 if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-	log.Fatal(err)
+  log.Fatal(err)
 }
 // Format and print the response to terminal
 prettyJSON, _ := json.MarshalIndent(result, "", "  ")
