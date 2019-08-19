@@ -24,12 +24,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **New features**
   + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/azureml/howto/createdatasets.
   
-  + **Preview features**
-    + [Contrib features below] 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
-
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
     + Fixed the error, raised when training and/or validation labels (y and y_valid) are provided in the form of pandas dataframe but not as numpy array.
