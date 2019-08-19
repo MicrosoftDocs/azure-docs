@@ -107,14 +107,14 @@ open your logic app in the Logic App Designer.
 
 1. In the designer, add a new action to your logic app. 
 
-1. Under **Choose an action** and the search box, choose **All**. 
+1. Under **Choose an action** and the search box, select **All**. 
 In the search box, enter "as2 encode", and make sure that you select the AS2 (v2) action: **AS2 Encode**
 
    ![Select "AS2 Encode"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
 1. If you don't have an existing connection to your integration account, 
 you're prompted to create that connection now. Name your connection, 
-select the integration account that you want to connect, and choose **Create**.
+select the integration account that you want to connect, and select **Create**.
 
    ![Create connection to integration account](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
  
@@ -138,16 +138,16 @@ select the integration account that you want to connect, and choose **Create**.
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic App Designer.
 
-1. In the designer, add a new action to your logic app. 
+1. In the designer, add a new action to your logic app.
 
-1. Under **Choose an action** and the search box, choose **All**. 
-In the search box, enter "as2 decode", and make sure that you select the AS2 (v2): **AS2 Decode**
+1. Under **Choose an action** and the search box, select **All**. 
+In the search box, enter "as2 decode", and make sure that you select the AS2 (v2) action: **AS2 Decode**
 
    ![Select "AS2 Decode"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
 1. If you don't have an existing connection to your integration account, 
 you're prompted to create that connection now. Name your connection, 
-select the integration account that you want to connect, and choose **Create**.
+select the integration account that you want to connect, and select **Create**.
 
    ![Create connection to integration account](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
 
