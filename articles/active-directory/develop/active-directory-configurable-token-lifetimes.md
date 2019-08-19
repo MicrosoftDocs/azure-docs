@@ -37,6 +37,7 @@ You can designate a policy as the default policy for your organization. The poli
 >* The default lifetime for the SharePoint Online access token is 1 hour. 
 >* The default max inactive time of the SharePoint Online refresh token is 90 days.
 
+
 ## Token types
 
 You can set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens.
