@@ -17,7 +17,7 @@ You can set up a VMware vCenter server on your CloudSimple Private Cloud as an e
 
 Complete these tasks before configuring the vCenter server:
 
-* Configure a [Site-to-Site VPN connection](vpn-gateway.md#set-up-Site-to-Site-vpn-communication) between your on-premises environment and your Private Cloud.
+* Configure a [Site-to-Site VPN connection](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises environment and your Private Cloud.
 * [Configure DNS forwarding of on-premises DNS requests](on-premises-dns-setup.md) to the DNS servers for your Private Cloud.
 * Submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to create a vRealize Automation IaaS administrative user with the set of permissions that are listed in the following table.
 
