@@ -11,12 +11,14 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Load and query an index
+    - name: Create and use an index
       href: search-get-started-portal.md
-    - name: Enrich with AI (cognitive search)
+    - name: Enrich with cognitive search (AI)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     href: search-get-started-dotnet.md
+  - name : Node.js
+    href: search-get-started-nodejs.md
   - name: Postman
     href: search-get-started-postman.md
   - name: PowerShell
@@ -53,15 +55,23 @@
       href: cognitive-search-tutorial-blob-python.md
 - name: Samples
   items:
-  - name: Azure code samples
-    href: https://azure.microsoft.com/resources/samples/?service=search
+  - name: C# samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp
+  - name: Java samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java
+  - name: JavaScript samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript
+  - name: Python samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python
+  - name: REST samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest
 - name: Training
   items:
-  - name: Knowledge mining bootcamp
-    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
+  - name: Introduction (Microsoft Learn)
+    href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
   - name: Add search to apps (Pluralsight)
     href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-  - name: Microsoft Azure Developer course (Pluralsight)
+  - name: Developer course (Pluralsight)
     href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
@@ -107,8 +117,6 @@
       href: search-api-versions.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Develop in Node.js
-      href: search-get-started-nodejs.md
     - name: Develop in Java
       href: search-get-started-java.md
     - name: Upgrade the SDK
@@ -231,7 +239,9 @@
       href: cognitive-search-resources-documentation.md
   - name: Knowledge store (preview)
     items:
-    - name: How to get started
+    - name: Connect using Power BI
+      href: knowledge-store-connect-powerbi.md
+    - name: Create using REST and Postman
       href: knowledge-store-howto.md
   - name: Query data
     items:
@@ -342,7 +352,7 @@
       href: cognitive-search-skill-textsplit.md 
     - name: Sentiment
       href: cognitive-search-skill-sentiment.md
-    - name: Text Translation (Preview)
+    - name: Text Translation
       href: cognitive-search-skill-text-translation.md
     - name: Image Analysis
       href: cognitive-search-skill-image-analysis.md

@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: kfollis
 ms.author: kfollis
-ms.date: 06/13/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -39,6 +39,7 @@ Add the following list of URLs to your proxy server or firewall to allow network
 * *.vortex.data.microsoft.com
 * *.vscommerce.visualstudio.com
 * *.vssps.visualstudio.com
+* *.windows.net
 * *.wpc.azureedge.net
 
 > [!NOTE]

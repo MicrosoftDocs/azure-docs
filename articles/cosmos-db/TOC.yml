@@ -179,6 +179,12 @@
       - name: SQL query execution
         displayName: query performance, query execution
         href: sql-query-execution.md
+      - name: Data types
+        items:
+        - name: DateTime
+          href: working-with-dates.md
+        - name: Geospatial
+          href: geospatial.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -186,8 +192,8 @@
       - name: Work with databases, containers, and items
         displayName: collection, document
         href: databases-containers-items.md
-      - name: Model document data
-        displayName: document
+      - name: Modeling data
+        displayName: model document, model json
         href: modeling-data.md
       - name: Indexing
         items:
@@ -197,12 +203,6 @@
         - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
-      - name: Data types
-        items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: Geospatial
-          href: geospatial.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
@@ -272,6 +272,8 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Advanced threat protection
         - name: Security attributes
           href: cosmos-db-security-attributes.md
     - name: Enterprise readiness 
@@ -577,6 +579,9 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
+      - name: Estimate RU/s with Cosmos capacity planner
+        displayName: request units, RUs, RU, capacity 
+        href: estimate-ru-with-capacity-planner.md        
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
@@ -643,6 +648,10 @@
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
         href: troubleshoot-changefeed-functions.md
+      - name: Change feed processor start time
+        href: how-to-configure-change-feed-start-time.md
+      - name: Using the change feed estimator
+        href: how-to-use-change-feed-estimator.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
@@ -736,6 +745,14 @@
         maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md
+    - name: Migrate data to Cosmos DB
+      items: 
+      - name: Migrate to SQL API using Striim
+        href: cosmosdb-sql-api-migrate-data-striim.md
+      - name: Migrate to Cassandra API using Striim
+        href: cosmosdb-cassandra-api-migrate-data-striim.md
+      - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
+        href: migrate-cosmosdb-data.md
     - name: Bulk executor library
       items: 
       - name: About bulk executor library

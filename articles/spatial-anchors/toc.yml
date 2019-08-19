@@ -23,6 +23,12 @@
     href: quickstarts/get-started-android.md
   - name: Create HoloLens app
     href: quickstarts/get-started-hololens.md
+  - name: Create Xamarin app
+    items:
+    - name: Android
+      href: quickstarts/get-started-xamarin-android.md
+    - name: iOS
+      href: quickstarts/get-started-xamarin-ios.md
 - name: Tutorials
   items:
   - name: Sharing in Unity

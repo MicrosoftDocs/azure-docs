@@ -25,7 +25,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/afs-industry-index)|
-|[Access Interactive Inc.](http://www.access-interactive.com/)|
+|[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[ActioNet](https://www.actionet.com/)|
 |[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Affigent](http://www.affigent.com/)|
@@ -56,7 +56,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Avtex Solutions](https://www.avtex.com)|
 |[BAE Systems Inc. and Affiliates](https://www.baesystems.com)|
 |[BEMO Corp](https://www.bemopro.com/)|
-|[Bio Automation Support](http://www.stacsdna.com/)|
+|[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
 |[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
@@ -78,7 +78,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciracom Inc.](https://ciracom.com)|
-|[ClearShark](http://clearshark.com/)|
+|[ClearShark](https://clearshark.com/)|
 |[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
@@ -298,7 +298,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Trigent Solutions Inc.](http://trigentsolutions.com/)|
 |[Triple Point Security Incorporated](https://www.triplepointsecurity.com)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://ssg.udri.udayton.edu/)|
+|[UDRI - SSG](https://www.udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[Universal EVoIP Transitions](https://universalevoiptransitions.com/contact)|
@@ -329,7 +329,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 
 |Partner Name|
 |----------------------------|
-|[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
+|[Arrow Enterprise Computing Solutions, Inc.](https://www.arrow.com/ecs/)|
 |[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C++ (Linux) - Speech Services'
+title: 'Quickstart: Synthesize speech, C++ (Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in C++ on Linux by using the Speech SDK
 services: cognitive-services

@@ -43,6 +43,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
@@ -181,7 +182,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 For more information on storage account limits, see [Azure Storage scalability and performance targets](storage/common/storage-scalability-targets.md).
 
-#### Storage resource provider limits 
+#### Storage resource provider limits
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -220,6 +221,9 @@ For more information, see [Virtual machine sizes](virtual-machines/linux/sizes.m
 
 ### Azure Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+
+### Azure Cognitive Services limits
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cognitive-services-limits.md)]
 
 ### App Service limits
 The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.

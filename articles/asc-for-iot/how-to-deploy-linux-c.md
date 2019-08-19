@@ -1,5 +1,5 @@
 ---
-title: Guide to install and deploy Linux C agent of Azure Security Center for IoT agent Preview| Microsoft Docs
+title: Guide to install and deploy Linux C agent of Azure Security Center for IoT agent| Microsoft Docs
 description: Learn how to install the Azure Security Center for IoT agent on both 32-bit and 64-bit Linux. 
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
-# Deploy Azure Security Center for IoT C-based security agent for Linux
+# Deploy Azure Security Center for IoT C based security agent for Linux
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This guide explains how to install and deploy the Azure Security Center (ASC) for IoT C-based security agent on Linux.
+This guide explains how to install and deploy the Azure Security Center for IoT C-based security agent on Linux.
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
@@ -44,14 +39,14 @@ For other platforms and agent flavors, see [Choose the right security agent](how
 
 ## Installation 
 
-To install and deploy the security agent, do the following:
+To install and deploy the security agent, use the following workflow:
 
 
-1. Download the most recent version to your machine from [Github](https://aka.ms/iot-security-github-c).
+1. Download the most recent version to your machine from [GitHub](https://aka.ms/iot-security-github-c).
 
-1. Extract the contents of the package and navigate to the _/Install_ folder.
+1. Extract the contents of the package and navigate to the _/src/installation_ folder.
 
-1. Add running permissions to the **InstallSecurityAgent script** by running the following:
+1. Add running permissions to the **InstallSecurityAgent script** by running the following command:
     
    ```
    chmod +x InstallSecurityAgent.sh
@@ -65,11 +60,11 @@ To install and deploy the security agent, do the following:
    
    See [How to configure authentication](concept-security-agent-authentication-methods.md) for more information about authentication parameters.
 
-This script does the following:
+This script performs the following function:
 
 1. Installs prerequisites.
 
-2. Adds a service user (with interactive login disabled).
+2. Adds a service user (with interactive sign in disabled).
 
 3. Installs the agent as a **Daemon** - assumes the device uses **systemd** for service management.
 
@@ -92,8 +87,8 @@ Check the deployment status by running:
 
 
 ## Next steps
-- Read the ASC for IoT service [Overview](overview.md)
-- Learn more about ASC for IoT [Architecture](architecture.md)
+- Read the Azure Security Center for IoT service [Overview](overview.md)
+- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
 - Read the [FAQ](resources-frequently-asked-questions.md)
 - Understand [security alerts](concept-security-alerts.md)

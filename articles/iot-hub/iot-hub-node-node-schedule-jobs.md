@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ---
 
-# Schedule and broadcast jobs (Node)
+# Schedule and broadcast jobs (Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -53,6 +53,8 @@ To complete this tutorial, you need the following:
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 

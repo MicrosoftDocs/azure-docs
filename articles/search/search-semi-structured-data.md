@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Indexing semi-strutured data in JSON blobs - Azure Search'
+title: 'REST Tutorial: Indexing semi-strutured data in JSON blobs - Azure Search'
 description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search REST APIs and Postman.
 author: HeidiSteen
 manager: cgronlun

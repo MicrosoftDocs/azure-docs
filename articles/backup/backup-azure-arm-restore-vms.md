@@ -1,16 +1,16 @@
 ---
 title: 'Azure Backup: Restore virtual machines by using the Azure portal'
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
-
-author: geethalakshmig
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 keywords: restore backup; how to restore; recovery point;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: geg
+ms.author: dacurwin
 ---
-# Restore Azure VMs
+# How to restore Azure VM data in Azure portal
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
 
@@ -23,8 +23,8 @@ Azure Backup provides a number of ways to restore a VM.
 **Restore option** | **Details**
 --- | ---
 **Create a new VM** | Quickly creates and gets a basic VM up and running from a restore point.<br/><br/> You can specify a name for the VM, select the resource group and virtual network (VNet) in which it will be placed, and specify a storage account for the restored VM.
-**Restore disk** | Restores a VM disk which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the storage account you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
-**Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk, and stores it in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point.<br/><br/> The snapshot is copied to the vault, and retained in accordance with the retention policy. <br/><br/> Replace existing is supported for unencrypted managed VMs. It's not supported for unmanaged disks, [generalized VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), or for VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br/><br/>
+**Restore disk** | Restores a VM disk, which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the storage account you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
+**Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk, and stores it in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point.<br/><br/> The snapshot is copied to the vault, and retained in accordance with the retention policy. <br/><br/> Replace existing is supported for unencrypted managed VMs. It's not supported for unmanaged disks, [generalized VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), or for VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br/><br/>
 
 
 > [!NOTE]
@@ -39,8 +39,8 @@ Some details about storage accounts:
 - **Create VM**: When you create a new VM, the VM will be placed in the storage account you specify.
 - **Restore disk**: When you restore a disk, the disk is copied to the storage account you specify. The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account.
 - **Replace disk**: When you replace a disk on an existing VM, Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is stored in the staging location (storage account) you specify. This storage account is used to temporarily store the snapshot during the restore process, and we recommend that you create a new account to do this, that can be easily removed afterwards.
-- **Storage account location** : The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
-- **Storage type** : Blob storage isn't supported.
+- **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
+- **Storage type**: Blob storage isn't supported.
 - **Storage redundancy**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name. 
 - **Premium storage**:
     - When restoring non-premium VMs, premium storage accounts aren't supported.
@@ -49,7 +49,7 @@ Some details about storage accounts:
 
 ## Before you start
 
-To restore a VM (create a new VM) make sure you have the correct role-based access control (RBAC) [permissions](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) for the Restore VM operation.
+To restore a VM (create a new VM), make sure you have the correct role-based access control (RBAC) [permissions](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) for the Restore VM operation.
 
 If you don't have permissions, you can [restore a disk](#restore-disks), and then after the disk is restored, you can [use the template](#use-templates-to-customize-a-restored-vm) that was generated as part of the restore operation to create a new VM.
 
@@ -80,7 +80,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 As one of the [restore options](#restore-options), you can create a VM quickly with basic settings from a restore point.
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Create a virtual machine**.
-2. In **Virtual machine name**, specify a VM which doesn’t exist in the subscription.
+2. In **Virtual machine name**, specify a VM that doesn’t exist in the subscription.
 3. In **Resource group**, select an existing resource group for the new VM, or create a new one with a globally unique name. If you assign a name that already exists, Azure assigns the group the same name as the VM.
 4. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription are displayed. Select the subnet. The first subnet is selected by default.
 5. In **Storage Location**, specify the storage account for the VM. [Learn more](#storage-accounts).
@@ -106,7 +106,8 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
 4. In **Restore configuration**, select **OK**. In **Restore**, click **Restore** to trigger the restore operation.
 
-During the VM restore, Azure Backup doesn’t use storage account. But in case of **Restore disks** and **Instant Restore**, storage account is used for storing template.
+When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn’t use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group.
+When your virtual machine uses unmanaged disks, they are restored as blobs to the storage account.
 
 ### Use templates to customize a restored VM
 
@@ -157,7 +158,7 @@ There are a number of common scenarios in which you might need to restore VMs.
 **Zone Pinned VMs** | Azure Backup supports backup and restore of zoned pinned VMs. [Learn more](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## Track the restore operation
-After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, click on the **Notifications** symbol to see them.
+After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, select the **Notifications** symbol, and then select **View all Jobs** to see the Restore Process Status.
 
 ![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 
@@ -167,7 +168,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
     ![List of VMs in a vault](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
-2. To monitor restore progress, click any restore job with a status of **In-progress**. This displays the progress bar which displays information about the restore progress:
+2. To monitor restore progress, click any restore job with a status of **In-progress**. This displays the progress bar, which displays information about the restore progress:
 
     - **Estimated time of restore**: Initially provides the time taken to complete the restore operation. As the operation progresses, the time taken reduces and reaches zero when the restore operation finishes.
     - **Percentage of restore**. Shows the percentage of restore operation that's done.

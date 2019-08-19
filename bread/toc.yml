@@ -142,6 +142,9 @@
     - name: Durable Functions
       tocHref: /azure/azure-functions/durable/
       topicHref: /azure/azure-functions/durable/durable-functions-overview
+  - name: Azure Australia
+    tocHref: /azure/azure-australia/
+    topicHref: /azure/azure-australia/
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -569,6 +572,9 @@
       - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
         topicHref: /azure/media-services/video-indexer/        
+  - name: Migrate
+    tocHref: /azure/migrate/
+    topicHref: /azure/migrate/
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/

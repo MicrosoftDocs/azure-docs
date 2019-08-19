@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The Identity Protection experience has been refreshed to better protect your organization’s identities. This refreshed experience provides:
 
-- Redesigned admin experience that revolves around the risk most relevant to you¬- user risk and sign-in risk
+- Redesigned admin experience that revolves around the risk most relevant to your user risk and sign-in risk
 - Powerful investigations experience with support for filtering, sorting, and smart downloads
 - Improved user risk calculation to help you prioritize your efforts towards the users that are most likely to be compromised
 - New API support to enable programmatic access to risk data

@@ -28,6 +28,10 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+With Azure AD entitlement management, access packages enable a one-time setup of resources and policies that automatically administers access for life of the access package. 
+
+An access package manager can configure policies to require approval for users to have access to access packages. A user that needs access to an access package can submit a request to get access. This article describes how to submit an access request.
+
 ## Sign in to the My Access portal
 
 The first step is to sign in to the My Access portal where you can request access to an access package.
@@ -42,7 +46,7 @@ The first step is to sign in to the My Access portal where you can request acces
 
 1. Sign in to the My Access portal.
 
-    Be sure you use your organizational account. If you unsure, check with your project or business manager.
+    Be sure you use your organizational (work or school) account. If you're unsure, check with your project or business manager.
 
 ## Request an access package
 
@@ -50,6 +54,9 @@ Once you have found the access package in the My Access portal, you can submit a
 
 **Prerequisite role:** Requestor
 
+1. Find the access package in the list.  If necessary, you can search by typing a search string and then selecting the **Name**, **Catalog**, or **Resources** filter.
+
+    ![My Access portal - Resource search](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. Click the checkmark to select the access package.
 
     ![My Access portal - Access packages](./media/entitlement-management-shared/my-access-access-packages.png)

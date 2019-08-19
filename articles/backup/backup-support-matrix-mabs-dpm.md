@@ -2,11 +2,11 @@
 title: Support matrix for Microsoft Azure Backup server and System Center DPM
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server or System Center DPM to back up on-premises and Azure VM resources.
 
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: dacurwin
 manager: carmonm
 ---
 
@@ -51,7 +51,7 @@ For more information:
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
 **Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  | DPM/MABS must be running on-premises.
-**Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine.<br/><br/> The MARS agent on DPM/MABS server. | DPM/MABS must be running on an Azure VM.
+
 
 ## Supported deployments
 
@@ -162,9 +162,9 @@ The following table summarizes what can be backed up to MABS from on-premises ma
 **Windows Server 2012 R2 (Datacenter and Standard)**<br/><br/> 64/32-bit | MABS v3, v2 | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VMprotection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
 **Windows Server 2012 with SP1 (Datacenter and Standard)**<br/><br/> 64/32-bit | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) must be installed. | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
 **Windows 2008 R2 with SP1 (Standard and Enterprise)**<br/><br/> 64/32-bit | Supported by MABS v3, v2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) must be installed. | On-premises/Azure VM. |   **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
-**Windows 2008 R2 (Standard and Enterprise)**<br/><br/> 64/32-bit | For MABS v2/v3 the OS must be running SP1. | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
-**Windows Server 2008 with SP2**<br/><br/> 64/32-bit | MABS v2, v3 | MABS v2,v3 is supported when MABS is deployed as a VMware VM.<br/><br/> Not supported for MABS running on Azure VM. | Volume/share/folder/file; system-state/bare-metal. |
-**Windows Storage Server 2008** | MABS v2, v3 | MABS as on-premises physical server/Hyper-V VM. <br/><br/> Not supported for MABS running on Azure VM. | Volume/share/folder/file; system-state/bare-metal.
+**Windows 2008 R2 (Standard and Enterprise)**<br/><br/> 64/32-bit | For MABS v3, v2 the OS must be running SP1. | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
+**Windows Server 2008 with SP2**<br/><br/> 64/32-bit | MABS v3, v2 | MABS v2, v3 is supported when MABS is deployed as a VMware VM.<br/><br/> Not supported for MABS running on Azure VM. | Volume/share/folder/file; system-state/bare-metal. |
+**Windows Storage Server 2008** | MABS v3, v2 | MABS as on-premises physical server/Hyper-V VM. <br/><br/> Not supported for MABS running on Azure VM. | Volume/share/folder/file; system-state/bare-metal.
 **SQL Server 2017** | MABS v3 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported. |
 **SQL Server 2016/2016 with SP1** | MABS v3, v2 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported. |
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported. |
@@ -191,7 +191,7 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 **Windows 2008 R2 (Standard and Enterprise)**<br/><br/> 64/32-bit | On-premises.<br/><br/> DPM can't be installed as a VMware VM.<br/><br/> DPM running on an Azure VM isn't supported. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.
 **Windows Server 2008 with SP2**<br/><br/> 64/32-bit | On-premises only.<br/><br/> DPM is supported when running as a VMware VM. Running as a physical server or Hyper-V VM isn't supported. | Volume/share/folder/file; system-state/bare-metal.
 **Windows Storage Server 2008** | DPM on-premises running as a physical server or Hyper-V VM. | Volume/share/folder/file; system-state/bare-metal.
-**SQL Server 2017** | DPM SAC; DPM 2016 running Update Roll up 5 or later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
+**SQL Server 2017** | DPM SAC; DPM 2016 running Update Rollup 5 or later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
 **SQL Server 2016 with SP1** | Not supported for DPM 2012 R2; Supported for DPM SAC, DPM 2016 running Update Rollup 4 or later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
 **SQL Server 2016** | Not supported for DPM 2012 R2. Supported for DPM SAC, DPM 2016 from Update Rollup 2 and later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 with DPM 2012 R2 running Update Rollup 4 and later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.

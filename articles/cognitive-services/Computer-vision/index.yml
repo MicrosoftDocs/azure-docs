@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Computer Vision to process images and return information. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
 
   ms.service: cognitive-services
   ms.subservice: computer-vision

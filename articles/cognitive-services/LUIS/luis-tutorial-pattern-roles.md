@@ -1,5 +1,5 @@
 ---
-title: Pattern roles
+title: Pattern roles - LUIS
 titleSuffix: Azure Cognitive Services
 description: Patterns extract data from well-formatted template utterances. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
 ms.custom: seodec18

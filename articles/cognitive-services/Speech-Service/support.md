@@ -1,6 +1,6 @@
 ---
-title: Support and help options
-titlesuffix: Azure Cognitive Services
+title: Support and help options - Speech Service
+titleSuffix: Azure Cognitive Services
 description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
 services: cognitive-services
 author: jhakulin
