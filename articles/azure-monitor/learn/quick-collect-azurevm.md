@@ -56,10 +56,15 @@ For Windows and Linux virtual machines already deployed in Azure, you install th
 >The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
 
 1. In the Azure portal, select **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
+
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
+
 3. On the left-hand menu, under Workspace Data Sources, select **Virtual machines**.  
+
 4. In the list of **Virtual machines**, select a virtual machine you want to install the agent on. Notice that the **Log Analytics connection status** for the VM indicates that it is **Not connected**.
+
 5. In the details for your virtual machine, select **Connect**. The agent is automatically installed and configured for your Log Analytics workspace. This process takes a few minutes, during which time the **Status** shows **Connecting**.
+
 6. After you install and connect the agent, the **Log Analytics connection status** will be updated with **This workspace**.
 
 ## Collect event and performance data
@@ -135,7 +140,7 @@ When no longer needed, delete the Log Analytics workspace. To do so, select the 
 
 Now that you are collecting operational and performance data from your Windows or Linux virtual machines, you can easily begin exploring, analyzing, and taking action on data that you collect for *free*.  
 
-To learn how to view and analyze the data, continue to the tutorial.   
+To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
 > [View or analyze data in Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
