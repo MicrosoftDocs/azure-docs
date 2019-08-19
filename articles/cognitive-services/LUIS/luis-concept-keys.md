@@ -45,7 +45,7 @@ When you want to make **production endpoint queries**, create the Azure [LUIS su
 > [!CAUTION]
 > For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
-<a href="endpoint-key"></a>
+<a name="endpoint-key"></a>
 
 ## Runtime key for query predictions of user utterances
 
@@ -61,7 +61,7 @@ When the Azure runtime resource creation process is finished, [assign the key](l
 
 * Do not use the runtime key for authoring LUIS apps. 
 
-<a href="use-endpoint-key-in-query"></a>
+<a name="use-endpoint-key-in-query"></a>
 
 ## Use runtime key in query
 The LUIS endpoint accepts two styles of query, both use the runtime key, but in different places.
@@ -111,8 +111,8 @@ An app is defined by its Azure resource, which is determined by the app's subscr
 You can move your LUIS app. Use the following documentation resources to learn more:
 
 * [Move resource to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md)
-* [Move resource within same subscription or across subscriptions](../azure-resource-manager/move-limitations/app-service-move-limitations.md)
-* [Transfer ownership](../billing/billing-subscription-transfer.md) of your subscription 
+* [Move resource within same subscription or across subscriptions](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Transfer ownership](../../billing/billing-subscription-transfer.md) of your subscription 
 
 ### Collaborator roles vs entity roles
 

@@ -61,7 +61,7 @@ You can delay the migration process, by canceling out of the window. You are per
 
 ### Migration steps
 
-Follow [these migration steps](luis-migration-authoring-steps).
+Follow [these migration steps](luis-migration-authoring-steps.md).
 
 ### After you migrate 
 
