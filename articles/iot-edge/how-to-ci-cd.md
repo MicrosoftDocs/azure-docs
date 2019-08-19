@@ -4,7 +4,7 @@ description: Set up continuous integration and continuous deployment - Azure IoT
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
