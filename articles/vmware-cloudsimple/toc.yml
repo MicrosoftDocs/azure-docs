@@ -97,7 +97,7 @@
       - name: Obtain peer information for virtual network connection to CloudSimple
         href: virtual-network-connection.md
       - name: Access vSphere client escalation privileges for admin tasks
-        href: vsphere-access.md
+        href: https://docs.azure.cloudsimple.com/vsphere-access/
     - name: Manage CloudSimple portal accounts
       items: 
       - name: View the account summary
