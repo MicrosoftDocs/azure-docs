@@ -692,7 +692,11 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
 
 3. Use FTP to upload the session manager's JAR file to your App Service instance, placing it in the */home/tomcat/lib* directory. For more info, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-4. Disable the [session affinity cookie](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) for your App Service instance. You can do this from the Azure portal by navigating to your instance and then setting **Configuration > General settings > ARR affinity** to **Off**.
+4. Disable the [session affinity cookie](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) for your App Service instance. You can do this from the Azure portal by navigating to your app and then setting **Configuration > General settings > ARR affinity** to **Off**. Alternately, you can use the following Azure CLI command:
+
+    ```azurecli
+    az webapp update -g <resource group> -n $<webapp name> --client-affinity-enabled false
+    ```
 
     By default, App Service will use session affinity cookies to ensure that client requests with existing sessions are routed to the same instance of your application. This default behavior requires no configuration but it can't preserve user session state when your app instance is restarted or when traffic is rerouted to another instance. When you [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing, you allow the configured session store to operate without interference.
 
