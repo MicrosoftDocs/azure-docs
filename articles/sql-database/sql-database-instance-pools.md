@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
-ms.date: 08/21/2019
+ms.date: 08/22/2019
 ---
 # What are SQL Database instance pools (preview)?
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
-ms.date: 08/21/2019
+ms.date: 08/22/2019
 ---
 # Azure SQL Database instance pools how-to guide
 
@@ -151,6 +151,17 @@ Deploying instance inside the pool is an operation that takes a couple of minute
 $instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -StorageSizeInGB 512
 ```
 
+## Create a database inside an instance 
+
+To create and manage databases in a managed instance that's inside a pool, use the single instance commands.
+
+To create a database inside a managed instance:
+
+```powershell
+$poolinstancedb = New-AzSqlInstanceDatabase -Name "mipooldb1" -InstanceName "poolmi-001" -ResourceGroupName "myResourceGroup"
+```
+
+
 ## Get instance pool usage 
  
 To get a list of instances inside a pool:
@@ -184,16 +195,6 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 > [!NOTE]
 > There is a limit of 100 databases per pool (not per instance).
-
-## Create a database inside an instance 
-
-To create and manage databases in a managed instance that's inside a pool, use the single instance commands.
-
-To create a database inside a managed instance:
-
-```powershell
-$poolinstancedb = New-AzSqlInstanceDatabase -Name "mipooldb1" -InstanceName "poolmi-001" -ResourceGroupName "myResourceGroup"
-```
 
 
 ## Scale a managed instance inside a pool 
