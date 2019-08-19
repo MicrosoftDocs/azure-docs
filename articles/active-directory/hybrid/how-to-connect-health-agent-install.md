@@ -308,7 +308,7 @@ You have the following options to configure Azure AD Connect Health Agent to use
 
 > [!NOTE]
 > All Azure AD Connect Health Agent services must be restarted, in order for the proxy settings to be updated. Run the following command:<br />
-> Restart-Service AdHealth*
+> Restart-Service AzureADConnectHealth*
 >
 >
 
