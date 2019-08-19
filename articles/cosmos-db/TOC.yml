@@ -179,6 +179,12 @@
       - name: SQL query execution
         displayName: query performance, query execution
         href: sql-query-execution.md
+      - name: Data types
+        items:
+        - name: DateTime
+          href: working-with-dates.md
+        - name: Geospatial
+          href: geospatial.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -186,8 +192,8 @@
       - name: Work with databases, containers, and items
         displayName: collection, document
         href: databases-containers-items.md
-      - name: Model document data
-        displayName: document
+      - name: Modeling data
+        displayName: model document, model json
         href: modeling-data.md
       - name: Indexing
         items:
@@ -197,12 +203,6 @@
         - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
-      - name: Data types
-        items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: Geospatial
-          href: geospatial.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
