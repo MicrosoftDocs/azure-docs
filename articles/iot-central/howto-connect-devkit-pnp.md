@@ -3,7 +3,7 @@ title: Connect a DevKit device to your Azure IoT Central application via IoT Plu
 description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application via IoT Plug and Play.
 author: liydu
 ms.author: liydu
-ms.date: 08/10/2019
+ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -56,7 +56,7 @@ In your Azure IoT Central application, select **Administration** tab, choose **D
 
     - The name of your WiFi network (SSID)
     - Your WiFi network password
-    - The connection details **Device ID** which you can specify by yourself, and **Scope ID**, and **Primary Key** of your device (you should have already saved this following the steps)
+    - The connection details **Device ID** which you can specify by yourself, and **Scope ID**, and **Group SAS Primary Key** of your device (you should have already saved this following the steps)
 
     > [!NOTE]
     > Currently, the IoT DevKit only can connect to 2.4 GHz Wi-Fi, 5 GHz is not supported due to hardware restrictions.
