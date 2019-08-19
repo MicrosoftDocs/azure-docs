@@ -65,14 +65,10 @@ In this tutorial, you will:
      > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM. You can also pre-create a network and assign it to the VM in the user flow for enable replication. As mentioned later, you need to manually create any other resources in the target region.
 
     To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
-
-    a. [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-
-    b. [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-
-    c.  [Public IP](../virtual-network/virtual-network-public-ip-address.md)
-
-    d. For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    -  [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+    - For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
 
 
@@ -127,14 +123,16 @@ Once you have checked the moved VM and are ready to commit the change, in the **
 
 The following steps will guide you through how to clean up the source region as well as related resources that were used for the move.
 
-1. Go to the VM. Select **Disable Replication**. This step stops the process from copying the data for the VM.
+For all resources that were used for the move:
 
-> [!IMPORTANT]
-> It's important to perform this step to avoid being charged for Azure Site Recovery replication.
+- Go to the VM. Select **Disable Replication**. This step stops the process from copying the data for the VM.
 
-If you have no plans to reuse any of the source resources, follow these steps:
+   > [!IMPORTANT]
+   > It's important to perform this step to avoid being charged for Azure Site Recovery replication.
 
-2. Delete all the relevant network resources in the source region that you identified in [prerequisites](#prerequisites).
+If you have no plans to reuse any of the source resources, complete these additional steps:
+
+1. Delete all the relevant network resources in the source region that you identified in [prerequisites](#prerequisites).
 1. Delete the corresponding storage account in the source region.
 
 ## Next steps
