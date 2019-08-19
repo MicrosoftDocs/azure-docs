@@ -113,7 +113,7 @@ To resolve this issue, double-check whether the following items are true:
 
 ### Error: *Your current account type is not supported*
 
-This issue can occur if the account is registered in an [unmanaged Azure AD directory](../active-directory/users-groups-roles/directory-self-service-sign-up.md), and it is not in your organization’s Azure AD directory. 
+This issue can occur if the account is registered in an [unmanaged Azure AD directory](../active-directory/users-groups-roles/directory-self-service-signup.md), and it is not in your organization’s Azure AD directory. 
 
 To resolve this issue, sign-up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../active-directory/users-groups-roles/domains-admin-takeover.md).
  
