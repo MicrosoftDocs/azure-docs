@@ -38,7 +38,16 @@ After reading this article, you will be able to answer the following questions:
 
 ADF offers a serverless architecture that allows parallelism at different levels, which allows developers to build pipelines to fully utilize your network bandwidth as well as storage IOPS and bandwidth to maximize data movement throughput for your environment.  This means the throughput you can achieve can be estimated by measuring the minimum throughput offered by the source data store, the destination data store, and network bandwidth in between the source and destination.  The table below calculates the copy duration based on data size and the bandwidth limit for your environment. 
 
-![copy duration estimation](media/copy-activity-performance/copy-duration-estimation.png)
+| Data size \ bandwidth | 50 Mbps    | 100 Mbps  | 200 Mbps  | 500 Mbps  | 1 Gbps   | 10 Gbps  |
+| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
+| 1 GB                  | 2.7 min    | 1.4 min   | 0.7 min   | 0.3 min   | 0.1 min  | 0.0 min  |
+| 10 GB                 | 27.3 min   | 13.7 min  | 6.8 min   | 2.7 min   | 1.3 min  | 0.1 min  |
+| 100 GB                | 4.6 hrs    | 2.3 hrs   | 1.1 hrs   | 0.5 hrs   | 0.2 hrs  | 0.0 hrs  |
+| 1 TB                  | 46.6 hrs   | 23.3 hrs  | 11.7 hrs  | 4.7 hrs   | 2.3 hrs  | 0.2 hrs  |
+| 10 TB                 | 19.4 days  | 9.7 days  | 4.9 days  | 1.9 days  | 0.9 days | 0.1 days |
+| 100 TB                | 194.2 days | 97.1 days | 48.5 days | 19.4 days | 9.5 days | 0.9 days |
+| 1 PB                  | 64.7 mo    | 32.4 mo   | 16.2 mo   | 6.5 mo    | 3.2 mo   | 0.3 mo   |
+| 10 PB                 | 647.3 mo   | 323.6 mo  | 161.8 mo  | 64.7 mo   | 31.6 mo  | 3.2 mo   |
 
 ADF copy is scalable at different levels:
 
@@ -66,8 +75,8 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    Copy activity should scale almost perfectly linearly as you increase the DIU setting.  If by doubling the DIU setting you are not seeing the throughput double, two things could be happening:
 
-   1. The specific copy pattern you are running does not benefit from adding more DIUs.  Even though you had specified a larger DIU value, the actual DIU used remained the same, and therefore you are getting the same throughput as before.  If this is the case, go to step #3
-   2. By adding more DIUs (more horsepower) and thereby driving higher rate of data extraction, transfer, and loading, either the source data store, the network in between, or the destination data store has reached its bottleneck and possibly being throttled.  If this is the case, try contacting your data store administrator or your network administrator to raise the upper limit, or alternatively, reduce the DIU setting until throttling stops occurring.
+   - The specific copy pattern you are running does not benefit from adding more DIUs.  Even though you had specified a larger DIU value, the actual DIU used remained the same, and therefore you are getting the same throughput as before.  If this is the case, go to step #3
+   - By adding more DIUs (more horsepower) and thereby driving higher rate of data extraction, transfer, and loading, either the source data store, the network in between, or the destination data store has reached its bottleneck and possibly being throttled.  If this is the case, try contacting your data store administrator or your network administrator to raise the upper limit, or alternatively, reduce the DIU setting until throttling stops occurring.
 
    **If the copy activity is being executed on a self-hosted Integration Runtime:**
 
@@ -77,8 +86,8 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    If you would like to achieve higher throughput, you can either scale up or scale out the self-hosted IR:
 
-   1. If the CPU and available memory on the self-hosted IR node are not fully utilized, but the execution of concurrent jobs is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node.  See [here](create-self-hosted-integration-runtime.md#scale-up) for instructions.
-   2. If, on the other hand, the CPU is high on the self-hosted IR node and available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
+   - If the CPU and available memory on the self-hosted IR node are not fully utilized, but the execution of concurrent jobs is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node.  See [here](create-self-hosted-integration-runtime.md#scale-up) for instructions.
+   - If, on the other hand, the CPU is high on the self-hosted IR node and available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
 
    As you scale up or scale out the capacity of the self-hosted IR, repeat the performance test run to see if you are getting increasingly better throughput.  If throughput stops improving, most likely either the source data store, the network in between, or the destination data store has reached its bottleneck and is starting to get throttled. If this is the case, try contacting your data store administrator or your network administrator to raise the upper limit, or alternatively, go back to your previous scaling setting for the self-hosted IR. 
 
@@ -100,7 +109,7 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    In this sample, during a copy run, Azure Data Factory notices the sink Azure SQL Database reaches high DTU utilization, which slows down the write operations. The suggestion is to increase the Azure SQL Database tier with more DTUs. 
 
-   ![Copy monitoring with performance tuning tips](C:/AzureContent/azure-docs-pr/articles/data-factory/media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+   ![Copy monitoring with performance tuning tips](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
    In addition, the following are some common considerations. A full description of performance diagnosis is beyond the scope of this article.
 
