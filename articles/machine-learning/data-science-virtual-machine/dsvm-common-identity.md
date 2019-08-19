@@ -44,9 +44,9 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
     
    c. In **Users and groups**, select **All users**, and then select **New user**.
    
-      The **User** pane opens:
+       The **User** pane opens:
       
-      ![The "User" pane](./media/add-user.png)
+       ![The "User" pane](./media/add-user.png)
     
    d. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must be either the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/add-custom-domain.md) such as "contoso.com."
     
@@ -65,9 +65,9 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
 1. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to Active Directory. 
 1. Mount an Azure Files share to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file-level permissions, you'll need Network File System [NFS] running on one or more VMs.)
 
-   a. [Create an Azure Files share](../../storage/files/storage-how-to-create-file-share.md).
+   1. [Create an Azure Files share](../../storage/files/storage-how-to-create-file-share.md).
     
-   b. Mount this share on the Linux DSVM. When you select **Connect** for the Azure Files share in your storage account in the Azure portal, the  command to run in the Bash shell on the Linux DSVM appears. The command looks like this:
+   2.  Mount this share on the Linux DSVM. When you select **Connect** for the Azure Files share in your storage account in the Azure portal, the  command to run in the Bash shell on the Linux DSVM appears. The command looks like this:
    
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
