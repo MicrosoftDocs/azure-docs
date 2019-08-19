@@ -49,7 +49,7 @@ landingContent:
           - text: Configure the weighted traffic routing method in Traffic Manager
             url: traffic-manager-configure-weighted-routing-method.md
           - text: Configure priority traffic routing method in Traffic Manager
-            url: traffic-manager-priority-weighted-routing-method.md
+            url: traffic-manager-configure-priority-routing-method.md
           - text: Direct traffic to specific endpoints based on user subnet using Traffic Manager
             url: tutorial-traffic-manager-subnet-routing.md
 
@@ -65,7 +65,7 @@ landingContent:
           - text: Traffic Manager endpoint monitoring
             url: traffic-manager-monitoring.md
           - text: Disaster recovery using Azure DNS and Traffic Manager
-            url: disaster-recovery-dns-traffic-manager.md
+            url: :~/articles/networking/disaster-recovery-dns-traffic-manager.md
 
 
   # Card
