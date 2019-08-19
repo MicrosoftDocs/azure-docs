@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-one
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 
-[!INCLUDE [Custom subdomains notice](../../includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 
