@@ -90,7 +90,7 @@ You must own a custom domain and follow this process:
 
 - Register the domain to the custom domain list of the app service. You must have a CNAME in your custom domain that points to the app service's FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
-![App service custom domain list](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+    ![App service custom domain list](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - Your app service is ready to accept the host name www.contoso.com. Change your CNAME entry in DNS to point it back to the application gateway's FQDN, for example, appgw.eastus.cloudapp.azure.com.
 
