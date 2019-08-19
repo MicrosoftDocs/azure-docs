@@ -50,7 +50,7 @@ You may be experiencing other sign-up issues
 
 For more information about how to troubleshoot Azure sign-up issues, see the following Knowledge Base article: 
 
-[You can't sign-up for Azure in the Azure portal or Azure account center](billing-troubleshoot-cant-sign-up-azure.md)
+[You can't sign-up for Azure in the Azure portal or Azure account center](billing-troubleshoot-azure-sign-up.md)
 
 ### You represent a business that doesn't want to pay by card 
 
