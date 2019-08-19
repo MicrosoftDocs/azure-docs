@@ -8,7 +8,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 08/22/2019
 ---
 
 # Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
@@ -19,7 +19,7 @@ triggers and actions for managing AS2 communication.
 For example, to establish security and reliability 
 when transmitting messages, you can use these actions:
 
-* [**Encode to AS2 message** action](#encode) for providing encryption, 
+* [**AS2 Encode** action](#encode) for providing encryption, 
 digital signing, and acknowledgements through Message Disposition 
 Notifications (MDN), which help support non-repudiation. For example, 
 this action applies AS2/HTTP headers and performs these tasks when configured:
@@ -29,7 +29,7 @@ this action applies AS2/HTTP headers and performs these tasks when configured:
   * Compresses the message.
   * Transmits the file name in the MIME header.
 
-* [**Decode AS2 message** action](#decode) for providing decryption, 
+* [**AS2 Decode** action](#decode) for providing decryption, 
 digital signing, and acknowledgements through Message 
 Disposition Notifications (MDN). For example, this action 
 performs these tasks: 
@@ -52,6 +52,12 @@ performs these tasks:
 
 This article shows how to add the AS2 encoding and 
 decoding actions to an existing logic app.
+
+> [!IMPORTANT]
+> This topic's examples use the AS v2 connector because this most recent 
+> version provides the same capabilities as the previous version, is native 
+> to the Logic Apps runtime, and provides significant performance improvements 
+> in terms of throughput and message size.
 
 ## Prerequisites
 
@@ -102,10 +108,9 @@ open your logic app in the Logic App Designer.
 1. In the designer, add a new action to your logic app. 
 
 1. Under **Choose an action** and the search box, choose **All**. 
-In the search box, enter "encode as2", and select this action: 
-**Encode to AS2 message**.
+In the search box, enter "as2 encode", and make sure that you select the AS2 (v2) action: **AS2 Encode**
 
-   ![Select "Encode to AS2 message"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
+   ![Select "AS2 Encode"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
 1. If you don't have an existing connection to your integration account, 
 you're prompted to create that connection now. Name your connection, 
@@ -117,9 +122,9 @@ select the integration account that you want to connect, and choose **Create**.
 
    | Property | Description |
    |----------|-------------|
-   | **AS2-From** | The identifier for the message sender as specified by your AS2 agreement |
-   | **AS2-To** | The identifier for the message receiver as specified by your AS2 agreement |
-   | **body** | The message payload |
+   | **Message to encode** | The message payload |
+   | **AS2 from** | The identifier for the message sender as specified by your AS2 agreement |
+   | **AS2 to** | The identifier for the message receiver as specified by your AS2 agreement |
    |||
 
    For example:
@@ -136,10 +141,9 @@ open your logic app in the Logic App Designer.
 1. In the designer, add a new action to your logic app. 
 
 1. Under **Choose an action** and the search box, choose **All**. 
-In the search box, enter "decode as2", and select this action: 
-**Decode AS2 message**
+In the search box, enter "as2 decode", and make sure that you select the AS2 (v2): **AS2 Decode**
 
-   ![Select "Decode AS2 message"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
+   ![Select "AS2 Decode"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
 1. If you don't have an existing connection to your integration account, 
 you're prompted to create that connection now. Name your connection, 
@@ -147,12 +151,12 @@ select the integration account that you want to connect, and choose **Create**.
 
    ![Create connection to integration account](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
 
-1. For **body** and **Headers**, select these values from previous trigger or action outputs.
+1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
 
    For example, suppose your logic app receives messages through a 
    Request trigger. You can select the outputs from that trigger.
 
-   ![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png) 
+   ![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
 
 ## Sample
 
