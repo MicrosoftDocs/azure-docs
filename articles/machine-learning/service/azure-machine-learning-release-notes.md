@@ -76,13 +76,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Support detecting and logging auto test environment.
     + Add classes to get US population by county and zip.
   + **azureml-pipeline-core**
-    + Adding label property to input and output port definitions.
-    + ModuleStep now allows having an optional input in its module
-    + Bug fix - Allowing DataReference to act as input to ModuleVersion
-    + Add static call to get a ModuleVersion by its Id. Allowing it to be used when creating a ModuleStep.
-  + **azureml-pipeline-steps**
-    + Bug fix - Allowing DataReference to act as input to ModuleVersion
-    + Add static call to get a ModuleVersion by its Id. Allowing it to be used when creating a ModuleStep.
+    + Added label property to input and output port definitions.
   + **azureml-telemetry**
     + Fixed an incorrect telemetry configuration.
   + **azureml-train-automl**
