@@ -11,7 +11,7 @@ ms.custom: fasttrack-new
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure foundation blueprint sample
 
-The Microsoft Cloud Adoption Framework for Azure(CAF) foundation blueprint is a set of controls to help you manage your cloud estate in alignment with the CAF.
+The Microsoft Cloud Adoption Framework for Azure (CAF) foundation blueprint deploys a set of core infrastructure resources and policy controls required for your first production grade Azure application. This foundation blueprint is based on the recommended pattern found in CAF.
 
 ## Architecture
 
@@ -21,18 +21,13 @@ This sample will deploy and enforce resources, policies and templates that will 
 
 ![CAF foundation, image describes what gets installed as part of CAF guidance for creating a foundation to get started with Azure](../../media/caf-blueprints/caf-governance-architecture.png)
 
-This environment is composed of several Azure services used to provide a secure, fully monitored,
-enterprise-ready foundation. This environment is
+This implementation incorporates several Azure services used to provide a secure, fully monitored, enterprise-ready foundation. This environment is
 composed of:
 
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
-  for the VMs deployed in the shared services environment
-- Deploy [Log Analytics](../../../../azure-monitor/overview.md) for the
-    entire environment and [Storage Accounts] (../../../../storage.md) for diagnostic logging
-- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md),
-    standard.
-The blueprint also defines and deploys [Azure Policies](../../../policy/overview.md), for 
-- Policies
+- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used for the VMs deployed in the shared services environment
+- Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions and services log to a central location from the moment you start your secure deployment in to [Storage Accounts](../../../../storage.md) for diagnostic logging 
+- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard version) provides threat protection for your migrated workloads
+- The blueprint also defines and deploys [Azure Policies](../../../policy/overview.md), for 
     - Tagging (CostCenter) applied to resources groups
     - Append resources in resource group with the CostCenter Tag
     - Allowed Azure Region for Resources and Resource Groups
@@ -50,7 +45,7 @@ All these elements abide to the proven practices published in the [Azure Archite
 > The CAF foundation lays out a foundational architecture for workloads.
 > You still need to deploy workloads behind this foundational architecture.
 
-For more information, see the [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/).
+For more information, see the [Microsoft Cloud Adoption Framework for Azure - Ready](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy).
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.custom: fasttrack-new
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Migration landing zone blueprint sample
 
-The Microsoft Cloud Adoption Framework for Azure (CAF) migration landing zone blueprint is a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with CAF.
+The Microsoft Cloud Adoption Framework for Azure (CAF) migration landing zone blueprint is a set of infrastructure to help you setup for migrating your first workload and manage your cloud estate in alignment with CAF.
 
 The [CAF Foundation](../caf-governance/index.md) blueprint sample extends this sample.
 
@@ -27,11 +27,10 @@ enterprise-ready governance. This environment is
 composed of:
 
 - An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used for the Certificates, Keys and Secrets deployed in the shared services environment
-- Deploy [Log Analytics](../../../../azure-monitor/overview.md) enabling diagnostics for the entire environment
-- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md),
-    standard.
-- Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) Hub
-- Deploy [Azure Migrate Project](../../../..//migrate/migrate-overview.md) Hub for discovery and assessment. We are adding the tools for Server assessment, Server migration, Database assessment and Database migration.  
+- Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions and services log to a central location from the moment you start your migration
+- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard version) provides threat protection for your migrated workloads.
+- Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) providing an isolated network and subnets for your virtual machine.
+- Deploy [Azure Migrate Project](../../../..//migrate/migrate-overview.md) for discovery and assessment. We are adding the tools for Server assessment, Server migration, Database assessment and Database migration.  
 
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
@@ -40,7 +39,7 @@ All these elements abide to the proven practices published in the [Azure Archite
 > The CAF Migration blueprint lays out a landing zone for your workloads.
 > You still need to perform the assessment and migration of your Virtual Machines / Databases on top of this foundational architecture.
 
-For more information, see the [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/).
+For more information, see the [Microsoft Cloud Adoption Framework for Azure - Migrate](/azure/architecture/cloud-adoption/migrate/).
 
 ## Next steps
 
