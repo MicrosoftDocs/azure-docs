@@ -16,7 +16,7 @@ This article shows you how to connect an MXChip IoT DevKit (DevKit) device to an
 
 In this how-to article, you:
 
-- Add and configure a real device in your IoT Central application.
+- Get the connection details from your IoT Central application.
 - Prepare the device and connect it to your IoT Central application.
 - View the telemetry and properties from the device, write properties and send commands to the device.
 
@@ -27,7 +27,7 @@ To complete the steps in this article, you need the following resources:
 1. A DevKit device. [Get it now](https://aka.ms/iot-devkit-purchase).
 1. An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-## Get group device connection details
+## Get device connection details
 
 In your Azure IoT Central application, select **Administration** tab, choose **Device Connection**. Make a note of the **Scope ID** and **Primary key**.
 
@@ -78,14 +78,6 @@ In this step, you view the telemetry and reported property values, and send comm
 1. In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry coming from the DevKit.
 
    ![IoT Central device overview](media/howto-connect-devkit-pnp/overview-page.png)
-
-1. In the **About** tab, you can view the properties reported by the DevKit.
-
-   ![IoT Central device property](media/howto-connect-devkit-pnp/property-page.png)
-
-1. In the **Commands** page, you can call the commands to execute actions on the DevKit. For example, you run **turnOnLED** command.
-
-   ![Turn on LED](media/howto-connect-devkit-pnp/turn-on-LED.png)
 
 ## Troubleshooting
 
