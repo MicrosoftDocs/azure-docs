@@ -32,6 +32,10 @@ Employees in organizations need access to various groups, applications, and site
 
 Azure Active Directory (Azure AD) entitlement management can help you manage access to groups, applications, and SharePoint Online sites for internal users and also users outside your organization.
 
+This video provides an overview of entitlement management and its business value:
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
+
 ## Why use entitlement management?
 
 Enterprise organizations often face challenges when managing access to resources such as:

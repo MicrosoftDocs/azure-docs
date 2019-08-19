@@ -88,7 +88,7 @@ HDInsight [script actions](hdinsight-hadoop-customize-cluster-linux.md) run scri
 
 The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which are not) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following is an example log file.
 
-![HDInsight log file example](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
+![HDInsight log file example](./media/hdinsight-log-management/logs.png)
 
 ### Access the Hadoop log files
 

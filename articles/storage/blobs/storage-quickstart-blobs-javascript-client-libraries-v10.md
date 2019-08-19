@@ -54,7 +54,7 @@ Next, you use the Azure cloud shell to create a security token.
 
 ## Create a shared access signature
 
-The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
+The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
 You can create a SAS using the Azure CLI through the Azure cloud shell, or with the Azure portal or Azure Storage Explorer. The following table describes the parameters you need to provide values for to generate a SAS with the CLI.
 
