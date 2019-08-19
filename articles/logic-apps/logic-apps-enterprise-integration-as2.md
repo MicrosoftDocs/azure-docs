@@ -45,7 +45,8 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 > [!IMPORTANT]
 > The original AS2 connector is going to be deprecated, so make sure that you use the **AS2 (v2)** connector instead. 
 > This version provides the same capabilities as the original version, is native to the Logic Apps runtime, 
-> and provides significant performance improvements in terms of throughput and message size.
+> and provides significant performance improvements in terms of throughput and message size. Also, the native v2 
+> connector doesn't require that you create a connection to your integration account.
 
 ## Prerequisites
 
@@ -77,10 +78,6 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 
    ![Select "AS2 Encode"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-1. If you don't have an existing connection to your integration account, you're prompted to create that connection now. Name your connection, select the integration account that you want to connect, and select **Create**.
-
-   ![Create connection to integration account](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
- 
 1. Now provide information for these properties:
 
    | Property | Description |
@@ -105,10 +102,6 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 1. Under **Choose an action** and the search box, select **All**. In the search box, enter "as2 decode", and make sure that you select the AS2 (v2) action: **AS2 Decode**
 
    ![Select "AS2 Decode"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
-
-1. If you don't have an existing connection to your integration account, you're prompted to create that connection now. Name your connection, select the integration account that you want to connect, and select **Create**.
-
-   ![Create connection to integration account](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
 
 1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
 
