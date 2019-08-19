@@ -53,3 +53,11 @@ In addition to let you search for a location, the feedback tool also lets you ad
 You can also track the status of your request by checking the "I want to track status" box and providing your email while making a request. You will receive a tracking link in the email that provides an up-to-date status for your request. 
 
   ![feedback status](./media/how-to-use-feedback-tool/feedback-status.png)
+
+
+## Next steps
+
+To post any technical questions related to Azure Maps, visit:
+
+* [Azure Maps Stack Overflow](https://stackoverflow.com/questions/tagged/azure-maps)
+* [Azure Maps feedback forum](https://feedback.azure.com/forums/909172-azure-maps)
