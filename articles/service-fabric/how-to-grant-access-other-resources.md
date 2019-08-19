@@ -11,7 +11,7 @@ ms.date: 08/08/2019
 ms.author: atsenthi 
 ---
 
-# Granting a Service Fabric application's managed identity access to Azure resources
+# Granting a Service Fabric application's managed identity access to Azure resources (preview)
 
 Before the application can use its managed identity to access other resources, permissions must be granted to that identity on the protected Azure resource being accessed. Granting permissions is typically a management action on the 'control plane' of the Azure service owning the protected resource routed via Azure Resource Manager, which will enforce any applicable role-based access checking.
 
@@ -70,7 +70,7 @@ For more details, please see [Vaults - Update Access Policy](https://docs.micros
 
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 
-## Related articles
+## Next Steps
 
 * Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
 

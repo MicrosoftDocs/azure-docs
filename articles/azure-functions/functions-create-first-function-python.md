@@ -15,8 +15,6 @@ manager: jeconnoc
 
 # Create an HTTP triggered function in Azure
 
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
-
 This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. The function you create is triggered by HTTP requests. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
 
 This article is the first of two quickstarts for Azure Functions. After you complete this article, you [add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md) to your function.
@@ -27,7 +25,7 @@ Before you start, you must have the following:
 
 + Install [Python 3.6](https://www.python.org/downloads/).
 
-+ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.1071 or a later version.
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1575 or a later version.
 
 + Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.x or a later version.
 
@@ -35,9 +33,9 @@ Before you start, you must have the following:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create and activate a virtual environment
+## Create and activate a virtual environment (optional)
 
-To locally develop and test Python functions, you must work in a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.venv`.
+To locally develop and test Python functions, it is recommended to use a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.venv`.
 
 ### Bash:
 
@@ -76,8 +74,6 @@ Navigate to the new MyFunctionProj folder:
 ```console
 cd MyFunctionProj
 ```
-
-Next, you update the host.json file to enable extension bundles.  
 
 ## Create a function
 
@@ -160,15 +156,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> Azure Functions, Consumption plan for Linux is currently in preview and only available on following regions: West US, East US, West Europe, East Asia. Moreover, Linux and Windows apps cannot be hosted in the same resource group. If you have an existing resource group named `myResourceGroup` with a Windows function app or web app, you must use a different resource group.
+> Linux and Windows apps cannot be hosted in the same resource group. If you have an existing resource group named `myResourceGroup` with a Windows function app or web app, you must use a different resource group.
+
+This command will also provision an associated Azure Application Insights instance in the same resource group that can be used for monitoring and viewing logs.
 
 You're now ready to publish your local functions project to the function app in Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> To view near real-time logs for a published Python app, we recommend using the [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs)
 
 ## Next steps
 
