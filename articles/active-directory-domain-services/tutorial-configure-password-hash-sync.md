@@ -50,25 +50,36 @@ As prerequisite to configuring Azure AD Connect to generate the required NTLM or
 
 If you have an existing instance of Azure AD Connect, update to the latest version to make sure you can generate the legacy password hashes for NTLM and Kerberos. This functionality isn't available in early releases of Azure AD Connect or with the legacy DirSync tool. Azure AD Connect version *1.1.614.0* or later is required.
 
-## Enable synchronization of NTLM and Kerberos credential hashes
+## Enable synchronization of password hashes
 
-With Azure AD Connect installed and configured to synchronize with Azure AD, now configure the legacy password hash sync for NTLM and Kerberos. Run the following PowerShell script on each AD forest to enable on-premises account NTLM and Kerberos password hashes to be synchronized. The script also initiates a full synchronization of Azure AD Connect to Azure AD:
+With Azure AD Connect installed and configured to synchronize with Azure AD, now configure the legacy password hash sync for NTLM and Kerberos.
 
-```powershell
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-$azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"
-Import-Module adsync
-$c = Get-ADSyncConnector -Name $adConnector
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1
-$c.GlobalParameters.Remove($p.Name)
-$c.GlobalParameters.Add($p)
-$c = Add-ADSyncConnector -Connector $c
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $false
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
-```
+1. On the computer with Azure AD Connect installed, from the Start menu, open the Azure AD Connect > Synchronization Service.
+1. Select the **Connectors** tab. The connection information used to establish the synchronization between the on-premises AD DS environment and Azure AD are listed.
 
-Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the Azure AD DS managed domain after they've synchronized to Azure AD.
+    The **Type** indicates either *Windows Azure Active Directory (Microsoft)* for the Azure AD connector or *Active Directory Domain Services* for the on-premises connector. Make a note of the connector names to use in PowerShell script in the next step.
+
+    In the following example screenshot, the Azure AD connector is named *contoso.onmicrosoft.com - AAD* and the on-premises connector is named *onprem.contoso.com*
+
+    ![List the connector names in Sync Service Manager](media/tutorial-configure-password-hash-sync/service-sync-manager.png)
+
+1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step. Run this script on each AD forest to synchronize on-premises account NTLM and Kerberos password hashes to Azure AD. The script also initiates a full synchronization of Azure AD Connect to Azure AD:
+
+    ```powershell
+    $azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"
+    $adConnector = "<CASE SENSITIVE AD DS CONNECTOR NAME>"
+    Import-Module adsync
+    $c = Get-ADSyncConnector -Name $adConnector
+    $p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
+    $p.Value = 1
+    $c.GlobalParameters.Remove($p.Name)
+    $c.GlobalParameters.Add($p)
+    $c = Add-ADSyncConnector -Connector $c
+    Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $false
+    Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
+    ```
+
+    Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the Azure AD DS managed domain after they've synchronized to Azure AD.
 
 ## Next steps
 

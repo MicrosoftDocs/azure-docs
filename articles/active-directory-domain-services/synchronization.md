@@ -114,7 +114,7 @@ When you enable Azure AD Domain Services, your Azure AD directory generates and 
 
 For existing cloud user accounts, since Azure AD never stores their clear-text passwords, these hashes cannot be automatically generated. Therefore, Microsoft requires [cloud-users to reset/change their passwords](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in order for their password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. 
 
-For user accounts synced from on-premises AD using Azure AD Connect Sync, you need to [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](tutorial-configue-password-hash-sync.md).
+For user accounts synced from on-premises AD using Azure AD Connect Sync, you need to [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](tutorial-configure-password-hash-sync.md).
 
 The NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD. These hashes are encrypted such that only Azure AD Domain Services has access to the decryption keys. No other service or component in Azure AD has access to the decryption keys. The encryption keys are unique per-Azure AD tenant. Azure AD Domain Services synchronizes the password hashes into the domain controllers for your managed domain. These password hashes are stored and secured on these domain controllers similar to how passwords are stored and secured on Windows Server AD domain controllers. The disks for these managed domain controllers are encrypted at rest.
 
