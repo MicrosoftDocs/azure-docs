@@ -157,48 +157,48 @@ You can monitor the copy activity run in the Azure Data Factory **Author & Monit
 
 ### Monitor visually
 
-To visually monitor the copy activity run, go to your data factory -> **Author & Monitor** -> **Monitor tab**, you see a list of pipeline runs with a "View Activity Runs" link in the **Actions** column.
+To visually monitor the copy activity run, go to your data factory and then go to **Author & Monitor**. On the **Monitor** tab, you see a list of pipeline runs with a **View Activity Run** button in the **Actions** column.
 
 ![Monitor pipeline runs](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
-Click to see the list of activities in this pipeline run. In the **Actions** column, you have links to the copy activity input, output, errors (if copy activity run fails), and details.
+Select **View Activity Runs** to see the list of activities in this pipeline run. In the **Actions** column, you see links to the copy activity input, output, errors (if copy activity run fails), and details.
 
 ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario.
+Select the **Details** button in the **Actions** column to see the copy activity's execution details and performance characteristics. You see information like volume/number of rows/number of files of data copied from source to sink, throughput, steps the copy activity goes through with corresponding durations, and configurations used for your copy scenario.
 
 >[!TIP]
->For some scenarios, you will also see "**Performance tuning tips**" on top of the copy monitoring page,  which tells you the bottleneck identified and guides you on what to change so as to boost copy throughput, see an example with details [here](#performance-and-tuning).
+>In some scenarios, you'll also see **Performance tuning tips** at the top of the copy monitoring page. These tips tell you about identified bottlenecks and provide information on what to change to boost copy throughput. For an example, see the [Performance and tuning](#performance-and-tuning) section of this article.
 
-**Example: copy from Amazon S3 to Azure Data Lake Store**
+**Example: Copy from Amazon S3 to Azure Data Lake Store**
 ![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**Example: copy from Azure SQL Database to Azure SQL Data Warehouse using staged copy**
+**Example: Copy from Azure SQL Database to Azure SQL Data Warehouse with staged copy**
 ![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
 ### Monitor programmatically
 
-Copy activity execution details and performance characteristics are also returned in the Copy Activity run result -> Output section. Below is an exhaustive list; only the applicable ones to your copy scenario will show up. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
+Copy activity execution details and performance characteristics are also returned in the **Copy Activity run result** > **Output** section. Following is a complete list of properties that might be returned. You'll see only the properties that are applicable to your copy scenario. For information about how to monitor activity runs, see [Monitor a peipleline run](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Property name  | Description | Unit |
 |:--- |:--- |:--- |
-| dataRead | Data size read from source | Int64 value in **bytes** |
-| dataWritten | Data size written to sink | Int64 value in **bytes** |
-| filesRead | Number of files being copied when copying data from file storage. | Int64 value (no unit) |
-| filesWritten | Number of files being copied when copying data to file storage. | Int64 value (no unit) |
-| sourcePeakConnections | Number of max concurrent connections established to source data store during the copy activity run. | Int64 value (no unit) |
-| sinkPeakConnections | Number of max concurrent connections established to sink data store during the copy activity run. | Int64 value (no unit) |
-| rowsRead | Number of rows being read from source (not applicable for binary copy). | Int64 value (no unit) |
-| rowsCopied | Number of rows being copied to sink (not applicable for binary copy). | Int64 value (no unit) |
-| rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |
-| copyDuration | The duration of the copy. | Int32 value in seconds |
-| throughput | Ratio at which data are transferred. | Floating point number in **KB/s** |
-| sourcePeakConnections | Peak number of concurrent connections established to the source data store during copy. | Int32 value |
-| sinkPeakConnections| Peak number of concurrent connections established to the sink data store during copy.| Int32 value |
-| sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
-| redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
-| hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
-| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of `<IR name> (<region if it's Azure IR>)`. | Text (string) |
+| dataRead | Amount of data read from source. | Int64 value, in bytes |
+| dataWritten | Amount of data written to sink. | Int64 value, in bytes |
+| filesRead | Number of files copied during copy from file storage. | Int64 value (no unit) |
+| filesWritten | Number of files copied during copy to file storage. | Int64 value (no unit) |
+| sourcePeakConnections | Peak number of concurrent connections established to the source data store during the copy activity run. | Int64 value (no unit) |
+| sinkPeakConnections | Peak number of concurrent connections established to the sink data store during the copy activity run. | Int64 value (no unit) |
+| rowsRead | Number of rows read from the source (not applicable for binary copy). | Int64 value (no unit) |
+| rowsCopied | Number of rows copied to sink (not applicable for binary copy). | Int64 value (no unit) |
+| rowsSkipped | Number of incompatible rows that were skipped. You can enable incompatible rows to be skipped by setting `enableSkipIncompatibleRow` to true. | Int64 value (no unit) |
+| copyDuration | Duration of the copy run. | Int32 value, in seconds |
+| throughput | Rate of data transfer. | Floating point number, in KBps |
+| sourcePeakConnections | Peak number of concurrent connections established to the source data store during the copy activity run. | Int32 value (no unit) |
+| sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the copy activity run.| Int32 value (no unit) |
+| sqlDwPolyBase | Whether PolyBase is used when data is copied into SQL Data Warehouse. | Boolean |
+| redshiftUnload | Whether UNLOAD is used when data is copied from Redshift. | Boolean |
+| hdfsDistcp | Whether DistCp is used when data is copied from HDFS. | Boolean |
+| effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
