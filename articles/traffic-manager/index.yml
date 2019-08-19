@@ -65,7 +65,7 @@ landingContent:
           - text: Traffic Manager endpoint monitoring
             url: traffic-manager-monitoring.md
           - text: Disaster recovery using Azure DNS and Traffic Manager
-            url: :~/articles/networking/disaster-recovery-dns-traffic-manager.md
+            url: :/articles/networking/disaster-recovery-dns-traffic-manager.md
 
 
   # Card
