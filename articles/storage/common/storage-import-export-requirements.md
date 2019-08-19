@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -66,11 +66,15 @@ For the Azure Import/Export service, you need supported disks to copy data.
 The following list of disks is supported for use with the Import/Export service.
 
 
-|Disk type  |Size  |Supported |Not supported  |
-|---------|---------|---------|---------|
-|SSD    |   2.5"      |SATA III          |  USB       |
-|HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |External HDD with built-in USB adaptor <br> Disk inside the casing of an external HDD         |
+|Disk type  |Size  |Supported |
+|---------|---------|---------|
+|SSD    |   2.5"      |SATA III          | 
+|HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
 
+The following disk types are not supported:
+- USBs.
+- External HDD with built-in USB adaptor.
+- Disks that are inside the casing of an external HDD.
 
 A single import/export job can have:
 - A maximum of 10 HDD/SSDs.

@@ -63,7 +63,7 @@ If you have the User Portal on multiple servers, repeat the installation on all 
 ## Upgrade the Mobile App Web Service
 
 > [!NOTE]
-> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ that the mobile app web service can be uninstalled after the upgrade
+> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ then the mobile app web service can be uninstalled after the upgrade
 
 ## Upgrade the AD FS Adapters
 

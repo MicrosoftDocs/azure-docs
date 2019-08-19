@@ -117,10 +117,10 @@ be assigned.
 
 ## Blueprint assignment
 
-Each **Published** **Version** of a blueprint can be assigned to an existing subscription. In the
-portal, the blueprint defaults the **Version** to the one **Published** most recently. If there are
-artifact parameters (or blueprint parameters), then the parameters are defined during the
-assignment process.
+Each **Published** **Version** of a blueprint can be assigned (with a max name length of 90
+characters) to an existing subscription. In the portal, the blueprint defaults the **Version** to
+the one **Published** most recently. If there are artifact parameters (or blueprint parameters),
+then the parameters are defined during the assignment process.
 
 ## Permissions in Azure Blueprints
 
@@ -163,6 +163,17 @@ role](../../role-based-access-control/custom-roles.md).
 > this role must be manually granted, but is still automatically revoked after the deployment
 > completes. If using a user-assigned managed identity, only the user creating the blueprint
 > assignment needs **Owner** permissions.
+
+## Naming limits
+
+The following is a list of limitations that exist for certain fields:
+
+|Object|Field|Allowed Characters|Max. Length|
+|-|-|-|-|
+|Blueprint|Name|letters, numbers, hyphens, and periods|48|
+|Blueprint|Version|letters, numbers, hyphens, and periods|20|
+|Blueprint assignment|Name|letters, numbers, hyphens, and periods|90|
+|Blueprint artifact|Name|letters, numbers, hyphens, and periods|48|
 
 ## Video overview
 

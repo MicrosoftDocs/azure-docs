@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
 
 ---
@@ -414,7 +414,7 @@ When referencing a resource that isn't deployed in the same template, provide th
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
 ```
 
-To avoid ambiguity about which resource you are referencing, you can provide a fully qualified resource name.
+To avoid ambiguity about which resource you're referencing, you can provide a fully qualified resource name.
 
 ```json
 "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
@@ -563,7 +563,9 @@ The returned object is in the following format:
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -571,6 +573,8 @@ The returned object is in the following format:
   }
 }
 ```
+
+The **managedBy** property is returned only for resource groups that contain resources that are managed by another service. For Managed Applications, Databricks, and AKS, the value of the property is the resource ID of the managing resource.
 
 ### Remarks
 
@@ -616,6 +620,7 @@ The preceding example returns an object in the following format:
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "southcentralus",
   "properties": {
     "provisioningState": "Succeeded"

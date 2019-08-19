@@ -69,6 +69,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Removed get_data from pipeline automlstep notebook.
     + Started support dataprep in automlstep.
 
+### Azure Machine Learning Data Prep SDK v1.1.10
+
++ **New features**
+  + You can now request to execute specific inspectors (e.g. histogram, scatter plot, etc) on specific columns.
+  + Added a parallelize argument to `append_columns`. If True, data will be loaded into memory but execution will run in parallel; if False, execution will be streaming but single-threaded.
 
 ## 2019-07-23
 

@@ -12,6 +12,22 @@ manager: carmonm
 
 # Troubleshoot errors with runbooks
 
+This article details common issues with runbooks and how to resolve them.
+
+## Steps to troubleshoot runbooks
+
+When you have errors executing runbooks in Azure Automation, you can use the following steps to help diagnose the issue.
+
+1. **Ensure your runbook script executes successfully on your local machine:**  Refer to the [PowerShell Docs](/powershell/scripting/overview) or [Python Docs](https://docs.python.org/3/) for language reference and learning modules.
+
+   Executing your script locally can discover and resolve common errors, such as:
+
+   - **Missing Modules**
+   - **Syntax Errors**
+   - **Logic Errors**
+
+2. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). For more information, see [Troubleshoot Modules](shared-resources.md#modules).
+
 ## Authentication errors when working with Azure Automation runbooks
 
 ### <a name="login-azurerm"></a>Scenario: Run Login-AzureRMAccount to login

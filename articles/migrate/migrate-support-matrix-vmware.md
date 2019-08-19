@@ -69,7 +69,7 @@ The Azure Migrate appliance for VMware is deployed using an OVA template importe
 
 **Support** | **Details**
 --- | ---
-**vCenter Server** | You need enough resources on the vCenter Server to allocate a VM with 32 GB of memory, 4 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.
+**vCenter Server** | You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.
 **ESXi** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.
 **Azure Migrate project** | An appliance can be associated with a single project.
 **vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
@@ -77,7 +77,7 @@ The Azure Migrate appliance for VMware is deployed using an OVA template importe
 
 ## Assessment-URL access requirements
 
-The Azure Migrate appliance needs internet connectivity to the internet.
+The Azure Migrate appliance needs connectivity to the internet.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
 - If you're using a URL-based proxy to connect to the internet, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
@@ -85,8 +85,8 @@ The Azure Migrate appliance needs internet connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure Migrate in the Azure portal.
-*.windows.net | Log into your Azure subscription.
-*.microsoftonline.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Log into your Azure subscription.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
@@ -99,7 +99,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Device** | **Connection**
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 to send discovery and performance metadata to Azure Migrate.
+Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 
 
@@ -170,8 +170,8 @@ The Azure Migrate appliance needs internet connectivity to the internet.
 **URL** | **Details**  
 --- | ---
 *.portal.azure.com | Navigate to the Azure Migrate in the Azure portal.
-*.windows.net | Log into your Azure subscription.
-*.microsoftonline.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Log into your Azure subscription.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.

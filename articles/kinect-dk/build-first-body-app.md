@@ -56,7 +56,7 @@ You can find more information on Azure Kinect depth modes on these pages:
 and [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d) enumerations.
 
 ```C
-k4a_device_t device = nullptr;
+k4a_device_t device = NULL;
 k4a_device_open(0, &device);
 
 // Start camera. Make sure depth camera is enabled.

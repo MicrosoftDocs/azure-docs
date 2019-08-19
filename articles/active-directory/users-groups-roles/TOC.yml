@@ -10,7 +10,7 @@
     href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Assign licenses to users    
     href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Assign a role with resource scope
+  - name: Grant permission for unlimited app registrations
     href: roles-quickstart-app-registration-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
@@ -138,8 +138,6 @@
         href: roles-view-assignments.md
       - name: Assign roles in Azure AD admin center
         href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-      - name: Assign custom roles in Graph API
-        href: roles-assign-graph.md
       - name: Assign custom roles in PowerShell
         href: roles-assign-powershell.md
       - name: Custom role preview permissions

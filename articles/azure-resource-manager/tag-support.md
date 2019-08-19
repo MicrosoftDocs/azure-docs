@@ -852,9 +852,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | services | Yes |Yes |
-> | services/projects | Yes |Yes |
-> | slots | Yes |Yes |
+> | services | No |No |
+> | services/projects | No |No |
 
 ## Microsoft.DataShare
 
