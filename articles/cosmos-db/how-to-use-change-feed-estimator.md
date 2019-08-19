@@ -55,8 +55,7 @@ You can send this estimation to your monitoring solution and use it to understan
 
 ## Next steps
 
-You can now proceed to learn more about change feed in the following articles:
+You can now proceed to learn more about change feed processor in the following articles:
 
-* [Overview of change feed](change-feed.md)
-* [Ways to read change feed](read-change-feed.md)
-* [Use the change feed processor](change-feed-processor.md)
+* [Overview of change feed processor](change-feed-processor.md)
+* [Change feed processor start time](how-to-configure-change-feed-start-time.md)

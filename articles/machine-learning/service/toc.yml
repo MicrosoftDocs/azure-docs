@@ -129,6 +129,9 @@
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
+    - name: Manage software environment
+      displayName: pip, Conda
+      href: how-to-use-environments.md  
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
       href: how-to-enable-logging.md
