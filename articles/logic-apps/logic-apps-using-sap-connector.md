@@ -267,6 +267,44 @@ Your logic app is now ready to receive messages from your SAP system.
 
 1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
 
+## Receive batch of packet of IDOCs from SAP
+SAP can be configured to <a href="https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html"> send IDOCs in packets </a>, which is a batch or group of IDOCs. SAP connector and spepcifically trigger does not require any extra configuration to receive IDOC packets. However, once the trigger receives them, to process each items in the IDOC packet, some additional steps are required to split them into individual IDOCs. In the below example, we are using [xpath function](./workflow-definition-language-functions-reference.md#xpath) to extract the individual IDOCs from the packet. 
+
+1. Before you start, you need a Logic App with SAP trigger. If you do not have it already, follow the steps mentioned earlier in this document to setup [Logic App with SAP trigger.](./logic-apps-using-sap-connector.md#receive-from-sap). Here's an example of Logic App with SAP trigger
+
+   ![SAP trigger](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+
+2. Capture the root namespace from the XML IDOC received from SAP. We are going to use xpath expression to extract the value from XML document and store it in a local variable.
+
+   ![Get namespace](./media/logic-apps-using-sap-connector/get-namespace.png)
+
+   Here is the xpath expression used in the above step
+
+   ```
+   xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')
+   ```
+
+3. In this step, we use another xpath expression to extract individual IDOC and store the collection in an array.
+
+   ![Get array of items](./media/logic-apps-using-sap-connector/get-array.png)
+
+   Here is the xpath expression used in the above step
+
+   ```
+   xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')
+   ``` 
+
+4. Each IDOC is now available in the array variable and can be processed individually by enumerating over the collection. In this case, for example, each IDOC is transferred to the SFTP server. 
+
+   ![Send IDOC](./media/logic-apps-using-sap-connector/loop-batch.png)
+
+   Note that each IDOC item needs to be updated to include root namespace. This is why the file content is wrapped in *Receive* element along with root namespace before sending the IDOC to the downstream application, SFTP server in this case.
+
+5. We have also published template for this pattern, which can be chosen from Logic Apps designer when you create a new Logic App. 
+
+   ![batch template](./media/logic-apps-using-sap-connector/batch-template.png)
+
 ## Generate schemas for artifacts in SAP
 
 This example uses a logic app that you can trigger with an HTTP request. The SAP action sends a request to an SAP system to generate the schemas for specified IDoc and BAPI. Schemas that return in the response are uploaded to an integration account by using the Azure Resource Manager connector.
@@ -464,10 +502,6 @@ When messages are sent with **Safe Typing** enabled, the DATS and TIMS response 
 ## Known issues and limitations
 
 Here are the currently known issues and limitations for the SAP connector:
-
-* Only a single send to SAP call or message works with tRFC. The BAPI commit pattern, such as making multiple tRFC calls in the same session, isn't supported.
-
-* The SAP trigger doesn't support receiving batch IDocs from SAP. This action might result in RFC connection failure between your SAP system and the data gateway.
 
 * The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
 
