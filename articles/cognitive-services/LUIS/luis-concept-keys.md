@@ -1,7 +1,7 @@
 ---
-title: Subscription keys - LUIS
+title: Authoring and Runtime keys - LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS uses two keys, the free authoring key to create your model and the metered endpoint key for querying the prediction endpoint with user utterances.
+description: LUIS uses two keys, the authoring key to create your model and the runtime key for querying the prediction endpoint with user utterances.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -16,7 +16,7 @@ ms.author: diberry
 # Authoring and query prediction endpoint keys in LUIS
 
 
-Please [migrated]() any apps, which use the older non-Active Directory authentication, before continuing.
+Please [migrate](luis-migration-authoring.md) any apps, which don't use Active Directory authentication, before continuing.
 
 LUIS uses two Azure resources, which each have access keys: 
 
