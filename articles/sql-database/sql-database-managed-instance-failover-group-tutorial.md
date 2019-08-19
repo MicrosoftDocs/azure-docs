@@ -146,7 +146,7 @@ For two managed instances to participate in a failover group, there must be a ga
     | **Gateway type** | Select **VPN**. |
     | **VPN Type** | Select **Route-based** |
     | **SKU**| Leave default of `VpnGw1`. |
-    | **Location**| The location where your secondary managed instance and secondary virtual network is.   |
+    | **Location**| The location where your primary managed instance and primary virtual network is.   |
     | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-primary`. |
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address, such as `primary-gateway-IP`. |

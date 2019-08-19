@@ -73,4 +73,4 @@ Security Center offers an additional layer of protection by leveraging Azure Res
 > 3. Under **Enable integrations**, uncheck **Allow Microsoft Cloud App Security to access my data**, and click **Save**.
 
 >[!NOTE]
->Azure Security Center stores security-related customer data in the same geo as its resource. If Microsoft has not yet deployed Azure Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Cloud App Security (MCAS) is enabled, this information is stored in accordance with the geo location rules of MCAS. See [Data storage for non-regional services for more information](http://azuredatacentermap.azurewebsites.net/).
+>Azure Security Center stores security-related customer data in the same geo as its resource. If Microsoft has not yet deployed Azure Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Cloud App Security (MCAS) is enabled, this information is stored in accordance with the geo location rules of MCAS. See [Data storage for non-regional services for more information](https://azuredatacentermap.azurewebsites.net/).
