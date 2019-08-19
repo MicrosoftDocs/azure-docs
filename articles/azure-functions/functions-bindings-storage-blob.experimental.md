@@ -796,7 +796,6 @@ Access blob data via the parameter typed as [InputStream](https://docs.microsoft
 You can use the following types to read blob data:
 
 * `@BlobInput` attribute (if you use a byte array, set `dataType` to `binary`)
-* `InputBinding<T>` with `String` or `byte[]`
 
 Refer to the [input example](#input---example) for details.
 
