@@ -129,6 +129,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>This method can’t be used in log alerts since the access validation to the alert rule resources, including workspaces and applications is performed at alert creation time and adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or via ARM template to get the scoped resources updated. Alternatively, you can include the list of resources in log alert query itself.
+
+
 ![Timechart](media/cross-workspace-query/chart.png)
 
 ## Next steps
