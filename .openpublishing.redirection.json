@@ -41289,6 +41289,11 @@
 			"source_path": "articles/cognitive-services/Translator/quickstart-python-dictionary.md",
 			"redirect_url": "/azure/cognitive-services/Translator/quickstart-dictionary",
 			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/monitoring/monitoring-service-map-configure.md",
+			"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
+			"redirect_document_id": "false"
 		}
 	]
 }
