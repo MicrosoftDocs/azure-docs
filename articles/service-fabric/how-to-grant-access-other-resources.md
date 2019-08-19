@@ -70,7 +70,7 @@ For more details, please see [Vaults - Update Access Policy](https://docs.micros
 
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 
-## Related articles
+## Next Steps
 
 * Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
 
