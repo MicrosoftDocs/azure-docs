@@ -32,7 +32,7 @@ This technology is enabled by default in Sentinel. To check the status, or to di
 
 3. On the **Analytics** blade, locate **Advanced Multi-Stage Attack Detection** in the **NAME** column, and confirm whether the status is **Enabled** or **Disabled**.
 
-4. To change the status, select this entry ....
+4. To change the status, select this entry and on the **Advanced Multi-Stage Attack Detection** blade, select **Edit**. Then, 
 
 
 ## Scenarios supported for multi-stage attack detection
@@ -49,25 +49,25 @@ You must have the [Azure AD Identity Protection data connector](connect-azure-ad
 
 ### Impossible travel to atypical location
 
-**Impossible travel to atypical locations leading to O365 Mailbox Exfiltration**
+**Impossible travel to atypical locations leading to Office 365 mailbox exfiltration**
 
 This alert is an indication of a sign-in event by \<*account name*>  from an impossible travel to \<*location*>, an atypical location, followed by a suspicious inbox forwarding rule was set on a user's inbox.
 
 This may indicate that the account is compromised, and that the mailbox is being used to exfiltrate information from your organization. The user \<*account name*> created or updated an inbox forwarding rule that forwards all incoming email to the external address \<*email address*>.
 
-**Impossible travel to atypical locations leading to Suspicious Cloud App Administrative Activity**
+**Impossible travel to atypical locations leading to suspicious cloud app administrative activity**
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
 
 Next, the account \<*account name*> performed over \<*number*> administrative activities in a single session
 
-**Impossible travel to atypical locations leading to Suspicious Cloud App Administrative Activity**
+**Impossible travel to atypical locations leading to suspicious cloud app administrative activity**
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
 
 Next, the account \<*account name*> performed over \<*number*> administrative activities in a single session|
 
-**Impossible travel to atypical locations leading to mass File deletion**
+**impossible travel to atypical locations leading to mass File deletion**
 
 This alert is an indication of a sign-in event by \<*account name*> to \<*location*>, an atypical location. 
 
@@ -79,7 +79,7 @@ This alert is an indication of a sign-in event by \<*account name*> from an impo
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
-**Impossible travel to atypical locations leading to O365 impersonation**
+**Impossible travel to atypical locations leading to Office 365 impersonation**
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
@@ -126,7 +126,7 @@ This alert is an indication of a sign-in event by \<*account name*> from \<*loca
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
-**Sign-in event from an unfamiliar location leading to O365 impersonation**
+**Sign-in event from an unfamiliar location leading to Office 365 impersonation**
 
 This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location.
 
@@ -172,7 +172,7 @@ This alert is an indication of a sign-in event by \<*account name*> from a devic
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
-**Sign-in event from an infected device leading to O365 impersonation**
+**Sign-in event from an infected device leading to Office 365 impersonation**
 
 This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
@@ -194,7 +194,7 @@ This activity pattern is indicative of a potential ransomware attack.
 
 ### Sign-in activity from anonymous IP address
 
-**Sign-in event from an anonymous IP address leading to O365 mailbox exfiltration**
+**Sign-in event from an anonymous IP address leading to Office 365 mailbox exfiltration**
 
 This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>, followed by a suspicious inbox forwarding rule was set on a user's inbox.
 
@@ -218,7 +218,7 @@ This alert is an indication of a sign-in event by \<*account name*> from an anon
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
-**Sign-in event from an anonymous IP address leading to O365 impersonation**
+**Sign-in event from an anonymous IP address leading to Office 365 impersonation**
 
 This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
@@ -240,7 +240,7 @@ This activity pattern is indicative of a potential ransomware attack.
 
 ### Sign-in activity from user with leaked credentials
 
-**Sign-in event from User with leaked credentials leading to O365 mailbox exfiltration**
+**Sign-in event from User with leaked credentials leading to Office 365 mailbox exfiltration**
 
 This alert is an indication that the sign-in event by \<*account name*> used leaked credentials, followed by a suspicious inbox forwarding rule was set on a user's inbox. 
 
@@ -264,7 +264,7 @@ This alert is an indication that the sign-in event by \<*account name*> used lea
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
-**Sign-in event from user with leaked credentials leading to O365 impersonation**
+**Sign-in event from user with leaked credentials leading to Office 365 impersonation**
 
 This alert is an indication that the  sign-in event by \<*account name*> used leaked credentials. 
 
