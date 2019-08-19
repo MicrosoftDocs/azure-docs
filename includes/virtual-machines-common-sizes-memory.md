@@ -14,7 +14,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 * The Ev3-series features the E5-2673 v4 2.3 GHz  (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds.  Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 
-* The Eav3-series and Easv3-series utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256GB L3 cache, increasing options for running most memory optimized workloads.  The Eav3-series and Easv3-series have the same memory and disk configurations as the Ev3 & Esv3-series.
+* The Eav3-series and Easv3-series utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads.  The Eav3-series and Easv3-series have the same memory and disk configurations as the Ev3 & Esv3-series.
 
 * The Mv2-Series offers the highest vCPU count (up to 208 vCPUs) and largest memory (up to 5.7 TiB) of any VM in the cloud. It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
