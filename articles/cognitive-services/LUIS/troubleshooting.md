@@ -179,7 +179,7 @@ If your app existed before LUIS was generally available (GA), LUIS endpoint keys
 
 ### How do I know what key I need, where I get it, and what I do with it? 
 
-See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the [authoring key](luis-how-to-account-settings.md) and the [endpoint prediction key](luis-how-to-azure-subscription.md). 
+See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the [authoring key](luis-how-to-azure-subscription.md#authoring-key) and the [endpoint prediction key](luis-how-to-azure-subscription.md). 
 
 ### I got an error about being out of quota. How do I fix it? 
 
@@ -188,8 +188,6 @@ See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-ht
 ### I need to handle more endpoint queries. How do I do that? 
 
 See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
-
-
 
 ## App management
 

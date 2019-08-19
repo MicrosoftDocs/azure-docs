@@ -32550,6 +32550,11 @@
 			"redirect_document_id": true
 		},
 		{
+			"source_path": "articles/cognitive-services/LUIS/luis-how-to-account-settings.md",
+			"redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
+			"redirect_document_id": false
+		},		
+		{
 			"source_path": "articles/cognitive-services/LUIS/luis-tutorial-function-appinsights.md",
 			"redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-bot-nodejs-appinsights",
 			"redirect_document_id": false

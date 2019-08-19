@@ -23,6 +23,33 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
+## Manage account and authoring key
+
+The two key pieces of information for a LUIS account are the user account and the authoring key. Your login information is managed at [account.microsoft.com](https://account.microsoft.com). Your authoring key is managed from the [LUIS](luis-reference-regions.md) portal **Settings** page.
+
+## Authoring key
+
+This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of endpoint queries each month.
+
+[![LUIS Settings page](./media/luis-how-to-azure-subscription/account-settings.png)](./media/luis-how-to-azure-subscription/account-settings.png#lightbox)
+
+The authoring key is used for any apps you own as well as any apps you are listed as a collaborator.
+
+## Authoring key regions
+
+The authoring key is specific to the [authoring region](luis-reference-regions.md#publishing-regions). The key does not work in a different region.
+
+## Reset authoring key
+
+If your authoring key is compromised, reset the key. The key is reset on all your apps in the [LUIS](luis-reference-regions.md) portal. If you author your apps via the authoring APIs, you need to change the value of `Ocp-Apim-Subscription-Key` to the new key.
+
+## Delete account
+
+See [Data storage and removal](luis-concept-data-storage.md#accounts) for information about what data is deleted when you delete your account.
+
+## Next steps
+
+
 ## Create prediction endpoint runtime resource in the Azure portal
 
 You create the [prediction endpoint resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
@@ -130,7 +157,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |Header|Value|
     |--|--|
     |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.| 
-    |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
+    |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-azure-subscription.md#authoring-key).|
 
     This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. Find the one item in the array that is the LUIS resource to assign to the LUIS app. 
 
@@ -141,7 +168,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |Type|Setting|Value|
     |--|--|--|
     |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.|
-    |Header|`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
+    |Header|`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-azure-subscription.md#authoring-key).|
     |Header|`Content-type`|`application/json`|
     |Querystring|`appid`|The LUIS app ID. 
     |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
