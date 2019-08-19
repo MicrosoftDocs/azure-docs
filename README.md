@@ -1,4 +1,4 @@
-# Microsoft Azure Documentation
+# Microsoft Azure Documentation 09/19/19
 
 Welcome to the open source [documentation](https://docs.microsoft.com/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
 
