@@ -9,14 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
 # Convert data format of utterances
-LUIS uses Cognitive Services Speech service to convert utterances from spoken utterances to text utterances before prediction. 
+LUIS provides the following conversions of a user utterance before prediction"
 
-## Speech to intent conversion concepts
+* Speech to text using [Cognitive Services Speech](../Speech-Service/overview.md) service. 
+
+## Speech to text
+
+Speech to text is provided as an integration with LUIS. 
+
+### Intent conversion concepts
 Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) service with LUIS. Learn more about Speech to Intent with a [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### Key requirements

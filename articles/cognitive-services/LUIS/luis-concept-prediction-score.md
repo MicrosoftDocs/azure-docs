@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -64,7 +64,7 @@ Prediction scores can use exponent notation, *appearing* above the 0-1 range, su
 
 ## Punctuation
 
-Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not contain a period at the end are two separate utterances and may get two different predictions. Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
+[Learn more](luis-concept-utterance.md#punctuation-marks) about how to use or ignore punctuation. 
 
 ## Next steps
 

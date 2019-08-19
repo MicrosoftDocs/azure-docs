@@ -164,6 +164,8 @@
         href: devtest-lab-vmcli.md        
       - name: Create a VM - Resource Manager template
         href: devtest-lab-use-resource-manager-template.md
+      - name: Create a VM using an image from shared image gallery
+        href: add-vm-use-shared-image.md
       - name: Start or stop a VM using PowerShell or CLI
         href: use-command-line-start-stop-virtual-machines.md
       - name: Restart a VM
@@ -245,10 +247,14 @@
         href: devtest-lab-mandatory-artifacts.md
     - name: Integrate with CI/CD
       items:
-      - name: Integrate labs into your Azure DevOps CI/CD pipeline
-        href: devtest-lab-integrate-ci-cd-vsts.md
-      - name: Integrate environments into your Azure DevOps CI/CD pipeline
+      - name: Integrate labs into your Azure Pipelines CI/CD pipeline
+        href: devtest-lab-integrate-ci-cd.md
+      - name: Integrate environments into your Azure Pipelines CI/CD pipeline
         href: integrate-environments-devops-pipeline.md
+      - name: Use DevTest Labs in Azure Pipelines build and release pipelines
+        href: use-devtest-labs-build-release-pipelines.md
+    - name: Report usage of labs
+      href: report-usage-across-multiple-labs-subscriptions.md        
     - name: DevTest Labs in the enterprise
       items:
       - name: DevTest Labs at enterprise scale
@@ -323,5 +329,3 @@
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Frequently asked questions
       href: devtest-lab-faq.md
-
- 

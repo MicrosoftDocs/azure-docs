@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
 ---
  
@@ -37,4 +37,5 @@ Applications that handle Media Services events should follow a few recommended p
 
 ## Next steps
 
-[Get job state events](job-state-events-cli-how-to.md)
+* [Monitor events - portal](monitor-events-portal-how-to.md)
+* [Monitor events - CLI](job-state-events-cli-how-to.md)

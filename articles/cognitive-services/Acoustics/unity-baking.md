@@ -3,20 +3,21 @@ title: Project Acoustics Unity Bake Tutorial
 titlesuffix: Azure Cognitive Services
 description: This tutorial describes acoustics baking with Project Acoustics in Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 # Project Acoustics Unity Bake Tutorial
 This tutorial describes acoustics baking with Project Acoustics in Unity.
 
 Software requirements:
-* [Unity 2018.2+](https://unity3d.com) for Windows
+* [Unity 2018.2+](https://unity3d.com) for Windows or MacOS
 * [Project Acoustics plugin integrated in your Unity project](unity-integration.md) or the [Project Acoustics Unity sample content](unity-quickstart.md)
 * Optional: An [Azure Batch account](create-azure-account.md) to accelerate bakes using cloud computing
 
@@ -173,6 +174,25 @@ Once you've started a bake, you can close Unity. Depending on the project, node 
 
 The Azure credentials are stored securely on your local machine and associated with your Unity editor. They are used solely to establish a secure connection to Azure.
 
+## To find the status of a running job on the Azure portal
+
+1. Find the bake job ID on the bake tab:
+
+![Screenshot of Unity bake job ID](media/unity-job-id.png)  
+
+2. Open the [Azure portal](https://portal.azure.com), navigate to the Batch account used for the bake and select **Jobs**
+
+![Screenshot of Jobs link](media/azure-batch-jobs.png)  
+
+3. Search for the job id in the list of jobs
+
+![Screenshot of bake job status](media/azure-bake-job-status.png)  
+
+4. Click on the job id to see the status of the related tasks and overall job status
+
+![Screenshot of bake task status](media/azure-batch-task-state.png)  
+
+
 ### <a name="Estimating-bake-cost"></a> Estimating Azure bake cost
 
 To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration, and multiply that by the hourly cost in your local currency of the **VM Node Type** you selected. The result will not include the node time needed to get the nodes up and running. For example, if you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr, and the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher due to the extra time to get the nodes started. You can find the hourly node cost on the [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) page (select "Compute optimized" or "High performance compute" for the category).
@@ -182,6 +202,7 @@ You can bake your scene on your own PC. This can be useful for experimenting wit
 
 ### Minimum hardware requirements
 * An x86-64 processor with at least 8 cores and 32 GB of RAM
+* [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) to run Docker
 
 As an example, in our testing on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB RAM -
 * A small scene with 100 probes can take about 2 hours for a coarse bake or 32 hours for a fine bake.
@@ -189,13 +210,15 @@ As an example, in our testing on an 8 core machine with Intel Xeon E5-1660 @ 3 G
 
 ### Setup Docker
 Install and configure Docker on the PC that will process the simulation -
-1. Install the [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at least 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Screenshot of example Docker settings](media/docker-settings.png)
-3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![Screenshot of Docker shared drive options](media/docker-shared-drives.png)
+1. Install the [Docker Desktop](https://www.docker.com/products/docker-desktop).
+2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at least 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete.  
+![Screenshot of example Docker settings](media/docker-settings.png)
+1. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.  
+![Screenshot of Docker shared drive options](media/docker-shared-drives.png)
 
 ### Run local bake
 1. Click on "Prepare Local Bake" button on the **Bake** tab and select a folder where the input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
-2. Launch the simulation using the "runlocalbake.bat" script. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation. 
+2. Launch the simulation using the "runlocalbake.bat" script on Windows or using the "runlocalbake.sh" script on MacOS. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation. 
 3. Once the simulation has finished, copy the resulting .ace file back to your Unity project. To make sure Unity recognizes this as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in "AcousticsLog.txt." If you run into any issues, share this file to assist with diagnosis.
 
 ## <a name="Data-Files"></a> Data files added by the bake process

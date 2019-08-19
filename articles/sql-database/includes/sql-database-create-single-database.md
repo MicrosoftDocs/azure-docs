@@ -7,15 +7,16 @@ ms.date: 06/19/2019
 ms.author: mathoma
 ---
 
-In this step, you will create your resource group and an Azure SQL Database single database. 
+In this step, you will create your resource group and an Azure SQL Database single database.
 
 > [!IMPORTANT]
 > Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this article. 
 >
 > For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md).  
 
-# [Azure portal](#tab/azure-portal)
-Create your resource group and single database using the Azure portal. 
+# [Portal](#tab/azure-portal)
+
+Create your resource group and single database using the Azure portal.
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Databases** and then select **SQL Database** to open the **Create SQL Database** page.
@@ -42,7 +43,7 @@ Create your resource group and single database using the Azure portal.
 
       > [!IMPORTANT]
       > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
-        
+
    - **Want to use SQL elastic pool**: Select the **No** option.
    - **Compute + storage**: Select **Configure database**. 
 
@@ -57,7 +58,7 @@ Create your resource group and single database using the Azure portal.
    - Select **Apply**.
 
 5. Select the **Additional settings** tab. 
-6. In the **Data source** section, under **Use existing data**, select `Sample`. 
+6. In the **Data source** section, under **Use existing data**, select `Sample`.
 
    ![Additional SQL DB settings](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
@@ -69,11 +70,11 @@ Create your resource group and single database using the Azure portal.
 
 9. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Create your resource group and single database using PowerShell. 
+Create your resource group and single database using PowerShell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -84,8 +85,7 @@ Create your resource group and single database using PowerShell.
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"
    $databaseName = "mySampleDatabase"
-   
-   
+
    # The ip address range that you want to allow to access your server 
    # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
    $startIp = "0.0.0.0"
@@ -95,18 +95,18 @@ Create your resource group and single database using PowerShell.
    Write-host "Resource group name is" $resourceGroupName 
    Write-host "Password is" $password  
    Write-host "Server name is" $serverName 
-   
+
    # Connect to Azure
    Connect-AzAccount
 
    # Set subscription ID
    Set-AzContext -SubscriptionId $subscriptionId 
-   
+
    # Create a resource group
    Write-host "Creating resource group..."
    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
    $resourceGroup
-   
+
    # Create a server with a system wide unique server name
    Write-host "Creating primary logical server..."
    $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
@@ -115,14 +115,14 @@ Create your resource group and single database using PowerShell.
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
       -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $server
-   
+
    # Create a server firewall rule that allows access from the specified IP range
    Write-host "Configuring firewall for primary logical server..."
    $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
    $serverFirewallRule
-   
+
    # Create General Purpose Gen4 database with 1 vCore
    Write-host "Creating a gen5 2 vCore database..."
    $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
@@ -136,9 +136,9 @@ Create your resource group and single database using PowerShell.
    $database
    ```
 
-# [AZ CLI](#tab/bash)
-Create your resource group and single database using AZ CLI. 
+# [Azure CLI](#tab/azure-cli)
 
+Create your resource group and single database using AZ CLI.
 
    ```azurecli-interactive
    #!/bin/bash
@@ -153,7 +153,7 @@ Create your resource group and single database using AZ CLI.
    drLocation=NorthEurope
    drServerName=mysqlsecondary-$RANDOM
    failoverGroupName=failovergrouptutorial-$RANDOM
-   
+
    # The ip address range that you want to allow to access your DB. 
    # Leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB
    startip=0.0.0.0
@@ -164,14 +164,14 @@ Create your resource group and single database using AZ CLI.
 
    # Set the subscription context for the Azure account
    az account set -s $subscriptionID
-   
+
    # Create a resource group
    echo "Creating resource group..."
    az group create \
       --name $resourceGroupName \
       --location $location \
       --tags Owner[=SQLDB-Samples]
-   
+
    # Create a logical server in the resource group
    echo "Creating primary logical server..."
    az sql server create \
@@ -180,7 +180,7 @@ Create your resource group and single database using AZ CLI.
       --location $location  \
       --admin-user $adminLogin \
       --admin-password $password
-   
+
    # Configure a firewall rule for the server
    echo "Configuring firewall..."
    az sql server firewall-rule create \
@@ -189,7 +189,7 @@ Create your resource group and single database using AZ CLI.
       -n AllowYourIp \
       --start-ip-address $startip \
       --end-ip-address $endip
-   
+
    # Create a gen5 1vCore database in the server 
    echo "Creating a gen5 2 vCore database..."
    az sql db create \

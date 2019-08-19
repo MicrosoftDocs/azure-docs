@@ -79,7 +79,7 @@ In this document, you learned how to Azure Security Center detection capabilitie
 
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md)
+* [Security Alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.

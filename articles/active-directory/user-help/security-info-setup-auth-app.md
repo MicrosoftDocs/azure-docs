@@ -61,7 +61,10 @@ Depending on your organization’s settings, you might be able to use an authent
 
 6. Open the Microsoft Authenticator app, select to allow notifications (if prompted), select **Add account** from the **Customize and control** icon on the upper-right, and then select **Work or school account**.
 
-7. Return to the **Set up your account** page on your , and then select **Next**.
+    >[!Note]
+    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+
+7. Return to the **Set up your account** page on your computer, and then select **Next**.
 
     The **Scan the QR code** page appears.
 
@@ -71,7 +74,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
     The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
-9. Select **Next** on the **Scan the QR code** page on your .
+9. Select **Next** on the **Scan the QR code** page on your computer.
 
     A notification is sent to the Microsoft Authenticator app on your mobile device, to test your account.
 

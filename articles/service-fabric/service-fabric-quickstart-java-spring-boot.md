@@ -1,5 +1,5 @@
 ---
-title: Create a Spring Boot app on Service Fabric in Azure | Microsoft Docs
+title: 'Quickstart: Create a Spring Boot app on Azure Service Fabric'
 description: In this quickstart, you deploy a Spring Boot application for Azure Service Fabric using a Spring Boot sample application.
 services: service-fabric
 documentationcenter: java
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-august2019
 
 ---
 # Quickstart: Deploy a Java Spring Boot application to Service Fabric
@@ -145,7 +145,7 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     
     ![Local cluster healthy](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-1. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
+1. Open the `gs-spring-boot/SpringServiceFabric` folder.
 1. Run the following command to connect to your local cluster.
 
     ```bash
@@ -172,13 +172,13 @@ Service Fabric Explorer runs in all Service Fabric clusters and can be accessed 
 To scale the web front-end service, do the following:
 
 1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
-1. Click on the ellipsis (three dots) next to the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the treeview and choose **Scale Service**.
+1. Select the ellipsis (**...**) next to the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the treeview and select **Scale Service**.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     You can now choose to scale the number of instances of the service.
 
-1. Change the number to **3** and click **Scale Service**.
+1. Change the number to **3** and select **Scale Service**.
 
     An alternative way to scale the service using command line is as follows.
 
@@ -190,7 +190,7 @@ To scale the web front-end service, do the following:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. Click on the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
+1. Select the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
 
     ![Service Fabric Explorer Scale Service Complete](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -203,7 +203,7 @@ Through this simple management task, you've doubled the resources available for 
 To demonstrate service failover, a node restart is simulated by using Service Fabric Explorer. Ensure only one instance of your service is running.
 
 1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
-1. Click on the ellipsis (three dots) next to the node running the instance of your service and Restart the node.
+1. Select the ellipsis (**...**) next to the node running the instance of your service and Restart the node.
 
     ![Service Fabric Explorer Restart Node](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
 1. The instance of your service is moved to a different node and your application has no downtime.

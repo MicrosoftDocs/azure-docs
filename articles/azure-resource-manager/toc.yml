@@ -13,6 +13,8 @@
     href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - name: Create templates - IntelliJ IDEA
+    href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
   - name: Utilize template reference
@@ -85,6 +87,8 @@
     items:
     - name: Create template
       href: how-to-create-template.md
+    - name: Child resource name and type
+      href: child-resource-name-type.md
     - name: Create resource groups and resources at subscription
       displayName: subscription level deployment
       href: deploy-to-subscription.md
@@ -116,12 +120,8 @@
     - name: Deploy - REST API
       displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
-    - name: Secure templates with SAS token
-      items:
-      - name: Use the Azure CLI
-        href: resource-manager-cli-sas-token.md
-      - name: Use Azure PowerShell
-        href: resource-manager-powershell-sas-token.md
+    - name: Secure template with SAS token
+      href: secure-template-with-sas-token.md
     - name: Deploy to multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
   - name: CI/CD
@@ -257,7 +257,9 @@
     - name: String functions
       href: resource-group-template-functions-string.md
   - name: Complete mode deletion
-    href: complete-mode-deletion.md  
+    href: complete-mode-deletion.md
+  - name: Resource instance limit
+    href: resources-without-rg-limit.md  
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: REST - Resource Manager

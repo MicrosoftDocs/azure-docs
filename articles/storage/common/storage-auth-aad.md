@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -18,7 +18,7 @@ Azure Storage supports using Azure Active Directory (AD) to authorize requests t
 
 Authorizing users or applications using an OAuth 2.0 token returned by Azure AD provides superior security and ease of use over Shared Key authorization and shared access signatures (SAS). With Azure AD, there is no need to store the account access key with your code and risk potential security vulnerabilities. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. Microsoft recommends using Azure AD authorization with your Azure Storage applications when possible.
 
-Authorization with Azure AD is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization.
+Authorization with Azure AD is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization. Authorization with Azure AD is not supported for Azure Table storage.
 
 ## Overview of Azure AD for blobs and queues
 

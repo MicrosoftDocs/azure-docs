@@ -3,13 +3,13 @@ title: "Features: Action and context - Personalizer"
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: edjez
+ms.date: 08/13/2019
+ms.author: diberry
 ---
 
 # Features are information about actions and context
@@ -20,7 +20,7 @@ Personalizer uses **features**, which is information about the **current context
 
 For example, you may have a **feature** about:
 
-* The _user_ such as a `UserID`. 
+* The _user persona_ such as a `Sports_Shopper`. This should not be an individual user ID. 
 * The _content_ such as if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
 * The _current_ period of time such as which day of the week it is.
 
@@ -146,7 +146,7 @@ You can use several other [Azure Cognitive Services](https://www.microsoft.com/c
 
 Each action:
 
-* Has an ID.
+* Has an _event_ ID. If you already have an event ID, you should submit that. If you do not have an event ID, do not send one, Personalizer creates one for you and returns it in the response of the Rank request. The ID is associated with the Rank event, not the user. If you create an ID, a GUID works best. 
 * Has a list of features.
 * The list of features can be large (hundreds) but we recommend evaluating feature effectiveness to remove features that aren't contributing to getting rewards. 
 * The features in the **actions** may or may not have any correlation with features in the **context** used by Personalizer.

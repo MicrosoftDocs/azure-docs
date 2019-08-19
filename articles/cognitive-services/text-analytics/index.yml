@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 07/29/2019
   ms.author: nitinme
 abstract:
   description: 'The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, named entity recognition and language detection. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
@@ -29,16 +29,16 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is Text Analytics?
-        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+        - href: /azure/cognitive-services/cognitive-services-apis-create-account
           html: <p>Learn how to sign up for the Text Analytics API.</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Sign up for Text Analytics API
-        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-          html: <p>Learn how to get the access keys and endpoints for Text Analytics API.</p>
+          title: Sign up for the Text Analytics API
+        - href: /azure/cognitive-services/text-analytics/whats-new
+          html: <p>Stay up-to-date with recent developments in the Text Analytics API.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Access keys for Text Analytics API
+          title: What's new in the Text Analytics API?
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -57,19 +57,19 @@ sections:
     - image: 
         src: media/index/logo_nodejs.svg
       text: Node.js
-      href: quickstarts/nodejs
+      href: quickstarts/nodejs-sdk
     - image: 
         src: media/index/logo_python.svg
       text: Python
-      href: quickstarts/python
+      href: quickstarts/python-sdk
     - image: 
         src: media/index/logo_go.svg
       text: Go
-      href: quickstarts/go
+      href: quickstarts/go-sdk
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to develop applications using the Text Analytics API:'
+    text: 'Learn how to develop applications by using the Text Analytics API:'
   - type: list
     style: unordered
     items: 
@@ -87,6 +87,7 @@ sections:
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest">Node.js</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable>Java</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics">Go</a></p> 
     - title: PowerShell 
       html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>

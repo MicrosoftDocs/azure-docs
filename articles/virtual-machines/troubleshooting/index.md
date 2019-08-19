@@ -32,10 +32,14 @@ ms.author: genli
 	- [SSH troubleshooting](troubleshoot-ssh-connection.md)
 	- [Detailed SSH troubleshooting](detailed-troubleshoot-ssh-connection.md)
 	- [Common error messages](error-messages.md)
-	- [Performance issues with Windows VMs](performance-diagnostics.md  )
-	- [How to use PerfInsights](how-to-use-perfInsights.md)
-	- [Performance diagnostics extension](performance-diagnostics-vm-extension.md)
 - [Install Windows VM agent offline](install-vm-agent-offline.md)
+- Troubleshoot VM performance
+    - [Performance issues with VMs](performance-diagnostics.md)
+    - Windows
+        - [How to use PerfInsights](how-to-use-perfinsights.md)
+        - [Performance diagnostics extension](performance-diagnostics-vm-extension.md)
+	- Linux
+	    - [How to use PerfInsights](how-to-use-perfinsights-linux.md)
 - Redeploy a VM
 	- [Linux](redeploy-to-new-node-linux.md)
 	- [Windows](redeploy-to-new-node-windows.md)

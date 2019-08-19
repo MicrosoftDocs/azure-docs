@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 # Concepts about intents in your LUIS app
@@ -37,12 +37,14 @@ You assign an utterance to a single intent. When LUIS receives an utterance on t
 The intent represents action the chatbot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
 
 <a name="how-do-intents-relate-to-entities"></a>
+
 Create an intent when the user's _intention_ would trigger an action in your client application, like a call to the checkweather() function. Then create an entity to represent parameters required to execute the action. 
 
 |Example intent   | Entity | Entity in example utterances   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 
+||||
 
 ## Custom intents
 

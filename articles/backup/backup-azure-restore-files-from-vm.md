@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Recover files and folders from an Azure VM backup'
 description: Recover files from an Azure virtual machine recovery point
-
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
 ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ---
 # Recover files from Azure virtual machine backup
 
@@ -225,7 +225,7 @@ If you have problems while recovering files from the virtual machines, check the
 | On the machine where the exe is run: The new volumes are not dismounted after the dismount button is clicked | The iSCSI initiator on the machine is not responding/refreshing its connection to the target and maintaining the cache. |  After clicking **Dismount**, wait a few minutes. If the new volumes are not dismounted, browse through all volumes. Browsing all volumes forces the initiator to refresh the connection, and the volume is dismounted with an error message that the disk is not available.|
 | Exe output: Script is run successfully but “New volumes attached” is not displayed on the script output |    This is a transient error    | The volumes would have been already attached. Open Explorer to browse. If you are using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
 | Linux specific: Not able to view the desired volumes | The OS of the machine where the script is run may not recognize the underlying filesystem of the protected VM | Check whether the recovery point is crash consistent or file-consistent. If file consistent, run the script on another machine whose OS recognizes the protected VM's filesystem |
-| Windows specific: Not able to view the desired volumes | The disks may have been attached but the volumes were not configured | From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in offline state try making them online by right-clicking on the disk and click 'Online'|
+| Windows specific: Not able to view the desired volumes | The disks may have been attached but the volumes were not configured | From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in offline state, try making them online by right-clicking on the disk and click 'Online'|
 
 ## Security
 
@@ -251,11 +251,11 @@ The generated script is signed with official Microsoft certificate for Azure Bac
 
 Only Admin can run the script and should run it in elevated mode. The script only runs a pre-generated set of steps and does not accept input from any external source.
 
-To run the script, one requires a password which is only shown to the authorized user at the time of generation of script in the Azure portal or PowerShell/CLI. This is to ensure that the authorized user who downloads the script is also responsible for running the script.
+To run the script, one requires a password that is only shown to the authorized user at the time of generation of script in the Azure portal or PowerShell/CLI. This is to ensure that the authorized user who downloads the script is also responsible for running the script.
 
 #### Browse files and folders
 
-To browse files and folders, the script uses the iSCSI initiator in the machine and connect to the recovery point which is configured as an iSCSI target. Here one can assume scenarios where one is trying to imitate/spoof either/all components.
+To browse files and folders, the script uses the iSCSI initiator in the machine and connects to the recovery point that is configured as an iSCSI target. Here one can assume scenarios where one is trying to imitate/spoof either/all components.
 
 We use mutual CHAP authentication mechanism so that each component authenticates the other. This means it is extremely difficult for a fake initiator to connect to the iSCSI target and a fake target to be connected to the machine where the script is run.
 

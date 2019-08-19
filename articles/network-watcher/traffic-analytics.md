@@ -51,7 +51,7 @@ Traffic analytics examines the raw NSG flow logs and captures reduced logs by ag
 
 ![Data flow for NSG flow logs processing](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## Supported regions
+## Supported regions: NSG 
 
 You can use traffic analytics for NSGs in any of the following supported regions:
 
@@ -80,6 +80,8 @@ You can use traffic analytics for NSGs in any of the following supported regions
 * Japan East 
 * Japan West
 * US Gov Virginia
+
+## Supported regions: Log Analytics Workspaces
 
 The Log Analytics workspace must exist in the following regions:
 * Canada Central
@@ -133,7 +135,7 @@ For information on how to check user access permissions, see [Traffic analytics 
 
 ### Enable Network Watcher
 
-To analyze traffic, you need to have an existing network watcher, or [enable a network watcher](network-watcher-create.md) in each region that you have NSGs that you want to analyze traffic for. Traffic analytics can be enabled for NSGs hosted in any of the [supported regions](#supported-regions).
+To analyze traffic, you need to have an existing network watcher, or [enable a network watcher](network-watcher-create.md) in each region that you have NSGs that you want to analyze traffic for. Traffic analytics can be enabled for NSGs hosted in any of the [supported regions](#supported-regions-nsg).
 
 ### Select a network security group
 
@@ -143,7 +145,7 @@ On the left side of the Azure portal, select **Monitor**, then **Network watcher
 
 ![Selection of NSGs that require enablement of NSG flow log](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-If you try to enable traffic analytics for an NSG that is hosted in any region other than the [supported regions](#supported-regions), you receive a "Not found" error.
+If you try to enable traffic analytics for an NSG that is hosted in any region other than the [supported regions](#supported-regions-nsg), you receive a "Not found" error.
 
 ## Enable flow log settings
 
@@ -174,7 +176,7 @@ Select the following options, as shown in the picture:
 4. Set **Retention** to the number of days you want to store data for.
 5. Select *On* for **Traffic Analytics Status**.
 6. Select processing interval. Based on your choice, flow logs will be collected from storage account and processed by Traffic Analytics. You can choose processing interval of every 1 hour or every 10 mins.
-7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#supported-regions) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#supported-regions-log-analytics-workspaces) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     The log analytics workspace hosting the traffic analytics solution and the NSGs do not have to be in the same region. For example, you may have traffic analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
 8. Select **Save**.

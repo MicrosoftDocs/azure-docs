@@ -17,11 +17,11 @@ ms.date: 06/29/2018
 ms.author: rkarlin
 
 ---
-# Investigate Incidents and Alerts in Azure Security Center (Preview)
-This document helps you use the investigation feature in Azure Security Center to investigate security incidents and alerts.
+# Investigate Incidents and Alerts in Azure Security Center (Retired)
+This document helps you use the investigation feature (Preview) in Azure Security Center to investigate security incidents and alerts.
 
 > [!NOTE]
-> The alerts and incidents investigation experience will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> The alerts and incidents investigation (Preview) experience has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## What is investigation in Security Center?
 The Investigation feature in Security Center allows you to triage, understand the scope, and track down the root cause of a potential [security incident](https://docs.microsoft.com/azure/security-center/security-center-incident).
