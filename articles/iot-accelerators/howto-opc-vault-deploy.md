@@ -165,6 +165,7 @@ Optional, to rebuild and to redeploy only the web apps and to rebuild the docker
 [powershell-install]:https://azure.microsoft.com/en-us/downloads/#PowerShell
 [docker-url]: https://www.docker.com/
 [dotnet-install]: https://www.microsoft.com/net/learn/get-started
+
 ## Next steps
 
 Now that you have learned how to deploy OPC Vault from scratch, here is the suggested next step:
