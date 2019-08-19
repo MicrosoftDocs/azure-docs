@@ -19,7 +19,7 @@ Azure Maps has generally been available since May 2018, providing fresh map data
 
 ## Add a business place or a residential address 
 
-You may want to provide feedback for a missing point of interest or residential address on the map. There are two ways to do so, open the Azure Map data feedback tool and search for the missing location's coordinates then click "Add a place"
+You may want to provide feedback for a missing point of interest or residential address on the map. There are two ways to do so, open the Azure Map data feedback tool and, search for the missing location's coordinates then click "Add a place"
 
   ![search missing location](./media/how-to-use-feedback-tool/search-poi.png)
 
@@ -41,7 +41,7 @@ To provide feedback to fix the address, fill out the "Fix a place" form then cli
 
   ![fix form](./media/how-to-use-feedback-tool/fix-form.png)
 
-If you feel like the pin location for the address is wrong, check the checkbox on the "Fix a place" form that says "The pin location is incorrect" and move the pin to the correct location and click the "submit" button.
+If the pin location for the place is wrong, check the checkbox on the "Fix a place" form that says "The pin location is incorrect" and move the pin to the correct location then click the "submit" button.
 
   ![move pin location](./media/how-to-use-feedback-tool/move-pin.png)
 
