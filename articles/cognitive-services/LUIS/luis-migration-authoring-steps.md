@@ -49,3 +49,7 @@ Before you migrate to the Active Directory authoring experience, you need to hav
 
 1. If your apps (that you own) have collaborators, you need to add these collaborators manually in the Azure portal's Active Directory resource. 
 
+## Next steps
+
+* Review [concepts](luis-concept-keys.md) about authoring and runtime keys
+* Review [how to assign keys](luis-how-to-azure-subscription.md) and add [collaborators](luis-how-to-collaborate.md)
