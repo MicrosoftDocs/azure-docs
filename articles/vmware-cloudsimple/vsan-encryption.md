@@ -9,7 +9,7 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Configure vSAN encryption for your CloudSimple Private Cloud
+# Configure vSAN encryption for CloudSimple Private Cloud
 
 You can configure the vSAN software encryption feature so your CloudSimple Private Cloud can work with a key management server running in your Azure virtual network.
 
@@ -40,7 +40,7 @@ The deployment process has the following steps:
 5. [HyTrust WebUI: Configure KMIP server](#hytrust-webui-configure-the-kmip-server)
 6. [vCenter UI: Configure vSAN encryption to use KMS cluster in your Azure virtual network](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
 
-### Verify that prerequisites are met
+### Verify prerequisites are met
 
 Verify the following prior to deployment:
 
@@ -50,11 +50,11 @@ Verify the following prior to deployment:
 * An Azure Resource Manager and a virtual network are already created.
 * A CloudSimple Private Cloud is already created.
 
-### CloudSimple portal: Obtain ExpressRoute Peering Information
+### CloudSimple portal: Obtain ExpressRoute peering information
 
 To continue the setup, you need the authorization key and peer circuit URI for ExpressRoute plus access to your Azure Subscription. This information is available on the Virtual Network Connection page in the CloudSimple portal. For instructions, see [Set up a virtual network connection to the Private Cloud](virtual-network-connection.md). If you have any trouble obtaining the information, open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### Azure Portal: Connect your virtual network to your Private Cloud
+### Azure portal: Connect your virtual network to your Private Cloud
 
 1. Create a virtual network gateway for your virtual network by following the instructions in [Configure a virtual network gateway for ExpressRoute using the Azure portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 2. Link your virtual network to the CloudSimple ExpressRoute circuit by following the instructions in [Connect a virtual network to an ExpressRoute circuit using the portal](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
@@ -63,7 +63,7 @@ To continue the setup, you need the authorization key and peer circuit URI for E
 
 ![Provide CS peer circuit URI when creating the virtual network](media/vsan-azureportal01.png) 
 
-### Azure Portal: Deploy a HyTrust KeyControl cluster in the Azure Resource Manager in your virtual network
+### Azure portal: Deploy a HyTrust KeyControl cluster in the Azure Resource Manager in your virtual network
 
 To deploy a HyTrust KeyControl cluster in the Azure Resource Manager in your virtual network, perform the following tasks. See the [HyTrust documentation](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0) for details.
 
