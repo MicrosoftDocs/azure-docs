@@ -150,7 +150,7 @@
         href: https://docs.azure.cloudsimple.com/ensuring-high-availability/
     - name: VMware ecosystem
       items:
-      - name: Backup workload virtual machines
+      - name: Back up workload virtual machines
         href: backup-workloads-veeam.md
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
