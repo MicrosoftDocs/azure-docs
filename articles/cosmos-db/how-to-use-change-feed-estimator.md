@@ -18,7 +18,7 @@ The change feed processor acts as a pointer that moves forward across your [chan
 
 Your change feed processor deployment can process changes at a particular rate based on its available resources like CPU, memory, network, and so on.
 
-If this rate is slower than the rate at which your changes happen in your Azure Cosmos DB container, your processor will start to lag behind.
+If this rate is slower than the rate at which your changes happen in your Azure Cosmos container, your processor will start to lag behind.
 
 Identifying this scenario helps understand if we need to scale our change feed processor deployment.
 
