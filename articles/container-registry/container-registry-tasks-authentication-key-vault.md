@@ -103,7 +103,7 @@ The steps in this section create a task and enable a user-assigned identity. If 
 
 ### Create task
 
-Create the task *dockerhubtask* by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `dockerhubtask.yaml` in the working directory. The `--assign-identity` parameter passes the resource ID of the user-assigned identity. 
+Create the task *dockerhubtask* by executing the following [az acr task create][az-acr-task-create] command. The task runs without a source code context, and the command references the file `dockerhubtask.yaml` in the working directory. The `--assign-identity` parameter passes the resource ID of the user-assigned identity. 
 
 ```azurecli
 az acr task create \
@@ -122,7 +122,7 @@ The steps in this section create a task and enable a system-assigned identity. I
 
 ### Create task
 
-Create the task *dockerhubtask* by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `dockerhubtask.yaml` in the working directory.  The `--assign-identity` parameter with no value enables the system-assigned identity on the task.  
+Create the task *dockerhubtask* by executing the following [az acr task create][az-acr-task-create] command. The task runs without a source code context, and the command references the file `dockerhubtask.yaml` in the working directory. The `--assign-identity` parameter with no value enables the system-assigned identity on the task.  
 
 ```azurecli
 az acr task create \

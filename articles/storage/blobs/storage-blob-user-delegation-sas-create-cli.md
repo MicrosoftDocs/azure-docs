@@ -109,7 +109,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 > [!NOTE]
 > A user delegation SAS does not support defining permissions with a stored access policy.
 
-## See also
+## Next steps
 
 - [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)

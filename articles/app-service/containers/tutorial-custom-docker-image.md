@@ -288,9 +288,9 @@ SSH enables secure communication between a container and a client. To enable SSH
 
 * The [entry script](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) starts the SSH server.
 
-	  ```bash
-	  #!/bin/bash
-	  service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
 ### Open SSH connection to container

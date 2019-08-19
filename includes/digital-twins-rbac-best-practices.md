@@ -6,7 +6,7 @@
  ms.service: digital-twins
  ms.topic: include
  ms.date: 08/12/2019
-ms.author: v-adgera
+ ms.author: v-adgera
  ms.custom: include file
 ---
 
