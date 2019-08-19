@@ -267,7 +267,7 @@ Your logic app is now ready to receive messages from your SAP system.
 
 1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
 
-## Receive batch of packet of IDOCs from SAP
+## Receive packet of IDOCs from SAP
 SAP can be configured to <a href="https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html"> send IDOCs in packets </a>, which is a batch or group of IDOCs. SAP connector and specifically trigger does not require any extra configuration to receive IDOC packets. However, once the trigger receives them, to process each items in the IDOC packet, some additional steps are required to split them into individual IDOCs. In the below example, we are using [xpath function](./workflow-definition-language-functions-reference.md#xpath) to extract the individual IDOCs from the packet. 
 
 1. Before you start, you need a Logic App with SAP trigger. If you do not have it already, follow the steps mentioned earlier in this document to setup [Logic App with SAP trigger.](./logic-apps-using-sap-connector.md#receive-from-sap). Here's an example of Logic App with SAP trigger
