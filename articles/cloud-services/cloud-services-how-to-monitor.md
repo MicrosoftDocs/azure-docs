@@ -3,18 +3,11 @@ title: Monitor an Azure Cloud Service | Microsoft Docs
 description: Describes what monitoring an Azure Cloud Service involves and what some of your options are.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: jeconnoc
+ms.author: gwallace
 ---
 
 # Introduction to Cloud Service Monitoring

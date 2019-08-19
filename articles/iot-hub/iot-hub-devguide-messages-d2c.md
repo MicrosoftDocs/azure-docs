@@ -38,6 +38,8 @@ IoT Hub supports writing data to Azure Blob Storage in the [Apache Avro](https:/
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
+IoT Hub also supports routing messages to ADLS Gen2 accounts, which are [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)-enabled storage accounts built on top of Blob storage. This capability is in public preview and available for new ADLS Gen2 accounts in West US 2 and West Central US. We will roll out this capability to all cloud regions soon.
+
 IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention:
 
 ```

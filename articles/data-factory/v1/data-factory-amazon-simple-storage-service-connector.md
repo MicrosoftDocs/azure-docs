@@ -43,7 +43,7 @@ You can create a pipeline with a copy activity that moves data from an Amazon S3
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. For a quick walkthrough, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Whether you use tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -178,7 +178,7 @@ For a full list of sections and properties available for defining activities, se
 ## JSON example: Copy data from Amazon S3 to Azure Blob storage
 This sample shows how to copy data from Amazon S3 to an Azure Blob storage. However, data can be copied directly to [any of the sinks that are supported](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using the copy activity in Data Factory.
 
-The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from Amazon S3 to Blob storage, by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from Amazon S3 to Blob storage, by using the [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 * A linked service of type [AwsAccessKey](#linked-service-properties).
 * A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

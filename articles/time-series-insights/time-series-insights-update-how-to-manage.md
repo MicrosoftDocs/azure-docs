@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
 ---
 
@@ -40,7 +40,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, and choose which subscription group and which resource group to use. Then, select a supported location for the environment to be hosted in.
 
-   [![Create an Azure Time Series Insights instance.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Create an Azure Time Series Insights instance.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Enter a Time Series ID.
 
@@ -51,7 +51,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Create an Azure storage account by selecting a storage account name and designating a replication choice. Doing so automatically creates an Azure Storage general-purpose v1 account. It will be created in the same region as the Azure Time Series Insights Preview environment that you previously selected.
 
-    [![Create an Azure storage account for your instance](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![Create an Azure storage account for your instance](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. Optionally, you can add an event source.
 
@@ -62,11 +62,11 @@ The following steps describe how to create an Azure Time Series Insights Preview
      > [!TIP]
      > The message enqueued time might not be the best configured setting to use in batch event or historical data uploading scenarios. Make sure to verify your decision to use or not use a Timestamp property in such cases.
 
-     [![Event Source tab](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![Event Source tab](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Confirm that your environment has been provisioned with the desired settings.
 
-    [![Review + Create tab](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![Review + Create tab](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## Manage the environment
 
@@ -83,7 +83,7 @@ You can manage your Azure Time Series Insights Preview environment by using the 
 
 * The Azure portal's **Reference data** blade has been removed in Azure Time Series Insights Preview because reference data is not a component of PAYG environments.
 
-[![Time Series Insights Preview environment in the Azure portal](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Time Series Insights Preview environment in the Azure portal](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## Next steps
 

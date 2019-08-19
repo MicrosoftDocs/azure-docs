@@ -6,7 +6,7 @@ author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Azure SaaS application offer

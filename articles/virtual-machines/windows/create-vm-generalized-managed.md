@@ -4,7 +4,7 @@ description: Create a Windows virtual machine from a generalized managed image u
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

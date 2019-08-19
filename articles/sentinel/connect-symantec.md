@@ -1,6 +1,6 @@
 ---
-title: Connect Symantec ICDX data to Azure Sentinel Preview| Microsoft Docs
-description: Learn how to connect Symantec ICDX data to Azure Sentinel.
+title: Connect Symantec ICDx data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Symantec ICDx data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -8,33 +8,34 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
 
 ---
-# Connect your Symantec ICDX appliance 
+# Connect your Symantec ICDx appliance 
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Symantec ICDX connector allows you to easily connect all your Symantec security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Integration between Symantec ICDX and Azure Sentinel makes use of REST API.
+Symantec ICDx connector allows you to easily connect all your Symantec security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Integration between Symantec ICDx and Azure Sentinel makes use of REST API.
 
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
-## Configure and connect Symantec ICDX 
+## Configure and connect Symantec ICDx 
 
-Symantec ICDX can integrate and export logs directly to Azure Sentinel.
+Symantec ICDx can integrate and export logs directly to Azure Sentinel.
 
-1. Open the ICDX Management Console to add Microsoft Azure Sentinel (Log Analytics) forwarders.
+1. Open the ICDx Management Console to add Microsoft Azure Sentinel (Log Analytics) forwarders.
 2. On the ICDx navigation bar, click **Configuration**. 
 3. At the top of the **Configuration** screen, click **Forwarders**.
 4. Under **Forwarders**, next to Microsoft Azure Sentinel (Log Analytics), click **Add**. 
@@ -63,7 +64,7 @@ Symantec ICDX can integrate and export logs directly to Azure Sentinel.
     - **Custom Log Name**: Type the custom log name in the Microsoft Azure portal Log Analytics workspace to which you are going to forward events. The default is SymantecICDx. This field is required.
 8. Click *Save* to finish the forwarder configuration. 
 9. To start the forwarder, under **Options**, click **More** and then **Start**.
-10. To use the relevant schema in Log Analytics for the Symantec ICDX events, search for **SymantecICDX_CL**.
+10. To use the relevant schema in Log Analytics for the Symantec ICDx events, search for **SymantecICDx_CL**.
 
 
 ## Validate connectivity
@@ -73,7 +74,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 
 ## Next steps
-In this document, you learned how to connect Symantec ICDX to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to connect Symantec ICDx to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

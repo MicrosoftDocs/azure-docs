@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: monhaber
-
 ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
-ms.author: monhaber
+ms.author: "v-mohabe"
 ---
 # Adaptive Network Hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Run a TensorFlow model in Python.
 services: cognitive-services
 author: areddish
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
 ---
 
@@ -84,7 +84,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### Deal with images with a dimension >1600
+### Handle images with a dimension >1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -168,7 +168,7 @@ def update_orientation(image):
 
 ## Predict an image
 
-Once the image is prepared as a tensor we can send it through the model for a prediction:
+Once the image is prepared as a tensor, we can send it through the model for a prediction:
 
 ```Python
 

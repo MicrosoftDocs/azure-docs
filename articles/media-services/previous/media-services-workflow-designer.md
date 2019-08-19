@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu;anilmur
-
+ms.author: anilmur
+ms.reviewer: juliako;johndeu
 ---
 # Create Advanced Encoding Workflows with Workflow Designer  
 ## Overview
@@ -83,7 +83,7 @@ Review Media Services learning paths.
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-If you need support or have questions about creating custom workflows in the Workflow designer tool, please send email to mepd@microsoft.com.
+If you need support or have questions about creating custom workflows in the Workflow designer tool, please send email to mepd@microsoft.com. Please use the English language when you write your email.
 
 ## See Also
 [Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

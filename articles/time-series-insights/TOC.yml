@@ -5,6 +5,7 @@
   - name: About Time Series Insights
     href: time-series-insights-update-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Azure Time Series Insights GA
     items:
@@ -16,9 +17,9 @@
       href: time-series-insights-update-quickstart.md  
 - name: Tutorials
   items:
-  - name: Explore the Time Series Insights JavaScript client library
+  - name: Time Series Insights JavaScript client library
     href: tutorial-explore-js-client-lib.md
-  - name: Create a Time Series Insights single-page web app
+  - name: Create a single-page web app
     href: tutorial-create-tsi-sample-spa.md
   - name: Azure Time Series Insights GA
     items:

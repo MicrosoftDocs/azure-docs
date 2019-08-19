@@ -5,8 +5,8 @@ author: rkmanda
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/24/2019
-ms.author: rkmanda
+ms.date: 08/21/2019
+ms.author: philmea
 ---
 
 # IoT Hub high availability and disaster recovery

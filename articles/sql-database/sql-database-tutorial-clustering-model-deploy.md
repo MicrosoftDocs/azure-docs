@@ -12,12 +12,12 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
+ms.date: 07/29/2019
 ---
 
 # Tutorial: Deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview)
 
-In part three of this three-part tutorial series, you'll deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview).
+In part three of this three-part tutorial series, you'll deploy a clustering model, developed in R, into a SQL database using Azure SQL Database Machine Learning Services (preview).
 
 You'll create a stored procedure with an embedded R script that performs clustering. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
 
@@ -28,9 +28,9 @@ In this article, you'll learn how to:
 > * Perform clustering in SQL Database
 > * Use the clustering information
 
-In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learned how to prepare the data from an Azure SQL database to perform clustering in R.
+In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learned how to prepare the data from an Azure SQL database to perform clustering.
 
-In [part two](sql-database-tutorial-clustering-model-build.md), you learned how to build a K-Means model to perform clustering.
+In [part two](sql-database-tutorial-clustering-model-build.md), you learned how to create and train a K-Means clustering model in R.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -40,7 +40,7 @@ In [part two](sql-database-tutorial-clustering-model-build.md), you learned how 
 
 ## Create a stored procedure that generates the model
 
-Run the following T-SQL script to create the stored procedure. The procedure recreates the steps developed in parts one and two of this tutorial series:
+Run the following T-SQL script to create the stored procedure. The procedure recreates the steps you developed in parts one and two of this tutorial series:
 
 * classify customers based on their purchase and return history
 * generate four clusters of customers using a K-Means algorithm

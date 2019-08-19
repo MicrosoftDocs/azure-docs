@@ -3,7 +3,7 @@ title: FAQs - Azure Active Directory Domain Services | Microsoft Docs
 description: Frequently asked questions about Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Azure Active Directory Domain Services: Frequently Asked Questions (FAQs)
@@ -27,6 +27,9 @@ Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common is
 ## Configuration
 ### Can I create multiple managed domains for a single Azure AD directory?
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.  
+
+### Can I enable Azure AD Domain Services in a Classic virtual network?
+Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported.
 
 ### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer supported for creating new managed domains.
@@ -97,7 +100,7 @@ No. Once you have enabled an Azure AD Domain Services managed domain, the servic
 No.  Azure AD Domain Services does not currently provide a geo-redundant deployment model. It is limited to a single virtual network in an Azure region. If you want to utilize multiple Azure regions, you need to run your Active Directory Domain Controllers on Azure IaaS VMs.  Architecture guidance can be found [here](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 ### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
-No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free, Basic, and, Premium). You are billed on an hourly basis, depending on usage.
+No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free and Premium). You are billed on an hourly basis, depending on usage.
 
 ### What Azure regions is the service available in?
 Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.

@@ -1,6 +1,6 @@
 ---
 title: Reviews, Workflows, and Jobs concepts - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about Reviews, Workflows, and Jobs
 services: cognitive-services
 author: sanjeev3

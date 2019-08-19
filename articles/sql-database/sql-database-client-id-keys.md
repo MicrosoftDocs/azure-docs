@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Get the required values for authenticating an application to access SQL Database from code

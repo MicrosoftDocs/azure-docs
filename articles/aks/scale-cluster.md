@@ -7,7 +7,7 @@ author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfoulds
+ms.author: iainfou
 ---
 
 # Scale the node count in an Azure Kubernetes Service (AKS) cluster

@@ -1,7 +1,6 @@
 ---
 title: Introduction to Azure Files | Microsoft Docs
 description: An overview of Azure Files, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -17,7 +16,7 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 ## Videos
 | Introducing Azure File Sync (2 m) | Azure Files with Sync (Ignite 2017) (85 m)  |
 |-|-|
-| [![Screencast of the Introducing Azure File Sync video - click to play!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - click to play!](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
+| [![Screencast of the Introducing Azure File Sync video - click to play!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - click to play!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
 
 ## Why Azure Files is useful
 Azure file shares can be used to:

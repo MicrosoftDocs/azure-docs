@@ -553,7 +553,7 @@ For Linux-based HDInsight clusters, make sure that your project uses binaries co
 
 ### Test a topology locally
 
-Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this tutorial locally in your development environment.
+Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this article locally in your development environment.
 
 > [!WARNING]  
 > Local testing only works for basic, C#-only topologies. You cannot use local testing for hybrid topologies or topologies that use multiple streams.

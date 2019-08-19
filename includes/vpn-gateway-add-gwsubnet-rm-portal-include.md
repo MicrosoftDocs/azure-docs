@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. In the [Azure portal](http://portal.azure.com), select the Resource Manager virtual network for which you want to create a virtual network gateway.
+1. In the [Azure portal](https://portal.azure.com), select the Resource Manager virtual network for which you want to create a virtual network gateway.
 
 2. In the **Settings** section of your virtual network page, select **Subnets** to expand the **Subnets** page.
 

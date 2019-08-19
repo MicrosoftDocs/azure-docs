@@ -3,8 +3,8 @@ title: What is Azure AD entitlement management? (Preview) - Azure Active Directo
 description: Get an overview of Azure Active Directory entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -31,6 +31,10 @@ ms.collection: M365-identity-device-management
 Employees in organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of the resources needed, the individuals involved, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with external individuals or companies.
 
 Azure Active Directory (Azure AD) entitlement management can help you manage access to groups, applications, and SharePoint Online sites for internal users and also users outside your organization.
+
+This video provides an overview of entitlement management and its business value:
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## Why use entitlement management?
 
@@ -88,7 +92,7 @@ With an access package and its policies, the access package manager defines:
 
 - Resources
 - Roles the users need for the resources
-- Internal users and external users that are eligible to request access
+- Internal users and partner organizations of external users that are eligible to request access
 - Approval process and the users that can approve or deny access
 - Duration of user's access
 
@@ -121,11 +125,11 @@ To better understand entitlement management and its documentation, you should re
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
 | catalog | A container of related resources and access packages. |
 | General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
-| resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
+| resource | An asset or service (such as an Office group, a security group, an application, or a SharePoint Online site) that a user can be granted permissions to. |
 | resource type | The type of resource, which includes groups, applications, and SharePoint Online sites. |
 | resource role | A collection of permissions associated with a resource. |
 | resource directory | A directory that has one or more resources to share. |
-| assigned users | An assignment of an access package to a user or group. |
+| assigned users | An assignment of an access package to a user, so that the user has all the resource roles of that access package. |
 | enable | The process of making an access package available for users to request. |
 
 ## License requirements

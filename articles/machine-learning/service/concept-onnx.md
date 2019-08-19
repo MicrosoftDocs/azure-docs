@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 04/24/2019
+ms.date: 08/15/2019
 ms.custom: seodec18
 ---
 
@@ -50,26 +50,27 @@ Python packages for ONNX Runtime are available on [PyPi.org](https://pypi.org) (
 ```python	
 pip install onnxruntime	      # CPU build
 pip install onnxruntime-gpu   # GPU build
-```	
+```
 
 To call ONNX Runtime in your Python script, use:	
-```python	
-import onnxruntime	
-session = onnxruntime.InferenceSession("path to model")	
-```	
+```python
+import onnxruntime
+session = onnxruntime.InferenceSession("path to model")
+```
 
 The documentation accompanying the model usually tells you the inputs and outputs for using the model. You can also use a visualization tool such as [Netron](https://github.com/lutzroeder/Netron) to view the model. ONNX Runtime also lets you query the model metadata, inputs, and outputs:	
-```python	
-session.get_modelmeta()	
-first_input_name = session.get_inputs()[0].name	
-first_output_name = session.get_outputs()[0].name	
-```	
+```python
+session.get_modelmeta()
+first_input_name = session.get_inputs()[0].name
+first_output_name = session.get_outputs()[0].name
+```
 
 To inference your model, use `run` and pass in the list of outputs you want returned (leave empty if you want all of them) and a map of the input values. The result is a list of the outputs.	
-```python	
-results = session.run(["output1", "output2"], {"input1": indata1, "input2": indata2})	
-results = session.run([], {"input1": indata1, "input2": indata2})	
-```	
+```python
+results = session.run(["output1", "output2"], {
+                      "input1": indata1, "input2": indata2})
+results = session.run([], {"input1": indata1, "input2": indata2})
+```
 
 For the complete Python API reference, see the [ONNX Runtime reference docs](https://aka.ms/onnxruntime-python).	
 

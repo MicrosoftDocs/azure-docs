@@ -1,6 +1,6 @@
 ---
-title: 'Configure an One Click SSO to your application from the Azure AD app gallery | Microsoft Docs'
-description: Steps to configure One Click SSO to your application from the Azure AD app gallery.
+title: One-click, single sign-on (SSO) configuration of your Azure Marketplace application  | Microsoft Docs
+description: Steps for one-click configuration of  SSO for your application from the Azure Marketplace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -20,67 +20,67 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# One Click SSO feature for Azure AD Gallery Applications
+# One-click app configuration of single sign-on
 
- In this tutorial, you learn how to perform One Click SSO for all the SAML applications that provide UI for SSO configuration.
+ In this tutorial, you learn how to perform one-click, single sign-on (SSO) configuration for SAML-supporting, Azure Active Directory (Azure AD) applications from the Azure Marketplace.
 
-## Introduction to One Click SSO
+## Introduction to one-click SSO
 
-One Click SSO feature is introduced to configure the Single Sign On for Azure AD gallery apps that support SAML protocol. On Azure AD SSO configuration page, we have provided this option to allow our customers to configure the Azure AD metadata on the application side automatically. The objective is to help customers setting up SSO quickly with minimal manual efforts. 
+The one-click SSO feature is designed to configure single sign-on for Azure Marketplace apps that support SAML protocol. On the Azure AD SSO configuration page, this option allows you to automatically configure the Azure AD metadata on the application side. In this way, you can quickly set up SSO with minimal manual effort.
 
-## Advantages of the One Click SSO
+## Advantages of one-click SSO
 
-- Quick SSO configuration of the gallery applications where customers need to do manual setup on application side.
-- More efficient and accurate way of configuration.
-- No partner communication or support needed for the setup as the application provides the UI for SAML configuration.
+- Quick SSO configuration of Azure Marketplace applications that require manual setup on application side.
+- More efficient and accurate SSO configuration.
+- No partner communication or support needed for  setup. The application provides the UI for SAML configuration.
 
 ## Prerequisites
 
-- Active subscription of the application with admin credentials that you want to configure with OneClick SSO.
-- **My Apps Secure Sign-in browser extension** from Microsoft installed in the browser. If you would like to know more about this extension, refer to this [link](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- An active subscription of the application to configure with SSO. You also need admin credentials.
+- The **My Apps Secure Sign-in extension** from Microsoft installed in the browser. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
-## One Click SSO feature step by step details
+## One-click SSO configuration steps
 
-1. Add the application from the Azure AD App gallery.
+1. Add the application from the Azure Marketplace.
 
-2. Click on Single sign-on.
+2. Select **Single sign-on**.
 
-3. Click on Enable Single sign-on.
+3. Select **Enable single sign-on**.
 
-4. Populate the mandatory configuration values in Basic SAML Configuration section.
-
-    > [!NOTE] 
-    > If application needs configuration of custom claims, please configure them before performing OneClick SSO.
-
-5. If One Click SSO feature is implemented for any gallery application, you see following screen. If the **My Apps Secure Sign-in browser extension** is not already installed, you need to click on **Install the extension** option.
-
-    ![Install My Apps Secure Sign-in browser extension](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
-
-6. After adding the extension to the browser, click on **Setup Application Name** which will redirect you to the application admin portal. You need to sign-in as administrator to get into the application.
-
-    ![Setup application name](./media/one-click-sso-tutorial/setup-sso.png)
-
-7. The browser extension will now automatically configure the application for you. It first asks your confirmation if you want to proceed. Click **Yes**.
-
-    ![Saving the auto populated data](./media/one-click-sso-tutorial/save-autopopulate.png)
+4. Populate the mandatory configuration values in the **Basic SAML Configuration** section.
 
     > [!NOTE]
-	> If any application needs extra nagivation or steps, you should see proper messages asking you to perform those steps. 
+    > If the application has custom claims that you need to configure, handle them before performing one-click SSO.
 
-8. Once the configuration is done, click **Ok** to save the changes.
+5. If the one-click SSO feature is available for your Azure Marketplace application, you see following screen. You might have to install the **My Apps Secure Sign-in browser extension** by selecting **Install the extension**.
 
-    ![Save the auto populated data](./media/one-click-sso-tutorial/save-data.png)
+   ![Install My Apps Secure Sign-in browser extension](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-9. A successful confirmation pop-up message is displayed and your SSO settings are successfully configured. You can then test the application.
+6. After you add the extension to the browser, select **Setup \<Application Name\>**. After you're redirected to the application admin portal, sign in as an administrator.
 
-    ![SSO Configured](./media/one-click-sso-tutorial/sso-configured.png)
+   ![Setup application name](./media/one-click-sso-tutorial/setup-sso.png)
 
-10. Once the configuration is successfully complete, the application will be logged off and you are returned back to Azure portal.
+7. The browser extension automatically configures SSO on the application. Confirm by selecting **Yes**.
 
-11. You can click on the Test button to test the Single sign-on.
+   ![Saving the auto-populated data](./media/one-click-sso-tutorial/save-autopopulate.png)
+
+   > [!NOTE]
+   > If SSO configuration for your application requires additional steps, following the prompts to perform the steps.
+
+8. After the configuration has finished, select **OK** to save the changes.
+
+   ![Save the auto-populated data](./media/one-click-sso-tutorial/save-data.png)
+
+9. A confirmation window displays to let you know that the SSO settings are successfully configured.
+
+   ![SSO configured](./media/one-click-sso-tutorial/sso-configured.png)
+
+10. After the configuration is successful, you're signed out of the application and returned to the Azure portal.
+
+11. You can select **Test** to test single sign-on.
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [What is My Apps Secure Sign-in browser extension](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
+* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+* [What is the My Apps Secure Sign-in browser extension?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
  

@@ -6,10 +6,8 @@
     href: quickstart.md
   - name: PowerShell - Quickstart
     href: quickstart-powershell.md
-- name: Features & tooling
-  items:
-  - name: Features & tools
-    href: features.md
+- name: Features & tools
+  href: features.md
 - name: Tutorials
   items:
   - name: Ansible

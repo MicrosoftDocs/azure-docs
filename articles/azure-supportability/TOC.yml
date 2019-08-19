@@ -6,16 +6,18 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Quota increase requests
   items: 
-  - name: Resource Manager Deployment Model Quota increase requests
-    items: 
-    - name: VM Series vCPU limit increase
-      href: per-vm-quota-requests.md
-    - name: Total regional vCPU limit increase
-      href: regional-quota-requests.md
-    - name: Networking limit increase
-      href: networking-quota-requests.md
-  - name: Classic Deployment Model Quota increase requests
-    href: classic-deployment-model-quota-increase-requests.md      
+  - name: Compute vCPU limit increase
+    items:
+    - name: Resource Manager Deployment Model 
+      items: 
+      - name: VM Series vCPU limit increase
+        href: per-vm-quota-requests.md
+      - name: Total regional vCPU limit increase
+        href: regional-quota-requests.md
+    - name: Classic Deployment Model 
+      href: classic-deployment-model-quota-increase-requests.md 
+  - name: Networking limit increase
+    href: networking-quota-requests.md
 - name: Troubleshooting region or SKU subscription issues
   href: sku-series-unavailable.md
 - name: Reference

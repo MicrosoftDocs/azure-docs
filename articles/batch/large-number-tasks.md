@@ -4,7 +4,7 @@ description: How to efficiently submit a very large number of tasks in a single 
 services: batch
 documentationcenter: 
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 

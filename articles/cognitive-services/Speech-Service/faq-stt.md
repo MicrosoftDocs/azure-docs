@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
 ---
 
@@ -79,7 +79,12 @@ Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20fo
 
 **A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
 
-If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
+**Q: How I am charged for dual channel audio?**
+
+**A**: If you submit each channel separately (each channel in its own file), you will be charged per the duration of the each file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
+
+> [!IMPORTANT]
+> If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
 ## Importing data
 

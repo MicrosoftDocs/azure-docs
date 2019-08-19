@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with NetSuite, perform the following steps:
 	`https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [NetSuite Client support team](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Reply URL. Contact [NetSuite Client support team](https://www.netsuite.com/portal/services/support-services/suitesupport.shtml) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. NetSuite application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 

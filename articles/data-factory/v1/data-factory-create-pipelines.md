@@ -288,8 +288,7 @@ For more information, see [scheduling and execution](data-factory-scheduling-and
 ## Create and monitor pipelines
 You can create pipelines by using one of these tools or SDKs.
 
-- Copy Wizard.
-- Azure portal
+- Copy Wizard
 - Visual Studio
 - Azure PowerShell
 - Azure Resource Manager template

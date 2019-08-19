@@ -58,10 +58,10 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 The scope used for client credentials should always be resourceId+"/.default"
 
-### Case of v1.0 resources
+### Case of Azure AD (v1.0) resources
 
 > [!IMPORTANT]
-> For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
+> For MSAL (Microsoft identity platform endpoint) asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
 > Therefore if, like Azure SQL (**https://database.windows.net**) the resource expects an audience ending with a slash (for Azure SQL: `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default` (note the double slash). See also MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure.
 
 ## AcquireTokenForClient API
@@ -159,7 +159,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### Learn more about the protocol
 
-For more information, see the protocol documentation: [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
+For more information, see the protocol documentation: [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
 ## Troubleshooting
 

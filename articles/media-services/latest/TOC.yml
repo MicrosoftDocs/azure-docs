@@ -36,11 +36,16 @@
   items:
   - name: Overview
     href: concepts-overview.md
-  - name: Cloud upload and storage
+  - name: Accounts
     items:    
-    - name: Storage
+    - name: Media Services account
+      displayName: subscription
+      href: media-services-account-concept.md
+    - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
+  - name: Uploading 
+    items:
     - name: Assets
       href: assets-concept.md    
   - name: Encoding
@@ -88,12 +93,13 @@
       href: streaming-policy-concept.md  
     - name: Streaming Endpoint error codes  
       href: streaming-endpoint-error-codes.md    
-  - name: Dynamic encryption and key delivery
+  - name: Content protection
     items:
-    - name: Streaming protocols and encryption types
-      displayName: dynamic, encryption, content protection, PlayReady, Widevine, FairPlay     
+    - name: Dynamic encryption and key delivery
+      displayName: content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay     
       href: content-protection-overview.md  
-    - name: Multi-DRM system with access control
+    - name: Design of multi-DRM system 
+      displayName: drm, access control
       href: design-multi-drm-system-with-access-control.md  
     - name: DRM licenses
       items:
@@ -237,6 +243,12 @@
       href: monitor-events-portal-how-to.md
     - name: Monitor events - CLI
       href: job-state-events-cli-how-to.md 
+  - name: Use Azure Monitor
+    items:
+    - name: Monitor metrics
+      href: media-services-metrics-howto.md
+    - name: Monitor diagnostic logs
+      href: media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
     - name: Get content key policy - .NET

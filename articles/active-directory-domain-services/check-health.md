@@ -3,7 +3,7 @@ title: Azure AD Domain Services - Check the health of your managed domain | Micr
 description: Check the health of your managed domain using the health page in the Azure portal.
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Check the health of an Azure AD Domain Services managed domain
@@ -40,10 +40,10 @@ The status in the top right of your health page indicates the overall health of 
 
 | Status | Icon | Explanation |
 | --- | :----: | --- |
-| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
-| Needs attention (Warning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
-| Needs attention (Critical) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
-| Deploying | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Your domain is in the process of being deployed. |
+| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
+| Needs attention (Warning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
+| Needs attention (Critical) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
+| Deploying | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Your domain is in the process of being deployed. |
 
 ## Monitors
 Monitors are aspects of your managed domain that Azure AD Domain Services monitors on a regular basis. The best way to keep your monitors in a healthy state is to resolve any active alerts for your managed domain.

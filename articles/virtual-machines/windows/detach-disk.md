@@ -4,7 +4,7 @@ description: Detach a data disk from a virtual machine in Azure using the Resour
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management
 

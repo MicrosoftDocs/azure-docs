@@ -9,13 +9,14 @@ editor: ''
 
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/15/2019
+ms.topic: conceptual
+ms.date: 07/04/2019
 ms.author: ryanwi
-ms.custom: aaddev, annaba
+ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 
 ms.collection: M365-identity-device-management
@@ -25,7 +26,7 @@ ms.collection: M365-identity-device-management
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we've replaced the configurable token lifetimes feature with [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. This feature will be deprecated on November 1, 2019. If you're using the configurable token lifetime policy, switch to the new Conditional Access feature. 
+> After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After November 1, 2019 you will not be able to use Configurable Token Lifetime policy to configure refresh tokens, but you can still use it to configure access tokens.
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
@@ -35,6 +36,7 @@ You can designate a policy as the default policy for your organization. The poli
 > Configurable token lifetime policy is not supported for SharePoint Online.  Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
 >* The default lifetime for the SharePoint Online access token is 1 hour. 
 >* The default max inactive time of the SharePoint Online refresh token is 90 days.
+
 
 ## Token types
 
@@ -76,7 +78,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 ### Configurable token lifetime properties
 | Property | Policy property string | Affects | Default | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
-| Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
+| Access Token Lifetime |AccessTokenLifetime<sup>4</sup> |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
 | Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 | Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
@@ -84,6 +86,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor<sup>3</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
+* <sup>4</sup>To make the Microsoft Teams Web client works, it is recommended to set AccessTokenLifetime to greater than 15 minutes for the Microsoft Teams.
 
 ### Exceptions
 | Property | Affects | Default |

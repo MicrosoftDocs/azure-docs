@@ -29,6 +29,12 @@ During the audit stage, many organizations find out that:
 * Users often use unsecure passwords.
 * They need to inform users about the upcoming change in security enforcement, possible impact on them, and how to choose more secure passwords.
 
+It is also possible for stronger password validation to affect your existing Active Directory domain controller deployment automation. We recommend that at least one DC promotion and one DC demotion happen during the audit period evaluation in order to help uncover such issues in advance.  For more information, see:
+
+* [Ntdsutil.exe is unable to set a weak Directory Services Repair Mode password](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [Domain controller replica promotion fails because of a weak Directory Services Repair Mode password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
+* [Domain controller demotion fails due to a weak local Administrator password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
+
 After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more secure passwords. Focused monitoring during this time is a good idea.
 
 ## Deployment requirements
@@ -41,7 +47,7 @@ After the feature has been running in audit mode for a reasonable period, you ca
    > Proxy service deployment is a mandatory requirement for deploying Azure AD password protection even though the Domain controller may have outbound direct internet connectivity. 
    >
 * All machines where the Azure AD Password Protection Proxy service will be installed must have .NET 4.7 installed.
-  .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * All machines, including domain controllers, that get Azure AD password protection components installed must have the Universal C Runtime installed. You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for password protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service. By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
 * All machines that host the proxy service must have network access to the following endpoints:
@@ -51,6 +57,7 @@ After the feature has been running in audit mode for a reasonable period, you ca
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD password protection functionality|
 
+* All machines that host the proxy service for password protection must be configured to grant domain controllers the ability to logon to the proxy service. This is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the proxy service for password protection must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A Global Administrator account to register the proxy service for password protection and forest with Azure AD.
 * An account that has Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
@@ -132,7 +139,11 @@ There are two required installers for Azure AD password protection. They're avai
         ```
 
         > [!NOTE]
-        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
+        > This mode fails if Azure Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
+        >
+        > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No. Be sure to reconfigure this setting back to Yes once registration is complete.
+        >
+        > We recommend that MFA requirements be bypassed for test purposes only.
 
        You don't currently have to specify the *-ForestCredential* parameter, which is reserved for future functionality.
 
@@ -153,7 +164,7 @@ There are two required installers for Azure AD password protection. They're avai
         ```
 
         > [!NOTE]
-        > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.  
+        > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the forest, and then re-enable it.  
 
      * Device-code authentication mode:
 
@@ -172,7 +183,11 @@ There are two required installers for Azure AD password protection. They're avai
         ```
 
         > [!NOTE]
-        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
+        > This mode fails if Azure Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
+        >
+        > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No. Be sure to reconfigure this setting back to Yes once registration is complete.
+        >
+        > We recommend that MFA requirements be bypassed for test purposes only.
 
        These examples only succeed if the currently signed-in user is also an Active Directory domain administrator for the root domain. If this isn't the case, you can supply alternative domain credentials via the *-ForestCredential* parameter.
 
@@ -265,12 +280,33 @@ There are two required installers for Azure AD password protection. They're avai
 
    You can automate the software installation by using standard MSI procedures. For example:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > The example msiexec command here causes an immediate reboot. To avoid that, use the `/norestart` flag.
+   You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
 
 The installation is complete after the DC Agent software is installed on a domain controller, and that computer is rebooted. No other configuration is required or possible.
+
+## Upgrading the Proxy agent
+
+When a newer version of the Azure AD Password Protection Proxy software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionProxySetup.exe` software installer. The latest version of the software is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+
+It is not required to uninstall the current version of the Proxy software - the installer will perform an in-place upgrade. No reboot should be required when upgrading the Proxy software. The software upgrade may be automated using standard MSI procedures, for example: `AzureADPasswordProtectionProxySetup.exe /quiet`.
+
+The Proxy agent supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default, and may be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet. Microsoft recommends that the automatic upgrade be left enabled.
+
+The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to query the software version of all currently installed Proxy agents in a forest.
+
+## Upgrading the DC agent
+
+When a newer version of the Azure AD Password Protection DC Agent software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionDCAgentSetup.msi` software package. The latest version of the software is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+
+It is not required to uninstall the current version of the DC agent software - the installer will perform an in-place upgrade. A reboot is always required when upgrading the DC agent software - this is caused by core Windows behavior. 
+
+The software upgrade may be automated using standard MSI procedures, for example: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
+
+You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
+
+The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to query the software version of all currently installed DC agents in a forest.
 
 ## Multiple forest deployments
 
@@ -284,7 +320,7 @@ Password changes/sets are not processed and persisted on read-only domain contro
 
 The main availability concern for password protection is the availability of proxy servers when the domain controllers in a forest try to download new policies or other data from Azure. Each DC Agent uses a simple round-robin-style algorithm when deciding which proxy server to call. The Agent skips proxy servers that aren't responding. For most fully connected Active Directory deployments that have healthy replication of both directory and sysvol folder state, two proxy servers is enough to ensure availability. This results in timely download of new policies and other data. But you can deploy additional proxy servers.
 
-The design of the DC Agent software mitigates the usual problems that are associated with high availability. The DC Agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable, the DC Agents continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually *days*, not hours or less. So, brief outages of the proxy servers don't significantly impact Azure AD password protection.
+The design of the DC Agent software mitigates the usual problems that are associated with high availability. The DC Agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable, the DC Agents continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually days, not hours or less. So, brief outages of the proxy servers don't significantly impact Azure AD password protection.
 
 ## Next steps
 

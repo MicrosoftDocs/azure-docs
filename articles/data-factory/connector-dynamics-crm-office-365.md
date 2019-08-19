@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: jingwang
 
 ---
@@ -24,7 +24,13 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 You can copy data from Dynamics 365 (Common Data Service) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Common Data Service) or Dynamics CRM. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-This Dynamics connector supports the following Dynamics versions and authentication types. (IFD is short for internet-facing deployment.)
+This Dynamics connector supports Dynamics version 7.x to 9.x for both online or on-premises. More specifically,
+
+- Version 7.x maps to Dynamics CRM 2015
+- Version 8.x maps to Dynamics CRM 2016 and the early version of Dynamics 365
+- Version 9.x maps to the later version of Dynamics 365
+
+Refer to the following table on the supported authentication types and configurations for respective Dynamics versions/products. (IFD is short for internet-facing deployment.)
 
 | Dynamics versions | Authentication types | Linked service samples |
 |:--- |:--- |:--- |
@@ -40,6 +46,8 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Marketing
 
 Other application types e.g. Finance and Operations, Talent, etc. are not supported by this connector.
+
+This Dynamics connector is built on top of [Dynamics XRM tooling](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >To copy data from **Dynamics 365 Finance and Operations**, you can use the [Dynamics AX connector](connector-dynamics-ax.md).

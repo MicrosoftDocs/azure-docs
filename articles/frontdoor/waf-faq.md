@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Frequently asked questions for Azure web application firewall

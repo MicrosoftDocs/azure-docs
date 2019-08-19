@@ -3,7 +3,7 @@ title: Troubleshoot Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft 
 description: Troubleshoot Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Troubleshoot Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
@@ -38,8 +38,8 @@ If you still have trouble connecting to the managed domain using secure LDAP, [c
 
 
 ## Related content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
+* [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
 * [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)
 * [Network security groups](../virtual-network/security-overview.md)

@@ -47,11 +47,13 @@
 - name: How-to guides
   items:
   - name: Handle hit highlighting
-    href: hit-highlighting.md
+    href: ../Bing-Web-Search/hit-highlighting.md
+    maintainContext: true
   - name: Page news
     href: paging-news.md
   - name: Resize and crop thumbnails
-    href: resize-and-crop-thumbnails.md
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7 of the API
     href: bing-news-upgrade-guide-v5-to-v7.md
   - name: Work with Visual Studio
@@ -75,7 +77,7 @@
       - name: .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
       - name: Java
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable
+        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
       - name: Node.js

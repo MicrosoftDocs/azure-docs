@@ -42,7 +42,7 @@ In this example, you override a configuration value using parameters in your app
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
-  ```
+   ```
 1. In the `ServiceManifestImport` section of the ApplicationManifest.xml file, add a `ConfigOverrides` and `ConfigOverride` element, referencing the configuration package, the section, and the parameter.
 
    ```xml

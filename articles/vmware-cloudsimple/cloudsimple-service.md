@@ -3,9 +3,9 @@ title: VMware Solution by CloudSimple service
 description: Describes the overview of CloudSimple service and concepts. 
 author: sharaths-cs 
 ms.author: b-shsury 
-ms.date: 4/24/19 
+ms.date: 04/24/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---

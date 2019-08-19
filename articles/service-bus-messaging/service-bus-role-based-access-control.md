@@ -30,12 +30,12 @@ An application that uses Azure AD RBAC does not need to handle SAS rules and key
 
 Azure provides the below built-in RBAC roles for authorizing access to a Service Bus namespace:
 
-* [Service Bus Data Owner (preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Enables data access to Service Bus namespace and its entities (Queues, Topics, Subscriptions and Filters)
+* [Azure Service Bus Data Owner (Preview)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Enables data access to Service Bus namespace and its entities (Queues, Topics, Subscriptions and Filters)
 
 >[!IMPORTANT]
 > We earlier supported adding managed identity to the **"Owner"** or **"Contributor"** role.
 >
-> However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Service Bus Data Owner"** role.
+> However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Azure Service Bus Data Owner (Preview)"** role.
 
 ## Use Service Bus with an Azure AD domain user account
 
