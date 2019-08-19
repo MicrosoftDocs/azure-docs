@@ -6,12 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Setup and use environment variables](includes/prerequisites-go.md)]
 
-This quickstart requires:
-
-* [Go](https://golang.org/doc/install)
-* An Azure subscription key for Translator Text
+[!INCLUDE [Setup and use environment variables](includes/setup-env-variables.md)]
 
 ## Create a project and import required modules
 
@@ -33,7 +30,7 @@ import (
 
 ## Create the main function
 
-This sample will try to read your Translator Text subscription key from the environment variable `TRANSLATOR_TEXT_KEY`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
+This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
 
 Copy this code into your project:
 

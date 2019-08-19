@@ -6,12 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Setup and use environment variables](includes/prerequisites-go.md)]
 
-This quickstart requires:
-
-* [Go](https://golang.org/doc/install)
-* An Azure subscription key for Translator Text
+[!INCLUDE [Setup and use environment variables](includes/setup-env-variables.md)]
 
 ## Create a project and import required modules
 
@@ -21,40 +18,45 @@ Create a new Go project using your favorite IDE or editor. Then copy this code s
 package main
 
 import (
-    "bytes"
     "encoding/json"
     "fmt"
+    "io/ioutil"
     "log"
     "net/http"
-    "net/url"
     "os"
+    "strconv"
+    "strings"
+    "time"
 )
 ```
 
 ## Create the main function
 
-This sample will try to read your Translator Text subscription key from the environment variable `TRANSLATOR_TEXT_KEY`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
+This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
 
 Copy this code into your project:
 
 ```go
 func main() {
     /*
-     * Read your subscription key from an env variable.
-     * Please note: You can replace this code block with
-     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables. If so, be sure to delete the "os" import.
-     */
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
-    if subscriptionKey == "" {
-       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
+    * Read your subscription key from an env variable.
+    * Please note: You can replace this code block with
+    * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+    * want to use env variables. If so, be sure to delete the "os" import.
+    */
+    if "" == os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY") {
+           log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_SUBSCRIPTION_KEY.")
     }
-    /*
-     * This calls our breakSentence function, which we'll
-     * create in the next section. It takes a single argument,
-     * the subscription key.
-     */
-    breakSentence(subscriptionKey)
+    var subscriptionKey string = os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY")
+
+    if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
+       log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+    }
+    var uriBase string = os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    // The path to the breaksentence endpoint
+    const uriPath = "/breaksentence?api-version=3.0"
+    // The constructed URI
+    var uri string = uriBase + uriPath
 }
 ```
 

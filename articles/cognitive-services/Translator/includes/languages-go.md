@@ -6,11 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Setup and use environment variables](includes/prerequisites-go.md)]
 
-This quickstart requires:
-
-* [Go](https://golang.org/doc/install)
+[!INCLUDE [Setup and use environment variables](includes/setup-env-variables.md)]
 
 ## Create a project and import required modules
 
