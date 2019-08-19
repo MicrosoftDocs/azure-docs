@@ -38,25 +38,25 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
 
 1. In the Azure portal, add the user to Active Directory: 
 
-   a. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) by using an account that's a global admin for the directory.
+   1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) by using an account that's a global admin for the directory.
     
-   b. Select **Azure Active Directory** and then **Users and groups**.
+   2. Select **Azure Active Directory** and then **Users and groups**.
     
-   c. In **Users and groups**, select **All users**, and then select **New user**.
+   3. In **Users and groups**, select **All users**, and then select **New user**.
    
        The **User** pane opens:
       
-       ![The "User" pane](./media/add-user.png)
+      ![The "User" pane](./media/add-user.png)
     
-   d. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must be either the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/add-custom-domain.md) such as "contoso.com."
+   4. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must be either the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/add-custom-domain.md) such as "contoso.com."
     
-   e. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
+   5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
     
-   f. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. 
+   6. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. 
     
-   g. Under **User**, select **Create**.
+   7. Under **User**, select **Create**.
     
-   h. Securely distribute the generated password to the new user so that the user can sign in.
+   8. Securely distribute the generated password to the new user so that the user can sign in.
 
 1. Create an Azure AD DS instance. Follow the instructions in  [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (tasks 1 through 5). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described in task 4 of the article.
 
