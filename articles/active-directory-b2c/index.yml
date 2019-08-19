@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Active Directory B2C documentation # < 60 chars
-summary: Azure Active Directory B2C (Azure AD B2C) is an identity management service that enables you to customize and control how customers sign up, sign in, and manage their profiles when using your applications. This includes applications developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting the identities of your customers at the same time. # < 160 chars
+summary: Azure Active Directory B2C (Azure AD B2C) is an identity management service that enables custom control of how your customers sign up, sign in, and manage their profiles when using your iOS, Android, .NET, and other applications. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
   title: Azure Active Directory B2C documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -22,7 +22,7 @@ landingContent:
 # Start card title with a verb
 
   # Card
-  - title: Get started
+  - title: Learn the basics
     linkLists:
       - linkListType: overview
         links:
@@ -38,7 +38,7 @@ landingContent:
             url: tutorial-create-user-flows.md
 
   # Card
-  - title: Build ASP.NET apps
+  - title: Add identity to ASP.NET apps
     linkLists:
       - linkListType: quickstart
         links:
@@ -54,7 +54,7 @@ landingContent:
             url: active-directory-b2c-tutorials-web-api.md
 
   # Card
-  - title: Build single-page apps (SPA)
+  - title: Add identity to single-page apps (SPA)
     linkLists:
       - linkListType: quickstart
         links:
@@ -70,7 +70,7 @@ landingContent:
             url: active-directory-b2c-tutorials-spa-webapi.md
 
   # Card
-  - title: Build desktop apps
+  - title: Add identity to desktop apps
     linkLists:
       - linkListType: quickstart
         links:
