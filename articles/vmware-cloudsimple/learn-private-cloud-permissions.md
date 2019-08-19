@@ -19,7 +19,7 @@ CloudSimple retains full administrative access to the Private Cloud environment.
 When you create a Private Cloud, a **CloudOwner** user is created in the vCenter Single Sign-On domain, with **Cloud-Owner-Role** access to manage objects in the Private Cloud. This user also can set up additional [vCenter Identity Sources](set-vcenter-identity.md), and other users to the Private Cloud vCenter.
 
 > [!NOTE]
-> Default user for your CloudSimple Private Cloud vCenter is **cloudowner@cloudsimple.local** when a Private Cloud is created without linking it with your on-premises vCenter.
+> Default user for your CloudSimple Private Cloud vCenter is `cloudowner@cloudsimple.local` when a Private Cloud is created without linking it with your on-premises vCenter.
 
 ## User Groups
 
@@ -45,7 +45,7 @@ To grant individual users permissions to manage the Private Cloud, create user a
 |----------|-----------|
 | **Alarms** | Acknowledge alarm <br> Create alarm <br> Disable alarm action <br> Modify alarm <br> Remove alarm <br> Set alarm status |
 | **Permissions** | Modify permission |
-| **Content Library ** | Add library item <br> Create local library <br> Create subscribed library <br> Delete library item <br> Delete local library <br> Delete subscribed library <br> Download files <br> Evict library item <br> Evict subscribed library <br> Import storage <br> Probe subscription information <br> Read storage <br> Sync library item <br> Sync subscribed library <br> Type introspection <br> Update configuration settings <br> Update files <br> Update library <br> Update library item <br> Update local library <br> Update subscribed library <br> View configuration settings |
+| **Content Library** | Add library item <br> Create local library <br> Create subscribed library <br> Delete library item <br> Delete local library <br> Delete subscribed library <br> Download files <br> Evict library item <br> Evict subscribed library <br> Import storage <br> Probe subscription information <br> Read storage <br> Sync library item <br> Sync subscribed library <br> Type introspection <br> Update configuration settings <br> Update files <br> Update library <br> Update library item <br> Update local library <br> Update subscribed library <br> View configuration settings |
 | **Cryptographic operations** | Add disk <br> Clone <br> Decrypt <br> Direct Access <br> Encrypt <br> Encrypt new <br> Manage KMS <br> Manage encryption policies <br> Manage keys <br> Migrate <br> Recrypt <br> Register VM <br> Register host |
 | **dvPort group** | Create <br> Delete <br> Modify <br> Policy operation <br> Scope operation |
 | **Datastore** | Allocate space <br> Browse datastore <br> Configure datastore <br> Low-level file operations <br> Move datastore <br> Remove datastore <br> Remove file <br> Rename datastore <br> Update virtual machine files <br> Update virtual machine metadata |
@@ -72,7 +72,7 @@ To grant individual users permissions to manage the Private Cloud, create user a
 | **vApp** | Add virtual machine <br> Assign resource pool <br> Assign vApp <br> Clone <br> Create <br> Delete <br> Export <br> Import <br> Move <br> Power off <br> Power on <br> Rename <br> Suspend <br> Unregister <br> View OVF environment <br> vApp application configuration <br> vApp instance configuration <br> vApp managedBy configuration <br> vApp resource configuration |
 | **VRMPolicy** | Query VRMPolicy <br> Update VRMPolicy |
 | **Virtual machine > Configuration** | Add existing disk <br> Add new disk <br> Add or remove device <br> Advanced <br> Change CPU count <br> Change resource <br> Configure managedBy <br> Disk change tracking <br> Disk lease <br> Display connection settings <br> Extend virtual disk <br> Host USB device <br> Memory <br> Modify device settings <br> Query Fault Tolerance compatibility <br> Query unowned files <br> Raw device <br> Reload from path <br> Remove disk <br> Rename <br> Reset guest information <br> Set annotation <br> Settings <br> Swapfile placement <br> Toggle fork parent <br> Unlock virtual machine <br> Upgrade virtual machine compatibility |
-| **Virtual machine > Guest operations ** | Guest operation alias modification <br> Guest operation alias query <br> Guest operation modifications <br> Guest operation program execution <br> Guest operation queries |
+| **Virtual machine > Guest operations** | Guest operation alias modification <br> Guest operation alias query <br> Guest operation modifications <br> Guest operation program execution <br> Guest operation queries |
 | **Virtual machine > Interaction** | Answer question <br> Backup operation on virtual machine <br> Configure CD media <br> Configure floppy media <br> Console interaction <br> Create screenshot <br> Defragment all disks <br> Device connection <br> Drag and drop <br> Guest operating system management by VIX API <br> Inject USB HID scan codes <br> Pause or Unpause <br> Perform wipe or shrink operations <br> Power off <br> Power on <br> Record session on virtual machine <br> Replay session on virtual machine <br> Reset <br> Resume Fault Tolerance <br> Suspend <br> Suspend Fault Tolerance <br> Test failover <br> Test restart Secondary VM <br> Turn off Fault Tolerance <br> Turn on Fault Tolerance <br> VMware Tools install |
 | **Virtual machine > Inventory** | Create from existing <br> Create new <br> Move <br> Register <br> Remove <br> Unregister |
 | **Virtual machine > Provisioning** | Allow disk access <br> Allow file access <br> Allow read-only disk access <br> Allow virtual machine download <br> Allow virtual machine files upload <br> Clone template <br> Clone virtual machine <br> Create template from virtual machine <br> Customize <br> Deploy template <br> Mark as template <br> Mark as virtual machine <br> Modify customization specification <br> Promote disks <br> Read customization specifications |
@@ -87,7 +87,7 @@ To grant individual users permissions to manage the Private Cloud, create user a
 |----------|-----------|
 | **Datastore** | Allocate space <br> Browse datastore <br> Configure datastore <br> Low-level file operations <br> Remove datastore <br> Rename datastore <br> Update virtual machine files <br> Update virtual machine metadata |
 | **Folder** | Create folder <br> Delete folder <br> Move folder <br> Rename folder |
-| **Host > Configuration **  | Storage partition configuration |
+| **Host > Configuration**  | Storage partition configuration |
 | **vSphere Tagging** | Assign or Unassign vSphere Tag <br> Create vSphere Tag <br> Create vSphere Tag Category <br> Delete vSphere Tag <br> Delete vSphere Tag Category <br> Edit vSphere Tag <br> Edit vSphere Tag Category <br> Modify UsedBy Field For Category <br> Modify UsedBy Field For Tag |
 | **Network** | Assign network |
 | **Resource** | Apply recommendation <br> Assign vApp to resource pool <br> Assign virtual machine to resource pool <br> Create resource pool <br> Migrate powered off virtual machine <br> Migrate powered on virtual machine <br> Modify resource pool <br> Move resource pool <br> Query vMotion <br> Remove resource pool <br> Rename resource pool |
@@ -111,8 +111,7 @@ To grant individual users permissions to manage the Private Cloud, create user a
 | **Host > Configuration** | Storage partition configuration |
 | **Datastore cluster** | Configure a datastore cluster	|
 | **Profile-driven storage** | Profile-driven storage update <br> Profile-driven storage view |
-| ** Storage views** | Configure service <br> View |
-
+| **Storage views** | Configure service <br> View |
 
 ### Cloud-Network-Admin-Role
 

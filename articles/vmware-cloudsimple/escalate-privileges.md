@@ -25,8 +25,6 @@ Reasons for escalating privileges can include the following:
 > [!WARNING]
 > Actions taken in the escalated privileged state can adversely impact your system and can cause your system to become unavailable. Perform only the necessary actions during the escalation period.
 
-## How privilege escalation works
-
 From the CloudSimple portal, [escalate privileges](escalate-private-cloud-privileges.md) for the CloudOwner local user on the vCenter SSO.  You can escalate remote user's privilege only if additional identity provider is configured on vCenter.  Escalation of privileges involves adding the selected user to the vSphere built-in Administrators group.  Only one user can have escalated privileges.  If you need to escalate another user's privileges, first de-escalate the privileges of the current users.
 
 Users from additional identity sources must be added as members of CloudOwner group.
