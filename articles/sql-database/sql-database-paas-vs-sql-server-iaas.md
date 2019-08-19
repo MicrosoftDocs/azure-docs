@@ -1,6 +1,6 @@
 ---
-title: Choosing among SQL choices in Azure | Microsoft Docs
-description: Learn how to choose among the deployment options within Azure SQL Database and between Azure SQL Database and SQL Server on Azure virtual machines
+title: Choose the right deployment option in Azure SQL | Microsoft Docs
+description: Learn how to choose among the deployment options within Azure SQL between SQL databases, SQL managed instances, and SQL Server on Azure virtual machines.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
