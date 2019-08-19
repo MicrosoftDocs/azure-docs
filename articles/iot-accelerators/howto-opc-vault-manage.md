@@ -127,4 +127,4 @@ By default, the service identity has only limited permissions to access Key Vaul
 Now that you have learned how to manage OPC Vault certificates and users, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Deploy OPC Twin to an existing project](howto-opc-vault-secure.md)
+> [Secure communication of OPC devices](howto-opc-vault-secure.md)
