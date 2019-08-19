@@ -24,7 +24,7 @@ In this how-to article, you:
 
 To complete the steps in this article, you need the following resources:
 
-1. An MXChip IoT DevKit. [Get it now](https://aka.ms/iot-devkit-purchase).
+1. A DevKit device. [Get it now](https://aka.ms/iot-devkit-purchase).
 1. An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Get group device connection details
@@ -35,7 +35,7 @@ In your Azure IoT Central application, select **Administration** tab, choose **D
 
 ## Prepare the DevKit device
 
-1. Download the latest [pre-built Azure IoT Central Plug and Play firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the MXChip from GitHub.
+1. Download the latest [pre-built Azure IoT Central Plug and Play firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the DevKit device from GitHub.
 
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
 
