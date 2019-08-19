@@ -46,6 +46,7 @@ To learn how to connect your lab with a Bastion configured VNet, see [Configure 
 1. Select the subnet: **AzureBastionSubnet**. 
 
     ![Subnet](./media/enable-browser-connection-on-lab-virtual-machines/subnet.png)
+1. Select **Use in virtual machine creation** option. 
 1. Select **Save** on the toolbar. 
 1. If you have an old VNet for the lab, remove it by selecting **...*  and **Remove**. 
 
