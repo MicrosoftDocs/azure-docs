@@ -65,7 +65,7 @@ In general, the CSR method is recommended, because it doesn't require a private 
 
 4. Fill in the form with a subject, the domain names and choose PEM or PFX with password for the private key. Press the `Generate New Certificate` button to create the certificate request.
 
-![Approve Certificate]media/howto-opc-vault-secure/ApproveReject.png "Approve Certificate")
+![Approve Certificate](media/howto-opc-vault-secure/ApproveReject.png "Approve Certificate")
 
 5. The approval step requires a user with 'Approver' role and with signing permissions in Azure Key Vault. In the typical workflow, the Approver and Requester role should be assigned to different users.
 6. Approve or Reject the certificate request to start or cancel the actual creation of the key pair and the signing operation. The new key pair is created and stored securely in Azure Key Vault until downloaded by the certificate requester. The resulting certificate with public key is signed by the CA. These operations may take a few seconds to finish.
