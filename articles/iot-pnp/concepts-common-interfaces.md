@@ -26,7 +26,7 @@ All IoT Plug and Play devices are expected to implement some common interfaces. 
 - Implemented by Azure IoT SDK - Whether the Azure IoT SDK implements the capabilities declared in the interfaces. IoT Plug and Play devices that use the Azure IoT SDK don't need to implement this interface.
 - Must be declared in capability model - If 'yes', this interface must be declared within the `"implements":` section of the device capability model for this IoT Plug and Play device.
 
-## Retrieve interface definitions from the global repository
+## Retrieve interface definitions from the public repository
 
 ### CLI
 

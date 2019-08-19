@@ -16,7 +16,7 @@ You can use the [Azure Certified for IoT portal](https://aka.ms/ACFI) to:
 
 - Complete the certification process for your IoT device.
 - Find IoT Plug and Play Preview device capability models. You can use these models to quickly build IoT ready devices and integrate them with solutions.
-- Publish a device capability model to the global repository.
+- Publish a device capability model to the public repository.
 
 ## Sign in
 
