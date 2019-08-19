@@ -25,7 +25,7 @@ In this how-to article, you:
 To complete the steps in this article, you need the following resources:
 
 1. An MXChip IoT DevKit. [Get it now](https://aka.ms/iot-devkit-purchase).
-1. An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp).
+1. An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Get group device connection details
 
@@ -113,4 +113,4 @@ If you want to review the code and customize by modifying and compiling it, go t
 
 ## Next steps
 
-Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](https://docs.microsoft.com/azure/iot-central/howto-set-up-template) for your own IoT device.
+Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](./howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) for your own IoT device.
