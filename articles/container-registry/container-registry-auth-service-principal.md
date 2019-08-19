@@ -72,7 +72,7 @@ You can also run `docker login` using a service principal. In the following exam
 
 ```bash
 # Log in to Docker with service principal credentials
-docker login myregistry.azurecr.io --username $SP_APP_ID --password-stdin $SP_PASSWD
+docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
 Once logged in, Docker caches the credentials.
