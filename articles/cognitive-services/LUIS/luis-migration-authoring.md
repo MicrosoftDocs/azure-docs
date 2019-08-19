@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/25/2019
 ms.author: diberry
 ---
 
 # Migrate to an Active Directory authoring key
 
-Language Understanding (LUIS) is changing the authoring authentication from email to Active Directory. 
+Language Understanding (LUIS) authoring authentication changed from email to Active Directory. 
 
 ## Why migrating?
 
@@ -23,7 +23,7 @@ All the apps you own need to migrate to use Active Directory by:
 
 * **June 1, 2020** is the deadline.
 
-Currently the apps you own use email authentication for both app owners and app collaborators for authoring. This makes some management tasks difficult:
+The authentication process for both app owners and app collaborators for authoring is changing to use **Active Directory**. This simplifies some management tasks:
 
 * Collaboration.
 * Transferring ownership.
@@ -34,44 +34,43 @@ The migration to Active Directory solves these two issues.
 
 When the **app owner** migrates, the owner is migrating:
 
-* All the owned apps.
-* In one migration.
-* In a one-way process. 
+* **All** the owned apps.
+* In **one-way** migration.
 
-The owner can't choose which apps to migrate and the process is not reversible. 
+The owner can't choose a subset of apps to migrate and the process isn't reversible. 
+
+The migration is not: 
+
+* A process that collects collaborators and automatically moved or added to the Active Directory. You, as the app owner, need to complete this step. This step requires permissions to the appropriate Active Directory.
 
 ## How are the apps migrating?
 
-The LUIS portal provides the migration process. You will be asked to migrate if you have apps on the old email authentication system and you are the app owner. 
+The [LUIS portal](https://www.luis.ai) provides the migration process. You will be asked to migrate if:
 
-You can delay the migration process, by not starting it. You will periodically be asked to migrate until the migration deadline. 
+* You have apps on the email authentication system for authoring.
+* And you are the app owner. 
 
-## Migration is not reversible
-
-## Who performs the migration
-
-## What is the state of the apps after migration
+You can delay the migration process, by canceling out of the window. You are periodically asked to migrate until you migrate or the migration deadline is passed. 
 
 ## Migration for the app owner
 
-## Before you migrate
+### Before you migrate
 
-* Backup apps
-* Get list of contributors
+* Export the apps from the LUIS portal's apps list. 
+* Save the collaborator's list. 
 
-## Migration steps
+### Migration steps
 
-## After you migrate 
+Follow [these migration steps](luis-migration-authoring-steps).
 
-* Email contributors
+### After you migrate 
+
+* Email contributors with information about how to get added to the app as a collaborator using Active Directory.
 
 ## Migration for the app collaborator
 
-## Before you migrate
-
-## Migration steps
-
-## After you migrate 
-
+You need to be added to the app's Active Directory by the app owner. Make sure that your account's main or primary email is used. If your account has more than one email associated with it, make sure that only the primary account is connected to the app with Active Directory. 
 
 ## Next steps
+
+* [How to migrate your app to Active Directory authoring](luis-migration-authoring-steps.md)

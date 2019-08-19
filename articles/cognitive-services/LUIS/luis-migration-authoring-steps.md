@@ -47,4 +47,5 @@ Before you migrate to the Active Directory authoring experience, you need to hav
     * **Location** - an Azure global region your authoring resource is in. LUIS has 3 regions for authoring. The authoring region determines your available publishing regions.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month. 
 
-1. If your apps (that you own) have collaborators, 
+1. If your apps (that you own) have collaborators, you need to add these collaborators manually in the Azure portal's Active Directory resource. 
+
