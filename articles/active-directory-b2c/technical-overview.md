@@ -77,30 +77,42 @@ On the sign-up or sign-in page, Azure AD B2C presents a list of external identit
 
 To see how to add identity providers in Azure AD B2C, see [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md).
 
-## Built-in or fully custom user journeys
+## Identity experiences: user flows or custom policies
 
-Flexibility is a key part of Azure Active Directory B2C. You can choose from two configuration options to suit your needs. Use *user flows* to create a login experience in minutes. For more complex scenarios, you can use *custom policies* to create your own user journeys.
+The extensible policy framework of Azure AD B2C is its core strength. Policies describe your users' identity experiences such as sign up, sign in, and profile editing.
 
-User flows and custom policies are both served by a powerful orchestration engine called the *Identity Experience Framework*.
+In Azure AD B2C, there are two primary paths you can take to provide these identity experiences: user flows and custom policies.
 
-## User flow
+* **User flows** are predefined, built-in, and configurable policies that we provide so you can create sign up, sign in, and policy editing experiences in minutes.
 
-The extensible policy framework of Azure AD B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**.
+* **Custom policies** enable you create your own user journeys for more complex scenarios not.
 
-A user flow enables you to control behaviors in your applications by configuring the following settings: Account types used for sign-in, such as social accounts like a Facebook or local accounts. Attributes to be collected from the consumer, such as first name, postal code, or country of residency.
-Azure Multi-Factor Authentication. Customization of the user interface.
-Set of claims in a token that application receives after user complete the user flow. Session management, and more.
+Both user flows and custom policies are powered by the *Identity Experience Framework*, Azure AD B2C's policy orchestration engine.
 
-## Custom policy
+### User flow
 
-Custom policies provide you access to the full power of the Identity Experience Framework (IEF) orchestration engine. With custom policies, you can leverage IEF to build almost any authentication, user registration, or profile editing experience that you can imagine.
+To help you quickly set up the most common identity tasks, the Azure portal includes several predefined and configurable policies called *user flows*.
 
-The Identity Experience Framework gives you the ability to construct user journeys with any combination of steps, for example:
+You can configure user flow settings like these to control identity experience behaviors in your applications:
 
-* Federation with other identity providers
+* Account types used for sign-in, such as social accounts like a Facebook or local accounts
+* Attributes to be collected from the consumer, such as first name, postal code, or country of residency
+* Azure Multi-Factor Authentication (MFA)
+* Customization of the user interface
+* Set of claims in a token that your application receives after the user completes the user flow.
+* Session management
+* ...and more.
+
+### Custom policy
+
+Custom policies unlock access to the full power of the Identity Experience Framework (IEF) orchestration engine. With custom policies, you can leverage IEF to build almost any authentication, user registration, or profile editing experience that you can imagine.
+
+The Identity Experience Framework gives you the ability to construct user journeys with any combination of steps. For example:
+
+* Federate with other identity providers
 * First- third-party multi-factor authentication (MFA) challenges
 * Collect any user input
-* Integration with external systems using REST API communication
+* Integrate with external systems using REST API communication
 
 Each such user journey is defined by a policy, and you can build as many or as few policies as you need to enable the best user experience for your business.
 
