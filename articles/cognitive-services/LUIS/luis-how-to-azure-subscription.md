@@ -1,7 +1,7 @@
 ---
-title: Subscription keys - LUIS
+title: How to use authoring and runtime keys - LUIS
 titleSuffix: Azure Cognitive Services
-description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
+description: When you first use Language Understanding (LUIS), you do not need to create an authoring key. When you intent to publish the app, then use your runtime endpoint, you need to create and assign the runtime key to the app. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -13,42 +13,34 @@ ms.date: 08/25/2019
 ms.author: diberry
 ---
 
-# Using subscription keys with your LUIS app
+# Using authoring and runtime keys
 
-When you first use Language Understanding (LUIS), you do not need to create subscription keys. You are given 1000 endpoint queries to begin with. 
+The two key pieces of information for a LUIS app are the authoring key(s) and the runtime key(s). 
 
-For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
+When you first use Language Understanding (LUIS), you do not need to create an authoring key. When you intent to publish the app, then use your runtime endpoint, you need to create and assign the runtime key to the app. 
 
+For testing and prototype only, use the free runtime (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) runtime tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## Manage account and authoring key
-
-The two key pieces of information for a LUIS account are the user account and the authoring key. Your login information is managed at [account.microsoft.com](https://account.microsoft.com). Your authoring key is managed from the [LUIS](luis-reference-regions.md) portal **Settings** page.
-
 ## Authoring key
 
-This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of endpoint queries each month.
+This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of runtime endpoint queries each month.
 
 [![LUIS Settings page](./media/luis-how-to-azure-subscription/account-settings.png)](./media/luis-how-to-azure-subscription/account-settings.png#lightbox)
 
 The authoring key is used for any apps you own as well as any apps you are listed as a collaborator.
 
-## Authoring key regions
-
 The authoring key is specific to the [authoring region](luis-reference-regions.md#publishing-regions). The key does not work in a different region.
 
 ## Reset authoring key
 
-If your authoring key is compromised, reset the key. The key is reset on all your apps in the [LUIS](luis-reference-regions.md) portal. If you author your apps via the authoring APIs, you need to change the value of `Ocp-Apim-Subscription-Key` to the new key.
+If your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that resource. 
 
 ## Delete account
 
 See [Data storage and removal](luis-concept-data-storage.md#accounts) for information about what data is deleted when you delete your account.
-
-## Next steps
-
 
 ## Create prediction endpoint runtime resource in the Azure portal
 
