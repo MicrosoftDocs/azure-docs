@@ -47,6 +47,8 @@ Using advanced multi-stage attack detection, Sentinel supports the following sce
 
 You must have the [Azure AD Identity Protection data connector](connect-azure-ad-identity-protection.md) and the [Cloud App Security](connect-cloud-app-security.md) connectors configured. Optionally, for additional information, the [Palo Alto Networks](connect-paloalto.md) connector.
 
+In the descriptions that follow, Sentinel will display the actual value from your data that is represented on this page as variables in brackets. For example, the actual display name of an account rather than \<*account name*>, and the actual number rather than \<*number*>.
+
 ### Impossible travel to atypical location
 
 **Impossible travel to atypical locations leading to Office 365 mailbox exfiltration**
