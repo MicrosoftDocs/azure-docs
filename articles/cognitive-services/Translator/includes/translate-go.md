@@ -6,7 +6,7 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-[!INCLUDE [Setup and use environment variables](prerequisites-go.md)]
+[!INCLUDE [Prerequisites](prerequisites-go.md)]
 
 [!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
