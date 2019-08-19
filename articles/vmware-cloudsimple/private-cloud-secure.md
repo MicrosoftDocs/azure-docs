@@ -60,7 +60,7 @@ Private Cloud vCenter and resources access is over a secure network connection:
 
 * **[ExpressRoute connection](on-premises-connection.md)**. ExpressRoute provides a secure, high-bandwidth, low-latency connection from your on-premises environment.  Using the connection allows your on-premises services, networks, and users to access your Private Cloud vCenter.
 * **[Site-to-Site VPN gateway](vpn-gateway.md)**. Site-to-Site VPN gives access to your Private Cloud resources from on-premises through a secure tunnel.  You specify which on-premises networks can send and receive network traffic to your Private Cloud. 
-* **[Point-to-Site VPN gateway](vpn-gateway.md#set-up-Site-to-Site-vpn-communication)**. Use Point-to-Site VPN connection for quick remote access to your Private Cloud vCenter.
+* **[Point-to-Site VPN gateway](vpn-gateway.md#set-up-Site-to-Site-vpn-gateway)**. Use Point-to-Site VPN connection for quick remote access to your Private Cloud vCenter.
 
 ### Control network traffic in Private Cloud
 
