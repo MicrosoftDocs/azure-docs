@@ -30,7 +30,7 @@ import (
 
 ## Create the main function
 
-This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
+This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
@@ -133,7 +133,7 @@ Add this code to the `breakSentence` function to decode the JSON response, and t
 // Decode the JSON response
 var result interface{}
 if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-  log.Fatal(err)
+    log.Fatal(err)
 }
 // Format and print the response to terminal
 prettyJSON, _ := json.MarshalIndent(result, "", "  ")
