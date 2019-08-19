@@ -37630,6 +37630,11 @@
 			"redirect_document_id": false
 		},
 		{
+			"source_path": "articles/machine-learning/service/how-to-explore-prepare-data.md",
+			"redirect_url": "https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py",
+			"redirect_document_id": false
+		},
+		{
 			"source_path": "articles/machine-learning/service/concept-data-drift.md",
 			"redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
 			"redirect_document_id": false
