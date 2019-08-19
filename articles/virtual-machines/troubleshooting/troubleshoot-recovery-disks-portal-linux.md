@@ -92,28 +92,14 @@ To create a disk from the snapshot, follow these steps:
 3. If the commands run successfully, you will see the new disk in the resource group that you provided.
 
 ## Attach disk to another VM
-For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to be able to browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
+For the next few steps, you use another VM for troubleshooting purposes. After you attach the disk to the troubleshooting VM,  you can browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files. To attach the disk to another VM, follow these steps:
 
-1. Select your resource group from the portal, then select your troubleshooting VM. Select **Disks** and then click **Attach existing**:
+1. Select your resource group from the portal, then select your troubleshooting VM. Select **Disks**, select **Edit**, and then click **Add data disk**:
 
-    ![Attach existing disk in the portal](./media/troubleshoot-recovery-disks-portal-linux/attach-existing-disk.png)
+    ![Attach existing disk in the portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. To select your existing virtual hard disk, click **VHD File**:
-
-    ![Browse for existing VHD](./media/troubleshoot-recovery-disks-portal-linux/select-vhd-location.png)
-
-3. Select your storage account and container, then click your existing VHD. Click the **Select** button to confirm your choice:
-
-    ![Select your existing VHD](./media/troubleshoot-recovery-disks-portal-linux/select-vhd.png)
-
-4. With your VHD now selected, click **OK** to attach the existing virtual hard disk:
-
-    ![Confirm attaching existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-linux/attach-disk-confirm.png)
-
-5. After a few seconds, the **Disks** pane for your VM lists your existing virtual hard disk connected as a data disk:
-
-    ![Existing virtual hard disk attached as a data disk](./media/troubleshoot-recovery-disks-portal-linux/attached-disk.png)
-
+2. In the **Data disks** list, select the OS disk of the VM that you identified. If you do not see the OS disk, make sure that troubleshooting VM and the OS disk is in the same region (location). 
+3. Select **Save** to apply the changes.
 
 ## Mount the attached data disk
 
@@ -173,19 +159,20 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
 2. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
 
-    ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-linux/detach-disk.png)
+    ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Wait until the VM has successfully detached the data disk before continuing.
 
-## Create VM from original hard disk
-To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
+## Swap the OS disk for the VM
 
-![Deploy VM from template from GitHub](./media/troubleshoot-recovery-disks-portal-linux/deploy-template-from-github.png)
+Azure portal now supports change the OS disk of the VM. To do this, follow these steps:
 
-The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
+1. Go to [Azure portal](https://portal.azure.com). Select **Virtual machines** from the sidebar, and then select the VM that has problem.
+1. On the left pane, select **Disks**, and then select **Swap OS disk**.
+        ![The image about Swap OS disk in Azure portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-![Deploy VM from template](./media/troubleshoot-recovery-disks-portal-linux/deploy-from-image.png)
-
+1. Choose the new disk that you repaired, and then type the name of the VM to confirm the change. If you do not see the disk in the list, wait 10 ~ 15 minutes after you detach the disk from the troubleshooting VM. Also make sure that the disk is in the same location as the VM.
+1. Select OK.
 
 ## Re-enable boot diagnostics
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:
