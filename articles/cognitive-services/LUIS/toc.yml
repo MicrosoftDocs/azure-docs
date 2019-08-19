@@ -247,7 +247,7 @@
     href: luis-how-to-publish-app.md
   - name: Manage app
     items:
-    - name: Using Azure resources for LUIS
+    - name: Authoring and runtime keys
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
     - name: Manage authors and collaborators
