@@ -48,7 +48,7 @@ This article outlines, for Azure IoT Central:
 > These known issues only apply to the IoT Central Preview application.
 
 - Rules don't support all actions (only email).
-- For Complex types - Rules, Analytics, Device Groups are not supported   
+- For complex types - rules, analytics, and device groups aren't supported.
 - Continuous data export doesn't support the Avro format (incompatibility).
 - Simulated devices don't support all complex types.
 - GeoJSON isn't currently supported.
