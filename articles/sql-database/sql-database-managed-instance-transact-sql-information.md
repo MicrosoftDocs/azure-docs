@@ -525,9 +525,18 @@ The following variables, functions, and views return different results:
 
 ## <a name="Issues"></a> Known issues and limitations
 
+### Cross-database Service Broker dialogs don't work after service tier upgrade
+
+**Date:** Aug 2019
+
+Cross-database Service Broker dialogs fail to deliver the messages after change service tier operation. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database by GUID, will not be able to deliver messages.
+
+**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after.
+
 ### @query parameter not suppored in sp_send_db_mail
 
 **Date:** April 2019
+
 The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
 ### TEMPDB layout
