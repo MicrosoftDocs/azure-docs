@@ -99,17 +99,11 @@ landingContent:
             url: data-box-disk-troubleshoot.md
           - text: Data Box Heavy
             url: data-box-troubleshoot.md
+          - text: Via Data Box FAQ
+            url: data-box-faq.md
+          - text: Via Data Box Disk FAQ
+            url: data-box-disk-faq.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
-
-  # Card
-  - title: FAQs
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: FAQ - Data Box
-            url: data-box-faq.md
-          - text: FAQ - Data Box Disk
-            url: data-box-disk-faq.md
 
 
