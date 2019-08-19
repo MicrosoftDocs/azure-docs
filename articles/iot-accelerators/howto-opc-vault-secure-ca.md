@@ -220,12 +220,12 @@ Document and maintain standard operational procedures (SOPs) for how CAs issue c
 - How the certificate request is processed and validated (if applicable, include also how certificate renewal and rekey requests are processed) 
 - How issued certificates are distributed to the subscribers 
 
-The OPC Vault microservice SOP is described in the [Overview](opcvault-services-overview.md) and the [How to use](howto-use-cert-services.md) documents. The practices follow the OPC Unified Architecture Specification Part 12: Discovery and Global Services.
+The OPC Vault microservice SOP is described in the [Overview](overview-opc-vault-architecture.md) and the [How to use](howto-opc-vault-secure.md) documents. The practices follow the OPC Unified Architecture Specification Part 12: Discovery and Global Services.
 
 
 ### Document and maintain standard operational PKI practices for certificate revocation
 
-The certificate revocation process is described in the [Overview](opcvault-services-overview.md) and the [How to manage](howto-manage-cert-services.md) documents.
+The certificate revocation process is described in the [Overview](overview-opc-vault-architecture.md) and the [How to manage](howto-opc-vault-secure.md) documents.
 	
 ### Document Certification Authority key generation ceremony 
 
