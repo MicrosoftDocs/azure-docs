@@ -67,7 +67,7 @@ In your Azure IoT Central application, select **Administration** tab, choose **D
 
     You can see on the DevKit screen for confirm the success running of the application.
 
-    ![DevKit running](media/howto-connect-devkit-pnp/devkit-running.jpg)
+    ![DevKit running](media/devkit-running.png) 
 
 The DevKit first registers a new device in IoT Central application and then starts sending data.
 
