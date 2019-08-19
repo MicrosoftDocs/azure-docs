@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 
 # Data storage and removal in Language Understanding (LUIS) Cognitive Services
-LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. This data is stored for 30 days. 
+LUIS stores data encrypted in an Azure data store corresponding to the region specified by the authoring key. This data is stored for 30 days. 
 
 ## Export and delete app
 Users have full control over [exporting](luis-how-to-start-new-app.md#export-app) and [deleting](luis-how-to-start-new-app.md#delete-app) the app. 
@@ -47,16 +47,16 @@ If you don't want active learning utterances, you can [disable active learning](
 <a name="accounts"></a>
 
 ## Delete an account
-If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
+If you delete an LUIS authoring resource as an owner, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
 
-Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
+Deleting authoring resource is available from the Azure portal. 
 
 ## Data inactivity as an expired subscription
-For the purposes of data retention and deletion, an inactive LUIS app may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
+For the purposes of data retention and deletion, an inactive LUIS app may, at _Microsoft’s discretion_, be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
 
 * Has had **no** calls made to it.
 * Has not been modified.
-* Does not have a current key assigned to it.
+* Does not have a current runtime key assigned to it.
 * Has not had a user sign in to it.
 
 ## Next steps
