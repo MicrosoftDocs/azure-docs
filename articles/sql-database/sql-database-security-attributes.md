@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure SQL Database
 
-This article documents the common security attributes that are built into Azure SQL Database.
+This article documents the security attributes that are built into Azure SQL Database.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

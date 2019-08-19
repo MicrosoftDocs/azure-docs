@@ -112,7 +112,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### Determine the current version of the Status Monitor v2 module
-Run the `Get-ApplicationInsightsMonitoringStatus` command to display the following information about the module:
+Run the `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` command to display the following information about the module:
    - PowerShell module version
    - Application Insights SDK version
    - File paths of the PowerShell module

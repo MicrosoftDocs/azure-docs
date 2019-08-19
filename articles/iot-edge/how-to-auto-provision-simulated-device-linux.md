@@ -157,8 +157,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in 
 
 Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning. 
 
-* [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Install the Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 ## Give IoT Edge access to the TPM
 

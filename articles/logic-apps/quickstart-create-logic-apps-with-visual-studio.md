@@ -238,6 +238,22 @@ Congratulations, you've successfully built and deployed your logic app with
 Visual Studio. To manage your logic app and review its run history, see 
 [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
+## Add new logic app
+
+When you have an existing Azure Resource Group project, you can add a new blank logic app to that project by using the JSON Outline window.
+
+1. In Solution Explorer, open the `<logic-app-name>.json` file.
+
+1. From the **View** menu, select **Other Windows** > **JSON Outline**.
+
+1. To add a resource to the template file, choose **Add Resource** at the top of the JSON Outline window. Or in the JSON Outline window, right-click **resources**, and select **Add New Resource**.
+
+   ![JSON Outline window](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+
+1. In the **Add Resource** dialog box, find and select **Logic App**. Name your logic app, and choose **Add**.
+
+   ![Add resource](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
+
 ## Clean up resources
 
 When you're done with your logic app, delete the resource 

@@ -6,6 +6,7 @@ manager: pablocas
 author: luiscabrer
 
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual

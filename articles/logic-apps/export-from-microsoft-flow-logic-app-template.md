@@ -146,7 +146,9 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
    ![Output window](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 
-   If your selected connectors need input from you, a PowerShell window opens in the background and prompts for any necessary passwords or secret keys. After you enter this information, deployment continues.
+   If any connections in your logic app need input from you, a PowerShell window opens in the background and prompts for any necessary passwords or secret keys. After you enter this information, deployment continues.
+
+   ![Authenticate connections](./media/export-from-microsoft-flow-logic-app-template/logic-apps-powershell-window.png)
 
    After deployment finishes, your logic app is published but isn't activated in the Azure portal.
 

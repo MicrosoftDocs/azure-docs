@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Site Recovery | Microsoft Docs
-description: Provides an summary of new features introduced in Azure Site Recovery
+description: Provides a summary of new features introduced in Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 07/30/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -13,6 +13,31 @@ ms.author: raynew
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
 
 If you have suggestions for Site Recovery features, we'd love to [hear your feedback](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## Installing updates
+
+[Review this article](service-updates-how-to.md) for Site Recovery update support and instructions.
+
+## Updates (July 2019)
+
+### Update rollup 38
+
+[Update rollup 38](https://support.microsoft.com/help/4513507/) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+### General
+
+Site Recovery now supports used of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
+
+### VMware to Azure disaster recovery
+
+You can now replicate disks up to 8 TB, when replicating to an Azure VM with managed disks.
 
 
 ## Updates (June 2019)
@@ -88,7 +113,7 @@ Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Managed disks** | Replication of on-premises VMware VMs and physical servers is now directly to managed disks in Azure. On-premises data is sent to a cache storage account in Azure, and recovery points are created in managed disks in the target location. This ensures you don't need to manage multiple target storage accounts.
-**Configuration server** | Site Recovery now supports a configuration servers with multiple NICs. You must add additional adapters to the configuration server VM before you register the configuration server in the vault. If you add afterwards, you need to re-register the server in the vault.
+**Configuration server** | Site Recovery now supports configuration servers with multiple NICs. Add additional adapters to the configuration server VM before you register the configuration server in the vault. If you add afterwards, you need to re-register the server in the vault.
 
 
 ## Updates (February 2019)
@@ -137,7 +162,7 @@ Features added this month are summarized in the table.
 
 ### Accelerated networking (Azure VMs)
 
-Accelerated networking enable single root I/O virtualization (SR-IOV) to a VM, improving networking performance. When you enable replication for an Azure VM, Site Recovery detects whether accelerated networking is enabled. If it is, after failover Site Recovery automatically configures accelerated networking on the target replica Azure VM, for both [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, improving networking performance. When you enable replication for an Azure VM, Site Recovery detects whether accelerated networking is enabled. If it is, after failover Site Recovery automatically configures accelerated networking on the target replica Azure VM, for both [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -261,7 +286,7 @@ Features added this month are summarized in the table.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-### Azure VMs disaster recovery 
+### Azure VM disaster recovery 
 Features added this month are summarized in the table.
 
 **Feature** | **Details**
@@ -290,7 +315,7 @@ Features added this month are summarized in the table.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-### Azure VMs disaster recovery 
+### Azure VM disaster recovery 
 
 Features added this month are summarized in the table.
 

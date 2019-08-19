@@ -431,7 +431,7 @@ If you're a tenant administrator, you might want to have the users in
 your organization add you as an administrator for every gateway they install. 
 This way, you can manage all the gateways in your organization 
 through the Gateway Settings page or through 
-[PowerShell commands](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+[PowerShell commands](/data-integration/gateway/service-gateway-powershell-support). 
 
 <a name="gateway-cloud-service"></a>
 

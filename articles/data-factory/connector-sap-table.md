@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -182,12 +182,13 @@ To copy data from and to the SAP BW Open Hub linked service, the following prope
     "name": "SAPTableDataset",
     "properties": {
         "type": "SapTableResource",
+        "typeProperties": {
+            "tableName": "<SAP table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP table linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "<SAP table name>"
         }
     }
 }
@@ -197,7 +198,7 @@ To copy data from and to the SAP BW Open Hub linked service, the following prope
 
 For a full list of the sections and properties for defining activities, see [Pipelines](concepts-pipelines-activities.md). The following section provides a list of the properties supported by the SAP table source.
 
-### SAP table as a source
+### SAP table as source
 
 To copy data from an SAP table, the following properties are supported:
 
@@ -219,7 +220,7 @@ To copy data from an SAP table, the following properties are supported:
 <br/>
 >Taking `partitionOption` as `partitionOnInt` as an example, the number of rows in each partition is calculated with this formula: (total rows falling between `partitionUpperBound` and `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->To run partitions in parallel to speed up copying, we strongly recommend making `maxPartitionsNumber` a multiple of the value of the `parallelCopies` property. For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy).
+>To load data partitions in parallel to speed up copy, the parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP table. We strongly recommend making `maxPartitionsNumber` a multiple of the value of the `parallelCopies` property.
 
 In `rfcTableOptions`, you can use the following common SAP query operators to filter the rows:
 
@@ -265,7 +266,8 @@ In `rfcTableOptions`, you can use the following common SAP query operators to fi
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]

@@ -54,7 +54,9 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="tutorial.md">Launch Immersive Reader using Node.js</a>
+    - html: <a href="tutorial-nodejs.md">Launch Immersive Reader using Node.js</a>
+    - html: <a href="tutorial-python.md">Launch Immersive Reader using Python</a>
+    - html: <a href="tutorial-ios-picture-immersive-reader.md">Launch Immersive Reader using Swift</a>
 
 - title: Reference
   items:

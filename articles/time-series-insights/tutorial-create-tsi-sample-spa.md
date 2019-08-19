@@ -27,15 +27,15 @@ In this tutorial, you'll learn about:
 > * The source code for this tutorial is provided on [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * The Time Series Insights [client sample app](https://insights.timeseries.azure.com/clientsample) is hosted to show the completed app used in this tutorial.
 
-## Prerequisites
+Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
 
-* Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+## Prerequisites
 
 * A free copy of Visual Studio. Download the [2017 or 2019 Community versions](https://www.visualstudio.com/downloads/) to get started.
 
 * The IIS Express, Web Deploy, and Azure Cloud Services core tools components for Visual Studio. Add the components by modifying your Visual Studio installation.
 
-## Application design
+## Understand application design
 
 The Time Series Insights sample SPA is the basis for the design and code used in this tutorial. The code uses the Time Series Insights JavaScript client library. The Time Series Insights client library provides an abstraction for two main API categories:
 
@@ -45,16 +45,16 @@ The Time Series Insights sample SPA is the basis for the design and code used in
 
 This tutorial also uses data from the sample application's Time Series Insights environment. For details about the structure of the Time Series Insights sample application and how it uses the Time Series Insights client library, see the tutorial [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md).
 
-## Register the application with Azure AD
+## Register with Azure AD
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## Build and publish the web application
+## Build and publish
 
 1. Create a directory to store your application project files. Then, go to each of the following URLs. Right-click the **Raw** link in the upper-right corner of the page, and then select **Save as** to save the files in your project directory.
 
    - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): the HTML and JavaScript for the page
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): the CSS style sheet
+   - [*sampleStyles.css*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): the CSS style sheet
 
    > [!NOTE]
    > Depending on the browser, you might need to change the file extensions to .html or .css before you save the file.
@@ -98,7 +98,7 @@ This tutorial also uses data from the sample application's Time Series Insights 
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. To configure the app to use your Azure AD app registration ID, change the `clientID` value to use the **Application ID** you copied in **step 3** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad). If you've created a **Logout URL** in Azure AD, set that value as the `postLogoutRedirectUri` value.
+   1. To configure the app to use your Azure AD app registration ID, change the `clientID` value to use the **Application ID** you copied in **step 3** when you [registered the application to use Azure AD](#register-with-azure-ad). If you've created a **Logout URL** in Azure AD, set that value as the `postLogoutRedirectUri` value.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -138,9 +138,9 @@ This tutorial also uses data from the sample application's Time Series Insights 
 
 Error code/condition | Description
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to **Settings** > **Reply URLs** for your Azure AD application registration. Verify that the **Redirect URI** you had the option to specify in **step 2** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad) is present.
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in **step 6** in [Build and publish the web application](#build-and-publish-the-web-application) must match the value specified under **Settings** > **Reply URLs** in your Azure AD application registration. Be sure to also change the value for **Destination URL** to use *https* per **step 5** in [Build and publish the web application](#build-and-publish-the-web-application).
-The web application loads, but it has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in **step 4** in [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
+*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to **Settings** > **Reply URLs** for your Azure AD application registration. Verify that the **Redirect URI** you had the option to specify in **step 2** or **step 4** when you [registered the application to use Azure AD](#register-with-azure-ad) is present.
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in **step 6.b** in [Build and publish the web application](#build-and-publish) must match the value specified under **Settings** > **Reply URLs** in your Azure AD application registration. |
+The web application loads, but it has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in **step 6** in [Build and publish the web application](#build-and-publish) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 
 ## Clean up resources
 

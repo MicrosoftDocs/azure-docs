@@ -107,3 +107,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service environments]: ../app-service/environment/intro.md
 [learning map]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[Azure App Service]: ../app-service/overview.md

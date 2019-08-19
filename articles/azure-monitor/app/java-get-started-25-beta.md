@@ -140,8 +140,6 @@ You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.
     }
 ```
 
-Please note that [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) does not support reading instrumentation key from code.
-
 ## 4. Add agent
 
 [Install the Java Agent](java-agent-25-beta.md) to capture outgoing HTTP calls, JDBC queries, application logging,
@@ -318,7 +316,6 @@ Application Insights can test your website at regular intervals to check that it
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs-25-beta.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

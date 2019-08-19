@@ -108,7 +108,7 @@ Connection draining helps you achieve graceful removal of backend pool members d
 
 Application Gateway allows you to create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page.
 
-For more information, see [Rewrite HTTP headers](rewrite-http-headers.md).
+For more information, see [Custom Errors](custom-error.md).
 
 ## Rewrite HTTP headers
 

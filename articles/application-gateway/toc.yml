@@ -35,6 +35,8 @@
     href: powershell-samples.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Basics
@@ -95,9 +97,6 @@
       href: tutorial-manage-web-traffic-powershell.md
     - name: Azure CLI
       href: tutorial-manage-web-traffic-cli.md
-    - name: Template
-      displayName: ARM, Resource Manager, template
-      href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
     - name: Azure portal
@@ -121,11 +120,13 @@
       - name: End-to-end SSL - PowerShell
         href: application-gateway-end-to-end-ssl-powershell.md
     - name: Manage certificates
-      items:
-      - name: Create certificates for whitelisting backend
+      items:             
+      - name: Certificates for the backend
         href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
+      - name: Generate self-signed certificates
+        href: self-signed-certificates.md
     - name: SSL policy
       items:
       - name: Configure SSL policy

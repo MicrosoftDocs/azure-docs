@@ -193,6 +193,18 @@
           href: scenario-mobile-overview.md
         - name: App registration
           href: scenario-mobile-app-registration.md
+        - name: Code configuration
+          href: scenario-mobile-app-configuration.md
+        - name: Mobile platforms specific config
+          items:
+          - name: Xamarin Android
+            href: msal-net-xamarin-android-considerations.md
+          - name: System browser on Android
+            href: msal-net-system-browser-android-considerations.md
+          - name: Xamarin iOS
+            href: msal-net-xamarin-ios-considerations.md
+          - name: Universal Windows Platform
+            href: msal-net-uwp-considerations.md
         - name: Acquiring a token for the app
           href: scenario-mobile-acquire-token.md
         - name: Calling a web API
@@ -254,15 +266,7 @@
             - name: MSAL.NET
               items:
               - name: Web browsers
-                href: msal-net-web-browsers.md
-              - name: Xamarin Android
-                href: msal-net-xamarin-android-considerations.md
-              - name: System browser on Android
-                href: msal-net-system-browser-android-considerations.md
-              - name: Xamarin iOS
-                href: msal-net-xamarin-ios-considerations.md
-              - name: Universal Windows Platform
-                href: msal-net-uwp-considerations.md              
+                href: msal-net-web-browsers.md              
             - name: MSAL.js
               items:
               - name: Considerations using IE
@@ -291,6 +295,8 @@
         href: v2-oauth2-device-code.md
       - name: OAuth 2.0 resource owner password credentials grant
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: ID tokens

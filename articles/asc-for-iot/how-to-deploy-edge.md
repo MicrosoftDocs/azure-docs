@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Security Center for IoT Edge module | Microsoft Docs
+title: Deploy Azure Security Center for IoT Edge module (preview)| Microsoft Docs
 description: Learn about how to deploy an Azure Security Center for IoT security agent on IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/1/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
@@ -22,25 +22,25 @@ ms.author: mlottner
 # Deploy a security module on your IoT Edge device
 
 > [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
+> Azure Security Center for IoT IoT Edge device support is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-**Azure Security Center (ASC) for IoT** module provides a comprehensive security solution for your IoT Edge device.
-Security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
+**Azure Security Center for IoT** module provides a comprehensive security solution for your IoT Edge devices.
+The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
 To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
-In this guide, you learn how to deploy a security module on your IoT Edge device.
+In this article, you'll learn how to deploy a security module on your IoT Edge device.
 
 ## Deploy security module
 
-Use the following steps to deploy an ASC for IoT security module for IoT Edge.
+Use the following steps to deploy an Azure Security Center for IoT security module for IoT Edge.
 
 ### Prerequisites
 
 - In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-- ASC for IoT Edge module requires [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
+- Azure Security Center for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) be  installed on the IoT Edge device.
 
     - Install the framework by running the following command on your IoT Edge device:
    
@@ -54,7 +54,7 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
 ### Deployment using Azure portal
 
-1. From Azure portal, open **Marketplace**.
+1. From the Azure portal, open **Marketplace**.
 
 1. Select **Internet of Things**, then search for **Azure Security Center for IoT** and select it.
 
@@ -105,9 +105,6 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. Click **Save**.
 1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**.
    
-   >[!Note]
-   > Do **not** disable AMQP communication for the IoT Edge Hub.
-   > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
    
 1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
 
@@ -135,13 +132,20 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 
 #### Step 2: Specify Routes 
 
-1. In the **Specify Routes** tab, set the **ASCForIoTToIoTHub** route to **"FROM /messages/modules/azureiotsecurity/\* INTO $upstream"**, and click **Next**.
+1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream**. 
+1. Click **Next**.
 
-   ![Specify routes](media/howto/edge-onboarding-9.png)
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream 
+    ~~~
+
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream
+    ~~~
 
 #### Step 3: Review Deployment
 
-1. In the **Review Deployment** tab, review your deployment information, then select **Submit** to complete the deployment.
+- In the **Review Deployment** tab, review your deployment information, then select **Submit** to complete the deployment.
 
 ## Diagnostic steps
 
@@ -169,7 +173,7 @@ If you encounter an issue, container logs are the best way to learn about the st
 
    `sudo docker logs azureiotsecurity`
    
-1. For more verbose logs, add the following environment variable to **azureiotsecurity** module deployment: `logLevel=Debug`.
+1. For more verbose logs, add the following environment variable to the **azureiotsecurity** module deployment: `logLevel=Debug`.
 
 ## Next steps
 

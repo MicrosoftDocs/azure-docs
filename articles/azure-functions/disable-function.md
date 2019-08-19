@@ -8,7 +8,7 @@ manager: jeconnoc
 
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 08/05/2019
 ms.author: glenga
 ---
 
@@ -16,12 +16,44 @@ ms.author: glenga
 
 This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that is defined for the function. The way you do that depends on the runtime version and the programming language:
 
-* Functions 1.x
-  * Scripting languages
-  * C# class libraries
-* Functions 2.x
+* Functions 2.x:
   * One way for all languages
   * Optional way for C# class libraries
+* Functions 1.x:
+  * Scripting languages
+  * C# class libraries
+
+## Functions 2.x - all languages
+
+In Functions 2.x, you disable a function by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this setting programmatically by using the Azure CLI. You can also do this from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
+
+### Azure CLI
+
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` set it to `true`. 
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+
+To re-enable the function, rerun the same command with a value of `false`.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+### Portal
+
+You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
+
+![Function state switch](media/disable-function/function-state-switch.png)
+
+## Functions 2.x - C# class libraries
+
+In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can [use the Disable attribute as in Functions 1.x](#functions-1x---c-class-libraries).
 
 ## Functions 1.x - scripting languages
 
@@ -98,18 +130,6 @@ This method lets you enable and disable the function by changing the app setting
 > The same goes for the **Function state** switch on the **Manage** tab, since it works by changing the *function.json* file.
 >
 > Also, note that the portal may indicate the function is disabled when it isn't.
-
-
-
-## Functions 2.x - all languages
-
-In Functions 2.x you disable a function by using an app setting. For example, to disable a function named `QueueTrigger`, you create an app setting named `AzureWebJobs.QueueTrigger.Disabled`, and set it to `true`. To enable the function, set the app setting to `false`. You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<functionname>.Disabled` app setting.
-
-![Function state switch](media/disable-function/function-state-switch.png)
-
-## Functions 2.x - C# class libraries
-
-In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can [use the Disable attribute as in Functions 1.x](#functions-1x---c-class-libraries).
 
 ## Next steps
 

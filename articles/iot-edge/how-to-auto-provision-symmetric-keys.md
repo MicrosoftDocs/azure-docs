@@ -1,5 +1,5 @@
 ---
-title: Auto-provision devices with DPS using symmetric key attestation - Azure IoT Edge | Microsoft Docs 
+title: Autoprovision devices with DPS using symmetric key attestation - Azure IoT Edge | Microsoft Docs 
 description: Use symmetric key attestation to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
 manager: philmea
@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Create and provision an IoT Edge device using symmetric key attestation
 
-Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+Azure IoT Edge devices can be autoprovisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of autoprovisioning, review the [autoprovisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
 This article shows you how to create a Device Provisioning Service individual enrollment using symmetric key attestation on an IoT Edge device with the following steps:
 
@@ -161,8 +161,7 @@ You'll need the following information when provisioning your device:
 
 Follow the instructions for your device's architecture. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-* [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Install the Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 The section in the configuration file for symmetric key provisioning looks like this:
 
@@ -184,7 +183,7 @@ Replace the placeholder values for `{scope_id}`, `{registration_id}`, and `{symm
 
 Follow the instructions to install the IoT Edge runtime on the device for which you generated a derived device key. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-[Install and automatically provision IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Install and automatically provision IoT Edge on Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## Verify successful installation
 
