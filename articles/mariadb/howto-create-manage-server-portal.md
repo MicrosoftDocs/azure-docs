@@ -32,12 +32,12 @@ Follow these steps to create an Azure Database for MariaDB server named “mydem
     | *Server name* | mydemoserver (server name is globally unique) |
     | *Subscription* | mysubscription (select from the drop-down menu) |
     | *Resource group* | myresourcegroup (create a new resource group or use an existing one) |
-    | *Select source* | Blank (create a blank MySQL server) |
+    | *Select source* | Blank (create a blank MariaDB server) |
     | *Server admin login* | myadmin (setup admin account name) |
     | *Password* | set admin account password |
     | *Confirm password* | confirm admin account password |
     | *Location* | Southeast Asia (select between North Europe and West US) |
-    | *Version* | 5.7 (choose Azure Database for MySQL server version) |
+    | *Version* | 5.7 (choose Azure Database for MariaDB server version) |
 
    ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
 
