@@ -3291,6 +3291,11 @@
 			"redirect_document_id": false
 		},
 		{
+			"source_path": "articles/azure-resource-manager/move-limitations/virtual-network-move-limitations.md",
+			"redirect_url": "/azure/azure-resource-manager/move-limitations/networking-move-limitations",
+			"redirect_document_id": false
+		},
+		{
 			"source_path": "articles/azure-resource-manager/resource-manager-powershell-sas-token.md",
 			"redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
 			"redirect_document_id": false
@@ -37696,6 +37701,11 @@
 		{
 			"source_path": "articles/machine-learning/service/how-to-manage-dataset-definitions.md",
 			"redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/machine-learning/service/how-to-explore-prepare-data.md",
+			"redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py",
 			"redirect_document_id": false
 		},
 		{
