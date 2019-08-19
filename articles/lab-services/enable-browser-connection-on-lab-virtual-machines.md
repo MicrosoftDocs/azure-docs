@@ -29,7 +29,7 @@ As an owner of a lab you can enable accessing all lab virtual machines through a
 This article shows how to enable browser connection on lab virtual machines.
 
 ## Prerequisites 
-Deploy a Bastion host in your existing lab's virtual network (VNet) or connect your lab with a Bastion configured VNet. 
+Either deploy a Bastion host in your existing lab's virtual network **(OR)** connect your lab with a Bastion configured VNet. 
 
 To learn how to deploy a Bastion host in a VNet, see  [Create an Azure Bastion host (Preview)](../bastion/bastion-create-host-portal.md). When creating the Bastion host, select the lab's virtual network. 
 
