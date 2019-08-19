@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Deployment Slots
+title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
 services: functions
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
 ---
-# Azure Functions Deployment Slots
+# Azure Functions deployment slots
 
 Azure Functions deployment slots allow your function app to run different instances called "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running under the Apps Service plan may have multiple slots, while under Consumption only one slot is allowed.
 
