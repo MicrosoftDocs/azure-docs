@@ -77,7 +77,7 @@ In this step, you view the telemetry in Azure IoT Central.
 
 In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry coming from the DevKit.
 
-   ![IoT Central device overview](media/howto-connect-devkit-pnp/overview-page.png)
+   ![IoT Central device overview](media/mxchip-overview-page.PNG)
 
 ## Review the code
 
