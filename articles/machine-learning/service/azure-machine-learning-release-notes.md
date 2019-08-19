@@ -20,7 +20,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2019-08-19
 
-### Azure Machine Learning SDK for Python v1.0.56
+### Azure Machine Learning SDK for Python v1.0.57
 + **New features**
   + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/azureml/howto/createdatasets.
   
