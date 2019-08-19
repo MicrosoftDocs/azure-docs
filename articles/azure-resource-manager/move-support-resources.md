@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 7/9/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ---
 
@@ -258,7 +258,7 @@ Jump to a resource provider namespace:
 | redis | Yes | Yes |
 
 > [!IMPORTANT]
-> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks move limitations](./move-limitations/virtual-network-move-limitations.md).
+> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks move limitations](./move-limitations/networking-move-limitations.md).
 
 ## Microsoft.Cdn
 | Resource type | Resource group | Subscription |
@@ -760,7 +760,7 @@ Jump to a resource provider namespace:
 | webapplicationfirewallpolicies | Yes | Yes |
 
 > [!IMPORTANT]
-> See [Virtual Networks move guidance](./move-limitations/virtual-network-move-limitations.md).
+> See [Networking move guidance](./move-limitations/networking-move-limitations.md).
 
 ## Microsoft.NotificationHubs
 | Resource type | Resource group | Subscription |
