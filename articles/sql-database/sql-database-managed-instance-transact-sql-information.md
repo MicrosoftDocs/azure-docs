@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova 
-ms.date: 07/07/2019
+ms.date: 08/12/2019
 ms.custom: seoapril2019
 ---
 
@@ -304,12 +304,12 @@ For information about SQL Server Agent, see [SQL Server Agent](https://docs.micr
 
 ### Tables
 
-The following tables aren't supported:
+The following table types aren't supported:
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (not supported only in General Purpose tier)
 
 For information about how to create and alter tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
@@ -334,9 +334,9 @@ A managed instance can't access file shares and Windows folders, so the followin
 
 Undocumented DBCC statements that are enabled in SQL Server aren't supported in managed instances.
 
-- `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
-- `DBCC TRACEOFF` isn't supported. See [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
-- `DBCC TRACEON` isn't supported. See [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+- Only a limited number of Global `Trace flags` is supported. Session-level `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) and [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) work with the limited number of global trace-flags.
+- [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) with options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST, and REPAIR_REBUILD cannot be used because database cannot be set in `SINGLE_USER` mode - see [ALTER DATABASE differences](#alter-database-statement). Potential database corruptions are handled by Azure support team. Contact Azure support if you are noticing database corruption that should be fixed.
 
 ### Distributed transactions
 
@@ -376,7 +376,7 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 
 Linked servers in managed instances support a limited number of targets:
 
-- Supported targets are managed instances, Single Databases, and SQL Server instances. 
+- Supported targets are Managed Instances, Single Databases, and SQL Server instances. 
 - Linked servers don't support distributed writable transactions (MS DTC).
 - Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
 
@@ -394,7 +394,7 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-- Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
+- Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
 - [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on managed instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but Publisher and Distributor cannot be placed on different instances.
     - Managed instances can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
@@ -463,10 +463,12 @@ The following database options are set or overridden and can't be changed later:
 
 Limitations: 
 
+- Backups of the corrupted databases might be restored depending on the type of the corruption, but automated backups will not be taken until the corruption is fixed. Make sure that you run `DBCC CHECKDB` on the source instance and use backup `WITH CHECKSUM` in order to prevent this issue.
+- Restore of `.BAK` file of a database that contains any limitation described in this document (for example, `FILESTREAM` or `FILETABLE` objects) cannot be restored on Managed Instance.
 - `.BAK` files that contain multiple backup sets can't be restored. 
 - `.BAK` files that contain multiple log files can't be restored.
-- Restore fails if .bak contains `FILESTREAM` data.
-- Backups that contain databases that have active in-memory objects can't be restored on a General Purpose instance. 
+- Backups that contain databases bigger than 8TB, active in-memory OLTP objects, or more than 280 files can't be restored on a General Purpose instance. 
+- Backups that contain databases bigger than 4TB or in-memory OLTP objects with the total size larger than the size described in [resource limits](sql-database-managed-instance-resource-limits.md) cannot be restored on Business Critical instance.
 For information about restore statements, see [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### Service broker
@@ -505,6 +507,10 @@ Cross-instance service broker isn't supported:
 - After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and managed instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access managed instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
+### TEMPDB size
+
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+
 ## <a name="Changes"></a> Behavior changes
 
 The following variables, functions, and views return different results:
@@ -519,13 +525,14 @@ The following variables, functions, and views return different results:
 
 ## <a name="Issues"></a> Known issues and limitations
 
-### TEMPDB size
+### @query parameter not suppored in sp_send_db_mail
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved. 
+**Date:** April 2019
+The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
-### Can't restore contained database
+### TEMPDB layout
 
-Managed instance can't restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases doesn't work on managed instance. In the meantime, we recommend that you remove the containment option from your databases that are placed on managed instance. Don't use the containment option for the production databases. 
+The `tempdb` database is always split into 12 data files and the file structure cannot be changed. The maximum size per file can't be changed, and new files cannot be added to `tempdb`. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved.
 
 ### Exceeding storage space with small database files
 
@@ -544,11 +551,6 @@ In this example, existing databases continue to work and can grow without any pr
 
 You can [identify the number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) by using system views. If you reach this limit, try to [empty and delete some of the smaller files by using the DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or switch to the [Business Critical tier, which doesn't have this limit](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### Incorrect configuration of the SAS key during database restore
-
-`RESTORE DATABASE` that reads the .bak file might be constantly retrying to read the .bak file and return an error after a long period of time if the shared access signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before you restore a database to be sure that the SAS key is correct.
-Make sure that you remove the leading `?` from the SAS key that's generated by using the Azure portal.
-
 ### Tooling
 
 SQL Server Management Studio and SQL Server Data Tools might have some issues while they access a managed instance.
@@ -556,13 +558,9 @@ SQL Server Management Studio and SQL Server Data Tools might have some issues wh
 - Using Azure AD server principals (logins) and users (public preview) with SQL Server Data Tools currently isn't supported.
 - Scripting for Azure AD server principals (logins) and users (public preview) isn't supported in SQL Server Management Studio.
 
-### Incorrect database names in some views, logs, and messages
+### GUID values shown instead of database names
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Don't rely on these GUID identifiers because they're replaced with actual database names in the future.
-
-### Database mail
-
-The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
 ### Database Mail profile
 

@@ -60,8 +60,9 @@ To access metrics:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. From the drop-down, select metrics you are interested in. For example, **Successful Gateway Requests**. You can also add more metrics to the chart.
-3. The chart shows the total number of successful API calls.
+1. From the drop-down, select metrics you are interested in. For example, **Requests**. 
+1. The chart shows the total number of API calls.
+1. The chart can be filtered using the dimensions of the **Requests** metric. For example, click on **Add filter**, choose **Backend Response Code**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
 
 ## Set up an alert rule for unauthorized request
 

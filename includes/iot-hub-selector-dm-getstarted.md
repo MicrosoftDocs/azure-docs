@@ -18,7 +18,9 @@ Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwi
 Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
 
 * Handling the method request sent from IoT Hub.
+
 * Initiating the corresponding device-specific action on the device.
+
 * Providing status updates through *reported properties* to IoT Hub.
 
 You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
