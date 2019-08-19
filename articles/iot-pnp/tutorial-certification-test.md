@@ -13,7 +13,7 @@ ms.date: 06/21/2019
 
 # Tutorial: Certify your IoT Plug and Play Preview device
 
-To publish an IoT Plug and Play Preview device in the Azure Certified for IoT device catalog](https://aka.ms/iotdevcat), it must pass a set of certification tests. Use the [Azure Certified for IoT](https://aka.ms/ACFI) portal to submit your device for certification. The [Azure IoT certification service](https://aka.ms/azure-iot-aics) runs the certification tests.
+To publish an IoT Plug and Play Preview device in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat), it must pass a set of certification tests. Use the [Azure Certified for IoT](https://aka.ms/ACFI) portal to submit your device for certification. The [Azure IoT certification service](https://aka.ms/azure-iot-aics) runs the certification tests.
 
 In this tutorial, you learn:
 
@@ -60,9 +60,9 @@ All of the pre-certified IoT Plug and Play devices must recertify upon general a
 After you've successfully created the product in the portal, the product is displayed in the **Products** page. To add the product information:
 
 1. Select the created product link found on the **Product** page in the product column. The state should be in draft state.
-1. Select the **Edit** link next to **Product information** header. Enter information about your product in the product information page, and make sure you complete all the required fields.
+1. Select the **Edit** link next to **Product information** heading. Enter information about your product in the product information page, and make sure you complete all the required fields.
 1. Select **Save**. The **Save** button only appears when you complete all the required fields. If the fields are incomplete, the button says **Save and finish later**.
-1. Review the content you entered. You need to complete all the required fields in order to publish the device to the device catalog. You can always go back to make edits to the product information in product detail page by clicking the **edit** link next to PRODUCT INFORMATION header.
+1. Review the content you entered. Complete all the required fields to publish the device to the device catalog. You can always go back to make edits to the product information in product detail page by clicking the **edit** link next to **Product information** heading.
 
 ## Connect and discover interfaces
 
