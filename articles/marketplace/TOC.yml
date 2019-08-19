@@ -484,6 +484,8 @@
           href: ./partner-center-portal/saas-fulfillment-apis-faq.md        
     - name: Test Drive your offer
       href: ./partner-center-portal/test-drive.md
+    - name: Co-sell option
+      href: ./partner-center-port/commercial-marketplace-co-sell.md
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
