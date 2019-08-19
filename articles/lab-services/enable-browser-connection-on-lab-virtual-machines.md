@@ -41,7 +41,7 @@ To learn how to connect your lab with a Bastion configured VNet, see [Configure 
 1. From the list of labs, select *your lab*. 
 
     > [!NOTE]
-    > The Azure Bastion host creation feature is in preview. Currently, it's limited to the following regions: West US, East US, West Europe, South Central US, Australia East, and Japan East. So, create a lab in one of these regions if your lab isn't in one of them. 
+    > Azure Bastion is currently in preview. It's limited to the following regions: West US, East US, West Europe, South Central US, Australia East, and Japan East. So, create a lab in one of these regions if your lab isn't in one of them. 
 1. Select **Configuration and policies** in the **Settings** section on the left menu. 
 1. Select **Virtual networks**.
 1. Select **Add** from the toolbar. 
