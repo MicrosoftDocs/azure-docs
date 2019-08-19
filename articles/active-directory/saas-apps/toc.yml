@@ -1540,6 +1540,8 @@
         href: thousandeyes-provisioning-tutorial.md
       - name: Templafy
         href: templafy-provisioning-tutorial.md
+      - name: TheOrgWiki
+        href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Workday
