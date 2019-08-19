@@ -100,7 +100,8 @@ In this quickstart, you use the public DCM for an MxChip IoT DevKit device. You 
 
 ![Model repository and DCM](./media/quick-create-pnp-device-pnp/public-repository.png)
 
->[!NOTE] The Device Capability Model should have all the interfaces defined inline in the same file for it to work with IoT Central.Make sure when you author the DCM all the interfaces are inline.
+> [!NOTE]
+> To work with IoT Central, the device capability model must have all the interfaces defined inline in the same file.
 
 ## Generate the C code stub
 
