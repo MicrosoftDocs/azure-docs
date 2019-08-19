@@ -33,7 +33,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     ![Change vSphere privilege](media/escalate-private-cloud-privilege.png)
 
-4. Select the vSphere user type.  Only **CloudOwner@cloudsimple.local** local user can be escalated.
+4. Select the vSphere user type.  Only `CloudOwner@cloudsimple.local` local user can be escalated.
 
 5. Select the escalate time interval from the drop-down. Choose the shortest period that will allow you to complete the task.
 
