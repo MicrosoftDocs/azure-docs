@@ -148,7 +148,7 @@ This activity pattern is indicative of a potential ransomware attack.
 
 ### Sign-in activity from infected device
 
-**Sign-in event from an infected device leading to O365 mailbox exfiltration**
+**Sign-in event from an infected device leading to Office 365 mailbox exfiltration**
 
 This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware, followed by a suspicious inbox forwarding rule was set on a user's inbox.
 
