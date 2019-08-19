@@ -26,9 +26,9 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
+* An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
-* A Python development environment with the Azure Machine Learning SDK installed. For more information, see the [Python SDK](setup-create-workspace.md#sdk) section of the Create a workspace article.
+* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * A registered model that uses a GPU.
 
@@ -43,7 +43,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace and saving the configuration to file, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning service workspaces](how-to-manage-workspace.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -160,7 +160,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-For more information, see the reference documentation for [AksService.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-).
+For more information, see the reference documentation for [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-).
 
 ## Define the inference configuration
 

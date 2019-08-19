@@ -1,13 +1,14 @@
 ---
-title: Knowledge store introduction and overview (preview) - Azure Search
+title: Introduction to knowledge store (preview) - Azure Search
 description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Search and in other applications.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
 
 ---
@@ -17,11 +18,13 @@ ms.author: heidist
 > Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is an optional feature of Azure Search that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). Knowledge store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
+Knowledge store is a feature of Azure Search that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). An enriched document is a pipeline's output, created from content that has been extracted, structured, and analyzed using resources in Cognitive Services. In a standard AI-based pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, documents are saved for subsequent evaluation, exploration, and can potentially become inputs to a downstream data science workload. 
 
-If you have used cognitive search in the past, you already know that skillsets can be used to move a document through a sequence of enrichments. The outcome can be an Azure Search index, or (new in this preview) projections in a knowledge store.
+If you have used cognitive search in the past, you already know that skillsets are used to move a document through a sequence of enrichments. The outcome can be an Azure Search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, are physically distinct from each other. They share the same content, but are stored and used in very different ways.
 
-Projections are your mechanism for structuring data for consumption in a downstream app. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) built for Azure storage, or any app that connects to Azure storage, which opens up new possibilities for consuming enriched documents. Some examples are data science pipelines and custom analytics.
+Physically, a knowledge store is created in an Azure Storage account, either as Azure Table storage or Blob storage, depending on how you configure the pipeline. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
+
+Projections are your mechanism for structuring data in a knowledge store. For example, through projections, you can choose whether output is saved as a single blob or a collection of related tables. An easy way to view knowledge store contents is through the built-in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) for Azure storage.
 
 ![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
 

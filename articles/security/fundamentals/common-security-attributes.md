@@ -6,6 +6,7 @@ documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
@@ -640,7 +641,7 @@ SQL Database includes both [single database](/azure/sql-database/sql-database-si
 | Service endpoint support| Yes | Applies to [single database](/azure/sql-database/sql-database-single-index) only. |
 | Azure Virtual Network injection support| Yes | Applies to [managed instance](/azure/sql-database/sql-database-managed-instance) only. |
 | Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](/azure/sql-database/sql-database-managed-instance) only. |
-| Forced tunneling support| Yes | [Managed instance](/azure/sql-database/sql-database-managed-instance) via an [ExpressRoute](/azure/expressroute/index.yml) VPN. |
+| Forced tunneling support| Yes | [Managed instance](/azure/sql-database/sql-database-managed-instance) via an [ExpressRoute](/azure/expressroute/index) VPN. |
 
 ### Detection
 

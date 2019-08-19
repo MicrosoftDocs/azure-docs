@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
 
 ---
@@ -45,6 +45,15 @@ Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
+**Error message: `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+Anaconda's Python 3.7.4 distribution has a bug that breaks azureml-sdk install. This issue is discussed in this [GitHub Issue](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
+This can be worked around by creating a new Conda Environment using this command:
+```bash
+conda create -n <env-name> python=3.7.3
+```
+Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
+
 ## Trouble creating Azure Machine Learning Compute
 
 There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately.
@@ -68,7 +77,7 @@ Automated machine learning does not currently support tensor flow version 1.13. 
 
 ### Experiment Charts
 
-Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering corectly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
+Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering correctly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 ## Databricks
 
@@ -131,6 +140,15 @@ If you go directly to view your workspace from a share link from the SDK or the 
 
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.
 
+> [!NOTE]
+> Azure Machine Learning service logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+
+## Activity logs
+
+Some actions within the Azure Machine Learning workspace do not log information to the __Activity log__. For example, starting a training run or registering a model.
+
+Some of these actions appear in the __Activities__ area of your workspace, however they do not indicate who initiated the activity.
+
 ## Resource quotas
 
 Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
@@ -148,3 +166,9 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
+## Overloaded AzureFile storage
+
+If you receive an error `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, apply following workarounds.
+
+If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.

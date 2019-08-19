@@ -1,13 +1,13 @@
 ---
 title: Azure IoT device SDK for C - Serializer | Microsoft Docs
 description: How to use the Serializer library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
-ms.author: yizhon
+ms.author: robinsh
 ---
 
 # Azure IoT device SDK for C – more about serializer

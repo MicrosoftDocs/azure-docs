@@ -23,20 +23,20 @@ Configure a failover group for an Azure SQL Database single database and test fa
 
 ## Prerequisites
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 To complete this tutorial, make sure you have: 
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
@@ -51,7 +51,7 @@ To complete the tutorial, make sure you have the following items:
 ## 2 - Create the failover group 
 In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group. 
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 Create your failover group and add your single database to it using the Azure portal. 
 
 
@@ -84,7 +84,7 @@ Create your failover group and add your single database to it using the Azure po
     ![Add SQL DB to failover group](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 Create your failover group and add your single database to it using PowerShell. 
 
    > [!NOTE]
@@ -140,7 +140,7 @@ Create your failover group and add your single database to it using PowerShell.
    Write-host "Successfully added the database to the failover group..." 
    ```
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 Create your failover group and add your single database to it using AZ CLI. 
 
    > [!NOTE]
@@ -176,6 +176,7 @@ Create your failover group and add your single database to it using AZ CLI.
       --partner-server $drServerName \
       --resource-group $resourceGroupName \
       --server $serverName \
+      --add-db $databaseName
       --failover-policy Automatic
    ```
 
@@ -184,7 +185,7 @@ Create your failover group and add your single database to it using AZ CLI.
 ## 3 - Test failover 
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 Test failover using the Azure portal. 
 
 1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
@@ -201,7 +202,7 @@ Test failover using the Azure portal.
 1. Review which server is now primary and which server is secondary. If fail over succeeded, the two servers should have swapped roles. 
 1. Select **Failover** again to fail the servers back to their originally roles. 
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 Test failover using PowerShell. 
 
 
@@ -256,7 +257,7 @@ Revert failover group back to the primary server:
    Write-host "Failed failover group to successfully to back to" $serverName
    ```
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 Test failover using the AZ CLI. 
 
 
@@ -313,7 +314,7 @@ Revert failover group back to the primary server:
 ## Clean up resources 
 Clean up resources by deleting the resource group. 
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 Delete the resource group using the Azure portal. 
 
 
@@ -321,7 +322,7 @@ Delete the resource group using the Azure portal.
 1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself. 
 1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group.  
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 Delete the resource group using PowerShell. 
 
 
@@ -335,7 +336,7 @@ Delete the resource group using PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 Delete the resource group by using AZ CLI. 
 
 
@@ -355,15 +356,15 @@ Delete the resource group by using AZ CLI.
 
 ## Full scripts
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Create SQL Database")]
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 There are no scripts available for the Azure portal.
  
 ---

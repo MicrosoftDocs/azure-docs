@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ---
 # Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
 
@@ -57,13 +57,9 @@ The following table describes required fields.
 1. Select **Purchase**.
 1. Select **View this Reservation** to see the status of your purchase.
 
-## Cancellations and exchanges
+## Cancel, exchange, or refund reservations
 
-If you need to cancel your SQL Database reserved capacity reservation, there may be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
-
-If you need to change your SQL Database reserved capacity reservation to another region, deployment type, performance tier, or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3 year term starts from when you create the new reservation. To exchange, go to the reservation in the Azure portal, and select **Exchange**.
-
-For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## vCore size flexibility
 

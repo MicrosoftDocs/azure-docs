@@ -1,13 +1,13 @@
 ---
 title: Recover data from an Azure Backup Server
 description: Recover the data you've protected to a Recovery Services vault from any Azure Backup Server registered to that vault.
-
-author: kasinh
-manager: vijayts
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: kasinh
+ms.author: dacurwin
 ---
 # Recover data from Azure Backup Server
 You can use Azure Backup Server to recover the data you've backed up to a Recovery Services vault. The process for doing so is integrated into the Azure Backup Server management console, and is similar to the recovery workflow for other Azure Backup components.
@@ -39,7 +39,7 @@ To recover data from an Azure Backup Server:
     A list of files and folders appears in the bottom pane, which can be browsed and recovered to any location.
 
     ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Right click the appropriate item and click **Recover**.
+5. Right-click the appropriate item and click **Recover**.
 
     ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
 6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
@@ -51,7 +51,7 @@ To recover data from an Azure Backup Server:
 8. Choose the option related to **create copy**, **Skip**, or **Overwrite**.
 
    * **Create copy** - creates a copy of the file if there is a name collision.
-   * **Skip** - if there is a name collision, does not recover the file which leaves the original file.
+   * **Skip** - if there is a name collision, does not recover the file, which leaves the original file.
    * **Overwrite** - if there is a name collision, overwrites the existing copy of the file.
 
      Choose the appropriate option to **Restore security**. You can apply the security settings of the destination computer where the data is being recovered or the security settings that were applicable to product at the time the recovery point was created.

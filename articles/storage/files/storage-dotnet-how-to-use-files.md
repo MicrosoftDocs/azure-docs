@@ -1,7 +1,6 @@
 ---
 title: Develop for Azure Files with .NET | Microsoft Docs
 description: Learn how to develop .NET applications and services that use Azure Files to store file data.
-services: storage
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -51,10 +50,11 @@ All code examples in this tutorial can be added to the `Main()` method of your c
 You can use the Azure Storage client library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 ## Use NuGet to install the required packages
-There are two packages you need to reference in your project to complete this tutorial:
+These are packages you need to reference in your project to complete this tutorial:
 
 * [Microsoft Azure Storage common library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): This package provides programmatic access to common resources in your storage account.
 * [Microsoft Azure Storage Blob library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): This package provides programmatic access to Blob resources in your storage account.
+* [Microsoft Azure Storage File library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): This package provides programmatic access to File resources in your storage account.
 * [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
 You can use NuGet to obtain both packages. Follow these steps:
@@ -216,7 +216,7 @@ if (share.Exists())
 }
 ```
 
-For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## Copy files
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to perform these copy operations programmatically.
