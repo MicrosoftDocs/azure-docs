@@ -25,7 +25,7 @@ Please find an article describing how to deploy the Certificate Management Servi
 
 If you have not done so yet, create the Issuer CA certificate.
 
-Please find an article describing how to create and manage the Issuer certificate [here](howto-opc-vault-manage.md).
+Find an article describing how to create and manage the Issuer certificate [here](howto-opc-vault-manage.md).
 
 ## Secure OPC UA applications
 
@@ -33,9 +33,9 @@ Please find an article describing how to create and manage the Issuer certificat
 
 **Important Note:** The 'Writer' role is required to register an application.
 
-1. Open your certificate service at `https://myResourceGroup-app.azurewebsites.net` and login.
+1. Open your certificate service at `https://myResourceGroup-app.azurewebsites.net` and sign in.
 2. Navigate to the `Register New` page.
-1. For an application registration a user needs to have at least the 'Writer' role assigned.
+1. For an application registration, a user needs to have at least the 'Writer' role assigned.
 2. The entry form follows naming conventions in the OPC UA world. As an example, in the picture below the settings for the [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) sample in the OPC UA .NetStandard stack is shown:
 
 ![UA Reference Server Registration](UAReferenceServerRegistration.png "UA Reference Server Registration")
@@ -44,9 +44,9 @@ Please find an article describing how to create and manage the Issuer certificat
 
 ### Step 2: Secure your application with a CA signed application certificate
 
-An OPC UA application can be secured by issueing a signed certificate based on a Certificate Signing
+An OPC UA application can be secured by issuing a signed certificate based on a Certificate Signing
 Request (CSR) or by requesting a new key pair, which includes also a new private key in PFX or PEM format. 
-Please follow the documentation of your OPC UA device on which method is supported for your application. 
+Follow the documentation of your OPC UA device on which method is supported for your application. 
 In general, the CSR method is recommended, because it doesn't require a private key to be transferred over a wire.
 
 - If your device requires to issue a new key pair, please follow [Step3a](##Step-3a:).
@@ -67,15 +67,15 @@ In general, the CSR method is recommended, because it doesn't require a private 
 
 ![Approve Certificate](ApproveReject.png "Approve Certificate")
 
-5. The approval step requires a user with 'Approver' role and with signing permissions in Azure Key Vault. In the typical workflow the Approver and Requester role should be assigned to different users.
+5. The approval step requires a user with 'Approver' role and with signing permissions in Azure Key Vault. In the typical workflow, the Approver and Requester role should be assigned to different users.
 6. Approve or Reject the certificate request to start or cancel the actual creation of the key pair and the signing operation. The new key pair is created and stored securely in Azure Key Vault until downloaded by the certificate requester. The resulting certificate with public key is signed by the CA. These operations may take a few seconds to finish.
 
 ![View Key Pair](ViewKeyPair.png "View Key Pair")
 
-7. The resulting private key (PFX or PEM) and certificate (DER) can be downloaded from here in the format selected as binary file download. A base64 encoded version is also available, e.g. to copy paste the certificate to a command line or text entry. 
+7. The resulting private key (PFX or PEM) and certificate (DER) can be downloaded from here in the format selected as binary file download. A base64 encoded version is also available, for example, to copy paste the certificate to a command line or text entry. 
 8. Once the private key is downloaded and stored securely, it can be deleted from the service with the `Delete Private Key` button. The certificate with the public key remains available for future use.
 9. Due to the use of a CA signed certificate, the CA cert and CRL should be downloaded here as well.
-10. Now it depends on the OPC UA device how to apply the new key pair. Typically, the CA cert and CRL are copied to a `trusted` folder, while the public and private key of the application certificate is applied to a `own` folder in the certificate store. Some devices may already support 'Server Push' for Certificate updates. Please refer to the documentation of your OPC UA device.
+10. Now it depends on the OPC UA device how to apply the new key pair. Typically, the CA cert and CRL are copied to a `trusted` folder, while the public and private key of the application certificate is applied to a `own` folder in the certificate store. Some devices may already support 'Server Push' for Certificate updates. Refer to the documentation of your OPC UA device.
 
 ### Step 3b: Request a new certificate with a CSR 
 
@@ -96,14 +96,14 @@ In general, the CSR method is recommended, because it doesn't require a private 
 
 ![View Certificate](ViewCertCSR.png "View Certificate")
 
-6. The resulting certificate (DER) can be downloaded from here as binary file. A base64 encoded version is also available, e.g. to copy paste the certificate to a command line or text entry. 
+6. The resulting certificate (DER) can be downloaded from here as binary file. A base64 encoded version is also available, for example, to copy paste the certificate to a command line or text entry. 
 10. Once the certificate is downloaded and stored securely, it can be deleted from the service with the `Delete Certificate` button.
 11. Due to the use of a CA signed certificate, the CA cert and CRL should be downloaded here as well.
-12. Now it depends on the OPC UA device how to apply the new certificate. Typically, the CA cert and CRL are copied to a `trusted` folder, while the application certificate is applied to a `own` folder in the certificate store. Some devices may already support 'Server Push' for Certificate updates. Please refer to the documentation of your OPC UA device.
+12. Now it depends on the OPC UA device how to apply the new certificate. Typically, the CA cert and CRL are copied to a `trusted` folder, while the application certificate is applied to a `own` folder in the certificate store. Some devices may already support 'Server Push' for Certificate updates. Refer to the documentation of your OPC UA device.
 
 ### Step 4: Device secured
 
-The OPC UA device is now ready to communicate with other OPC UA devices secured by CA signed certifcates without further configuration. Enjoy!
+The OPC UA device is now ready to communicate with other OPC UA devices secured by CA signed certificates without further configuration. Enjoy!
 
 
 ## Next steps

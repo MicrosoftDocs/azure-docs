@@ -54,7 +54,7 @@ personal requests signed application certificates and where security
 administrators and approvers with signing rights in Azure Key Vault 
 approve or reject these requests.
 
-For compatibility with existing OPC UA GDS based OT solutions the services include
+For compatibility with existing OPC UA GDS-based OT solutions the services include
 support for an OPC Vault microservice backed edge module, which implements the 
 *OPC UA Global Discovery Server and Certificate Management* interface to distribute certificates and trust lists according to the Part 12 of the specification. 
 However, as of our knowledge, this GDS server interface is not widely 
@@ -77,7 +77,7 @@ the workflow to distribute and manage a company-specific CA for OPC UA Applicati
 - An “OPC UA Application” can be a server or a client or both. OPC Vault serves in this 
 case as an application registration authority. 
 - Beside the basic operations to register, 
-update and unregister applications there are also interfaces to find and query 
+update, and unregister applications there are also interfaces to find and query 
 for applications with search expressions. 
 - The certificate requests need to reference 
 a valid application in order to process a request and to issue a signed certificate 
@@ -105,7 +105,7 @@ Once an application is unregistered, the application certificate is also revoked
 A certificate request implements the workflow to generate a new key pair or a signed certificate using a “Certificate Signing Request” (CSR) for an OPC UA Application. 
 - The request is stored in a database with accompanying information like the Subject or a CSR and a reference to the OPC UA Application. 
 - The business logic in the service validates the request against the information stored in the application database. 
-For example the application Uri in the database must match the application Uri in the CSR.
+For example, the application Uri in the database must match the application Uri in the CSR.
 - A security administrator with signing rights (Approver role) approves or rejects the request. If the request is approved, a new key pair and/or a signed certificate are generated. The new private key is securely stored in KeyVault while the new signed public certificate is stored in the Certificate Request database.
 - The requester can poll the request status until it is approved or revoked. If the request was approved, the private key and the certificate can be downloaded and installed in the certificate store of the OPC UA application.
 - The requestor can now Accept the request to delete unnecessary information from the request database. 
@@ -118,7 +118,7 @@ Over the lifetime of a signed certificate an application might be deleted or a k
 - In urgent events, single certificate requests can be revoked, too.
 - Finally the updated CRLs are available for distribution to the participating OPC UA clients and servers.
 
-See swagger documentation of the OPC Vault Microservice for more information on the API.
+For more information about the OPC Vault microservice API, see swagger documentation of the microservice.
 
 ## OPC Vault IoT Edge Module
 To support a factory network Global Discovery Server the OPC Vault module can be deployed on the edge, 

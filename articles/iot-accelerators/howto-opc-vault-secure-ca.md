@@ -12,7 +12,7 @@ manager: philmea
 
 # How to run the Certificate Management Service securely
 
-This article explains how to manage the OPC UA Certificate Management Service securely in Azure and other guidelines to consider.
+This article explains how to run the OPC UA Certificate Management Service securely in Azure and other guidelines to consider.
 
 ## Roles
 
@@ -31,18 +31,18 @@ The microservice defines the following roles:
 - **Reader**: By default any authenticated user in the tenant has read access. 
   - Read access to applications and certificate requests. Can list and query for applications and certificate requests. Also device discovery information and public certificates are accessible with read access.
 - **Writer**: The Writer role is assigned to a user to add write permissions for certain tasks. 
-  - Read/Write access to applications and certificate requests. Can register, update and unregister applications. Can create certificate requests and obtain approved private keys and certificates. Can also delete private keys.
+  - Read/Write access to applications and certificate requests. Can register, update, and unregister applications. Can create certificate requests and obtain approved private keys and certificates. Can also delete private keys.
 - **Approver**: The Approver role is assigned to a user to approve or reject certificate requests. The role does not include any other role.
   - In addition to the Approver role to access the OPC Vault microservice Api the user must also have the key signing permission in Key Vault to be able to sign the certificates.
   - The Writer and Approver role should be assigned to different users.
   - The main role of the Approver is the Approval of the generation and rejection of certificate requests.
 - **Administrator**: The Administrator role is assigned to a user to manage the certificate groups. The role does not support the Approver role, but includes the Writer role.
-  - The administrator can manage the certificate groups, change the configuration and revoke application certificates by issueing a new CRL.
+  - The administrator can manage the certificate groups, change the configuration and revoke application certificates by issuing a new CRL.
   - Ideally, Writer, Approver and Administrator roles are assigned to different users. For additional security, a user with Approver or Administrator role needs also key signing permission in KeyVault to issue certificates or to renew an Issuer CA certificate.
-  - In addition to the microservice role, the role includes also but is not limited to:
+  - In addition to the microservice administration role, the role includes also but is not limited to:
     - Responsible for administering the implementation of the CA’s security practices.
     - Management of the generation, revocation, and suspension of certificates. 
-    - Cryptographic key life cycle management (e.g. the renewal of the Issuer CA keys).
+    - Cryptographic key life-cycle management (for example, the renewal of the Issuer CA keys).
     - Installation, configuration, and maintenance of services that operate the CA.
     - Day-to-day operation of the services. 
     - CA and database backup and recovery.
@@ -55,9 +55,9 @@ The following roles should also be considered and assigned when running the serv
 (in the case when the owner purchases certificates from an external CA or operates a CA that is subordinate to an external CA).
 - Development and validation of the Certificate Authority.
 - Review of audit records.
-- Personnel that helps to support the CA or to manage the physical and cloud facilities, 
+- Personnel that help to support the CA or to manage the physical and cloud facilities, 
 but are not directly trusted to perform CA operations are defined to be in the authorized role. 
-The set of tasks persons in the authorized role are allowed to perform must also be documented.
+The set of tasks persons in the authorized role is allowed to perform must also be documented.
 
 ### Memberships of Trusted and Authorized Roles must be reviewed annually
 
@@ -88,27 +88,27 @@ interactive logons of Approvers and Administrators to the service.
 
 ### Operational contacts
 
-The certificate service must have an up-to-date Security Response Plan on file which contains detailed operational incident response contacts.
+The certificate service must have an up-to-date Security Response Plan on file, which contains detailed operational incident response contacts.
 
 ### Security updates
 
 All systems must be continuously monitored and updated with latest security updates/patch compliance.
 
-**Important note:** The github repository of the OPC Vault service is continuously updated with security patches. The updates on github should be monitored and the updates be applied to the service at regular intervals.
+**Important note:** The GitHub repository of the OPC Vault service is continuously updated with security patches. The updates on GitHub should be monitored and the updates be applied to the service at regular intervals.
 
 ### Security monitoring
 
-Subscribe to or implement appropriate security monitoring e.g. by subscribing to a central monitoring solution 
-(e.g. Azure Security Center, O365 monitoring solution) and configure it appropriately to ensure 
+Subscribe to or implement appropriate security monitoring, e.g.,  by subscribing to a central monitoring solution 
+(for example, Azure Security Center, O365 monitoring solution) and configure it appropriately to ensure 
 that security events are transmitted to the monitoring solution.
 
 **Important note:** By default, the OPC Vault service is deployed with the [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/devops) as a monitoring solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) is highly recommended.
 
 ### Assess Security of Open Source Software Components
 
-All open source components used within a product or service must be free of moderate or greater security vulnerabilities.
+All open-source components used within a product or service must be free of moderate or greater security vulnerabilities.
 
-**Important note:** The github repository of the OPC Vault service is scanning all components during continous integration builds for vulnerabilities. The updates on github should be monitored and the updates be applied to the service at regular intervals.
+**Important note:** The GitHub repository of the OPC Vault service is scanning all components during continuous integration builds for vulnerabilities. The updates on GitHub should be monitored and the updates be applied to the service at regular intervals.
 
 ### Maintain an inventory
 
@@ -126,14 +126,14 @@ In **Azure**:
 - **KeyVault Premium**: To host the Issuer CA keys, for signing service, for vault configuration and storage of application private keys.
 - **Cosmos DB**: Database for application and certificate requests. 
 - **Application Insights**: (optional) Monitoring solution for web service and application.
-- **AzureAD Application Registration**: A registration for the sample application, the service and the edge module.
+- **AzureAD Application Registration**: A registration for the sample application, the service, and the edge module.
 
-For the cloud services all hostnames, Resource Groups, Resource Names, Subscription Id, TenantId used to deploy the service should be documented. 
+For the cloud services all hostnames, Resource Groups, Resource Names, Subscription ID, TenantId used to deploy the service should be documented. 
 
-In **IoT Edge** or a local **Edge Server**:
-- **OPC Vault Edge Module**: To support a factory network OPC UA Global Discovery Server. 
+In **IoT Edge** or a local **IoT Edge Server**:
+- **OPC Vault IoT Edge Module**: To support a factory network OPC UA Global Discovery Server. 
 
-For the edge devices the hostnames and IP addresses should be documented. 
+For the IoT Edge devices the hostnames and IP addresses should be documented. 
 
 ### Document the Certification Authorities (CAs)
 
@@ -166,8 +166,8 @@ The OPC Vault microservice follows these guidelines in the default implementatio
 
 - All certificates must include the following X.509 fields as specified below:
   - The content of the version field must be v3. 
-  - The contents of the serialNumber field must include at least 8 bytes of entropy obtained from a FIPS 140 approved random number generator.<br>
-    **Important Note:** The OPC Vault serial number is by default 20 byte and obtained from the OS cryptographic random number generator. The random number generator is FIPS 140 approved on Windows devices, however not on Linux flavors. This fact needs to be considered when choosing a service deployment which uses Linux VMs or Linux docker containers, on which the underlying technology OpenSSL is usually not FIPS 140 approved.
+  - The contents of the serialNumber field must include at least 8 bytes of entropy obtained from a FIPS (Federal Information Processing Standards) 140 approved random number generator.<br>
+    **Important Note:** The OPC Vault serial number is by default 20 bytes and obtained from the OS cryptographic random number generator. The random number generator is FIPS 140 approved on Windows devices, however not on Linux flavors. This fact needs to be considered when choosing a service deployment, which uses Linux VMs or Linux docker containers, on which the underlying technology OpenSSL is not FIPS 140 approved.
   - The issuerUniqueID and subjectUniqueID fields must not be present.
   - End-entity certificates must be identified with the Basic Constraints extension in accordance with IETF RFC 5280.
   - The pathLenConstraint field must be set to 0 for the Issuing CA certificate. 
@@ -178,7 +178,7 @@ The OPC Vault microservice follows these guidelines in the default implementatio
     **Important Note:** The Authority Information Access extension is present in OPC Vault subscriber certificates, nevertheless OPC UA devices use custom methods to distribute Issuer CA information.
 - Approved asymmetric algorithms, key lengths, hash functions and padding modes must be used.
   - **RSA** and **SHA-2** are the only supported algorithms (*).
-  - RSA may be used for encryption, key exchange and signature.
+  - RSA may be used for encryption, key exchange, and signature.
   - RSA encryption must use only the OAEP, RSA-KEM, or RSA-PSS padding modes.
   - Key lengths >= 2048 bits are required.
   - Use the SHA-2 family of hash algorithms (SHA256, SHA384, and SHA512).
@@ -187,21 +187,21 @@ The OPC Vault microservice follows these guidelines in the default implementatio
 - Certificate Lifetime
   - Root CA certificates: The maximum certificate validity period for root CAs must not exceed 25 years.
   - Sub CA or online Issuer CA certificates: The maximum certificate validity period for CAs that are online and issue only subscriber 
-  certificates must not exceed 6 years. For these CAs the related private signature key must not be used longer than 3 years to issue new certificates.<br>
-  **Important Note:** The Issuer certificate as it is generated in the default OPC Vault microservice without external Root CA is treated like a online Sub CA with respective requirements and lifetimes. The default lifetime is set to 5 years with a key length >= 2048.
+  certificates must not exceed six years. For these CAs, the related private signature key must not be used longer than three years to issue new certificates.<br>
+  **Important Note:** The Issuer certificate as it is generated in the default OPC Vault microservice without external Root CA is treated like an online Sub CA with respective requirements and lifetimes. The default lifetime is set to five years with a key length >= 2048.
   - All asymmetric keys must have a maximum five-year lifetime, recommended one-year lifetime.<br>
-  **Important Note:** By default the lifetimes of application certificates issued with OPC Vault have a lifetime of 2 years and should be replaced every year. 
+  **Important Note:** By default the lifetimes of application certificates issued with OPC Vault have a lifetime of two years and should be replaced every year. 
   - Whenever a certificate is renewed, it is renewed with a new key.
-- OPC UA specific extensions in application instance certificates
+- OPC UA-specific extensions in application instance certificates
   - The subjectAltName extension includes the application Uri and hostnames, which may also include FQDN, IPv4 and IPv6 addresses.
-  - The keyUsage includes digitalSignature, nonRepudiation, keyEncipherment and dataEncipherment.
+  - The keyUsage includes digitalSignature, nonRepudiation, keyEncipherment, and dataEncipherment.
   - The extendedKeyUsage includes serverAuth and/or clientAuth.
   - The authorityKeyIdentifier is specified in signed certificates.
 
 ### Certificate Authority (CA) keys and certificates must meet minimum requirements
 
 - **Private keys**: **RSA** keys must be at least 2048 bits; if the CA certificate expiration date is after 2030, the CA key must be 4096 bits or greater.
-- **Lifetime**: The maximum certificate validity period for CAs that are online and issue only subscriber certificates must not exceed 6 years. For these CAs the related private signature key must not be used longer than 3 years to issue new certificates.
+- **Lifetime**: The maximum certificate validity period for CAs that are online and issue only subscriber certificates must not exceed six years. For these CAs, the related private signature key must not be used longer than three years to issue new certificates.
 
 ### CA keys are protected using Hardware Security Modules (HSM)
 
@@ -225,7 +225,7 @@ The OPC Vault microservice SOP is described in the [Overview](opcvault-services-
 
 ### Document and maintain standard operational PKI practices for certificate revocation
 
-The certificate revokation process is described in the [Overview](opcvault-services-overview.md) and the [How to manage](howto-manage-cert-services.md) documents.
+The certificate revocation process is described in the [Overview](opcvault-services-overview.md) and the [How to manage](howto-manage-cert-services.md) documents.
 	
 ### Document Certification Authority key generation ceremony 
 
