@@ -36,7 +36,7 @@ You first need to create the lab virtual machine within a VNet that has Bastion 
 
 Once the virtual machine is created, you can launch it in a browser by clicking the *Browser connect* button and entering your username and password for the machine.  
 
-![Launch in a browser](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
+![Launch in a browser](./media/connect-virtual-machine-through-browser/browser-connect.png)
 
 ## Next Steps
 
