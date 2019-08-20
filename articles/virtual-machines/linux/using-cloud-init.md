@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/20/2019
-ms.author: danielsollondon
+ms.author: danis
 
 ---
 # Cloud-init support for virtual machines in Azure
@@ -31,7 +31,6 @@ We are actively working with our endorsed Linux distro partners in order to have
 | Publisher | Offer | SKU | Version | cloud-init ready |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |latest |yes | 
-|Canonical |UbuntuServer |17.10 |latest |yes | 
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |
