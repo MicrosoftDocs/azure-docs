@@ -49,9 +49,9 @@ Establish connectivity by using one of the following options:
 
 - **Allow access using NSG tags**. If you use NSGs to restrict connectivity, this option adds a rule to your NSG that allows outbound access to Azure Backup by using the AzureBackup tag. In addition to this tag, you'll also need corresponding [rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) for Azure AD and Azure Storage to allow connectivity for authentication and data transfer. The AzureBackup tag is currently available on portal and PowerShell. 
 
-Using Powershell, create a rule by using the AzureBackup tag:
+    Using Powershell, create a rule using the AzureBackup tag:
 
-  - Add Azure account credentials and update the national clouds<br/>
+   - Add Azure account credentials and update the national clouds<br/>
     `Add-AzureRmAccount`
 
   - Select the NSG subscription<br/>
