@@ -44,21 +44,21 @@ Jeff is a cloud workload owner. Jeff is responsible for applying security contro
 Jeff performs the following tasks:
 
 - Monitor security recommendations provided by Security Center
-- Evaluate security recommendations and decide if they should apply or dismiss
+- Evaluate security recommendations and decide if they should apply or dismiss the recommendations.
 - Apply security recommendations
 
 ### Remediate threats using recommendations
 As part of their daily monitoring activities, Jeff signs in to Azure and opens Security Center. 
 
-1. Jeff selects their workload's subscriptions.
+1. Jeff selects the workload's subscriptions.
 
-2. Jeff checks their **secure score** to get an overall picture of how secure the subscriptions are and they sees that their score is 548.
+2. Jeff checks the **secure score** to get an overall picture of how secure the subscriptions are and sees that the score is 548.
 
 3. Jeff has to decide which recommendations to handle first. So Jeff clicks secure score and starts to handle recommendations based on how much it improves his [secure score impact](security-center-secure-score.md).
 
 4. Because Jeff has lots of connected VMs and servers, Jeff decides to focus on **Compute and apps**.
 
-5. When Jeff clicks **Compute and apps**, they sees a list of recommendations and handles them according to the secure score impact.
+5. When Jeff clicks **Compute and apps**, they see a list of recommendations and handles them according to the secure score impact.
 
 6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use (**just-in-time VM access**)[security-center-just-in-time.md].
 
