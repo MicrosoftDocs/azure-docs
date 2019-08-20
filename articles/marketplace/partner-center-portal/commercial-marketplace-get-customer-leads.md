@@ -25,13 +25,13 @@ Here are places where a lead is generated:
 
       ![Dynamics 365 Contact Me](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
 
-2. When a customer selects “Get it Now” or "Create" (in the [Azure Portal](https://portal.azure.com/)) to get your offer, this lead is an **active lead**, where we share information about a customer who has started to deploy your product.
+2. When a customer selects “Get it Now” or "Create" (in the [Azure portal](https://portal.azure.com/)) to get your offer, this lead is an **active lead**, where we share information about a customer who has started to deploy your product.
 
     ![SQL Get it Now](./media/commercial-marketplace-get-customer-leads/sql-get-it-now.png)
 
     ![Windows Server Create](./media/commercial-marketplace-get-customer-leads/windows-server-create.png)
 
-3. When a customer takes a "Test Drive" or starts a “Free Trial” of your offer. Test Drives or free trials are an accelerated opportunity for you to share your business instantly with potential customers without any barriers of entry. 
+3. A customer takes a "Test Drive" or starts a “Free Trial” of your offer. Test Drives or free trials are accelerated opportunities for you to share your business instantly with potential customers without any barriers of entry.
 
     ![Dynamics 365 Test Drive](./media/commercial-marketplace-get-customer-leads/dynamics-365-test-drive.png)
 
@@ -47,7 +47,7 @@ Each lead you receive during the customer acquisition process has data in specif
 
 **Sources**: The value for this field is populated based on the marketplace that generated the lead. Possible values are `"AzureMarketplace"`, `"AzurePortal"`, and `"AppSource (SPZA)"`.
 
-**Actions**: The value for this field is populated based on the action the customer took in the marketplace which generated the lead. 
+**Actions**: The value for this field is populated based on the action the customer took in the marketplace, which generated the lead. 
 
 Possible values are:
 
@@ -89,7 +89,7 @@ The customer’s information is sent via multiple fields. The following example 
 1. *Process* - Define a clear sales process, with milestones, KPIs, and clear team ownership.
 2. *Qualification* - Define prerequisites, which indicate whether a lead has been fully qualified. Ensure sales or marketing representatives qualify leads carefully before taking them through the full sales process.
 3. *Follow up* - Don’t forget to follow up, expect the typical transaction to require 5 to 12 follow-up calls
-4. *Nurture* - Nurture your leads; this could get you on the way to a higher profit margin.
+4. *Nurture* - Nurture your leads, in order to get you on the way to a higher profit margin.
 
 ## Leads frequently asked questions
 
@@ -99,7 +99,7 @@ You can find documentation [here](#connect-to-your-crm-system) or submit a suppo
 
 ### Am I required to configure a lead destination in order to publish an offer on the marketplace?
 
-The answer depends on the type of offer you are publishing. SaaS and Dynamics 365 for Customer Engagement offers listing as 'Contact Me', all Dynamics 365 for Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers require a connection to a lead destination. If your offer type was not listed then it is not required. However, it is recommended you configure a lead destination so you don’t miss business opportunities.
+The answer depends on the type of offer you are publishing. SaaS and Dynamics 365 for Customer Engagement offers to list as 'Contact Me', all Dynamics 365 for Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers require a connection to a lead destination. If your offer type was not listed, then it is not required. However, it is recommended you configure a lead destination so you don’t miss business opportunities.
 
 ### How can I find the test lead?
 
@@ -122,7 +122,7 @@ title = MSFT_TEST_636573304831318844
 
 ### I have a live offer, but I’m not seeing any leads?
 
-Make sure your connection to the lead destination is valid. We will send you a test lead after you hit publish on your offer in Partner Center. If you see the test lead, then the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step by clicking “get it now”, “contact me” or "free trial" on the listing in the marketplace.
+Make sure your connection to the lead destination is valid. We will send you a test lead after you hit publish on your offer in Partner Center. If you see the test lead, then the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step by clicking “get it now”, “contacts me” or "free trial" on the listing in the marketplace.
 
 Also, make sure you are looking for the right data. The content in the [Understand lead data](#understand-lead-data) section of this document describes the lead data we send to your lead destination.
 

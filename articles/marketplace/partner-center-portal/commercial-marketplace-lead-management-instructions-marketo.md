@@ -13,6 +13,8 @@ ms.author: evansma
 
 This article describes how to set up your Marketo CRM system to process sales leads from your marketplace offer.
 
+## Set up your Marketo CRM system
+
 1. Sign in to Marketo.
 2. Select **Design Studio**.
     ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo1.png)
@@ -48,7 +50,7 @@ This article describes how to set up your Marketo CRM system to process sales le
     **Another way to figure out these values**
 
     - Server ID is found in the URL of your Marketo instance,  for example, "`serverID.marketo.com`".
-    - Get your subscription’s Munchkin ID by going to your Admin>Munchkin menu in the “Munchkin Account ID” field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
+    - Get your subscription’s Munching ID by going to your Admin>Munchkin menu in the “Munchkin Account ID” field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
     - Form ID is the ID of the Embed Code form you created in step 7 to route leads from our marketplace.
 
 ## Configure your offer to send leads to Marketo
@@ -64,7 +66,7 @@ When you are ready to configure the lead management information for your offer i
 
     ![Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-4. Provide the **Server Id**, **Munchkin account Id**, and **Form Id**.
+4. Provide the **Server ID**, **Munching account ID**, and **Form ID**.
 
     >[!Note]
     >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer. 

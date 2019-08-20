@@ -133,15 +133,15 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
    - **To** - Enter at least one valid email address, where the leads will be sent.
    - **Subject** - Flow gives you the option of adding Dynamic content, like **LeadSource** in the following screen capture. Start by typing in a field name followed by clicking on the Dynamic Content pick list from the popup window. 
 
-    >[!Note] 
-    > When adding field names, you can follow each with a “:” and then Enter to create a new row. Once you have your field names added you can then add each associated parameter from the dynamic pick list.
+        >[!Note] 
+        > When adding field names, you can follow each with a “:” and then Enter to create a new row. Once you have your field names added you can then add each associated parameter from the dynamic pick list.
 
-     ![Add an email action using dynamic content](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
+        ![Add an email action using dynamic content](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
    - **Body** - From the Dynamic Content pick list, add the information you want in the body of the email. For example, LastName, FirstName, Email, and Company. <br> <br> When you're finished setting up the email notification, it will look like the example in the following screen capture.
 
 
-   ![Add an email action](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
+       ![Add an email action](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
 5. Select **Save** to finish your flow. An HTTP POST URL is created and is accessible in the *When an HTTP request is received* window. Copy this URL by using the copy control which is located to the right of the HTTP POST URL – this is important so that you do not mistakenly miss any part of the entire URL. Save this URL as you will need it when you are configuring lead management in the publishing portal.
 

@@ -60,25 +60,25 @@ Use the following steps to create the service account and assign permissions. Yo
 
 ### Azure Active Directory
 
-We recommend this option because you get the added benefit of never needing to update your username/password to keep getting leads. To use the Azure Active Directory option, you provide the App Id, Application Key, and Directory Id from your Active Directory application.
+We recommend this option because you get the added benefit of never needing to update your username/password to keep getting leads. To use the Azure Active Directory option, you provide the App ID, Application Key, and Directory ID from your Active Directory application.
 
 Use the following steps to configure Azure Active Directory for Dynamics 365 for Customer Engagement.
 
 1. Sign in to [Azure portal](https://portal.azure.com/), and then select the Azure Active Directory service from the left navigation.
 
-2. Select **Properties** from the Azure Active Directory left navigation, and copy the **Directory ID** value on that page. Save this value as this is the *Directory ID* value that you need to provide in the publishing portal to receive leads for your marketplace offer.
+2. Select **Properties** from the Azure Active Directory left navigation, and copy the **Directory ID** value on that page. Save this value, as it is the *Directory ID* value that you need to provide in the publishing portal to receive leads for your marketplace offer.
 
     ![Azure Active Directory - Properties](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-properties.png)
 
 3. Select **App registrations** from the Azure Active Directory left navigation, and then select **New registration** on that page.
 4. Enter a name for the application name. Provide a meaningful application name.
-5. Under Supported account types select **Accounts in any organizational directory**.
+5. Under Supported account types, select **Accounts in any organizational directory**.
 6. Under Redirect URI, select **Web** and provide a URI (such as `https://contosoapp1/auth`). 
 7. Select **Register**.
 
     ![Register an application](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
-8. Now that your application is registered, access the application’s overview page and copy the **Application (client) ID** value on that page. Save this value as this is the *Application (client) ID* value that you need to provide in the publishing portal and in Dynamics to receive leads for your marketplace offer.
+8. Now that your application is registered, access the application’s overview page and copy the **Application (client) ID** value on that page. Save this value, as it is the *Application (client) ID* value that you need to provide in the publishing portal and in Dynamics to receive leads for your marketplace offer.
 
     ![Application (client) ID](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
@@ -86,7 +86,7 @@ Use the following steps to configure Azure Active Directory for Dynamics 365 for
 
     ![Application - Certification and Secrets](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
 
-10. As soon as the client secret is successfully created, **Copy the client secret value**. You won’t be able to retrieve the value after you navigate away from the page. Save this value as this is the *Client secret* value you need to provide in the publishing portal to receive leads for your marketplace offer. 
+10. As soon as the client secret is successfully created, **Copy the client secret value**. You won’t be able to retrieve the value after you navigate away from the page. Save this value, as it is the *Client secret* value you need to provide in the publishing portal to receive leads for your marketplace offer. 
 11. Select **API permissions** from the apps' left navigation, and then select **Add a permission**.
 12. Select Microsoft APIs, and then select **Dynamics CRM** as the API.
 13. Under *What type of permissions does your application require*, make sure **Delegated permissions** is selected. Check the permission for **user_impersonation** *Access Common Data Service as organization users*. Select **Add permissions**.
@@ -101,7 +101,7 @@ Use the following steps to configure Azure Active Directory for Dynamics 365 for
 
     ![Create a new user](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. In **New User**, make sure the USER: APPLICATION USER is selected. Provide a username, full name and email address for the user that you want to use with this connection. Also, paste in the **Application Id** for the app you created in the Azure portal from step 8. Select **Save and Close** to complete adding the user.
+19. In **New User**, make sure the USER: APPLICATION USER is selected. Provide a username, full name, and email address for the user that you want to use with this connection. Also, paste in the **Application ID** for the app you created in the Azure portal from step 8. Select **Save and Close** to complete adding the user.
 
     ![New user](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -152,11 +152,11 @@ The final step is to enable the User you created to write the leads.
 
     ![Security roles](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. Once in the security role, select the **Core Records** tab. Search for the “User Entity UI Settings” entity and enable the Create, Read and Write permissions to User (1/4 yellow circle) for that entity by clicking once into each of the corresponding circles.
+7. Once in the security role, select the **Core Records** tab. Search for the “User Entity UI Settings” entity and enable the Create, Read, and Write permissions to User (1/4 yellow circle) for that entity by clicking once into each of the corresponding circles.
 
     ![Microsoft Marketplace Lead Writer - Core Records](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. Now navigate to the **Customization** tab. Search tor the “System Job” entity and enable the Read, Write and AppendTo permissions to Organization (solid green) for that entity by clicking four times into each of the corresponding circles.
+8. Now navigate to the **Customization** tab. Search tor the “System Job” entity and enables the Read, Write, and AppendTo permissions to Organization (solid green) for that entity by clicking four times into each of the corresponding circles.
 
     ![Microsoft Marketplace Lead Writer - customization](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
@@ -176,8 +176,8 @@ When you are ready to configure the lead management information for your offer i
     ![Connection details - lead destination](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Provide the **Dynamics 365 Instance URL** such as `https://contoso.crm4.dynamics.com`.
-5. Select the method of **Authentication**, Azure Active Directory or Office 365. 
-6. If you selected Azure Active Directory, provide the **Application (client) Id** (example: `23456052-aaaa-bbbb-8662-1234df56788f`), **Directory Id** (example: `12345678-8af1-4asf-1234-12234d01db47`), and **Client secret** (example: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
+5. Select the method of **Authentication**, Azure Active Directory, or Office 365. 
+6. If you selected Azure Active Directory, provide the **Application (client) ID** (example: `23456052-aaaa-bbbb-8662-1234df56788f`), **Directory ID** (example: `12345678-8af1-4asf-1234-12234d01db47`), and **Client secret** (example: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
     ![Connection details - Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 

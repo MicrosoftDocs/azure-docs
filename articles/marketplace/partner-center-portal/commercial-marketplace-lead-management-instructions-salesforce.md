@@ -13,6 +13,8 @@ ms.author: evansma
 
 This article describes how to setup your Salesforce system to process sales leads from your marketplace offer.
 
+## Set up your Salesforce system
+
 1. Sign in to Salesforce.
 2. If you are using the Salesforce lighting experience.
     1. Select **Setup** from Salesforce Home page.
