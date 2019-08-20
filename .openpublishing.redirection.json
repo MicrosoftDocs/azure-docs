@@ -21405,6 +21405,11 @@
 			"redirect_document_id": false
 		},
 		{
+			"source_path": "articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
+			"redirect_url": "/azure/iot-hub/",
+			"redirect_document_id": false
+		},
+		{
 			"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md",
 			"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy",
 			"redirect_document_id": false
