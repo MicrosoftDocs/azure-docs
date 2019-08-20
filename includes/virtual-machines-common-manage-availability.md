@@ -93,7 +93,7 @@ Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overvi
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
 
-An tutorial for load balancing across availability zones is available [here](../load-balancer/load-balancer-standard-public-zone-redundant-cli).
+An tutorial for load balancing across availability zones is available [here](../articles/load-balancer/load-balancer-standard-public-zone-redundant-cli).
 
 
 <!-- Link references -->
