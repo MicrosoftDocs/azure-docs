@@ -20,7 +20,7 @@ ms.date: 07/11/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ] (https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article provides step-by-step instructions to create the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
+Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable),  and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -48,44 +48,49 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
-All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+Every request sent to your service requires an api key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Set up your environment
 
-Begin by opening IntelliJ IDEA and creating a new project.
+Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### Create the project
 
 1. Open IntelliJ IDEA, and select **Create New Project**.
 1. Select **Maven**.
 1. In the **Project SDK** list, select the Java 11 SDK.
-![Create a maven project](media/search-get-started-java/java-quickstart-create-new-maven-project.png)
-1. For `GroupId` and `ArtifactId`, enter `AzureSearchQuickstart`.
-1. Accept the remaining defaults to open the project.
-1. Select **File** > **Settings**, select the **Import Maven projects automatically** check box, and then click **OK**. If  this option doesn't immediately appear, you can find it under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
-    [Maven importing options in IntelliJ settings](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
-1. In the **Project** window, expand the project tree to access the `src` and `main` folders.
-1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and select **Package**.
-1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and select **Directory**
 
-    When you're done, the project tree should look like the picture.
+    ![Create a maven project](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+
+1. For **GroupId** and **ArtifactId**, enter `AzureSearchQuickstart`.
+1. Accept the remaining defaults to open the project.
+1. Select **File** > **Settings**, select the **Import Maven projects automatically** check box, and then click **OK**. If this option doesn't immediately appear, you can find it under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+
+    ![Maven importing options in IntelliJ settings](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+
+1. In the **Project** window, expand the project tree to access the contents of the `src` >  `main` folder.
+1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and then select **Package**.
+1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and then select **Directory**.
+
+    When you're done, the project tree should look like the following picture.
 
     ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree.png)
 
 ### Add Azure Search service information
 
-1. In the **Project** window, in the `resources` folder, in the `app` directory, add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, and select **File**.
-1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>` and `<YOUR-API-KEY>` with your service name and key. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
-    
+1. In the `resources` folder, in the `app` package, add a `config.properties` file. To do this, select the `app` package, press Alt + Insert, and then select **File**.
+1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
-        SearchServiceApiKey=<YOUR-API-KEY>
+        SearchServiceAdminKey=<YOUR-ADMIN-KEY>
+        SearchServiceAdminKey=<YOUR-QUERY-KEY>
         IndexName=hotels-quickstart
         ApiVersion=2019-05-06
     ```
 
-1. in the `java` folder, in the `app` directory, add an `App` class. To do this, select the `app` folder, press Alt + Insert, and select **Class**.
-1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The commented code will be covered (and uncommented) later in the article. The uncommented code reads the search service parameters and uses them to create an instance of the search service client.
+1. In  the `java` folder, in the `app` package, add an `App` class. To do this, select the `app` package, press Alt + Insert, and then select **Class**.
+1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The commented code will be uncommented in a later section. The uncommented code reads the search service parameters and uses them to create an instance of the search service client.
 
     ```java
     package app;
@@ -123,7 +128,7 @@ Begin by opening IntelliJ IDEA and creating a new project.
     //            client.uploadDocuments();
     //            Thread.sleep(2000L); // wait 2 seconds for data to upload
     
-    //Uncomment the following 5 search queries in the 3 - Search an index of the quickstart
+    //Uncomment the following 5 search queries in the 3 - Search an index section of the quickstart
     //            // Query 1
     //            client.logMessage("\n*QUERY 1****************************************************************");
     //            client.logMessage("Search for: Atlanta'");
@@ -178,8 +183,8 @@ Begin by opening IntelliJ IDEA and creating a new project.
 
 ### Add the HTTP operations
 
-1. In the **Project** window, in the `java` folder, in the `app` directory, add a `SearchServiceClient` class. To do this, select the `app` folder, press Alt + Insert, and select **Java Class**.
-1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added later in this article.
+1. In the `java` folder, in the `app` directory, add a `SearchServiceClient` class. To do this, select the `app` folder, press Alt + Insert, and select **Java Class**.
+1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added in a later section.
 
     ```java
     package service;
@@ -345,9 +350,9 @@ When processing completes, look for a BUILD SUCCESS message followed by a zero (
 
 ## 1 - Create index
 
-The hotels index consists of simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index is specified using JSON.
+The hotels index that you will create consists of simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index is specified using JSON.
 
-1. In the **Project** window, in the `resources` folder, in the `service` directory, add an `index.json` file. To do this, select the `service` folder, press Alt + Insert, and select **File**.
+1. In the **Project** window, in the `resources` folder, in the `service` directory, add an `index.json` file. To do this, select the `service` folder press Alt + Insert, and then select **File**.
 
 1. Open the `index.json` file and insert the following index definition.
 
@@ -478,7 +483,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
     
     The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
 
-1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to create and delete an index, and that will determine if an index exists. These methods also make the HTTP request.
+1. Add the following code to the `SearchServiceClient` class. The methods  build Azure Search REST service URLs to create and delete an index, and that determine if an index exists. The methods also make the HTTP request.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -641,18 +646,18 @@ The hotels index consists of simple fields and one complex field. Examples of a 
 
 1. Uncomment the following code in the `App` class. This code uploads the documents in "hotels.json" to the index.
 
-The two-second pause after the upload request ensures that the document loading process completes before you query the index.
-
     ```java
     client.uploadDocuments();
     Thread.sleep(2000L); // wait 2 seconds for data to upload
     ```
 
+    The two-second pause after the upload request ensures that the document loading process completes before you query the index.
+
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
     Because you created a "hotels-quickstart" index in the previous step, the code will now delete it and recreate it again before loading the hotel documents.
 
-    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
+    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0)exit code.
 
 ## 3 - Search an index
 
