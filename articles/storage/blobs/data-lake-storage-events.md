@@ -1,16 +1,16 @@
 ---
-title: 'Use Azure Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2 | Microsoft Docs'
+title: 'Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table | Microsoft Docs'
 description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure DataLake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ---
 
-# Tutorial: Use Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2
+# Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table
 
 This tutorial shows you how to handle events in a storage account that has a hierarchical namespace.
 
