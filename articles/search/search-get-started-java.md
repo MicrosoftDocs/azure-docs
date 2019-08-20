@@ -67,7 +67,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### Specify Maven dependencies
 
-1. Select **File** > **Settings** to open the . Then, s
+1. Select **File** > **Settings**.
 1. In the **Settings** window, select **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
 1. Select the  **Import Maven projects automatically** check box, and Click **OK** to close the window. Maven plugins and other dependencies will now be automatically synchronized when you update the pom.xml file in the next step. 
 
@@ -129,7 +129,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. Select **File** > **Project Structure**.
 1. Select **Modules**, and expand the source tree to access the contents of the `src` >  `main` folder.
-1. In the `src` >  `main` > `java` folder, add  `app` and `service` folders. To do this, select the `java` folder, press Alt + Insert.
+1. In the `src` >  `main` > `java` folder, add  `app` and `service` folders. To do this, select the `java` folder, press Alt + Insert, and then enter the folder name.
 1. In the `src` >  `main` >`resources` folder, add `app` and `service` folders.
 
     When you're done, the project tree should look like the following picture.
@@ -140,7 +140,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### Add Azure Search service information
 
-1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, and then select **File**.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
     ![Project directory structure](media/search-get-started-java/java-quickstart-config-properites.png)
 
@@ -156,7 +156,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### Add the main method
 
-1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, and then select **Class**.
+1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, and then select **Java Class**.
 1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The uncommented code reads the search service parameters and uses them to create an instance of the search service client. The search service client code will be added in the next section. 
 
     The commented code in this class will be uncommented in a later section of this quickstart.
@@ -253,7 +253,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### Add the HTTP operations
 
-1. In  the `src` >  `main` > `java` > `service` folder, add an`SearchServiceClient` class. To do this, select the `service` folder, press Alt + Insert, and then select **Class**.
+1. In  the `src` >  `main` > `java` > `service` folder, add an`SearchServiceClient` class. To do this, select the `service` folder, press Alt + Insert, select **Java Class**, and then enter the class name.
 1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added in a later section.
 
     ```java
@@ -272,8 +272,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
     import java.util.Formatter;
     import java.util.function.Consumer;
     
-    /**
-     * This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
+    /* This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
     public class SearchServiceClient {
         private final String _adminKey;
         private final String _queryKey;
@@ -295,13 +294,13 @@ Begin by opening IntelliJ IDEA and setting up a new project.
             return client.send(request, HttpResponse.BodyHandlers.ofString());
         }
 
-private static URI buildURI(Consumer<Formatter> fmtFn)
-        {
-            Formatter strFormatter = new Formatter();
-            fmtFn.accept(strFormatter);
-            String url = strFormatter.out().toString();
-            strFormatter.close();
-            return URI.create(url);
+        private static URI buildURI(Consumer<Formatter> fmtFn)
+                {
+                    Formatter strFormatter = new Formatter();
+                    fmtFn.accept(strFormatter);
+                    String url = strFormatter.out().toString();
+                    strFormatter.close();
+                    return URI.create(url);
         }
     
         public static void logMessage(String message) {
@@ -377,9 +376,9 @@ When processing completes, look for a BUILD SUCCESS message followed by a zero (
 
 ## 1 - Create index
 
-The hotels index that you will create consists of simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index is specified using JSON.
+The hotels index definition contains simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index definition is specified using JSON.
 
-1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `index.json` file. To do this, select the `app` folder, press Alt + Insert, and then select **File**.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `index.json` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
 1. Open the `index.json` file and insert the following index definition.
 
@@ -562,11 +561,11 @@ The hotels index that you will create consists of simple fields and one complex 
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
-    As the code runs, look for a "Creating index" message followed by a 201 response code. This confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
+    As the code runs, look for a "Creating index" message followed by a 201 response code. This response code confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
     
 ## 2 - Upload documents
 
-1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `hotels.json` file. To do this, select the `app` folder, press Alt + Insert, and then select **File**.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `hotels.json` file. To do this, select the `app` folder, press Alt + Insert, select  **File**, and then enter the file name.
 1. Insert the following hotel documents into the file.
 
     ```json
@@ -687,7 +686,7 @@ The hotels index that you will create consists of simple fields and one complex 
 
     Because you created a "hotels-quickstart" index in the previous step, the code will now delete it and recreate it again before loading the hotel documents.
 
-    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
+    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This response code confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
 
 ## 3 - Search an index
 
