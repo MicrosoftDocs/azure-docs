@@ -1,10 +1,9 @@
 ---
 title: Migrate data into Azure File Sync by using Azure Data Box and other methods  
 description: Migrate bulk data in a way that's compatible with Azure File Sync.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files

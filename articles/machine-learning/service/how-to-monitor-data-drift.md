@@ -41,12 +41,14 @@ Using Azure Machine Learning service, data drift is monitored through datasets o
 
 - An Azure subscription. If you don’t have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Use the instructions at [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk) to do the following:
+- The Azure Machine Learning SDK for Python installed. Use the instructions at [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  to do the following:
 
     - Create a Miniconda environment
     - Install the Azure Machine Learning SDK for Python
-    - Create a workspace
-    - Write a workspace configuration file (aml_config/config.json).
+
+- An [Azure Machine Learning service workspace](how-to-manage-workspace.md).
+
+- A workspace [configuration file](how-to-configure-environment.md#workspace).
 
 - Install the data drift SDK using the following command:
 
@@ -155,9 +157,9 @@ The configuration of the data drift detector can be seen on the model details pa
 
 ![Azure portal Data Drift Config](media/how-to-monitor-data-drift/drift_config.png)
 
-## View results in Azure ML Workspace UI
+## View results in Azure portal
 
-To view results in the Azure ML Workspace UI, navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
+To view results in your workspace in [Azure portal](https://portal.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
 
 ![Azure portal Data Drift](media/how-to-monitor-data-drift/drift_ui.png)
 
@@ -190,6 +192,6 @@ Based on the output of the previous code, you may want to retrain your model. To
 
 ## Next steps
 
-* For a full example of using data drift, see the [Azure ML data drift notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). This Jupyter Notebook demonstrates using an [Azure Open Dataset](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) to train a model to predict the weather, deploy it to AKS, and monitor for data drift. 
+* For a full example of using data drift, see the [Azure ML data drift notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). This Jupyter Notebook demonstrates using an [Azure Open Dataset](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) to train a model to predict the weather, deploy it to AKS, and monitor for data drift. 
 
 * We would greatly appreciate your questions, comments, or suggestions as data drift moves toward general availability. Use the product feedback button below! 

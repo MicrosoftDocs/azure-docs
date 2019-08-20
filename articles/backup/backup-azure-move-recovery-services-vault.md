@@ -1,13 +1,13 @@
 ---
-title: Move a Recovery Services vault across Azure subscriptions or to another resource group
+title: Move a Recovery Services vault across Azure subscriptions or resource groups - Azure Backup
 description: Instructions to move recovery services vault across azure subscriptions and resource groups.
-
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: sogup
+ms.author: dacurwin
 ---
 
 # Move a Recovery Services vault across Azure Subscriptions and Resource Groups
@@ -107,7 +107,7 @@ You can move a Recovery Services vault and its associated resources to a differe
 
 To move a Recovery Services vault to another resource group, use the `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` requires the resource name and type of resource. You can get both from the `Get-AzureRmRecoveryServicesVault` cmdlet.
 
-```
+```powershell
 $destinationRG = "<destinationResourceGroupName>"
 $vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
 Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
@@ -115,7 +115,7 @@ Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $v
 
 To move the resources to different subscription, include the `-DestinationSubscriptionId` parameter.
 
-```
+```powershell
 Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
@@ -125,7 +125,7 @@ After executing the above cmdlets, you will be asked to confirm that you want to
 
 To move a Recovery Services vault to another resource group, use the following cmdlet:
 
-```
+```azurecli
 az resource move --destination-group <destinationResourceGroupName> --ids <VaultResourceID>
 ```
 

@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Monitor Azure Backup protected workloads'
 description: Monitor Azure Backup workloads using Azure portal
-
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Azure Backup; Alerts;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ---
 
@@ -82,6 +82,9 @@ Once an alert is raised, users are notified. Azure Backup provides an inbuilt no
 
 ![RS Vault inbuilt email notification](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
+> [!NOTE]
+> The alerts for SQL backups will be consolidated and the email is sent only for the first occurrence. But if the alert is inactivated by the user, the next occurrence will trigger another email.
+
 When notification is configured, you will receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.<br>
 
 If the frequency was set to an hourly digest and an alert was raised and resolved within an hour, it will not be a part of the upcoming hourly digest.
@@ -90,6 +93,14 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 >
 > * If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
 > * To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## Inactivating Alerts
+
+To inactivate/resolve an active alert, you can click on the list item corresponding to the alert you wish to inactivate. This opens up a screen which displays detailed information about the alert, with an 'Inactivate' button on the top. Clicking this button would change the status of the alert to 'Inactive'. You may also inactivate an alert by simply right-clicking on the list item corresponding to that alert and selecting 'Inactivate'.
+
+![RS Vault alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
 
 ## Next steps
 

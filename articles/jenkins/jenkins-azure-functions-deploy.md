@@ -45,12 +45,6 @@ The following steps show how to create a Java function using the Azure CLI:
     ```cli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
-    
-1. Update to version 2.x runtime, replacing the placeholders with the appropriate values.
-
-    ```cli
-    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
-    ```
 
 ## Prepare Jenkins server
 

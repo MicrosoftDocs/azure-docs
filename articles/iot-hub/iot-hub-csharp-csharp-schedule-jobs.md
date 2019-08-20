@@ -10,7 +10,7 @@ ms.date: 03/06/2018
 ms.author: robinsh
 ---
 
-# Schedule and broadcast jobs (.NET/.NET)
+# Schedule and broadcast jobs (.NET)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 

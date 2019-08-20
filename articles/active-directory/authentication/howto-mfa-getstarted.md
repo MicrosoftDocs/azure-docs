@@ -174,9 +174,6 @@ If your users were enabled using per-user enabled and enforced Azure Multi-Facto
 # Disable MFA for all users, keeping their MFA methods intact
 Get-MsolUser -All | Disable-MFA -KeepMethods
 
-# Enforce MFA for all users
-Get-MsolUser -All | Set-MfaState -State Enforced
-
 # Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
 function Disable-MFA {
 
@@ -357,6 +354,9 @@ Now that you have planned your solution, you can implement by following the step
    1. With [Identity Protection](../identity-protection/howto-mfa-policy.md)
 1. Send user communications and get users to enroll at [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Keep track of who’s enrolled](#identify-non-registered-users)
+
+> [!TIP]
+> Government cloud users can enroll at [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## Manage your solution
 

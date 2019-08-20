@@ -238,6 +238,16 @@ public static async Task AddValueClient(
 
 In the previous example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Add` into the equivalent (untyped) call to `SignalEntityAsync`.
 
+The type parameter for `SignalEntityAsync<T>` has the following restrictions:
+
+* The type parameter must be an interface.
+* Only methods can be defined on the interface. Properties are not supported.
+* Each method must define either one or no parameters.
+* Each method must return either `void`, `Task`, or `Task<T>` where `T` is some JSON-serializeable type.
+* The interface must be implemented by exactly one type within the interface's assembly.
+
+In most cases, interfaces that do not meet these requirements will result in a runtime exception.
+
 > [!NOTE]
 > It's important to note that the `ReadEntityStateAsync` and `SignalEntityAsync` methods of `IDurableOrchestrationClient` prioritize performance over consistency. `ReadEntityStateAsync` can return a stale value, and `SignalEntityAsync` can return before the operation has finished.
 

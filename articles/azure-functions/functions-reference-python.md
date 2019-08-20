@@ -19,8 +19,6 @@ ms.author: glenga
 
 This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
-
 ## Programming model
 
 An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file.

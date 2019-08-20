@@ -26,12 +26,12 @@ Both the Microsoft speech recognition SDK and the REST API support the following
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
  ca-ES | Catalan | No | No | No
  da-DK | Danish (Denmark) | No | No | No
- de-DE | German (Germany) | Yes | Yes | No
- en-AU | English (Australia) | No | Yes | Yes
- en-CA | English (Canada) | No | Yes | Yes
- en-GB | English (United Kingdom) | No | Yes | Yes
- en-IN | English (India) | Yes | Yes | Yes
- en-NZ | English (New Zealand) | No | Yes | Yes  
+ de-DE | German (Germany) | Yes | Yes | Yes
+ en-AU | English (Australia) | No | Yes | No
+ en-CA | English (Canada) | No | Yes | No
+ en-GB | English (United Kingdom) | No | Yes | No
+ en-IN | English (India) | Yes | Yes | No
+ en-NZ | English (New Zealand) | No | Yes | No 
  en-US | English (United States) | Yes | Yes | Yes
  es-ES | Spanish (Spain) | Yes | Yes | No
  es-MX | Spanish (Mexico) | No | Yes | No

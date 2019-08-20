@@ -191,7 +191,7 @@ To run the PerfInsights tool, follow these steps:
 
 2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, and select **Properties**. In the **General** tab, select **Unblock**, and then select **OK**. This ensures that the tool runs without any additional security prompts.  
 
-    ![Screenshot of PerfInsights Properties, with Unblock highlighted](media/how-to-use-perfInsights/unlock-file.png)
+    ![Screenshot of PerfInsights Properties, with Unblock highlighted](media/how-to-use-perfInsights/pi-unlock-file.png)
 
 3.  Expand the compressed PerfInsights.zip file into your temporary drive (by default, this is usually the D drive). 
 
@@ -201,7 +201,7 @@ To run the PerfInsights tool, follow these steps:
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Screenshot of PerfInsights commandline output](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Screenshot of PerfInsights commandline output](media/how-to-use-perfInsights/pi-commandline.png)
     
     The basic syntax for running PerfInsights scenarios is:
     
@@ -250,8 +250,8 @@ Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you ca
 
 Select the **Findings** tab.
 
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findingtab.png)
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
+![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.
@@ -266,17 +266,17 @@ The **Disk Map** and **Volume Map** sections describe how logical volumes and ph
 
 In the physical disk perspective (Disk Map), the table shows all logical volumes that are running on the disk. In the following example, **PhysicalDrive2** runs two logical volumes created on multiple partitions (J and H):
 
-![Screenshot of disk tab](media/how-to-use-perfInsights/disktab.png)
+![Screenshot of disk tab](media/how-to-use-perfInsights/pi-disk-tab.png)
 
 In the volume perspective (Volume Map), the tables show all the physical disks under each logical volume. Notice that for RAID/Dynamic disks, you might run a logical volume on multiple physical disks. In the following example, *C:\\mount* is a mount point configured as *SpannedDisk* on physical disks 2 and 3:
 
-![Screenshot of volume tab](media/how-to-use-perfInsights/volumetab.png)
+![Screenshot of volume tab](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### SQL tab
 
 If the target VM hosts any SQL Server instances, you see an additional tab in the report, named **SQL**:
 
-![Screenshot of SQL tab](media/how-to-use-perfInsights/sqltab.png)
+![Screenshot of SQL tab](media/how-to-use-perfInsights/pi-sql-tab.png)
 
 This section contains a **Findings** tab, and additional tabs for each of the SQL Server instances hosted on the VM.
 
@@ -284,7 +284,7 @@ The **Findings** tab contains a list of all the SQL related performance issues f
 
 In the following example, **PhysicalDrive0** (running the C drive) is displayed. This is because both the **modeldev** and **modellog** files are located on the C drive, and they are of different types (such as data file and transaction log, respectively).
 
-![Screenshot of log information](media/how-to-use-perfInsights/loginfo.png)
+![Screenshot of log information](media/how-to-use-perfInsights/pi-log-info.png)
 
 The tabs for specific instances of SQL Server contain a general section that displays basic information about the selected instance. The tabs also contain additional sections for advanced information, including settings, configurations, and user options.
 
@@ -307,7 +307,7 @@ You can upload diagnostics logs and reports to Microsoft Support for further rev
 
 The following screenshot shows a message similar to what you might receive:
 
-![Screenshot of sample message from Microsoft Support](media/how-to-use-perfInsights/supportemail.png)
+![Screenshot of sample message from Microsoft Support](media/how-to-use-perfInsights/pi-support-email.png)
 
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
