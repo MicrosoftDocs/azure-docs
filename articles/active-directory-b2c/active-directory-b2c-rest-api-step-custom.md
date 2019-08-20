@@ -96,7 +96,7 @@ Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvi
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
         <Item Key="AuthenticationType">None</Item>
-        <!-- REMOVE this line in production environments -->
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>

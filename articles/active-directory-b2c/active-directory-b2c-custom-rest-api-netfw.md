@@ -274,7 +274,7 @@ Locate the `<ClaimsProviders>` node, and then add the following XML snippet unde
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
         <Item Key="AuthenticationType">None</Item>
-        <!-- REMOVE this line in production environments -->
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -399,4 +399,4 @@ Your next task is to secure your RESTful API using basic or client certificate a
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
-Also available is [Reference: RESTful technical profile](restful-technical-profile.md), which contains information about the elements available for defining a RESTful technical profile in a custom policy.
+For information about all the elements available in a RESTful technical profile, see [Reference: RESTful technical profile](restful-technical-profile.md).
