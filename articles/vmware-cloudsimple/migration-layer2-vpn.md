@@ -29,7 +29,7 @@ NSX standalone Edge is deployed in your on-premises environment as an L2VPN clie
 
 ![Deployment scenario](media/l2vpn-deployment-scenario.png)
 
-To learn more about migration using L2 VPN, see the VMware topic [Virtual Private Networks](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704).
+To learn more about migration using L2 VPN, see [Virtual Private Networks](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704) in the VMware documentation.
 
 ## Prerequisites for deploying the solution
 
@@ -37,8 +37,8 @@ Verify that the following are in place before deploying and configuring the solu
 
 * The on-premises vSphere version is 6.7U1+ or 6.5P03+.
 * The on-premises vSphere license is at the Enterprise Plus level (for vSphere Distributed Switch).
-* You have identified the workload Layer 2 network to be stretched to your Private Cloud.
-* You have identified a Layer 2 network in your on-premises environment for deploying your L2VPN client appliance.
+* Identify the workload Layer 2 network to be stretched to your Private Cloud.
+* Identify a Layer 2 network in your on-premises environment for deploying your L2VPN client appliance.
 * [A Private Cloud is already created](create-private-cloud.md).
 * The version of the standalone NSX-T Edge appliance is compatible with the NSX-T Manager version (NSX-T 2.3.0) used in your Private Cloud environment.
 * A trunk port group has been created in the on-premises vCenter with [forged transmits enabled](#on-premises-vcenter-ui-create-a-trunk-port-group-for-the-trunk-interface-of-the-standalone-esg).
@@ -62,7 +62,7 @@ As of the VMware NSX-T 2.3 release:
 * The logical switch on the Private Cloud side that is stretched to on-premises over L2VPN can't be routed at the same time. The stretched logical switch can't be connected to a logical router.
 * L2VPN and route-based IPSEC VPNs can only be configured using API calls.
 
-For more information, see the VMware topic [Virtual Private Networks](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704).
+For more information, see [Virtual Private Networks](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704) in the VMware documentation.
 
 ### Sample L2 VPN deployment addressing
 
@@ -103,7 +103,7 @@ For more information, see the VMware topic [Virtual Private Networks](https://do
 
 The following steps show how to fetch the logical-router ID of Tier0 DR logical router instance for the IPsec and L2VPN services. The logical-router ID is needed later when implementing the L2VPN.
 
-1. Log in to NSX-T Manager (https://nsx-t-manager-ip-address) and select **Networking** > **Routers** > **Provider-LR** > **Overview**. For **High Availability Mode**, select **Active-Standby**. This action opens a pop-up window that shows the Edge VM on which the Tier0 router is currently active.
+1. Sign in to NSX-T Manager (https://nsx-t-manager-ip-address) and select **Networking** > **Routers** > **Provider-LR** > **Overview**. For **High Availability Mode**, select **Active-Standby**. This action opens a pop-up window that shows the Edge VM on which the Tier0 router is currently active.
 
     ![Select active-standby](media/l2vpn-fetch01.png)
 
@@ -117,11 +117,11 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 4. If you don't see an entry 'DR-Provider-LR', complete the following steps.
 
-5. Create two overlay backed logical switches. One logical switch is stretched to on-premises where the migrated workloads reside. Another logical switch is a dummy switch. For instructions, see the VMware topic [Create a Logical Switch](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-23194F9A-416A-40EA-B9F7-346B391C3EF8.html).
+5. Create two overlay-backed logical switches. One logical switch is stretched to on-premises where the migrated workloads reside. Another logical switch is a dummy switch. For instructions, see [Create a Logical Switch](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-23194F9A-416A-40EA-B9F7-346B391C3EF8.html) in the VMware documentation.
 
     ![Create logical switch](media/l2vpn-fetch04.png)
 
-6. Attach the dummy switch to the Tier1 router with a link local IP address or any non-overlapping subnet from on-premises or your Private Cloud. See the VMware topic [Add a Downlink Port on a Tier-1 Logical Router](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html).
+6. Attach the dummy switch to the Tier1 router with a link local IP address or any non-overlapping subnet from on-premises or your Private Cloud. See [Add a Downlink Port on a Tier-1 Logical Router](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) in the VMware documentation.
 
     ![Attach dummy switch](media/l2vpn-fetch05.png)
 
@@ -131,7 +131,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 ## Fetch the logical-switch ID needed for L2VPN
 
-1. Log in to NSX-T Manager (https://nsx-t-manager-ip-address). 
+1. Sign in to NSX-T Manager (https://nsx-t-manager-ip-address). 
 2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch>\ ** > **Overview**.
 3. Make a note of the UUID of the stretch logical switch, which is required when configuring the L2VPN.
 
@@ -149,21 +149,21 @@ To establish an IPsec route-based VPN between the NSX-T Tier0 router and the NSX
 
 ### Advertise the loopback interface IP to the underlay network
 
-1. Create a null route for the loopback interface network. Log in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **Static Routes**. Click **Add**. For **Network**, enter the loopback interface IP address. For **Next Hops**, click **Add** , specify 'Null' for the next hop, and keep the default of 1 for Admin Distance.
+1. Create a null route for the loopback interface network. Sign in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **Static Routes**. Click **Add**. For **Network**, enter the loopback interface IP address. For **Next Hops**, click **Add**, specify 'Null' for the next hop, and keep the default of 1 for Admin Distance.
 
     ![Add static route](media/l2vpn-routing-security01.png)
 
-2. Create an IP prefix list. Log in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **IP Prefix Lists**. Click **Add**. Enter a name to identify the list. For **Prefixes**, click **Add** twice. In the first line, enter '0.0.0.0/0' for **Network** and 'Deny' for **Action**. In the second line, select **Any** for **Network** and and **Permit** for **Action**.
+2. Create an IP prefix list. Sign in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **IP Prefix Lists**. Click **Add**. Enter a name to identify the list. For **Prefixes**, click **Add** twice. In the first line, enter '0.0.0.0/0' for **Network** and 'Deny' for **Action**. In the second line, select **Any** for **Network** and **Permit** for **Action**.
 3. Attach the IP prefix list to both BGP neighbors (TOR). Attaching the IP prefix list to the BGP neighbor prevents the default route from being advertised in BGP to the TOR switches. However, any other route that includes the null route will advertise the loopback interface IP address to the TOR switches.
 
     ![Create IP prefix list](media/l2vpn-routing-security02.png)
 
-4. Log in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **BGP** > **Neighbors**. Select the first neighbor. Click **Edit** > **Address Families**. For the IPv4 family, Edit the **Out Filter** column and select the IP prefix list that you created. Click **Save**. Repeat this step for the second neighbor.
+4. Sign in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **BGP** > **Neighbors**. Select the first neighbor. Click **Edit** > **Address Families**. For the IPv4 family, Edit the **Out Filter** column and select the IP prefix list that you created. Click **Save**. Repeat this step for the second neighbor.
 
     ![Attach IP prefix list 1](media/l2vpn-routing-security03.png)
     ![Attach IP prefix list 2](media/l2vpn-routing-security04.png)
 
-5. Redistribute the null static route into BGP. To advertise the loopback interface route to the underlay, you must redistribute the null static route into BGP. Log in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **Route Redistribution** > **Neighbors**. Select **Provider-LR-Route_Redistribution** and click **Edit**. Select the **Static** checkbox and click **Save**.
+5. Redistribute the null static route into BGP. To advertise the loopback interface route to the underlay, you must redistribute the null static route into BGP. Sign in to NSX-T Manager and select **Networking** > **Routing** > **Routers** > **Provider-LR** > **Routing** > **Route Redistribution** > **Neighbors**. Select **Provider-LR-Route_Redistribution** and click **Edit**. Select the **Static** checkbox and click **Save**.
 
     ![Redistribute null static route into BGP](media/l2vpn-routing-security05.png)
 
@@ -350,7 +350,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 ### Create the L2VPN session
 
-For the following POST command, the L2VPN service ID is the ID that you just obtained and the IPsec VPN session ID is the the ID obtained in the previous section.
+For the following POST command, the L2VPN service ID is the ID that you just obtained and the IPsec VPN session ID is the ID obtained in the previous section.
 
 ```	
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
@@ -452,7 +452,7 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
     Expand Uplink Interface:
 
     * **DNS IP Address**. Enter the on-premise DNS IP address.
-    * **Default Gateway**.  Enter the default gateway of the VLAN which will act as a default gateway for this client.
+    * **Default Gateway**.  Enter the default gateway of the VLAN that will act as a default gateway for this client.
     * **IP Address**. Enter the uplink IP address of the standalone client.
     * **Prefix Length**. Enter the prefix length of the uplink VLAN/subnet.
     * **CLI admin/enable/root User Password**. Set the password for admin /enable /root account.
@@ -468,7 +468,7 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 
 If one of the VPN sites doesn't have NSX deployed, you can configure an L2 VPN by deploying a standalone NSX Edge at that site. A standalone Edge is deployed using an OVF file on a host that is not managed by NSX. This deploys an Edge Services Gateway appliance to function as an L2 VPN client.
 
-If a standalone edge trunk vNIC is connected to a vSphere Distributed Switch, either promiscuous mode or a sink port is required for L2 VPN function. Using promiscuous mode can cause duplicate pings and duplicate responses. For this reason, use sink port mode in the L2 VPN standalone NSX Edge configuration. See the VMware topic [Configure a sink port](https://docs.vmware.com/en/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.admin.doc/GUID-3CDA4346-E692-4592-8796-ACBEEC87C161.html).
+If a standalone edge trunk vNIC is connected to a vSphere Distributed Switch, either promiscuous mode or a sink port is required for L2 VPN function. Using promiscuous mode can cause duplicate pings and duplicate responses. For this reason, use sink port mode in the L2 VPN standalone NSX Edge configuration. See the [Configure a sink port](https://docs.vmware.com/en/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.admin.doc/GUID-3CDA4346-E692-4592-8796-ACBEEC87C161.html) in the VMware documentation.
 
 ## IPsec VPN and L2VPN verification
 
