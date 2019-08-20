@@ -89,8 +89,11 @@ We've created this content to help you set up and use security info and two-step
                     <div class="cardText">
                         <h3>Two-step verification help</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time">Set up two-step verification</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-auth-app">Set up an authenticator app</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-phone-number">Set up a mobile device</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-office-phone">Set up an office phone</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">Manage your settings</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot">Get help with common problems</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">How to sign in</a>
                         </p>
                     </div>
