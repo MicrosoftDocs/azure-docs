@@ -1,6 +1,6 @@
 ---
 title: OPC Vault architecture - Azure | Microsoft Docs
-description: OPC Vault architecture
+description: OPC Vault Certificate Management Service architecture
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019
