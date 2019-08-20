@@ -282,11 +282,11 @@ You are now ready to run the applications.
 
    The following shows the device response to the direct method:
 
-   ![Simulated device app output](./media/iot-hub-node-node-schedule-jobs/simDevice.png)
+   ![Simulated device app output](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
 
    The following shows the service scheduling jobs for the direct method and device twin update, and the jobs running to completion:
 
-   ![Run the simulated device app](./media/iot-hub-node-node-schedule-jobs/scheduleJobService.png)
+   ![Run the simulated device app](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
 
 ## Next steps
 
