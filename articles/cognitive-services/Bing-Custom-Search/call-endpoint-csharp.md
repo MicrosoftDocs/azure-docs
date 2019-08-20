@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using C# | Microsoft Docs"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in C#. 
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 07/15/2019
 ms.author: maheshb
 ---
 
@@ -21,10 +21,10 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- Any edition of [Visual Studio 2019 or later](https://www.visualstudio.com/downloads/)
 - If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
-- The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
-    - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
+- The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet package. 
+    - From **Solution Explorer** in Visual Studio, right-click your project and select **Manage NuGet Packages** from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -100,7 +100,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     ```
    ## Process and view the results
 
-1. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
+3. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

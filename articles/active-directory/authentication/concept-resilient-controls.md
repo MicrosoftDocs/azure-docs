@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
 ---
 # Create a resilient access control management strategy with Azure Active Directory
@@ -31,8 +31,8 @@ This document provides guidance on strategies an organization should adopt to pr
 There are four key takeaways in this document:
 
 * Avoid administrator lockout by using emergency access accounts.
-* Implement MFA using conditional access (CA) rather than per-user MFA.
-* Mitigate user lockout by using multiple conditional access (CA) controls.
+* Implement MFA using Conditional Access (CA) rather than per-user MFA.
+* Mitigate user lockout by using multiple Conditional Access (CA) controls.
 * Mitigate user lockout by provisioning multiple authentication methods or equivalents for each user.
 
 ## Before a disruption
@@ -52,11 +52,11 @@ To unlock admin access to your tenant, you should create emergency access accoun
 
 ### Mitigating user lockout
 
- To mitigate the risk of user lockout, use conditional access policies with multiple controls to give users a choice of how they will access apps and resources. By giving a user the choice between, for example, signing in with MFA **or** signing in from a managed device **or** signing in from the corporate network, if one of the access controls is unavailable the user has other options to continue to work.
+ To mitigate the risk of user lockout, use Conditional Access policies with multiple controls to give users a choice of how they will access apps and resources. By giving a user the choice between, for example, signing in with MFA **or** signing in from a managed device **or** signing in from the corporate network, if one of the access controls is unavailable the user has other options to continue to work.
 
 #### Microsoft recommendations
 
-Incorporate the following access controls in your existing conditional access policies for organization:
+Incorporate the following access controls in your existing Conditional Access policies for organization:
 
 1. Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic).
 2. Deploy Windows Hello for Business on Windows 10 devices to satisfy MFA requirements directly from device sign-in.
@@ -103,7 +103,7 @@ Alternatively, your organization can also create contingency policies. To create
 
 #### Microsoft recommendations
 
-A contingency conditional access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. Then, when your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
+A contingency Conditional Access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. Then, when your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
 
 >[!IMPORTANT]
 > Disabling policies that enforce security on your users, even temporarily, will reduce your security posture while the contingency plan is in place.
@@ -204,7 +204,7 @@ User lockout can also occur if the following conditions are true:
 - Your organization uses a hybrid identity solution with pass-through authentication or federation.
 - Your on-premises identity systems (such as Active Directory, AD FS, or a dependent component) are unavailable. 
  
-To be more resilient, your organization should [enable password hash sync](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), because it enables you to [switch to using password hash sync](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) if your on-premises identity systems are down.
+To be more resilient, your organization should [enable password hash sync](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), because it enables you to [switch to using password hash sync](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) if your on-premises identity systems are down.
 
 #### Microsoft recommendations
  Enable password hash sync using the Azure AD Connect wizard, regardless whether your organization uses federation or pass-through authentication.
@@ -241,7 +241,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 
 ## Emergency options
 
- In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use conditional access policies to enforce MFA.
+ In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
  If your organization is using per-user MFA legacy policies, then you can consider the following alternative:
 
 1. If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
@@ -262,5 +262,5 @@ Undo the changes you made as part of the activated contingency plan once the ser
 * [How to configure hybrid Azure Active Directory joined devices](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [What are conditions in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [What are access controls in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [What are conditions in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [What are access controls in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

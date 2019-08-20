@@ -4,8 +4,8 @@ description: This article provides information using Az modules in Azure Automat
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
@@ -58,7 +58,7 @@ This import process can also be done through the [PowerShell Gallery](https://ww
 
 ## Test your runbooks
 
-Once the `Az` modules are imported in your Automation Account, you can now start editing your runbooks to use the Az module instead. The majority of the cmdlets have the same name except for `AzureRM` has been changed to `Az`. For a list of modules that do not follow this process, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names).
+Once the `Az` modules are imported in your Automation Account, you can now start editing your runbooks to use the Az module instead. The majority of the cmdlets have the same name except for `AzureRM` has been changed to `Az`. For a list of modules that do not follow this process, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 One way to test your runbooks before modifying your runbook to use the new cmdlets is by using `Enable-AzureRMAlias -Scope Process` at the beginning of a runbook. By adding this to your runbook, your runbook can run without changes.
 

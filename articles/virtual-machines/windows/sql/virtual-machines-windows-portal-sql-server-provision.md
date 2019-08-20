@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 When you create a SQL Server virtual machine, you can select one of several pre-configured images from the virtual machine gallery. The following steps demonstrate how to select one of the SQL Server 2017 images.
 
-1. Log in to the [Azure portal](https://portal.azure.com) using your account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your account.
 
 1. On the Azure portal, click **Create a resource**. The portal opens the **New** window.
 
@@ -88,7 +88,7 @@ On the **Basics** tab, provide the following information:
 * Under **Instance details**:
     1. Enter a unique **Virtual machine name**.  
     1. Choose a location for your **Region**. 
-    1. For the purpose of this guide, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Azure regions and availability](../../windows/regions-and-availability.md). 
+    1. For the purpose of this guide, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Availability](../../windows/availability.md). 
     1. In the **Image** list, select _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_.  
     1. Choose to **Change size** for the **Size** of the virtual machine and select the **A2 Basic** offering. Be sure to clean up your resources once you're done with them to prevent any unexpected charges. For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
@@ -127,7 +127,7 @@ On the **Networking** tab, configure your networking options.
 
 * Create a new **virtual network**, or use an existing vNet for your SQL Server VM. Designate a **Subnet** as well. 
 
-* Under **NIC security group**, select either a basic security group, or the advanced security group. Choosing the basic option allows you to select inbound ports for the SQL Server VM (the same values that were configured on the **Basic** tab). Selecting the advanced option allows you to choose an existing network security group, or create a new one. 
+* Under **NIC network security group**, select either a basic security group, or the advanced security group. Choosing the basic option allows you to select inbound ports for the SQL Server VM (the same values that were configured on the **Basic** tab). Selecting the advanced option allows you to choose an existing network security group, or create a new one. 
 
 * You can make other changes to network settings, or keep the default values.
 
@@ -135,15 +135,15 @@ On the **Networking** tab, configure your networking options.
 
 #### Monitoring
 
-On the **Monitoring** tab, configure monitoring and auto-shutdown. 
+On the **Monitoring** tab, configure monitoring and autoshutdown. 
 
-* Azure enables **Boot Monitoring** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
-* You can enable **System assigned managed identity** and **auto-shutdown** on this tab as well. 
+* Azure enables **Boot diagnostics** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
+* You can enable **System assigned managed identity** and **autoshutdown** on this tab as well. 
 
 ![SQL VM management settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
 
-## 3. Configure SQL server settings
+## 3. Configure SQL Server settings
 
 On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following:
 
@@ -182,7 +182,7 @@ In general, improve security by choosing the most restrictive connectivity that 
 
 ### Authentication
 
-If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
+If you require SQL Server Authentication, click **Enable** under **SQL authentication** on the **SQL Server settings** tab.
 
 ![SQL Server Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
@@ -193,13 +193,12 @@ If you enable SQL Server Authentication, specify a **Login name** and **Password
 
 If you do not enable SQL Server Authentication, then you can use the local Administrator account on the VM to connect to the SQL Server instance.
 
-![SQL Server authentication](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 ### Azure Key Vault integration
 
-To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
+To store security secrets in Azure for encryption, select **SQL Server settings**, and scroll down to  **Azure key vault integration**. Select **Enable** and fill in the requested information. 
 
-![Azure Key Vault integration](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![Azure Key Vault integration](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
 The following table lists the parameters required to configure Azure Key Vault Integration.
 
@@ -214,7 +213,7 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 ### Storage configuration
 
-Under **Storage configuration**, select **Change configuration** to specify the storage requirements.
+On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to specify the storage requirements.
 
 
 > [!NOTE]
@@ -258,14 +257,16 @@ When you enable SQL automated backup, you can configure the following settings:
 * Backup system databases
 * Configure backup schedule
 
-To encrypt the backup, click **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate.
+To encrypt the backup, click **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate. By default the schedule is set automatically, but you can create a manual schedule by selecting **Manual**. 
+
+![SQL VM automated backups](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
 For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 
 ### R Services (Advanced Analytics)
 
-You have the option to enable [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). This option enables you to use advanced analytics with SQL Server 2017. Click **Enable** on the **SQL Server Settings** window.
+You have the option to enable [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). This option enables you to use advanced analytics with SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
 
 
 ## 4. Review + create

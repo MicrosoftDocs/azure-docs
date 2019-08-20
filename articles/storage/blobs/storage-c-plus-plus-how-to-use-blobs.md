@@ -1,15 +1,13 @@
 ---
 title: How to use object (Blob) storage from C++ - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob (object) storage.
-services: storage
 author: mhopkins-msft
 
-ms.service: storage
-ms.topic: conceptual
-ms.date: 03/21/2018
 ms.author: mhopkins
-ms.reviewer: seguler
+ms.date: 03/21/2018
+ms.service: storage
 ms.subservice: blobs
+ms.topic: conceptual
 ---
 
 # How to use Blob storage from C++
@@ -64,7 +62,7 @@ To start the Azure storage emulator, Select the **Start** button or press the **
 
 The following samples assume that you have used one of these two methods to get the storage connection string.  
 
-## Retrieve your connection string
+## Retrieve your storage account
 You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.  
 
 ```cpp

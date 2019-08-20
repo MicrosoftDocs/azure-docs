@@ -1,5 +1,5 @@
 ---
-title: Create a custom wake word - Speech Services
+title: Create a custom wake word - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a wake word (or phrase). When the user says the wake word, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your wake word is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Create a custom wake word by using the Speech service

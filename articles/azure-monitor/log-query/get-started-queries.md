@@ -15,7 +15,7 @@ ms.date: 05/09/2019
 ms.author: bwren
 ---
 
-# Get started with Azure Monitor log queries
+# Get started with log queries in Azure Monitor
 
 
 > [!NOTE]
@@ -23,9 +23,9 @@ ms.author: bwren
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn to write Azure Monitor log queries. It will teach you how to:
+In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
-- Understand queries' structure
+- Understand query structure
 - Sort query results
 - Filter query results
 - Specify a time range
@@ -33,6 +33,8 @@ In this tutorial you will learn to write Azure Monitor log queries. It will teac
 - Define and use custom fields
 - Aggregate and group results
 
+For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).<br>
+For more details on log queries in Azure Monitor, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 
 ## Writing a new query
 Queries can start with either a table name or the *search* command. You should start with a table name, since it defines a clear scope for the query and improves both query performance and relevance of the results.
@@ -66,8 +68,8 @@ search in (SecurityEvent) "Cryptographic"
 
 This query searches the *SecurityEvent* table for records that contain the phrase "Cryptographic". Of those records, 10 records will be returned and displayed. If we omit the `in (SecurityEvent)` part and just run `search "Cryptographic"`, the search will go over *all* tables, which would take longer and be less efficient.
 
-> [!NOTE]
-> By default, a time range of _last 24 hours_ is set. To use a different range, use the time-picker (located next to the *Go* button) or add an explicit time range filter to your query.
+> [!WARNING]
+> Search queries are typically slower than table-based queries because they have to process more data. 
 
 ## Sort and top
 While **take** is useful to get a few records, the results are selected and displayed in no particular order. To get an ordered view, you could **sort** by the preferred column:

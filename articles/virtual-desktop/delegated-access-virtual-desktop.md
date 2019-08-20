@@ -37,11 +37,11 @@ Delegated access in Windows Virtual Desktop has several built-in role definition
 
 ## PowerShell cmdlets for role assignments
 
-You can run the following cmdlets to create, view, and edit role assignments:
+You can run the following cmdlets to create, view, and remove role assignments:
 
 * **Get-RdsRoleAssignment** displays a list of role assignments.
 * **New-RdsRoleAssignment** creates a new role assignment.
-* **Set-RdsRoleAssignment** edits role assignments.
+* **Remove-RdsRoleAssignment** deletes role assignments.
 
 ### Accepted parameters
 

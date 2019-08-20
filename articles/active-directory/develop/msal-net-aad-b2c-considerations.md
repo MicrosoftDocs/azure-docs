@@ -3,7 +3,7 @@ title: Azure AD B2C (Microsoft Authentication Library for .NET) | Azure
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about specific considerations when using Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
@@ -175,7 +175,7 @@ The suggested workaround is to use the [Caching by Policy](#acquire-a-token-to-a
 Alternatively, you can use the `tid` claim, if you are using the [B2C custom policies](https://aka.ms/ief), because it provides the capability to return additional claims to the application. To learn more about [Claims Transformation](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### Mitigation for "Missing from the token response"
-One option is to use the "name" claim as the preferred username. The process is mentioned in this [B2C doc](/azure/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions) -> "In the Return claim column, choose the claims you want returned in the authorization tokens sent back to your application after a successful profile editing experience. For example, select Display Name, Postal Code.”
+One option is to use the "name" claim as the preferred username. The process is mentioned in this [B2C doc](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> "In the Return claim column, choose the claims you want returned in the authorization tokens sent back to your application after a successful profile editing experience. For example, select Display Name, Postal Code.”
 
 ## Next steps 
 

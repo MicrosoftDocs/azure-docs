@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 06/24/2019
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
@@ -61,8 +61,7 @@ The important things to understand in the `pom.xml` file are:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
+    The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
 
@@ -216,10 +215,19 @@ Consumption by clients within the same group is handled through the partitions f
 
 Records stored in Kafka are stored in the order they are received within a partition. To achieve in-ordered delivery for records *within a partition*, create a consumer group where the number of consumer instances matches the number of partitions. To achieve in-ordered delivery for records *within the topic*, create a consumer group with only one consumer instance.
 
+## Clean up resources
+
+To clean up the resources created by this tutorial, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
+
+To remove the resource group using the Azure portal:
+
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and then choose __Resource Groups__ to display the list of your resource groups.
+2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
+3. Select __Delete resource group__, and then confirm.
+
 ## Next steps
 
 In this document, you learned how to use the Apache Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)
-* [Apache Kafka Streams API with HDInsight](apache-kafka-streams-api.md)
+> [!div class="nextstepaction"]
+> [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)

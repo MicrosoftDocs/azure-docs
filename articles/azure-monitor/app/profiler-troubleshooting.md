@@ -82,7 +82,7 @@ For Profiler to work properly:
 
       ![profiler-webjob-log]
 
-If you can't figure out why Profiler isn't working for you, you can download the log and send it to our team for assistance. 
+If you can't figure out why Profiler isn't working for you, you can download the log and send it to our team for assistance, serviceprofilerhelp@microsoft.com. 
     
 ### Manual installation
 

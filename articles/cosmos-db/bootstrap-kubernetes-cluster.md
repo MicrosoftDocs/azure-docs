@@ -24,7 +24,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
 
 1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). You can download Azure CLI specific to your operating system and install.
 
-1. Install the [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) version of Azure Kubernetes Engine. The installation instructions for different operating systems are available in [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) page. You just need the steps from **Install AKS Engine** section of the linked doc. After downloading, extract the zip file.
+1. Install the [latest version](https://github.com/Azure/aks-engine/releases) of Azure Kubernetes Engine. The installation instructions for different operating systems are available in [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) page. You just need the steps from **Install AKS Engine** section of the linked doc. After downloading, extract the zip file.
 
    The Azure Kubernetes Engine (**aks-engine**) generates Azure Resource Manager templates for Kubernetes clusters on Azure. The input to aks-engine is a cluster definition file that describes the desired cluster, including orchestrator, features, and agents. The structure of the input files is similar to the public API for Azure Kubernetes Service.
 
@@ -72,7 +72,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
 1. From the command prompt, navigate to the folder where the Azure Kubernetes Engine executable is located. For example, on your command prompt you can navigate to the folder as:
 
    ```cmd
-   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+   cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
 1. Open a text editor of your choice and define a Resource Manager template that deploys the Azure Kubernetes cluster with Azure Cosmos DB etcd API. Copy the following JSON definition to your text editor and save the file as `apiModel.json`:

@@ -34,12 +34,12 @@ This cmdlet resets the password for the service account and update it both in Az
 ## Known issues these steps can solve
 This section is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD Connector account.
 
-- - -
+---
 Event 6900  
 The server encountered an unexpected error while processing a password change notification:  
 AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
-- - -
+---
 Event 659  
 Error while retrieving password policy sync configuration. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
 AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.

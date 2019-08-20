@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 04/29/2019
-ms.author: rayne
+ms.author: raynew
 
 ---
 # Troubleshoot the process server

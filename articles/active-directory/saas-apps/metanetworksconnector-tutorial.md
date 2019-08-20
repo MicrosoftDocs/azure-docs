@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL are explained later in the tutorial.
 
-6. Meta Networks Connector application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+6. Meta Networks Connector application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 	
@@ -130,8 +130,8 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 	| ---------------| --------------- | -------- |
 	| firstname | user.givenname | |
 	| lastname | user.surname | |
-	| emailaddress| user.mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-	| name | user.userprincipalname| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 	| phone | user.telephonenumber | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
@@ -171,7 +171,7 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 1. Open a new tab in your browser and log in to your Meta Networks Connector administrator account.
 	
 	> [!NOTE]
-	> Meta Networks Connector is a secure system. So before accessing their portal you need to get your public IP address whitelisted on their side. To get your public IP address,follow the below link specified [here](https://whatismyipaddress.com/). Send your IP address to the [Meta Networks Connector Client support team](mailto:support@metanetworks.com) to get your IP address whitelisted.
+	> Meta Networks Connector is a secure system. So before accessing their portal you need to get your public IP address added to an allow list on their side. To get your public IP address,follow the below link specified [here](https://whatismyipaddress.com/). Send your IP address to the [Meta Networks Connector Client support team](mailto:support@metanetworks.com) to get your IP address added to an allow list.
 	
 2. Go to **Administrator** and select **Settings**.
 	
@@ -279,5 +279,5 @@ When you click the Meta Networks Connector tile in the Access Panel, you should 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

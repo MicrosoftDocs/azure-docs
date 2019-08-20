@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager template | Microsoft Docs
-description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets using Azure PowerShell or Azure Resource Manager templates.
+title: Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager templates | Microsoft Docs
+description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,34 +11,34 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: magoedte
 ---
 
-# Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager template
+# Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager templates
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets using Azure PowerShell or Azure Resource Manager templates. At the end of this process you will have successfully begun monitoring all of your virtual machines and learn if any are experiencing performance or availability issues. 
+This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates. At the end of this process, you will have successfully begun monitoring all of your virtual machines and learn if any are experiencing performance or availability issues.
 
 ## Set up a Log Analytics workspace 
 
-If you don't have a Log Analytics workspace, create one by reviewing the methods that are suggested in the [Prerequisites](vminsights-enable-overview.md#log-analytics) section before proceeding with the steps to configure it in order to complete the deployment of Azure Monitor for VMs using the Azure Resource Manager template method.
+If you don't have a Log Analytics workspace, you need to create one. Review the methods that are suggested in the [Prerequisites](vminsights-enable-overview.md#log-analytics) section before you continue with the steps to configure it. Then you can finish the deployment of Azure Monitor for VMs by using the Azure Resource Manager template method.
 
 ### Enable performance counters
 
-If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in either of two ways:
+If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in one of two ways:
 * Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
-* By downloading and running a PowerShell script that's available from [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
+* By downloading and running a PowerShell script that's available from the [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ### Install the ServiceMap and InfrastructureInsights solutions
 This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
-If you're unfamiliar with deploying resources by using a template, see:
+If you don't know how to deploy resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Copy and paste the following JSON syntax into your file:
 
@@ -116,7 +116,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
         ```
 
-        The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
+        The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
 
         ```powershell
         provisioningState       : Succeeded
@@ -130,54 +130,54 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
         ```
 
-The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+        The configuration change can take a few minutes to finish. When it's finished, a message is displayed that's similar to the following and includes the result:
 
-```azurecli
-provisioningState       : Succeeded
-```
+        ```azurecli
+        provisioningState       : Succeeded
+        ```
 
-## Enable with Azure Resource Manager template
-We have created example Azure Resource Manager templates for onboarding your virtual machines and virtual machine scale sets. These templates include scenarios for enabling monitoring on an existing resource and for creating a new resource that will have monitoring enabled.
+## Enable with Azure Resource Manager templates
+We have created example Azure Resource Manager templates for onboarding your virtual machines and virtual machine scale sets. These templates include scenarios you can use to enable monitoring on an existing resource and create a new resource that has monitoring enabled.
 
 >[!NOTE]
->The template needs to be deployed in the same resource group as the resource to be onboarded.
+>The template needs to be deployed in the same resource group as the resource to be brought on board.
 
-If you are unfamiliar with the concept of deploying resources by using a template, see:
+If you don't know how to deploy resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### Download templates
 
-The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders representing each deployment scenario with a template and parameter file. Before running, modify the parameters file and specify the values required. Do not modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file you can deploy it using the following methods described later in this article. 
+The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. Don't modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file, you can deploy it by using the following methods described later in this article. 
 
 The download file contains the following templates for different scenarios:
 
-- **ExistingVmOnboarding** template enables Azure Monitor for VMs if the virtual machines already exists.
+- **ExistingVmOnboarding** template enables Azure Monitor for VMs if the virtual machine already exists.
 - **NewVmOnboarding** template creates a virtual machine and enables Azure Monitor for VMs to monitor it.
 - **ExistingVmssOnboarding** template enables Azure Monitor for VMs if the virtual machine scale set already exists.
-- **NewVmssOnboarding** template creates a virtual machine scale sets and enables Azure Monitor for VMs to monitor them.
-- **ConfigureWorksapce*** template configures your Log Analytics workspace to support Azure Monitor for VMs by enabling the solutions and collection of Linux and Windows operating system performance counters.
+- **NewVmssOnboarding** template creates virtual machine scale sets and enables Azure Monitor for VMs to monitor them.
+- **ConfigureWorksapce** template configures your Log Analytics workspace to support Azure Monitor for VMs by enabling the solutions and collection of Linux and Windows operating system performance counters.
 
 >[!NOTE]
->If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, Azure Monitor for VMs will not be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
+>If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, Azure Monitor for VMs won't be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
 
-### Deploy using Azure PowerShell
+### Deploy by using Azure PowerShell
 
-The following step enables monitoring using Azure PowerShell.
+The following step enables monitoring by using Azure PowerShell.
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
 ```
-The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
 
 ```powershell
 provisioningState       : Succeeded
 ```
-### Deploy using Azure CLI
+### Deploy by using the Azure CLI
 
-The following step enables monitoring using Azure CLI.   
+The following step enables monitoring by using the Azure CLI.
 
 ```azurecli
 az login
@@ -185,7 +185,7 @@ az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
 
-The output will resemble the following:
+The output resembles the following:
 
 ```azurecli
 provisioningState       : Succeeded
@@ -193,9 +193,15 @@ provisioningState       : Succeeded
 
 ## Enable with PowerShell
 
-To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0). It's available from the Azure PowerShell Gallery. This script iterates through:
 
-This script requires Azure PowerShell module Az version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- Every virtual machine and virtual machine scale set in your subscription.
+- The scoped resource group that's specified by *ResourceGroup*. 
+- A single VM or virtual machine scale set that's specified by *Name*.
+
+For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension isn't installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
+
+Verify you are using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 To get a list of the script's argument details and example usage, run `Get-Help`.
 
@@ -213,23 +219,23 @@ SYNTAX
 
 
 DESCRIPTION
-    This script installs or re-configures following on VMs and VM Scale Sets:
-    - Log Analytics VM Extension configured to supplied Log Analytics Workspace
-    - Dependency Agent VM Extension
+    This script installs or reconfigures the following on VMs and virtual machine scale sets:
+    - Log Analytics VM extension configured to supplied Log Analytics workspace
+    - Dependency agent VM extension
 
     Can be applied to:
     - Subscription
-    - Resource Group in a Subscription
-    - Specific VM/VM Scale Set
-    - Compliance results of a policy for a VM or VM Extension
+    - Resource group in a subscription
+    - Specific VM or virtual machine scale set
+    - Compliance results of a policy for a VM or VM extension
 
-    Script will show you list of VMs/VM Scale Sets that will apply to and let you confirm to continue.
+    Script will show you a list of VMs or virtual machine scale sets that will apply to and let you confirm to continue.
     Use -Approve switch to run without prompting, if all required parameters are provided.
 
-    If the extensions are already installed will not install again.
-    Use -ReInstall switch if you need to for example update the workspace.
+    If the extensions are already installed, they will not install again.
+    Use -ReInstall switch if you need to, for example, update the workspace.
 
-    Use -WhatIf if you would like to see what would happen in terms of installs, what workspace configured to, and status of the extension.
+    Use -WhatIf if you want to see what would happen in terms of installs, what workspace configured to, and status of the extension.
 
 
 PARAMETERS
@@ -284,19 +290,19 @@ PARAMETERS
     .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -ResourceGroup <ResourceGroup>
 
-    Install for all VMs in a Resource Group in a subscription
+    Install for all VMs in a resource group in a subscription
 
     -------------------------- EXAMPLE 2 --------------------------
     .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -ResourceGroup <ResourceGroup> -ReInstall
 
-    Specify to reinstall extensions even if already installed, for example to update to a different workspace
+    Specify to reinstall extensions even if already installed, for example, to update to a different workspace
 
     -------------------------- EXAMPLE 3 --------------------------
     .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -PolicyAssignmentName a4f79f8ce891455198c08736 -ReInstall
 
-    Specify to use a PolicyAssignmentName for source, and to reinstall (move to a new workspace)
+    Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
 The following example demonstrates using the PowerShell commands in the folder to enable Azure Monitor for VMs and understand the expected output:
@@ -307,16 +313,16 @@ $WorkspaceKey = "<Key>"
 $SubscriptionId = "<GUID>"
 .\Install-VMInsights.ps1 -WorkspaceId $WorkspaceId -WorkspaceKey $WorkspaceKey -SubscriptionId $SubscriptionId -WorkspaceRegion eastus
 
-Getting list of VMs or VM ScaleSets matching criteria specified
+Getting list of VMs or virtual machine scale sets matching criteria specified
 
-VMs or VM ScaleSets matching criteria:
+VMs or virtual machine scale sets matching criteria:
 
 db-ws-1 VM running
 db-ws2012 VM running
 
-This operation will install the Log Analytics and Dependency agent extensions on above 2 VMs or VM Scale Sets.
+This operation will install the Log Analytics and Dependency agent extensions on the previous two VMs or virtual machine scale sets.
 VMs in a non-running state will be skipped.
-Extension will not be reinstalled if already installed. Use -ReInstall if desired, for example to update workspace
+Extension will not be reinstalled if already installed. Use -ReInstall if desired, for example, to update workspace.
 
 Confirm
 Continue?
@@ -333,7 +339,7 @@ db-ws2012 : Successfully deployed MicrosoftMonitoringAgent
 
 Summary:
 
-Already Onboarded: (0)
+Already onboarded: (0)
 
 Succeeded: (4)
 db-ws-1 : Successfully deployed DependencyAgentWindows
@@ -350,4 +356,9 @@ Failed: (0)
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs. To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). To identify bottlenecks and overall utilization with your VMs performance, see [View Azure VM Performance](vminsights-performance.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
+ 
+- To learn how to use the health feature, see [View Azure Monitor for VMs health](vminsights-health.md). 
+- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
+- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md). 
+- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).

@@ -13,7 +13,7 @@ ms.subservice: alerts
 
 This article shows you how to resolve common issues that might happen when you're setting up log alerts in Azure Monitor. It also provides solutions to common problems with functionality or configuration of log alerts. 
 
-The term *log alerts* describes alerts that fire based on a log query in an [Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
+The term *log alerts* describe rules that fire based on a log query in an [Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details in [Create and manage action groups in the Azure portal](../platform/action-groups.md).
@@ -176,6 +176,7 @@ The following sample event in Azure Activity Log is for an alert rule that has b
 Each log alert rule created in Azure Monitor as part of its configuration must specify an analytics query that the alert service will run periodically. The analytics query might have correct syntax at the time of rule creation or update. But sometimes, over a period of time, the query provided in the log alert rule can develop syntax issues and cause the rule execution to fail. Some common reasons why an analytics query provided in a log alert rule can develop errors are:
 
 - The query is written to [run across multiple resources](../log-query/cross-workspace-query.md). And one or more of the specified resources no longer exist.
+- [Metric measurement type log alert](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configured has an alert query doesn't comply with the syntax norms
 - There has been no data flow to the analytics platform. The [query execution gives an error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because there's no data for the provided query.
 - Changes in [query language](https://docs.microsoft.com/azure/kusto/query/) include a revised format for commands and functions. So the query provided earlier in an alert rule is no longer valid.
 

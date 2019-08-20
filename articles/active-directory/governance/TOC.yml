@@ -27,9 +27,7 @@
       href: manage-guest-access-with-access-reviews.md
     - name: Manage user access with reviews
       href: manage-user-access-with-access-reviews.md
-    - name: Manage programs and their controls
-      href: manage-programs-controls.md
-    - name: Manage users excluded from conditional access
+    - name: Manage users excluded from Conditional Access
       href: conditional-access-exclusion.md
 - name: How-to guides
   expanded: true
@@ -48,6 +46,8 @@
       href: entitlement-management-request-access.md
     - name: Approve requests
       href: entitlement-management-request-approve.md
+    - name: Delegate tasks
+      href: entitlement-management-delegate.md
     - name: View reports and logs
       href: entitlement-management-reports.md
     - name: Troubleshoot
@@ -64,8 +64,6 @@
         href: review-your-access.md
       - name: Complete an access review
         href: complete-access-review.md
-      - name: Retrieve access review results
-        href: retrieve-access-review.md
     - name: Azure AD roles
       items:
       - name: Create an access review

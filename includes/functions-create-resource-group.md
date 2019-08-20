@@ -15,4 +15,5 @@ If you are not using Cloud Shell, sign in first using `az login`.
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-You generally create your resource group and the resources in a region near you. To see all supported locations for App Service plans, run the [az appservice list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
+
+You generally create your resource group and the resources in a [region](https://azure.microsoft.com/global-infrastructure/regions/) near you. 

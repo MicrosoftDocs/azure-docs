@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
 
 > [!div renderon="docs"]
-> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 This guide explains how a native Universal Windows Platform (UWP) application can request an access token and then call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Microsoft identity platform endpoint.
 
@@ -144,7 +143,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API.
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -417,3 +416,8 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 **Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

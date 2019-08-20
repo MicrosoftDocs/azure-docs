@@ -1,6 +1,6 @@
 ---
-title: "Prepare test data for Custom Speech - Speech Services"
-titlesuffix: Azure Cognitive Services
+title: "Prepare test data for Custom Speech - Speech Service"
+titleSuffix: Azure Cognitive Services
 description: "Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page, we cover the types of data, how they are used, and how to manage them."
 services: cognitive-services
 author: erhopf
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -24,7 +24,7 @@ This table lists accepted data types, when each data type should be used, and th
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5 - 5 hours of audio | Yes | 1 - 1,000 hours of audio |
-| [Related text](##related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
@@ -39,7 +39,7 @@ Each dataset you upload must meet the requirements for the data type that you ch
 After your dataset is uploaded, you have a few options:
 
 * You can navigate to the **Testing** tab and visually inspect audio only or audio + human-labeled transcription data.
-* You can navigate to the **Training** tab and us audio + human transcription data or related text data to train a custom model.
+* You can navigate to the **Training** tab and use audio + human transcription data or related text data to train a custom model.
 
 ## Audio data for testing
 
@@ -61,8 +61,8 @@ If your audio doesn’t satisfy these properties or you want to check if it does
 
 | Activity | Description | Sox command |
 |----------|-------------|-------------|
-| Check audio format | Use this command to check the audio file format. | `soxi <filename>.wav` |
-| Convert audio format | Use this command to convert the audio file to single channel, 16-bit, 48 KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| Check audio format | Use this command to check the audio file format. | `sox --i <filename>` |
+| Convert audio format | Use this command to convert the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## Audio + human-labeled transcript data for testing/training
 
@@ -133,11 +133,11 @@ If there are uncommon terms without standard pronunciations that your users will
 
 This includes examples of a spoken utterance, and a custom pronunciation for each:
 
-| Spoken form | Recognized/displayed form |
+| Recognized/displayed form | Spoken form |
 |--------------|--------------------------|
-| three c p o | 3CPO |  
-| c n t k | CNTK |
-| i triple e | IEEE |
+| 3CPO | three c p o |  
+| CNTK | c n t k |
+| IEEE | i triple e |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 

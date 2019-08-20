@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Onboard to App Center
 
-Before you can use Application Insights with your mobile app, you need to onboard your app to [App Center](https://docs.microsoft.com/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to App Center. Then, App Center continuously exports copies of these custom events into Application Insights as the events are received.
+Before you can use Application Insights with your mobile app, you need to onboard your app to [App Center](https://docs.microsoft.com/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to App Center. Then, App Center continuously exports copies of these custom events into Application Insights as the events are received. (This does not apply to the [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) or the [React Native plugin](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native) where telemetry is sent directly to Application Insights.)
 
 To onboard your app, follow the App Center quickstart for each platform your app supports. Create separate App Center instances for each platform:
 
@@ -63,17 +63,17 @@ To make sure your custom events are being received, go to the **Events** tab und
 Once your app is sending custom events and these events are being received by App Center, you need to create an App Center-type Application Insights resource in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Create a resource** > **Management Tools** > **Application Insights**.
+2. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
-    ![Adding Application Insights resource](./media/mobile-center-quickstart/add-b.png)
+    > [!NOTE]
+    > If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
 
     A configuration box will appear. Use the table below to fill out the input fields.
 
     | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Some globally unique value, like "myApp-iOS" | Name that identifies the app you are monitoring |
-   | **Application Type** | App Center application | Type of app you are monitoring |
-   | **Resource Group**     | A new resource group, or an existing one from the menu | The resource group in which to create the new Application Insights resource |
+     | **Resource Group**     | A new resource group, or an existing one from the menu | The resource group in which to create the new Application Insights resource |
    | **Location** | A location from the menu | Choose a location near you, or near where your app is hosted |
 
 3. Click **Create**.
@@ -84,9 +84,7 @@ If your app supports multiple platforms (iOS, Android, etc.), it's best to creat
 
 In your new Application Insights resource on the **Overview** page. Copy the instrumentation key from your resource.
 
-   ![Analytics button in Application Insights](./media/mobile-center-quickstart/overview-01.png)
-
-In the App Center instance for your app:
+In the [App Center](https://appcenter.ms/) instance for your app:
 
 1. On the **Settings** page, click **Export**.
 2. Choose **New Export**, pick **Application Insights**, then click **Customize**.
@@ -103,13 +101,11 @@ To give you more data when you first connect, the most recent 48 hours of custom
 
 Application Insights can query, segment, filter, and analyze the custom event telemetry from your apps, beyond the analytics tools App Center provides.
 
-1. **Query your custom event telemetry.** From the Application Insights **Overview** page, choose **Analytics**. 
+1. **Query your custom event telemetry.** From the Application Insights **Overview** page, choose **Logs (Analytics)**.
 
-   ![Analytics button in Application Insights](./media/mobile-center-quickstart/analytics-001.png)
-
-   The Application Insights Analytics portal associated with your Application Insights resource will open. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
+   The Application Insights Logs (Analytics) portal associated with your Application Insights resource will open. The Logs (Analytics) portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
    
-   Open a new tab in the Analytics portal, then paste in the following query. It returns a count of how many distinct users have sent each custom event from your app in the last 24 hours, sorted by these distinct counts.
+   Open a new tab in the Logs (Analytics) portal, then paste in the following query. It returns a count of how many distinct users have sent each custom event from your app in the last 24 hours, sorted by these distinct counts.
 
    ```AIQL
    customEvents
@@ -118,7 +114,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics portal](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![Logs (Analytics) portal](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
