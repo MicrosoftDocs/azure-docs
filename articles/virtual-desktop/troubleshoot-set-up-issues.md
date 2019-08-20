@@ -162,7 +162,7 @@ Example of raw error:
 
 ```Error
 { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
- rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
+ rds.wvd-provision-host-pool-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
  { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
  "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
  "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message":
@@ -272,9 +272,9 @@ Example of raw error:
 
 ```Error
 \\\"The DSC Extension failed to execute: Error downloading
-https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-hostpool-3-preview-
-2dec7a4d-006c-4cc0-965a-02bbe438d6ff-private-preview-
-1/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be
+https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-provision-host-pool-
+2dec7a4d-006c-4cc0-965a-02bbe438d6ff-prod
+/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be
 resolved: 'catalogartifact.azureedge.net'.\\nMore information about the failure can
 be found in the logs located under
 'C:\\\\WindowsAzure\\\\Logs\\\\Plugins\\\\Microsoft.Powershell.DSC\\\\2.77.0.0' on
