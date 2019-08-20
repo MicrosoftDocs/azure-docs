@@ -446,6 +446,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Fixed length file processing
+      href: data-flow-aggregate.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -482,10 +484,6 @@
       href: data-flow-unpivot.md
     - name: Window
       href: data-flow-window.md
-  - name: Data flow patterns
-    items:
-    - name: Fixed length file processing
-      href: data-flow-aggregate.md      
   - name: Parameterize
     items:
     - name: Parameterize linked services
