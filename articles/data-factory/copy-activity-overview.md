@@ -201,9 +201,9 @@ Copy activity execution details and performance characteristics are also returne
 | effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
-| redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
-| executionDetails | More details on the stages copy activity goes through, and the corresponding steps, duration, used configurations, etc. It's not recommended to parse this section as it may change.<br/><br/>ADF also reports the detailed durations (in seconds) spent on respective steps under `detailedDurations`. The durations of these steps are exclusive and only those that apply to the given copy activity run would show up:<br/>- **Queuing duration** (`queuingDuration`): The elapsed time until the copy activity actually starts on the integration runtime. If you use Self-hosted IR and this value is large, suggest to check the IR capacity and usage, and scale up/out according to your workload. <br/>- **Pre-copy script duration** (`preCopyScriptDuration`): The elapsed time between copy activity starting on IR and copy activity finishing executing the pre-copy script in sink data store. Apply when you configure the pre-copy script. <br/>- **Time-to-first-byte** (`timeToFirstByte`): The elapsed time between the end of the previous step and the IR receiving the first byte from the source data store. Apply to non-file-based source. If this value is large, suggest to check and optimize the query or server.<br/>- **Transfer duration** (`transferDuration`): The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. | Array |
-| perfRecommendation | Copy performance tuning tips. See [Performance and tuning](#performance-and-tuning) section on details. | Array |
+| redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](#fault-tolerance) later in this article. | Text (string) |
+| executionDetails | More details on the stages the copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change.<br/><br/>Data Factory also reports the detailed durations (in seconds) spent on various stages under `detailedDurations`. The durations of these steps are exclusive. Only those that apply to the given copy activity run appear:<br/>**Queuing duration** (`queuingDuration`): The amount of time before the copy activity actually starts on the integration runtime. If you use a self-hosted IR and this value is large, check the IR capacity and usage, and scale up or out according to your workload. <br/>**Pre-copy script duration** (`preCopyScriptDuration`): The time elapsed between when the copy activity starts on the IR and when the copy activity finishes running the pre-copy script in the sink data store. Applies when you configure the pre-copy script. <br/>**Time-to-first-byte** (`timeToFirstByte`): The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources. If this value is large, check and optimize the query or server.<br/>**Transfer duration** (`transferDuration`): The time elapsed between the end of the previous step and the time when the IR transfers all the data from source to sink. | Array |
+| perfRecommendation | Copy performance tuning tips. See [Performance and tuning](#performance-and-tuning) for details. | Array |
 
 ```json
 "output": {
@@ -252,26 +252,26 @@ Copy activity execution details and performance characteristics are also returne
 
 ## Schema and data type mapping
 
-See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md), which describes how copy activity maps your source data to sink.
+See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the copy activity maps your source data to your sink.
 
 ## Fault tolerance
 
-By default, copy activity stops copying data and returns a failure when it encounters incompatible data between source and sink. You can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
+By default, the copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. You can configure the copy activity to skip and log the incompatible rows and copy only the compatible data to make the copy succeed. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
 
 ## Performance and tuning
 
-See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
+The [Copy activity performance and scalability guide](copy-activity-performance.md) describes key factors that affect the performance of data movement via the copy activity in Azure Data Factory. It also lists the performance values observed during testing and discusses how to optimize the performance of the copy activity.
 
-In some cases, when you execute a copy activity in ADF, you will directly see "**Performance tuning tips**" on top of the [copy activity monitoring page](#monitor-visually) as shown in the following example. It not only tells you the bottleneck identified for the given copy run, but also guides you on what to change so as to boost copy throughput. The performance tuning tips currently provide suggestions like to use PolyBase when copying data into Azure SQL Data Warehouse, to increase Azure Cosmos DB RU or Azure SQL DB DTU when the resource on data store side is the bottleneck, to remove the unnecessary staged copy, etc. The performance tuning rules will be gradually enriched as well.
+In some scenarios, when you run a copy activity in Data Factory, you'll see "**Performance tuning tips**" at the top of the [copy activity monitoring page](#monitor-visually), as shown in the following example. The tips tell you the bottleneck identified for the given copy run. They also provide information on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like using PolyBase when copying data into Azure SQL Data Warehouse, increasing Azure Cosmos DB RUs or Azure SQL Database DTUs when the resource on data store side is the bottleneck, and removing unnecessary staged copies.
 
-**Example: copy into Azure SQL DB with performance tuning tips**
+**Example: Copy into Azure SQL Database with performance tuning tips**
 
-In this sample, during copy run, ADF notices that the sink Azure SQL DB reaches a high DTU utilization which slows down the write operations, so the suggestion is to increase the Azure SQL DB tier with more DTU.
+In this sample, during a copy run, Data Factory tracks a high DTU utilization in the sink Azure SQL Database. This condition slows down write operations. The suggestion is to increase the DTUs on the Azure SQL Database tier:
 
 ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## Incremental copy
-Data Factory supports scenarios for incrementally copying delta data from a source data store to a sink data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md).
+Data Factory enables you to incrementally copy delta data from a source data store to a sink data store. For details, see [Tutorial: Incrementally copy data](tutorial-incremental-copy-overview.md).
 
 ## Read and write partitioned data
 In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
