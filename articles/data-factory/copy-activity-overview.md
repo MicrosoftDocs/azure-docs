@@ -141,7 +141,7 @@ The following template of a copy activity contains an exhaustive list of support
 
 ## Monitoring
 
-You can monitor the copy activity run on Azure Data Factory "Author & Monitor" UI or programmatically. You can then compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
+You can monitor the copy activity run on Azure Data Factory "Author & Monitor" UI or programmatically.
 
 ### Monitor visually
 

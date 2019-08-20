@@ -31,7 +31,7 @@ The bulk executor library helps you leverage this massive throughput and storage
  
 * It can bulk import more than a terabyte of data within an hour by using a scale-out architecture.  
 
-* It can bulk update existing data in Azure Cosmos DB containers as patches. 
+* It can bulk update existing data in Azure Cosmos containers as patches. 
  
 ## How does the bulk executor operate? 
 

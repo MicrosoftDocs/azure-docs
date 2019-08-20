@@ -29,7 +29,7 @@ You can set the service tier, compute size, and storage amount for a single data
 ## General Purpose service tier for provisioned compute
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
+> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ### Gen4 compute generation (part 1)
 
@@ -178,7 +178,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 ## Business Critical service tier for provisioned compute
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
+> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ### Gen4 compute generation (part 1)
 
