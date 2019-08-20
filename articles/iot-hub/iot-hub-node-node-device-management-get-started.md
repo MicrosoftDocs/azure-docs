@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 08/20/2019
 ---
 
 # Get started with device management (Node.js)
