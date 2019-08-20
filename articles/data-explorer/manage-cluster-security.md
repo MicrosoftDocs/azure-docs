@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/20/2019
 ---
 
 # Secure your cluster in Azure Data Explorer
