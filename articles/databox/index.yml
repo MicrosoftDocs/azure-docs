@@ -67,7 +67,7 @@ landingContent:
   # Card
   - title: Order, set up, copy, return
     linkLists:
-      - linkListType: deploy
+      - linkListType: tutorial
         links:
           - text: Data Box
             url: data-box-deploy-ordered.md
