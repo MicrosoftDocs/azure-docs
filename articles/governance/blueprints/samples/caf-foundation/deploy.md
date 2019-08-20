@@ -137,9 +137,9 @@ The following table provides a list of the blueprint artifact parameters:
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
 |Allowed storage account SKUs|Policy assignment|Policy_Allowed-StorageAccount-SKUs|SKU used in Diagnostic Log storage accounts|
-|Allowed virtual machine SKUs|Policy assignment|Policy_Allowed-VM-SKUs|Allowed virtual machine SKUs|                    
+|Allowed virtual machine SKUs|Policy assignment|Policy_Allowed-VM-SKUs|Allowed virtual machine SKUs|
 |Append CostCenter TAG to Resource Groups|Policy assignment|Policy_CostCenter_Tag|Append CostCenter TAG and its value from the Resource Group|
-|Resource Types that you do not want to allow in your environment|Policy assignment|Policy_Allowed-Resource-Types|Which Azure Resources you want to allow in your environment|            
+|Resource Types that you do not want to allow in your environment|Policy assignment|Policy _Allowed-Resource-Types|Which Azure Resources you want to allow in your environment|
 |Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Azure AD Group or User <Object ID> to grant permissions to in Key Vault|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in Log Analytics|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|

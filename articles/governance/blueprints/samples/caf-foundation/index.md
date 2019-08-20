@@ -19,7 +19,7 @@ application. This foundation blueprint is based on the recommended pattern found
 
 The CAF Foundation blueprint sample deploys recommended infrastructure resources in Azure that can
 be used by organizations to put in place the foundation controls necessary to manage their cloud
-estate. This sample will deploy and enforce resources, policies and templates that will allow an
+estate. This sample will deploy and enforce resources, policies, and templates that will allow an
 organization to confidently get started with Azure.
 
 ![CAF Foundation, image describes what gets installed as part of CAF guidance for creating a foundation to get started with Azure](../../media/caf-blueprints/caf-foundation-architecture.png)

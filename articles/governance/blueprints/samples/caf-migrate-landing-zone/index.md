@@ -12,7 +12,7 @@ ms.custom: fasttrack-new
 # Overview of the Microsoft Cloud Adoption Framework for Azure Migration landing zone blueprint sample
 
 The Microsoft Cloud Adoption Framework for Azure (CAF) migration landing zone blueprint is a set of
-infrastructure to help you setup for migrating your first workload and manage your cloud estate in
+infrastructure to help you set up for migrating your first workload and manage your cloud estate in
 alignment with CAF.
 
 The [CAF Foundation](../caf-foundation/index.md) blueprint sample extends this sample.
@@ -22,7 +22,7 @@ The [CAF Foundation](../caf-foundation/index.md) blueprint sample extends this s
 The CAF Migration landing zone blueprint sample deploys foundation infrastructure resources in Azure
 that can be used by organizations to prepare their subscription for migrating virtual machines in
 to. It also helps put in place the governance controls necessary to manage their cloud estate. This
-sample will deploy and enforce resources, policies and templates that will allow an organization to
+sample will deploy and enforce resources, policies, and templates that will allow an organization to
 confidently get started with Azure.
 
 ![CAF Migration landing zone, image describes what gets installed as part of CAF guidance for initial landing zone ](../../media/caf-blueprints/caf-migration-landing-zone-architecture.png)
@@ -31,7 +31,7 @@ This environment is composed of several Azure services used to provide a secure,
 enterprise-ready governance. This environment is composed of:
 
 - An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
-  for the Certificates, Keys and Secrets deployed in the shared services environment
+  for the Certificates, Keys, and Secrets deployed in the shared services environment
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your migration
 - Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard
@@ -39,7 +39,7 @@ enterprise-ready governance. This environment is composed of:
 - Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) providing
   an isolated network and subnets for your virtual machine.
 - Deploy [Azure Migrate Project](../../../..//migrate/migrate-overview.md) for discovery and
-  assessment. We are adding the tools for Server assessment, Server migration, Database assessment
+  assessment. We're adding the tools for Server assessment, Server migration, Database assessment,
   and Database migration.  
 
 
