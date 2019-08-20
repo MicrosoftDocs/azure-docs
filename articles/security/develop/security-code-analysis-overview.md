@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Security Code Analysis documentation overview
-description: This article is an overview of Security Code Analysis Extension
+title: Microsoft Security Code Analysis documentation overview
+description: This article is an overview of the Microsoft Security Code Analysis extension
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -26,7 +26,7 @@ Teams can also use powerful postprocessing capabilities such as publishing logs 
 
 ### Security simplified
 
-Adding Microsoft security code analysis tools to your Azure DevOps pipeline is as simple as adding new tasks. Customize the tasks or use their default behavior. Tasks run as part of your Azure DevOps pipeline and produce logs that detail many kinds of results.
+Adding Microsoft Security Code Analysis tools to your Azure DevOps pipeline is as simple as adding new tasks. Customize the tasks or use their default behavior. Tasks run as part of your Azure DevOps pipeline and produce logs that detail many kinds of results.
 
 ### Clean builds
 
@@ -44,7 +44,9 @@ The extension's build tasks hide the complexities of:
 
 ## Microsoft Security Code Analysis tool set
 
-The Microsoft Security Code Analysis extension makes the latest versions of important analysis tools readily available to you. The extension includes both Microsoft-managed and open source tools. These tools are automatically downloaded on the cloud-hosted agent after you use the corresponding build task to configure and run the pipeline.
+The Microsoft Security Code Analysis extension makes the latest versions of important analysis tools readily available to you. The extension includes both Microsoft-managed and open source tools.
+
+These tools are automatically downloaded to the cloud-hosted agent after you use the corresponding build task to configure and run the pipeline.
 
 This section lists the set of tools that are currently available in the extension. Watch for the addition of more tools. Also, send us your suggestions for tools that you want us to add.
 
@@ -58,11 +60,11 @@ BinSkim is a Portable Executable (PE) lightweight scanner that validates compile
 
 ### Credential Scanner
 
-Passwords and other secrets stored in source code are currently a significant problem. Credential Scanner is a proprietary static-analysis tool. It detects credentials, secrets, certificates, and other sensitive content in your source code and your build output.
+Passwords and other secrets stored in source code are a significant problem. Credential Scanner is a proprietary static-analysis tool that helps solve this problem. The tool detects credentials, secrets, certificates, and other sensitive content in your source code and your build output.
 
 ### Microsoft Security Risk Detection
 
-Microsoft Security Risk Detection (MSRD) is a cloud-based fuzz testing service for identifying exploitable security bugs in software. This service requires a separate onboarding process. For more information, see [the MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
+Microsoft Security Risk Detection (MSRD) is a unique cloud-based fuzz testing service that identifies exploitable security bugs in software. This service requires a separate onboarding process. For more information, see [the MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
 
 ### .NET Compiler Platform (Roslyn) analyzers
 
@@ -70,37 +72,37 @@ Microsoft Security Risk Detection (MSRD) is a cloud-based fuzz testing service f
 
 ### TSLint
 
-TSLint is an extensible static-analysis tool that checks TypeScript code for readability, maintainability, and functionality errors. It's widely supported across modern editors and build systems. You can customize it with your own lint rules, configurations, and formatters. TSLint is an open-source tool. For more information, see [TSLint on GitHub](https://github.com/palantir/tslint).
+TSLint is an extensible static-analysis tool that checks TypeScript code for readability, maintainability, and errors in functionality. It's widely supported by modern editors and build systems. You can customize it with your own lint rules, configurations, and formatters. TSLint is an open-source tool. For more information, see [TSLint on GitHub](https://github.com/palantir/tslint).
 
 ## Analysis and postprocessing of results
 
-The Microsoft Security Code Analysis extension also has three postprocessing tasks that help you analyze the results found by the security tools tasks. When added to a pipeline, these tasks usually follow all other tool tasks.
+The Microsoft Security Code Analysis extension also has three postprocessing tasks that help you analyze the results found by the security-tool tasks. When added to a pipeline, these tasks usually follow all other tool tasks.
 
 ### Publish Security Analysis Logs
 
-The Publish Security Analysis Logs build task preserves the log files of the security tools that are run during the build. You can analyze these logs for investigation and follow-up.
+The Publish Security Analysis Logs build task preserves the log files of the security tools that are run during the build. You can read these logs for investigation and follow-up.
 
-You can publish the log files to the Azure Server artifacts as a .zip file or copy them to an accessible file share from your private build agent.
+You can publish the log files to Azure Artifacts as a .zip file. You can also copy them to an accessible file share from your private build agent.
 
 ### Security Report
 
-The Security Report build task parses the log files created by the security tools run during the build. It then creates a single summary report file with all issues found by the analysis tools.
+The Security Report build task parses the log files created by the security tools run during the build. It then creates a single summary-report file that shows all issues found by the analysis tools.
 
-You can configure this task to report results for specific tools or for all tools. You can also choose what level of issues should be reported, like errors only or both errors and warnings.
+You can configure this task to report results for specific tools or for all tools. You can also choose what issue level should be reported, like errors only or both errors and warnings.
 
 ### Post-Analysis (build break)
 
-With the Post-Analysis build task, you can inject a build break that purposely causes the build to fail. You would inject a build break in case one or more analysis tools report issues in the code.
+With the Post-Analysis build task, you can inject a build break that purposely causes a build to fail. You would inject a build break if one or more analysis tools report issues in the code.
 
 You can configure this task to break the build for issues found by specific tools or for all tools. You can also configure it to break based on the severity of issues found, such as errors or warnings.
 
 >[!NOTE]
->By design, each build task will succeed if the task completes successfully. This is true whether or not a tool finds issues, so that the build can run to completion by allowing all tools to run.
+>By design, each build task will succeed if the task finishes successfully. This is true whether or not a tool finds issues, so that the build can run to completion by allowing all tools to run.
 
 ## Next steps
 
-For instructions on onboarding and installing the Security code analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md)
+For instructions on how to onboard and install Microsoft Security Code Analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md)
 
 For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md)
 
-If you have further questions about the extension and the tools offered, [check our FAQ page.](security-code-analysis-faq.md)
+If you have further questions about the extension and the tools offered, [check out our FAQ page.](security-code-analysis-faq.md)
