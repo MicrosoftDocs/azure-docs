@@ -61,7 +61,7 @@ LUIS provides several prebuilt entities for common data extraction.
    * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Screenshot of number selected in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
      These entities will help you add name and place recognition to your client application.
 
