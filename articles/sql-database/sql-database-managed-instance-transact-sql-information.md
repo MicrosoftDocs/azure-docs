@@ -548,6 +548,12 @@ Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of following AAD pri
 
 The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
+### Transactional Replication must be reconfigured after geo-failover
+
+**Date:** Mar 2019
+
+If Transactional Replication is enabled on a database in a auto-failover group, the managed instance administrator must cleanup all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](#Replication) for more details.
+
 ### AAD logins and users are not supported in tools
 
 **Date:** Jan 2019
