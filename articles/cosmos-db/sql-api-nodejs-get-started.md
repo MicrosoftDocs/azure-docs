@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 
@@ -76,7 +76,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
 1. Open ```config.js``` in your favorite text editor.
 
-1. Copy and paste the code snippet below and set properties ```config.endpoint``` and ```config.primaryKey``` to your Azure Cosmos DB endpoint URI and primary key. Both these configurations can be found in the [Azure portal](https://portal.azure.com).
+1. Copy and paste the code snippet below and set properties ```config.endpoint``` and ```config.key``` to your Azure Cosmos DB endpoint URI and primary key. Both these configurations can be found in the [Azure portal](https://portal.azure.com).
 
    ![Get keys from Azure portal screenshot][keys]
 
@@ -85,10 +85,10 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    var config = {}
 
    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
-   config.primaryKey = "~your primary key here~";
+   config.key = "~your primary key here~";
    ``` 
 
-1. Copy and paste the ```database```, ```container```, and ```items``` data to your ```config``` object below where you set your ```config.endpoint``` and ```config.primaryKey``` properties. If you already have data you'd like to store in your database, you can use the Data Migration tool in Azure Cosmos DB rather than defining the data here. You config.js file should have the following code:
+1. Copy and paste the ```database```, ```container```, and ```items``` data to your ```config``` object below where you set your ```config.endpoint``` and ```config.key``` properties. If you already have data you'd like to store in your database, you can use the Data Migration tool in Azure Cosmos DB rather than defining the data here. You config.js file should have the following code:
 
    [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
 
@@ -107,26 +107,23 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    const config = require('./config');
    ```
 
-1. Copy and paste the code to use the previously saved ```config.endpoint``` and ```config.primaryKey``` to create a new CosmosClient.
+1. Copy and paste the code to use the previously saved ```config.endpoint``` and ```config.key``` to create a new CosmosClient.
 
    ```javascript
    const config = require('./config');
 
    // ADD THIS PART TO YOUR CODE
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
    ```
    
 > [!Note]
-> If connecting to the **Cosmos DB Emulator**, disable SSL verification by creating a custom connection Policy.
+> If connecting to the **Cosmos DB Emulator**, disable SSL verification for your node process:
 >   ```
->   const ConnectionPolicy = require('@azure/cosmos').ConnectionPolicy;
->   const connectionPolicy = new ConnectionPolicy();
->   connectionPolicy.DisableSSLVerification = true;
->
->   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+>   const client = new CosmosClient({ endpoint, key });
 >   ```
 
 Now that you have the code to initialize the Azure Cosmos DB client, let's take a look at how to work with Azure Cosmos DB resources.
@@ -136,7 +133,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
 1. Copy and paste the code below to set the database ID, and the container ID. These IDs are how the Azure Cosmos DB client will find the right database and container.
 
    ```javascript
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key } });
 
    // ADD THIS PART TO YOUR CODE
    const HttpStatusCodes = { NOTFOUND: 404 };
@@ -163,7 +160,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    * Read the database definition
    */
    async function readDatabase() {
-      const { body: databaseDefinition } = await client.database(databaseId).read();
+      const { resource: databaseDefinition } = await client.database(databaseId).read();
       console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
    ```
@@ -198,9 +195,9 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -220,7 +217,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    * Read the database definition
    */
    async function readDatabase() {
-     const { body: databaseDefinition } = await client.database(databaseId).read();
+     const { resource: databaseDefinition } = await client.database(databaseId).read();
     console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
 
@@ -274,7 +271,7 @@ A container can be created by using either the `createIfNotExists` or create fun
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
    ```
@@ -302,9 +299,9 @@ A container can be created by using either the `createIfNotExists` or create fun
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -342,7 +339,7 @@ A container can be created by using either the `createIfNotExists` or create fun
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
 
@@ -436,8 +433,8 @@ Azure Cosmos DB supports rich queries against JSON documents stored in each cont
         ]
     };
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).toArray();
-    for (var queryResult of results) {
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
     }

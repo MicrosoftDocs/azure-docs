@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: Bulk executor .NET API, SDK & resources'
-description: Learn all about the Bulk Executor .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Bulk Executor .NET SDK.
+description: Learn all about the bulk executor .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB bulk executor .NET SDK.
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -29,11 +29,11 @@ ms.author: ramkris
 
 | |  |
 |---|---|
-| **Description**| The .Net bulk executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. This  library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
+| **Description**| The .Net bulk executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. This  library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
-| **BulkExecutor library in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
+| **Bulk executor library in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API documentation**|[.NET API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Get started**|[Get started with the Bulk Executor library .NET SDK](bulk-executor-dot-net.md)|
+|**Get started**|[Get started with the bulk executor library .NET SDK](bulk-executor-dot-net.md)|
 | **Current supported framework**| Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 |
 
 ## Release notes
@@ -56,7 +56,7 @@ ms.author: ramkris
 
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
-* Added .NET Standard 2.0 as one of the supported target frameworks to make the BulkExecutor library work with .NET Core applications.
+* Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
 
 ### <a name="1.6.0"/>1.6.0
 
@@ -76,11 +76,11 @@ ms.author: ramkris
 
 ### <a name="1.3.0"/>1.3.0
 
-* Fixed an issue, which caused a formatting issue in the user agent used by BulkExecutor.
+* Fixed an issue, which caused a formatting issue in the user agent used by bulk executor.
 
 ### <a name="1.2.0"/>1.2.0
 
-* Made improvement to BulkExecutor import and update APIs to transparently adapt to elastic scaling of Cosmos DB container when storage exceeds current capacity without throwing exceptions.
+* Made improvement to bulk executor import and update APIs to transparently adapt to elastic scaling of Cosmos container when storage exceeds current capacity without throwing exceptions.
 
 ### <a name="1.1.2"/>1.1.2
 
@@ -88,7 +88,7 @@ ms.author: ramkris
 
 ### <a name="1.1.1"/>1.1.1
 
-* Fixed an issue, which caused BulkExecutor to throw JSRT error while importing to fixed collections.
+* Fixed an issue, which caused bulk executor to throw JSRT error while importing to fixed collections.
 
 ### <a name="1.1.0"/>1.1.0
 

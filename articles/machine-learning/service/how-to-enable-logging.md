@@ -22,7 +22,7 @@ The Azure Machine Learning Python SDK allows you to enable logging using both th
 > * Deployed models
 > * Python `logging` settings
 
-[Create an Azure Machine Learning service workspace](setup-create-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
+[Create an Azure Machine Learning service workspace](how-to-manage-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
 
 ## Training models and compute target logging
 

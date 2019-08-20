@@ -466,7 +466,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 
 | Stack            | Example value                                         |
 |------------------|-------------------------------------------------------|
-| Python (Preview) | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
+| Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
 | JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
 | .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
 

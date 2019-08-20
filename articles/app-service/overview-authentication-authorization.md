@@ -4,7 +4,7 @@ description: Conceptual reference and overview of the Authentication / Authoriza
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
@@ -115,17 +115,17 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 ## Authorization behavior
 
-In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors.
+In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors when incoming request is not authenticated.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 The following headings describe the options.
 
-### Allow all requests (default)
+### Allow Anonymous requests (no action)
 
-Authentication and authorization are not managed by App Service (turned off). 
+This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
 
-Choose this option if you don't need authentication and authorization, or if you want to write your own authentication and authorization code.
+This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) to your users. However, you must write code. 
 
 ### Allow only authenticated requests
 
@@ -133,11 +133,8 @@ The option is **Log in with \<provider>**. App Service redirects all anonymous r
 
 With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](app-service-authentication-how-to.md#access-user-claims)).
 
-### Allow all requests, but validate authenticated requests
-
-The option is **Allow Anonymous requests**. This option turns on authentication and authorization in App Service, but defers authorization decisions to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
-
-This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) to your users. However, you must write code. 
+> [!CAUTION]
+> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
 ## More resources
 
