@@ -131,7 +131,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->This method can’t be used in log alerts since the access validation to the alert rule resources, including workspaces and applications is performed at alert creation time and adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or via ARM template to get the scoped resources updated. Alternatively, you can include the list of resources in log alert query itself.
+>This method can’t be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)
