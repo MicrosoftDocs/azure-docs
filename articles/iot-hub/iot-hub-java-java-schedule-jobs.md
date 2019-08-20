@@ -321,7 +321,17 @@ In this section, you create a Java console app that handles the desired properti
     > [!NOTE]
     > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)in the *Samples for the Azure IoT device SDK for Java* readme file.
+
+    ```xml
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+    ```
+
+5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
     ```xml
     <build>
@@ -339,11 +349,11 @@ In this section, you create a Java console app that handles the desired properti
     </build>
     ```
 
-5. Save and close the **pom.xml** file.
+6. Save and close the **pom.xml** file.
 
-6. Using a text editor, open the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
+7. Using a text editor, open the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
 
-7. Add the following **import** statements to the file:
+8. Add the following **import** statements to the file:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -354,7 +364,7 @@ In this section, you create a Java console app that handles the desired properti
     import java.util.Scanner;
     ```
 
-8. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied previously in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied previously in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -365,7 +375,7 @@ In this section, you create a Java console app that handles the desired properti
 
     This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
 
-9. To print device twin notifications to the console, add the following nested class to the **App** class:
+10. To print device twin notifications to the console, add the following nested class to the **App** class:
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -376,7 +386,7 @@ In this section, you create a Java console app that handles the desired properti
     }
     ```
 
-10. To print direct method notifications to the console, add the following nested class to the **App** class:
+11. To print direct method notifications to the console, add the following nested class to the **App** class:
 
     ```java
     // Handler for direct method notifications from IoT Hub
@@ -387,7 +397,7 @@ In this section, you create a Java console app that handles the desired properti
     }
     ```
 
-11. To handle direct method calls from IoT Hub, add the following nested class to the **App** class:
+12. To handle direct method calls from IoT Hub, add the following nested class to the **App** class:
 
     ```java
     // Handler for direct method calls from IoT Hub
@@ -412,13 +422,13 @@ In this section, you create a Java console app that handles the desired properti
     }
     ```
 
-12. Update the **main** method signature to include the following `throws` clause:
+13. Update the **main** method signature to include the following `throws` clause:
 
     ```java
     public static void main( String[] args ) throws IOException, URISyntaxException
     ```
 
-13. Replace the code in the **main** method with the following code to:
+14. Replace the code in the **main** method with the following code to:
     * Create a device client to communicate with IoT Hub.
     * Create a **Device** object to store the device twin properties.
 
@@ -436,7 +446,7 @@ In this section, you create a Java console app that handles the desired properti
     };
     ```
 
-14. To start the device client services, add the following code to the **main** method:
+15. To start the device client services, add the following code to the **main** method:
 
     ```java
     try {
@@ -454,7 +464,7 @@ In this section, you create a Java console app that handles the desired properti
     }
     ```
 
-15. To wait for the user to press the **Enter** key before shutting down, add the following code to the end of the **main** method:
+16. To wait for the user to press the **Enter** key before shutting down, add the following code to the end of the **main** method:
 
     ```java
     // Close the app
@@ -466,9 +476,9 @@ In this section, you create a Java console app that handles the desired properti
     scanner.close();
     ```
 
-16. Save and close the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
+17. Save and close the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
 
-17. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
+18. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
 
     ```cmd/sh
     mvn clean package -DskipTests
