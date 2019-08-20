@@ -37,7 +37,7 @@ You need the following prerequisites:
 
 - An Azure IoT Hub under your subscription.
 
-- Microsoft Visual Studio 2017 Update 9 or later. This article uses Visual Studio 2019.
+- Microsoft Visual Studio 2017 Update 9 or later. This article uses [Visual Studio 2019](https://www.visualstudio.com/vs/).
 
 - Cloud Explorer component from Visual Studio Installer, which selected by default with Azure Workload.
 

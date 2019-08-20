@@ -38,11 +38,13 @@ In this article, run Cloud Explorer for Visual Studio with various management op
 
 ## What you need
 
+You need the following prerequisites:
+
 - An active Azure subscription.
 
 - An Azure IoT Hub under your subscription.
 
-- Microsoft Visual Studio 2017 Update 9 or later. This article uses Visual Studio 2019.
+- Microsoft Visual Studio 2017 Update 9 or later. This article uses [Visual Studio 2017 or Visual Studio 2019](https://www.visualstudio.com/vs/).
 
 - Cloud Explorer component from Visual Studio Installer, which selected by default with Azure Workload.
 
@@ -84,7 +86,7 @@ To edit a device twin, do the following steps:
 
    An **azure-iot-device-twin.json** file openes with the content of device twin.
 
-1. Make some edits of **tags** or **properties.desired** field to the **azure-iot-device-twin.json** file.
+1. Make some edits of **tags** or **properties.desired** fields to the **azure-iot-device-twin.json** file.
 
 1. Press **Ctrl+S** to update the device twin.
 
@@ -96,7 +98,7 @@ To send a message from your IoT Hub to your device, follow these steps:
 
 1. Right-click your device and select **Send C2D Message**.
 
-1. Enter the message in **Send C2D message**.
+1. Enter the message in **Send C2D message** and select **OK**.
 
    Results appear in **Output**.
 

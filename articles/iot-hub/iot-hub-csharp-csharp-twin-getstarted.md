@@ -132,15 +132,15 @@ In the next section, you create a device app that reports the connectivity infor
 
 In this section, you create a .NET console app that connects to your hub as **myDeviceId**, and then updates its reported properties to contain the information that it is connected using a cellular network.
 
-1. In Visual Studio, select **File** > **New** > **Project**. In **Create new project**, select **Console App (.NET Framework)**, and then select **Next**.
+1. In Visual Studio, select **File** > **New** > **Project**. In **Create new project**, choose **Console App (.NET Framework)**, and then select **Next**.
 
-1. In **Configure your new project**, name the project **ReportConnectivity**. For **Solution**, select **Add to solution**, and then select **Create**.
+1. In **Configure your new project**, name the project **ReportConnectivity**. For **Solution**, choose **Add to solution**, and then select **Create**.
 
 1. In Solution Explorer, right-click the **ReportConnectivity** project, and then select **Manage NuGet Packages**.
 
-1. Select **Browse** and search for and select **Microsoft.Azure.Devices.Client**. Select **Install**.
+1. Select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
 
-1. This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
+   This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 

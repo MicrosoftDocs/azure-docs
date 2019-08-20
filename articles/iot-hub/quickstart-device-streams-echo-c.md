@@ -17,7 +17,7 @@ ms.author: robinsh
 
 Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK supports device streams on the device side only. As a result, this quickstart covers instructions to run only the device-side application. To run a corresponding service-side application, see:
+[IoT Hub device streams](iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK supports device streams on the device side only. As a result, this quickstart covers instructions to run only the device-side application. To run a corresponding service-side application, see these articles:
 
 * [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
 
@@ -37,10 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
-
-  * Central US
-  * Central US EUAP
+You need the following prerequisites:
 
 * Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the **Desktop development with C++** workload enabled.
 
@@ -52,6 +49,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    az extension add --name azure-cli-iot-ext
    ```
 
+The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
+
+* Central US
+
+* Central US EUAP
+
 ## Prepare the development environment
 
 For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). You prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code that's used in this quickstart.
@@ -61,7 +64,7 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
 1. Install the [CMake build system](https://cmake.org/download/) as described on the download page.
 
-1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a command prompt or Git Bash shell. Run the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview

@@ -42,7 +42,7 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 1. Select **Add** to add a new certificate.
 
-1. In **Certificate Name**, enter a friendly display name, and select the certificate file you created in the previous section, from your computer.
+1. In **Certificate Name**, enter a friendly display name, and select the certificate file you created in the previous section from your computer.
 
 1. Once you get a notification that your certificate is successfully uploaded, select **Save**.
 
@@ -68,7 +68,7 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 1. Select **New** to add a new device.
 
-1. In **Device ID**, enter a friendly display name. For **Authentication Type**, select **X.509 CA Signed**, and then select **Save**.
+1. In **Device ID**, enter a friendly display name. For **Authentication type**, choose **X.509 CA Signed**, and then select **Save**.
 
    ![Create X.509 device in portal](./media/iot-hub-security-x509-get-started/new-x509-device.png)
 
@@ -78,7 +78,7 @@ To authenticate your X.509 device, you need to first sign the device with the CA
 
 Next, we will show you how to create a C# application to simulate the X.509 device registered for your IoT hub. We will send temperature and humidity values from the simulated device to your hub. In this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that will send response to the events sent by this simulated device. The C# application assumes that you have followed the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-1. In Visual Studio, select **Create a new project**, and then select the **Console App (.NET Framework)** project template. Select **Next**.
+1. Open Visual Studio, select **Create a new project**, and then choose the **Console App (.NET Framework)** project template. Select **Next**.
 
 1. In **Configure your new project**, name the project *SimulateX509Device*, and then select **Create**.
 
@@ -86,7 +86,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
 
 1. In Solution Explorer, right-click the **SimulateX509Device** project, and then select **Manage NuGet Packages**.
 
-1. In the **NuGet Package Manager**, select **Browse** and search for and select **Microsoft.Azure.Devices.Client**. Select **Install**.
+1. In the **NuGet Package Manager**, select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
 
    ![Add device SDK NuGet package in Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
@@ -162,9 +162,19 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
     }
     ```
 
-   This code connects to your IoT hub by creating the connection string for your X.509 device. Once successfully connected, it then sends temperature and humidity events to the hub, and waits for its response. 
+   This code connects to your IoT hub by creating the connection string for your X.509 device. Once successfully connected, it then sends temperature and humidity events to the hub, and waits for its response.
 
-1. Run the app. Because this application accesses a *.pfx* file, you may need to run this app as an administrator. Build the Visual Studio solution. Open a new Command Prompt window by using Run as administrator.  Navigate to the folder that contains your solution, then navigate to the bin/Debug path within the solution folder. Run the application **SimulateX509Device.exe** from the command prompt. You should see your device successfully connecting to the hub and sending the events.
+1. Run the app. Because this application accesses a *.pfx* file, you may need to run this app as an administrator.
+
+   1. Build the Visual Studio solution.
+
+   1. Open a new Command Prompt window by using **Run as administrator**.  
+
+   1. Navigate to the folder that contains your solution, then navigate to the *bin/Debug* path within the solution folder.
+
+   1. Run the application **SimulateX509Device.exe** from the command prompt.
+
+   You should see your device successfully connecting to the hub and sending the events.
 
    ![Run device app](./media/iot-hub-security-x509-get-started/device-app-success.png)
 

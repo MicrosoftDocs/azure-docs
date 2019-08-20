@@ -90,7 +90,7 @@ You need the module connection string for your console app. Follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to your IoT Hub and select **IoT Devices**. Open **myFirstDevice** and you see that **myFirstModule** was successfully created.
+1. Navigate to your IoT hub and select **IoT Devices**. Open **myFirstDevice** and you see that **myFirstModule** was successfully created.
 
 1. Select **myFirstModule** under **Module Identities**. In **Module Identity Details**, copy the **Connection string (primary key)**.
 
@@ -108,14 +108,14 @@ using Microsoft.Azure.Devices.Shared;
 using Newtonsoft.Json;
 ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
+2. Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
 
 ```csharp
 private const string ModuleConnectionString = "<Your module connection string>";
 private static ModuleClient Client = null;
 ```
 
-1. Add the following method **OnDesiredPropertyChanged** to the **Program** class:
+3. Add the following method **OnDesiredPropertyChanged** to the **Program** class:
 
 ```csharp
 private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -132,7 +132,7 @@ private static async Task OnDesiredPropertyChanged(TwinCollection desiredPropert
     }
 ```
 
-1. Finally, replace the **Main** method with the following code:
+4. Finally, replace the **Main** method with the following code:
 
 ```csharp
 static void Main(string[] args)

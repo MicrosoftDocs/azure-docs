@@ -62,7 +62,7 @@ To complete this tutorial, you need the following prerequisites:
 
 In this section, you create a .NET console app that responds to a direct method called by the solution back end.
 
-1. In Visual Studio, select **Create a new project**, and then select the **Console App (.NET Framework)** project template. Select **Next** to continue.
+1. In Visual Studio, select **Create a new project**, and then choose the **Console App (.NET Framework)** project template. Select **Next** to continue.
 
 1. In **Configure your new project**, name the project *SimulateDeviceMethods*, and then select **Create**.
 
@@ -70,11 +70,11 @@ In this section, you create a .NET console app that responds to a direct method 
 
 1. In Solution Explorer, right-click the **SimulateDeviceMethods** project, and then select **Manage NuGet Packages**.
 
-1. In **NuGet Package Manager**, select **Browse** and search for and select **Microsoft.Azure.Devices.Client**. Select **Install**. to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. 
+1. In **NuGet Package Manager**, select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
 
     ![NuGet Package Manager window Client app](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
-This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
+    This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 
@@ -146,7 +146,7 @@ This step downloads, installs, and adds a reference to the [Azure IoT device SDK
 1. Save your work and build your solution.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 >
 
 ## Get the IoT hub connection string
@@ -159,15 +159,15 @@ This step downloads, installs, and adds a reference to the [Azure IoT device SDK
 
 In this section, you create a .NET console app (using C#) that uses jobs to call the **LockDoor** direct method and send desired property updates to multiple devices.
 
-1. In Visual Studio, select **File** > **New** > **Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
+1. In Visual Studio, select **File** > **New** > **Project**. In **Create a new project**, choose **Console App (.NET Framework)**, and then select **Next**.
 
-1. In **Configure your new project**, name the project *ScheduleJob*. For **Solution**, select **Add to solution**, and then select **Create**.
+1. In **Configure your new project**, name the project *ScheduleJob*. For **Solution**, choose **Add to solution**, and then select **Create**.
 
     ![Name and configure you ScheduleJob project](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
 
 1. In Solution Explorer, right-click the **ScheduleJob** project, and then select **Manage NuGet Packages**.
 
-1. In the **NuGet Package Manager**, select **Browse**, search for and select **Microsoft.Azure.Devices**, then select **Install**.
+1. In the **NuGet Package Manager**, select **Browse**, search for and choose **Microsoft.Azure.Devices**, then select **Install**.
 
    This step downloads, installs, and adds a reference to the [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package and its dependencies.
 

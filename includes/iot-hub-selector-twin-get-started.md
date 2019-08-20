@@ -11,7 +11,7 @@ ms.date: 10/26/2018
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
-Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it.
+Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
@@ -19,7 +19,7 @@ Use device twins to:
 
 * Store device metadata from your solution back end.
 
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
+* Report current state information such as available capabilities and conditions, for example, the connectivity method used, from your device app.
 
 * Synchronize the state of long-running workflows, such as firmware and configuration updates, between a device app and a back-end app.
 
