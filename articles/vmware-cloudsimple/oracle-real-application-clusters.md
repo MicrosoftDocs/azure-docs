@@ -1,6 +1,6 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Optimize your CloudSimple Private Cloud for Oracle RAC
-description: Describes how to deploy a new cluster and optimize a VM for Oracle RAC installation and configuration
+description: Describes how to deploy a new cluster and optimize a VM for Oracle Real Application Clusters (RAC) installation and configuration
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/06/2019 
@@ -12,7 +12,7 @@ manager: dikamath
 
 # Optimize your CloudSimple Private Cloud for installing Oracle RAC
 
-You can deploy Oracle RAC in your CloudSimple Private Cloud environment. This guide describes how to deploy a new cluster and to optimize a VM for the Oracle RAC solution. After completing the steps in this topic, you can install and configure Oracle RAC.
+You can deploy Oracle Real Application Clusters (RAC) in your CloudSimple Private Cloud environment. This guide describes how to deploy a new cluster and to optimize a VM for the Oracle RAC solution. After completing the steps in this topic, you can install and configure Oracle RAC.
 
 ## Storage Policy
 
