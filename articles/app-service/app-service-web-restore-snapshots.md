@@ -27,7 +27,7 @@ Snapshots are incremental shadow copies, and they offer several advantages over 
 - No configuration required.
 
 Restoring from snapshots is available to apps running in **Premium** tier or higher. For information about scaling
-up your app, see [Scale up an app in Azure](web-sites-scale.md).
+up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
 ## Limitations
 
