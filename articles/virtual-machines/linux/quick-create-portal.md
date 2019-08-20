@@ -8,7 +8,7 @@ manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid:
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
@@ -50,9 +50,9 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 1. Choose **Create a resource** in the upper left corner of the Azure portal.
 
-1. In the search box above the list of Azure Marketplace resources, search for **Ubuntu Server 18.04** and select the Ubuntu 18.04 LTS offering, then choose **Create**.
+1. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK**.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK**. 
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
@@ -60,11 +60,11 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
-1. Under **Administrator account**, select **SSH public key**, type your user name, then paste your public key that you saved earlier into the text box. Remove any leading or trailing white space in your public key.
+1. Under **Administrator account**, select **SSH public key**, type your user name, then paste your public key into the text box. Remove any leading or trailing white space in your public key.
 
     ![Administrator account](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
+1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
 
 	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -74,12 +74,12 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
-
+	
 ## Connect to virtual machine
 
 Create an SSH connection with the VM.
 
-1. Select the **Connect** button on the overview page for your VM.
+1. Select the **Connect** button on the overview page for your VM. 
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
 

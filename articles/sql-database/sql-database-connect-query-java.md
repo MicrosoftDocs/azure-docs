@@ -10,9 +10,9 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019. seo-java-august2019
 ---
-# Quickstart: Use Java to query an Azure SQL database
+# Quickstart: Use Java to connect to and query an Azure SQL database
 
 This article demonstrates how to use [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database. You can then use T-SQL statements to query data.
 
@@ -49,7 +49,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+2. Select **SQL databases** or open the **SQL managed instances** page.
 
 3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 
