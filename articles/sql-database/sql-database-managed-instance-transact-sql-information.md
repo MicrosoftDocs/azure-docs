@@ -552,7 +552,7 @@ The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/r
 
 **Date:** Mar 2019
 
-If Transactional Replication is enabled on a database in a auto-failover group, the managed instance administrator must cleanup all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](#Replication) for more details.
+If Transactional Replication is enabled on a database in a auto-failover group, the managed instance administrator must cleanup all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](#replication) for more details.
 
 ### AAD logins and users are not supported in tools
 
