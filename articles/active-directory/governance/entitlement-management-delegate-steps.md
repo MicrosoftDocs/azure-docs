@@ -99,7 +99,7 @@ If you don't have an Azure AD Premium P2 or Enterprise Mobility + Security E5 li
 
 ## Perform day-to-day management
 
-### Step 1: Update resources in access package
+### Step 1: Update resources in an access package
 
 - Job role: Project manager
 - Entitlement management role: Access package manager
