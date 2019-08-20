@@ -6,11 +6,9 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: overview
 ms.date: 08/15/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # What is "cognitive search" in Azure Search?
 

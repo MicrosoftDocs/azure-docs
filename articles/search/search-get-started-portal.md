@@ -2,7 +2,7 @@
 title: 'Quickstart: Create, load, and query an index using Azure portal - Azure Search'
 description: Use the Import Data wizard in Azure portal to create, load, and query your first index in Azure Search. 
 author: lobrien
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
