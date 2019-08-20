@@ -20,7 +20,7 @@ ms.date: 07/11/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable),  and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
+Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable),  and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://docs.microsoft.com/en-us/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -64,36 +64,103 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. For **GroupId** and **ArtifactId**, enter `AzureSearchQuickstart`.
 1. Accept the remaining defaults to open the project.
-1. Select **File** > **Settings**, select the **Import Maven projects automatically** check box, and then click **OK**. If this option doesn't immediately appear, you can find it under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+
+### Specify Maven dependencies
+
+1. Select **File** > **Settings** to open the . Then, s
+1. In the **Settings** window, select **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+1. Select the  **Import Maven projects automatically** check box, and Click **OK** to close the window. Maven plugins and other dependencies will now be automatically synchronized when you update the pom.xml file in the next step. 
 
     ![Maven importing options in IntelliJ settings](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 
-1. In the **Project** window, expand the project tree to access the contents of the `src` >  `main` folder.
-1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and then select **Package**.
-1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and then select **Directory**.
+1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+    
+        <groupId>AzureSearchQuickstart</groupId>
+        <artifactId>AzureSearchQuickstart</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>app.App</mainClass>
+                        <cleanupDaemonThreads>false</cleanupDaemonThreads>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.json</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+        </dependencies>
+    
+    </project>
+    ```
+
+### Set up the project structure
+
+1. Select **File** > **Project Structure**.
+1. Select **Modules**, and expand the source tree to access the contents of the `src` >  `main` folder.
+1. In the `src` >  `main` > `java` folder, add  `app` and `service` folders. To do this, select the `java` folder, press Alt + Insert.
+1. In the `src` >  `main` >`resources` folder, add `app` and `service` folders.
 
     When you're done, the project tree should look like the following picture.
 
     ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree.png)
 
+1. Click **OK** to close the window.
+
 ### Add Azure Search service information
 
-1. In the `resources` folder, in the `app` package, add a `config.properties` file. To do this, select the `app` package, press Alt + Insert, and then select **File**.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, and then select **File**.
+
+    ![Project directory structure](media/search-get-started-java/java-quickstart-config-properites.png)
+
 1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
         SearchServiceAdminKey=<YOUR-ADMIN-KEY>
-        SearchServiceAdminKey=<YOUR-QUERY-KEY>
+        SearchServiceQueryKey=<YOUR-QUERY-KEY>
         IndexName=hotels-quickstart
         ApiVersion=2019-05-06
     ```
 
-1. In  the `java` folder, in the `app` package, add an `App` class. To do this, select the `app` package, press Alt + Insert, and then select **Class**.
-1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The commented code will be uncommented in a later section. The uncommented code reads the search service parameters and uses them to create an instance of the search service client.
+### Add the main method
+
+1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, and then select **Class**.
+1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The uncommented code reads the search service parameters and uses them to create an instance of the search service client which will be added next. The commented code in this class will be used later in the quickstart.
 
     ```java
-    package app;
+    package main.app;
     
     import service.SearchServiceClient;
     import java.io.IOException;
@@ -110,6 +177,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
     
         public static void main(String[] args) {
             try {
+                var config = loadPropertiesFromResource("config.properties");
                 var client = new SearchServiceClient(
                         config.getProperty("SearchServiceName"),
                         config.getProperty("SearchServiceAdminKey"),
@@ -183,7 +251,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### Add the HTTP operations
 
-1. In the `java` folder, in the `app` directory, add a `SearchServiceClient` class. To do this, select the `app` folder, press Alt + Insert, and select **Java Class**.
+1. In  the `src` >  `main` > `java` > `service` folder, add an`SearchServiceClient` class. To do this, select the `service` folder, press Alt + Insert, and then select **Class**.
 1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added in a later section.
 
     ```java
@@ -220,7 +288,12 @@ Begin by opening IntelliJ IDEA and setting up a new project.
             this._indexName = indexName;
         }
 
-    private static URI buildURI(Consumer<Formatter> fmtFn)
+        private static HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
+            logMessage(String.format("%s: %s", request.method(), request.uri()));
+            return client.send(request, HttpResponse.BodyHandlers.ofString());
+        }
+
+private static URI buildURI(Consumer<Formatter> fmtFn)
         {
             Formatter strFormatter = new Formatter();
             fmtFn.accept(strFormatter);
@@ -289,62 +362,14 @@ Begin by opening IntelliJ IDEA and setting up a new project.
     
     ```
 
-### Specify Maven dependencies
+### Build the project
 
-1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+1. Verify that your project has the following structure.
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <project xmlns="http://maven.apache.org/POM/4.0.0"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-    
-        <groupId>AzureSearchQuickstart</groupId>
-        <artifactId>AzureSearchQuickstart</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <build>
-            <sourceDirectory>src</sourceDirectory>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.1</version>
-                    <configuration>
-                        <source>11</source>
-                        <target>11</target>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.6.0</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>exec</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <mainClass>app.App</mainClass>
-                        <cleanupDaemonThreads>false</cleanupDaemonThreads>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </build>
-        <dependencies>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>1.0.2</version>
-            </dependency>
-        </dependencies>
-    
-    </project>
-    ```
+    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
-![Execute maven goal: verify exec: java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+![Execute maven goal: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
 When processing completes, look for a BUILD SUCCESS message followed by a zero (0) exit code.
 
@@ -352,7 +377,7 @@ When processing completes, look for a BUILD SUCCESS message followed by a zero (
 
 The hotels index that you will create consists of simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index is specified using JSON.
 
-1. In the **Project** window, in the `resources` folder, in the `service` directory, add an `index.json` file. To do this, select the `service` folder press Alt + Insert, and then select **File**.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `index.json` file. To do this, select the `app` folder, press Alt + Insert, and then select **File**.
 
 1. Open the `index.json` file and insert the following index definition.
 
@@ -483,7 +508,7 @@ The hotels index that you will create consists of simple fields and one complex 
     
     The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
 
-1. Add the following code to the `SearchServiceClient` class. The methods  build Azure Search REST service URLs to create and delete an index, and that determine if an index exists. The methods also make the HTTP request.
+1. Add the following code to the `SearchServiceClient` class. These methods build Azure Search REST service URLs that create and delete an index, and that determine if an index exists. The methods also make the HTTP request.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -528,7 +553,7 @@ The hotels index that you will create consists of simple fields and one complex 
     A one-second pause is inserted after the index creation request. This pause ensures that the index is created before you upload documents.
 
     ```java
-        if(client.indexExists()){ client.deleteIndex();}
+        if (client.indexExists()) { client.deleteIndex();}
           client.createIndex("index.json");
           Thread.sleep(1000L); // wait a second to create the index
     ```
@@ -539,7 +564,7 @@ The hotels index that you will create consists of simple fields and one complex 
     
 ## 2 - Upload documents
 
-1. In the **Project** window, in the `resources` folder, in the `service` directory, add an `hotels.json` file. To do this, select the `service` folder, press Alt + Insert, and select **File**.
+1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `hotels.json` file. To do this, select the `app` folder, press Alt + Insert, and then select **File**.
 1. Insert the following hotel documents into the file.
 
     ```json
@@ -624,8 +649,11 @@ The hotels index that you will create consists of simple fields and one complex 
       ]
     }
     ```
+    When you're done, the project tree should look like the following picture.
 
-1. Insert the following code into the SearchServiceClient class. This code builds the REST service URL to upload the hotel documents to the index, and then makes the HTTP POST request.
+    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree-plus-index-definition.png)
+
+1. Insert the following code into the `SearchServiceClient` class. This code builds the REST service URL to upload the hotel documents to the index, and then makes the HTTP POST request.
 
     ```java
     public boolean uploadDocuments() throws IOException, InterruptedException {
@@ -657,7 +685,7 @@ The hotels index that you will create consists of simple fields and one complex 
 
     Because you created a "hotels-quickstart" index in the previous step, the code will now delete it and recreate it again before loading the hotel documents.
 
-    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0)exit code.
+    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
 
 ## 3 - Search an index
 
@@ -665,7 +693,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
 
 1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to search the indexed data and prints the search results.
 
-    The `SearchOptions` class and `createSearchOptions` let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
 
     The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
 
@@ -735,7 +763,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
     ```java
     // Query 1
     client.logMessage("\n*QUERY 1****************************************************************");
-    client.logMessage("Search for: Atlanta'");
+    client.logMessage("Search for: Atlanta");
     client.logMessage("Return: All fields'");
     client.searchPlus("Atlanta");
 
@@ -777,6 +805,8 @@ Now that you've loaded the hotels documents, you can create search queries to ac
     options5.select = "HotelId,HotelName,Category,Rating";
     client.searchPlus("boutique", options5);
     ```
+
+
 
     There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
 
