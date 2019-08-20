@@ -31,7 +31,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 | ------------- | ------------- |
 | Language versions supported | 2.7 and 3.6 |
 | Supported DSVM editions      | Windows Server 2016     |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * The `root` environment located at `/anaconda/` is Python 3.6 . <br/> * The `python2` environment located at `/anaconda/envs/python2` is Python 2.7.       |
+| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * The `root` environment located at `/anaconda/` is Python 3.6. <br/> * The `python2` environment located at `/anaconda/envs/python2` is Python 2.7.       |
 | Links to samples      | Sample Jupyter notebooks for Python are included.     |
 | Related tools on the DSVM      | PySpark, R, Julia.      |
 
@@ -73,7 +73,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 | ------------- | ------------- |
 | Language versions supported | 2.7 and 3.5 |
 | Supported DSVM editions      | Linux, Windows Server 2012    |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 2.7 . <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5       |
+| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5       |
 | Links to samples      | Sample Jupyter notebooks for Python are included     |
 | Related tools on the DSVM      | PySpark, R, Julia      |
 ### How to use and run it    
@@ -122,9 +122,9 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
     ```
 * Use in an IDE:
 
-  Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment setup automatically in PTVS in Python 2.7. 
+  Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment that's set up automatically in PTVS is Python 2.7.
     > [!NOTE]
-    > To point the PTVS at Python 3.5, you need to create a  custom environment in PTVS. To set this environment path in the Visual Studio  Community Edition, navigate to **Tools** -> **Python Tools** -> **Python Environments** and then select **+ Custom**. Then, set the location to `c:\anaconda\envs\py35` and then select _Auto Detect_.
+    > To point PTVS at Python 3.5, you need to create a custom environment in PTVS. To set this environment path in the Visual Studio Community Edition, go to **Tools** -> **Python Tools** -> **Python Environments** and then select **+ Custom**. Then, set the location to `c:\anaconda\envs\py35` and then select _Auto Detect_.
 
 * Use in Jupyter:
 
@@ -233,6 +233,6 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 **Java**: OpenJDK is available on both the Linux and Windows editions of the DSVM and is set on the path. You can type the `javac` or `java` command at a command prompt in Windows or on bash shell in Linux to use Java.
 
-**Node.js**: Node.js is available on both Linux and Windows editions of the DSVM and is set on the path. You can type the `node` or `npm` command at a command prompt in Windows or on the bash shell in Linux to access node.js. On Windows, the node.js tools for the Visual Studio extension is installed to provide a graphical IDE to develop your node.js application.
+**Node.js**: Node.js is available on both the Linux and Windows editions of the DSVM and is set on the path. You can type the `node` or `npm` command at a command prompt in Windows or on the bash shell in Linux to access Node.js. On Windows, the Visual Studio extension for the Node.js tools is installed to provide a graphical IDE to develop your Node.js application.
 
 **F#**: Available on Windows and accessible through the Visual Studio Community edition or at a `Developer Command Prompt for Visual Studio`, where you can run the `fsc` command.
