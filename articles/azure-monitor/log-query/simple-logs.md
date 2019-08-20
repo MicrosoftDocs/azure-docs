@@ -19,7 +19,8 @@ ms.author: bwren
 Azure Monitor provides a [rich experience](get-started-portal.md) for creating [log queries](log-query-overview.md) using the KQL language. You may not require the full power of KQL though and prefer a simplified experience for basic query requirements. The Simple Logs experience allows you to create basic queries without directly interacting with KQL. You can also use Simple Logs as a learning tool for KQL as you require more sophisticated queries.
 
 > [!NOTE]
-> Simple Logs is currently implemented in preview for only Cosmos DB and  Key Vaults.
+> Simple Logs is currently implemented as a test for only Cosmos DB and  Key Vaults. Please share your experience with Microsoft through [User Voice](https://feedback.azure.com/forums/913690-azure-monitor) to help us determine whether we will expand and release this feature.
+
 
 ## Scope
 The Simple Logs experience retrieves data from the *AzureDiagnostics*, *AzureMetrics*, and *AzureActivity* table for the selected resource. 
