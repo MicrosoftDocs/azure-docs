@@ -33,11 +33,11 @@ Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to creat
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the menu at the top of the page, click the `>_` button to open Cloud Shell.
+1. In the menu at the top of the page, select the `>_` icon to open Cloud Shell.
 1. Make sure the CloudShell says **Bash** in the upper left. If it says PowerShell, use the drop-down to select **Bash** and select **Confirm** to change to the Bash shell.
 1. Type `ssh-keygen -t rsa -b 2048` to create the ssh key. 
-1. You will be prompted to enter a file in which to save the key pair. Just hit 'Enter' to save in the default location, listed in brackets. 
-1. You will be asked to enter a passphrase. You may enter a passphrase for your SSH key or you may hit 'Enter' to continue without a passphrase.
+1. You will be prompted to enter a file in which to save the key pair. Just press **Enter** to save in the default location, listed in brackets. 
+1. You will be asked to enter a passphrase. You can type a passphrase for your SSH key or press **Enter** to continue without a passphrase.
 1. The `ssh-keygen` command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat` by typing `cat ~/.ssh/id_rsa.pub`.
 1. Copy the output of this command and save it somewhere to use later in this article. This is your public key and you will need it when configuring your administrator account to log in to your VM.
 
@@ -49,9 +49,9 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 1. Choose **Create a resource** in the upper left corner of the Azure portal.
 
-1. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
+1. In **Popular**, select **Ubuntu Server 18.04 LTS**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK**. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. Type *myResourceGroup* for the name of the resource group and then choose **OK**. 
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
@@ -59,7 +59,7 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
-1. Under **Administrator account**, select **SSH public key**, type your user name, then paste your public key into the text box. Remove any leading or trailing white space in your public key.
+1. Under **Administrator account**, select **SSH public key**, type your user name, then paste in your public key. Remove any leading or trailing white space in your public key.
 
     ![Administrator account](./media/quick-create-portal/administrator-account.png)
 
@@ -82,7 +82,7 @@ Create an SSH connection with the VM.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. In the **Connect to virtual machine** page, keep the default options to connect by IP address over port 22. In **Login using VM local account** a connection command is shown. Click the button to copy the command. The following example shows what the SSH connection command looks like:
+2. In the **Connect to virtual machine** page, keep the default options to connect by IP address over port 22. In **Login using VM local account** a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like:
 
     ```bash
     ssh azureuser@10.111.12.123
@@ -104,7 +104,7 @@ When done, type `exit` to leave the SSH session.
 
 ## View the web server in action
 
-Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
+Use a web browser of your choice to view the default NGINX welcome page. Type the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png)
 
