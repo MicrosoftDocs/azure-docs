@@ -501,10 +501,6 @@
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
-    - name: Storage
-      items:
-      - name: Azure Monitor for Storage
-        href: insights/storage-insights-overview.md
     - name: Operating System (VMs and more)
       items: 
       - name: Agents
@@ -534,15 +530,15 @@
             href: platform/diagnostics-extension-troubleshooting.md
           - name: Prepare for JSON Lines diagnostic logs format
             href: platform/diagnostic-logs-append-blobs.md
-          - name: VM guest to Metrics
+          - name: GuestOS to Metrics-VM 
             href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
-          - name: GuestOS to Metrics Linux VM (Telegraf)
+          - name: GuestOS to Metrics-VM Linux (Telegraf)
             href: platform/collect-custom-metrics-linux-telegraf.md   
-          - name: Virtual machine scale set guest to Metrics
+          - name: GuestOS to Metrics-VM scale set 
             href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
-          - name: VM classic guest to Metrics
+          - name: GuestOS to Metrics-VM classic 
             href: platform/collect-custom-metrics-guestos-vm-classic.md  
-          - name: Cloud service guest to Metrics
+          - name: GuestOS to Metrics-Cloud service
             href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
         - name: Log Analytics agents  
           items:
@@ -677,6 +673,10 @@
         href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
       - name: Monitor resource groups
         href: insights/resource-group-insights.md
+    - name: Storage
+      items:
+      - name: Azure Monitor for Storage
+        href: insights/storage-insights-overview.md
     - name: Databases
       items:
       - name: Azure SQL
