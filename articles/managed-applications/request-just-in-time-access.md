@@ -57,7 +57,7 @@ In "steps":
 In "outputs":
 
 ```json
-"jitAccessPolicy": "[parse(concat('{\"jitAccessEnabled\":', string(steps('jitConfiguration').jitConfigurationControl.jitEnabled), ',\"jitApprovalMode\":\"', steps('jitConfiguration').jitConfigurationControl.jitApprovalMode, '\",\"maximumJitAccessDuration\":\"', steps('jitConfiguration').jitConfigurationControl.maxAccessDuration, '\",\"jitApprovers\":', string(steps('jitConfiguration').jitConfigurationControl.approvers), '}'))]"
+"jitAccessPolicy": "[steps('jitConfiguration').jitConfigurationControl]"
 ```
 
 > [!NOTE]

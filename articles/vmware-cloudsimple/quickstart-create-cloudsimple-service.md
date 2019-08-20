@@ -1,31 +1,41 @@
 ---
 title: Azure VMware Solution by CloudSimple Quickstart - Create service 
-description: Learn how to create the CloudSimple service, provision nodes, and reserve nodes  
+description: Learn how to create the CloudSimple service, purchase nodes, and reserve nodes  
 author: sharaths-cs 
 ms.author: dikamath 
-ms.date: 04/10/2019 
+ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Quickstart - Create service
+# Quickstart - Create CloudSimple service
 
 To get started, create the Azure VMware Solution by CloudSimple in the Azure portal.
 
-## VMware Solution by CloudSimple - Service overview
-
-The CloudSimple service allows you to consume Azure VMware Solution by CloudSimple.  Creating the service allows you to provision nodes, reserve nodes, and create private clouds.  You add the CloudSimple service in each Azure region where the CloudSimple service is available.  The service defines the edge network of Azure VMware Solution by CloudSimple.  This edge network is used for services that include VPN, ExpressRoute, and Internet connectivity to your private clouds.
+The CloudSimple service allows you to consume Azure VMware Solution by CloudSimple.  Creating the service allows you to purchase nodes, reserve nodes, and create Private Clouds.  You add the CloudSimple service in each Azure region where the CloudSimple service is available.  The service defines the edge network of Azure VMware Solution by CloudSimple.  This edge network is used for services that include VPN, ExpressRoute, and Internet connectivity to your Private Clouds.
 
 To add the CloudSimple service, you must create a gateway subnet. The gateway subnet is used when creating the edge network and requires a /28 CIDR block. The gateway subnet address space must be unique. It can't overlap with any of your on-premises network address spaces or Azure virtual network address space.
-
-## Before you begin
-
-Allocate a /28 CIDR block for gateway subnet.  A gateway subnet is required per CloudSimple service and is unique to the region in which it's created. The gateway subnet is used for edge network services and requires a /28 CIDR block. The gateway subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks. 
 
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
+## Enable Microsoft.VMwareCloudSimple resource provider
+
+Follow the steps below to enable the resource provider for CloudSimple service.
+
+1. Select **All services**.
+2. Search for and select **subscriptions**.
+
+    ![Select subscriptions](media/cloudsimple-service-select-subscriptions.png)
+
+3. Select the subscription on which you want to enable CloudSimple service.
+4. Click **Resource providers** for the subscription.
+5. Use **Microsoft.VMwareCloudSimple** to filter the resource provider.
+6. Select the **Microsoft.VMwareCloudSimple** resource provider and click **Register**.
+
+    ![Register resource provider](media/cloudsimple-service-enable-resource-provider.png)
 
 ## Create the service
 
@@ -50,7 +60,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 The service is created and added to the list of services.
 
-## Provision nodes
+## Purchase nodes
 
 To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, first provision nodes in the Azure portal.
 
@@ -64,7 +74,7 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 
     ![Add CloudSimple Nodes](media/create-cloudsimple-node-add.png)
 
-5. Select the subscription where you want to provision CloudSimple nodes.
+5. Select the subscription where you want to purchase CloudSimple nodes.
 6. Select the resource group for the nodes. To add a new resource group, click **Create New**.
 7. Enter the prefix to identify the nodes.
 8. Select the location for the node resources.
@@ -78,4 +88,4 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 ## Next steps
 
 * [Create Private Cloud and configure environment](quickstart-create-private-cloud.md)
-* Learn more about [CloudSimple service](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Learn more about [CloudSimple service](cloudsimple-service.md)

@@ -27,6 +27,10 @@ Choose from standard and neural voices, or create your own custom voice unique t
 
 To learn more about standard, neural, and custom voices, see [Text-to-speech overview](text-to-speech.md).
 
+## Special characters
+
+While using SSML to convert text-to-synthesized speech, keep in mind that just like with XML, special characters, such as quotation marks, apostrophes, and brackets must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
+
 ## Supported SSML elements
 
 Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following sections detail how each element is used, and when an element is required or optional.  
@@ -137,6 +141,7 @@ Use this table to determine which speaking styles are supported for each neural 
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
 | | type=`empathy` | Expresses a sense of caring and understanding |
+| | type=`chat` | Speak in a casual, relaxed tone |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
 | | type=`sentiment` | Conveys a touching message or a story |
 

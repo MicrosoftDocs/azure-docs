@@ -24,8 +24,7 @@ Security state monitoring and recommendations are available for virtual machines
 >
 
 ## Platforms that support the data collection agent 
-
-This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
+This section lists the platforms on which the Log Analytics Agent, which is used by Azure Security Center, can run.
 
 ### Supported platforms for Windows computers and VMs
 The following Windows operating systems are supported:
