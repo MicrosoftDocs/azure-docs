@@ -754,7 +754,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`.
+The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
 
 ---
 
@@ -793,11 +793,7 @@ Access blob data via the parameter typed as [InputStream](https://docs.microsoft
 
 # [Java](#tab/java)
 
-You can use the following types to read blob data:
-
-* `@BlobInput` attribute (if you use a byte array, set `dataType` to `binary`)
-
-Refer to the [input example](#input---example) for details.
+The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
 
 ---
 
@@ -1121,7 +1117,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`.
+The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
 
 ---
 
@@ -1169,12 +1165,7 @@ Refer to the [output example](#output---example) for details.
 
 # [Java](#tab/java)
 
-You can use the following types to write out to blob storage:
-
-* `@BlobOutput` attribute (if you use a byte array, set `dataType` to `binary`)
-* `OutputBinding<T>` with `String` or `byte[]`
-
-Refer to the [output example](#output---example) for details.
+The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
 
 ---
 
