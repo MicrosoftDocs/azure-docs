@@ -17,11 +17,14 @@ ms.collection: M365-identity-device-management
 
 # Bulk remove group members (preview) in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk group list download, bulk import for group members, and bulk removal of group members.
+Using Azure Active Directory (Azure AD) portal, you can remove a large number of members from a group by using a comma-separated values (CSV) file to bulk remove group members.
+
+> [!NOTE]
+> Azure AD bulk operations are a public preview feature of Azure AD and are available with any paid Azure AD license plan. For more information about preview use terms, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## To bulk remove group members
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with a User administrator account in the organization. Group owners can also download, import, or remove members.
+1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk remove members of groups they own.
 1. In Azure AD, select **Groups** > **All groups**.
 1. Open the group from which you're removing members and then select **Members**.
 1. On the **Members** page, select **Remove members** to download, update, and upload a CSV file listing the members that you want to remove from the group.
