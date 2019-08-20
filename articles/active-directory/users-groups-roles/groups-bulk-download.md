@@ -16,13 +16,13 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Download a list of groups in Azure Active Directory
+# Bulk download a list of groups (preview) in Azure Active Directory
 
 Azure Active Directory (Azure AD) supports bulk group list download, bulk import for group members, and bulk removal of group members.
 
 ## To download a list of groups
 
-1. Sign in to your Azure AD organization with an administrator account in the organization.
+1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an administrator account in the organization. Group owners can also download groups and download, import, or remove members.
 1. In Azure AD, select **Groups** > **Download groups**.
 1. On the **Groups download** page, select **Start** to receive a CSV file listing your groups.
 
