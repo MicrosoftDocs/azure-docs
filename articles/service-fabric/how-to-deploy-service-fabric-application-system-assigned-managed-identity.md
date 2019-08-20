@@ -10,7 +10,7 @@ ms.date: 07/25/2019
 ms.author: atsenthi
 ---
 
-# Deploy Service Fabric application with system-assigned managed identity
+# Deploy Service Fabric application with system-assigned managed identity (preview)
 
 In order to access the managed identity feature for Azure Service Fabric applications, you must first enable the Managed Identity Token Service on the cluster. This service is responsible for the authentication of Service Fabric applications using their managed identities, and for obtaining access tokens on their behalf. Once the service is enabled, you can see it in Service Fabric Explorer under the **System** section in the left pane, running under the name **fabric:/System/ManagedIdentityTokenService** next to other system services.
 
@@ -88,7 +88,7 @@ This property declares (to Azure Resource Manager, and the Managed Identity and 
     ```
     This is the equivalent mapping of an identity to a service as described above, but from the perspective of the service definition. The identity is referenced here by its friendly name (`WebAdmin`), as declared in the application manifest.
 
-## Related articles
+## Next Steps
 
 * Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
 
