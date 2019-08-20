@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure API for FHIR Preview Documentation
+title: Azure API for FHIR Documentation
 metadata:
-  title: Azure API for FHIR Preview Documentation
+  title: Azure API for FHIR Documentation
   meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
   services: healthcare-apis
   author: hansenms
@@ -13,7 +13,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/07/2019
 abstract:
-  description: Azure API for FHIR® Preview is a fully managed, standards-based, compliant API for clinical health data that enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data. 
+  description: Azure API for FHIR® is a fully managed, standards-based, compliant API for clinical health data that enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data. 
 sections:
 - title:  
   items:
@@ -22,7 +22,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
     - type: paragraph
-      text: Learn how Azure API for FHIR Preview can power healthcare interoperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+      text: Learn how Azure API for FHIR can power healthcare interoperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
     - type: table
       style: dataMatrix
       columns:
