@@ -12,15 +12,15 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 08/22/2019
 ---
-# Azure SQL Database instance pools how-to guide
+# Azure SQL Database instance pools (preview) how-to guide
 
-This article provides details on how to accomplish the basic scenarios available in [instance pools (preview)](sql-database-instance-pools.md).
+This article provides details on how to create and manage [instance pools](sql-database-instance-pools.md).
 
 ## Instance pool operations
 
 The following table shows the available operations related to instance pools and their availability in the Azure portal and PowerShell.
 
-|Command|Azure Portal|PowerShell|
+|Command|Azure portal|PowerShell|
 |:---|:---|:---|
 |Create instance pool|No|Yes|
 |Update instance pool (limited number of properties)|No |Yes |
@@ -46,15 +46,28 @@ Available [PowerShell commands](https://docs.microsoft.com/powershell/module/az.
 
 To use PowerShell, [install the latest version of PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core), and follow instructions to [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-For operations related to the instances inside pools, use the standard [managed instance commands](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances). When using these commands for an instance in a pool, the instance pool name property must be populated.
+For operations related to the instances inside pools, use the standard [managed instance commands](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances). When using these commands for an instance in a pool, the *instance pool name* property must be populated.
+
+## How to deploy managed instances into pools
+
+The process of deploying an instance into a pool consists of two separate steps:
+
+1. One-off instance pool deployment. This is a long running operation, where the duration is same as for the [first instance created in an empty subnet](sql-database-managed-instance.md#managed-instance-management-operations).
+
+2. Repetitive instance deployment within the pool. The instance pool parameter must be explicitly specified as part of this operation. This is a relatively fast operation that typically takes up to 5 minutes.
+
+In public preview, both steps are supported through PowerShell and Resource Manager templates only. The Azure portal experience should be coming soon.
+
+After a managed instance is deployed in a pool, you *can* use the Azure portal to change its properties on the Pricing tier page.
+
 
 ## Create an instance pool
 
 Resources required and steps for creating instance pool include:
 
-1. Create a virtual network with subnet.
-2. Preparing Virtual Network and subnet for an instance pool.
-3. Creating an instance pool inside prepared Virtual Network and subnet.
+1. [Create a virtual network with subnet](#create-a-virtual-network-with-subnet)
+2. [Preparing the Virtual Network and subnet for an instance pool](#preparing-the-virtual-network-and-subnet)
+3. [Create the instance pool](#create-the-instance-pool)
 
 
 
@@ -89,7 +102,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 For details, see create new virtual network and subnet using [Azure portal template](sql-database-managed-instance-create-vnet-subnet.md) or use instructions for [preparing an existing virtual network](sql-database-managed-instance-configure-vnet-subnet.md).
 
 
-### Preparing a virtual network and subnet for managed instance 
+### Preparing the virtual network and subnet
 
 Instance pools must be deployed within an Azure virtual network and the subnet dedicated for managed instances pools only. The same guidelines are applied for single instance and instance pools.
 
@@ -108,7 +121,7 @@ $parameters = @{
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
-### Create an instance pool 
+### Create the instance pool 
 
 After completing the previous steps, you are ready to create an instance pool.
 
@@ -136,11 +149,14 @@ $instancePool = New-AzSqlInstancePool `
   -Location "westeurope"
 ```
 
-Because deploying an instance pool is a long running operation, you need to wait until it completes before running any of the following steps. 
+> [!IMPORTANT]
+> Because deploying an instance pool is a long running operation, you need to wait until it completes before running any of the following steps in this article.
 
 ## Create a managed instance inside the pool 
 
-After the successful deployment of the instance pool, it's time to create an instance inside it. For creating a managed instance execute the following:
+After the successful deployment of the instance pool, it's time to create an instance inside it. 
+
+To create a managed instance execute the following command:
 
 ```powershell
 $instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
@@ -191,8 +207,6 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 ```
 
 
-
-
 > [!NOTE]
 > There is a limit of 100 databases per pool (not per instance).
 
@@ -200,23 +214,24 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 ## Scale a managed instance inside a pool 
 
 
-After populating a managed instance with databases, you may hit instance limits regarding storage of performance. In that case, if pool usage has not been exceeded, you can scale your instance. 
+After populating a managed instance with databases, you may hit instance limits regarding storage or performance. In that case, if pool usage has not been exceeded, you can scale your instance. 
+Scaling a managed instance inside a pool is an operation that takes a couple of minutes. The prerequisite for scaling is available vCores and storage on the instance pool level. 
 
 To update the number of vCores and storage size:
 
 ```powershell
-$instanceOne | Set-AzSqlInstance -VCore 8 -StorageSizeInGB 512  -InstancePoolName "mi-pool-name"
+$instanceOne | Set-AzSqlInstance -VCore 8 -StorageSizeInGB 512 -InstancePoolName "mi-pool-name"
 ```
 
 
-To update storage size:
+To update storage size only:
 
 ```powershell
 $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-name"
 ```
 
 
-Scaling a managed instance inside a pool is an operation that takes a couple of minutes. The prerequisite for scaling is available vCores and storage on the instance pool level. 
+
 
 
 ## Connect to managed instance placed inside the pool
@@ -228,7 +243,7 @@ Two steps are required for achieving this:
 
 After both steps are completed, you can connect to the instance by using a public endpoint address, port, and credentials provided during instance creation. 
 
-Enabling public endpoint for instance can be done through teh Azure portal or by using the following PowerShell command:
+Enabling public endpoint for instance can be done through the Azure portal or by using the following PowerShell command:
 
 
 ```powershell
