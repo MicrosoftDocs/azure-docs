@@ -10,11 +10,11 @@ ms.date: 08/15/2019
 ms.author: v-qiwe
 
 ---
-# Publishing Integrated Solutions
+# Publishing-Integrated Solutions
 
-An Integrated Solution combines multiple ISV point solution technologies together, along with the deployment and services of an systems integrator (SI), into a single bundled offer that is listed in the marketplace by the SI as a [consulting services offer](https://docs.microsoft.com/azure/marketplace/consulting-services).
+An Integrated Solution combines multiple ISV point solution technologies together, along with the deployment and services of a systems integrator (SI), into a single bundled offer that is listed in the marketplace by the SI as a [consulting services offer](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
-These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are then integrated by an SI to create a unified and repeatable deployment experience for customers, to get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization and consulting, and support around the solution. The outcome is an integrated solution, including technology and services.
+These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are then integrated by an SI to create a unified and repeatable deployment experience for customers, to get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization and consulting, and supports around the solution. The outcome is an integrated solution, including technology and services.
 
 See this video for an overview of the [Integrated Solutions Program](https://aka.ms/AA5qos4).
 
@@ -54,7 +54,7 @@ Partners who want to participate in the program should identify the other partne
 
 Once the nomination is approved, follow the below steps, leveraging the linked program resources, to develop your integrated solution: 
 
-1. Complete key business and technical discussions in a workshop format to define the solution (scope, target customers, value proposition, pricing, licensing, terms and conditions, support approach, marketing activities, sales process and activities) and integration approach (integration points, solution architecture, authentication, user interface, monitoring, deployment mechanism, APIs, and unified data repository). 
+1. Complete key business and technical discussions in a workshop format to define the solution (scope, target customers, value proposition, pricing, licensing, terms and conditions, support approach, marketing activities, sales process, and activities) and integration approach (integration points, solution architecture, authentication, user interface, monitoring, deployment mechanism, APIs, and unified data repository). 
 
     The following resources are available to guide partners through this process:
 
