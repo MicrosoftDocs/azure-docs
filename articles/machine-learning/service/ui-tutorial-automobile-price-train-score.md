@@ -175,11 +175,13 @@ When you train a model, you have to do something about the data that is missing.
 
 Now that the data is ready, you can construct a predictive model. You'll use your data to train the model. Then you'll test the model to see how closely it's able to predict prices.
 
+### Select an algorithm
+
 **Classification** and **regression** are two types of supervised machine learning algorithms. **Classification** predicts an answer from a defined set of categories, such as a color (red, blue, or green). **Regression** is used to predict a number.
 
 Because you want to predict price, which is a number, you can use a regression algorithm. For this example, you'll use a linear regression model.
 
-Train the model by giving it a set of data that includes the price. The model scans the data and looks for correlations between a car's features and its price.
+### Split the data
 
 Use your data for both training the model and testing it by splitting the data into separate training and testing datasets.
 
@@ -188,6 +190,10 @@ Use your data for both training the model and testing it by splitting the data i
 1. Select the **Split Data** module. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
 1. Double-click the **Split Data** and type the comment "Split the dataset into training set(0.7) and test set(0.3)"
+
+### Train the model
+
+Train the model by giving it a set of data that includes the price. The model scans the data and looks for correlations between a car's features and its price.
 
 1. To select the learning algorithm, clear your module palette search box.
 
