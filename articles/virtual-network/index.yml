@@ -1,15 +1,14 @@
 ### YamlMime:Landing
 
-title: Virtual Network documentation # < 60 chars
-summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks. # < 160 chars
+title: Virtual Network documentation
+summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
 
 metadata:
   title: Azure Virtual Network Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
   services: virtual-network
   ms.service: virtual-network
-  ms.subservice:
-  ms.topic: landing-page 
+  ms.topic: landing-page
   ms.collection: collection
   author: KumudD
   ms.author: kumud
@@ -21,42 +20,39 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About virtual network
+  - title: About Azure Virtual Network
     linkLists:
       - linkListType: overview
         links:
-          - text: What is virtual network?
-            url: virtual-networks-overview.md
-      
+          - text: What is Azure Virtual Network?
+            url: virtual-networks-overview.md.md
 
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: Quickstart
+      - linkListType: quickstart
         links:
           - text: Create virtual network - Portal
             url: quick-create-portal.md
           - text: Create virtual network - CLI
-            url: quick-create-cli.md  
+            url: quick-create-cli.md
           - text: Create virtual network - PowerShell
-            url: quick-create-powershell.md
-    - linkListType: How to guide
+            url: quick-create-powershell.md            
+      - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a virtual network
             url: manage-virtual-network.md
           - text: Add, change, or delete a subnet
-            url: virtual-network-manage-subnet.md  
-    
-
+            url: virtual-network-manage-subnet.md
 
   # Card
   - title: Filter network traffic
     linkLists:
-      - linkListType: Overview
+      - linkListType: concept
         links:
           - text: Network security groups (NSGs)
             url: security-overview.md
-      - linkListType: Tutorial
+      - linkListType: tutorial
         links:
           - text: Filter network traffic using NSGs - Portal
             url: tutorial-filter-network-traffic.md
@@ -65,15 +61,14 @@ landingContent:
           - text: Filter network traffic using NSGs - PowerShell
             url: tutorial-filter-network-traffic-powershell.md
 
-
   # Card
   - title: Route network traffic
     linkLists:
-      - linkListType: Overview
+      - linkListType: concept
         links:
           - text: Route network traffic with route tables
             url: virtual-networks-udr-overview.md
-      - linkListType: Tutorials
+      - linkListType: tutorial
         links:
           - text: Route network traffic - Portal
             url: tutorial-create-route-table-portal.md
@@ -81,16 +76,14 @@ landingContent:
             url: tutorial-create-route-table-cli.md          
           - text: Route network traffic - PowerShell
             url: tutorial-create-route-table-powershell.md
-
-
-  # Card
+ # Card
   - title: Restrict network access
     linkLists:
-      - linkListType: Overview
+      - linkListType: concept
         links:
           - text: Virtual network service endpoints
             url: virtual-network-peering-overview.md
-      - linkListType: Tutorials
+      - linkListType: tutorial
         links:
           - text: Restrict network access using service endpoints - Portal
             url: tutorial-restrict-network-access-to-resources.md
@@ -98,7 +91,7 @@ landingContent:
             url: tutorial-restrict-network-access-to-resources-cli.md
           - text: Connect VNets with virtual network peering - PowerShell
             url: tutorial-restrict-network-access-to-resources-powershell.md
-      - linkListType: Deploy
+      - linkListType: deploy
         links:
           - text: Same deployment model - same subscription
             url: tutorial-connect-virtual-networks-powershell.md
@@ -113,11 +106,11 @@ landingContent:
   # Card
   - title: Connect virtual networks
     linkLists:
-      - linkListType: Overview
+      - linkListType: concept
         links:
           - text: Virtual network peering
             url: virtual-network-peering-overview.md
-      - linkListType: Tutorials
+      - linkListType: tutorial
         links:
           - text: Connect VNets with virtual network peering - Portal
             url: tutorial-connect-virtual-networks-portal.md
@@ -130,11 +123,11 @@ landingContent:
   # Card
   - title: Create IP addresses 
     linkLists:
-      - linkListType: Overview
+      - linkListType: concept
         links:
           - text: IP address types and allocation methods
             url: virtual-network-ip-addresses-overview-arm.md
-      - linkListType: How to guide
+      - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a public IP address
             url: virtual-network-public-ip-address.md          
@@ -145,5 +138,8 @@ landingContent:
           - text: Configure a static private IP address for a VM
             url: virtual-networks-static-private-ip-arm-pportal.md
           - text: Assign multiple IP addresses to a VM
-            url: virtual-network-multiple-ip-addresses-powershell.md    
+            url: virtual-network-multiple-ip-addresses-powershell.md
+            
+                
+
 
