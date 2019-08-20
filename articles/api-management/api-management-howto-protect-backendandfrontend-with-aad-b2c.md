@@ -36,6 +36,10 @@ To follow the steps in this article, you must have:
 * An Azure AD B2C tenant, linked to a subscription 
 
 ## Overview
+Here is an illustration of the components in use and the flow between them once this process is complete.
+![Components in use and flow](articles/api-management/media/api-management-howto-protect-backendandfrontend-with-aad-b2c/Image_Arch.PNG "Components in use and flow")
+
+
 Here is a quick overview of the steps:
 
 1. Create the Azure AD B2C Calling (Frontend, API Management) and API Applications with scopes and grant API Access
