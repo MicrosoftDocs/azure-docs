@@ -59,10 +59,10 @@ Let's create a Cosmos account. If you already have an account you want to use, y
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file. Replace the placeholders {host-name} and {dbname} with your own Comsos DB Account name without the database name, without braces. 
+1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file. Replace the placeholders {endpoint} and {dbname} with your own Comsos DB Account name, without braces.
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{host-name}.documents.azure.com:10255/{dbname}
+    COSMOSDB_CONNSTR=mongodb://{endpoint}.documents.azure.com:10255/{dbname}
     COSMODDB_USER=cosmos-user
     COSMOSDB_PASSWORD=cosmos-secret
     ```
