@@ -157,7 +157,9 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 ### Add the main method
 
 1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, and then select **Class**.
-1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The uncommented code reads the search service parameters and uses them to create an instance of the search service client which will be added next. The commented code in this class will be used later in the quickstart.
+1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The uncommented code reads the search service parameters and uses them to create an instance of the search service client. The search service client code will be added in the next section. 
+
+    The commented code in this class will be uncommented in a later section of this quickstart.
 
     ```java
     package main.app;
