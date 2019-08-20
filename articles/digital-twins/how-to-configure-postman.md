@@ -48,7 +48,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 ## Obtain an OAuth 2.0 token
 
-    [!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
 
 Set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
