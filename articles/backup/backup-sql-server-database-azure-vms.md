@@ -66,13 +66,12 @@ Establish connectivity by using one of the following options:
   - Save the NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 
-   Use portal to create a rule using the AzureBackup service tag:
+   Use portal to create a rule using the AzureBackup service tag:<br>
     
-   - In the top-left corner of the portal, select **+ Create a resource**.
-   - Select **Networking** and select the network security group you want to view details of a security rule for.
-   - Select **Outbound security rules** under **SETTINGS** and select the rule you want to view details for.For a detailed explanation of all settings, see [security rule settings](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings).
-   - Select **Destination** as **Service Tag** and **Destination service tag** as **AzureBackup**.
-   - Save the NSG tag. 
+    - Go to **Network security groups** and select the network security group you want to view details of a security rule for.
+    - Select **Outbound security rules** under **SETTINGS** and select the rule you want to view details for.For a detailed explanation of all settings, see [security rule settings](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings).
+    - Select **Destination** as **Service Tag** and **Destination service tag** as **AzureBackup**.
+    - Save the NSG tag. 
 
 
 - **Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](https://docs.microsoft.com/azure/firewall/fqdn-tags). This allows outbound access to Azure Backup.
