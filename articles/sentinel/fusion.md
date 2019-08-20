@@ -79,7 +79,7 @@ Next, the account \<*account name*> downloaded over \<*number of*> unique files 
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
-Next, the account \<*account name*> impersonated over \<*number of*> different accounts in a single session.
+Next, the account \<*account name*> performed an unusual amount (\<*number of activities*>) of impersonation activities in a single session.
 
 **Impossible travel to atypical locations leading to mass file sharing**
 
