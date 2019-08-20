@@ -9,7 +9,11 @@ ms.date: 08/04/2019
 ms.author: dacurwin
 ---
 # Security features to help protect cloud workloads that use Azure Backup
-Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion. One such feature is Soft Delete. With Soft Delete, even if a malicious actor deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that VM with no data loss. These additional 14 days retention of backup data in the "soft delete" state don’t incur any cost to the customer.
+Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion. One such feature is Soft Delete. With Soft Delete, even if a malicious actor deletes the backup of a VM (or a VM is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that VM with no data loss. These additional 14 days retention of backup data in the "soft delete" state don’t incur any cost to the customer.
+
+> [!NOTE]
+>  Soft delete only protects deleted backups. If a VM is deleted without a backup, the soft-delete feature will not preserve the data. All resources should be protected with Azure Backup to ensure full resilience.
+>
 
 ## Soft Delete
 ### Soft Delete for VMs
@@ -18,7 +22,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
     ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. In the following window, you will be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. The deletion is deferred until after that period, when permanent deletion will occur.
+2. In the following window, you will be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM backup will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. The deletion is deferred until after that period, when permanent deletion will occur.
     
     ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
@@ -34,9 +38,9 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 > [!NOTE]
 >
 >If any soft-deleted VMs are present in the vault, the vault cannot be deleted at that time.
-Restore operation on a soft deleted item can only be performed after ‘undeleting’ the item.
 
-4.  In order to restore the VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**. A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a “stop protection with retain data” state. Click on the button **Undelete**.
+
+4.  In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**. A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a “stop protection with retain data” state. Click on the button **Undelete**.
 
     ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
@@ -49,6 +53,11 @@ Restore operation on a soft deleted item can only be performed after ‘undeleti
 5. After the undelete process is completed, the status will return to “Stop backup with retain data” and then you can choose **Resume backup**. At this point, you can also restore the VM by selecting **Restore VM** from the chosen restore point.
 
     ![Screenshot of Azure portal, Resume Backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
+
+This diagram shows the different steps and states of a backup item:
+
+  ![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
+
 
 For more information, see the [Frequently Asked Questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) section below.
 
