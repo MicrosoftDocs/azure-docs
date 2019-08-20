@@ -73,4 +73,4 @@ Select the **Copy** button next to the text box to copy it to the clipboard. Sav
 If you select the **RDP** option, an RDP file is downloaded on to your machine. Save it and open it to connect to the machine. 
 
 ## Next steps
-After an instructor enabled the remote desktop connection feature, students can connect to their VMs via RDP/SSH. For more information, see [Use remote desktop for Linux VMs in a classroom lab](how-to-use-remote-desktop-linux-students.md). 
+After an instructor enabled the remote desktop connection feature, students can connect to their VMs via RDP/SSH. For more information, see [Use remote desktop for Linux VMs in a classroom lab](how-to-use-remote-desktop-linux-student.md). 

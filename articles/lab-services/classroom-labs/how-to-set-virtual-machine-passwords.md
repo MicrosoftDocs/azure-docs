@@ -44,4 +44,4 @@ The lab owner can also reset the password after the lab is created, on the dashb
 ## Next steps
 To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).
 
-To learn about how students can reset passwords for their VMs, see [Set or reset password for virtual machines in classroom labs (students)](how-to-reset-virtual-machine-passwords-student.md).
+To learn about how students can reset passwords for their VMs, see [Set or reset password for virtual machines in classroom labs (students)](how-to-set-virtual-machine-passwords-student.md).
