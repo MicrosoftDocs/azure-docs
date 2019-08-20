@@ -96,7 +96,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## Supported virtual machine OS image
+## Supported virtual machine OS images
 
 Windows Virtual Desktop supports the following OS images:
 
@@ -105,7 +105,7 @@ Windows Virtual Desktop supports the following OS images:
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012R2
+* Windows Server 2012 R2
 
 ## Next steps
 
