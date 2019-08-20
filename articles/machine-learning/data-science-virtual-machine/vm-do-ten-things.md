@@ -1,7 +1,7 @@
 ---
-title: Data exploration and modeling with Data Science Virtual Machine
+title: Data exploration and modeling with the Data Science Virtual Machine
 titleSuffix: Azure
-description: Perform various data exploration and modeling task on the Data science Virtual Machine.
+description: Perform various data exploration and modeling tasks on the Data Science Virtual Machine.
 services: machine-learning
 documentationcenter: ''
 author: vijetajo
@@ -23,84 +23,86 @@ ms.author: vijetaj
 
 # Ten things you can do on the Windows Data Science Virtual Machine
 
-The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in Azure Cosmos DB. It can also leverage other analytics tools such as Azure Machine Learning and Azure Data Factory.
+The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment where you can perform data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started with your analysis for on-premises, cloud, or hybrid deployments. 
 
-In this article, you will learn how to use your DSVM to perform various data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
+The DSVM works closely with many Azure services. It can read and process data that's already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or Azure Cosmos DB. It can also take advantage of other analytics tools, such as Azure Machine Learning and Azure Data Factory.
 
-1. Explore data and develop models locally on the DSVM using Microsoft ML Server, Python
-2. Use a Jupyter notebook to experiment with your data on a browser using Python 2, Python 3, Microsoft R an enterprise ready version of R designed for performance
-3. Deploy models built using R and Python on Azure Machine Learning so client applications can access your models using a simple web service interface
-4. Administer your Azure resources using  Azure portal or Powershell
-5. Extend your storage space and share large-scale datasets / code across your whole team by creating an Azure File storage as a mountable drive on your DSVM
-6. Share code with your team using GitHub and access your repository using the pre-installed Git clients - Git Bash, Git GUI.
-7. Access various Azure data and analytics services like Azure blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse & databases
-8. Build reports and dashboard using the Power BI Desktop pre-installed on the DSVM and deploy them on the cloud
-9. Dynamically scale your DSVM to meet your project needs
-10. Install additional tools on your virtual machine   
+In this article, you'll learn how to use your DSVM to perform various data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
+
+- Explore data and develop models locally on the DSVM by using Microsoft Machine Learning Server and Python.
+- Use a Jupyter notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R (an enterprise-ready version of R designed for performance).
+- Deploy models built through R and Python on Azure Machine Learning so client applications can access your models by using a simple web service interface.
+- Administer your Azure resources by using the Azure portal or Powershell.
+- Extend your storage space and share large-scale datasets/code across your whole team by creating an Azure Files share as a mountable drive on your DSVM.
+- Share code with your team by using GitHub and access your repository by using the pre-installed Git clients: Git Bash and Git GUI.
+- Access various Azure data and analytics services like Azure Blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, and Azure SQL Database.
+- Build reports and a dashboard by using the Power BI Desktop instance that's pre-installed on the DSVM and deploy them in the cloud.
+- Dynamically scale your DSVM to meet your project needs.
+- Install additional tools on your virtual machine.   
 
 > [!NOTE]
-> Additional usage charges apply for many of the additional data storage and analytics services listed in this article. Refer to the [Azure Pricing](https://azure.microsoft.com/pricing/) page for details.
+> Additional usage charges apply for many of the data storage and analytics services listed in this article. For details, refer to the [Azure pricing](https://azure.microsoft.com/pricing/) page.
 > 
 > 
 
-**Prerequisites**
+## Prerequisites
 
-* You need an Azure subscription. You can sign up for a free trial [here](https://azure.microsoft.com/free/).
-* Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
+* You need an Azure subscription. You can [sign up for a free trial](https://azure.microsoft.com/free/).
+* Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available in [Creating a virtual machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## 1. Explore data & develop models with Microsoft ML Server
+## Explore data and develop models with Microsoft Machine Learning Server
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
-For R, you can use an IDE like RStudio that can be found on the start menu or the desktop OR R Tools for Visual Studio. Microsoft has provided additional libraries on top of the Open-source/CRAN-R to enable scalable analytics and the ability to analyze data larger than the memory size allowed by doing parallel chunked analysis. 
+For R, you can use an IDE like RStudio that can be found on the start menu or the desktop. Or you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN-R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
 
-For Python, you can use an IDE like Visual Studio Community Edition, which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root conda environment is configured on PTVS. In order to enable Anaconda Python 2.7, you need to do the following steps:
+For Python, you can use an IDE like Visual Studio Community Edition, which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root Conda environment, is configured on PTVS. To enable Anaconda Python 2.7, take the following steps:
 
-* Create custom environments for each version by navigating to **Tools** -> **Python Tools** -> **Python Environments** and then clicking "**+ Custom**" in the Visual Studio Community Edition
-* Give a description and set the environment prefix path as *c:\anaconda\envs\python2* for Anaconda Python 2.7
-* Click **Auto Detect** and then **Apply** to save the environment.
+1. Create custom environments for each version by going to **Tools** > **Python Tools** > **Python Environments**, and then selecting "**+ Custom**" in Visual Studio Community Edition.
+1. Give a description and set the environment prefix path as **c:\anaconda\envs\python2** for Anaconda Python 2.7.
+1. Select **Auto Detect** > **Apply** to save the environment.
 
-Here is what the custom environment setup looks like in Visual Studio.
+Here's what the custom environment setup looks like in Visual Studio.
 
 ![Screenshot of Visual Studio with Python Tools for Visual Studio selected](./media/vm-do-ten-things/PTVSSetup.png)
 
-See the [PTVS documentation](https://aka.ms/ptvsdocs) for additional details on how to create Python Environments.
+See the [PTVS documentation](https://aka.ms/ptvsdocs) for more details on how to create Python environments.
 
-Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](https://aka.ms/ptvsdocs).
+Now you're set up to create a new Python project. Go to **File** > **New** > **Project** > **Python** and select the type of Python application you're building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right-clicking **Python environments**, selecting **Add/Remove Python Environments**, and then choosing the desired environment. You can find more information about working with PTVS in the [product documentation](https://aka.ms/ptvsdocs).
 
-## 2. Use Jupyter Notebooks
-The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
+## Use Jupyter notebooks
+The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter notebook.
 
-To launch the Jupyter Notebook, click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or want to create new notebooks.  
+To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
-Once you have started Jupyter, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
+After you start Jupyter, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
-* Click on the notebook to see the code.
-* Execute each cell by pressing **SHIFT-ENTER**.
-* Run the entire notebook by clicking on **Cell** -> **Run**
-* Create a new notebook by clicking on the Jupyter Icon (left top corner) and then clicking **New** button on the right and then choosing the notebook language (also known as kernels).   
-
-> [!NOTE]
-> Currently Python 2.7, Python 3.6, R, Julia, and PySpark kernels in Jupyter are supported. The R kernel supports programming in both Open source R as well as the performant Microsoft R.   
-> 
-> 
-
-Once you are in the notebook you can explore your data, build the model, test the model using your choice of libraries.
-
-## 3. Train & deploy models with Azure Machine Learning
-Once you have built and validated your model the next step is usually to deploy it into production. This allows your client applications to invoke the model predictions on a real-time or on a batch mode basis. Azure Machine Learning provides a mechanism to operationalize a model built in either R or Python.
-
-When you operationalize your model in Azure Machine Learning, a web service is exposed that allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.   
+* Select the notebook to see the code.
+* Execute each cell by selecting SHIFT+ENTER.
+* Run the entire notebook by selecting **Cell** > **Run**.
+* Create a new notebook by selecting the Jupyter icon (upper-left corner), selecting the **New** button on the right, and then choosing the notebook language (also known as kernels).   
 
 > [!NOTE]
-> If you have not yet signed up for Azure Machine Learning, you can obtain a free workspace or a standard workspace by visiting the [Azure Machine Learning Studio](https://studio.azureml.net/) home page and clicking on "Get Started."   
+> Currently, Python 2.7, Python 3.6, R, Julia, and PySpark kernels in Jupyter are supported. The R kernel supports programming in both open-source R and Microsoft R.   
 > 
 > 
 
-### Build and Operationalize Python models
-Here is a snippet of code developed in a Python Jupyter Notebook that builds a simple model using the SciKit-learn library.
+When you're in the notebook, you can explore your data, build the model, and test the model by using your choice of libraries.
+
+## Train and deploy models with Azure Machine Learning
+After you've built and validated your model, the next step is usually to deploy it into production. This step allows your client applications to invoke the model predictions on a real-time basis or a batch mode basis. Azure Machine Learning provides a mechanism to operationalize a model built in either R or Python.
+
+When you operationalize your model in Azure Machine Learning, a web service is exposed. It allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.   
+
+> [!NOTE]
+> If you haven't yet signed up for Azure Machine Learning, you can get a free workspace or a standard workspace by visiting the [Azure Machine Learning Studio](https://studio.azureml.net/) home page and selecting **Get Started**.   
+> 
+> 
+
+### Build and operationalize Python models
+Here's a snippet of code developed in a Python Jupyter Notebook that builds a simple model by using the SciKit-learn library.
 
 ```python
 # IRIS classification
@@ -112,7 +114,7 @@ X, y = iris.data, iris.target
 clf.fit(X, y)
 ```
 
-The method used to deploy your python models to Azure Machine Learning wraps the prediction of the model into a function and decorates it with attributes provided by the pre-installed Azure Machine Learning python library that denote your Azure Machine Learning workspace ID, API Key, and the input and return parameters.  
+The method that's used to deploy your Python models to Azure Machine Learning wraps the prediction of the model into a function and decorates it with attributes provided by the pre-installed Azure Machine Learning Python library that denote your Azure Machine Learning workspace ID, the API key, and the input and return parameters.  
 
 ```python
 from azureml import services
@@ -126,7 +128,7 @@ def predictIris(sep_l, sep_w, pet_l, pet_w):
 return clf.predict(inputArray)
 ```
 
-A client can now make calls to the web service. There are convenience wrappers that construct the REST API requests. Here is a sample code to consume the web service.
+A client can now make calls to the web service. There are convenience wrappers that construct the REST API requests. Here's sample code to consume the web service.
 
 ```python
 # Consume through web service URL and keys
@@ -141,24 +143,24 @@ IrisPredictor(3,2,3,4)
 ```
 
 > [!NOTE]
-> The Azure Machine Learning library is only supported on Python 2.7 currently.   
+> Currently, the Azure Machine Learning library is supported only on Python 2.7.   
 > 
 > 
 
-### Build and Operationalize R models
-You can deploy R models built on the Data Science Virtual Machine or elsewhere onto Azure Machine Learning in a manner that is similar to how it is done for Python. Here are the steps:
+### Build and operationalize R models
+You can deploy R models built on the Data Science Virtual Machine or elsewhere onto Azure Machine Learning in a way that's similar to how it's done for Python. Here are the steps:
 
-* create a settings.json file to provide your workspace ID and auth token 
-* write a wrapper for the model's predict function.
-* call ```publishWebService``` in the Azure Machine Learning library to pass in the function wrapper.  
+1. Create a settings.json file to provide your workspace ID and authentication token. 
+2. Write a wrapper for the model's predict function.
+3. Call ```publishWebService``` in the Azure Machine Learning library to pass in the function wrapper.  
 
-Here is the procedure and code snippets that can be used to set up, build, publish, and consume a model as a web service in Azure Machine Learning.
+Here are the procedure and code snippets that you can use to set up, build, publish, and consume a model as a web service in Azure Machine Learning.
 
 #### Setup
 
-* Create a settings.json file under a directory called ```.azureml``` under your home directory and enter the parameters from your Azure Machine Learning workspace:
+Create a settings.json file under a directory called ```.azureml``` under your home directory. Enter the parameters from your Azure Machine Learning workspace.
 
-settings.json File structure:
+Here's the settings.json file structure:
 
 ```json
 {"workspace":{
@@ -188,8 +190,9 @@ ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema =
 ```
 
 #### Consume the model deployed in Azure Machine Learning
-To consume the model from a client application, we use the Azure Machine Learning library to look up the published web service by name using the `services` API call to determine the endpoint. Then you just call the `consume` function and pass in the data frame to be predicted.
-The following code is used to consume the model published as an Azure Machine Learning web service.
+To consume the model from a client application, use the Azure Machine Learning library to look up the published web service by name. Use the `services` API call to determine the endpoint. Then you just call the `consume` function and pass in the data frame to be predicted.
+
+Use the following code to consume the model published as an Azure Machine Learning web service.
 
 ```r
 library(AzureML)
@@ -201,13 +204,13 @@ s <- tail(s, 1) # use the last published function, in case of duplicate function
 
 ep <- endpoints(ws, s)
 
-# OK, try this out, and compare with raw data
+# Try this out, and compare with raw data
 ans = consume(ep, sleepstudy)$ans
 ```
 
-More information about the Azure Machine Learning R library can be found [here](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
+You can find more information about the Azure Machine Learning R library on the [CRAN website](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
 
-## 4. Manage Azure resources
+## Manage Azure resources
 The DSVM not only allows you to build your analytics solution locally on the virtual machine, but also allows you to access services on Microsoft's Azure cloud. Azure provides several compute, storage, data analytics services, and other services that you can administer and access from your DSVM.
 
 To administer your Azure subscription and cloud resources, you have two options:
@@ -216,7 +219,7 @@ To administer your Azure subscription and cloud resources, you have two options:
 + **Azure Powershell**: use Windows Powershell scripts. Run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell." See the 
 [Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for full details. 
 
-## 5. Extend storage with shared file systems
+## Extend storage with shared file systems
 Data scientists can share large datasets, code, or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
 
 > [!NOTE]
@@ -256,7 +259,7 @@ net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
 
 Now you can access this drive as you would any normal drive on the VM.
 
-## 6. Share code in GitHub
+## Share code in GitHub
 GitHub is a code repository where you can find many sample code and sources for different tools using various technologies shared by the developer community. It uses Git as the technology to track and store versions of the code files. GitHub is also a platform where you can create your own repository to store your team's shared code and documentation, implement version control and also control who have access to view and contribute code. Visit the [GitHub help pages](https://help.github.com/) for more information on using Git. You can use GitHub as one of the ways to collaborate with your team, use code developed by the community and contribute code back to the community.
 
 The DSVM already comes loaded with client tools on both command-line as well GUI to access GitHub repository. The command-line tool to work with Git and GitHub is called Git Bash. Visual Studio installed on the DSVM has the Git extensions. You can find start-up icons for these tools on the start menu and the desktop.
@@ -271,7 +274,7 @@ In Visual Studio, you can do the same clone operation. The  following screenshot
 
 You can find more information on using Git to work with your GitHub repository from several resources available on github.com. The [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is a useful reference.
 
-## 7. Access many Azure data & analytics services
+## Access many Azure data and analytics services
 ### Azure Blob
 Azure blob is a reliable, economical cloud storage for data big and small. This section describes how you can move data to Azure Blob and access data stored in an Azure Blob.
 
@@ -315,8 +318,8 @@ Once you run your AzCopy command to copy to an Azure blob, you see your file sho
 
 You can also upload data from the local file in your VM using Azure Storage Explorer:
 
-* To upload data to a container, select the target container and click the **Upload** button.![Screenshot of the upload button in the Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Screenshot of the upload files dialog](./media/vm-do-ten-things/upload-files-to-blob.png)
+* To upload data to a container, select the target container and select the **Upload** button.![Screenshot of the upload button in the Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
+* Select the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and select **Upload** to begin uploading the files.![Screenshot of the upload files dialog](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Read data from Azure Blob: Machine Learning reader module**
 
@@ -399,7 +402,7 @@ You can also build a data pipeline to operationalize your data movement to or fr
 
 **Read data from Azure Blob to Data Lake: U-SQL**
 
-If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure portal**, find your Azure Data Lake Analytics dashboard, click **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you are able to reference the data stored in the storage account.
+If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure portal**, find your Azure Data Lake Analytics dashboard, select **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you are able to reference the data stored in the storage account.
 
 ![Screenshot of the Add Data Source dialog](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
@@ -830,7 +833,7 @@ The scored dataset can then be viewed:
 
 ![View scored dataset](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
-### Azure SQL Data Warehouse & databases
+### Azure SQL Data Warehouse and databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with enterprise-class SQL Server experience.
 
 You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling using data within the SQL Data Warehouse.
@@ -849,13 +852,13 @@ The following are the per-requisites steps to access Azure Cosmos DB from the DS
 
 Once you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*  that contains python code to access Azure Cosmos DB and do some basic querying. You can learn more about Cosmos DB by visiting the service [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
-## 8. Power BI reports & dashboards 
+## Power BI reports and dashboards 
 You can visualize the Volcano JSON file from the preceding Cosmos DB example in Power BI desktop to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
 
 1. Open Power BI Desktop and do "Get Data." Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You should see the JSON records imported as a list
 3. Convert the list to a table so Power BI can work with the same
-4. Expand the columns by clicking on the expand icon (the one with the "left arrow and a right arrow" icon on the right of the column)
+4. Expand the columns by selecting the expand icon (the one with the "left arrow and a right arrow" icon on the right of the column)
 5. Notice that location is a "Record" field. Expand the record and select only the coordinates. Coordinate is a list column
 6. Add a new column to convert the list coordinate column into a comma separate LatLong column concatenating the two elements in the coordinate list field using the formula ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
 7. Finally convert the ```Elevation``` column to Decimal and select the **Close** and **Apply**.
@@ -882,7 +885,7 @@ You can start building reports and visualizations using the data model. You can 
 
 ![Power BI Desktop Report View - Power BI connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
-## 9. Dynamic DSVM scaling 
+## Dynamic DSVM scaling 
 You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shut down the VM from the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
@@ -896,10 +899,10 @@ Similarly, if your need for VM processing capacity reduces (for example: you mov
 
 ![VM instance settings](./media/vm-do-ten-things/VMScaling.PNG)
 
-## 10. Add more tools
+## Add more tools
 There are several tools pre-built into the DSVM that can address many of the common data analytics needs. This saves you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
 
-You can utilize other Azure data and analytics services profiled in this article to enhance your analytics environment. In some cases your needs may require additional tools, including some proprietary third-party tools. You have full administrative access on the virtual machine to install new tools you need. You can also install additional packages in Python and R that are not pre-installed. For Python you can use either ```conda``` or ```pip```. For R you can use the ```install.packages()``` in the R console or use the IDE and choose "**Packages** -> **Install Packages...**".
+You can utilize other Azure data and analytics services profiled in this article to enhance your analytics environment. In some cases your needs may require additional tools, including some proprietary third-party tools. You have full administrative access on the virtual machine to install new tools you need. You can also install additional packages in Python and R that are not pre-installed. For Python you can use either ```conda``` or ```pip```. For R you can use the ```install.packages()``` in the R console or use the IDE and choose "**Packages** > **Install Packages...**".
 
 ## Deep Learning
 
