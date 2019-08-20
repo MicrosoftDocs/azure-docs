@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure AD Identity Protection Documentation
+title: Azure AD Identity Protection documentation
 summary: Learn how to use Identity Protection to identify and address identity risks in your organization
 
 metadata:
-  title: Azure AD Identity Protection Documentation
+  title: Azure AD Identity Protection documentation
   description: Learn how to use Identity Protection to identify and address identity risks in your organization
   services: active-directory
   ms.service: active-directory
