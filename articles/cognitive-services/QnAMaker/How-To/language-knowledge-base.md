@@ -17,7 +17,7 @@ QnA Maker supports knowledge base content in many languages. However, each QnA M
 
 The language is automatically recognized from the content of the data sources being extracted. Once you create a new QnA Maker Service and a new Knowledge Base in that service, you can verify that the language has been set correctly.
 
-1. Navigate to the [Azure Portal](https://portal.azure.com/).
+1. Navigate to the [Azure portal](https://portal.azure.com/).
 
 1. Select **resource groups** and navigate to the resource group where the QnA Maker service is deployed and select the **Azure Search** resource.
 
