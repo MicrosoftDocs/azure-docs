@@ -133,21 +133,21 @@ This will install the [Microsoft Monitoring agent](/azure/virtual-machines/exten
 
 Once the events are pushed to Log Analytics, you can run the following [query](/azure/azure-monitor/log-query/get-started-portal) to look for the schedule Events.
 
-1. At the top of the page, select **Logs** and paste the following into the text box. .
+1. At the top of the page, select **Logs** and paste the following into the text box:
 
-```
-Event
-| where EventLog == "Application" and Source contains "AzureScheduledEvents" and RenderedDescription contains "Scheduled" and RenderedDescription contains "EventStatus" 
-| project TimeGenerated, RenderedDescription
-| extend ReqJson= parse_json(RenderedDescription)
-| extend EventId = ReqJson["EventId"]
-,EventStatus = ReqJson["EventStatus"]
-,EventType = ReqJson["EventType"]
-,NotBefore = ReqJson["NotBefore"]
-,ResourceType = ReqJson["ResourceType"]
-,Resources = ReqJson["Resources"]
-| project-away RenderedDescription,ReqJson
-```
+	```
+	Event
+	| where EventLog == "Application" and Source contains "AzureScheduledEvents" and RenderedDescription contains "Scheduled" and RenderedDescription contains "EventStatus" 
+	| project TimeGenerated, RenderedDescription
+	| extend ReqJson= parse_json(RenderedDescription)
+	| extend EventId = ReqJson["EventId"]
+	,EventStatus = ReqJson["EventStatus"]
+	,EventType = ReqJson["EventType"]
+	,NotBefore = ReqJson["NotBefore"]
+	,ResourceType = ReqJson["ResourceType"]
+	,Resources = ReqJson["Resources"]
+	| project-away RenderedDescription,ReqJson
+	```
 
 1. Select **Save**, and then type *logQuery* for the name, leave **Query** as the type, type *VMLogs* as the **Category**, and then select **Save**. 
 
