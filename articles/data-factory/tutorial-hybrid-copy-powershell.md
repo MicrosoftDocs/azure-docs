@@ -72,7 +72,7 @@ You use the name and key of your Azure storage account in this tutorial. Get the
 
 1. In the left pane, select **More services**, filter by using the **Storage** keyword, and then select **Storage accounts**.
 
-    ![Search for storage account](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Search for storage account](media/doc-common-process/search-storage-account.png)
 
 1. In the list of storage accounts, filter for your storage account (if needed), and then select your storage account. 
 
