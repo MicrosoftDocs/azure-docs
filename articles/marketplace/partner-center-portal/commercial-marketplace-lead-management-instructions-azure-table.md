@@ -22,7 +22,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
     2. Select **Storage** in the **New** pane.  A **Featured** list is displayed to the right.
     3. Select **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-        ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azurestoragecreate.png)
+        ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
         For more information about storage accounts, select [Quickstart tutorial](https://docs.microsoft.com/azure/storage/).  For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -38,7 +38,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
     ```
 
-    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-table/azurestoragekeys.png)
+    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
 
 6. From your storage account pane, select **Tables** and select **+Table** to create a table. Enter a name for your table and select **OK**. Save this value as you will need it if you want to configure a MS Flow to receive email notifications when leads are received.
 
@@ -59,7 +59,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
 3. On the top navigation bar, select **+ New**.  
 4. On the dropdown list, select **+ Scheduled - from blank**
 
-   ![My flows **+ Scheduled - from blank**](./media/commercial-marketplace-lead-management-instructions-azure-table/msflow-scheduled-from-blank.png)
+   ![My flows **+ Scheduled - from blank**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
 5.	On the *Build a scheduled flow* window under *Repeat every* select “1” for interval and “hour” for frequency. Also, give the flow a name if you like. Select **Create**.
 
@@ -78,7 +78,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
     >[!Important]
     >Make sure that this Interval and Time unit matches the Interval and Frequency you configured for Recurrence in step 5.
 
-    ![Set get past time interval](./media/commercial-marketplace-lead-management-instructions-azure-table/msflow-getpast-time.png)
+    ![Set get past time interval](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
 >[!TIP] 
 >You can check your flow at any time to verify each step is configured correctly. To check your flow, select **Flow checker** from the Flow menu bar.
@@ -158,13 +158,13 @@ The next screen capture shows an example of how the final flow should look.
 
 Managing your flow after it’s running is easy. You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The next screen capture shows the options that are available to manage a flow. 
 
- ![Managing a flow](./media/commercial-marketplace-lead-management-instructions-azure-table/msflow-manage-completed.png)
+ ![Managing a flow](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
 The flow keeps running until you stop it by using the **Turn flow off** option.
 
 If you’re not getting any lead email notifications, it means that new leads haven’t been added to the Azure table. If there are any flow failures, you’ll get an email like the example in the next screen capture.
 
- ![Flow failure email notification](./media/commercial-marketplace-lead-management-instructions-azure-table/msflow-failure-note.png)
+ ![Flow failure email notification](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
 
 ## Configure your offer to send leads to the Azure Table
 

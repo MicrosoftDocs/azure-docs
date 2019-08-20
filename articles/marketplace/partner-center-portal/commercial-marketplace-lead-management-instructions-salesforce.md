@@ -18,10 +18,10 @@ This article describes how to setup your Salesforce system to process sales lead
 1. Sign in to Salesforce.
 2. If you are using the Salesforce lighting experience.
     1. Select **Setup** from Salesforce Home page.
-    ![Salesforce setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce1.png)
+    ![Salesforce setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
     1. From the Setup page, navigate via the left navigation to **Platform Tools->Feature Settings->Marketing->Web-to-Lead**.
-    ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce2.png)
+    ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
 3. If you are using the Salesforce Classic experience:
     1. Select **Setup** from Salesforce Home page.
@@ -34,13 +34,13 @@ The rest of the instructions are the same irrespective of which Salesforce exper
 
 4. On the **Web-to-Lead Setup page**, select the **Create Web-to-Lead Form** button.
 5. On **Web-to-Lead Setup**, select **Create Web-to-Lead Form**.
-    ![Salesforce - Web-to-Lead Setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce3.png)
+    ![Salesforce - Web-to-Lead Setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
 6. On the **Create a Web-to-Lead Form**, make sure `the Include reCAPTCHA in HTML` setting is unchecked and select **Generate**. 
-    ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce4.png)
+    ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
 7. You will be presented with some HTML text. Search for the text “oid” and copy the **oid value** from the HTML text (only the text in between quotation marks) and save it. You'll paste this value in the **Organization Identifier** field on the publishing portal.
-    ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce5.png)
+    ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-5.png)
 
 8. Selected **Finished**.
 

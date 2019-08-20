@@ -26,7 +26,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
     2. Select **Storage** in the **New** pane.  A **Featured** list is displayed to the right.
     3. Select the **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-    ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-blob/azurestoragecreate.png)
+    ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
     For more information about storage accounts, select [Quickstart tutorial](https://docs.microsoft.com/azure/storage/).  For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -42,11 +42,11 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/azurestoragekeys2.png)
+    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
 6. From your storage account page, select **Blobs**.
 
-   ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/selectblobs.png)
+   ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Once on the blobs page, select the **+ Container** button.
 
@@ -58,7 +58,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
 
 10. Select **OK** to create the container.
 
-    ![New Container](./media/commercial-marketplace-lead-management-instructions-azure-blob/newcontainer.png)
+    ![New Container](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
 ## Configure your offer to send leads to the Azure Blob
 
@@ -67,17 +67,17 @@ When you are ready to configure the lead management information for your offer i
 1. Navigate to the **Offer setup** page for your offer.
 2. Select **Connect** under the Lead Management section.
 
-    ![Connect Offer](./media/commercial-marketplace-lead-management-instructions-azure-blob/connectoffer.png)
+    ![Connect Offer](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
 
 3. On the Connection details pop-up window, select **Azure Blob** for the Lead Destination.
 
-    ![Connect Detail](./media/commercial-marketplace-lead-management-instructions-azure-blob/connectdetails.png) 
+    ![Connect Detail](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-details.png) 
 
 4. Provide the **Container name** and **Storage Account Connection string** you got from following these instructions.
 
     * Container name example: `marketplaceleadcontainer`
     * Storage Account Connection string example: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
-        ![Connection Detail](./media/commercial-marketplace-lead-management-instructions-azure-blob/connectiondetails.png) 
+        ![Connection Detail](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Select **Save**.
 

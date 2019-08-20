@@ -17,22 +17,22 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 1. Sign in to Marketo.
 2. Select **Design Studio**.
-    ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo1.png)
+    ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 3.  Select **New Form**.
-    ![Marketo new form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo2.png)
+    ![Marketo new form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 4.  Fill the required fields in the New Form and then select **Create**.
-    ![Marketo create new form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo3.png)
+    ![Marketo create new form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
 5.  On Field Details, select **Finish**.
-    ![Marketo finish form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo4.png)
+    ![Marketo finish form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
 6.  Approve and Close.
 
 7. On the *MarketplaceLeadBacked* tab, select **Embed Code**. 
 
-    ![Embed code](./media/commercial-marketplace-lead-management-instructions-marketo/marketo6.png)
+    ![Embed code](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
 8. Marketo Embed Code displays code similar to the following example.
 
