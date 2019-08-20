@@ -13,9 +13,9 @@ ms.date: 08/25/2019
 ms.author: diberry
 ---
 
-# Migrate to an Active Directory authoring key
+# Migrate to an Azure resource authoring key
 
-Language Understanding (LUIS) authoring authentication changed from email to Active Directory. 
+Language Understanding (LUIS) authoring authentication changed from an email account to an Azure resource. 
 
 ## Why migrating?
 
@@ -23,12 +23,7 @@ All the apps you own need to migrate to use Active Directory by:
 
 * **June 1, 2020** is the deadline.
 
-The authentication process for both app owners and app collaborators for authoring is changing to use **Active Directory**. This simplifies some management tasks:
-
-* Collaboration.
-* Transferring ownership.
-
-The migration to Active Directory solves these two issues. 
+The authentication process for both app owners and app collaborators for authoring is changing to use an **Azure resource**. 
 
 ## What is migrating?
 
@@ -41,7 +36,7 @@ The owner can't choose a subset of apps to migrate and the process isn't reversi
 
 The migration is not: 
 
-* A process that collects collaborators and automatically moved or added to the Active Directory. You, as the app owner, need to complete this step. This step requires permissions to the appropriate Active Directory.
+* A process that collects collaborators and automatically moves or adds to the Azure resource. You, as the app owner, need to complete this step. This step requires permissions to the appropriate resource.
 
 ## How are the apps migrating?
 
@@ -65,12 +60,12 @@ Follow [these migration steps](luis-migration-authoring-steps.md).
 
 ### After you migrate 
 
-* Email contributors with information about how to get added to the app as a collaborator using Active Directory.
+* Add collaborators back to app.
 
 ## Migration for the app collaborator
 
-You need to be added to the app's Active Directory by the app owner. Make sure that your account's main or primary email is used. If your account has more than one email associated with it, make sure that only the primary account is connected to the app with Active Directory. 
+You need to be added to the app's Azure authoring resource by the app owner. Make sure that your account's main or primary email is used. If your account has more than one email associated with it, make sure that only the primary account is connected to the app. 
 
 ## Next steps
 
-* [How to migrate your app to Active Directory authoring](luis-migration-authoring-steps.md)
+* [How to migrate your app to an authoring resource](luis-migration-authoring-steps.md)

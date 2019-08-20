@@ -1,7 +1,7 @@
 ---
-title: Migrate to Active Directory authoring
+title: Migrate to an Azure authoring resource
 titleSuffix: Azure Cognitive Services
-description: Migrate to an Active Directory authoring key.
+description: Migrate to an Azure authoring resource.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08//2019
 ms.author: diberry
 ---
 
 # Migration Steps
 
-From the Language Understanding (LUIS) portal, migrate all the apps you own to use the Active Directory authoring key.
+From the Language Understanding (LUIS) portal, migrate all the apps you own to use the Azure authoring resource.
 
 ## Begin the migration process
 
-Before you migrate to the Active Directory authoring experience, you need to have an Azure subscription. If you do not have an Azure subscription, [sign up](). 
+Before you migrate to the Azure resource authoring experience, you need to have an Azure subscription. If you do not have an Azure subscription, [sign up](). 
 
 ![Migration notice for authoring keys](./media/migrate-authoring-key/migration-notice.png)
 
-1. Choose to migrate now or migrate later. You have 9 months to migrate to the new authoring key in Active Directory.
+1. Choose to migrate now or migrate later. You have 9 months to migrate to the new authoring key in Azure.
 
 1. [Sign up to Azure]() and create your first subscription if you do not have an Azure subscription. 
 
@@ -47,7 +47,7 @@ Before you migrate to the Active Directory authoring experience, you need to hav
     * **Location** - an Azure global region your authoring resource is in. LUIS has 3 regions for authoring. The authoring region determines your available publishing regions.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month. 
 
-1. If your apps (that you own) have collaborators, you need to add these collaborators manually in the Azure portal's Active Directory resource. 
+1. If your apps (that you own) have collaborators, you need to add these collaborators manually in the Azure portal's authoring resource. 
 
 ## Next steps
 
