@@ -149,7 +149,7 @@ The fast recovery area (FRA) is file system managed by Oracle ASM disk group.  F
 
 To deploy a vSphere cluster on your Private Cloud, follow this process:
 
-1. From the CloudSimple portal, [create a Private Cloud](/create-private-cloud). CloudSimple creates a default vCenter user named 'cloudowner' in the newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permission model](learn-private-cloud-permissions).  This step creates the primary management cluster for your Private Cloud.
+1. From the CloudSimple portal, [create a Private Cloud](create-private-cloud.md). CloudSimple creates a default vCenter user named 'cloudowner' in the newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permission model](learn-private-cloud-permissions.md).  This step creates the primary management cluster for your Private Cloud.
 
 2. From the CloudSimple portal, [expand the Private Cloud](expand-private-cloud.md) with a new cluster.  This cluster will be used to deploy Oracle RAC.  Select the number of nodes based on the desired fault tolerance (minimum three nodes).
 
@@ -164,7 +164,7 @@ To deploy a vSphere cluster on your Private Cloud, follow this process:
 
 vSAN policies define the failures to tolerate and disk striping for the data stored on the VM disks.  The storage policy created must be applied on the VM disks while creating the VM.
 
-1. [Sign in to the vSphere client](vsphere-access.md) of your Private Cloud.
+1. [Sign in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your Private Cloud.
 2. From the top menu, select **Policies and Profiles**.
 3. From the left menu, select **VM Storage Policies** and then select **Create a VM storage Policy**.
 4. Enter a meaningful name for the policy and click **NEXT**.
@@ -239,7 +239,7 @@ Repeat steps 2 – 7 for all the new disks required for the Oracle data, logs, a
 VM-to-host affinity rules ensure that the VM runs on the desired host.  You can define rules on vCenter to ensure the Oracle VM runs on the host with adequate resources and to meet any specific licensing requirements.
 
 1. In the CloudSimple portal, [escalate the privileges](escalate-private-cloud-privileges.md) of the cloudowner user.
-2. [Log in to the vSphere client](vsphere-access.md) of your Private Cloud.
+2. [Log in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your Private Cloud.
 3. In the vSphere client, select the cluster where Oracle VMs are deployed and click **Configure**.
 4. Under Configure, select **VM/Host Groups**.
 5. Click **+**.

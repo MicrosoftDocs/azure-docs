@@ -41,7 +41,7 @@ Verify that the following are in place before deploying and configuring the solu
 * Identify a Layer 2 network in your on-premises environment for deploying your L2VPN client appliance.
 * [A Private Cloud is already created](create-private-cloud.md).
 * The version of the standalone NSX-T Edge appliance is compatible with the NSX-T Manager version (NSX-T 2.3.0) used in your Private Cloud environment.
-* A trunk port group has been created in the on-premises vCenter with [forged transmits enabled](#on-premises-vcenter-ui-create-a-trunk-port-group-for-the-trunk-interface-of-the-standalone-esg).
+* A trunk port group has been created in the on-premises vCenter with forged transmits enabled.
 * A public IP address has been reserved to use for the NSX-T standalone client uplink IP  address, and 1:1 NAT is in place for translation between the two addresses.
 * DNS forwarding is set on the on-premises DNS servers for the az.cloudsimple.io domain to point to the Private Cloud DNS servers.
 * RTT latency is less than or equal to 150 ms, as required for vMotion to work across the two sites.
@@ -143,7 +143,7 @@ To establish an IPsec route-based VPN between the NSX-T Tier0 router and the NSX
 
 ### Allow UDP 500/4500 for IPsec
 
-1. [Create a public IP address](public-ips.md#allocate-a-public-ip-address) for the NSX-T Tier0 loopback interface in the CloudSimple portal.
+1. [Create a public IP address](public-ips.md) for the NSX-T Tier0 loopback interface in the CloudSimple portal.
 
 2. [Create a firewall table](firewall.md) with stateful rules that allow UDP 500/ 4500 inbound traffic and attach the firewall table to the NSX-T HostTransport subnet.
 
