@@ -52,7 +52,7 @@ Azure security solutions that are deployed from Security Center are automaticall
 
    ![Security Center Overview](./media/security-center-partner-integration/overview.png)
 
-Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks. You can also connect other types of security data sources, such as Azure Active Directory Identity Protection alerts and firewall logs in Common Event Format (CEF).
+Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks.
 
 ### Connected solutions
 
@@ -93,8 +93,6 @@ Security Center automatically discovers security solutions running in Azure but 
 Select **CONNECT** under a solution to integrate with Security Center and be notified on security alerts.
 
 ![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Security Center also discovers solutions deployed in the subscription that are able to forward Common Event Format (CEF) logs. Learn how to [connect a security solution](quick-security-solutions.md) that uses CEF logs to Security Center.
 
 ### Add data sources
 

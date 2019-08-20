@@ -33,7 +33,7 @@ If you choose to install and use the CLI locally, this article requires that you
 You must add an additional node pool after you create your cluster that can run Windows Server containers. Adding an additional node pool is covered in a later step, but you first need to enable a few preview features.
 
 > [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]
@@ -132,7 +132,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 1 \
     --enable-addons monitoring \
-    --kubernetes-version 1.14.1 \
+    --kubernetes-version 1.14.5 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -157,7 +157,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.14.1
+    --kubernetes-version 1.14.5
 ```
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
@@ -186,8 +186,8 @@ The following example output shows the single node created in the previous steps
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
-aksnpwin987654                      Ready    agent   108s   v1.14.1
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.5
+aksnpwin987654                      Ready    agent   108s   v1.14.5
 ```
 
 ## Run the application

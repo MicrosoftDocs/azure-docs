@@ -69,7 +69,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Value name: **TenantName**
       1. Value type: **REG_SZ**
-      1. Value data: Your verified **domain name** if you are using federated environment such as AD FS. Your verified **domain name"" or your onmicrosoft.com domain name for example, `contoso.onmicrosoft.com` if you are using managed environment
+      1. Value data: Your verified **domain name** if you are using federated environment such as AD FS. Your verified **domain name** or your onmicrosoft.com domain name for example, `contoso.onmicrosoft.com` if you are using managed environment
    1. Click **OK**
 1. Close the editor for the newly created GPO
 1. Link the newly created GPO to the desired OU containing domain-joined computers that belong to your controlled rollout population

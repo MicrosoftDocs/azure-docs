@@ -61,34 +61,48 @@ sections:
         src: media/index/logo_go.svg
       title: Go
     rows:
-    - title: Translate text from one language to another
+    - title: Translate text
       values:
-      - href: quickstart-csharp-translate
-      - href: quickstart-java-translate
-      - href: quickstart-nodejs-translate
-      - href: quickstart-python-translate
-      - href: quickstart-go-translate
+      - href: quickstart-translate?pivots=programming-language-csharp
+      - href: quickstart-translate?pivots=programming-language-java
+      - href: quickstart-translate?pivots=programming-language-nodejs
+      - href: quickstart-translate?pivots=programming-language-python
+      - href: quickstart-translate?pivots=programming-language-go
     - title: Convert text from one script to another
       values:
-      - href: quickstart-csharp-transliterate
-      - href: quickstart-java-transliterate
-      - href: quickstart-nodejs-transliterate
-      - href: quickstart-python-transliterate
-      - href: quickstart-go-transliterate
-    - title: Identify language of text
+      - href: quickstart-transliterate?pivots=programming-language-csharp
+      - href: quickstart-transliterate?pivots=programming-language-java
+      - href: quickstart-transliterate?pivots=programming-language-nodejs
+      - href: quickstart-transliterate?pivots=programming-language-python
+      - href: quickstart-transliterate?pivots=programming-language-go
+    - title: Detect text language
       values:
-      - href: quickstart-csharp-detect
-      - href: quickstart-java-detect
-      - href: quickstart-nodejs-detect
-      - href: quickstart-python-detect
-      - href: quickstart-go-detect
+      - href: quickstart-detect?pivots=programming-language-csharp
+      - href: quickstart-detect?pivots=programming-language-java
+      - href: quickstart-detect?pivots=programming-language-nodejs
+      - href: quickstart-detect?pivots=programming-language-python
+      - href: quickstart-detect?pivots=programming-language-go
     - title: Get alternate translations and usage
       values:
-      - href: quickstart-csharp-dictionary
-      - href: quickstart-java-dictionary
-      - href: quickstart-nodejs-dictionary
-      - href: quickstart-python-dictionary
-      - href: quickstart-go-dictionary
+      - href: quickstart-dictionary?pivots=programming-language-csharp
+      - href: quickstart-dictionary?pivots=programming-language-java
+      - href: quickstart-dictionary?pivots=programming-language-nodejs
+      - href: quickstart-dictionary?pivots=programming-language-python
+      - href: quickstart-dictionary?pivots=programming-language-go
+    - title: Determine sentence length
+      values:
+      - href: quickstart-sentences?pivots=programming-language-csharp
+      - href: quickstart-sentences?pivots=programming-language-java
+      - href: quickstart-sentences?pivots=programming-language-nodejs
+      - href: quickstart-sentences?pivots=programming-language-python
+      - href: quickstart-sentences?pivots=programming-language-go
+    - title: Get a full list of supported languages
+      values:
+      - href: quickstart-languages?pivots=programming-language-csharp
+      - href: quickstart-languages?pivots=programming-language-java
+      - href: quickstart-languages?pivots=programming-language-nodejs
+      - href: quickstart-languages?pivots=programming-language-python
+      - href: quickstart-languages?pivots=programming-language-go
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

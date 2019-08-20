@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a single-page application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---

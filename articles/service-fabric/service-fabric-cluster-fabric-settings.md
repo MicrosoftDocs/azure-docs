@@ -407,6 +407,11 @@ The following is a list of Fabric settings that you can customize, organized by 
 |WriteBufferMemoryPoolMaximumInKB | Int, default is 0 |Dynamic|The number of KB to allow the write buffer memory pool to grow up to. Use 0 to indicate no limit. |
 |WriteBufferMemoryPoolMinimumInKB |Int, default is 8388608 |Dynamic|The number of KB to initially allocate for the write buffer memory pool. Use 0 to indicate no limit Default should be consistent with SharedLogSizeInMB below. |
 
+## ManagedIdentityTokenService
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, default is FALSE|Static|Flag controlling the presence and status of the Managed Identity Token Service in the cluster;this is a prerequisite for using the managed identity functionality of Service Fabric applications.|
+
 ## Management
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |

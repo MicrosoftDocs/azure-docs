@@ -39,7 +39,6 @@ GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
 ON wordpress.*
 TO wordpress@localhost
 IDENTIFIED BY 'yourPassword';
-FLUSH PRIVILEGES;
 ```
 
 Run the following command to create the database:

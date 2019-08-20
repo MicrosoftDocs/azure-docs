@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Table API with Java - Azure Cosmos DB'
+title: Use the Table API and Java to build an app - Azure Cosmos DB
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,6 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
+ms.custom: seo-java-august2019
 
 ---
 # Quickstart: Build a Table API app with Java and Azure Cosmos DB
@@ -79,7 +80,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
    ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
 
