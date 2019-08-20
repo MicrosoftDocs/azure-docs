@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/16/2019
+ms.date: 8/20/2019
 ms.author: cynthn
 ms.custom: mvc
 ---
 
 # Quickstart: Create a Linux virtual machine in the Azure portal
 
-Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a Linux virtual machine (VM) running Ubuntu 16.04 LTS. To see your VM in action, you also SSH to the VM and install the NGINX web server.
+Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create Azure resources. This quickstart shows you how to use the Azure portal to deploy a Linux virtual machine (VM) running Ubuntu 18.04 LTS. To see your VM in action, you also SSH to the VM and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,54 +29,22 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
 
-Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. An example command to do this is listed below. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).
+Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
-```bash
-ssh-keygen -t rsa -b 2048
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the menu at the top of the page, click the `>_` button to open Cloud Shell.
+1. Make sure the CloudShell says **Bash** in the upper left. If it says PowerShell, use the drop-down to select **Bash** and select **Confirm** to change to the Bash shell.
+1. Type `ssh-keygen -t rsa -b 2048` to create the ssh key. 
+1. You will be prompted to enter a file in which to save the key pair. Just hit 'Enter' to save in the default location, listed in brackets. 
+1. You will be asked to enter a passphrase. You may enter a passphrase for your SSH key or you may hit 'Enter' to continue without a passphrase.
+1. The `ssh-keygen` command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat` by typing `cat ~/.ssh/id_rsa.pub`.
 ```
-
-You will be prompted to enter a file in which to save the key pair. You may either enter a specific file location or just hit 'Enter' to save in the default location indicated in brackets. You will then be prompted to enter a passphrase. You may enter a passphrase for your SSH key or you may hit 'Enter' to continue without a passphrase.
-
-```bash
-[root@linuxvm ~]$ ssh-keygen -t rsa -b 2048
-Enter the file in which to save the key (home/root/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your public key has been saved in /home/root/.ssh/id_rsa.pub.
-The key fingerprint is: SHA256:kkQS13gbaxevy4ULH0mW6wLIkcFm0twx/rIlSo1fIqU
-The key's randomart image is:
-+---[RSA 2018]----+
-|   +oo=+         |
-|  . B=o.+ .      |
-|   + o+. + +     |
-|    o* o+ = .    |
-|   .EoB.S+ =     |
-|   .o+.O. * .    |
-|    . o. = =     |
-|        . *      |
-|         .       |
-+----[SHA256]-----+
-```
-The `ssh-keygen` command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat`.
-
-```bash
-cat ~/.ssh/id_rsa.pub
-```
-
->[!NOTE]
-> If you chose to save your SSH key in a different location than the default, you will have to use that location when you run `cat`
-
-Save the output of this command. This is your public key and you will need it when configuring your administrator account to log in to your VM.
-
-For more information on the ssh-keygen command, visit the [man page](https://linux.die.net/man/1/ssh-keygen).
-
-If you are using a Windows computer and want to more on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
-
-If you create your SSH key pair using the Cloud Shell, it will be stored in an Azure File Share that is [automatically mounted by the Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Don't delete this file share or storage account until after you have retrieved your keys or you will lose access to the VM.
+1. Copy the output of this command and save it somewhere to use later in this article. This is your public key and you will need it when configuring your administrator account to log in to your VM.
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 ## Create virtual machine
 
@@ -121,7 +89,7 @@ Create an SSH connection with the VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Using the same bash shell you used to create your SSH key pair (like the [Azure Cloud Shell](https://shell.azure.com/bash) or your local bash shell), paste the SSH connection command into the shell to create an SSH session.
+3. Using the same bash shell you used to create your SSH key pair (you can reopen the Cloud Shell by selecting `>_` again or going to https://shell.azure.com/bash), paste the SSH connection command into the shell to create an SSH session.
 
 ## Install web server
 
