@@ -159,6 +159,8 @@ To learn in more about the hierarchy of different entities, see the [working wit
 * [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)- - This method creates (if it doesn't exist) or gets (if it already exists) a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
 * [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - This method creates an item within the container. 
 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - This method creates an item within the container if it doesn't already exist or replaces the item if it already exists. 
+
 * [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
 ) - This method creates a query for items under a container in an Azure Cosmos database using a SQL statement with parameterized values. 
 
@@ -288,7 +290,7 @@ public class Program
 
 ### Create a database 
 
-Define the `CreateDatabaseAsync` method within the `program.cs` class. This method creates the `FamilyDatabase` if it doesn't already exist. 
+Define the `CreateDatabaseAsync` method within the `program.cs` class. This method creates the `FamilyDatabase` if it doesn't already exist.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -316,7 +318,7 @@ private async Task CreateContainerAsync()
 
 ### Create an item
 
-Create a family item by adding the `AddItemsToContainerAsync` method with the following code:
+Create a family item by adding the `AddItemsToContainerAsync` method with the following code. You can use the `CreateItemAsync` or `UpsertItemAsync` methods to create an item:
 
 ```csharp
 private async Task AddItemsToContainerAsync()

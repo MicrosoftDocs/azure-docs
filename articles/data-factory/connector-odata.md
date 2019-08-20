@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -32,6 +32,10 @@ Specifically, this OData connector supports:
 
 - OData version 3.0 and 4.0.
 - Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, **AAD service principal**, and **managed identities for Azure resources**.
+
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
@@ -57,7 +61,7 @@ The following properties are supported for an OData linked service:
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | No|
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | No |
 | aadResourceId | Specify the AAD resource you are requesting for authorization.| No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can choose Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, the default Azure Integration Runtime is used. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 **Example 1: Using Anonymous authentication**
 
