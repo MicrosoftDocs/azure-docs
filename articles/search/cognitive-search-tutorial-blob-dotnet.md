@@ -6,7 +6,6 @@ author: MarkHeff
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff

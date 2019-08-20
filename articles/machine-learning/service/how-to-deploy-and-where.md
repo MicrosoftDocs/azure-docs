@@ -187,6 +187,8 @@ The below example will return a path to a single file called `sklearn_mnist_mode
 model_path = Model.get_model_path('sklearn_mnist')
 ```
 
+<a id="schema"></a>
+
 #### (Optional) Automatic schema generation
 
 To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
