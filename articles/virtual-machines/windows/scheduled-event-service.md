@@ -3,13 +3,13 @@ title: Set up maintenance notifications for your Windows VMs in Azure | Microsof
 description: Learn how to set up scheduled maintenance notifications for your Azure virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: mysarn
 manager: gwallace
 
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
-ms.date: 08/15/2019
-ms.author: cynthn
+ms.date: 08/20/2019
+ms.author: sarn
 ms.topic: conceptual
 ---
 
