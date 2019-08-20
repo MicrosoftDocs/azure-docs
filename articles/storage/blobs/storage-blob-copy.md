@@ -85,7 +85,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 ## Remarks
 
- In version 2012-02-12 and newer, call the [StartCopyAsync](xref:Microsoft.Azure.Storage.Blob.CloudBlob.StartCopyAsync*) method to initiate an asynchronous copy operation. This operation returns a copy ID you can use to check or abort the copy operation. The Blob service copies blobs on a best-effort basis.
+ In version 2012-02-12 and newer, call the [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) method to initiate an asynchronous copy operation. This operation returns a copy ID you can use to check or abort the copy operation. The Blob service copies blobs on a best-effort basis.
 
  The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. Any existing destination blob will be overwritten. The destination blob can't be modified while a copy operation is in progress.
 
@@ -113,7 +113,7 @@ When copying from a block blob, all committed blocks and their block IDs are cop
 
 When copying from an append blob, all committed blocks are copied. At the end of the copy operation, the destination blob will have the same committed block count as the source.
 
-For all blob types, you can check the [CopyState.Status](xref:Microsoft.Azure.Storage.Blob.CopyState.Status) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
+For all blob types, you can check the [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
 When the source of a copy operation provides ETags, if there are any changes to the source while the copy is in progress, the copy will fail. An attempt to change the destination blob while a copy is in progress will fail with 409 Conflict.
 
@@ -123,15 +123,15 @@ The ETag for a block blob changes when the copy operation is initiated and when 
 
 When a blob is copied, the following system properties are copied to the destination blob with the same values.
 
-- [ContentType](xref:Microsoft.Azure.Storage.Blob.BlobProperties.ContentType)
-- [ContentEncoding](xref:Microsoft.Azure.Storage.Blob.BlobProperties.ContentEncoding)
-- [ContentLanguage](xref:Microsoft.Azure.Storage.Blob.BlobProperties.ContentLanguage*)
-- [Length](xref:Microsoft.Azure.Storage.Blob.BlobProperties.Length)
-- [CacheControl](xref:Microsoft.Azure.Storage.Blob.BlobProperties.CacheControl)
-- [ContentMD5](xref:Microsoft.Azure.Storage.Blob.BlobProperties.ContentMD5)
-- [ContentDisposition](xref:Microsoft.Azure.Storage.Blob.BlobProperties.ContentDisposition)
-- [PageBlobSequenceNumber](xref:Microsoft.Azure.Storage.Blob.BlobProperties.PageBlobSequenceNumber) (for page blobs only)
-- [AppendBlobCommittedBlockCount](xref:Microsoft.Azure.Storage.Blob.BlobProperties.AppendBlobCommittedBlockCount) (for append blobs only, and for version 2015-02-21 only)
+- [ContentType](/dotnet/api/microsoft.azure.storage.blob.blobproperties.contenttype?view=azure-dotnet)
+- [ContentEncoding](/dotnet/api/microsoft.azure.storage.blob.blobproperties.contentencoding?view=azure-dotnet)
+- [ContentLanguage](/dotnet/api/microsoft.azure.storage.blob.blobproperties.contentlanguage?view=azure-dotnet)
+- [Length](/dotnet/api/microsoft.azure.storage.blob.blobproperties.length?view=azure-dotnet)
+- [CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol?view=azure-dotnet)
+- [ContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobproperties.contentmd5?view=azure-dotnet)
+- [ContentDisposition](/dotnet/api/microsoft.azure.storage.blob.blobproperties.contentdisposition?view=azure-dotnet)
+- [PageBlobSequenceNumber](/dotnet/api/microsoft.azure.storage.blob.blobproperties.pageblobsequencenumber?view=azure-dotnet) (for page blobs only)
+- [AppendBlobCommittedBlockCount](/dotnet/api/microsoft.azure.storage.blob.blobproperties.appendblobcommittedblockcount?view=azure-dotnet) (for append blobs only, and for version 2015-02-21 only)
 
 The source blob's committed block list is also copied to the destination blob, if the blob is a block blob. Any uncommitted blocks are not copied.
 
@@ -153,10 +153,10 @@ When a source blob is copied, any snapshots of the source blob are not copied to
 
 An archived blob can be copied to a new blob within the same storage account. This will still leave the initially archived blob as is. When copying an archived blob as source, use the override of the `StartCopy` or `StartCopyAsync` method that lets you specify the tier of the destination blob:
 
-  - [CloudBlockBlob.StartCopy](xref:Microsoft.Azure.Storage.Blob.CloudBlockBlob.StartCopy*)
-  - [CloudBlockBlob.StartCopyAsync](xref:Microsoft.Azure.Storage.Blob.CloudBlockBlob.StartCopyAsync(Microsoft.Azure.Storage.Blob.CloudBlockBlob,System.Nullable{Microsoft.Azure.Storage.Blob.StandardBlobTier},System.Nullable{Microsoft.Azure.Storage.Blob.RehydratePriority},Microsoft.Azure.Storage.AccessCondition,Microsoft.Azure.Storage.AccessCondition,Microsoft.Azure.Storage.Blob.BlobRequestOptions,Microsoft.Azure.Storage.OperationContext,System.Threading.CancellationToken))
-  - [CloudPageBlob.StartCopy](xref:Microsoft.Azure.Storage.Blob.CloudPageBlob.StartCopy(Microsoft.Azure.Storage.Blob.CloudPageBlob,System.Nullable{Microsoft.Azure.Storage.Blob.PremiumPageBlobTier},Microsoft.Azure.Storage.AccessCondition,Microsoft.Azure.Storage.AccessCondition,Microsoft.Azure.Storage.Blob.BlobRequestOptions,Microsoft.Azure.Storage.OperationContext))
-  - [CloudPageBlob.StartCopyAsync](xref:Microsoft.Azure.Storage.Blob.CloudPageBlob.StartCopyAsync(Microsoft.Azure.Storage.Blob.CloudPageBlob,System.Nullable{Microsoft.Azure.Storage.Blob.PremiumPageBlobTier},Microsoft.Azure.Storage.AccessCondition,Microsoft.Azure.Storage.AccessCondition,Microsoft.Azure.Storage.Blob.BlobRequestOptions,Microsoft.Azure.Storage.OperationContext,System.Threading.CancellationToken))
+  - [CloudBlockBlob.StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.startcopy?view=azure-dotnet)
+  - [CloudBlockBlob.StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.startcopyasync?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CloudBlockBlob_StartCopyAsync_Microsoft_Azure_Storage_Blob_CloudBlockBlob_System_Nullable_Microsoft_Azure_Storage_Blob_StandardBlobTier__System_Nullable_Microsoft_Azure_Storage_Blob_RehydratePriority__Microsoft_Azure_Storage_AccessCondition_Microsoft_Azure_Storage_AccessCondition_Microsoft_Azure_Storage_Blob_BlobRequestOptions_Microsoft_Azure_Storage_OperationContext_System_Threading_CancellationToken_)
+  - [CloudPageBlob.StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.startcopy?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CloudPageBlob_StartCopy_Microsoft_Azure_Storage_Blob_CloudPageBlob_System_Nullable_Microsoft_Azure_Storage_Blob_PremiumPageBlobTier__Microsoft_Azure_Storage_AccessCondition_Microsoft_Azure_Storage_AccessCondition_Microsoft_Azure_Storage_Blob_BlobRequestOptions_Microsoft_Azure_Storage_OperationContext_)
+  - [CloudPageBlob.StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.startcopyasync?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CloudPageBlob_StartCopyAsync_Microsoft_Azure_Storage_Blob_CloudPageBlob_System_Nullable_Microsoft_Azure_Storage_Blob_PremiumPageBlobTier__Microsoft_Azure_Storage_AccessCondition_Microsoft_Azure_Storage_AccessCondition_Microsoft_Azure_Storage_Blob_BlobRequestOptions_Microsoft_Azure_Storage_OperationContext_System_Threading_CancellationToken_)
 
 The copy source and destination should be the same storage account when the source is archived. The request will fail if the source of the copy is still pending rehydration. The data will be eventually copied to the destination blob.
 
@@ -164,7 +164,7 @@ For detailed information about block blob level tiering see [Hot, cool and archi
 
 ### Working with a pending copy (version 2012-02-12 and newer)
 
-If the copy operation completes the copy asynchronously, use the following table to determine the next step based on the value of the [CopyState.Status](xref:Microsoft.Azure.Storage.Blob.CopyState.Status) property:
+If the copy operation completes the copy asynchronously, use the following table to determine the next step based on the value of the [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) property:
 
 | Status value         | Meaning                                                                                              |
 |----------------------|------------------------------------------------------------------------------------------------------|
