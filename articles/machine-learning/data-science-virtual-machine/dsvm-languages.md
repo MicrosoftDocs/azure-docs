@@ -59,7 +59,7 @@ python --version
 Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment setup automatically in PTVS by default is Python 3.6. 
 
 > [!NOTE]
-> To point the PTVS at Python 2.7, you need to create a  custom environment in PTVS. To set this environment paths in the Visual Studio  Community Edition, navigate to **Tools** -> **Python Tools** -> **Python Environments** and then click **+ Custom**. Then set the location to `c:\anaconda\envs\python2` and then click _Auto Detect_. 
+> To point the PTVS at Python 2.7, you need to create a  custom environment in PTVS. To set this environment path in the Visual Studio  Community Edition, navigate to **Tools** -> **Python Tools** -> **Python Environments** and then click **+ Custom**. Then set the location to `c:\anaconda\envs\python2` and then click _Auto Detect_. 
 
 * Using in Jupyter
 
@@ -105,12 +105,12 @@ Open Jupyter and click on the `New` button to create a new notebook. At this poi
 
 * Installing Python packages
 
-The default Python environments on the DSVM are global environments readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment using the `source activate` command as an Administrator or a user with sudo permission. Then you can use a package manager like `conda` or `pip` to install or update packages. 
+The default Python environments on the DSVM are global environments readable by all users. But only administrators can write / install global packages. To install package to the global environment, activate to the root or py35 environment using the `source activate` command as an Administrator or a user with sudo permission. Then you can use a package manager like `conda` or `pip` to install or update packages. 
 
 **Windows 2012**
 * Running in command prompt
 
-Open command prompt and do the following depending on the version of Python you want to run. 
+Open command prompt and do the following depending on the version of Python you want to run:
 
 ```
 # To run Python 2.7
@@ -126,7 +126,7 @@ python --version
 
 Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment setup automatically in PTVS in Python 2.7. 
 > [!NOTE]
-> To point the PTVS at Python 3.5, you need to create a  custom environment in PTVS. To set this environment paths in the Visual Studio  Community Edition, navigate to **Tools** -> **Python Tools** -> **Python Environments** and then click **+ Custom**. Then set the location to `c:\anaconda\envs\py35` and then click _Auto Detect_. 
+> To point the PTVS at Python 3.5, you need to create a  custom environment in PTVS. To set this environment path in the Visual Studio  Community Edition, navigate to **Tools** -> **Python Tools** -> **Python Environments** and then click **+ Custom**. Then set the location to `c:\anaconda\envs\py35` and then click _Auto Detect_. 
 
 * Using in Jupyter
 
