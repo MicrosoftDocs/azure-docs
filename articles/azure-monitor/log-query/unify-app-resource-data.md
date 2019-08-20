@@ -32,7 +32,7 @@ Create a function using union operator with the list of applications, then save 
 You can modify the listed applications at any time in the portal by navigating to Query explorer in your workspace and selecting the function for editing and then saving, or using the `SavedSearch` PowerShell cmdlet. 
 
 >[!NOTE]
->This method can’t be used in log alerts since the access validation to the alert rule resources, including workspaces and applications is performed at alert creation time and adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or via ARM template to get the scoped resources updated. Alternatively, you can include the list of resources in log alert query itself.
+>This method can’t be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
 
 The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. The parse operator is optional in this example and uses to extracts the application name from SourceApp property. 
 
