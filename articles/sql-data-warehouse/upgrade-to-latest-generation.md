@@ -182,7 +182,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to the SQL data warehouse that you want to create a restore point for.
+2. Navigate to the SQL Data Warehouse that you want to create a restore point for.
 
 3. At the top of the Overview section, select **+New Restore Point**.
 
@@ -195,7 +195,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## Restore an active or paused database using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Navigate to the SQL data warehouse that you want to restore from.
+2. Navigate to the SQL Data Warehouse that you want to restore from.
 3. At the top of the Overview section, select **Restore**.
 
     ![ Restore Overview](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)

@@ -80,8 +80,8 @@ For more information, see [Implement password hash synchronization with Azure AD
 **Detail**: Use the correct capabilities to support authentication:
 
   - Azure AD for employees
-  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) for guest users and external partners
-  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) to control how customers sign up, sign in, and manage their profiles when they use your applications
+  - [Azure AD B2B](../../active-directory/b2b/index.yml) for guest users and external partners
+  - [Azure AD B2C](../../active-directory-b2c/index.yml) to control how customers sign up, sign in, and manage their profiles when they use your applications
 
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
 
