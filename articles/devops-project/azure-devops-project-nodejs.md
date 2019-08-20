@@ -74,7 +74,7 @@ This link opens a view to the newly created Git repository.
 1. On the left side of the browser, go to the **views/index.pug** file.
 
 1. Select **Edit**, and then make a change to the h2 heading.  
-	For example, enter **Get started right away with the Azure DevOps Project** or make some other change.
+	For example, enter **Get started right away with Azure DevOps Projects** or make some other change.
 
 1. Select **Commit**, and then save your changes.
 
