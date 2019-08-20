@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/17/2019
+ms.date: 08/19/2019
 ms.author: spelluru
 
 ---
@@ -29,7 +29,7 @@ In this tutorial, you do the following actions:
 
 ## Register to the lab
 
-1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
+1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet. 
 1. Sign in to the service using your school account to complete the registration. 
 2. Once registered, confirm that you see the virtual machine for the lab you have access to. 
 3. Wait until the virtual machine is ready. On the VM tile, notice the following fields:

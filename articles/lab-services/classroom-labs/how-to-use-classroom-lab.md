@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 08/19/2019
 ms.author: spelluru
 
 ---
@@ -22,20 +22,20 @@ This article describes how to register to a classroom lab, view all the labs tha
 
 ## Register to the lab
 
-1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
+1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet. 
 1. Sign in to the service using your school account to complete the registration. 
 2. Once registered, confirm that you see the virtual machine for the lab you have access to. 
 3. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
     1. At the top of the tile, you see the **name of the lab**.
     1. To its right, you see the icon representing the **operating system (OS)** of the VM. In this example, it's Windows OS. 
     1. The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the additional time allotted to you in addition to the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies as per the following scenarios:
-        - If a class is in progress (within the schedule of the class), progress bar is greyed out to represent quota hours are not being used. 
+        - If a class is in progress (within the schedule of the class), progress bar is greyed out to represent quota hours aren't being used. 
 
             ![Progress bar in gray color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
-        - If a quota is not assigned (zero hours), the text **Available during classes only** is shown in place of the progress bar. 
+        - If a quota isn't assigned (zero hours), the text **Available during classes only** is shown in place of the progress bar. 
             
             ![Status when no quota is set](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
-        - If you are **out of quota**, the color of the progress bar is **red**. 
+        - If you ran **out of quota**, the color of the progress bar is **red**. 
 
             ![Progress bar in red color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
         - The color of the progress bar is **blue** when it's outside the scheduled time for the lab and some of the quota time has been used. 
@@ -67,7 +67,7 @@ This article describes how to register to a classroom lab, view all the labs tha
 ## View all the classroom labs
 After you register to the labs, you can view all the classroom labs by taking the following steps: 
 
-1. Navigate to [https://labs.azure.com](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
+1. Navigate to [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet. 
 2. Sign in to the service by using the user account that you used to register to the lab. 
 3. Confirm that you see all the labs you have access to. 
 
