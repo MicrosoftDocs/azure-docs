@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/20/2019
 ms.author: helohr
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
@@ -17,7 +17,7 @@ You can create FSLogix profile containers using [Azure NetApp Files](https://azu
 
 This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Windows Virtual Desktop.
 
-This article assumes you already have a set of virtual machines (VMs) that are part of a Windows Virtual Desktop environment. To learn how to set up tenants, see [the tenant creation tutorial](tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Windows Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
 The instructions in this guide are specifically for Windows Virtual Desktop users. If you're looking for more general guidance for how to set up Azure NetApp Files and create FSLogix profile containers outside of Windows Virtual Desktop, see the [Set up Azure NetApp Files and create an NFS volume quickstart](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -142,7 +142,7 @@ After you create the volume, configure the volume access parameters.
 
 6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
 
-   ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
+    ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
 
 ## Configure FSLogix on session host virtual machines (VMs)
 
@@ -197,7 +197,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
    Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
    ```
 
-## Verify profile user connectivity and access to Azure NetApp File share
+## Make sure users can access the Azure NetApp File share
 
 1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/webclient/index.html>.
 
@@ -217,3 +217,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
    Within this folder, there should be a profile VHD like the one in the following example.
 
    ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
+
+## Next steps
+
+You can use FSLogix profile containers to set up a user profile share. To learn how to create user profile shares with your new containers, see [Set up a user profile share for a host pool](create-host-pools-user-profile.md).
