@@ -22,7 +22,7 @@ ms.author: makromer
 
 ![Fixed Width Pipeline](media/data-flow/fwpipe.png)
 
-* In the Data Flow activity, select New Mappign Data Flow
+* In the Data Flow activity, select New Mapping Data Flow
 
 * Add a Source transformation, Derived Column, Select, and Sink Transformation
 
@@ -80,7 +80,7 @@ We're going to simply set field starting points and lengths for this file conten
 
 ![fixed width output](media/data-flow/fxdoutput.png)
 
-* The fixed-width data is now split with 4 characters each and assigned to Col1, Col2, Col3, Col4, etc,=. based on the above example I am splitting into 4 columns
+* The fixed-width data is now split with four characters each and assigned to Col1, Col2, Col3, Col4, ... Based on the above example I am splitting the data into 4 columns
 
 ## Next steps
 
