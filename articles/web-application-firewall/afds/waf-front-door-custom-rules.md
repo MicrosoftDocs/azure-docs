@@ -173,6 +173,6 @@ You may build a custom rule that specifies size constraint on part of an incomin
 ```
 
 ## Next steps
-- Learn about [web application firewall](waf-overview.md)
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn about [web Application Firewall with Front Door](afds-overview.md)
+- Learn how to [create a Front Door](../../frontdoor/quickstart-create-front-door.md).
 

@@ -15,17 +15,17 @@ Azure web application firewall (WAF) monitoring and logging are provided through
 
 ## Azure Monitor
 
-WAF with FrontDoor log is integrated with [Azure Monitor](../azure-monitor/overview.md). Azure Monitor allows you to track diagnostic information including WAF alerts and logs. You can configure WAF monitoring within the Front Door resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly.
+WAF with FrontDoor log is integrated with [Azure Monitor](../../azure-monitor/overview.md). Azure Monitor allows you to track diagnostic information including WAF alerts and logs. You can configure WAF monitoring within the Front Door resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly.
 
 From Azure portal, go to Front Door resource type. From **Monitoring**/**Metrics** tab on the left, you can add **WebApplicationFirewallRequestCount** to track number of requests that match WAF rules. Custom filters can be created based on action types and rule names.
 
-![WAFMetrics](./media//waf-front-door-monitor/waf-frontdoor-metrics.png)
+![WAFMetrics](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
 
 ## Logs and diagnostics
 
-WAF with Front Door provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md).
+WAF with Front Door provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
 
-![WAFDiag](./media/waf-front-door-monitor/waf-frontdoor-diagnostics.png)
+![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
 FrontdoorAccessLog logs all requests that are forwarded to customer back-ends. FrontdoorWebApplicationFirewallLog logs any request that matches a WAF rule.
 
@@ -49,5 +49,5 @@ AzureDiagnostics
 
 ## Next steps
 
-- Learn more about [Front Door](front-door-overview.md).
+- Learn more about [Front Door](../../frontdoor/front-door-overview.md).
 
