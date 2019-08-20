@@ -40,9 +40,9 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 
 7.	On the **Select Recovery Type** screen, choose whether to recover to the original instance, or to a new location, and click **Next**.
 
-  * If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
+     * If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
 
- * If you choose **Recover as virtual machine on any host**, then on the **Specify Destination** screen, provide the information for **ESXi Host, Resource Pool, Folder,** and **Path**. 
+    * If you choose **Recover as virtual machine on any host**, then on the **Specify Destination** screen, provide the information for **ESXi Host, Resource Pool, Folder,** and **Path**. 
 
       ![Select Recovery Type](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
