@@ -117,7 +117,7 @@
   - name: How-to guides
     items:
     - name: Secure your environment
-      href: https://docs.azure.cloudsimple.com/private-cloud-secure/
+      href: private-cloud-secure.md
     - name: Private cloud management
       items:
       - name: Escalate Private Cloud privileges
@@ -143,7 +143,7 @@
       - name: Azure Application Gateway with VMware VMs
         href: azure-application-gateway.md
       - name: Configure private cloud vCenter server as vRealize automation endpoint
-        href: https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/
+        href: configure-server-vrealize-automation-endpoint.md
       - name: Migrating workload VMs to a private cloud
         href: https://docs.azure.cloudsimple.com/migrate-workloads/
       - name: Ensuring Application high availability in VMware on Azure
