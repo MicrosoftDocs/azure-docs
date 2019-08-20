@@ -23,20 +23,20 @@ ms.author: vijetaj
 
 # Languages supported on the Data Science Virtual Machine 
 
-The Data Science Virtual Machine (DSVM) comes with several pre-built languages and development tools for building your artificial intelligence (AI) applications. Here are some of the salient ones. 
+The Data Science Virtual Machine (DSVM) comes with several pre-built languages and development tools for building your artificial intelligence (AI) applications. Here are some of the notable ones.
 
-## Python (Windows Server 2016 Edition)
+## Python (Windows Server 2016 edition)
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | 2.7 and 3.6 |
+| Language versions supported | Python 2.7 and 3.6 |
 | Supported DSVM editions      | Windows Server 2016     |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * The `root` environment located at `/anaconda/` is Python 3.6. <br/> * The `python2` environment located at `/anaconda/envs/python2` is Python 2.7.       |
+| How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * The `root` environment located at `/anaconda/` is Python 3.6. <br/> * The `python2` environment located at `/anaconda/envs/python2` is Python 2.7.       |
 | Links to samples      | Sample Jupyter notebooks for Python are included.     |
 | Related tools on the DSVM      | PySpark, R, Julia.      |
 
 > [!NOTE]
-> Builds of Windows Server 2016 that were created before March 2018 contain Python 3.5 and Python 2.7. Additionally, Python 2.7 is the conda **root** environment, and **py35** is the Python 3.5 environment.
+> Builds of Windows Server 2016 that were created before March 2018 contain Python 3.5 and Python 2.7. Python 2.7 is the conda **root** environment, and **py35** is the Python 3.5 environment.
 
 ### How to use and run it    
 
@@ -57,31 +57,31 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
   Use Python Tools for Visual Studio (PTVS), installed in the Visual Studio Community edition. By default, the only environment that's set up automatically in PTVS is Python 3.6. 
 
     > [!NOTE]
-    > To point PTVS at Python 2.7, you must create a  custom environment in PTVS. To set this environment path in the Visual Studio  Community Edition, go to **Tools** -> **Python Tools** -> **Python Environments** and then select **+ Custom**. Then, set the location to **c:\anaconda\envs\python2** and select **Auto Detect**.
+    > To point PTVS at Python 2.7, you must create a  custom environment in PTVS. To set this environment path in the Visual Studio  Community Edition, go to **Tools** -> **Python Tools** -> **Python Environments** and select **+ Custom**. Then, set the location to **c:\anaconda\envs\python2** and select **Auto Detect**.
 
 * Use in Jupyter:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as _Python [Conda Root]_ for Python 3.6 and _Python [Conda env:python2]_ for Python 2.7 environment.
+  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as _Python [Conda Root]_ for Python 3.6 and _Python [Conda env:python2]_ for Python 2.7.
 
 * Install Python packages:
 
-  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install package to the global environment, activate to the root or python2 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or python2 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
 
-## Python (Linux and Windows Server 2012 Edition)
+## Python (Linux and Windows Server 2012 edition)
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | 2.7 and 3.5 |
+| Language versions supported | Python 2.7 and 3.5 |
 | Supported DSVM editions      | Linux, Windows Server 2012    |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5       |
-| Links to samples      | Sample Jupyter notebooks for Python are included     |
+| How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5.       |
+| Links to samples      | Sample Jupyter notebooks for Python are included.     |
 | Related tools on the DSVM      | PySpark, R, Julia      |
 ### How to use and run it    
 
 **Linux**
 * Run in a terminal:
 
-  Open the terminal and do one of the following, depending on the version of Python you want to run.
+  Open the terminal and do one of the following, depending on the version of Python you want to run:
 
     ```
     # To run Python 2.7
@@ -95,7 +95,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
     ```
 * Use in an IDE:
 
-  Use PyCharm installed in the Visual Studio Community edition. 
+  Use PyCharm, installed in the Visual Studio Community edition. 
 
 * Use in Jupyter:
 
@@ -103,7 +103,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Install Python packages:
 
-  The default Python environments on the DSVM are global environments readable by all users. But only administrators can write / install global packages. To install package to the global environment, activate to the root or py35 environment by using the `source activate` command as an administrator or as a user with sudo permissions. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  The default Python environments on the DSVM are global environments readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `source activate` command as an administrator or as a user with sudo permissions. Then, you can use a package manager like `conda` or `pip` to install or update packages.
 
 **Windows 2012**
 * Run at a command prompt:
@@ -124,24 +124,24 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
   Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment that's set up automatically in PTVS is Python 2.7.
     > [!NOTE]
-    > To point PTVS at Python 3.5, you need to create a custom environment in PTVS. To set this environment path in the Visual Studio Community Edition, go to **Tools** -> **Python Tools** -> **Python Environments** and then select **+ Custom**. Then, set the location to `c:\anaconda\envs\py35` and then select _Auto Detect_.
+    > To point PTVS at Python 3.5, you need to create a custom environment in PTVS. To set this environment path in the Visual Studio Community edition, go to **Tools** -> **Python Tools** -> **Python Environments** and select **+ Custom**. Then, set the location to `c:\anaconda\envs\py35` and select _Auto Detect_.
 
 * Use in Jupyter:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for the Python 3.5 environment. 
+  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for Python 3.5. 
 
 * Install Python packages:
 
-  The default Python environments on the DSVM are global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
 
 ## R
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | Microsoft R Open 3.x (100% compatible with CRAN-R)<br /> Microsoft R Server 9.x Developer edition (A Scalable Enterprise ready R platform)|
+| Language versions supported | Microsoft R Open 3.x (100% compatible with CRAN-R)<br /> Microsoft R Server 9.x Developer edition (a scalable enterprise-ready R platform)|
 | Supported DSVM editions      | Linux, Windows     |
 | How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
-| Links to samples      | Sample Jupyter notebooks for R are included     |
+| Links to samples      | Sample Jupyter notebooks for R are included.     |
 | Related tools on the DSVM      | SparkR, Python, Julia      |
 ### How to use and run it    
 
@@ -153,7 +153,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Use in an IDE:
 
-  Use RTools for Visual Studio (RTVS) installed in the Visual Studio Community edition or RStudio. These are available on the start menu or as a desktop icon. 
+  Use RTools for Visual Studio (RTVS) installed in the Visual Studio Community edition or RStudio. These are available on the Start menu or as a desktop icon. 
 
 * Use in Jupyter
 
@@ -161,17 +161,17 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Install R packages:
 
-  R is installed on the DSVM in a  global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
+  R is installed on the DSVM in a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
 
 **Linux**:
 
 * Run in terminal:
 
-  Open terminal and just run `R`.  
+  Open a terminal and run `R`.  
 
 * Use in an IDE:
 
-  Use RStudio installed on the Linux DSVM.  
+  Use RStudio, installed on the Linux DSVM.  
 
 * Use in Jupyter:
 
@@ -179,7 +179,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Install R packages:
 
-  R is installed on the DSVM in a  global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
+  R is installed on the DSVM in a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
 
 
 ## Julia
@@ -189,7 +189,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 | Language versions supported | 0.6 |
 | Supported DSVM editions      | Linux, Windows     |
 | How is it configured / installed on the DSVM?  | Windows: Installed at `C:\JuliaPro-VERSION`<br /> Linux: Installed at `/opt/JuliaPro-VERSION`    |
-| Links to samples      | Sample Jupyter notebooks for Julia are included     |
+| Links to samples      | Sample Jupyter notebooks for Julia are included.     |
 | Related tools on the DSVM      | Python, R      |
 ### How to use and run it    
 
@@ -197,10 +197,10 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Run at a command prompt
 
-  Open command prompt and just run `julia`. 
+  Open a command prompt and run `julia`.
 * Use in an IDE:
 
-  Use `Juno`, the Julia IDE installed on the DSVM and available as a desktop shortcut.
+  Use `Juno`, with the Julia IDE installed on the DSVM and available as a desktop shortcut.
 
 * Use in Jupyter:
 
@@ -208,7 +208,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Install Julia packages:
 
-  The default Julia location is a global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
+  The default Julia location is a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
 
 
 **Linux**:
@@ -217,7 +217,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
   Open a terminal and run `julia`.
 * Use in an IDE:
 
-  Use `Juno`, the Julia IDE installed on the DSVM and available as an Application menu shortcut.
+  Use `Juno`, with the Julia IDE installed on the DSVM and available as an **Application** menu shortcut.
 
 * Use in Jupyter:
 
@@ -225,14 +225,14 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Install Julia packages:
 
-  The default Julia location is a global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
+  The default Julia location is a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
 
 ## Other languages
 
-**C#**: Available on Windows and accessible through the Visual Studio Community edition or at a `Developer Command Prompt for Visual Studio`, where you can run `csc` command.
+**C#**: Available on Windows and accessible through the Visual Studio Community edition or at the `Developer Command Prompt for Visual Studio`, where you can run the `csc` command.
 
-**Java**: OpenJDK is available on both the Linux and Windows editions of the DSVM and is set on the path. You can type the `javac` or `java` command at a command prompt in Windows or on bash shell in Linux to use Java.
+**Java**: OpenJDK is available on both the Linux and Windows editions of the DSVM and is set on the path. To use Java, type the `javac` or `java` command at a command prompt in Windows or on the bash shell in Linux.
 
-**Node.js**: Node.js is available on both the Linux and Windows editions of the DSVM and is set on the path. You can type the `node` or `npm` command at a command prompt in Windows or on the bash shell in Linux to access Node.js. On Windows, the Visual Studio extension for the Node.js tools is installed to provide a graphical IDE to develop your Node.js application.
+**Node.js**: Node.js is available on both the Linux and Windows editions of the DSVM and is set on the path. To access Node.js, type the `node` or `npm` command at a command prompt in Windows or on the bash shell in Linux. On Windows, the Visual Studio extension for the Node.js tools is installed to provide a graphical IDE to develop your Node.js application.
 
 **F#**: Available on Windows and accessible through the Visual Studio Community edition or at a `Developer Command Prompt for Visual Studio`, where you can run the `fsc` command.
