@@ -52,7 +52,7 @@ In the following workflow all certificate requests in the deleted states are rev
 
 User roles for the OPC Vault microservice are managed in the Azure Active Directory Enterprise Application.
 
-For a detailed description of the role definitions refer to the [Roles](howto-opc-vault-secure.md#roles) section.
+For a detailed description of the role definitions refer to the [Roles](howto-opc-vault-secure-ca.md#roles) section.
 
 By default, an authenticated user in the tenant can sign in the service as a 'Reader'. Higher privileged roles require manual management in the Azure portal or using Powershell.
 

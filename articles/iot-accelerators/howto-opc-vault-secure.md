@@ -49,7 +49,7 @@ Request (CSR) or by requesting a new key pair, which includes also a new private
 Follow the documentation of your OPC UA device on which method is supported for your application. 
 In general, the CSR method is recommended, because it doesn't require a private key to be transferred over a wire.
 
-- If your device requires to issue a new key pair, please follow [Step3a](##step-3a-request-a-new-certificate-with-a-new-keypair:).
+- If your device requires to issue a new key pair, please follow [Step3a](##step-3a-request-a-new-certificate-with-a-new-keypair).
 - If your device supports to issue a Certificate Signing Request (CSR), please follow [Step3b](#step-3b-request-a-new-certificate-with-a-csr).
 
 ### Step 3a: Request a new certificate with a new keypair
