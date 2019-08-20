@@ -72,7 +72,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
     //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
 ```
 
-### Azure Functions
+### Azure Functions v2.x
 
 Please install following packages into your Function project:
 
@@ -83,12 +83,12 @@ Please install following packages into your Function project:
 And also add (or modify) the startup code for your Function application:
 
 ```csharp
-[assembly: FunctionsStartup(typeof(Example.Startup))]
+[assembly: WebJobsStartup(typeof(Example.Startup))]
 namespace Example
 {
   class Startup : FunctionsStartup
   {
-      public override void Configure(IFunctionsHostBuilder builder)
+      public override void Configure(IWebJobsBuilder builder)
       {
           var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
                                                sd.ImplementationType == typeof(QuickPulseTelemetryModule));
