@@ -248,7 +248,7 @@ Function API client ID from the Azure AD B2C App registration
 
 > [!NOTE]
 > The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
-> If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](#Build-the-JavaScript-SPA-to-consume-the-API).
+> If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](##build-the-javascript-spa-to-consume-the-api).
 
 ## [Optional] Configure the API Management Developer portal to be able to call your secured API
 
