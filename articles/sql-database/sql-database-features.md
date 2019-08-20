@@ -127,7 +127,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Yes](sql-database-temporal-tables.md) | [Yes](sql-database-temporal-tables.md) |
 | Time zone choice | No | [Yes](sql-database-managed-instance-timezone.md), and it must be configured when the Managed Instance is created. |
 | Threat detection|  [Yes](sql-database-threat-detection.md)|[Yes](sql-database-managed-instance-threat-detection.md)|
-| [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | No | No |
+| [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | No | Yes, but only limited set of global trace flags. See [DBCC differences](sql-database-managed-instance-transact-sql-information.md#dbcc) |
 | [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Yes, [Transactional and snapshot replication subscriber only](sql-database-single-database-migrate.md) | Yes, in [public preview](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance). See the constraints [here](sql-database-managed-instance-transact-sql-information.md#replication). |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Yes | Yes |
 | [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes - General Purpose and Business Critical service tiers only| [Yes](transparent-data-encryption-azure-sql.md) |
