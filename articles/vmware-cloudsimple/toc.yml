@@ -117,13 +117,15 @@
   - name: How-to guides
     items:
     - name: Secure your environment
-      href: https://docs.azure.cloudsimple.com/private-cloud-secure/
+      href: private-cloud-secure.md
     - name: Private cloud management
       items:
+      - name: Escalate Private Cloud privileges
+        href: escalate-privileges.md
       - name: Workload DNS and DHCP setup
-        href: https://docs.azure.cloudsimple.com/dns-dhcp-setup/  
-      - name: NSX Layer 2 VPN for migration 
-        href: https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn
+        href: dns-dhcp-setup.md  
+      - name: Migrate workloads using Layer 2 stretched networks
+        href: migration-layer-2-vpn.md
     - name: Private cloud networking
       items:
       - name: VPN connection between on-premises and private cloud
@@ -135,27 +137,27 @@
     - name: VMware platform
       items:
       - name: Learn private cloud permission model
-        href: https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/
+        href: learn-private-cloud-permissions.md
       - name: vCenter identity sources
         href: set-vcenter-identity.md
       - name: Azure Application Gateway with VMware VMs
         href: azure-application-gateway.md
       - name: Configure private cloud vCenter server as vRealize automation endpoint
-        href: https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/
+        href: configure-server-vrealize-automation-endpoint.md
       - name: Migrating workload VMs to a private cloud
         href: https://docs.azure.cloudsimple.com/migrate-workloads/
       - name: Ensuring Application high availability in VMware on Azure
         href: https://docs.azure.cloudsimple.com/ensuring-high-availability/
     - name: VMware ecosystem
       items:
-      - name: Backup workload virtual machines
-        href: https://docs.azure.cloudsimple.com/backup-workloads-veeam/
+      - name: Back up workload virtual machines
+        href: backup-workloads-veeam.md
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
       - name: Configure vSAN encryption for your private cloud
         href: vsan-encryption.md
-      - name: Oracle RAC deployment on CloudSimple private cloud
-        href: https://docs.azure.cloudsimple.com/oracle-rac/
+      - name: Optimize your Private Cloud for Oracle RAC
+        href: oracle-real-application-clusters.md
     - name: Azure Core Integration
       items:
       - name: Azure AD identity source on Private Cloud vCenter

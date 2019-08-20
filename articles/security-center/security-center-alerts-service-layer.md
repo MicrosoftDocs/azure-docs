@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: "v-mohabe"
 ---
 
@@ -42,6 +42,7 @@ Security Center network-layer analytics are based on sample [IPFIX data](https:/
 |**Suspicious incoming SSH network activity**|Sampled network traffic analysis detected anomalous incoming SSH communication to a resource in your deployment. Relatively high number of incoming connections to your resource is considered abnormal for this environment. This activity may indicate an attempt to brute force your SSH interface.
 |**Suspicious incoming RDP network activity from multiple sources**|Sampled network traffic analysis detected anomalous incoming RDP communications from multiple sources to a resource in your deployment. Various unique IPs connecting to your resource is considered abnormal for this environment. This activity may indicate an attempt to brute force your RDP interface from multiple hosts (Botnet).|
 |**Suspicious incoming RDP network activity**|Sampled network traffic analysis detected anomalous incoming RDP communication to a resource in your deployment. Relatively high number of incoming connections to your resource is considered abnormal for this environment. This activity may indicate an attempt to brute force your SSH interface.|
+|**Network communication with a malicious address has been detected**|Sampled network traffic analysis detected communication originating from a resource in your deployment with a possible command and control (C&C) server. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|
 
 To understand how Security Center can use network related signals to apply threat protection, see [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 ## Azure Management layer (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
@@ -72,4 +73,4 @@ Security Center offers an additional layer of protection by leveraging Azure Res
 > 3. Under **Enable integrations**, uncheck **Allow Microsoft Cloud App Security to access my data**, and click **Save**.
 
 >[!NOTE]
->Azure Security Center stores security-related customer data in the same geo as its resource. If Microsoft has not yet deployed Azure Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Cloud App Security (MCAS) is enabled, this information is stored in accordance with the geo location rules of MCAS. See [Data storage for non-regional services for more information](http://azuredatacentermap.azurewebsites.net/).
+>Azure Security Center stores security-related customer data in the same geo as its resource. If Microsoft has not yet deployed Azure Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Cloud App Security (MCAS) is enabled, this information is stored in accordance with the geo location rules of MCAS. See [Data storage for non-regional services for more information](https://azuredatacentermap.azurewebsites.net/).

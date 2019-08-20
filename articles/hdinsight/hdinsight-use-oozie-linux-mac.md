@@ -219,7 +219,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 ## Create a table
 
 > [!NOTE]  
-> There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+> There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](https://www.freetds.org/) from the HDInsight cluster.
 
 1. Use the following command to install FreeTDS on the HDInsight cluster:
 

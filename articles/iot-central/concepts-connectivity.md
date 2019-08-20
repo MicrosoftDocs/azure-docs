@@ -12,6 +12,8 @@ manager: philmea
 
 # Device connectivity in Azure IoT Central
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
 
 Azure IoT Central uses the [Azure IoT Hub Device Provisioning service (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps) to manage all device registration and connection.
@@ -82,7 +84,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
 
 - Sample implementation for [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### For testing purposes only
 
