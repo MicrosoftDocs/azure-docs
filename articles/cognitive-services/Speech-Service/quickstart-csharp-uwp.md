@@ -71,9 +71,9 @@ Now add the XAML code that defines the user interface of the application, and ad
    ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. Select **Speech recognition with microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
-<!--
+
    ![Speech recognition user interface](media/sdk/qs-csharp-uwp-11-ui-result.png)
--->
+
 ## Next steps
 
 > [!div class="nextstepaction"]
