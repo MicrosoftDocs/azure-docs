@@ -621,7 +621,7 @@ There is a 5-second interval between emission of words and counts. The **WordCou
 
 The YAML file defines the components to use for the topology and the data flow between them. You can include a YAML file as part of the jar file or you can use an external YAML file.
 
-For more information on Flux, see [Flux framework (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
+For more information on Flux, see [Flux framework (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
 
 > [!WARNING]  
 > Due to a [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) with Storm 1.0.1, you may need to install a [Storm development environment](https://storm.apache.org/releases/current/Setting-up-development-environment.html) to run Flux topologies locally.

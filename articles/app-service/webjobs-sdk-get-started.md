@@ -367,7 +367,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 To take advantage of [Application Insights](../azure-monitor/app/app-insights-overview.md) logging, update your logging code to do the following:
 
 * Add an Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering); all Information and higher-level logs goes to both the console and Application Insights when you're running locally.
-* Put the `LoggerFactory` object in a `using` block to ensure that log output is flushed when the host exits.
+* Put the [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) object in a `using` block to ensure that log output is flushed when the host exits.
 
 1. Install the latest stable 3.x version of the NuGet package for the Application Insights logging provider:  `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 

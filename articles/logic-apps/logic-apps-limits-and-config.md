@@ -215,7 +215,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 | Maps | 25 | 500 | 1,000 |
 | Schemas | 25 | 500 | 1,000 |
 | Assemblies | 10 | 25 | 1,000 |
-| Certificates | 25 | 2 | 500 |
+| Certificates | 25 | 2 | 1,000 |
 | Batch configurations | 5 | 1 | 50 |
 ||||
 
