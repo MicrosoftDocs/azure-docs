@@ -44,7 +44,7 @@ A Powershell script provides an easy way to deploy the OPC Vault microservice an
 
 1. Open a Powershell window at the repo root. 
 3. Go to the deploy folder `cd deploy`
-3. Choose a name for `myResourceGroup` which is unlikely to cause a conflict with other deployed web pages. See [below](#website-name-already-in-use) how web page names are chosen based on the name of the resource group.
+3. Choose a name for `myResourceGroup` that's unlikely to cause a conflict with other deployed webpages. See [below](#website-name-already-in-use) how webpage names are chosen based on the name of the resource group.
 5. Start the deployment with `.\deploy.ps1` for interactive installation<br>
 or enter a full command line:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
@@ -153,7 +153,7 @@ AAD tenant to use.
 -development 0|1
 ```
 
-Optional, to deploy for development. Use debug build and set the ASP.Net Environment to Development. Create '.publishsettings' for import in Visual Studio 2017 to allow to deploy the app and the service directly.
+Optional, to deploy for development. Use debug build and set the ASP.Net Environment to Development. Create '.publishsettings' for import in Visual Studio 2017 to allow it to deploy the app and the service directly.
 
 ```
 -onlyBuild 0|1
