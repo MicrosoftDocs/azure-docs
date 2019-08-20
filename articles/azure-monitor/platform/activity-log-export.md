@@ -61,7 +61,7 @@ If retention policies are set, but storing logs in a storage account is disabled
 
 
 > [!IMPORTANT]
-> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
+> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
 
 ### Create log profile using the Azure portal
 
