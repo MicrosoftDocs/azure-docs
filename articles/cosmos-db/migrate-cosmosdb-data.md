@@ -144,9 +144,13 @@ To contact the Azure Cosmos DB team for assistance with large scale migrations, 
 
 ![Migration Support Topic](./media/migrate-cosmosdb-data/supporttopic.png)
 
+You can also use the [Cosmos DB Bootstrap Program](https://azurecosmosdb.github.io/CosmosBootstrap/) to accelerate building or migrating your applications on Azure Cosmos DB. As a part of this program, engineers from the Azure Cosmos DB team would be assigned to your project and would help you migrate your data to Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Cosmos DB Bootstrap Program](https://azurecosmosdb.github.io/CosmosBootstrap/)
+
 
 ## Next steps
 * Learn more by trying out the sample applications consuming the bulk executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md). 
 * The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
 * Contact the Azure Cosmos DB product team by opening  a support ticket under the "General Advisory" problem type and "Large (TB+) migrations" problem subtype for additional help with large scale migrations. 
-
