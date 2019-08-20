@@ -5707,7 +5707,7 @@
 		},
 		{
 			"source_path": "articles/app-service-web/web-sites-manage-azure-website.md",
-			"redirect_url": "/azure/app-service/web-sites-scale",
+			"redirect_url": "/azure/app-service/manage-scale-up",
 			"redirect_document_id": false
 		},
 		{
@@ -6342,7 +6342,12 @@
 		},
 		{
 			"source_path": "articles/app-service-web/web-sites-scale.md",
-			"redirect_url": "/azure/app-service/web-sites-scale",
+			"redirect_url": "/azure/app-service/manage-scale-up",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/app-service/web-sites-scale.md",
+			"redirect_url": "/azure/app-service/manage-scale-up",
 			"redirect_document_id": false
 		},
 		{
@@ -6822,7 +6827,7 @@
 		},
 		{
 			"source_path": "articles/app-service/app-service-scale-readme.md",
-			"redirect_url": "/azure/app-service/web-sites-scale",
+			"redirect_url": "/azure/app-service/manage-scale-up",
 			"redirect_document_id": false
 		},
 		{
@@ -21402,6 +21407,11 @@
 		{
 			"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md",
 			"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
+			"redirect_url": "/azure/iot-hub/",
 			"redirect_document_id": false
 		},
 		{
