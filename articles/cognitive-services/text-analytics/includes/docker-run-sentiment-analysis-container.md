@@ -1,3 +1,15 @@
+---
+title: Run container example of docker run command
+titleSuffix: Azure Cognitive Services
+description: Docker run command for Sentiment Analysis container
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include 
+ms.date: 08/20/2019
+ms.author: dapine
+---
 
 ### Run container example of docker run command
 
