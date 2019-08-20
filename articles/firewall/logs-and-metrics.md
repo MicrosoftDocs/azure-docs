@@ -82,31 +82,41 @@ You have three options for storing your logs:
 
 ## Metrics
 
-Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected at regular intervals and are useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
+Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected every minute, and are useful for alerting because they can be sampled frequently. An alert can be fired quickly with relatively simple logic.
 
 The following metrics are available for Azure Firewall:
 
-- **Application rules hit count**
+- **Application rules hit count** - The number of times an application rule has been hit.
 
-     The number of times an application rule has been hit.
-- **Data processed**
+    Unit: count
 
-   All the data processed and billed by the firewall.
-- **Firewall health state**
+- **Data processed** - Amount of data traversing the firewall.
 
-   Displays the average health state. You can filter on **Reasons** properties for the health state. The current reasons property is **SNAT ports**. The values can be **Healthy**, **Degraded**, or **Unhealthy**.
-- **Network rules hit count**
+    Unit: bytes
 
-   The number of times a network rule has been hit.
-- **SNAT port utilization**
+- **Firewall health state** - Indicates the health of the firewall.
 
-   The average or max ports available on the firewall. 
-   
+    Unit: percent
+
+   This metric has two dimensions:
+  - **Status**: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
+  - **Reason**: Indicates the reason for the corresponding status of the firewall. For example, it can indicate *SNAT ports* if the firewall status is Degraded or Unhealthy.
+
+
+
+- **Network rules hit count** - The number of times a network rule has been hit.
+
+    Unit: count
+
+- **SNAT port utilization** - The percentage of SNAT ports that have been utilized by the firewall.
+
+    Unit: percent
+
    When you add more public IP addresses to your firewall, more SNAT ports are available, reducing the SNAT ports utilization. Additionally, when the firewall scales out for different reasons (for example, CPU or throughput) additional SNAT ports also become available. So effectively, a given percentage of SNAT ports utilization may go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses available to increase the ports available on your firewall. But, you can't directly control firewall scaling. Currently, SNAT ports are added only for the first five public IP addresses.   
 
 
 ## Next steps
 
-To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
+- To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
 
-To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+- To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
