@@ -28,21 +28,10 @@ This article describes how to register to a classroom lab, view all the labs tha
 3. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
     1. At the top of the tile, you see the **name of the lab**.
     1. To its right, you see the icon representing the **operating system (OS)** of the VM. In this example, it's Windows OS. 
-    1. The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the additional time allotted to you in addition to the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies as per the following scenarios:
-        - If a class is in progress (within the schedule of the class), progress bar is greyed out to represent quota hours aren't being used. 
-
-            ![Progress bar in gray color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
-        - If a quota isn't assigned (zero hours), the text **Available during classes only** is shown in place of the progress bar. 
-            
-            ![Status when no quota is set](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
-        - If you ran **out of quota**, the color of the progress bar is **red**. 
-
-            ![Progress bar in red color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
-        - The color of the progress bar is **blue** when it's outside the scheduled time for the lab and some of the quota time has been used. 
-
-            ![Progress bar in blue color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
     1. You see icons/buttons at the bottom of the tile to start/stop the VM, and connect to the VM. 
-    1. To the right of the buttons, you see the status of the VM. Confirm that you see the status of the VM is **Stopped**. 
+    1. To the right of the buttons, you see the status of the VM. Confirm that you see the status of the VM is **Stopped**.
+
+        ![VM in stopped state](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
 
 ## Start to stop the VM
 1. **Start** the VM by selecting the first button as shown in the following image. This process takes some time.  
@@ -62,6 +51,22 @@ This article describes how to register to a classroom lab, view all the labs tha
 2. Do one of the following steps: 
     1. For **Windows** virtual machines, save the **RDP** file to the hard disk. Open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator/professor to sign in to the machine. 
     3. For **Linux** virtual machines, you can use **SSH** or **RDP** (if it's enabled) to connect to them. For more information, see [Enable remote desktop connection for Linux machines](how-to-enable-remote-desktop-linux.md). 
+
+## Progress bar 
+The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the additional time allotted to you in addition to the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies as per the following scenarios:
+
+- If a class is in progress (within the schedule of the class), progress bar is greyed out to represent quota hours aren't being used. 
+
+    ![Progress bar in gray color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
+- If a quota isn't assigned (zero hours), the text **Available during classes only** is shown in place of the progress bar. 
+    
+    ![Status when no quota is set](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
+- If you ran **out of quota**, the color of the progress bar is **red**. 
+
+    ![Progress bar in red color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
+- The color of the progress bar is **blue** when it's outside the scheduled time for the lab and some of the quota time has been used. 
+
+    ![Progress bar in blue color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
 ## View all the classroom labs
