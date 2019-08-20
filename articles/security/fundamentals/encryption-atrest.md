@@ -252,14 +252,12 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 
 #### Encryption Model and Key Management
 
-|                                  |                    | **Encryption Model and Key Management** |                    |
-|----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed**      |
-| **AI and Machine Learning**      |                    |                    |                    |
+| **Server-Side Using Service-Managed Key** |**Server-Side Using Customer-Managed Key**| **Client-Side Using Client-Managed** | **AI and Machine Learning**   |
+|--------------------|-------------------|----------------------|--------------------|
 | Azure Search                     | Yes                | -                  | -                  |
 | Azure Machine Learning Service   | Yes                | -                  | -                  |
 | Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
-| Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
+| Power BI                         | Yes                | Preview, RSA 2048-bit | -               |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | -                  | -                  |
 | Event Hubs                       | Yes                | -                  | -                  |
@@ -280,7 +278,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure SQL Database               | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | -                  | -                  |
-| Azure SQL Database for PostgreSQL | Yes                | -                  | -                  |
+| Azure SQL Database for PostgreSQL | Yes                | -                  | -                 |
 | Azure SQL Data Warehouse         | Yes                | Yes, RSA 2048-bit  | Yes                |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Table Storage                    | Yes                | -                  | Yes                |
