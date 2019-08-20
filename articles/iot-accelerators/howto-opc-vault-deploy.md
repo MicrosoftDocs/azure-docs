@@ -1,6 +1,6 @@
 ---
-title: How to deploy the OPC UA Certificate Management Service - Azure | Microsoft Docs
-description: How to deploy OPC Vault.
+title: How to deploy the OPC Vault Certificate Management Service - Azure | Microsoft Docs
+description: How to deploy the OPC Vault Certificate Management Service from scratch.
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019

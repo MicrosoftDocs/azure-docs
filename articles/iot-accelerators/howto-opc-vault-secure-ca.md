@@ -1,6 +1,6 @@
 ---
-title: How to run the OPC UA Certificate Management Service securely - Azure | Microsoft Docs
-description: Describes how to manage the OPC UA Certificate Management Service securely in Azure and other security guidelines to consider.
+title: How to run the OPC Vault Certificate Management Service securely - Azure | Microsoft Docs
+description: Describes how to run the OPC Vault Certificate Management Service securely in Azure and other security guidelines to consider.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2019

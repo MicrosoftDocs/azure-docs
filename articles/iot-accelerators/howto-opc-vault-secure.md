@@ -1,6 +1,6 @@
 ---
-title: Secure the communication of OPC devices with OPC Vault - Azure | Microsoft Docs
-description: How to register OPC UA applications and how to issue signed application certificates for your OPC UA devices.
+title: Secure the communication of OPC UA devices with OPC Vault - Azure | Microsoft Docs
+description: How to register OPC UA applications and how to issue signed application certificates for your OPC UA devices with OPC Vault.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2018
