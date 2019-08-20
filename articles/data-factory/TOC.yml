@@ -481,8 +481,12 @@
     - name: Unpivot
       href: data-flow-unpivot.md
     - name: Window
-      href: data-flow-window.md  
-- name: Parameterize
+      href: data-flow-window.md
+  - name: Data flow patterns
+    items:
+    - name: Fixed length file processing
+      href: data-flow-aggregate.md      
+  - name: Parameterize
     items:
     - name: Parameterize linked services
       href: parameterize-linked-services.md
@@ -493,7 +497,7 @@
     - name: Data flow parameters
       href: parameters-data-flow.md
   - name: Security
-    items:
+    items: how-to-process-fixed-length-files.md
     - name: Data movement security considerations
       href: data-movement-security-considerations.md
     - name: Store credentials in Azure Key Vault
