@@ -1,6 +1,6 @@
 ---
-title: What is Windows Virtual Desktop Preview?  - Azure
-description: An overview of Windows Virtual Desktop Preview.
+title: What is Windows Virtual Desktop?  - Azure
+description: An overview of Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
 ---
-# What is Windows Virtual Desktop Preview? 
+# What is Windows Virtual Desktop? 
 
-Now available in public preview, Windows Virtual Desktop Preview is a desktop and app virtualization service that runs on the cloud.
+Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
 Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
@@ -81,7 +81,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. During public preview, desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 region). This may result in data transfer to the United States while you test the service during public preview. We'll start to scale out the management solution and data localization to all Azure regions starting at general availability.
+Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 region). This may result in data transfer to the United States.
 
 For optimal performance, make sure your network meets the following requirements:
 
@@ -108,4 +108,4 @@ Windows Virtual Desktop supports the following OS images:
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
 
 > [!div class="nextstepaction"]
-> [Create a tenant in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md)
+> [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

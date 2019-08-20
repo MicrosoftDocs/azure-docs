@@ -1,6 +1,6 @@
 ---
-title: Connect to Windows Virtual Desktop Preview from a web browser  - Azure
-description: How to connect to the Windows Virtual Desktop Preview from a web browser.
+title: Connect to Windows Virtual Desktop from a web browser  - Azure
+description: How to connect to the Windows Virtual Desktop from a web browser.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Connect from a web browser
 
-The web client lets you access your Windows Virtual Desktop Preview resources from a web browser without the lengthy installation process.
+The web client lets you access your Windows Virtual Desktop resources from a web browser without the lengthy installation process.
 
 >[!NOTE]
 >The web client doesn't currently have mobile OS support.
