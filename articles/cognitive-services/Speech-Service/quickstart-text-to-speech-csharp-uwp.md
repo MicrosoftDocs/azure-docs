@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 7/31/2019
+ms.date: 08/19/2019
 ms.author: yinhew
 ---
 
@@ -36,13 +36,13 @@ This quickstart requires:
 
 Now add the XAML code that defines the user interface of the application, and add the C# code-behind implementation.
 
-1. In Solution Explorer, double-click `MainPage.xaml` to open the XAML file.
+1. In **Solution Explorer**, double-click `MainPage.xaml` to open the XAML file.
 
 1. In the designer's XAML view, insert the following XAML snippet into the **Grid** tag (between `<Grid>` and `</Grid>`):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. In Solution Explorer, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
+1. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
 
 1. Replace all the code in it with the following snippet:
 
@@ -52,7 +52,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 1. In the `Speak_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
 
-1. Select the solution, and then choose **File** > **Save helloworld.sln** to save your changes.
+1. From the menu bar, choose **File** > **Save All** to save your changes.
 
 ## Build and run the app
 

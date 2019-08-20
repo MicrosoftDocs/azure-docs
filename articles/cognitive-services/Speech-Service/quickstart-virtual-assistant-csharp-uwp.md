@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 08/19/2019
 ms.author: travisw
 ---
 
@@ -48,7 +48,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 First, you'll create the application's user interface by adding the XAML code:
 
-1. In Solution Explorer, double-click `MainPage.xaml` to open the XAML file.
+1. In **Solution Explorer**, double-click `MainPage.xaml` to open the XAML file.
 
 1. In the designer's XAML view, replace the entire contents with the following code snippet:
 
@@ -112,7 +112,7 @@ Then you add the code-behind source so that the application works as expected. T
 
 To add the code-behind source, follow these steps:
 
-1. In Solution Explorer, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
+1. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
 
 1. Replace the file's contents with the following code snippet:
 
@@ -396,7 +396,7 @@ To add the code-behind source, follow these steps:
     }
     ```
 
-1. Select the solution, and then choose **File** > **Save helloworld.sln** to save your changes.
+1. From the menu bar, choose **File** > **Save All** to save your changes.
 
 ## Build and run the app
 
@@ -406,7 +406,7 @@ To add the code-behind source, follow these steps:
 
    ![Sample UWP virtual assistant application in C# - quickstart](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
 
-1. Select **Enable Microphone**, and when the permission request that pops up, select **Yes**.
+1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
    ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 

@@ -2,7 +2,7 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/25/2019
+ms.date: 08/19/2019
 ms.author: erhopf
 ---
 
@@ -22,7 +22,7 @@ To start, make sure you're set up correctly in Visual Studio for Universal Windo
 
 1. In the **Workloads** tab, under **Windows**, find the **Universal Windows Platform development** workload. If the check box next to that workload is already selected, close the **Modifying** dialog box, and go to step 6.
 
-1. Select the **Universal Windows Platform development** check box, select **Modify**, and then in the **Before we get started** dialog box, select **Continue** to install the UWP development workload. Installation of the new feature takes a moment.
+1. Select the **Universal Windows Platform development** check box, select **Modify**, and then in the **Before we get started** dialog box, select **Continue** to install the UWP development workload. Installation of the new feature may take awhile.
 
 1. Close Visual Studio Installer.
 
@@ -34,7 +34,7 @@ Next, create your project:
 
    ![Create a new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
-1. Find and select **Blank App (Universal Windows)**.
+1. Find and select **Blank App (Universal Windows)**. Make sure that you select the C# version of this project type (as opposed to Visual Basic).
 
 1. Select **Next** to display the **Configure your new project** screen. 
 
@@ -50,13 +50,11 @@ Next, create your project:
 
 1. In **Minimum version** (the second drop-down box), choose **Windows 10 Fall Creators Update (10.0; Build 16299)**, which is the minimum requirement for the Speech SDK.
 
-1. In **Target version** (the first drop-down box), choose this version or any later version.
+1. In **Target version** (the first drop-down box), choose a value identical to or later than the value in **Minimum version**.
 
-1. Select **OK**.
+1. Select **OK**. You are returned to the Visual Studio IDE, with the new project created and visible in the **Solution Explorer** pane.
 
-You are returned to the Visual Studio IDE, with the new project created and visible in the **Solution Explorer** pane.
-
-![helloworld project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
+   ![helloworld project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
 
 Now, select your target platform architecture. In the Visual Studio toolbar, find the **Solution Platforms** drop-down box. If you're running 64-bit Windows, choose **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
 
@@ -75,7 +73,7 @@ Then allow the project to capture audio input:
 
 1. Select the box for the **Microphone** capability.
 
-1. Close and save your changes to the package application manifest.
+1. From the menu bar, choose **File** > **Save** to save your changes to the package application manifest.
 
 ### Install the Speech SDK
 
