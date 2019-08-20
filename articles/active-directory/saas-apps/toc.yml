@@ -1333,6 +1333,8 @@
         href: vxmaintain-tutorial.md
     - name: W - Z
       items:
+      - name: Watch by Colors
+        href: watch-by-colors-tutorial.md
       - name: Wandera
         href: wandera-tutorial.md
       - name: Way We Do
