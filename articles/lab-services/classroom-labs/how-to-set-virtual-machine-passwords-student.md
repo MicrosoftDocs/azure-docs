@@ -17,10 +17,10 @@ ms.author: spelluru
 
 ---
 # Set or reset password for virtual machines in classroom labs (students)
-This article gives information on how students can set/reset password for their VMs. 
+This article shows you how students can set/reset password for their VMs. 
 
 ## Enable resetting of passwords
-At the time of creating the lab, the lab owner can enable or disable the **Use same password for all virtual machines**. If this option is enabled, students can't reset password. All the VMs in the labs will have the same password that's set by the teacher. 
+At the time of creating the lab, the lab owner can enable or disable the **Use same password for all virtual machines**. If this option was enabled, students can't reset password. All the VMs in the labs will have the same password that's set by the instructor. 
 
 If this option is disabled, users will have to set a password when trying to connect to the VM for the first time. Students can also reset the password later at any time as shown in the last section of this article. 
 
@@ -31,6 +31,8 @@ If the **Use same password for all virtual machines** option was disabled, when 
 
 ## Reset password later
 Student also can set the password by clicking the overflow menu (**vertical three dots**) on the lab tile, and selecting **Reset password**. 
+
+
 
 ## Next steps
 To learn about other student usage options that a lab owner can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).
