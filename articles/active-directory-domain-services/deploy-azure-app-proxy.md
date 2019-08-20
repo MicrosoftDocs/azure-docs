@@ -33,7 +33,7 @@ To perform the tasks listed in this article, you need:
 1. A valid **Azure subscription**.
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
 3. An **Azure AD Premium license** is required to use the Azure AD Application Proxy.
-4. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
+4. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
 
 <br>
 
@@ -112,18 +112,18 @@ Use resource-based KCD as described in this [article](deploy-kcd.md).
 
 Use the Get-ADComputer PowerShell cmdlet to retrieve the settings for the computer on which the Azure AD Application Proxy connector is installed.
 ```powershell
-$ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
+$ConnectorComputerAccount = Get-ADComputer -Identity contoso-proxy.contoso.com
 ```
 
 Thereafter, use the Set-ADComputer cmdlet to set up resource-based KCD for the resource server.
 ```powershell
-Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
+Set-ADComputer contoso-resource.contoso.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
 If you have deployed multiple Application Proxy connectors on your managed domain, you need to configure resource-based KCD for each such connector instance.
 
 
 ## Related Content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Configure Kerberos Constrained Delegation on a managed domain](deploy-kcd.md)
 * [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx)
