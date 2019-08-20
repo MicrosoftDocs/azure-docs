@@ -25,7 +25,7 @@ To stretch your on-premises network using L2VPN, you must configure an L2VPN ser
 
 In this deployment scenario, your Private Cloud is connected to your on-premises environment via a site-to-site VPN tunnel that allows on-premises management and vMotion subnets to communicate with the Private Cloud management and vMotion subnets. This arrangement is necessary for Cross vCenter vMotion (xVC-vMotion). A NSX-T Tier0 router is deployed as an L2VPN server in the Private Cloud.
 
-NSX standalone Edge is deployed in your on-premises environment as an L2VPN client and subsequently paired with the L2VPN server. A GRE tunnel endpoint is created on each side and configured to 'stretch' the on-premises Layer 2 network to your Private Cloud. This configuration is depicted in the following figure.
+Standalone NSX Edge is deployed in your on-premises environment as an L2VPN client and subsequently paired with the L2VPN server. A GRE tunnel endpoint is created on each side and configured to 'stretch' the on-premises Layer 2 network to your Private Cloud. This configuration is depicted in the following figure.
 
 ![Deployment scenario](media/l2vpn-deployment-scenario.png)
 
@@ -131,7 +131,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 ## Fetch the logical-switch ID needed for L2VPN
 
-1. Sign in to NSX-T Manager (https://nsx-t-manager-ip-address). 
+1. Sign in to [NSX-T Manager](https://nsx-t-manager-ip-address).
 2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch>\ ** > **Overview**.
 3. Make a note of the UUID of the stretch logical switch, which is required when configuring the L2VPN.
 
@@ -139,7 +139,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 ## Routing and security considerations for L2VPN
 
-To establish an IPsec route-based VPN between the NSX-T Tier0 router and the NSX standalone Edge client, the loopback interface of the NSX-T Tier0 router must be able to communicate with the public IP address of NSX standalone client on-premises over UDP 500/4500.
+To establish an IPsec route-based VPN between the NSX-T Tier0 router and the standalone NSX Edge client, the loopback interface of the NSX-T Tier0 router must be able to communicate with the public IP address of NSX standalone client on-premises over UDP 500/4500.
 
 ### Allow UDP 500/4500 for IPsec
 
@@ -420,9 +420,9 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 Before deploying, verify that your on-premises firewall rules allow inbound and outbound UDP 500/4500 traffic from/to the CloudSimple public IP address that was reserved earlier for the NSX-T T0 router loopback interface. 
 
-1. [Download the Standalone Edge Client](https://my.vmware.com/group/vmware/details?productId=673&rPId=33945&downloadGroup=NSX-T-230) OVF and Extract the files from the downloaded bundle into a folder.
+1. [Download the Standalone NSX Edge Client](https://my.vmware.com/group/vmware/details?productId=673&rPId=33945&downloadGroup=NSX-T-230) OVF and Extract the files from the downloaded bundle into a folder.
 
-    ![Download standalone Edge client](media/l2vpn-deploy-client01.png)
+    ![Download standalone NSX Edge client](media/l2vpn-deploy-client01.png)
 
 2. Go to the folder with all the extracted files. Select all the vmdks (NSX-l2t-client-large.mf and NSX-l2t-client-large.ovf for large appliance size or NSX-l2t-client-Xlarge.mf and NSX-l2t-client-Xlarge.ovf for extra large size appliance size). Click **Next**.
 
@@ -466,13 +466,13 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 
 ## Configure an on-premises sink port
 
-If one of the VPN sites doesn't have NSX deployed, you can configure an L2 VPN by deploying a standalone NSX Edge at that site. A standalone Edge is deployed using an OVF file on a host that is not managed by NSX. This deploys an Edge Services Gateway appliance to function as an L2 VPN client.
+If one of the VPN sites doesn't have NSX deployed, you can configure an L2 VPN by deploying a standalone NSX Edge at that site. A standalone NSX Edge is deployed using an OVF file on a host that is not managed by NSX. This deploys an NSX Edge Services Gateway appliance to function as an L2 VPN client.
 
 If a standalone edge trunk vNIC is connected to a vSphere Distributed Switch, either promiscuous mode or a sink port is required for L2 VPN function. Using promiscuous mode can cause duplicate pings and duplicate responses. For this reason, use sink port mode in the L2 VPN standalone NSX Edge configuration. See the [Configure a sink port](https://docs.vmware.com/en/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.admin.doc/GUID-3CDA4346-E692-4592-8796-ACBEEC87C161.html) in the VMware documentation.
 
 ## IPsec VPN and L2VPN verification
 
-Use the following commands to verify IPsec and L2VPN sessions from NSX-T standalone Edge.
+Use the following commands to verify IPsec and L2VPN sessions from standalone NSX-T Edge.
 
 ```
 nsx-l2t-edge> show service ipsec
