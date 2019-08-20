@@ -38,7 +38,7 @@ First, implement the blueprint sample by creating a new blueprint in your enviro
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
-  - **Blueprint name** Provide a name for your copy of the CAF migration landing zone blueprint sample.
+   - **Blueprint name** Provide a name for your copy of the CAF migration landing zone blueprint sample.
    - **Definition location** Use the ellipsis and select the management group to save your copy of the sample to.
 
 1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
