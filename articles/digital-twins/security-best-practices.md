@@ -31,7 +31,7 @@ Some key practices to safely secure your IoT devices include:
 > * Consider the potential use of device IP address filtering and port restriction.
 > * Limit I/O and device bandwidth to improve performance. Rate-limiting can improve security by preventing denial-of-service attacks.
 > * Keep device firmware up to date.
-> * Audit and review device, network, gateway security practices as they continue to improve and evolve.
+> * Periodically audit and review device, network, and gateway security best practices as they continue to improve and evolve.
 
 Some key practices to safely secure an IoT space include:
 
