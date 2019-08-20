@@ -13,7 +13,7 @@ ms.date: 08/12/2019
 ms.custom: seoapril2019
 ---
 
-# Azure SQL Database managed instance T-SQL differences from SQL Server
+# Managed instance T-SQL differences, limitations and known issues
 
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Database managed instance and on-premises SQL Server Database Engine. The following subjects are discussed: <a name="Differences"></a>
 
@@ -22,7 +22,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 - [Configuration](#configuration) includes the differences in [buffer pool extension](#buffer-pool-extension), [collation](#collation), [compatibility levels](#compatibility-levels), [database mirroring](#database-mirroring), [database options](#database-options), [SQL Server Agent](#sql-server-agent), and [table options](#tables).
 - [Functionalities](#functionalities) include [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distributed transactions](#distributed-transactions), [extended events](#extended-events), [external libraries](#external-libraries), [filestream and FileTable](#filestream-and-filetable), [full-text Semantic Search](#full-text-semantic-search), [linked servers](#linked-servers), [PolyBase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [stored procedures, functions, and triggers](#stored-procedures-functions-and-triggers).
 - [Environment settings](#Environment) such as VNets and subnet configurations.
-- [Temporary limitations and known issues](#Issues).
+- [Temporary known issues](#Issues).
 
 The managed instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a managed instance.
 
@@ -523,23 +523,25 @@ The following variables, functions, and views return different results:
 
 The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 
-## <a name="Issues"></a> Known issues and limitations
+## <a name="Issues"></a> Known issues
 
-### Cross-database Service Broker dialogs don't work after service tier upgrade
+### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 
 **Date:** Aug 2019
 
-Cross-database Service Broker dialogs fail to deliver the messages after change service tier operation. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database by GUID will not be able to deliver messages.
+Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages messages to the target service.
 
-**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after.
+**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
 
-### Some AAD login types cannot be impersonated
+### Impresonification of AAD login types is not supported
 
 **Date:** July 2019
 
 Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of following AAD principals is not supported:
 -	Aliased AAD users. The following error is returned in this case `15517`.
 - AAD logins and users based on AAD applications or service principals. The following errors are returned in this case `15517` and `15406`.
+
+### Database email 
 
 ### @query parameter not supported in sp_send_db_mail
 
@@ -588,13 +590,7 @@ Several system views, performance counters, error messages, XEvents, and error l
 
 ### Error logs aren't persisted
 
-Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs.
-
-### Error logs are verbose
-
-A managed instance places verbose information in error logs, and much of it isn't relevant. 
-
-**Workaround:** Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because Managed Instance was moved several time on several virtual machines.
 
 ### Transaction scope on two databases within the same instance isn't supported
 
