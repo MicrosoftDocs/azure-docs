@@ -68,7 +68,7 @@ For more advanced topics, see
 
 ## Virtual Machines
 * If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) to get started. Otherwise, see
-* [Set up Azure Diagnostics on an Azure Virtual Machine](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+* [Set up Azure Diagnostics on an Azure Virtual Machine](/azure/virtual-machines/extensions/diagnostics-windows)
 
 For more advanced topics, see
 
