@@ -91,7 +91,7 @@ Next, the account \<*account name*> shared over \<*number of*> unique files in a
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
-Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
+Next, the account \<*account name*> uploaded \<*number of*> PDF files, and deleted a total of \<*number of*> files. 
 
 This activity pattern is indicative of a potential ransomware attack.
 
@@ -138,7 +138,7 @@ Next, the account \<*account name*> shared over \<*number of*> unique files in a
 
 This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
-Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
+Next, the account \<*account name*> uploaded \<*number of*> PDF files, and deleted a total of \<*number of*> files. 
 
 This activity pattern is indicative of a potential ransomware attack.
 
@@ -184,7 +184,7 @@ Next, the account \<*account name*> shared over \<*number of*> unique files in a
 
 This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
-Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
+Next, the account \<*account name*> uploaded \<*number of*> PDF files, and deleted a total of \<*number of*> files. 
 
 This activity pattern is indicative of a potential ransomware attack.
 
@@ -230,7 +230,7 @@ Next, the account \<*account name*> shared over \<*number of*> unique files in a
 
 This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
-Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
+Next, the account \<*account name*> uploaded \<*number of*> PDF files, and deleted a total of \<*number of*> files. 
 
 This activity pattern is indicative of a potential ransomware attack.
 
@@ -276,7 +276,7 @@ Next, the account \<*account name*> shared over \<*number of*> unique files in a
 
 This alert is an indication that the  sign-in event by \<*account name*> used leaked credentials. 
 
-Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
+Next, the account \<*account name*> uploaded \<*number of*> PDF files, and deleted a total of \<*number of*> files. 
 
 This activity pattern is indicative of a potential ransomware attack.
 
