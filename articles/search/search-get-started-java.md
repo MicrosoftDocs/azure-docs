@@ -121,8 +121,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
                 <artifactId>javax.json</artifactId>
                 <version>1.0.2</version>
             </dependency>
-        </dependencies>
-    
+        </dependencies>   
     </project>
     ```
 
@@ -157,8 +156,10 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 ### Add the main method
 
-1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, and then select **Java Class**.
-1. Open the `App` class and replace the content with the following code. This code contains the `main` method. The uncommented code reads the search service parameters and uses them to create an instance of the search service client. The search service client code will be added in the next section. 
+1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, select **Java Class**, and then enter the class name.
+1. Open the `App` class and replace the content with the following code. This code contains the `main` method. 
+
+    The uncommented code reads the search service parameters and uses them to create an instance of the search service client. The search service client code will be added in the next section.
 
     The commented code in this class will be uncommented in a later section of this quickstart.
 
@@ -273,14 +274,14 @@ Begin by opening IntelliJ IDEA and setting up a new project.
     import java.util.Formatter;
     import java.util.function.Consumer;
     
-    /* This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
-    public class SearchServiceClient {
-        private final String _adminKey;
-        private final String _queryKey;
-        private final String _apiVersion;
-        private final String _serviceName;
-        private final String _indexName;
-        private final static HttpClient client = HttpClient.newHttpClient();
+        /* This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
+        public class SearchServiceClient {
+            private final String _adminKey;
+            private final String _queryKey;
+            private final String _apiVersion;
+            private final String _serviceName;
+            private final String _indexName;
+            private final static HttpClient client = HttpClient.newHttpClient();
     
         public SearchServiceClient(String serviceName, String adminKey, String queryKey, String apiVersion, String indexName) {
             this._serviceName = serviceName;
@@ -681,7 +682,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
     Thread.sleep(2000L); // wait 2 seconds for data to upload
     ```
 
-    The two-second pause after the upload request ensures that the document loading process completes before you query the index.
+    A two-second pause is inserted after the upload request ensto ensure that the document loading process completes before you query the index.
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
@@ -828,6 +829,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for deeper learning.
 
-[Index operations](https://docs.microsoft.com/en-us/rest/api/searchservice/index-operations)
-[Document operations](https://docs.microsoft.com/en-us/rest/api/searchservice/document-operations)
-[Indexer operations](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
++ [Index operations](https://docs.microsoft.com/en-us/rest/api/searchservice/index-operations)
+
++ [Document operations](https://docs.microsoft.com/en-us/rest/api/searchservice/document-operations)
+
++ [Indexer operations](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
