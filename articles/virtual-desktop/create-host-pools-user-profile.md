@@ -43,7 +43,7 @@ The following are general instructions about how to prepare a virtual machine to
 6. Search for the security group to which you added the Windows Virtual Desktop users, then make sure that group has **Full Control**.
 7. After adding the security group, right-click the folder, select **Properties**, select **Sharing**, then copy down the **Network Path** to use for later.
 
-For more information about permissions, see the [FSLogix documentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
+For more information about permissions, see the [FSLogix documentation](https://docs.microsoft.com/fslogix/fslogix-storage-config-ht).
 
 ## Configure the FSLogix profile container
 
