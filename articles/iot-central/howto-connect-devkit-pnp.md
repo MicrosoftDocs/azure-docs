@@ -18,22 +18,22 @@ In this how-to article, you:
 
 - Get the connection details from your IoT Central application.
 - Prepare the device and connect it to your IoT Central application.
-- View the telemetry and properties from the device.
+- View the telemetry and properties from the device in IoT Central.
 
 ## Prerequisites
 
 To complete the steps in this article, you need the following resources:
 
-1. A DevKit device. [Get it now](https://aka.ms/iot-devkit-purchase).
+1. A [DevKit device](https://aka.ms/iot-devkit-purchase).
 1. An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Get device connection details
 
-In your Azure IoT Central application, select **Administration** tab, choose **Device Connection**. Make a note of the **Scope ID** and **Primary key**.
+In your Azure IoT Central application, select the **Administration** tab and select **Device Connection**. Make a note of the **Scope ID** and **Primary key**.
 
 ![Device group connection details](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
-## Prepare the DevKit device
+## Prepare the device
 
 1. Download the latest [pre-built Azure IoT Central Plug and Play firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the DevKit device from GitHub.
 
@@ -44,7 +44,7 @@ In your Azure IoT Central application, select **Administration** tab, choose **D
     > [!NOTE]
     > If you see errors on the screen such as **No Wi-Fi**, this is because the DevKit has not yet been connected to WiFi.
 
-1. On the DevKit, hold down **button B**, push and release the **Reset** button, and then release **button B**. The device is now in access point (AP) mode. To confirm, the screen displays "IoT DevKit - AP" and configuration portal IP address.
+1. On the DevKit, hold down **button B**, push and release the **Reset** button, and then release **button B**. The device is now in access point mode. To confirm, the screen displays "IoT DevKit - AP" and the configuration portal IP address.
 
 1. On your computer or tablet, connect to the WiFi network name shown on the screen of the device. The WiFi network starts with **AZ-** followed by the MAC address. When you connect to this network, you don't have internet access. This state is expected, and you only connect to this network for a short time while you configure the device.
 
@@ -61,27 +61,27 @@ In your Azure IoT Central application, select **Administration** tab, choose **D
     > [!NOTE]
     > Currently, the IoT DevKit only can connect to 2.4 GHz Wi-Fi, 5 GHz is not supported due to hardware restrictions.
 
-1. Choose **Configure Device**, the DevKit will reboot and runs the application.
+1. Choose **Configure Device**, the DevKit device reboots and runs the application:
 
     ![Reboot UI](media/howto-connect-devkit-pnp/reboot-ui.png)
 
-    You can see on the DevKit screen for confirm the success running of the application.
+    The DevKit screen displays a confirmation that the application is running:
 
-    ![DevKit running](media/devkit-running.png) 
+    ![DevKit running](media/howto-connect-devkit-pnp/devkit-running.png)
 
 The DevKit first registers a new device in IoT Central application and then starts sending data.
 
-## View the telemetry in IoT Central
+## View the telemetry
 
-In this step, you view the telemetry in Azure IoT Central.
+In this step, you view the telemetry in your Azure IoT Central application.
 
-In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry coming from the DevKit.
+In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry from the DevKit device:
 
-   ![IoT Central device overview](media/mxchip-overview-page.png)
+   ![IoT Central device overview](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
 
 ## Review the code
 
-If you want to review the code and customize by modifying and compiling it, go to the [GitHub repository](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp) to learn the details.
+To review the code or modify and compile it, go to the [MXChip IoT DevKit sample code GitHub repository](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
 
 ## Next steps
 
