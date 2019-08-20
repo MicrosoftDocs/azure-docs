@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create, load, and query indexes in Java'
+title: 'Java Quickstart: Create, load, and query indexes in Java'
 description: Explains how to create an index, load data, and run queries using Java and the Azure Search REST APIs.
 author: lisaleib
 manager: cgronlun
@@ -15,6 +15,7 @@ ms.date: 07/11/2019
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
