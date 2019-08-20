@@ -1,25 +1,25 @@
 ---
-title: Samples - CAF foundation blueprint - Overview
-description: Overview and architecture of the CAF foundation blueprint sample.
+title: Samples - CAF Foundation blueprint - Overview
+description: Overview and architecture of the CAF Foundation blueprint sample.
 author: dacoulte
 ms.author: dacoulte
-ms.date: 06/27/2019
+ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
 ---
-# Overview of the Microsoft Cloud Adoption Framework for Azure foundation blueprint sample
+# Overview of the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 
-The Microsoft Cloud Adoption Framework for Azure (CAF) foundation blueprint deploys a set of core infrastructure resources and policy controls required for your first production grade Azure application. This foundation blueprint is based on the recommended pattern found in CAF.
+The Microsoft Cloud Adoption Framework for Azure (CAF) Foundation blueprint deploys a set of core infrastructure resources and policy controls required for your first production grade Azure application. This foundation blueprint is based on the recommended pattern found in CAF.
 
 ## Architecture
 
-The CAF foundation blueprint sample deploys recommended infrastructure resources in Azure that can
+The CAF Foundation blueprint sample deploys recommended infrastructure resources in Azure that can
 be used by organizations to put in place the foundation controls necessary to manage their cloud estate.
 This sample will deploy and enforce resources, policies and templates that will allow an organization to confidently get started with Azure.
 
-![CAF foundation, image describes what gets installed as part of CAF guidance for creating a foundation to get started with Azure](../../media/caf-blueprints/caf-governance-architecture.png)
+![CAF Foundation, image describes what gets installed as part of CAF guidance for creating a foundation to get started with Azure](../../media/caf-blueprints/caf-foundation-architecture.png)
 
 This implementation incorporates several Azure services used to provide a secure, fully monitored, enterprise-ready foundation. This environment is
 composed of:
@@ -42,17 +42,17 @@ composed of:
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
 
 > [!NOTE]
-> The CAF foundation lays out a foundational architecture for workloads.
+> The CAF Foundation lays out a foundational architecture for workloads.
 > You still need to deploy workloads behind this foundational architecture.
 
 For more information, see the [Microsoft Cloud Adoption Framework for Azure - Ready](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy).
 
 ## Next steps
 
-You've reviewed the overview and architecture of the CAF foundation blueprint sample.
+You've reviewed the overview and architecture of the CAF Foundation blueprint sample.
 
 > [!div class="nextstepaction"]
->  [CAF foundation blueprint - Deploy steps](./deploy.md)
+>  [CAF Foundation blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 

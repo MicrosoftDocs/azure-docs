@@ -1,17 +1,17 @@
 ---
-title: Samples - CAF foundation blueprint - Deploy steps
+title: Samples - CAF Foundation blueprint - Deploy steps
 description: Deploy steps of the CAF Foundation blueprint sample.
 author: dacoulte
 ms.author: dacoulte
-ms.date: 06/27/2019
+ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
 ---
-# Deploy the Microsoft Cloud Adoption Framework for Azure foundation blueprint sample
+# Deploy the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 
-To deploy the Microsoft Cloud Adoption Framework for Azure (CAF) foundation blueprint sample, the following steps must be taken:
+To deploy the Microsoft Cloud Adoption Framework for Azure (CAF) Foundation blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -37,7 +37,7 @@ sample as a starter.
 
 1. Enter the _Basics_ of the blueprint sample:
 
-   - **Blueprint name**: Provide a name for your copy of the CAF foundation blueprint
+   - **Blueprint name**: Provide a name for your copy of the CAF Foundation blueprint
      sample.
    - **Definition location**: Use the ellipsis and select the management group to save your copy of
      the sample to.
@@ -54,7 +54,7 @@ sample as a starter.
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
 blueprint sample can be customized to your environment and needs, but that modification may move it
-away from the CAF foundation blueprint.
+away from the CAF Foundation blueprint.
 
 1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
    page, select **Blueprints**.
@@ -135,12 +135,13 @@ The following table provides a list of the blueprint artifact parameters:
 |Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Azure AD Group or User <Object ID> to grant permissions to in Key Vault|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in Log Analytics|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|
+
 ## Next steps
 
-Now that you've reviewed the steps to deploy the CAF foundation blueprint sample, visit the following article to learn about the architecture:
+Now that you've reviewed the steps to deploy the CAF Foundation blueprint sample, visit the following article to learn about the architecture:
 
 > [!div class="nextstepaction"]
-> [CAF foundation blueprint - Overview](./index.md)
+> [CAF Foundation blueprint - Overview](./index.md)
 
 Addition articles about blueprints and how to use them:
 

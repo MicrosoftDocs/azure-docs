@@ -3,7 +3,7 @@ title: Sample - CAF migrate landing zone blueprint - Deploy steps
 description: Deploy steps of the CAF migrate landing zone blueprint sample.
 author: dacoulte
 ms.author: dacoulte
-ms.date: 06/27/2019
+ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
@@ -14,7 +14,7 @@ ms.custom: fasttrack-new
 To deploy the Azure Blueprints CAF migrate landing zone blueprint sample, the following steps must be taken:
 
 > [!div class="checklist1"]
-> - Recommended to deploy the [CAF Foundation](../caf-governance/index.md) blueprint sample
+> - Recommended to deploy the [CAF Foundation](../caf-foundation/index.md) blueprint sample
 
 > [!div class="checklist2"]
 > - Create a new blueprint from the sample
