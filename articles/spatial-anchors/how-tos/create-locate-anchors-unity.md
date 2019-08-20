@@ -170,8 +170,9 @@ Learn more about the [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
     Vector3 hitPosition = new Vector3();
 #if UNITY_ANDROID || UNITY_IOS
+    Vector2 screenCenter = new Vector2(0.5f, 0.5f);
     List<ARRaycastHit> aRRaycastHits = new List<ARRaycastHit>();
-    if(arRaycastManager.Raycast(touch.position, aRRaycastHits) && aRRaycastHits.Count > 0)
+    if(arRaycastManager.Raycast(screenCenter, aRRaycastHits) && aRRaycastHits.Count > 0)
     {
         ARRaycastHit hit = aRRaycastHits[0];
         hitPosition = hit.pose.position;
@@ -186,7 +187,7 @@ Learn more about the [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/
 
     Quaternion rotation = Quaternion.AngleAxis(0, Vector3.up);
     this.localAnchor = GameObject.Instantiate(/* some prefab */, hitPosition, rotation);
-    this.localAnchor.AddARAnchor();
+    this.localAnchor.CreateNativeAnchor();
 
     // If the user is placing some application content in their environment,
     // you might show content at this anchor for a while, then save when
