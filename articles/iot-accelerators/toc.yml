@@ -180,13 +180,13 @@
         href: howto-opc-twin-deploy-dependencies.md 
     - name: OPC Vault
       items:
-      - name: Deploy OPC Vault Certificate Management Service
+      - name: Deploy OPC Vault service
         href: howto-opc-vault-deploy.md
-      - name: Manage OPC Vault Certificate Management Service
+      - name: Manage OPC Vault service
         href: howto-opc-vault-manage.md
-      - name: Secure the communication of OPC UA devices with OPC Vault
+      - name: Secure OPC UA device communication with OPC Vault
         href: howto-opc-vault-secure.md
-      - name: Run the OPC Vault Certificate Management Service securely
+      - name: Operate the OPC Vault service securely
         href: howto-opc-vault-secure-ca.md
     - name: OPC Publisher
       items:
