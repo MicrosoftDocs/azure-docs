@@ -61,7 +61,7 @@ The values for Live Metrics and the Profile Query Endpoint can only be set via c
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //Place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QuickPulse_Endpoint_Address");
 
@@ -69,18 +69,18 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
    services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
 
-    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+    //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
 
 ### Azure Functions v2.x
 
-Please install following packages into your Function project:
+Install the following packages in your function project:
 
 - Microsoft.ApplicationInsights version 2.10.0
 - Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
 - Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
 
-And also add (or modify) the startup code for your Function application:
+Then, add (or modify) the startup code for your function application:
 
 ```csharp
 [assembly: WebJobsStartup(typeof(Example.Startup))]
