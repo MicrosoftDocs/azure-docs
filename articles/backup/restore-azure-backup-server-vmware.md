@@ -11,7 +11,7 @@ ms.author: dacurwin
 ---
 # Restore VMware virtual machines
 
-This article explains how to use Microsoft Azure Backup Server (MABS) to restore VMware VM recovery points. For an overview on using MABS to recover data, see [Recover protected data](https://docs.microsoft.com/en-us/azure/backup/backup-azure-alternate-dpm-server). In the MABS Administrator Console, there are two ways to find recoverable data - search or browse. When recovering data, you may, or may not want to restore data or a VM to the same location. For this reason, MABS supports three recovery options for VMware VM backups:
+This article explains how to use Microsoft Azure Backup Server (MABS) to restore VMware VM recovery points. For an overview on using MABS to recover data, see [Recover protected data](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). In the MABS Administrator Console, there are two ways to find recoverable data - search or browse. When recovering data, you may, or may not want to restore data or a VM to the same location. For this reason, MABS supports three recovery options for VMware VM backups:
 
 • **Original location recovery (OLR)** - Use OLR to restore a protected VM to its original location. You can restore a VM to its original location only if no disks have been added or deleted, since the backup occurred. If disks have been added or deleted, you must use alternate location recovery.
 
@@ -38,13 +38,13 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 
 6.	On the **Specify Recovery Options** screen, if you want to enable network bandwidth throttling, click **Modify**. To leave network throttling disabled, click **Next**. No other options on this wizard screen are available for VMware VMs. If you choose to modify the network bandwidth throttle, in the Throttle dialog, select **Enable network bandwidth usage throttling** to turn it on. Once enabled, configure the **Settings** and **Work Schedule**.
 
-7.	On the **Select Recovery Type** screen, choose whether to recover to the original instance, or to a new location, and click *Next**.
+7.	On the **Select Recovery Type** screen, choose whether to recover to the original instance, or to a new location, and click **Next**.
 
-     o	If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
+  * If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
 
-    o	If you choose **Recover as virtual machine on any host**, then on the **Specify Destination** screen, provide the information for **ESXi Host, Resource Pool, Folder,** and **Path**. 
+ * If you choose **Recover as virtual machine on any host**, then on the **Specify Destination** screen, provide the information for **ESXi Host, Resource Pool, Folder,** and **Path**. 
 
-       ![Select Recovery Type](./media/restore-azure-backup-server-vmware/recovery-type.png)
+      ![Select Recovery Type](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
 8.    On the **Summary** screen, review your settings and click **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
 
