@@ -100,7 +100,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. In the list of containers, select **adftutorial**.
 
-1. Keep the **container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
+1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
@@ -176,7 +176,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     e. Under **User name** and **Password**, enter the user name and password. If you need to use a backslash (\\) in your user account or server name, precede it with the escape character (\\). For example, use *mydomain\\\\myuser*.
 
-    f. Select **Test connection**. This step confirms that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
+    f. Select **Test connection**. This step is to confirm that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
 
     g. To save the linked service, select **Finish**.
 
@@ -191,20 +191,12 @@ In this step, you create a data factory and start the Data Factory UI to create 
 1. Go to the **Sink** tab at the bottom of the **Properties** window, and select **+ New**. 
 
 1. In the **New Dataset** dialog box, select **Azure Blob Storage**. Then select **Continue**. 
-<<<<<<< HEAD
-1. In the **Select Format** dialog box, choose the format type of your data. Then select **Continue**. 
-=======
 
 1. In **Select Format** dialog box, choose the format type of your data. Then select **Continue**. 
->>>>>>> Update Tutorial-Copy on-premises data to cloud--UI
 
     ![Data format selection](./media/doc-common-process/select-data-format.png)
 
-<<<<<<< HEAD
-1. In the **Set Properties** dialog box, enter **AzureBlobDataset** for **Name**. Next to **Linked service**, select **+ New**. 
-=======
 1. In the **Set Properties** dialog box, enter **AzureBlobDataset** for Name. Next to the **Linked service** text box, select **+ New**.
->>>>>>> Update Tutorial-Copy on-premises data to cloud--UI
 
 1. In the **New Linked Service (Azure Blob Storage)** dialog box, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account** name list. Test connection, and then select **Finish** to deploy the linked service.
 1. After the linked service is created, you're back to the **Set properties** page. Select **Continue**.
@@ -212,7 +204,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 1. You should be back in the window with the sink dataset open. On the **Connection** tab, take the following steps: 
 
     a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
-    
+  
     b. In **File path**, enter **adftutorial/fromonprem** for the **Container/ Directory** part. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
     
     c. For the **File** part, select **Add dynamic content**.
