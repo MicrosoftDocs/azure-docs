@@ -37,7 +37,7 @@ Configure container registry authentication by adding `RepositoryCredentials` to
 It is recommended that you encrypt the repository password by using an encipherment certificate that's deployed to all nodes of the cluster. When Service Fabric deploys the service package to the cluster, the encipherment certificate is used to decrypt the cipher text. The Invoke-ServiceFabricEncryptText cmdlet is used to create the cipher text for the password, which is added to the ApplicationManifest.xml file.
 See [Secret Management](service-fabric-application-secret-management.md) for more on certificates and encryption semantics.
 
-### Configure cluster-wide credentials
+## Configure cluster-wide credentials
 
 Service Fabric allows you to configure cluster-wide credentials which can be used as default repository credentials by applications.
 
@@ -95,7 +95,7 @@ Here is an example of what can be added inside the `Hosting` section in the Clus
 ]
 ```
 
-### Leveraging the Managed Identity of the virtual machine scale set using Managed Identity Service (MSI)
+## Leveraging the Managed Identity of the virtual machine scale set by using Managed Identity Service (MSI)
 
 Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the managed identity of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for more on MSI.  Using this feature requires the follows steps:
 
@@ -124,6 +124,6 @@ Service Fabric supports using tokens as credentials to download images for your 
     > [!NOTE]
     > The flag `UseDefaultRepositoryCredentials` set to true while `UseTokenAuthenticationCredentials` is true will cause an error during deployment.
 
-## Next Steps
+## Next steps
 
 * See more about [Container registry authentication](/azure/container-registry/container-registry-authentication).
