@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 # Set up notifications about maintenance affecting your VM
 
-Updates are applied to different parts of Azure every day, to keep the services running on them secure and up to date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance and enables you to gracefully handle the maintenance. 
+Updates are applied to different parts of Azure every day, to keep the services running on them secure, and up-to-date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance, and enables you to gracefully handle the maintenance. 
 
 In this article, we will show how you can use scheduled events to be notified about maintenance events that could be affecting your VMs and build some basic automation that can help with monitoring and analysis.
 
@@ -36,7 +36,7 @@ Don't delete the group resource group at the end of the tutorial.
 
 You will also need to [create a Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) that we will use to aggregate information from the VMs in the availability set.
 
-## Setup the environment
+## Set up the environment
 
 You should now have 2 initial VMs in an availability set. Now we need to create a 3rd VM, called myCollectorVM, in the same availability set. 
 
@@ -57,7 +57,7 @@ New-AzVm `
 
 Download the installation .zip file of the project from [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Connect to **myCollectorVM** and copy the .zip file to the virtual machine and extract all of the files. On your VM, open a PowerShell prompt. Move your prompt into the folder containing `SchService.ps1`, for example: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`,  and setup the service.
+Connect to **myCollectorVM** and copy the .zip file to the virtual machine and extract all of the files. On your VM, open a PowerShell prompt. Move your prompt into the folder containing `SchService.ps1`, for example: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`,  and set up the service.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -69,7 +69,7 @@ Start the service.
 .\SchService.ps1 -Start
 ```
 
-The service will now start polling every 10 seconds for any scheduled events and approve the events to expedite the maintenance.  Freeze, Reboot, Redeploy and Preempt are the events captured by Schedule events.   Note that you can extend the script to trigger some mitigations prior to approving the event.
+The service will now start polling every 10 seconds for any scheduled events and approve the events to expedite the maintenance.  Freeze, Reboot, Redeploy, and Preempt are the events captured by Schedule events.   Note that you can extend the script to trigger some mitigations prior to approving the event.
 
 Validate the service status and make sure it is running.
 
@@ -83,7 +83,7 @@ The service will now start polling every 10 seconds for any scheduled events and
 
 When any of the above events are captured by Schedule Event service, it will get logged in the Application Event Log Event Status, Event Type, Resources (Virtual machine names) and NotBefore (minimum notice period). You can locate the events with ID 1234 in the Application Event Log.
 
-Once the service is setup and started, it will log events in the Windows Application logs.   To verify this works, restart one of the virtual machines in the availability set and you should see an event being logged in Event viewer in  Windows Logs >  Application log showing the VM restarted. 
+Once the service is set up and started, it will log events in the Windows Application logs.   To verify this works, restart one of the virtual machines in the availability set and you should see an event being logged in Event viewer in  Windows Logs >  Application log showing the VM restarted. 
 
 ![Screenshot of event viewer.](./media/notifications/event-viewer.png)
 
@@ -92,7 +92,7 @@ When events are captured by the Schedule Event service, it will get logged in th
 > [!NOTE] 
 > In this example, the virtual machines were are in an availability set, which enabled us to designate a single virtual machine as the collector to listen and route scheduled events to our log analytics works space. If you have standalone virtual machines, you can run the service on every virtual machine, and then connect them individually to your log analytics workspace.
 >
-> For our setup, we chose Windows, but you can design a similar solution on Linux as schedule events is also supported on Linux
+> For our set up, we chose Windows, but you can design a similar solution on Linux.
 
 At any point you can stop/remove the Scheduled Event Service by using the switches `–stop` and `–remove`.
 
