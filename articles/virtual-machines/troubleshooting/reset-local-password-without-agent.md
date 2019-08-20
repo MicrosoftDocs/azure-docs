@@ -187,7 +187,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](http
    
    1. Select the troubleshooting VM in the Azure portal, click *Disks*.
    
-   2. Select the data disk attached in step 2, click *Detach:*, then click *OK*.
+   2. Select the data disk attached in step 2, click **Detach**, then click **OK**.
 
      ![Detach disk](./media/reset-local-password-without-agent/data-disks-classic.png)
      
