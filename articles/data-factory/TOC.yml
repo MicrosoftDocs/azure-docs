@@ -482,7 +482,11 @@
       href: data-flow-unpivot.md
     - name: Window
       href: data-flow-window.md
-  - name: Parameterize
+  - name: Data flow patterns
+    items:
+    - name: Process fixed-width files
+      href: how-to-process-fixed-length-files.md    
+- name: Parameterize
     items:
     - name: Parameterize linked services
       href: parameterize-linked-services.md
