@@ -41,7 +41,7 @@ The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core
 * `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
 * `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
-
+* `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md#schema).
 
 There are a three ways to retrieve this information for deployed web services:
 
@@ -54,6 +54,7 @@ There are a three ways to retrieve this information for deployed web services:
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) reference documentation.
@@ -61,6 +62,7 @@ There are a three ways to retrieve this information for deployed web services:
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * If you know the name of the deployed service, you can create a new instance of `Webservice`, and provide the workspace and service name as parameters. The new object contains information about the deployed service.
@@ -68,11 +70,12 @@ There are a three ways to retrieve this information for deployed web services:
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 ### Authentication for services
 
-Azure Machine Learning provides two ways to control access to your web services. 
+Azure Machine Learning provides two ways to control access to your web services.
 
 |Authentication Method|ACI|AKS|
 |---|---|---|
