@@ -101,11 +101,11 @@ Service Fabric supports using tokens as credentials to download images for your 
 
 1.  Ensure that System Assigned Managed Identity is enabled for the VM (see screenshot below)
 
-    ![Create virtual machine scale set identity](/media/configure-container-repository-credentials/configure-container-repository-credentials-two.png)
+    ![Create virtual machine scale set identity](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
 
 2.  After that, grant permissions to the VM(SS) to pull/read images from the registry.  Go to Access Control (IAM) of your ACR via Azure Blade and give your VM(SS) the correct permissions, as seen below:
 
-    ![Add VM principal to ACR](/media/configure-container-repository-credentials/configure-container-repository-credentials-one.png)
+    ![Add VM principal to ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
 3.  Once the above steps are completed, modify your applicationmanifest.xml file.  Find the tag labeled “ContainerHostPolicies” and add the attribute `‘UseTokenAuthenticationCredentials=”true”`.
 
