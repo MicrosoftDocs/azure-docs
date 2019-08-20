@@ -54,7 +54,11 @@ We're going to simply set field starting points and lengths for this file conten
 
 * Now in the Derived Column, create a new column
 
-* Give column name col1 and then in expression type: substring(Column_1,1,4)
+* We'll give the columns simple names like col1
+
+* Then in the expression builder, type:
+
+```substring(Column_1,1,4)```
 
 ![derived column](media/data-flow/fwderivedcol1.png)
 
@@ -72,7 +76,7 @@ We're going to simply set field starting points and lengths for this file conten
 
 ![fixed width sink](media/data-flow/fwsink.png)
 
-* Here is an example output:
+* Here is what the output will look like:
 
 ![fixed width output](media/data-flow/fxdoutput.png)
 
