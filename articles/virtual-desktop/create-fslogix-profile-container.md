@@ -13,7 +13,7 @@ ms.author: helohr
 
 We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop Preview service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
 
-You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Windows Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
+You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Windows Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
 This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Windows Virtual Desktop.
 
@@ -42,7 +42,7 @@ To get started, you need to set up an Azure NetApp Files account.
 
 3. Once Azure Cloud Shell is open, select **PowerShell**.
 
-4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop. <!--Ask for clarification for step 4-->
+4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop.
 
    ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
 
@@ -99,7 +99,7 @@ After that, you need to join an Active Directory connection.
 
 1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
+   ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
 
 2. Enter the following values in the **Join Active Directory** page to join a connection:
 
@@ -201,19 +201,17 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/webclient/index.html>.
 
-3. Sign in with the credentials of a user assigned to the Remote Desktop group.
+2. Sign in with the credentials of a user assigned to the Remote Desktop group.
 
-4. Once you've established the user session, sign in to the Azure portal with an administrative account.
+3. Once you've established the user session, sign in to the Azure portal with an administrative account.
 
-5. Open **Azure NetApp Files**, select your Azure NetApp Files account, and then select **Volumes**. Once the Volumes menu opens, select the corresponding volume.
-
-<!--The corresponding volume for your user session?-->
+4. Open **Azure NetApp Files**, select your Azure NetApp Files account, and then select **Volumes**. Once the Volumes menu opens, select the corresponding volume.
 
    ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/netapp-account.png)
 
-6. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
+5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
-7. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to the **Mount path**
+6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to the **Mount path**
 (in the following example, the mount path is \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
 
    Within this folder, there should be a profile VHD like the one in the following example.
