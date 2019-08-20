@@ -242,11 +242,11 @@ Function API client ID from the Azure AD B2C App registration
 > Now API management is able respond to cross origin requests to JS SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE 
 > forwarding the request on to the Function API.
 
-## [Optional] Configure the redirect URIs for the developer portal
-
 > [!NOTE]
-> The following two sections are optional and do not apply to the **Consumption** tier, which does not support the developer portal.
-> If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this and the next step ("Configure the redirect URIs for the developer portal" and "Test the API from the Developer Portal") and jump straight to ["Build the JavaScript SPA to consume the API"](#Build-the-JavaScript-SPA-to-consume-the-API).
+> The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
+> If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](#Build-the-JavaScript-SPA-to-consume-the-API).
+
+## [Optional] Configure the API Management Developer portal to be able to call your secured API
 
 1. Open the Azure AD B2C blade and navigate to the application registration for the Developer Portal
 2. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
@@ -262,18 +262,12 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > [!NOTE]
 > Now API management is able to acquire tokens for the developer portal to test your API and is able to understand it's definition and render the appropriate test page in the dev portal.
 
-## [Optional] Test the API from the Developer Portal
-
-> [!NOTE]
-> The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
-> If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](#Build-the-JavaScript-SPA-to-consume-the-API).
-
-1. From the overview blade of the API Management portal, click 'Developer Portal' to sign in as an administrator of the API.
-2. Here, you and other selected consumers of your API can test and call them from a console.
-3. Select ‘Products’, then choose ‘Unlimited’, then choose the API we created earlier and click ‘TRY IT’
-4. Unhide the API subscription key, and copy it somewhere safe along with the request url that you'll need later.
-5. Also select Implicit, from the oauth auth dropdown and you may have to authenticate here with a popup.
-6. Click ‘Send’ and if all is well, your Function App should respond back with a hello message via API management with a 200 OK message and some JSON.
+6. From the overview blade of the API Management portal, click 'Developer Portal' to sign in as an administrator of the API.
+7. Here, you and other selected consumers of your API can test and call them from a console.
+8. Select ‘Products’, then choose ‘Unlimited’, then choose the API we created earlier and click ‘TRY IT’
+9. Unhide the API subscription key, and copy it somewhere safe along with the request url that you'll need later.
+10. Also select Implicit, from the oauth auth dropdown and you may have to authenticate here with a popup.
+11. Click ‘Send’ and if all is well, your Function App should respond back with a hello message via API management with a 200 OK message and some JSON.
 
 > [!NOTE]
 > Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API. 
