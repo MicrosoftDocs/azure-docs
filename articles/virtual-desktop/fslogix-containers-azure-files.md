@@ -82,7 +82,7 @@ Windows Virtual Desktop offers full control over size, type, and count of VMs th
 To ensure your Windows Virtual Desktop environment follows best practices:
 
 - Azure Files storage account must be in the same region as the session host VMs.
-- Azure Files permissions should match permissions described in [Requirements - Profile Containers](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
+- Azure Files permissions should match permissions described in [Requirements - Profile Containers](https://docs.microsoft.com/fslogix/overview#requirements).
 - Each host pool must be built of the same type and size VM based on the same master image.
 - Each host pool VM must be in the same resource group to aid management, scaling and updating.
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data center location.
