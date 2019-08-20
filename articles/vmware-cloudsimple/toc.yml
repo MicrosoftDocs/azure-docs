@@ -124,8 +124,8 @@
         href: escalate-privileges.md
       - name: Workload DNS and DHCP setup
         href: dns-dhcp-setup.md  
-      - name: NSX Layer 2 VPN for migration 
-        href: https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn
+      - name: Migrate workloads using Layer 2 stretched networks
+        href: migration-layer-2-vpn.md
     - name: Private cloud networking
       items:
       - name: VPN connection between on-premises and private cloud
@@ -156,7 +156,7 @@
         href: https://docs.azure.cloudsimple.com/horizon-guide/
       - name: Configure vSAN encryption for your private cloud
         href: vsan-encryption.md
-      - name: Oracle RAC deployment on CloudSimple private cloud
+      - name: Optimize your Private Cloud for Oracle RAC
         href: oracle-real-application-clusters.md
     - name: Azure Core Integration
       items:
