@@ -36,7 +36,7 @@ In the [Azure Certified for IoT portal](https://aka.ms/ACFI), you can complete t
 
 ## Azure CLI
 
-The Azure CLI provides commands for managing device capability models and interfaces in the IoT Plug and Play public and company model repositories. For more information, see the [Install and use the Azure IoT extension for Azure CLI](./howto-install-pnp-cli.md) how-to guide.
+The Azure CLI provides commands for managing device capability models and interfaces in the IoT Plug and Play public and company model repositories.
 
 ## Visual Studio Code
 

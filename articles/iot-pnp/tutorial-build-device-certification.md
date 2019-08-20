@@ -80,12 +80,6 @@ To view the **Device Information** interface in VS Code:
 
 1. To create a local copy of the **Device Information** interface, select it in the filtered list, and then select **Download**. VS Code displays the interface file.
 
-To view the **Device Information** interface using the Azure CLI:
-
-1. [Install the Azure IoT CLI extension](howto-install-pnp-cli.md).
-
-1. Use the cmdlet to show an interface with the Device Information interface ID. For more information, see [Install and use the Azure IoT extension for Azure CLI](howto-install-pnp-cli.md#manage-interfaces-in-a-model-repository).
-
 ## Update device code
 
 ### Enable device provisioning through the Azure IoT Device Provisioning Service (DPS)
