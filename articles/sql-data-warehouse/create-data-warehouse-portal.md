@@ -12,9 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19 
 ---
-# Quickstart: Create and query an Azure SQL data warehouse in the Azure portal
+# Quickstart: Create and query an Azure SQL Data Warehouse in the Azure portal
 
-Quickly create and query an Azure SQL data warehouse by using the Azure portal.
+Quickly create and query an Azure SQL Data Warehouse by using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -31,9 +31,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a data warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
 
-Follow these steps to create a SQL data warehouse that contains the AdventureWorksDW sample data. 
+Follow these steps to create a SQL Data Warehouse that contains the AdventureWorksDW sample data. 
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -201,4 +201,4 @@ Follow these steps to clean up resources you no longer need.
 You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
-> [Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
