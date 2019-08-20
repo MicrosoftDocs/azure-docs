@@ -10,13 +10,13 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# How to manage the OPC Vault Certificate Service
+# How to manage the OPC UA Certificate Service
 
 This article explains the administrative tasks for the OPC UA Certificate Management Service in Azure, how to renew Issuer CA certificates, how to renew the Certificate Revocation List (CRL) and how to grant and revoke user access.
 
 ## Create or renew the root CA certificate
 
-To create the root CA certificate is a mandatory step after deployment. Without a valid Issuer CA certificate, no application certificates can be signed and issued.<br>Refer to the chapter about [Certificate Lifetimes](howto-opc-vault-secure.md##Certificates) to manage your certificates with reasonable, secure lifetimes. 
+To create the root CA certificate is a mandatory step after deployment. Without a valid Issuer CA certificate, no application certificates can be signed and issued.<br>Refer to the chapter about [Certificate Lifetimes](howto-opc-vault-secure-ca.md#Certificates) to manage your certificates with reasonable, secure lifetimes. 
 An Issuer CA certificate should be renewed after half of its lifetime, but no later than before the configured lifetime of a newly signed application certificate would exceed the lifetime of the Issuer certificate.<br>
 **Important Note:** The 'Administrator' role is required to create or renew the Issuer CA certificate.
 
@@ -52,7 +52,7 @@ In the following workflow all certificate requests in the deleted states are rev
 
 User roles for the OPC Vault microservice are managed in the Azure Active Directory Enterprise Application.
 
-For a detailed description of the role definitions refer to the [Roles](howto-opc-vault-secure-ca.md##Roles) section.
+For a detailed description of the role definitions refer to the [Roles](howto-opc-vault-secure.md#Roles) section.
 
 By default, an authenticated user in the tenant can sign in the service as a 'Reader'. Higher privileged roles require manual management in the Azure portal or using Powershell.
 

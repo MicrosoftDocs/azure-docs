@@ -44,7 +44,7 @@ A Powershell script provides an easy way to deploy the OPC Vault microservice an
 
 1. Open a Powershell window at the repo root. 
 3. Go to the deploy folder `cd deploy`
-3. Choose a name for `myResourceGroup` which is unlikely to cause a conflict with other deployed web pages. See [below](#Website-name-already-in-use) how web page names are chosen based on the name of the resource group.
+3. Choose a name for `myResourceGroup` which is unlikely to cause a conflict with other deployed web pages. See [below](#website-name-already-in-use) how web page names are chosen based on the name of the resource group.
 5. Start the deployment with `.\deploy.ps1` for interactive installation<br>
 or enter a full command line:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
@@ -65,7 +65,7 @@ To start the local docker GDS server:
 To start the local dotnet GDS server:
 .\myResourceGroup-gds.cmd
 ```
-In case you run into issues follow the steps [below](#Troubleshooting-deployment-failures).
+In case you run into issues follow the steps [below](#troubleshooting-deployment-failures).
 
 8. Open your favorite browser and open the application page: `https://myResourceGroup.azurewebsites.net`
 8. Give the web app and the OPC Vault microservice a few minutes to warm up after deployment. The web home page may hang on first use for up to a minute until you get the first responses.
@@ -76,7 +76,7 @@ As a sidenote, it is possible to redeploy a build with exactly the same settings
 
 It is also possible to redeploy just the web app binaries. With the parameter `-onlyBuild 1` new zip packages of the service and the app are deployed to the web applications.
 
-After successful deployment, feel free to start using the services: [How to use the Certificate Management Service](howto-opc-vault-manage.md)
+After successful deployment, feel free to start using the services: [How to manage the OPC Vault Certificate Management Service](howto-opc-vault-manage.md)
 
 ## Delete the Certificate management services from the subscription
 

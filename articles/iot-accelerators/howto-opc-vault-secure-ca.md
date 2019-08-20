@@ -10,9 +10,9 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# How to run the Certificate Management Service securely
+# How to run the OPC UA Certificate Management Service securely
 
-This article explains how to run the OPC UA Certificate Management Service securely in Azure and other guidelines to consider.
+This article explains how to run the OPC UA Certificate Management Service securely in Azure and other security guidelines to consider.
 
 ## Roles
 
@@ -220,16 +220,16 @@ Document and maintain standard operational procedures (SOPs) for how CAs issue c
 - How the certificate request is processed and validated (if applicable, include also how certificate renewal and rekey requests are processed) 
 - How issued certificates are distributed to the subscribers 
 
-The OPC Vault microservice SOP is described in the [Overview](overview-opc-vault-architecture.md) and the [How to use](howto-opc-vault-secure.md) documents. The practices follow the OPC Unified Architecture Specification Part 12: Discovery and Global Services.
+The OPC Vault microservice SOP is described in the [Overview](overview-opc-vault-architecture.md) and the [How to manage](howto-opc-vault-manage.md) documents. The practices follow the OPC Unified Architecture Specification Part 12: Discovery and Global Services.
 
 
 ### Document and maintain standard operational PKI practices for certificate revocation
 
-The certificate revocation process is described in the [Overview](overview-opc-vault-architecture.md) and the [How to manage](howto-opc-vault-secure.md) documents.
+The certificate revocation process is described in the [Overview](overview-opc-vault-architecture.md) and the [How to manage](howto-opc-vault-manage.md) documents.
 	
 ### Document Certification Authority key generation ceremony 
 
-The Issuer CA key generation in the OPC Vault microservice is simplified due to the secure storage in Azure KeyVault and described in the [How to use](howto-use-cert-services.md) documentation.
+The Issuer CA key generation in the OPC Vault microservice is simplified due to the secure storage in Azure KeyVault and described in the [How to manage](howto-opc-vault-manage.md) documentation.
 
 However, when an external Root certification authority is being used, 
 a Certificate Authority (CA) key generation ceremony must adhere to the following requirements:
