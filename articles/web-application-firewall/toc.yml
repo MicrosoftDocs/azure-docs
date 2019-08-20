@@ -26,6 +26,23 @@
 - name: Samples  
 - name: Concepts 
 - name: How-to guides
+  items:
+  - name: Application Gateway
+    items:
+     - name: Enable Web Application Firewall
+       href: ./ag/application-gateway-web-application-firewall-portal.md
+  - name: Front Door
+    items:
+    - name: Configure WAF policy - PowerShell
+      href: ./afds/waf-front-door-custom-rules-powershell.md
+    - name: Configure bot protection
+      href: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - name: Configure custom response code
+      href: ./afds/waf-front-door-configure-custom-response-code.md
+    - name: Configure IP restrictions
+      href: ./afds/waf-front-door-configure-ip-restriction.md
+    - name: Configure rate limit - PowerShell
+      href: ./afds/waf-front-door-rate-limit-powershell.md
 - name: Reference
   items:
   - name: Azure CLI

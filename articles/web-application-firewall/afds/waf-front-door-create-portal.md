@@ -2,12 +2,12 @@
 title: 'Create a Web Application Firewall policy for Azure Front Door using the Azure portal'
 titlesuffix: Azure Web Application Firewall
 description: Learn how to create a Web Application Firewall (WAF) policy by using the Azure portal.
-services: frontdoor
-author: KumudD
-ms.service: frontdoor
+author: vhorne
+ms.service: web-application-firewall
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: kumud
+ms.workload: infrastructure-services
+ms.date: 08/21/2019
+ms.author: victorh
 ---
 
 # Create a WAF policy for Azure Front Door by using the Azure portal
