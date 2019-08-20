@@ -1,7 +1,7 @@
 ---
-title: Migrate to Active Directory authoring
+title: Migrate to Azure resource for authoring
 titleSuffix: Azure Cognitive Services
-description: Migrate to an Active Directory authoring key.
+description: Migrate to an Azure authoring resource key.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -19,7 +19,7 @@ Language Understanding (LUIS) authoring authentication changed from an email acc
 
 ## Why migrating?
 
-All the apps you own need to migrate to use Active Directory by:
+All the apps you own need to migrate to use Azure authoring resources:
 
 * **June 1, 2020** is the deadline.
 

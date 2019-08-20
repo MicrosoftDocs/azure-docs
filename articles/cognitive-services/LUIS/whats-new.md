@@ -20,7 +20,7 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ### August 25, 2019
 
-* Active Directory management of ownership and collaborators. [Migrate now](luis-migration-authoring.md).
+* Azure authoring resource - [migrate now](luis-migration-authoring.md).
 * Turkish support for prebuilt entities
 * Italian support for datetimeV2
 
