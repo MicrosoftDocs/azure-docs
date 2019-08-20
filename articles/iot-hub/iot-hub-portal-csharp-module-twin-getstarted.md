@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 08/20/2019
 ---
 # Get started with IoT Hub module identity and module twin using the portal and .NET device
 
