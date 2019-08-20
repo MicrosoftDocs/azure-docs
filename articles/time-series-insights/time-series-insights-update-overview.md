@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 04/26/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
 ---
 

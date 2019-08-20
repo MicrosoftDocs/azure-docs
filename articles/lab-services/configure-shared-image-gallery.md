@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/02/2019
 ms.author: spelluru
 
 ---
@@ -30,9 +30,9 @@ For more information, see [Shared Image Gallery documentation](../virtual-machin
 If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a shared image gallery as a repository that makes it easy to update and share your images. As a lab owner, you can attach an existing shared image gallery to your lab. Once this gallery is attached, lab users can create machines from these latest images. A key benefit of this feature is that DevTest Labs can now take the advantage of sharing images across labs, across subscriptions, and across regions. 
 
 ## Considerations
-- You can only attach one shared image gallery to a lab at a time. If you would like to attach another gallery, you will need to detach the existing one and attach another. 
-- DevTest Labs currently does not support uploading images to the gallery through the lab. 
-- While creating a virtual machine using a shared image gallery image, DevTest Labs always uses the latest published version of this image.
+- You can only attach one shared image gallery to a lab at a time. If you would like to attach another gallery, you'll need to detach the existing one and attach another. 
+- DevTest Labs currently doesn't support uploading images to the gallery through the lab. 
+- While creating a virtual machine using a shared image gallery image, DevTest Labs always uses the latest published version of this image. However if an image has multiple versions, user can chose to create a machine from an earlier version by going to the Advanced settings tab during virtual machine creation.  
 - Although DevTest Labs automatically makes a best attempt to ensure shared image gallery replicates images to the region in which the Lab exists, it’s not always possible. To avoid users having issues creating VMs from these images, ensure the images are already replicated to the lab’s region.”
 
 ## Use Azure portal
@@ -47,7 +47,9 @@ If you have a large number of managed images that you need to maintain and would
 1. Attach an existing shared image gallery to your lab by clicking on the **Attach** button and selecting your gallery in the dropdown.
 
     ![Attach](./media/configure-shared-image-gallery/attach-options.png)
-1. Go to the attached gallery and configure your gallery to **enable or disable** shared images for VM creation.
+1. Go to the attached gallery and configure your gallery to **enable or disable** shared images for VM creation. Select an image gallery from the list to configure it. 
+
+    By default, **Allow all images to be used as virtual machine bases** is set to **Yes**. It means that all images available in the attached shared image gallery will be available to a lab user when creating a new lab VM. If access to certain images needs to be restricted, change **Allow all images to be used as virtual machine bases** to **No**, and select the images that you want to allow when creating VMs, and then select the **Save** button.
 
     ![Enable or disable](./media/configure-shared-image-gallery/enable-disable.png)
 1. Lab users can then create a virtual machine using the enabled images by clicking on **+Add** and finding the image in the **choose your base** page.
@@ -63,92 +65,48 @@ If you're using an Azure Resource Manager template to attach a shared image gall
 {
     "apiVersion": "2018-10-15-preview",
     "type": "Microsoft.DevTestLab/labs",
-    "name": "[parameters('newLabName')]",
-    "location": "[resourceGroup (). location]",
+    "name": "mylab",
+    "location": "eastus",
     "resources": [
-    {
-        "apiVersion": "2018-10-15-preview",
-        "name": "[variables('labVirtualNetworkName')]",
-        "type": "virtualNetworks",
-        "dependsOn": [
-            "[resourceId('Microsoft.DevTestLab/labs', parameters('newLabName'))]"
-        ]
-    },
     {
         "apiVersion":"2018-10-15-preview",
         "name":"myGallery",
         "type":"sharedGalleries",
         "properties": {
-            "galleryId":"[parameters('existingSharedGalleryId')]",
+            "galleryId":"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/mySharedGalleryRg/providers/Microsoft.Compute/galleries/mySharedGallery",
             "allowAllImages": "Enabled"
-        },
-        "dependsOn":[
-            "[resourceId('Microsoft.DevTestLab/labs', parameters('newLabName'))]"
-        ]
+        }
     }
     ]
-} 
-
+}
 ```
 
 For a complete Resource Manager template example, see these Resource Manager template samples in our public GitHub repository: [Configure a shared image gallery while creating a lab](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
 
-### Create a VM using an image from the shared image gallery
-If you're using an Azure Resource Manager template to create a virtual machine using a shared image gallery image, use the following sample:
+## Use API
 
-```json
+### Shared image galleries - create or update
 
-"resources": [
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
+Body: 
 {
-    "apiVersion": "2018-10-15-preview",
-    "type": "Microsoft.DevTestLab/labs/virtualMachines",
-    "name": "[variables('resourceName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "sharedImageId": "[parameters('existingSharedImageId')]",
-        "size": "[parameters('newVMSize')]",
-        "isAuthenticationWithSshKey": false,
-        "userName": "[parameters('userName')]",
-        "sshKey": "",
-        "password": "[parameters('password')]",
-        "labVirtualNetworkId": "[variables('labVirtualNetworkId')]",
-        "labSubnetName": "[variables('labSubnetName')]"
+    "properties":{
+        "galleryId": "[Shared Image Gallery resource Id]",
+        "allowAllImages": "Enabled"
     }
 }
-],
 
 ```
 
-To learn more, see these Resource Manager template samples on our public GitHub.
-[Create a virtual machine using a shared image gallery image](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-sharedimage).
+### Shared Image Galleries Images - List 
 
-## Use API
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
+```
 
-- Use API version 2018-10-15-preview.
-- To attach your gallery, send the request as shown in the following snippet:
-    
-    ``` 
-    PUT [Lab Resource Id]/SharedGalleries/[newGalleryName]
-    Body: 
-    {
-        “properties”:{
-            “galleryId”: “[Shared Image Gallery resource Id]”,
-            “allowAllImages”:”Enabled”
-        }
-    }
-    ```
-- To view all images in your shared image gallery, you can list all shared images along with their resource IDs by
 
-    ```
-    GET [Lab Resource Id]/SharedGalleries/mySharedGallery/SharedImages
-    ````
-- To create a VM using shared images, you can do a PUT on virtual machines and in virtual machine properties, pass the ID of the shared images you got from the previous call. To the properties.SharedImageId
 
 
 ## Next steps
-See the following articles on artifacts:
-
-- [Specify mandatory artifacts for your lab](devtest-lab-mandatory-artifacts.md)
-- [Create custom artifacts](devtest-lab-artifact-author.md)
-- [Add an artifact repository to a lab](devtest-lab-artifact-author.md)
-- [Diagnose artifact failures](devtest-lab-troubleshoot-artifact-failure.md)
+See the following articles on creating a VM using an image from the attached shared image gallery: [Create a VM using a shared image from the gallery](add-vm-use-shared-image.md)

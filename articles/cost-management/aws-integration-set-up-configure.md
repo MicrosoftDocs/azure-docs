@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 08/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
@@ -14,7 +14,7 @@ ms.custom:
 
 # Set up and configure AWS Cost and Usage report integration
 
-With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you can monitor and control your AWS spending in Azure Cost Management. The integration allows a single location in the Azure portal where you can monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you use Azure Cost Management features to analyze costs and review budgets.
+With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Azure Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Azure Cost Management features to analyze costs and review budgets.
 
 Cost Management processes the AWS Cost and Usage report stored in an S3 bucket by using your AWS access credentials to get report definitions and download report GZIP CSV files.
 
@@ -28,18 +28,18 @@ Use the **Cost & Usage Reports** page of the Billing and Cost Management console
 2. In the navigation pane, select **Cost & Usage Reports**.
 3. Select **Create report**.
 4. For **Report name**, enter a name for your report.
-5. For **Additional report details** ,to include the IDs of each resource in the report and select **Include Resource IDs**.
-6. For **Data refresh settings**, select whether you want the AWS Cost and Usage report to refresh if AWS applies refunds, credits, or support fees to your account after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3. It is recommended to leave this setting on.
+5. Under **Additional report details**, select **Include resource IDs**.
+6. For **Data refresh settings**, select whether you want the AWS Cost and Usage report to refresh if AWS applies refunds, credits, or support fees to your account after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3. We recommend that you leave the setting selected.
 7. Select **Next**.
 8. For **S3 bucket**, choose **Configure**.
-9. In the Configure S3 Bucket dialog box, do one of the following:
+9. In the Configure S3 Bucket dialog box, do one of the following tasks:
     1. Select an existing bucket from the drop-down list and choose **Next**.
     2. Enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
-10.	Select I have confirmed that this policy is correct and choose Save.
+10.	Select **I have confirmed that this policy is correct**, then click **Save**.
 11.	(Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
-If you don't specify a prefix, the default prefix is the name that you specified for the report in step 4 and the date range for the report, in the following format: `/report-name/date-range/`
+If you don't specify a prefix, the default prefix is the name that you specified for the report. The date range has the `/report-name/date-range/` format.
 12. For **Time unit**, choose  **Hourly**.
-13.	For **Report versioning**, choose whether you want each version of the report to overwrite the previous version of the report or to be delivered in addition to the previous versions.
+13.	For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
 14. For **Enable data integration for**, no selection is required.
 15. For **Compression**, select **GZIP**.
 16. Select **Next**.
@@ -104,7 +104,7 @@ Add permission for AWS Organizations:
 2. Select **Access level** > **List** > **ListAccounts**. This action gets the names of the accounts.
 3. In **Review Policy**, enter a name for the new policy. Check that you entered the correct information, and then select **Create Policy**.
 4. Go back to the previous tab and refresh your browser's webpage. On the search bar, search for your new policy.
-5. Select **Next:Review**.
+5. Select **Next: Review**.
 6. Enter a name for the new role. Check that you entered the correct information, and then select **Create Role**.
 
     Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Azure Cost Management connector.
@@ -159,7 +159,7 @@ Use the following information to create an AWS connector and start monitoring yo
 10. For **Report Name**, enter the name that you created in AWS.
 11. Select **Next** and then select **Create**.
 
-It might take a few hours for the new AWS scopes, the AWS consolidated account and AWS linked accounts, and their cost data to appear.
+It might take a few hours for the new AWS scopes, AWS consolidated account, AWS linked accounts, and their cost data to appear.
 
 After you create the connector, we recommend that you assign access control to it. Users are assigned permissions to the newly discovered scopes: AWS consolidated account and AWS linked accounts. The user who creates the connector is the owner of the connector, the consolidated account, and all linked accounts.
 
@@ -184,7 +184,7 @@ When you select a connector on the **Cloud connectors** page, you can:
 
 ## Set up Azure management groups
 
-To create a single place to view cross-cloud provider information, you need to place your Azure subscriptions and AWS linked accounts in the same management group. If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Place your Azure subscriptions and AWS linked accounts in the same management group to create a single location where you can  see cross-cloud provider information. If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups).
 
 If you want to separate costs, you can create a management group that holds just AWS linked accounts.
 
@@ -224,6 +224,6 @@ AWS linked accounts always inherit permissions from the management group that th
 
 ## Next steps
 
-- Now that you've set up and configured AWS Cost and Usage report integration, proceed to [Manage AWS costs and usage](aws-integration-manage.md).
+- Now that you've set up and configured AWS Cost and Usage report integration, continue to [Manage AWS costs and usage](aws-integration-manage.md).
 - If you're unfamiliar with cost analysis, see [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md) quickstart.
 - If you're unfamiliar with budgets in Azure, see [Create and manage Azure budgets](tutorial-acm-create-budgets.md).

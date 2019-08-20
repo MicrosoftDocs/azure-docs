@@ -127,7 +127,7 @@ On the **Networking** tab, configure your networking options.
 
 * Create a new **virtual network**, or use an existing vNet for your SQL Server VM. Designate a **Subnet** as well. 
 
-* Under **NIC security group**, select either a basic security group, or the advanced security group. Choosing the basic option allows you to select inbound ports for the SQL Server VM (the same values that were configured on the **Basic** tab). Selecting the advanced option allows you to choose an existing network security group, or create a new one. 
+* Under **NIC network security group**, select either a basic security group, or the advanced security group. Choosing the basic option allows you to select inbound ports for the SQL Server VM (the same values that were configured on the **Basic** tab). Selecting the advanced option allows you to choose an existing network security group, or create a new one. 
 
 * You can make other changes to network settings, or keep the default values.
 
@@ -137,7 +137,7 @@ On the **Networking** tab, configure your networking options.
 
 On the **Monitoring** tab, configure monitoring and autoshutdown. 
 
-* Azure enables **Boot Monitoring** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
+* Azure enables **Boot diagnostics** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
 * You can enable **System assigned managed identity** and **autoshutdown** on this tab as well. 
 
 ![SQL VM management settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)

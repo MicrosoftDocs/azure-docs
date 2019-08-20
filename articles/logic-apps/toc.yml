@@ -305,6 +305,8 @@
       href: logic-apps-enterprise-integration-accounts.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
+    - name: Move logic app resources
+      href: move-logic-app-resources.md      
     - name: Migrate to latest schema
       href: ../connectors/connectors-schema-migration.md
   - name: Test

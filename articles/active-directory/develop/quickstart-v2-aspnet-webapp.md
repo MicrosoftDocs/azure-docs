@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ms.collection: M365-identity-device-management
 ---
@@ -52,8 +52,10 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ASPNET-Quickstart`.
->      - Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
-Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and then select **Save**.
+>      - Add `http://localhost:44368/` in **Redirect URI**, and click **Register**.
+>      - From the left navigation pane under the Manage section, select **Authentication**
+>          - Under the **Implicit Grant** sub-section, select **ID tokens**.
+>          - And then select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
@@ -78,7 +80,7 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
-	<add key="Tenant" value="Enter_the_Tenant_Info_Here" />
+    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -93,7 +95,8 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 >   - If your application supports **All Microsoft account users**, replace this value with `common`
 >
 > > [!TIP]
-> > To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
+> > - To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
+> > - Ensure the value for `redirectUri` in the **Web.config** corresponds with the **Redirect URI** defined for the App Registration in Azure AD (if not, navigate to the **Authentication** menu for the App Registration and update the **REDIRECT URI** to match)
 
 ## More information
 

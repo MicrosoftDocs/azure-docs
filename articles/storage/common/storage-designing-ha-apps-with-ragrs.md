@@ -1,36 +1,37 @@
 ---
-title: Designing highly available Applications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
-description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages.
+title: Designing highly available Applications using read-access geo-redundant storage (RA-GZRS or RA-GRS) | Microsoft Docs
+description: How to use Azure RA-GZRS or RA-GRS storage to architect a highly available application flexible enough to handle outages.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Designing highly available applications using RA-GRS
+# Designing highly available applications using read-access geo-redundant storage
 
-A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use Read Access Geo-Redundant Storage (RA-GRS) to ensure that their Azure Storage applications are highly available.
+A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use one of Azure's geo-redundant replication options to ensure that their Azure Storage applications are highly available.
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away. Azure Storage offers two types of geo-redundant replication:
 
-This article focuses on GRS and RA-GRS. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS offers geo-redundant storage with read access to the secondary copy.
+* [Geo-zone-redundant storage (GZRS) (preview)](storage-redundancy-gzrs.md) provides replication for scenarios requiring both high availability and maximum durability. Data is replicated synchronously across three Azure availability zones in the primary region using zone-redundant storage (ZRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
+* [Geo-redundant storage (GRS)](storage-redundancy-grs.md) provides cross-regional replication to protect against regional outages. Data is replicated synchronously three times in the primary region using locally redundant storage (LRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
+
+This article shows how to design your application to handle an outage in the primary region. If the primary region becomes unavailable, your application can adapt to perform read operations against the secondary region instead. Make sure that your storage account is configured for RA-GRS or RA-GZRS before you get started.
 
 For information about which primary regions are paired with which secondary regions, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 There are code snippets included in this article, and a link to a complete sample at the end that you can download and run.
 
-> [!NOTE]
-> Azure Storage now supports zone-redundant storage (ZRS) for building highly available applications. ZRS offers a simple solution for the redundancy needs of many applications. ZRS provides protection from hardware failures or catastrophic disasters affecting a single datacenter. For more information, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md).
+## Application design considerations when reading from the secondary
 
-## Key features of RA-GRS
+The purpose of this article is to show you how to design an application that will continue to function (albeit in a limited capacity) even in the event of a major disaster at the primary data center. You can design your application to handle transient or long-running issues by reading from the secondary region when there is a problem that interferes with reading from the primary region. When the primary region is available again, your application can return to reading from the primary region.
 
-Keep in mind these key points when designing your application for RA-GRS:
+Keep in mind these key points when designing your application for RA-GRS or RA-GZRS:
 
 * Azure Storage maintains a read-only copy of the data you store in your primary region in a secondary region. As noted above, the storage service determines the location of the secondary region.
 
@@ -38,13 +39,12 @@ Keep in mind these key points when designing your application for RA-GRS:
 
 * For blobs, tables, and queues, you can query the secondary region for a *Last Sync Time* value that tells you when the last replication from the primary to the secondary region occurred. (This is not supported for Azure Files, which doesn't have RA-GRS redundancy at this time.)
 
-* You can use the Storage Client Library to interact with the data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
+* You can use the Storage Client Library to read and write data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
 
 * If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
-## Application design considerations when using RA-GRS
-
-The purpose of this article is to show you how to design an application that will continue to function (albeit in a limited capacity) even in the event of a major disaster at the primary data center. You can design your application to handle transient or long-running issues by reading from the secondary region when there is a problem that interferes with reading from the primary region. When the primary region is available again, your application can return to reading from the primary region.
+> [!NOTE]
+> Customer-managed account failover (preview) is not yet available in regions supporting GZRS/RA-GZRS, so customers cannot currently manage account failover events with GZRS and RA-GZRS accounts. During the preview, Microsoft will manage any failover events affecting GZRS/RA-GZRS accounts.
 
 ### Using eventually consistent data
 
@@ -66,15 +66,15 @@ Ultimately, this depends on the complexity of your application. You may decide n
 
 These are the other considerations we will discuss in the rest of this article.
 
-*   Handling retries of read requests using the Circuit Breaker pattern
+* Handling retries of read requests using the Circuit Breaker pattern
 
-*   Eventually-consistent data and the Last Sync Time
+* Eventually-consistent data and the Last Sync Time
 
-*   Testing
+* Testing
 
 ## Running your application in read-only mode
 
-To use RA-GRS storage, you must be able to handle both failed read requests and failed update requests (with update in this case meaning inserts, updates, and deletions). If the primary data center fails, read requests can be redirected to the secondary data center. However, update requests cannot be redirected to the secondary because the secondary is read-only. For this reason, you need to design your application to run in read-only mode.
+To effectively prepare for an outage in the primary region, you must be able to handle both failed read requests and failed update requests (with update in this case meaning inserts, updates, and deletions). If the primary region fails, read requests can be redirected to the secondary region. However, update requests cannot be redirected to the secondary because the secondary is read-only. For this reason, you need to design your application to run in read-only mode.
 
 For example, you can set a flag that is checked before any update requests are submitted to Azure Storage. When one of the update requests comes through, you can skip it and return an appropriate response to the customer. You may even want to disable certain features altogether until the problem is resolved and notify users that those features are temporarily unavailable.
 
@@ -86,37 +86,37 @@ Being able to run your application in read-only mode has another side benefit �
 
 There are many ways to handle update requests when running in read-only mode. We won't cover this comprehensively, but generally, there are a couple of patterns that you consider.
 
-1.  You can respond to your user and tell them you are not currently accepting updates. For example, a contact management system could enable customers to access contact information but not make updates.
+1. You can respond to your user and tell them you are not currently accepting updates. For example, a contact management system could enable customers to access contact information but not make updates.
 
-2.  You can enqueue your updates in another region. In this case, you would write your pending update requests to a queue in a different region, and then have a way to process those requests after the primary data center comes online again. In this scenario, you should let the customer know that the update requested is queued for later processing.
+2. You can enqueue your updates in another region. In this case, you would write your pending update requests to a queue in a different region, and then have a way to process those requests after the primary data center comes online again. In this scenario, you should let the customer know that the update requested is queued for later processing.
 
-3.  You can write your updates to a storage account in another region. Then when the primary data center comes back online, you can have a way to merge those updates into the primary data, depending on the structure of the data. For example, if you are creating separate files with a date/time stamp in the name, you can copy those files back to the primary region. This works for some workloads such as logging and iOT data.
+3. You can write your updates to a storage account in another region. Then when the primary data center comes back online, you can have a way to merge those updates into the primary data, depending on the structure of the data. For example, if you are creating separate files with a date/time stamp in the name, you can copy those files back to the primary region. This works for some workloads such as logging and iOT data.
 
 ## Handling retries
 
-How do you know which errors are retryable? This is determined by the storage client library. For example, a 404 error (resource not found) is not retryable because retrying it is not likely to result in success. On the other hand, a 500 error is retryable because it is a server error, and it may simply be a transient issue. For more details, check out the [open source code for the ExponentialRetry class](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) in the .NET storage client library. (Look for the ShouldRetry method.)
+The Azure Storage client library helps you determine which errors can be retried. For example, a 404 error (resource not found) can be retried because retrying it is not likely to result in success. On the other hand, a 500 error cannot be retried because it is a server error, and it may simply be a transient issue. For more details, check out the [open source code for the ExponentialRetry class](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) in the .NET storage client library. (Look for the ShouldRetry method.)
 
 ### Read requests
 
-Read requests can be redirected to secondary storage if there is a problem with primary storage. As noted above in [Using Eventually Consistent Data](#using-eventually-consistent-data), it must be acceptable for your application to potentially read stale data. If you are using the storage client library to access RA-GRS data, you can specify the retry behavior of a read request by setting a value for the **LocationMode** property to one of the following:
+Read requests can be redirected to secondary storage if there is a problem with primary storage. As noted above in [Using Eventually Consistent Data](#using-eventually-consistent-data), it must be acceptable for your application to potentially read stale data. If you are using the storage client library to access data from the secondary, you can specify the retry behavior of a read request by setting a value for the **LocationMode** property to one of the following:
 
-*   **PrimaryOnly** (the default)
+* **PrimaryOnly** (the default)
 
-*   **PrimaryThenSecondary**
+* **PrimaryThenSecondary**
 
-*   **SecondaryOnly**
+* **SecondaryOnly**
 
-*   **SecondaryThenPrimary**
+* **SecondaryThenPrimary**
 
-When you set the **LocationMode** to **PrimaryThenSecondary**, if the initial read request to the primary endpoint fails with a retryable error, the client automatically makes another read request to the secondary endpoint. If the error is a server timeout, then the client will have to wait for the timeout to expire before it receives a retryable error from the service.
+When you set the **LocationMode** to **PrimaryThenSecondary**, if the initial read request to the primary endpoint fails with an error that can be retried, the client automatically makes another read request to the secondary endpoint. If the error is a server timeout, then the client will have to wait for the timeout to expire before it receives a retryable error from the service.
 
 There are basically two scenarios to consider when you are deciding how to respond to a retryable error:
 
-*   This is an isolated problem and subsequent requests to the primary endpoint will not return a retryable error. An example of where this might happen is when there is a transient network error.
+* This is an isolated problem and subsequent requests to the primary endpoint will not return a retryable error. An example of where this might happen is when there is a transient network error.
 
     In this scenario, there is no significant performance penalty in having **LocationMode** set to **PrimaryThenSecondary** as this only happens infrequently.
 
-*   This is a problem with at least one of the storage services in the primary region and all subsequent requests to that service in the primary region are likely to return retryable errors for a period of time. An example of this is if the primary region is completely inaccessible.
+* This is a problem with at least one of the storage services in the primary region and all subsequent requests to that service in the primary region are likely to return retryable errors for a period of time. An example of this is if the primary region is completely inaccessible.
 
     In this scenario, there is a performance penalty because all your read requests will try the primary endpoint first, wait for the timeout to expire, then switch to the secondary endpoint.
 
@@ -144,9 +144,9 @@ Another consideration is how to handle multiple instances of an application, and
 
 You have three main options for monitoring the frequency of retries in the primary region in order to determine when to switch over to the secondary region and change the application to run in read-only mode.
 
-*   Add a handler for the [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) event on the [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
+* Add a handler for the [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) event on the [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
 
-    ```csharp 
+    ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -155,7 +155,7 @@ You have three main options for monitoring the frequency of retries in the prima
     };
     ```
 
-*   In the [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
+* In the [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -183,7 +183,7 @@ You have three main options for monitoring the frequency of retries in the prima
     }
     ```
 
-*   The third approach is to implement a custom monitoring component in your application that continually pings your primary storage endpoint with dummy read requests (such as reading a small blob) to determine its health. This would take up some resources, but not a significant amount. When a problem is discovered that reaches your threshold, you would then perform the switch to **SecondaryOnly** and read-only mode.
+* The third approach is to implement a custom monitoring component in your application that continually pings your primary storage endpoint with dummy read requests (such as reading a small blob) to determine its health. This would take up some resources, but not a significant amount. When a problem is discovered that reaches your threshold, you would then perform the switch to **SecondaryOnly** and read-only mode.
 
 At some point, you will want to switch back to using the primary endpoint and allowing updates. If using one of the first two methods listed above, you could simply switch back to the primary endpoint and enable update mode after an arbitrarily selected amount of time or number of operations has been performed. You can then let it go through the retry logic again. If the problem has been fixed, it will continue to use the primary endpoint and allow updates. If there is still a problem, it will once more switch back to the secondary endpoint and read-only mode after failing the criteria you've set.
 
@@ -191,7 +191,7 @@ For the third scenario, when pinging the primary storage endpoint becomes succes
 
 ## Handling eventually consistent data
 
-RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is *eventually consistent*. This means that all the transactions in the primary region will eventually appear in the secondary region, but that there may be a lag before they appear, and that there is no guarantee the transactions arrive in the secondary region in the same order as that in which they were originally applied in the primary region. If your transactions arrive in the secondary region out of order, you *may* consider your data in the secondary region to be in an inconsistent state until the service catches up.
+Geo-redundant storage works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is *eventually consistent*. This means that all the transactions in the primary region will eventually appear in the secondary region, but that there may be a lag before they appear, and that there is no guarantee the transactions arrive in the secondary region in the same order as that in which they were originally applied in the primary region. If your transactions arrive in the secondary region out of order, you *may* consider your data in the secondary region to be in an inconsistent state until the service catches up.
 
 The following table shows an example of what might happen when you update the details of an employee to make them a member of the *administrators* role. For the sake of this example, this requires you update the **employee** entity and update an **administrator role** entity with a count of the total number of administrators. Notice how the updates are applied out of order in the secondary region.
 
@@ -215,7 +215,13 @@ You can use PowerShell or Azure CLI to retrieve the last sync time to determine 
 
 ### PowerShell
 
-To get the last sync time for the storage account by using PowerShell, check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
+To get the last sync time for the storage account by using PowerShell, install an Azure Storage preview module that supports getting geo-replication stats. For example:
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+```
+
+Then check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -258,6 +264,6 @@ If you have made the thresholds for switching your application to read-only mode
 
 ## Next Steps
 
-* For more information about Read Access Geo-Redundancy, including another example of how the LastSyncTime is set, please see [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* For more information about how to read from the secondary region, including another example of how the Last Sync Time property is set, see [Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-* For a complete sample showing how to make the switch back and forth between the Primary and Secondary endpoints, please see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+* For a complete sample showing how to make the switch back and forth between the primary and secondary endpoints, see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

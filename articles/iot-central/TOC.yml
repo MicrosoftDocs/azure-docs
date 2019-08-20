@@ -100,16 +100,20 @@
 
   - name : Administration
     items:
-      - name: Administer your application
-        href: howto-administer.md  
+      - name: Manage your application
+        href: howto-administer.md 
+      - name: Manage users and roles
+        href: howto-manage-users-roles.md 
+      - name: View your bill
+        href: howto-view-bill.md
+      - name: Customize application UI
+        href: howto-customize-ui.md  
       - name: Prepare and upload image
         href: howto-prepare-images.md
       - name: Configure application dashboard
         href: howto-configure-homepage.md
       - name: Use dashboard tiles
         href: howto-use-tiles.md
-      - name: Customize application UI
-        href: howto-customize-ui.md
       - name: Use application templates
         href: howto-use-app-templates.md
       - name: Manage from the Azure portal

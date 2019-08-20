@@ -559,7 +559,7 @@ To confirm the certificate is expired, perform the following steps:
 If the client authentication certificate is expired, perform the following steps to resolve the issue:
 
 1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell commands on the server:
+2. Run the following PowerShell command on the server:
 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>

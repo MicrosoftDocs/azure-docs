@@ -20,7 +20,18 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
-Make sure that you have installed Azure PowerShell version 2.4.2 or later, and you are signed in to an Azure account in with `Connect-AzAccount`. 
+Make sure that you have installed Azure PowerShell version 2.4.2 or later, and you are signed in to an Azure account in with `Connect-AzAccount`. To install version 2.4.2, open a PowerShell prompt and type:
+
+```powershell
+Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrelease
+```
+
+You will need at least version 1.6.0 of the PowerShellGet module to enable preview module functionality in PowerShell. The latest versions of PowerShell Core have this automatically built in, but for older versions of PowerShell, you can run the following command to update to the latest version:
+
+```powershell
+Install-Module -Name PowerShellGet -Repository PSGallery -Force
+```
+
 
 > [!IMPORTANT]
 > Azure Dedicated Hosts is currently in public preview.

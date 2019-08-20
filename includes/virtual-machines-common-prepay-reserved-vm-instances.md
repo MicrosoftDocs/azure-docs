@@ -3,7 +3,7 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ---
 
 # Prepay for Virtual Machines with Azure Reserved VM Instances (RI)
@@ -106,7 +106,7 @@ To buy an instance:
 
 Your usage data has an effective price of zero for the usage that gets a reservation discount. You can see which VM instance received the reservation discount for each reservation.
 
-For more information about how reservation discounts appear in usage data, see [Understand Azure reservation usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md) if you are an EA customer. If you have a individual subscription, see [Understand Azure reservation usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md).
+For more information about how reservation discounts appear in usage data, see [Understand Azure reservation usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md) if you are an EA customer. If you have an individual subscription, see [Understand Azure reservation usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md).
 
 ## Change a reservation after purchase
 
@@ -127,13 +127,9 @@ You can't make the following types of changes after purchase, directly:
 
 However, you can *exchange* a reservation if you want to make changes.
 
-## Cancellations and exchanges
+## Cancel, exchange, or refund reservations
 
-If you need to cancel your reservation, there may be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
-
-If you need to change your Reserved VM Instances reservation to another region, VM size group, or term, you can exchange it. The exchange must be for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The one or three year term starts from when you create the new reservation. To exchange, go to the reservation in the Azure portal, and select **Exchange**.
-
-For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## Need help? Contact us.
 

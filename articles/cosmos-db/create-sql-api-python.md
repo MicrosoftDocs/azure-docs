@@ -117,10 +117,10 @@ The following snippets are all taken from the `CosmosGetStarted.py` file.
     db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
-* A new collection is created.
+* A new container is created.
 
     ```python
-    # Create collection options
+    # Create container options
     options = {
         'offerThroughput': 400
     }
