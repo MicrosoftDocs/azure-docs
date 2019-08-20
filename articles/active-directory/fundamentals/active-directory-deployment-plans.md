@@ -56,9 +56,9 @@ Roles might include the following
 ## Deploy application management
 
 | Capability | Description|
-| -| -|
+| -| - |
 | [Single sign-on](https://aka.ms/deploymentplans/sso)| Single sign-on helps your users access all the apps and resources they need to do business, while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce, to Box to internal applications without being required to entering credentials a second time. |
-| - |
+
 | [Access panel](https://aka.ms/deploymentplans/accesspanel)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
 
 
