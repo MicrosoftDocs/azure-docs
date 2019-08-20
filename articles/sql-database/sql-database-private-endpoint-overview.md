@@ -14,11 +14,11 @@ Private Link allows you to connect to various PaaS services in Azure via a **pri
 For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls failed to properly address customers concerns around data exfiltration prevention and  on-premises connectivity via private peering.
 
 ## Data Exfiltration prevention
-Data exfiltration - in context of Azure SQL Database - is when an authorized user, e.g.,  database admin is able extract data from one system - SQL Database owned by their organization - and move it another location/system outside the organization, e.g.,  SQL Database or storage account owned by a third party.
+Data exfiltration - in context of Azure SQL Database - is when an authorized user, for example,  database admin is able extract data from one system - SQL Database owned by their organization - and move it another location/system outside the organization, for example,  SQL Database or storage account owned by a third party.
 
-Let us consider a simple scenario with a user running SSMS inside Azure VM connecting to SQL Database in West US data center. Here is how we could use the current set of network access controls to tighten down access via public endpoints.
+Let us consider a simple scenario with a user running SQL Server Management Studio (SSMS) inside Azure VM connecting to SQL Database in West US data center. Here is how we could use the current set of network access controls to tighten down access via public endpoints.
 
-On Sql Database, we shall disable all logins via the public endpoint by setting Allow Azure Services to  **OFF** and ensuring no IP addresses are whitelisted in the server and database level firewall rules. Next we shall specifically allow list traffic using Private Ip address of the VM via Service Endpoint and Vnet Firewall rules.
+On Sql Database, we shall disable all logins via the public endpoint by setting Allow Azure Services to  **OFF** and ensuring no IP addresses are whitelisted in the server and database level firewall rules. Next we shall specifically whitelist traffic using Private Ip address of the VM via Service Endpoint and Vnet Firewall rules.
 
 Next on the Azure VM, we shall narrow down the scope of outgoing connection by using Network Security Groups(NSGs) and Service Tags as follows
 - Specify an NSG rule to allow traffic for  Service Tag = SQL.WestUs
@@ -26,7 +26,7 @@ Next on the Azure VM, we shall narrow down the scope of outgoing connection by u
 
 At the end of this setup, the Azure VM can connect only to SQL Database in the West US region. However. note that the connectivity is not restricted to a single SQL Database; rather it can connect to any SQL Database in the West US region; including those that are not part of the subscription. While we have reduced the scope of data exfiltration to a specific region, we have not eliminated it altogether. 
 
-With Private Link, customers can now set up standard network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are mapped to specific private endpoints. Hence a malicious insider can only access the mapped PaaS resource () for example a SQL Database) and no other resource - thereby providing data exfiltration prevention capability
+With Private Link, customers can now set up standard network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are mapped to specific private endpoints. Hence a malicious insider can only access the mapped PaaS resource (for example a SQL Database) and no other resource - thereby providing data exfiltration prevention capability
 
 ## On-premises connectivity over private peering
 When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall via a [Server-level firewall rule](sql-database-server-level-firewall-rule.md). While this model works well for whitelisting individual machines for dev/test workloads, it is difficult to manage in a production environment. 
@@ -34,13 +34,21 @@ With Private Link, customers can enable cros-premises access to the private endp
 
 
 ## How to set up Private Link for Azure SQL Database 
-Describe the approval process and SoD for network admin (create PE) vs database admin (approve PE)
+
 ### Creation Process
 *TBD Azure Networking docs TBD*
-### Approval Process
-
 ### DNS configuration process
 *TBD Azure Networking docs TBD*
+
+### Approval Process
+Once the network admin creates the Private Endpoint(PE), the Sql admin shall manage the Private Endpoint Connection (PEC) to SQL Database. Browse down to the Private endpoint connections blade under SQL Server that will show result like this listing all the PECs and their states
+ ![Screenshot of all PECs][3]
+
+Click on individual PECs in Pending State and then choose Approve or Reject. 
+![Screenshot of PEC approval][4]
+
+After approval/ rejection the list will reflect the appropriate state
+![Screenshot of all PECs after approval][5]
 
 ## Use cases of Private Link for Azure SQL Database 
 Clients can connect to  the Private endpoint from the same Vnet, peered Vnet in same region or via Vnet2Vnet connection across regions. Additionally they can connect from on-premises using ER private peering or VPN tunnel. Here is a simplified diagram showing the common use cases.
@@ -85,28 +93,25 @@ select client_net_address from sys.dm_exec_connections
 where session_id=@@SPID
 ````
 
-### Connect – From Azure VM Peered Virtual Network(VNET) 
+### Connect – From Azure VM in Peered Virtual Network(VNET) 
+Configure [VNET peering](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-powershell) to establish connectivity from Azure VM in a peered Vnet.
 
-### Connect – From Azure VM Vnet2Vnet
+### Connect – From Azure VM in Vnet2Vnet
+Configure [VNet-to-VNet VPN gateway connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) to establish connectivity from Azure VM in a different region and/or subscription.
 
 ### Connect – From on-premises over VPN
-
-
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
-
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [Content + Learning content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+To establish connectivity from on-premises, choose & implement one of the options given below
+- [Point-to-Site connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+- [Site-to-Site VPN connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
+- [ExpressRoute circuit](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
 
 ## Next steps
-
-
+- For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
+- For an overview of Azure SQL Database Connectivity, see [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/pe-connect-overview.png
 [2]: ./media/sql-database-get-started-portal/telnet-result.png
+[3]: ./media/sql-database-get-started-portal/pec-list-before.png
+[4]: ./media/sql-database-get-started-portal/pec-approve.png
+[5]: ./media/sql-database-get-started-portal/pec-list-after.png
