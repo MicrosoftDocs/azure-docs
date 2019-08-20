@@ -157,7 +157,7 @@
       - name: Configure vSAN encryption for your private cloud
         href: vsan-encryption.md
       - name: Oracle RAC deployment on CloudSimple private cloud
-        href: https://docs.azure.cloudsimple.com/oracle-rac/
+        href: oracle-real-application-clusters.md
     - name: Azure Core Integration
       items:
       - name: Azure AD identity source on Private Cloud vCenter
