@@ -6,7 +6,6 @@ author: balakreshnan
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 
 ms.topic: conceptual
 ms.date: 8/18/2019
@@ -14,9 +13,79 @@ ms.author: makromer
 ---
 
 # Process fixed-length text files using Data Factory Mapping Data Flows
-This article provides steps to create, start, and monitor a tumbling window trigger. For general information about triggers and the supported types, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
+Process Fixed length file using Azure data factory data flow
 
-Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. A tumbling window trigger has a one-to-one relationship with a pipeline and can only reference a singular pipeline.
+Create a pipeline
+
+Create a new Pipeline and create activities like below:
+
+![](media/fwpipe.png)
+
+Create a data flow
+
+Create a new Data flow like below image:
+
+![](fw2.png)
+
+Read the input file as no delimiter for column
+
+Input file data:
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+1234567813572468
+
+Input Source:
+
+![](media/fwinspect.png)
+
+Then pass this to derived columns
+
+Now in derived column create a new column
+
+Give column name col1 and then in expression: substring(Column_1,1,4)
+
+![](media/fwderivedcol1.png)
+
+Repeat this for all the columns you need to spec.
+
+Then use select to select only the column you need
+
+![](media/fwselect.png)
+
+Finally Sinking to Blob storage to check the data:
+
+![](media/fwsink.png)
+
+Blob storage final output
+
+![](media/fxdoutput.png)
+
+As you can see the data is split with 4 characters each. And assigned to Col1,
+Col2, Col3. Col4 etc based on the above example I am splitting into 4 columns
+
 
 ## Data Factory UI
 
