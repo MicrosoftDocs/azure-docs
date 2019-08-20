@@ -142,8 +142,6 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
-    ![Project directory structure](media/search-get-started-java/java-quickstart-config-properites.png)
-
 1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
     ```java
@@ -652,9 +650,6 @@ The hotels index definition contains simple fields and one complex field. Exampl
       ]
     }
     ```
-    When you're done, the project tree should look like the following picture.
-
-    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree-plus-index-definition.png)
 
 1. Insert the following code into the `SearchServiceClient` class. This code builds the REST service URL to upload the hotel documents to the index, and then makes the HTTP POST request.
 
