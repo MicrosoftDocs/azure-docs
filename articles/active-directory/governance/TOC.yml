@@ -14,6 +14,8 @@
   items:
     - name: Create your first access package
       href: entitlement-management-access-package-first.md
+    - name: Delegate access governance to others
+      href: entitlement-management-delegate-steps.md
 - name: Concepts
   expanded: true
   items:
