@@ -59,7 +59,7 @@ support for an OPC Vault microservice backed edge module, which implements the
 *OPC UA Global Discovery Server and Certificate Management* interface to distribute certificates and trust lists according to the Part 12 of the specification. 
 However, as of our knowledge, this GDS server interface is not widely 
 used yet and has yet limited functionality (Reader role). [On demand, we will 
-improve the experience on customer request (*)](#Yet-Unsupported-features).
+improve the experience on customer request (*)](#yet-unsupported-features).
 
 ## Architecture
 
@@ -83,7 +83,7 @@ for applications with search expressions.
 a valid application in order to process a request and to issue a signed certificate 
 with all OPC UA-specific extensions. 
 - The application service is either backed by a CosmosDB 
-database or the [OpcTwin device registry (*)](#Yet-Unsupported-features), depending on the customer configuration.
+database or the [OpcTwin device registry (*)](#yet-unsupported-features), depending on the customer configuration.
 
 ### Certificate Group
 - A certificate group is an entity, which stores a root CA or a sub CA certificate 
@@ -91,7 +91,7 @@ including the private key to sign certificates.
 - The RSA key length, the SHA-2 hash length, 
 and the lifetimes are configurable for both Issuer CA and signed application certificates. 
 - Multiple groups can be hosted in a single service to allow for future extensions with https, 
-user, or ECC algorithm certificate groups [(*)](#Yet-Unsupported-features). 
+user, or ECC algorithm certificate groups [(*)](#yet-unsupported-features). 
 - The CA certificates are stored in Azure Key Vault backed with FIPS 140-2 Level 2 Hardware Security Modules (HSM). 
 The private key never leaves the secure storage because signing is done 
 by an AzureAD secured Key Vault operation. 
@@ -126,7 +126,7 @@ execute as a local .Net Core application or can be started in a docker container
 Due to a lack of Auth2 authentication support in the current OPC UA .Net Standard stack, 
 the functionality of the OPC Vault edge module is limited to a Reader role, because a user cannot be 
 impersonated from the edge module to the micro service using the OPC UA GDS standard interface. 
-Only operations, which do not require the Writer, Administrator, or Approver role are permitted at this point[(*)](#Yet-Unsupported-features). 
+Only operations, which do not require the Writer, Administrator, or Approver role are permitted at this point[(*)](#yet-unsupported-features). 
 
 ## Yet Unsupported features
 
