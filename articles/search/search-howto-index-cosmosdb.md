@@ -4,7 +4,7 @@ description: Crawl an Azure Cosmos DB data source and ingest data in a full text
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
