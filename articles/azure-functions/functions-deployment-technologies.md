@@ -204,23 +204,7 @@ The following table shows the operating systems and languages that support porta
 
 ## Deployment slots
 
-When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of deploying directly to production. For more information about deployment slots, see [Azure App Service slots](../app-service/deploy-staging-slots.md).
-
-### Deployment slots levels of support
-
-There are two levels of support for deployment slots:
-
-* **General availability (GA)**: Fully supported and approved for production use.
-* **Preview**: Not yet supported, but is expected to reach GA status in the future.
-
-| OS/hosting plan | Level of support |
-| --------------- | ------ |
-| Windows Consumption | Preview |
-| Windows Premium (preview) | Preview |
-| Windows Dedicated | General availability |
-| Linux Consumption | Unsupported |
-| Linux Premium (preview) | Preview |
-| Linux Dedicated | General availability |
+When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](../app-service/deploy-staging-slots.md) documentation for details.
 
 ## Next steps
 
