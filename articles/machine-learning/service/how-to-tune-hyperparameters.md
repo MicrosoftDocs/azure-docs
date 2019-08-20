@@ -322,7 +322,7 @@ You can also visualize the performance of each of the runs as training progresse
 
 Additionally, you can visually identify the correlation between performance and values of individual hyperparameters using a Parallel Coordinates Plot. 
 
-[![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates-expanded.png)
+[![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
