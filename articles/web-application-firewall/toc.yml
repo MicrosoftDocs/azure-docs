@@ -29,8 +29,12 @@
   items:
   - name: Application Gateway
     items:
-     - name: Enable Web Application Firewall
-       href: ./ag/application-gateway-web-application-firewall-portal.md
+     - name: Configure Web Application Firewall
+       items:
+       - name: Azure PowerShell
+         href: tutorial-restrict-web-traffic-powershell.md
+       - name: Azure CLI
+         href: tutorial-restrict-web-traffic-cli.md
   - name: Front Door
     items:
     - name: Configure WAF policy - PowerShell
