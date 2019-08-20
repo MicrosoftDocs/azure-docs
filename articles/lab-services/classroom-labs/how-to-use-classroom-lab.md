@@ -33,7 +33,7 @@ This article describes how to register to a classroom lab, view all the labs tha
 
         ![VM in stopped state](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
 
-## Start to stop the VM
+## Start or stop the VM
 1. **Start** the VM by selecting the first button as shown in the following image. This process takes some time.  
 
     ![Start the VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
