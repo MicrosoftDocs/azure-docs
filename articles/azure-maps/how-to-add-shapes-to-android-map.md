@@ -350,7 +350,13 @@ If you run your application now, you should see a polygon on the map as seen bel
 
 ## Next steps
 
-See the following article to learn more about ways to set map styles
+To add more data to your map:
+
+> [!div class="nextstepaction"]
+> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Add a tile layer](how-to-add-tile-layer-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Display feature information](display-feature-information-android.md)

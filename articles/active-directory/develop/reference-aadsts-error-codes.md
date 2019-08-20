@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: ryanwi
-ms.reviewer: hirsin, justhu
+ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
