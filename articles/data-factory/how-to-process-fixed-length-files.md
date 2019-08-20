@@ -66,15 +66,15 @@ We're going to simply set field starting points and lengths for this file conten
 
 * Use the Select transform to remove any of the columns that you will not need for transformation
 
-![select transformation](media/fwselect.png)
+![select transformation](media/data-flow/fwselect.png)
 
 * Finally, use Sink to output the data to a folder:
 
-![fixed width sink](media/fwsink.png)
+![fixed width sink](media/data-flow/fwsink.png)
 
 * Here is an example output:
 
-![fixed width output](media/fxdoutput.png)
+![fixed width output](media/data-flow/fxdoutput.png)
 
 * The fixed-width data is now split with 4 characters each and assigned to Col1, Col2, Col3, Col4, etc,=. based on the above example I am splitting into 4 columns
 
