@@ -38,7 +38,7 @@ An Issuer CA certificate should be renewed after half of its lifetime, but no la
 Renewal of the Certificate Revocation List (CRL) is an update, which should be distributed to the applications at regular intervals. OPC UA devices, which support the CRL Distribution Point X509 extension, can directly update the CRL from the microservice endpoint. Other OPC UA devices may require manual updates or in the best case, can be updated using GDS server push extensions (*) to update the trust lists with the certificates and CRLs.
 
 In the following workflow all certificate requests in the deleted states are revoked in the CRLs, which correspond to the Issuer CA certificate they were issued for. The version number of the CRL is incremented by 1. <br>
-*Note: All issued CRLs are valid until the expiry of the Issuer CA certificate, because the OPC UA specification does not require a mandatory, deterministic distribution model for CRL.*
+*Note: All issued CRLs are valid until the expiration of the Issuer CA certificate, because the OPC UA specification does not require a mandatory, deterministic distribution model for CRL.*
 
 **Important Note:** The 'Administrator' role is required to renew the Issuer CRL.
 
