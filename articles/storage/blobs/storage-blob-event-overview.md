@@ -28,7 +28,7 @@ If you want to try this out now, see any of these quickstart articles:
 |PowerShell    |[Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure CLI    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
-If you've enabled a hierarchical namespace on your account, this tutorial shows you how to connect together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks: [Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table](data-lake-storage-events.md).
+If your account has a hierarchical namespace, this tutorial will show you how to connect together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks: [Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table](data-lake-storage-events.md).
 
 ## The event model
 
