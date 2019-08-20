@@ -17,7 +17,7 @@ ms.author: diberry
 
 The two key pieces of information for a LUIS app are the authoring key(s) and the runtime key(s). 
 
-When you first use Language Understanding (LUIS), you do not need to create an authoring key. When you intent to publish the app, then use your runtime endpoint, you need to create and assign the runtime key to the app. 
+When you work with the LUIS portal, you are using your LUIS authoring resource key. When you intend to publish the app, then you use your runtime key. 
 
 For testing and prototype only, use the free runtime (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) runtime tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
@@ -30,9 +30,10 @@ This single, region-specific authoring key, on the **Settings** page, allows you
 
 [![LUIS Settings page](./media/luis-how-to-azure-subscription/account-settings.png)](./media/luis-how-to-azure-subscription/account-settings.png#lightbox)
 
-The authoring key is used for any apps you own as well as any apps you are listed as a collaborator.
+The authoring key is:
 
-The authoring key is specific to the [authoring region](luis-reference-regions.md#publishing-regions). The key does not work in a different region.
+* Used for any apps you own as well as any apps you are listed as a collaborator.
+* Specific to the [authoring region](luis-reference-regions.md#publishing-regions). The key does not work in a different [authoring region](luis-reference-regions.md#luis-authoring-regions).
 
 ## Reset authoring key
 
@@ -42,11 +43,11 @@ If your authoring key is compromised, reset the key in the Azure portal on the *
 
 See [Data storage and removal](luis-concept-data-storage.md#accounts) for information about what data is deleted when you delete your account.
 
-## Create prediction endpoint runtime resource in the Azure portal
+## Create runtime resource in the Azure portal
 
-You create the [prediction endpoint resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
+You create the [runtime resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in the Azure portal for user utterance predictions. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
 
-You can create a Language Understanding resource or a Cognitive Services resource. If you are creating a Language Understanding resource, a good practice is to postpend the resource type to the resource name. 
+You can create the resource with a type of `Language Understanding` or a `Cognitive Services`. A Cognitive Service resource can work with other Cognitive Services.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,17 +64,15 @@ You can create a Language Understanding resource or a Cognitive Services resourc
 
 ### Using resource from LUIS portal
 
-If you are using the resource from the LUIS portal, you do not need to know your key and location. Instead you need to know your resource tenant, subscription, and resource name.
-
-Once you [assign](#assign-resource-key-to-luis-app-in-luis-portal) your resource to your LUIS app in the LUIS portal, the key and location are provided as part of the query prediction endpoint URL in the Manage section's **Keys and Endpoint settings** page.
+Once you [assign](#assign-resource-key-to-luis-app-in-luis-portal) your runtime resource to your LUIS app in the LUIS portal, the key and location are provided as part of the query prediction endpoint URL in the Manage section's **Keys and Endpoint settings** page.
  
 ### Using resource from REST API or SDK
 
-If you are using the resource from the REST API(s) or SDK, you need to know your key and location. This information is provided as part of the query prediction endpoint URL in the Manage section's **Keys and Endpoint settings** page as well as in the Azure portal, on the resource's Overview and Keys pages.
+If you are using the resource from the REST API(s) or SDK, you need to know your key and location. This information is provided as part of the runtime endpoint URL in the Manage section's **Keys and Endpoint settings** page as well as in the Azure portal, on the resource's Overview and Keys pages.
 
 ## Assign resource key to LUIS app in LUIS Portal
 
-Every time you create a new resource for LUIS, you need to [assign the resource to the LUIS app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
+Every time you create a new runtime resource for LUIS, you need to [assign the runtime resource to the LUIS app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). After it's assigned, you won't need to do this step again until you create a new runtime resource. You might create a new runtime resource to expand the regions of your app or to support a higher number of prediction query transactions per second (TPS).
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -81,12 +80,12 @@ Every time you create a new resource for LUIS, you need to [assign the resource 
 <a name="publishing-to-australia"></a>
 
 ### Unassign resource
-When you unassign the endpoint key, it is not deleted from Azure. It is only unlinked from LUIS. 
+When you unassign the runtime resource, it is not deleted from Azure. It is only unlinked from LUIS. 
 
-When an endpoint key is unassigned, or not assigned to the app, any request to the endpoint URL returns an error: `401 This application cannot be accessed with the current subscription`. 
+When a runtime resource is unassigned, or not assigned to the app, any request to the runtime's endpoint URL returns an error: `401 This application cannot be accessed with the current subscription`. 
 
 ### Include all predicted intent scores
-The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each intent. 
+The **Include all predicted intent scores** checkbox allows the runtime's endpoint query response to include the prediction score for each intent. 
 
 This setting allows your chatbot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chatbot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
 
@@ -114,35 +113,22 @@ The intents and their scores are also included the endpoint logs. You can [expor
 ```
 
 ### Enable Bing spell checker 
-In the **Endpoint url settings**, the **Bing spell checker** toggle allows LUIS to correct misspelled words before prediction. Create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Add the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
-
-```JSON
-{
-  "query": "Book a flite to London?",
-  "alteredQuery": "Book a flight to London?",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.780123
-  },
-  "entities": []
-}
-```
+Learn how to enable the [spell checker](luis-tutorial-bing-spellcheck) for LUIS.
 
 ### Publishing regions
 
 Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). Publishing regions are different from authoring regions. Create an app in the authoring region corresponding to the publishing region you want for the query endpoint.
 
-## Assign resource without LUIS portal
+## Assign runtime resource without using LUIS portal
 
-For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS resource to a LUIS app. In order to do that, you need to perform the following steps:
+For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS runtime resource to a LUIS app. In order to do that, you need to perform the following steps:
 
 1. Get an Azure Resource Manager token from this [website](https://resources.azure.com/api/token?plaintext=true). This token does expire so use it immediately. The request returns an Azure Resource Manager token.
 
     ![Request Azure Resource Manager token and receive Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
 
-1. Use the token to request the LUIS resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), your user account has access to. 
+1. Use the token to request the LUIS runtime resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to. 
 
     This POST API requires the following settings:
 
@@ -181,7 +167,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
 ## Fix HTTP status code 403 and 429
 
-You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier.
+You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier. Increase your pricing tier, or use Language Understanding [containers](luis-container-howto.md). 
 
 ### When you receive an HTTP 403 error status code
 
