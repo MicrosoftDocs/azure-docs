@@ -39,7 +39,6 @@ Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to creat
 1. You will be prompted to enter a file in which to save the key pair. Just hit 'Enter' to save in the default location, listed in brackets. 
 1. You will be asked to enter a passphrase. You may enter a passphrase for your SSH key or you may hit 'Enter' to continue without a passphrase.
 1. The `ssh-keygen` command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat` by typing `cat ~/.ssh/id_rsa.pub`.
-```
 1. Copy the output of this command and save it somewhere to use later in this article. This is your public key and you will need it when configuring your administrator account to log in to your VM.
 
 ## Sign in to Azure
