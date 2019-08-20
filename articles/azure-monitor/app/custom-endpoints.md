@@ -82,7 +82,7 @@ Please install following packages into your Function project:
 
 And also add (or modify) the startup code for your Function application:
 
-```
+```csharp
 [assembly: FunctionsStartup(typeof(Example.Startup))]
 namespace Example
 {
