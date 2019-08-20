@@ -45,7 +45,7 @@ Using advanced multi-stage attack detection, Sentinel supports the following sce
 - [Sign-in activity from anonymous IP address](#sign-in-activity-from-anonymous-ip-address)
 - [Sign-in activity from user with leaked credentials](#sign-in-activity-from-user-with-leaked-credentials)
 
-You must have the [Azure AD Identity Protection data connector](connect-azure-ad-identity-protection.md) and the [Cloud App Security](connect-cloud-app-security.md) connectors configured. Optionally, for additional information, the [Palo Alto Networks](connect-paloalto.md) connector.
+You must have the [Azure AD Identity Protection data connector](connect-azure-ad-identity-protection.md) and the [Cloud App Security](connect-cloud-app-security.md) connectors configured.
 
 In the descriptions that follow, Sentinel will display the actual value from your data that is represented on this page as variables in brackets. For example, the actual display name of an account rather than \<*account name*>, and the actual number rather than \<*number*>.
 
@@ -61,25 +61,19 @@ This may indicate that the account is compromised, and that the mailbox is being
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
 
-Next, the account \<*account name*> performed over \<*number*> administrative activities in a single session
+Next, the account \<*account name*> performed over \<*number*> administrative activities in a single session.
 
-**Impossible travel to atypical locations leading to suspicious cloud app administrative activity**
-
-This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
-
-Next, the account \<*account name*> performed over \<*number*> administrative activities in a single session|
-
-**impossible travel to atypical locations leading to mass File deletion**
+**Impossible travel to atypical locations leading to mass file deletion**
 
 This alert is an indication of a sign-in event by \<*account name*> to \<*location*>, an atypical location. 
 
-Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> deleted \<*number of*> unique files in a single session.
 
 **Impossible travel to atypical locations leading to mass file download**
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
-Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> downloaded over \<*number of*> unique files in a single session.
 
 **Impossible travel to atypical locations leading to Office 365 impersonation**
 
@@ -91,7 +85,7 @@ Next, the account \<*account name*> impersonated over \<*number of*> different a
 
 This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
-Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> shared over \<*number of*> unique files in a single session.
 
 **Impossible travel to atypical locations leading to ransomware in cloud app**
 
@@ -99,7 +93,7 @@ This alert is an indication of a sign-in event by \<*account name*> from an impo
 
 Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
 
-This activity pattern is indicative of a potential ransomware attack
+This activity pattern is indicative of a potential ransomware attack.
 
 
 ### Sign-in activity for unfamiliar location
@@ -120,13 +114,13 @@ Next, the account \<*account name*> performed over \<*number of*> administrative
 
 This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
-Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> deleted \<*number of*> unique files in a single session.
 
 **Sign-in event from an unfamiliar location leading to mass file download**
 
 This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
-Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> downloaded over \<*number of*> unique files in a single session.
 
 **Sign-in event from an unfamiliar location leading to Office 365 impersonation**
 
@@ -138,7 +132,7 @@ Next, the account \<*account name*> impersonated over \<*number of*> different a
 
 This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
-Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> shared over \<*number of*> unique files in a single session.
 
 **Sign-in event from an unfamiliar location leading to ransomware in cloud app**
 
@@ -166,13 +160,13 @@ Next, the account \<*account name*> performed over \<*number of*> administrative
 
 This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
-Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> deleted \<*number of*> unique files in a single session.
 
 **Sign-in event from an infected device leading to mass file download**
 
 This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
-Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> downloaded over \<*number of*> unique files in a single session.
 
 **Sign-in event from an infected device leading to Office 365 impersonation**
 
@@ -184,7 +178,7 @@ Next, the account \<*account name*> impersonated over \<*number of*> different a
 
 This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
-Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> shared over \<*number of*> unique files in a single session.
 
 **Sign-in event from an infected device leading to ransomware in cloud app**
 
@@ -212,13 +206,13 @@ Next, the account \<*account name*> performed over \<*number of*> administrative
 
 This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
-Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> deleted \<*number of*> unique files in a single session.
 
 **Sign-in event from an anonymous IP address leading to mass file download**
 
 This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
-Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> downloaded over \<*number of*> unique files in a single session.
 
 **Sign-in event from an anonymous IP address leading to Office 365 impersonation**
 
@@ -230,7 +224,7 @@ Next, the account \<*account name*> impersonated over \<*number of*> different a
 
 This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
-Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> shared over \<*number of*> unique files in a single session.
 
 **Sign-in event from an anonymous IP address to ransomware in cloud app**
 
@@ -258,13 +252,13 @@ Next, the account \<*account name*> performed over \<*number of*> administrative
 
 This alert is an indication that the sign-in event by \<*account name*> used leaked credentials.
 
-Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> deleted \<*number of*> unique files in a single session.
 
 **Sign-in event from User with leaked credentials leading to mass file download**
 
 This alert is an indication that the sign-in event by \<*account name*> used leaked credentials.
 
-Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> downloaded over \<*number of*> unique files in a single session.
 
 **Sign-in event from user with leaked credentials leading to Office 365 impersonation**
 
@@ -276,7 +270,7 @@ Next, the account \<*account name*> impersonated over \<*number of*> different a
 
 This alert is an indication that the  sign-in event by \<*account name*> used leaked credentials.
 
-Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
+Next, the account \<*account name*> shared over \<*number of*> unique files in a single session.
 
 **Sign-in event from User with leaked credentials to ransomware in cloud app**
 
