@@ -92,7 +92,7 @@ For more information on inference configuration, see [Deploy models with the Azu
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). The following example demonstrates how to build a new image from the model and inference configuration:
+To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). The following code snippet demonstrates how to build a new image from the model and inference configuration:
 
 ```python
 package = Model.package(ws, [model], inference_config)
