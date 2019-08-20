@@ -7,11 +7,11 @@
   - name: Application Gateway
     items:
     - name: Web Application Firewall on Application Gateway
-      href: .\ag\ag-overview.md
+      href: ./ag/ag-overview.md
   - name: Front Door
     items:
     - name: Web Application Firewall on Azure Front Door
-      href: .\afds\afds-overview.md
+      href: ./afds/afds-overview.md
 - name: Quickstarts
 - name: Tutorials
   items:
@@ -32,9 +32,9 @@
      - name: Configure Web Application Firewall
        items:
        - name: Azure PowerShell
-         href: tutorial-restrict-web-traffic-powershell.md
+         href: ./ag/tutorial-restrict-web-traffic-powershell.md
        - name: Azure CLI
-         href: tutorial-restrict-web-traffic-cli.md
+         href: ./ag/tutorial-restrict-web-traffic-cli.md
   - name: Front Door
     items:
     - name: Configure WAF policy - PowerShell
