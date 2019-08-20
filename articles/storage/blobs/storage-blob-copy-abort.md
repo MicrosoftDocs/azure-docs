@@ -113,6 +113,6 @@ private static async Task CopyLargeBlockBlobAsync(CloudBlobContainer container, 
 
 [!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## See also
+## Next steps
 
-- [Abort Copy Blob operation](/rest/api/storageservices/abort-copy-blob)
+- [Copy a blob with .NET](storage-blob-copy.md)
