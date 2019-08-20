@@ -17,7 +17,7 @@ The Azure Maps Web SDK stores data in data sources that optimizes the data for q
 
 **GeoJSON data source**
 
-A GeoJSON based data source can load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions for importing local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. Data in a the `DataSource` class can easily be added, removed or updated.
+A GeoJSON based data source can load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions for importing local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. Data can easily be added, removed, and updated with the `DataSource` class.
 
 
 > [!TIP]
