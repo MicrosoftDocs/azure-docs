@@ -17,7 +17,7 @@ ms.author: diberry
 
 
 >[!NOTE]
->Please [migrate](luis-migration-authoring.md) any apps, which don't use Active Directory authentication, before continuing.
+>Please [migrate](luis-migration-authoring.md) any apps, which don't use Azure authoring resource, before continuing.
 
 LUIS uses two Azure resources, each resource has an access key: 
  
@@ -99,7 +99,7 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 
 ## Collaborating with other authors
 
-All collaborators must be added to the app after the app is [migrated](luis-migration-authoring.md)  to the Active Directory. The ROLENAME role is used for collaborators.
+All collaborators must be added to the app after the app is [migrated](luis-migration-authoring.md) to the Azure authoring resource. The ROLENAME role is used for collaborators.
 
 ### Collaborator roles vs entity roles
 
@@ -127,7 +127,7 @@ For a **private** app, runtime access is available for owners and collaborators.
 Currently, there isn't a catalog of public apps.
 
 ### Authoring access
-Access to the app from the [LUIS](luis-reference-regions.md#luis-website) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087) is controlled by the Active Directory for the Azure resource. 
+Access to the app from the [LUIS](luis-reference-regions.md#luis-website) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087) is controlled by the Azure auhoring resource. 
 
 The owner and all collaborators have access to author the app. 
 
