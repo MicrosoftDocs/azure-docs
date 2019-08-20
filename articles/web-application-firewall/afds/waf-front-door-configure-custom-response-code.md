@@ -1,6 +1,6 @@
 ---
-title: Configure a custom response for web application firewall at Azure Front Door
-description: Learn how to configure a custom response code and message when web application firewall (WAF) blocks a request.
+title: Configure a custom response for Web Application Firewall with Azure Front Door
+description: Learn how to configure a custom response code and message when Web Application Firewall (WAF) blocks a request.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -10,9 +10,9 @@ ms.author: victorh
 ms.reviewer: tyao
 ---
 
-# Configure a custom response for Azure web application firewall
+# Configure a custom response for Azure Web Application Firewall
 
-By default, when Azure web application firewall (WAF) with Azure Front Door blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. This article describes how to configure a custom response status code and response message when a request is blocked by WAF.
+By default, when Azure Web Application Firewall (WAF) with Azure Front Door blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. This article describes how to configure a custom response status code and response message when a request is blocked by WAF.
 
 ## Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
@@ -79,4 +79,4 @@ Update-AzFrontDoorFireWallPolicy `
 ```
 
 ## Next steps
-- Learn more about [Front Door](front-door-overview.md)
+- Learn more about [Web Application Firewall with Azure Front Door](../afds/afds-overview.md)

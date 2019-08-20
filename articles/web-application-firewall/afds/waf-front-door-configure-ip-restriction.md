@@ -24,15 +24,15 @@ By default, your web application is accessible from the internet. If you want to
 Before you begin to configure an IP restriction policy, set up your CLI environment and create an Azure Front Door Service profile.
 
 #### Set up the Azure CLI environment
-1. Install the [Azure CLI](/cli/azure/install-azure-cli), or use Azure Cloud Shell. Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Select the **Try it** button in the CLI commands that follow, and then sign in to your Azure account in the Cloud Shell session that opens. After the session starts, enter `az extension add --name front-door` to add the Azure Front Door Service extension.
+1. Install the [Azure CLI](../../cli/azure/install-azure-cli), or use Azure Cloud Shell. Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Select the **Try it** button in the CLI commands that follow, and then sign in to your Azure account in the Cloud Shell session that opens. After the session starts, enter `az extension add --name front-door` to add the Azure Front Door Service extension.
  2. If you're using the CLI locally in Bash, sign in to Azure by using `az login`.
 
 #### Create an Azure Front Door Service profile
-Create an Azure Front Door Service profile by following the instructions described in [Quickstart: Create a Front Door for a highly available global web application](quickstart-create-front-door.md).
+Create an Azure Front Door Service profile by following the instructions described in [Quickstart: Create a Front Door for a highly available global web application](../../frontdoor/quickstart-create-front-door.md).
 
 ### Create a WAF policy
 
-Create a WAF policy by using the [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) command. 
+Create a WAF policy by using the [az network front-door waf-policy create](../../cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) command. 
 In the example that follows, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
 
 ```azurecli-interactive 
@@ -43,7 +43,7 @@ az network front-door waf-policy create \
   ```
 ### Add a custom IP access control rule
 
-Use the [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
+Use the [az network front-door waf-policy custom-rule create](../../cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
 
 In the following examples:
 -  Replace *IPAllowPolicyExampleCLI* with your unique policy created earlier.
@@ -74,7 +74,7 @@ az network front-door waf-policy rule match-condition add\
   ```
                                                    
 ### Find the ID of a WAF policy 
-Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
+Find a WAF policy's ID by using the [az network front-door waf-policy show](../../cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -84,7 +84,7 @@ Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli
 
 ### Link a WAF policy to an Azure Front Door Service front-end host
 
-Set the Azure Front Door Service *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) command. Replace *IPAllowPolicyExampleCLI* with your unique policy that you created earlier.
+Set the Azure Front Door Service *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](../../cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) command. Replace *IPAllowPolicyExampleCLI* with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door update \
@@ -122,10 +122,10 @@ You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/o
     Install-Module -Name Az.FrontDoor
     ```
 ### Create an Azure Front Door Service profile
-Create an Azure Front Door Service profile by following the instructions described in [Quickstart: Create a Front Door for a highly available global web application](quickstart-create-front-door.md).
+Create an Azure Front Door Service profile by following the instructions described in [Quickstart: Create a Front Door for a highly available global web application](../../frontdoor/quickstart-create-front-door.md).
 
 ### Define an IP match condition
-Use the [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) command to define an IP match condition.
+Use the [New-AzFrontDoorWafMatchConditionObject](../../powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) command to define an IP match condition.
 In the following example, replace *ip-address-range-1*, *ip-address-range-2* with your own range.    
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -137,7 +137,7 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      
 ### Create a custom IP allow rule
 
-Use the [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests not from client IPs that match the list will be blocked.
+Use the [New-AzFrontDoorCustomRuleObject](../../powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests not from client IPs that match the list will be blocked.
 
 ```powershell
 $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -148,7 +148,7 @@ $IPAllowRule = New-AzFrontDoorCustomRuleObject `
 ```
 
 ### Configure a WAF policy
-Find the name of the resource group that contains the Azure Front Door Service profile by using `Get-AzResourceGroup`. Next, configure a WAF policy with the IP rule by using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Find the name of the resource group that contains the Azure Front Door Service profile by using `Get-AzResourceGroup`. Next, configure a WAF policy with the IP rule by using [New-AzFrontDoorWafPolicy](../../powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
@@ -161,7 +161,7 @@ Find the name of the resource group that contains the Azure Front Door Service p
 
 ### Link a WAF policy to an Azure Front Door Service front-end host
 
-Link a WAF policy object to an existing front-end host and update Azure Front Door Service properties. First, retrieve the Azure Front Door Service object by using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Next, set the **WebApplicationFirewallPolicyLink** property to the resource ID of *$IPAllowPolicyExamplePS*, created in the previous step, by using the [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) command.
+Link a WAF policy object to an existing front-end host and update Azure Front Door Service properties. First, retrieve the Azure Front Door Service object by using [Get-AzFrontDoor](../../powershell/module/Az.FrontDoor/Get-AzFrontDoor). Next, set the **WebApplicationFirewallPolicyLink** property to the resource ID of *$IPAllowPolicyExamplePS*, created in the previous step, by using the [Set-AzFrontDoor](../../powershell/module/Az.FrontDoor/Set-AzFrontDoor) command.
 
 ```powershell
   $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -181,4 +181,4 @@ To view the template that creates an Azure Front Door Service policy and a WAF p
 
 ## Next steps
 
-- Learn how to [create an Azure Front Door Service profile](quickstart-create-front-door.md).
+- Learn how to [create an Azure Front Door Service profile](../../frontdoor/quickstart-create-front-door.md).
