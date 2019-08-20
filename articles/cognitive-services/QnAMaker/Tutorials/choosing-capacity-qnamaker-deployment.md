@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 The QnA Maker service, takes a dependency on three Azure resources:
 1.	App Service (for the runtime)
-2.	Azure Search (for storing QnAs)
+2.	Azure Search (for storing and searching QnAs)
 3.	App Insights (optional, for storing chat logs and telemetry)
 
 Before you create your QnA Maker service, you should decide which tier of the above services is appropriate for you. 
