@@ -29,9 +29,17 @@ The Azure CLI script in this article shows how to reset your account credentials
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/media-services/reset-account-credentials/Reset-Account-Credentials.sh "Reset credentials")]
+```
+# Update the following variables for your own settings:
+resourceGroup=amsResourceGroup
+amsAccountName=amsmediaaccountname
+
+az ams account sp reset-credentials \
+  --account-name $amsAccountName \
+  --resource-group $resourceGroup 
+ ```
 
 ## Next steps
 
-[az ams](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
-
+* [az ams](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Reset credentials](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-reset-credentials)
