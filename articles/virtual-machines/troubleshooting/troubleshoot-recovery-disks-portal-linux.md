@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 08/19/2019
 ms.author: genli
 
 ---
@@ -25,7 +25,7 @@ If your Linux virtual machine (VM) encounters a boot or disk error, you may need
 The troubleshooting process is as follows:
 
 1. Stop the affected VM.
-1. Create a snapshot for the OS disk of the VM.
+1. Take a snapshot for the OS disk of the VM.
 1. Create a virtual hard disk from the snapshot.
 1. Attach and mount the virtual hard disk to another Windows VM for troubleshooting purposes.
 1. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
