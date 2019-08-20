@@ -3,7 +3,7 @@ title: Overview of cloud-init support for Linux virtual machines in Azure | Micr
 description: Overview of cloud-init capabilities in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: danielsollondon
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
+ms.date: 08/20/2019
+ms.author: danielsollondon
 
 ---
 # Cloud-init support for virtual machines in Azure
@@ -26,7 +26,7 @@ This article explains the support that exists for [cloud-init](https://cloudinit
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
- We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and VM Scale Sets (VMSS). The following table outlines the current cloud-init enabled images availability on the Azure platform:
+We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and VM Scale Sets (VMSS). The following table outlines the current cloud-init enabled images availability on the Azure platform:
 
 | Publisher | Offer | SKU | Version | cloud-init ready |
 |:--- |:--- |:--- |:--- |:--- |
@@ -35,10 +35,14 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |
-|OpenLogic |CentOS |7-CI |latest |preview |
-|RedHat |RHEL |7-RAW-CI |latest |preview |
+|OpenLogic 7.6 |CentOS |7-CI |latest |preview |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
+	
+Currently Azure Stack does not support the provisioning of RHEL 7.x and CentOS 7.x using cloud-init.
 
-Currently Azure Stack does not support the provisioning of RHEL 7.4 and CentOS 7.4 using cloud-init.
+* For RHEL 7.6, cloud-init package, the supported package is: *18.2-1.el7_6.2* 
+* For RHEL 7.7 (preview), cloud-init package, the supported package is: *18.5-3.el7*
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle Azure extensions. We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts.  If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable them. 
