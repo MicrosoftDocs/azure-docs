@@ -95,16 +95,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-The above percentile checks are good for finding general trends in latency, however to identify a short-term spike in latency, using the maximum (`max()`) may be more effective:
-
-``` Kusto
-Heartbeat
-| where TimeGenerated > ago(8h) 
-| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| extend AgentLatency = _TimeReceived - TimeGenerated 
-| summarize max(E2EIngestionLatency), max(AgentLatency) by Computer 
-| top 20 by max_E2EIngestionLatency desc
-```
+The above percentile checks are good for finding general trends in latency, however to identify a short-term spike in latency, using the maximum (`max()`) may be more effective.
 
 If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query which also visualizes the data in a graph: 
 
