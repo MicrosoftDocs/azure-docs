@@ -2,7 +2,7 @@
 title: 'Example: Model the AdventureWorks Inventory database - Azure Search'
 description: Learn how to model relational data, transforming it into a flattened data set, for indexing and full text search in Azure Search.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
