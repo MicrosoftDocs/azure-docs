@@ -94,26 +94,6 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 > Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
 > If you want to you can click 'run now' here (to go through the Signup or Signin process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
 
-## [Optional] Configure Oauth2 for the API Management Developer Console 
-
-> This section does not need to be completed if you do not intend to use the developer console to test requests to your secured back-end > API, or if you are using the Consumption tier of API Management, which has no developer portal.
-
-1. Switch back to your standard Azure AD B2C tenant in the Azure portal and open the *API Management blade*, then open *your instance*.
-2. Note down the *Virtual IP (VIP) address* of the instance, and optionally the *developer portal URL* and record them for later.
-3. Next, Select the Oauth 2.0  blade from the Security Tab, and click 'Add'
-4. Give sensible values for *Display Name* and *Description*
-5. You can enter any value in the Client registration page URL, as this value won't be used.
-6. Check the *Implicit Auth* Grant type
-7. Move to the *Authorization* and *Token* endpoint fields, and enter the values you captured from the well-known configuration xml document earlier.
-8. Scroll down and populate an *Additional body parameter* called 'resource' with the 
-Function API client ID from the Azure AD B2C App registration
-9. Select 'Client credentials', set the Client ID to the Developer console app's app ID.
-10. Set the Client Secret to the key you recorded earlier. 
-11. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
-
-> [!NOTE]
-> Now we have an API Management instance that knows how to get access tokens from Azure AD B2C to authorize requests through the developer portal for testing.
-
 ## Build the Function API 
 1. Go to the Function Apps blade of the Azure portal, open the function app, and create a new http triggered C# function,
 2. Set it's name to HttpTriggerC# and it’s auth level to Anonymous (we'll secure this function, but not by using a function key or admin key).
@@ -184,7 +164,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
 10. Next, lock down the allowed function app IPs to the API Management instance VIP. This is shown in the API management - overview section of the portal.
-11. If you want to continue to interact with the functions portal, you can add your own public IP address or CIDR range here too.
+11. If you want to continue to interact with the functions portal, and to carry out the optional steps below, you should add your own public IP address or CIDR range here too.
 12. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses. 
 
 You'll need to add CIDR formatted blocks of addresses to the IP restrictions panel. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx/32.
@@ -200,31 +180,29 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 5. Give the api a sensible set of names and descriptions and add it to the ‘unlimited’ Product.
 6. Make sure you record the base URL for later use and then click create.
 
+## Configure Oauth2 for API Management
+1. Switch back to your standard Azure AD B2C tenant in the Azure portal and open the *API Management blade*, then open *your instance*.
+2. Note down the *Virtual IP (VIP) address* of the instance, and optionally the *developer portal URL* and record them for later.
+3. Next, Select the Oauth 2.0  blade from the Security Tab, and click 'Add'
+4. Give sensible values for *Display Name* and *Description*
+5. You can enter any value in the Client registration page URL, as this value won't be used.
+6. Check the *Implicit Auth* Grant type
+7. Move to the *Authorization* and *Token* endpoint fields, and enter the values you captured from the well-known configuration xml document earlier.
+8. Scroll down and populate an *Additional body parameter* called 'resource' with the 
+Function API client ID from the Azure AD B2C App registration
+9. Select 'Client credentials', set the Client ID to the Developer console app's app ID.
+10. Set the Client Secret to the key you recorded earlier. 
+11. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
+
 ## Set up Oauth2 for your API
 1. Your API will appear on the left-hand side of the portal under the 'All APIs' section, open your API by clicking on it.
 2. Select the 'Settings' Tab.
 3. Update your settings by selecting “Oauth 2.0” from the user authorization radio button.
-4. Select the OAuth server that you defined earlier.
+4. Select the Oauth server that you defined earlier.
 5. Check the ‘Override scope’ checkbox and enter the scope you recorded for the backend API call earlier on.
 
-## [Optional] Configure the redirect URIs for the developer portal
-
 > [!NOTE]
-> The following section does not apply to the **Consumption** tier, which does not support the developer portal.
-
-1. Open the Azure AD B2C blade and navigate to the application registration for the Developer Portal
-2. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
-
-Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token for the user, before calling the API.
-
-1. Browse to any operation under the `Echo API` in the developer portal, and select **Try it** to bring you to the Developer Console.
-2. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
-3. Select **Authorization code** from the authorization drop-down list, and you're prompted to sign in to the Azure AD tenant. If you're already signed in with the account, you might not be prompted.
-4. After successful Sign in, an `Authorization: Bearer` header is added to the request, with an access token from Azure AD B2C encoded in Base64. 
-5. Select **Send** and you can call the API successfully.
-
-> [!NOTE]
-> Now API management is able to acquire tokens for the developer portal to test your API and is able to understand it's definition and render the appropriate test page in the dev portal.
+> Now we have an API Management instance that knows how to get access tokens from Azure AD B2C to authorize requests and understands our Oauth2 Azure Active Directory B2C configuration.
 
 ## Set up the **CORS** policy and add the **validate-jwt** policy
 
@@ -264,10 +242,31 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > Now API management is able respond to cross origin requests to JS SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE 
 > forwarding the request on to the Function API.
 
+## [Optional] Configure the redirect URIs for the developer portal
+
+> [!NOTE]
+> The following two sections are optional and do not apply to the **Consumption** tier, which does not support the developer portal.
+> If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this and the next step ("Configure the redirect URIs for the developer portal" and "Test the API from the Developer Portal") and jump straight to ["Build the JavaScript SPA to consume the API"](#Build-the-JavaScript-SPA-to-consume-the-API).
+
+1. Open the Azure AD B2C blade and navigate to the application registration for the Developer Portal
+2. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
+
+Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token for the user, before calling the API.
+
+1. Browse to any operation under the `Echo API` in the developer portal, and select **Try it** to bring you to the Developer Console.
+2. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
+3. Select **Authorization code** from the authorization drop-down list, and you're prompted to sign in to the Azure AD tenant. If you're already signed in with the account, you might not be prompted.
+4. After successful Sign in, an `Authorization: Bearer` header is added to the request, with an access token from Azure AD B2C encoded in Base64. 
+5. Select **Send** and you can call the API successfully.
+
+> [!NOTE]
+> Now API management is able to acquire tokens for the developer portal to test your API and is able to understand it's definition and render the appropriate test page in the dev portal.
+
 ## [Optional] Test the API from the Developer Portal
-> [!NOTE] 
-> The following section does not apply to the **Consumption** tier, which does not support the developer portal.
-> Hence this part is only relevant if you configured this up earlier in the document, if not then please skip this step.
+
+> [!NOTE]
+> The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
+> If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](#Build-the-JavaScript-SPA-to-consume-the-API).
 
 1. From the overview blade of the API Management portal, click 'Developer Portal' to sign in as an administrator of the API.
 2. Here, you and other selected consumers of your API can test and call them from a console.
