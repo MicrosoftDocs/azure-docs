@@ -3,6 +3,7 @@ title: Install and run containers - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
 services: cognitive-services
+zone_pivot_groups: text-analytics-features
 author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
@@ -43,11 +44,23 @@ You must meet the following prerequisites before using Text Analytics containers
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Key Phrase Extraction | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Language Detection | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Sentiment Analysis | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
+::: zone pivot="text-analytics-key-phrase-extraction"
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+::: zone-end
+
+::: zone pivot="text-analytics-language-detection"
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+::: zone-end
+
+::: zone pivot="text-analytics-sentiment-analysis"
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+::: zone-end
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second
@@ -74,23 +87,23 @@ For a full description of available tags for the Text Analytics containers, see 
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
-### Docker pull for the Key phrase extraction container
+::: zone pivot="text-analytics-key-phrase-extraction"
 
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-### Docker pull for the language detection container
+::: zone-end
 
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
+::: zone pivot="text-analytics-language-detection"
 
-### Docker pull for the sentiment container
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
+::: zone-end
+
+::: zone pivot="text-analytics-sentiment-analysis"
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+::: zone-end
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -107,23 +120,23 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-### Run container example of docker run command
+::: zone pivot="text-analytics-key-phrase-extraction"
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-This command:
+::: zone-end
 
-* Runs a key phrase container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
+::: zone pivot="text-analytics-language-detection"
 
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+::: zone-end
+
+::: zone pivot="text-analytics-sentiment-analysis"
+
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+::: zone-end
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
