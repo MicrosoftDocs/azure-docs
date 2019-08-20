@@ -44,9 +44,10 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 
 > [!IMPORTANT]
 > The original AS2 connector is going to be deprecated, so make sure that you use the **AS2 (v2)** connector instead. 
-> This version provides the same capabilities as the original version, is native to the Logic Apps runtime, 
-> and provides significant performance improvements in terms of throughput and message size. Also, the native v2 
-> connector doesn't require that you create a connection to your integration account.
+> This version provides the same capabilities as the original version, is native to the Logic Apps runtime, and provides 
+> significant performance improvements in terms of throughput and message size. Also, the native v2 connector doesn't 
+> require that you create a connection to your integration account. Instead, as described in the prerequisites, 
+> make sure that you link your integration account to the logic app where you plan to use the connector.
 
 ## Prerequisites
 
