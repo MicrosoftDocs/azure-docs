@@ -36,7 +36,7 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 | Max instance reserved storage |  General Purpose:8 TB<br/>Business Critical: 1TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
+> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ### Service tier characteristics
 
