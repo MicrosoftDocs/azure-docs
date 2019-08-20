@@ -31,7 +31,7 @@ You can create your Azure subscription and Azure active directory for free, and 
 
 2. Enable and test single sign-on access to your application,
 
-   a. **For OIDC or Oath applications**, [Register your application](../develop/quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types
+   a. **For OIDC or OAuth2 applications**, [Register your application](../develop/quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types
 
    b. **For SAML- and WS-Fed-based applications**, you [Configure SAML-based Single sign-on](configure-single-sign-on-non-gallery-applications.md) applications using a generic SAML template in Azure AD.
 
