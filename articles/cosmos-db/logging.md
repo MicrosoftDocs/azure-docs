@@ -11,7 +11,7 @@ ms.custom: seodec18
 ---
 # Diagnostic logging in Azure Cosmos DB 
 
-After you start to use one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. This article provides an overview of the logs that are available on the Azure platform. You learn how to enable diagnostic logging for monitoring purposes to send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), how to stream logs to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and how to export logs to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/).
+After you start to use one or more Azure Cosmos databases, you may want to monitor how and when your databases are accessed. This article provides an overview of the logs that are available on the Azure platform. You learn how to enable diagnostic logging for monitoring purposes to send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), how to stream logs to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and how to export logs to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -178,7 +178,7 @@ For more information about how to configure Azure PowerShell, see [How to instal
 ### <a id="storage"></a>Create a new storage account for your logs
 Although you can use an existing storage account for your logs, in this tutorial, we create a new storage account that's dedicated to Azure Cosmos DB logs. For convenience, we store the storage account details in a variable named **sa**.
 
-For additional ease of management, in this tutorial, we use the same resource group as the one that contains the Azure Cosmos DB database. Substitute your values for the **ContosoResourceGroup**, **contosocosmosdblogs**, and **North Central US** parameters, as applicable:
+For additional ease of management, in this tutorial, we use the same resource group as the one that contains the Azure Cosmos database. Substitute your values for the **ContosoResourceGroup**, **contosocosmosdblogs**, and **North Central US** parameters, as applicable:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
@@ -392,7 +392,7 @@ Now that you've enabled data collection, run the following log search example by
 <a id="#queries"></a>
 ### Queries
 
-Here are some additional queries that you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md). 
+Here are some additional queries that you can enter into the **Log search** box to help you monitor your Azure Cosmos containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 To learn about the meaning of the data that's returned by each log search, see [Interpret your Azure Cosmos DB logs](#interpret).
 

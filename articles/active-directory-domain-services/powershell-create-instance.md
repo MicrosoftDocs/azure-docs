@@ -58,7 +58,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso100.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -120,7 +120,7 @@ Type the following PowerShell command to enable Azure AD Domain Services for you
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -138,7 +138,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > After your managed domain is provisioned, you still need to complete the following tasks:
 > * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication. To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
 > * Create the required network security group rules to restrict traffic inbound for the managed domain. To create the network security group rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create the appropriate network security group rules.
-> * **[Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, so end users can sign in to the managed domain using their corporate credentials.
+> * **[Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)**, so end users can sign in to the managed domain using their corporate credentials.
 
 ## PowerShell script
 The PowerShell script used to perform all tasks listed in this article is below. Copy the script and save it to a file with a '.ps1' extension. Execute the script in PowerShell or using the PowerShell Integrated Scripting Environment (ISE).
@@ -150,9 +150,9 @@ The PowerShell script used to perform all tasks listed in this article is below.
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@contoso100.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -223,10 +223,10 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > After your managed domain is provisioned, you still need to complete the following tasks:
 > * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication. To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
 > * Create the required network security group rules to restrict traffic inbound for the managed domain. To create the network security group rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create the appropriate network security group rules.
-> * **[Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, so end users can sign in to the managed domain using their corporate credentials.
+> * **[Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)**, so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
 After your managed domain is created, perform the following configuration tasks so you can use the managed domain:
 
-* [Update the DNS server settings for the virtual network to point to your managed domain](active-directory-ds-getting-started-dns.md)
-* [Enable password synchronization to your managed domain](active-directory-ds-getting-started-password-sync.md)
+* [Update the DNS server settings for the virtual network to point to your managed domain](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+* [Enable password synchronization to your managed domain](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)
