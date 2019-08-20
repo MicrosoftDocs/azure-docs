@@ -105,19 +105,19 @@ Native apps are programs developed to use on a platform or device. Before the Po
 
 1. Register the application in Azure AD by following [Step 2 in How to enable native client applications to interact with proxy applications](application-proxy-configure-native-client-application.md#step-2-register-your-native-application).
 
-   When registering the app for Power BI Mobile **iOS**, add the following Redirect URIs:
+   When registering the app for Power BI Mobile **iOS**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   When registering the app for Power BI Mobile **Android**, add the following Redirect URIs:
+   When registering the app for Power BI Mobile **Android**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
 
    > [!IMPORTANT]
-   > The Redirect URIs must be added for the application to work correctly.
+   > The Redirect URIs must be added for the application to work correctly. If you are configuring this for both iOS and Android you only need to register a **single** native application and add the Redirect URIs for both iOS and Android. If you require separate native applications for each platform, you will need to include the Redirect URI: `mspbi-adal://com.microsoft.powerbimobile` for both apps.
 
-Now that you've registered your native application, you can give it access to other applications in your directory, in this case to access Report Services published through Application Proxy. Follow the steps in [Step 3: Grant access to your proxy application](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application).
+2. Now that you've registered your native application, you can give it access to other applications in your directory, in this case to access Report Services published through Application Proxy. Follow the steps in [Step 3: Grant access to your proxy application](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application).
 
 ## Step 4: Connect from the Power BI Mobile App
 
