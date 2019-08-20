@@ -5,7 +5,7 @@ description: This article is troubleshooting information about issues occurring 
 ms.service: backup
 author: dcurwin
 ms.author: dacurwin
-ms.date: 07/22/2019
+ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
 ---
@@ -15,7 +15,6 @@ You can troubleshoot issues and errors encountered while using Azure File Shares
 
 ## Limitations for Azure file share backup during Preview
 Backup for Azure File shares is in Preview. Azure File Shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
-- You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 - There's no CLI available for protecting Azure Files using Azure Backup.
 - The maximum number of scheduled backups per day is one.
 - The maximum number of on-demand backups per day is four.
