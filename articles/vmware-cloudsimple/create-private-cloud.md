@@ -70,7 +70,7 @@ Access the [CloudSimple portal](access-cloudsimple-portal.md).
 
 9. Click **Create**.
 
-Private Cloud provisioning will start once you click create.  You can monitor the progress from [tasks](https://docs.azure.cloudsimple.com/activity/#tasks) page on CloudSimple portal.  Provisioning can take 30 minutes to two hours.  You'll receive an email once the provisioning is complete.
+Private Cloud provisioning will start once you click create.  You can monitor the progress from [tasks](https://docs.azure.cloudsimple.com/monitor-activity/#tasks) page on CloudSimple portal.  Provisioning can take 30 minutes to two hours.  You'll receive an email once the provisioning is complete.
 
 ## Next steps
 

@@ -57,7 +57,7 @@ where:
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | The managed identity endpoint for Service Fabric applications, provided via the MSI_ENDPOINT environment variable. |
 | `api-version` | A query string parameter, specifying the API version of the Managed Identity Token Service; currently the only accepted value is `2019-07-01-preview`, and is subject to change. |
-| `resource` | A query string parameter, indicating the App ID URI of the target resource. This will be reflected as the `aud` (audience) claim of the issued token. This example requests a token to access Azure Key Vault, whose an App ID URI is https://keyvault.azure.com/. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. This will be reflected as the `aud` (audience) claim of the issued token. This example requests a token to access Azure Key Vault, whose an App ID URI is https:\//keyvault.azure.com/. |
 | `Secret` | An HTTP request header field, required by the Service Fabric Managed Identity Token Service for Service Fabric services to authenticate the caller. This value is provided by the SF runtime via MSI_SECRET environment variable. |
 
 
