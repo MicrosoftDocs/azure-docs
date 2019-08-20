@@ -563,7 +563,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
 
     As the code runs, look for a "Creating index" message followed by a 201 response code. This response code confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
     
-## 2 - Upload documents
+## 2 - Load documents
 
 1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `hotels.json` file. To do this, select the `app` folder, press Alt + Insert, select  **File**, and then enter the file name.
 1. Insert the following hotel documents into the file.
