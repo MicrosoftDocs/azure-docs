@@ -41174,7 +41174,7 @@
 		},
 		{
 			"source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
-			"redirect_url": "/azure/active-directory-domain-services/tutorial-configue-password-hash-sync",
+			"redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
 			"redirect_document_id": true
 		},
 		{

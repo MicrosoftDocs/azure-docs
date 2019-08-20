@@ -13,11 +13,14 @@ ms.author: iainfou
 
 #Customer intent: As an server administrator, I want to learn how to enable password hash synchronization with Azure AD Connect to create a hybrid environment using an on-premises AD DS domain.
 ---
+
 # Tutorial: Enable password synchronization in Azure Active Directory Domain Services for hybrid environments
 
-For hybrid environments, an Azure Active Directory (Azure AD) tenant can be configured to synchronize with an on-premises Active Directory Domain Services (AD DS) environment using Azure AD Connect. By default, Azure AD Connect doesn't synchronize legacy NTLM and Kerberos credential hashes to Azure AD.
+For hybrid environments, an Azure Active Directory (Azure AD) tenant can be configured to synchronize with an on-premises Active Directory Domain Services (AD DS) environment using Azure AD Connect. By default, Azure AD Connect doesn't synchronize legacy NT LAN Manager (NTLM) and Kerberos password hashes that are needed for Azure Active Directory Domain Services (Azure AD DS).
 
-To use Azure Active Directory Domain Services (Azure AD DS) with accounts synchronized from an on-premises AD DS environment, you need to configure Azure AD Connect to synchronize the password hashes required for NTLM and Kerberos authentication. You don't need to perform these steps if you use cloud-only accounts with no on-premises AD DS environment.
+To use Azure AD DS with accounts synchronized from an on-premises AD DS environment, you need to configure Azure AD Connect to synchronize those password hashes required for NTLM and Kerberos authentication. After Azure AD Connect is configured, an on-premises account creation or password change event also then synchronizes the legacy password hashes to Azure AD.
+
+You don't need to perform these steps if you use cloud-only accounts with no on-premises AD DS environment.
 
 In this tutorial, you learn:
 
@@ -43,9 +46,9 @@ To complete this tutorial, you need the following resources:
 
 Azure AD Connect is used to synchronize objects like user accounts and groups from an on-premises AD DS environment into an Azure AD tenant. As part of the process, password hash synchronization enables accounts to use the same password in the on-prem AD DS environment and Azure AD.
 
-To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Azure AD doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
+To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NTLM and Kerberos authentication. Azure AD doesn't store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
-Azure AD Connect can be configured to generate the required NTLM or Kerberos password hashes for Azure AD DS. Make sure that you have completed the steps to [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect]. If you had an existing instance of Azure AD Connect, [download and update to the latest version][azure-ad-connect-download] to make sure you can generate the legacy password hashes for NTLM and Kerberos. This functionality isn't available in early releases of Azure AD Connect or with the legacy DirSync tool. Azure AD Connect version *1.1.614.0* or later is required.
+Azure AD Connect can be configured to synchronize the required NTLM or Kerberos password hashes for Azure AD DS. Make sure that you have completed the steps to [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect]. If you had an existing instance of Azure AD Connect, [download and update to the latest version][azure-ad-connect-download] to make sure you can synchronize the legacy password hashes for NTLM and Kerberos. This functionality isn't available in early releases of Azure AD Connect or with the legacy DirSync tool. Azure AD Connect version *1.1.614.0* or later is required.
 
 ## Enable synchronization of password hashes
 
@@ -63,9 +66,9 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
     * The Azure AD connector is named *contoso.onmicrosoft.com - AAD*
     * The on-premises AD DS connector is named *onprem.contoso.com*
 
-1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step.
+1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. The script triggers a full password sync that includes legacy password hashes. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step.
 
-    Run this script on each AD forest to synchronize on-premises account NTLM and Kerberos password hashes to Azure AD. The script also initiates a full synchronization of Azure AD Connect to Azure AD:
+    Run this script on each AD forest to synchronize on-premises account NTLM and Kerberos password hashes to Azure AD.
 
     ```powershell
     # Define the Azure AD Connect connector names and import the required PowerShell module
@@ -73,6 +76,8 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
     $adConnector = "<CASE SENSITIVE AD DS CONNECTOR NAME>"
     Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
 
+    # Create a new ForceFullPasswordSync configuration parameter object then
+    # update the existing connector with this new configuration
     $c = Get-ADSyncConnector -Name $adConnector
     $p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
     $p.Value = 1
