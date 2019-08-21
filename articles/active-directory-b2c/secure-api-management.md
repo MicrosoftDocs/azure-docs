@@ -124,16 +124,18 @@ You first need a token issued by Azure AD B2C to use in the Authorization header
 
 A client application (in this case, Postman) that calls a published API must include a valid subscription key in HTTP requests when it makes those calls. To get a subscription key for your API to include in your Postman HTTP request:
 
-1. Browse to your API Management instance in the [Azure portal](https://portal.azure.com)
-1.
+1. Browse to your Azure API Management service instance in the [Azure portal](https://portal.azure.com)
+1. Select **Subscriptions**
+1. Select the ellipsis for **Product: Unlimited**, then select **Show/hide keys**
+1. Record the **PRIMARY KEY** for the product. You use this for the `Ocp-Apim-Subscription-Key` header in your HTTP request in Postman.
+
+![Subscription key page with Show/hide keys selected in Azure portal](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
 ### Call the API with Postman
 
-1. Add Authorization header with Bearer token value
-
-Get the B2C-generated token, then add it to Authorization header when calling the Azure API.
-
-For example, in Postman:
+1. Add `Ocp-Apim-Subscription-Key` header
+1. Add `Authorization` header with token value
+1. ...stuff.
 
 ![Example request header in Postman](media/secure-apim-with-b2c-token/postman-01.png)
 
