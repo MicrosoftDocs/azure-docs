@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 07/25/2019
+ms.date: 08/19/2019
 ms.custom: seodec18
 ---
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://aka.ms/aml-sdk) reference page.
+In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://aka.ms/aml-sdk) reference page. 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
@@ -83,6 +83,14 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added torch 1.2 support in PyTorch Estimator.
   + **azureml-widgets**
     + Improved confusion matrix charts for classification training.
+
+### Azure Machine Learning Data Prep SDK v1.1.12
++ **New features**
+  + Lists of strings can now be passed in as input to `read_*` methods.
+
++ **Bug fixes and improvements**
+  + The performance of `read_parquet` has been significantly improved when running in Spark.
+  + Fixed an issue where `column_type_builder` failed in case of a single column with ambiguous date formats.
 
 ### Azure Portal
 + **Preview Feature**

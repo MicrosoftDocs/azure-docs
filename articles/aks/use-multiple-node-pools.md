@@ -86,7 +86,7 @@ While this feature is in preview, the following additional limitations apply:
 
 ## Create an AKS cluster
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.9* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -99,7 +99,7 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.9
+    --kubernetes-version 1.13.10
 ```
 
 It takes a few minutes to create the cluster.
@@ -150,7 +150,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -159,30 +159,30 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.13.9* and node size of *Standard_DS2_v2*.
+> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.13.10* and node size of *Standard_DS2_v2*.
 
 ## Upgrade a node pool
 
 > [!NOTE]
 > Upgrade and scale operations on a cluster or node pool are mutually exclusive. You cannot have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
 
-When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.9* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool. The `az aks upgrade` command is used to upgrade the control plane, while the `az aks nodepool upgrade` is used to upgrade an individual node pool.
+When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool. The `az aks upgrade` command is used to upgrade the control plane, while the `az aks nodepool upgrade` is used to upgrade an individual node pool.
 
-Let's upgrade the *mynodepool* to Kubernetes *1.13.9*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.9 \
+    --kubernetes-version 1.13.10 \
     --no-wait
 ```
 
 > [!Tip]
-> To upgrade the control plane to *1.14.5*, run `az aks upgrade -k 1.14.5`.
+> To upgrade the control plane to *1.14.6*, run `az aks upgrade -k 1.14.6`.
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.9*:
+List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.10*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -193,7 +193,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -205,7 +205,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -256,7 +256,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Scaling",
     ...
@@ -268,7 +268,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -306,7 +306,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Deleting",
     ...
@@ -318,7 +318,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -359,7 +359,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Creating",
     ...
@@ -371,7 +371,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -391,8 +391,8 @@ You now have two node pools in your cluster - the default node pool initially cr
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.9
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.9
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
 ```
 
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
@@ -469,7 +469,7 @@ When you use an Azure Resource Manager template to create and managed resources,
 Create a template such as `aks-agentpools.json` and paste the following example manifest. This example template configures the following settings:
 
 * Updates the *Linux* agent pool named *myagentpool* to run three nodes.
-* Sets the nodes in the node pool to run Kubernetes version *1.13.9*.
+* Sets the nodes in the node pool to run Kubernetes version *1.13.10*.
 * Defines the node size as *Standard_DS2_v2*.
 
 Edit these values as need to update, add, or delete node pools as needed:
@@ -534,7 +534,7 @@ Edit these values as need to update, add, or delete node pools as needed:
             "storageProfile": "ManagedDisks",
       "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.9"
+            "orchestratorVersion": "1.13.10"
       }
     }
   ]

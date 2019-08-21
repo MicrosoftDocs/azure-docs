@@ -52,6 +52,11 @@ To use an Azure storage account for the workspace in a virtual network, do the f
     - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your experimentation compute instance resides (see step 1).
     - Select the __Allow trusted Microsoft services to access this storage account__ check box.
 
+    > [!IMPORTANT]
+    > When working with the Azure Machine Learning SDK, your development environment must be able to connect to the Azure Storage Account. When the storage account is inside a virtual network, the firewall must allow access from the development environment's IP address.
+    >
+    > To enable access to the storage account, visit the __Firewalls and virtual networks__ for the storage account *from a web browser on the development client*. Then use the __Add your client IP address__ check box to add the client's IP address to the __ADDRESS RANGE__. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment. Once the IP address for the client has been added, it can access the storage account using the SDK.
+
    ![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)
 
 1. As you're running the experiment, in your experimentation code, change the run config to use Azure Blob storage:
