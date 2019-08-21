@@ -267,6 +267,7 @@ Web Application Firewall is a feature of [Azure Application Gateway](../../appli
 
 
 A centralized web application firewall to protect against web attacks makes security management much simpler and gives better assurance to the application against the threats of intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to an application gateway with web application firewall easily.
+
 ### Traffic Manager
 Microsoft [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) allows you to control the distribution of user traffic for service endpoints in different data centers. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and Cloud services. You can also use Traffic Manager with external, non-Azure endpoints. Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a [traffic-routing method](../../traffic-manager/traffic-manager-routing-methods.md) and the health of the endpoints.
 
@@ -293,7 +294,7 @@ You can enable the following diagnostic log categories for NSGs:
 
 ### Azure Security Center
 
-[Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats which enables you strengthen the security posture your Azure resources. It provides [security monitoring and policy management](../../security-center/tutorial-security-policy.md) across your Azure subscriptions and detects threats that might otherwise go unnoticed, and informs you of these attacks with [security alerts](../../security-center/security-center-alerts-overview.md). In addition, Security Center  is constantly analyzing the security state of your Azure resources and sending you [recommendations](../../security-center/security-center-recommendations.md) for actions for you to take in order to further secure your resources.
+[Azure Security Center](../../security-center/security-center-intro.md) continuously analyzes the security state of your Azure resources for network security best practices. When Security Center identifies potential security vulnerabilities, it creates [recommendations](../../security-center/security-center-recommendations.md) that guide you through the process of configuring the needed controls to harden and protect your resources.
 
 ## Compute
 
