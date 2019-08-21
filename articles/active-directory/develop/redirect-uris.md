@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 08/22/2019
 ms.author: twhitney
 ms.reviewer: jak
 ms.custom: aaddev

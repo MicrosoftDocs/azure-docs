@@ -343,7 +343,7 @@
       - name: Configure single sign-on
         displayName: SSO
         items:
-        - name: Enable SSO on iOS and macOS
+        - name: Enable SSO on iOS and macOS 
           href: single-sign-on-macos-ios.md
         - name: SSO between ADAL and MSAL apps on iOS and macOS
           href: sso-between-adal-msal-apps-macos-ios.md
