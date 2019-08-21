@@ -28,7 +28,10 @@ To set up Azure Monitor for VMs:
 
 ## Prerequisites
 
-Before you start, make sure that you understand the information in the following sections.
+Before you start, make sure that you understand the information in the following sections. 
+
+>[!NOTE]
+>The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
 ### Log Analytics
 
@@ -147,6 +150,9 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 The Map feature in Azure Monitor for VMs gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. So your system must have the Log Analytics agent installed and configured with the Dependency agent.
 
 Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension to install the agent as part of the experience.
+
+>[!NOTE]
+>The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
 In a hybrid environment, you can download and install the Dependency agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
 
