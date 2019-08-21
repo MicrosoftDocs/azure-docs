@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/21/2019
 ms.author: magoedte
 ---
 
@@ -27,7 +27,7 @@ This article explains how to manage access to logs and to administer the workspa
 
 * How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
 
-## Define access control mode
+## Configure access control mode
 
 You can view the access control mode configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
 
@@ -37,7 +37,7 @@ You can view the access control mode configured on a workspace from the Azure po
 
 * Azure Resource Manager template
 
-### Configure from the Azure portal
+### From the Azure portal
 
 You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu. 
 
@@ -50,7 +50,7 @@ You can change this setting from the **Properties** page of the workspace. Chang
 
 ![Change workspace access mode](media/manage-access/change-access-control-mode.png)
 
-### Configure using PowerShell
+### Using PowerShell
 
 Use the following command to examine the access control mode for all workspaces in the subscription:
 
@@ -94,7 +94,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-### Configure using a Resource Manager template
+### Using a Resource Manager template
 
 To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
 
@@ -121,7 +121,7 @@ The following activities also require Azure permissions:
 
 ## Manage access using Azure permissions
 
-To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md). For example custom roles, see [Example custom roles](#example-custom-roles)
+To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md). For example custom roles, see [Example custom roles](#custom-role-examples)
 
 Azure has two built-in user roles for Log Analytics workspaces:
 
