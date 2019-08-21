@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 7/5/2019
+ms.date: 8/21/2019
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -24,6 +24,8 @@ Container support in Azure Cognitive Services allows developers to use the same 
 * [Language Understanding (LUIS)][lu-containers]
 * [Speech Service API][sp-containers]
 * [Text Analytics][ta-containers]
+
+> [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
 <!--
 * [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

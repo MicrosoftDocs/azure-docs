@@ -59,7 +59,7 @@ ms.author: dapine
 
     After the command successfully applies the deployment configuration, a message appears similar to the following output:
 
-    ```
+    ```console
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
@@ -71,7 +71,7 @@ ms.author: dapine
 
     The output for the running status of the pod:
 
-    ```
+    ```console
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -84,7 +84,7 @@ ms.author: dapine
 
     The output for the running status of the *sentiment* service in the pod:
 
-    ```
+    ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
