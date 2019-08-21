@@ -1,6 +1,6 @@
 ---
-title: Enable web application firewall - Azure CLI
-description: Learn how to restrict web traffic with a web application firewall on an application gateway using the Azure CLI.
+title: Enable Web Application Firewall - Azure CLI
+description: Learn how to restrict web traffic with a Web Application Firewall on an application gateway using the Azure CLI.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,9 +9,9 @@ ms.author: victorh
 ms.topic: overview
 ---
 
-# Enable web application firewall using the Azure CLI
+# Enable Web Application Firewall using the Azure CLI
 
-You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks.
+You can restrict traffic on an application gateway with a [Web Application Firewall](ag-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks.
 
 In this article, you learn how to:
 
@@ -21,7 +21,7 @@ In this article, you learn how to:
 > * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 
-![Web application firewall example](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
+![Web Application Firewall example](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
@@ -176,7 +176,7 @@ az network public-ip show \
   --output tsv
 ```
 
-![Test base URL in application gateway](./media/tutorial-restrict-web-traffic-cli/application-gateway-nginxtest.png)
+![Test base URL in application gateway](../media/tutorial-restrict-web-traffic-cli/application-gateway-nginxtest.png)
 
 ## Clean up resources
 
@@ -188,4 +188,4 @@ az group delete --name myResourceGroupAG
 
 ## Next steps
 
-[Create an application gateway with SSL termination](./tutorial-ssl-cli.md)
+[Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)
