@@ -9,7 +9,7 @@ ms.date: 08/21/2019
 ---
 # Supported Azure Database for MariaDB server versions
 
-Azure Database for MariaDB has been developed from the open source [MariaDB Server](https://downloads.mariadb.org/), using the InnoDB engine. 
+Azure Database for MariaDB has been developed from the open-source [MariaDB Server](https://downloads.mariadb.org/), using the InnoDB engine. 
 
 MariaDB uses the X.Y.Z naming scheme. X is the major version, Y is the minor version, and Z is the patch version.
 
@@ -31,7 +31,7 @@ Patch version: 10.3.14
 Refer to the [MariaDB documentation](https://mariadb.com/kb/en/library/mariadb-10314-release-notes/) to learn more about improvements and fixes in MariaDB 10.3.14.
 
 ## Managing updates and upgrades
-The service automatically manages patching for patch updates. For example, 10.2.21 to 10.2.23.  
+The service automatically manages upgrades for patch updates. For example, 10.2.21 to 10.2.23.  
 
 Currently, minor and major version upgrades aren't supported. For example, upgrading from MariaDB 10.2 to MariaDB 10.3 isn't supported. If you'd like to upgrade from 10.2 to 10.3, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
