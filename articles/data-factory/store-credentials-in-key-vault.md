@@ -74,8 +74,8 @@ The following properties are supported when you configure a field in linked serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the field must be set to: **AzureKeyVaultSecret**. | Yes |
-| secretName | The name of secret in azure key vault. | Yes |
-| secretVersion | The version of secret in azure key vault.<br/>If not specified, it always uses the latest version of the secret.<br/>If specified, then it sticks to the given version.| No |
+| secretName | The name of secret in Azure Key Vault. | Yes |
+| secretVersion | The version of secret in Azure Key Vault.<br/>If not specified, it always uses the latest version of the secret.<br/>If specified, then it sticks to the given version.| No |
 | store | Refers to an Azure Key Vault linked service that you use to store the credential. | Yes |
 
 **Using authoring UI:**
