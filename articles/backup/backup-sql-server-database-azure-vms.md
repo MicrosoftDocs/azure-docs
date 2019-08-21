@@ -171,7 +171,7 @@ How to discover databases running on a VM:
    To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
 
      * To protect more than 50 databases, configure multiple backups.
-     * To enable [](#enable-auto-protection) the entire instance or the Always On availability group. In the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
+     * To [enable](#enable-auto-protection) the entire instance or the Always On availability group, in the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
 
     > [!NOTE]
     > The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
