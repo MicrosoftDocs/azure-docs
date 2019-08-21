@@ -27,9 +27,7 @@ The CloudSimple solution requires you to do the following:
 * Install, configure, and manage vSphere Replication and SRM in your Private Cloud.
 * Provide your own licenses for SRM when the Private Cloud is the protected site. You do not need any additional SRM licenses for the CloudSimple site when it is used as the recovery site.
 
-With this solution, you have full control over vSphere replication and SRM. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools. The following figure shows the solution described in this guide.
-
-![SRM deployment](media/srm-deployment.png)
+With this solution, you have full control over vSphere replication and SRM. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools.
 
 You can use any versions of vRA and SRM that are compatible with your Private Cloud and on-premises environments. The examples in this guide use vRA 6.5 and SRM 6.5. These versions are compatible with vSphere 6.5, which is supported by CloudSimple.
 

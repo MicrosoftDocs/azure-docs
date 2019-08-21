@@ -33,10 +33,10 @@ Learn how to get started with the solution
 
 Learn about the following concepts
 
-* A [CloudSimple Service](cloudsimple-service.md) (a.k.a. "Azure VMware Solution by CloudSimple - Service"). This resource must be created once per region.
+* A [CloudSimple Service](cloudsimple-service.md) (also known as "Azure VMware Solution by CloudSimple - Service"). This resource must be created once per region.
 * Purchase capacity for your environment by creating one or more [CloudSimple Node](cloudsimple-node.md) resources. These resources are also referred to as "Azure VMware Solution by CloudSimple - Node".
 * Initialize and configure your VMware environment using the [Private Clouds](cloudsimple-private-cloud.md).
-* Unify management using [CloudSimple Virtual Machines](cloudsimple-virtual-machines.md) (a.k.a. "Azure VMware Solution by CloudSimple - Virtual machine").
+* Unify management using [CloudSimple Virtual Machines](cloudsimple-virtual-machines.md) (also known as "Azure VMware Solution by CloudSimple - Virtual machine").
 * Design the underlay network using [VLANs/subnets](cloudsimple-vlans-subnets.md).
 * Segment and secure your underlay network using the [Firewall Table](cloudsimple-firewall-tables.md) resource.
 * Get secure access to your VMware environments over the WAN using [VPN Gateways](cloudsimple-vpn-gateways.md).
