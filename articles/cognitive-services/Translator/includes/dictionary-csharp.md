@@ -38,6 +38,31 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
+## Get subscription information from environment variables
+
+Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+
+```csharp
+private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == subscriptionKey)
+    {
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+// The code in the next section goes here.
+```
+
 ## Create a function to get alternate translations
 
 Within the `Program` class, create a function called `AltTranslation`. This class encapsulates the code used to call the Dictionary resource and prints the result to console.
@@ -52,14 +77,14 @@ static void AltTranslation()
 }
 ```
 
-## Set the subscription key, host name, and path
+## Construct the URI
 
-Add these lines to the `AltTranslation` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
+Add these lines to the `AltTranslation` function. You'll notice that along with the `api-version`, two additional parameters have been declared. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
 
 ```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+string route = "/dictionary/lookup?api-version=3.0";
+static string params_ = "from=en&to=es";
+static string uri = endpoint + path + params_;
 ```
 
 Next, we need to create and serialize the JSON object that includes the text you want to translate. Keep in mind, you can pass more than one object in the `body` array.
@@ -68,8 +93,6 @@ Next, we need to create and serialize the JSON object that includes the text you
 System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
-
-
 
 ## Instantiate the client and make a request
 
@@ -101,7 +124,7 @@ Add this code to the `HttpRequestMessage`:
 request.Method = HttpMethod.Post;
 
 // Construct the full URI
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(uri);
 
 // Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
@@ -134,7 +157,8 @@ The last step is to call `AltTranslation()` in the `Main` function. Locate `stat
 
 ```csharp
 AltTranslation();
-Console.ReadLine();
+Console.WriteLine("Press any key to continue.");
+Console.ReadKey();
 ```
 
 ## Run the sample app

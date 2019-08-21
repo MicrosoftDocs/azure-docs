@@ -79,14 +79,14 @@ Add the following lines to the `Program` class. These lines read your subscripti
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-private static readonly string subscription_key = Environment.GetEnvironmentVariable(key_var);
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
 
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 
 static Program()
 {
-    if (null == subscription_key)
+    if (null == subscriptionKey)
     {
         throw new Exception("Please set/export the environment variable: " + key_var);
     }
@@ -184,6 +184,8 @@ static async Task Main(string[] args)
     // Feel free to use any string.
     string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
     await BreakSentenceRequest(subscriptionKey, endpoint, route, breakSentenceText);
+    Console.WriteLine("Press any key to continue.");
+    Console.ReadKey();
 }
 ```
 
