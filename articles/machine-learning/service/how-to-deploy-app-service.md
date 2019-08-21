@@ -101,7 +101,7 @@ package.wait_for_creation(show_output=True)
 
 When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace.
 
-## Deploy image as a Web App
+## Deploy image as a web app
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From the __Overview__ section, use the __Registry__ link to access the Azure Container Registry for the workspace.
 
