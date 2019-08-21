@@ -41,7 +41,7 @@ To use an Azure storage account for the workspace in a virtual network, do the f
 
 1. In the Azure portal, go to the storage that's attached to your workspace.
 
-   ![The storage that's attached to the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-storage.png)
+   [![The storage that's attached to the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
 1. On the **Azure Storage** page, select __Firewalls and virtual networks__.
 
@@ -57,7 +57,7 @@ To use an Azure storage account for the workspace in a virtual network, do the f
     >
     > To enable access to the storage account, visit the __Firewalls and virtual networks__ for the storage account *from a web browser on the development client*. Then use the __Add your client IP address__ check box to add the client's IP address to the __ADDRESS RANGE__. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment. Once the IP address for the client has been added, it can access the storage account using the SDK.
 
-   ![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)
+   [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
 1. As you're running the experiment, in your experimentation code, change the run config to use Azure Blob storage:
 
@@ -85,7 +85,7 @@ The key vault instance that's associated with the workspace is used by the Azure
 To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, do the following:
 1. Go to the key vault that's associated with the workspace.
 
-   ![The key vault that's associated with the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)
+   [![The key vault that's associated with the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
 1. On the **Key Vault** page, in the left pane, select __Firewalls and virtual networks__.
 
@@ -96,7 +96,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
     - Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute instance resides.
     - Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
 
-   ![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)
+   [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 ## Use a Machine Learning Compute instance
 
@@ -136,7 +136,7 @@ You don't need to specify NSGs at the subnet level, because the Azure Batch serv
 
 The NSG rule configuration in the Azure portal is shown in the following images:
 
-![The inbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
+[![The inbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
 
 ![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
@@ -153,7 +153,7 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 The NSG rule configuration in the Azure portal is shown in the following image:
 
-![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
+[![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 ### User-defined routes for forced tunneling
 
@@ -284,7 +284,7 @@ To add AKS in a virtual network to your workspace, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), make sure that the NSG that controls the virtual network has an inbound rule that's enabled for the Azure Machine Learning service by using __AzureMachineLearning__ as the **SOURCE**.
 
-    ![The Azure Machine Learning service Add Compute pane](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)
+    [![The Azure Machine Learning service Add Compute pane](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
 
 1. Select your Azure Machine Learning service workspace.
 
@@ -312,7 +312,7 @@ To add AKS in a virtual network to your workspace, do the following:
    > [!IMPORTANT]
    > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
-   ![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
+   [![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
 You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-to-aks.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 
