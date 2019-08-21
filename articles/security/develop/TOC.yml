@@ -11,7 +11,7 @@
   - name: Industry compliant solutions
     items:
     - name: PCI-DSS
-      href: pci-web-app.md
+      href: secure-pci-web-app.md
 
 - name: Concepts
   expanded: true
