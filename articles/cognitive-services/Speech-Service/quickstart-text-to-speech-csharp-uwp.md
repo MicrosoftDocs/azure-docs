@@ -56,6 +56,8 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 ## Build and run the application
 
+Now you are ready to build and test your application.
+
 1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
