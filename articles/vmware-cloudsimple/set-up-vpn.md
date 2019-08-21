@@ -21,7 +21,7 @@ VPN gateways allow you to connect to CloudSimple network from your on-premises n
 
 In a region, you can create one Site-to-Site VPN gateway and one Point-to-Site VPN gateway.
 
-## Point-to-site VPN
+## Point-to-Site VPN
 
 To create a Point-to-Site VPN gateway, see [Create Point-to-Site VPN gateway](vpn-gateway.md#create-point-to-site-vpn-gateway).
 
