@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk download members of a group (preview) in Azure Active Directory
 
-Using Azure Active Directory (Azure AD) portal, you can bulk download the group members of a group in your organization to a comma-separated values (CSV) file.
+Using Azure Active Directory (Azure AD) portal, you can bulk download the members of a group in your organization to a comma-separated values (CSV) file.
 
 > [!NOTE]
 > Azure AD bulk operations are a public preview feature of Azure AD and are available with any paid Azure AD license plan. For more information about preview use terms, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
