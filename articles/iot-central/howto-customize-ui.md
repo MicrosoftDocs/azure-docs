@@ -13,10 +13,11 @@ manager: philmea
 
 ---
 
-# Customize the Azure IoT Central UI 
+# Customize the Azure IoT Central UI
 
-This article describes how, as an administrator, you can 
-customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources.
 
 The following screenshot shows a page using the standard theme:
 
