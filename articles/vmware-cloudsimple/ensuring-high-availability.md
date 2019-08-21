@@ -16,12 +16,12 @@ The CloudSimple solution provides high availability for your applications runnin
 
 | Failure Scenario | Application Protected? | Platform HA Feature | VMware HA Feature | Azure HA Feature |
 ------------ | ------------- | ------------ | ------------ | ------------- |
-| Disk Failure | YES | Fast replacement of failed node | <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html" target="_blank">About the vSAN Default Storage Policy</a>|
+| Disk Failure | YES | Fast replacement of failed node | [About the vSAN Default Storage Policy](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
 | Fan Failure | YES | Redundant fans, fast replacement of failed node |  |  |
 | NIC Failure | YES | Redundant NIC, fast replacement of failed node
 | Host Power Failure | YES | Redundant power supply |  |  |
-| ESXi Host Failure | YES | fast replacement of failed node | <a href="https://www.vmware.com/products/vsphere/high-availability.html" target="_blank">VMware vSphere High Availability</a> |  |  |
-| VM Failure | YES | [Load balancers](load-balancers)  | <a href="https://www.vmware.com/products/vsphere/high-availability.html" target="_blank">VMware vSphere High Availability</a> | Azure Load Balancer for stateless VMware VMs |
+| ESXi Host Failure | YES | fast replacement of failed node | [VMware vSphere High Availability](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
+| VM Failure | YES | [Load balancers](load-balancers.md)  | [VMware vSphere High Availability](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer for stateless VMware VMs |
 | Leaf Switch Port Failure | YES | Redundant NIC |  |  |
 | Leaf Switch Failure | YES | Redundant leaf switches |  |  |
 | Rack Failure | YES | Placement groups |  |  |

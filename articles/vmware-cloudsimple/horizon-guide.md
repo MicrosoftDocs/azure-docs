@@ -89,13 +89,13 @@ Set up the following rules in the CloudSimple portal. For instructions, see [Set
 
 #### CloudSimple portal: Create a public IP address for Unified Access Gateway
 
-Create a public IP address for the Unified Access Gateway appliance to enable desktop client connections from the internet. For instructions, see [Allocate public IP addresses](public-ips).
+Create a public IP address for the Unified Access Gateway appliance to enable desktop client connections from the internet. For instructions, see [Allocate public IP addresses](public-ips.md).
 
-When the setup is complete, the public IP address is assigned and listed on the Public IPs page. 
+When the setup is complete, the public IP address is assigned and listed on the Public IPs page.
 
 #### CloudSimple portal: Escalate privileges
 
-The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install Horizon, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges).
+The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install Horizon, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
 
 #### vCenter UI: Create a user in Private Cloud for Horizon installation
 

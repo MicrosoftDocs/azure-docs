@@ -41,7 +41,7 @@ The following sections describe how to deploy a DR solution using SRM in your Pr
 2. [Estimate the size of your DR environment](#estimate-the-size-of-your-dr-environment)
 3. [Create a Private Cloud for your environment](#create-a-private-cloud-for-your-environment)
 4. [Set up Private Cloud networking for the SRM solution](#set-up-private-cloud-networking-for-the-srm-solution)
-5. [Set up a Site-to-Site VPN connection between your on-premises network and the Private Cloud and open required ports](#set-up-a-Site-to-Site-vpn-connection-between-your-on-premises-network-and-the-private-cloud-and-open-required-ports)
+5. [Set up a Site-to-Site VPN connection between your on-premises network and the Private Cloud and open required ports](#set-up-a-site-to-site-vpn-connection-between-your-on-premises-network-and-the-private-cloud-and-open-required-ports)
 6. [Set up infrastructure services in your Private Cloud](#set-up-infrastructure-services-in-your-private-cloud)
 7. [Install vSphere Replication appliance in your on-premises environment](#install-vsphere-replication-appliance-in-your-on-premises-environment)
 8. [Install vSphere Replication appliance in your Private Cloud environment](#install-vsphere-replication-appliance-in-your-private-cloud-environment)
@@ -130,7 +130,7 @@ Before installing vRA and SRM, you must escalate the vCenter privileges of the c
 The installation consists of these high-level steps:
 
 1. [Escalate privileges](escalate-private-cloud-privileges.md).
-2. Create a user in your Private Cloud for vSphere Replication and SRM installation. Explained below in [vCenter UI: Create a user in Private Cloud for vRA & SRM installation](#vcenter-ui-create-a-user-in-private-cloud-for-vra-srm-installation).
+2. Create a user in your Private Cloud for vSphere Replication and SRM installation. Explained below in [vCenter UI: Create a user in Private Cloud for vRA & SRM installation](#vcenter-ui-create-a-user-in-private-cloud-for-vra-and-srm-installation).
 3. Prepare your Private Cloud environment for vRA installation.
 4. Deploy vRA in your Private Cloud using the OVF in the VR ISO from vmware.com. For vRA 6.5, [this VMware blog](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) has relevant information.
 5. Configure firewall rules for vRA. Explained below in [CloudSimple portal: Configure Firewall rules for vRA](#cloudsimple-portal-configure-firewall-rules-for-vra).
@@ -139,7 +139,7 @@ The installation consists of these high-level steps:
 
 For detailed installation instructions for vSphere Replication 6.5, see the VMware document [VMware vSphere Replication 6.5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
 
-#### vCenter UI: Create a user in Private Cloud for vRA & SRM installation
+#### vCenter UI: Create a user in Private Cloud for vRA and SRM installation
 
 Sign in to vCenter using cloudowner user credentials after escalating privileges from the CloudSimple portal.
 
