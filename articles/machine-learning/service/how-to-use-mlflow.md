@@ -23,8 +23,7 @@ This article demonstrates how to enable MLflow's tracking URI and logging API, c
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally, on a virtual machine, remote compute cluster, even on Azure Databricks.
 
-
-The following diagram, illustrates that with MLflow Tracking you can take any experiment-- whether it's on a remote compute target on a virtual machine, locally on your computer, or on an Azure Databricks cluster-- and track its run metrics and store model artifacts in your Azure Machine Learning workspace.
+The following diagram illustrates that with MLflow Tracking, you can take any experiment--whether it's on a remote compute target on a virtual machine, locally on your computer, or on an Azure Databricks cluster--and track its run metrics and store model artifacts in your Azure Machine Learning workspace.
 
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-track.png)
 
@@ -137,9 +136,10 @@ run = exp.submit(src)
 
 ## Track Azure Databricks runs
 
-MLflow Tracking with Azure Machine Learning service lets you store the logged metrics and artifacts from your Databrick runs into your Azure Machine Learning workspace.
+MLflow Tracking with Azure Machine Learning service lets you store the logged metrics and artifacts from your Databricks runs in your Azure Machine Learning workspace.
 
-To run your Mlflow experiments with Azure Databricks, you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
+To run your Mlflow experiments with Azure Databricks, you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+
 In your cluster, be sure to install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
 
 ### Install libraries
