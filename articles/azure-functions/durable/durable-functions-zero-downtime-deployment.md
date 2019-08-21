@@ -132,18 +132,27 @@ A system that doesn't have long-running orchestrations lasting more than 24 hour
 * Requires periods of time when no orchestrations are running
 
 # Application Routing
-This strategy is the most complex strategy; however, some customer can't stop the ongoing long-running orchestration. In this case, you can use this strategy.  Let's see how it works. 
-This strategy creates an application router in front of your Durable Functions. You can implement it with Durable Functions. The routers responsibility is listed below.
+This strategy is the most complex; however, it can be used for function apps which don't have time between running orchestrations.
+
+It works by creating an application router in front of your Durable Functions. The router can be implemented with Durable Functions and has the following responsibilities:
 
 * Deploy Function App
-* Manage version of the Durable Functions 
-* Routing the orchestration request
+* Manage the version of Durable Functions 
+* Route orchestration requests to function apps
 
-If you get the request for the first time, the application router creates a new Function App in Azure then deploy Durable Functions app on the Function App. Then send orchestration request to the Durable Functions.  The router manages the state which version is deployed to which function app.
+The first time an orchestration request is received, the application router:
+
+1. Creates a new function app in Azure.
+2. Deploys your function app's code to the new function app in Azure.
+3. Forwards the orchestration request to the new app.
+
+The router manages the state of which version of your app's code is deployed to which function app in Azure.
 
 ![Application Routing (frist time)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-Then you deploy the new app without breaking change, you can update the patch of the semantic versioning. It means no breaking change, so it deploys to the same Function App. Also, the request is routed to the same function app.
+The application router directs deployment and orchestration requests to the appropriate function app based on the `version` sent with the request, ignoring patch version.
+
+When you deploy a new version of your app without a breaking change, you can increment the patch version. The application router will deploy to your existing function app, and sends requests for the old and new versions of the code are routed to same function app.
 
 ![Application Routing (no breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
