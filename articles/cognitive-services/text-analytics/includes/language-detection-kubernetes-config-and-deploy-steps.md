@@ -11,6 +11,38 @@ ms.date: 08/21/2019
 ms.author: dapine
 ---
 
+## Deploy a Text Analytics container to an AKS cluster
+
+1. Open the Azure CLI, and sign in to Azure.
+
+    ```azurecli
+    az login
+    ```
+
+1. Sign in to the AKS cluster. Replace `your-cluster-name` and `your-resource-group` with the appropriate values.
+
+    ```azurecli
+    az aks get-credentials -n your-cluster-name -g -your-resource-group
+    ```
+
+    After this command runs, it reports a message similar to the following:
+
+    ```console
+    Merged "your-cluster-name" as current context in /home/username/.kube/config
+    ```
+
+    > [!WARNING]
+    > If you have multiple subscriptions available to you on your Azure account and the `az aks get-credentials` command returns with an error, a common problem is that you're using the wrong subscription. Set the context of your Azure CLI session to use the same subscription that you created the resources with and try again.
+    > ```azurecli
+    >  az account set -s subscription-id
+    > ```
+
+1. Open the text editor of choice. This example uses Visual Studio Code.
+
+    ```azurecli
+    code .
+    ```
+
 1. Within the text editor, create a new file named *language.yaml*, and paste the following YAML into it. Be sure to replace `billing/value` and `apikey/value` with your own information.
 
     ```yaml

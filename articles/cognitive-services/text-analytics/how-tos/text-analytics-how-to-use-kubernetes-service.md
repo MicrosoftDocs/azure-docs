@@ -33,38 +33,6 @@ This procedure requires several tools that must be installed and run locally. Do
 
 [!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-## Deploy a Text Analytics container to an AKS cluster
-
-1. Open the Azure CLI, and sign in to Azure.
-
-    ```azurecli
-    az login
-    ```
-
-1. Sign in to the AKS cluster. Replace `your-cluster-name` and `your-resource-group` with the appropriate values.
-
-    ```azurecli
-    az aks get-credentials -n your-cluster-name -g -your-resource-group
-    ```
-
-    After this command runs, it reports a message similar to the following:
-
-    ```console
-    Merged "your-cluster-name" as current context in /home/username/.kube/config
-    ```
-
-    > [!WARNING]
-    > If you have multiple subscriptions available to you on your Azure account and the `az aks get-credentials` command returns with an error, a common problem is that you're using the wrong subscription. Set the context of your Azure CLI session to use the same subscription that you created the resources with and try again.
-    > ```azurecli
-    >  az account set -s subscription-id
-    > ```
-
-1. Open the text editor of choice. This example uses Visual Studio Code.
-
-    ```azurecli
-    code .
-    ```
-
 ::: zone pivot="text-analytics-key-phrase-extraction"
 
 [!INCLUDE [Key Phrase Extraction Kubernetes config and deploy steps](../includes/key-phrase-extraction-kubernetes-config-and-deploy-steps.md)]
