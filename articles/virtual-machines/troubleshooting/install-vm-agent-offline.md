@@ -32,17 +32,9 @@ Install the VM Agent in offline mode in the following scenarios:
 
 Use the following steps to install the VM Agent in offline mode.
 
-> [!NOTE]
-> You can automate the process of installing the VM Agent in offline mode.
-> To do this, use the [Azure VM Recovery Scripts](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). If you choose to use the Azure VM Recovery Scripts, you can use the following process:
-> 1. Skip step 1 by using the scripts to attach the OS disk of the affected VM to a recovery VM.
-> 2. Follow steps 2–10 to apply the mitigations.
-> 3. Skip step 11 by using the scripts to rebuild the VM.
-> 4. Follow step 12.
-
 ### Step 1: Attach the OS disk of the VM to another VM as a data disk
 
-1. Take a snapshot for the OS disk of the affected VM,  create a disk from the snapshot, and then attach the disk to a troubleshoot VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal](troubleshoot-recovery-disks-portal-windows.md). For the classic VM, delete the VM and keep the OS disk, and then attached the OS disk to the troubleshoot VM.
+1. Take a snapshot for the OS disk of the affected VM,  create a disk from the snapshot, and then attach the disk to a troubleshoot VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal](troubleshoot-recovery-disks-portal-windows.md). For the classic VM, delete the VM and keep the OS disk, and then attach the OS disk to the troubleshoot VM.
 
 2.  Connect to the troubleshooter VM. Open **Computer management** > **Disk management**. Confirm that the OS disk is online and that drive letters are assigned to the disk partitions.
 
