@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 08/25/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -87,7 +87,7 @@ Select **Test** again to collapse the test pane.
 
 ## Publish the app to get the endpoint URL
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](./includes/how-to-publish.md)]
 
 ## Query the endpoint with a different utterance
 
