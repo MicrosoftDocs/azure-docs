@@ -1,5 +1,5 @@
 --- 
-title: Azure VMware Solution by CloudSimple - Use Private Cloud as DR site for on-premises workloads
+title: Azure VMware Solution by CloudSimple - Use Private Cloud as disaster site for on-premises workloads
 description: Describes how to set up your CloudSimple Private Cloud as a disaster recovery site for on-premises VMware workloads
 author: sharaths-cs
 ms.author: b-shsury 
@@ -12,7 +12,7 @@ manager: dikamath
 
 # Set up CloudSimple Private Cloud as a disaster recovery site for on-premises VMware workloads
 
-Your CloudSimple Private Cloud can be set up as a recovery site for on-premises applications to provide business continuity in case of a disaster.  The recovery solution is based on Zerto Virtual Replication as the replication and orchestration platform.  Critical infrastructure and application virtual machines can be replicated continuously from your on-premises vCenter to your Private Cloud.  You can use your Private Cloud for testing of failover and to ensure the availability of your application in the event of a disaster.  A similar approach can be followed to set up the Private Cloud as a primary site that is protected by a recovery site at a different location.
+Your CloudSimple Private Cloud can be set up as a recovery site for on-premises applications to provide business continuity in case of a disaster. The recovery solution is based on Zerto Virtual Replication as the replication and orchestration platform. Critical infrastructure and application virtual machines can be replicated continuously from your on-premises vCenter to your Private Cloud. You can use your Private Cloud for failover testing and to ensure the availability of your application during a disaster. A similar approach can be followed to set up the Private Cloud as a primary site that is protected by a recovery site at a different location.
 
 > [!NOTE]
 > Refer to the Zerto document [Sizing Considerations For Zerto Virtual Replication](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) for guidelines on sizing your disaster recovery environment.
@@ -23,7 +23,7 @@ The CloudSimple solution:
 * Allows you to leverage the Azure locations where CloudSimple is deployed for worldwide geographic resilience.
 * Gives you an option to reduce deployment costs and total cost of ownership for DR.
 
-The solution requires you to do the following:
+The solution requires you to:
 
 * Install, configure, and manage Zerto in your Private Cloud.
 * Provide your own licenses for Zerto when the Private Cloud is the protected site. You can pair Zerto running on the CloudSimple site with your on-premises site for licensing.

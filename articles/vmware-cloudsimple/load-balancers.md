@@ -29,7 +29,7 @@ Citrix ADC: https://www.citrix.com/products/citrix-adc/
 
 When you use Azure Application Gateway as a L7 load balancer for your application running in a Private Cloud, you don’t need to manage the load balancer software. The load balancer software is managed by Azure. All the web tier VMs in the Private Cloud use private IP addresses and don’t require additional NAT rules or public IPs addresses to resolve names. Web tier VMs communicate with the Azure Application Gateway over a private, low-latency, high-bandwidth connection.
 
-To learn more about how to configure this solution please refer to the solution guide on Using Azure Application Gateway as a L7 load balancer.
+To learn more about how to configure this solution, refer to the solution guide on Using Azure Application Gateway as a L7 load balancer.
 
 ## Azure Internal Load Balancer
 
