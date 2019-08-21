@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 07/12/2019
+ms.date: 08/21/2019
 ms.custom: seodec18
 ---
 
@@ -316,4 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## Next steps
 
-* See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario
+* See the Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) for more detail.
