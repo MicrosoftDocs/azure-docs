@@ -142,13 +142,17 @@ For more information, see [Assigning administrator roles in Azure Active Directo
 >[!NOTE]
 > During public preview of Identity Protection (refreshed), only Azure AD Premium P2 customers will have access to the risky users report and risky sign-ins report.
 
-| Capability | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
-| --- | --- | --- | --- |
-| User risk policy | Yes | No | No |
-| Sign-in risk policy | Yes | No | No |
-| Risky users report | Full access | Limited Information | Limited Information |
-| Risky sign-ins report | Full Access | Limited Information | Limited Information |
-| MFA registration policy | Yes | No | No |
+| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| --- | --- | --- | --- | --- |
+| Risk policies | User risk policy (via Identity Protection) | Yes | No | No |
+| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | Yes | No | No |
+| Security reports | Overview | Yes | No | No |
+| Security reports | Risky users | Full access | Limited Information | Limited Information |
+| Security reports | Risky sign-ins | Full access | Limited Information | Limited Information |
+| Security Reports | Risk detections | Full access | Limited Information | No |
+| Notifications | Users at risk detected alerts | Yes | No | No |
+| Notifications | Weekly digest | Yes | No | No |
+| | MFA registration policy | Yes | No | No |
 
 ## Next steps 
 
