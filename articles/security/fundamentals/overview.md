@@ -384,7 +384,7 @@ Microsoft uses multiple security practices and technologies across its products 
 - [Azure Active Directory Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) provides SSO and secure remote access for web applications hosted on-premises.
 
 ## Next Steps
-- [Getting started with Microsoft Azure Security](./https://docs.microsoft.com/azure/security)
+- [Getting started with Microsoft Azure Security](https://docs.microsoft.com/azure/security)
 
 Azure services and features you can use to help secure your services and data within Azure
 

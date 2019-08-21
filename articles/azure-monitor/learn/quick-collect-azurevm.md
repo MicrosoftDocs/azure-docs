@@ -16,7 +16,7 @@ ms.author: magoedte
 ms.custom: mvc
 ---
 
-# Collect data about Azure Virtual Machines
+# Collect data about Azure virtual machines
 
 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation. This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
  
