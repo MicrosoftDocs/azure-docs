@@ -98,7 +98,7 @@ The `Consul` Helm chart deploys a number of objects. You can see the list from t
 > [!NOTE]
 > All Consul pods must be scheduled to run on Linux nodes. If you have Windows Server node pools in addition to Linux node pools on your cluster, verify that all Consul pods have been scheduled to run on Linux nodes.
 
-At this point, you've deployed Consul to your AKS cluster. To ensure that we have a successful deployment of Consul, let's move on to the next section to [Validate the Consul installation](#validate-the-Consul-installation).
+At this point, you've deployed Consul to your AKS cluster. To ensure that we have a successful deployment of Consul, let's move on to the next section to validate the Consul installation.
 
 ## Validate the Consul installation
 
