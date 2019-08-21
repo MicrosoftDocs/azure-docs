@@ -180,7 +180,7 @@ Each workspace has an associated system-assigned Managed Identity (with the same
 
 Azure Monitor metrics can be used to view and monitor metrics for your Azure Machine Learning service workspace. From the [Azure portal](https://portal.azure.com), select your workspace and then use the __Metrics__ link.
 
-![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)
+[![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 Metrics includes information on runs, deployments, and registrations.
 
@@ -192,7 +192,7 @@ You can see the activity log under the workspace to see various operations perfo
 
 The following screenshot shows the activity log for a workspace:
 
-![Screenshot showing activity log under a workspace](./media/enterprise-readiness/workspace-activity-log.png)
+[![Screenshot showing activity log under a workspace](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Scoring request details are stored in Application Insight, which is created in user’s subscription while creating the workspace. Logged information includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration etc.
 
