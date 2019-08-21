@@ -52,7 +52,7 @@ The browser you use impacts the SSO experience because of how they share cookies
 | **SFSafariViewController** | System | iOS10 | Yes |  w/ Safari instances
 | **WKWebView**  | In-app | iOS9 and up | No | No**
 
-** For SSO to work, tokens need to be shared between apps. Thus a token cache or broker application is required, such as Microsoft Authenticator for iOS.
+** For SSO to work, tokens need to be shared between apps which requires a token cache or broker application such as Microsoft Authenticator for iOS.
 
 By default, the MSAL for iOS and macOS library uses the following system web browser depending on the version of iOS:
 

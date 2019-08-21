@@ -1,5 +1,5 @@
 ---
-title: Configure a MSAL for iOS and macOS app for different identity providers | Microsoft identity platform
+title: Configure a MSAL for iOS and macOS to use different identity providers | Microsoft identity platform
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
 documentationcenter: ''
@@ -20,13 +20,13 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure a MSAL for iOS and macOS app to use different identity providers
+# How to: Configure MSAL for iOS and macOS to use different identity providers
 
-This article will show you how to configure your app for different authorities such as Azure Active Directory (Azure AD), business-to-consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
+This article will show you how to configure your Microsoft authentication library app for iOS and macOS (MSAL) for different authorities such as Azure Active Directory (Azure AD), business-to-consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
 
 ## Default authority configuration
 
-`MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common` which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios, or working with B2C, you won't need to change it.
+`MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios, or working with B2C, you won't need to change it.
 
 > [!NOTE]
 > Active Directory Federation Service (AD FS) is currently not supported.
@@ -35,7 +35,7 @@ This article will show you how to configure your app for different authorities s
 
 ### B2C
 
-To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requires a different authority configuration. MSAL Objective-C supports one authority URL format for B2C unless the authority is declared as a known authority. The supported format is `https://<host>/tfp/<tenant>/<policy>`, for example `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`.
+To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requires a different authority configuration. MSAL supports one authority URL format for B2C unless the authority is declared as a known authority. The supported format is `https://<host>/tfp/<tenant>/<policy>`, for example `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`.
 
 To support an arbitrary URL format for B2C, add it to `@property MSALAuthority *authority` in `MSALPublicClientApplicationConfig` before creating MSALPublicClientApplication. For example:
 
@@ -88,7 +88,7 @@ When your app requests a new policy, the authority URL needs to be changed becau
 
 ### Sovereign clouds
 
-If your app runs in a sovereign cloud, you may need to change the authority URL in the `MSALPublicClientApplication`. For example, the following sets the authority URL to work with the German AAD cloud:
+If your app runs in a sovereign cloud, you may need to change the authority URL in the `MSALPublicClientApplication`. The following example sets the authority URL to work with the German AAD cloud:
 
 ```objc
     NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.de/common"];
@@ -116,13 +116,13 @@ If your app runs in a sovereign cloud, you may need to change the authority URL 
     }
 ```
 
-In addition to changing authorities, you may need to pass different scopes to each sovereign cloud. Which scopes to send depends on the resource that you're using. For example, you might use `"https://graph.microsoft.com/user.read"` in worldwide cloud, and `"https://graph.microsoft.de/user.read"` in German cloud.
+You may need to pass different scopes to each sovereign cloud. Which scopes to send depends on the resource that you're using. For example, you might use `"https://graph.microsoft.com/user.read"` in worldwide cloud, and `"https://graph.microsoft.de/user.read"` in German cloud.
 
 ### Signing a user into a specific tenant
 
 When the authority URL is set to `"common"`, the user will be signed into their home tenant. However, some apps may need to sign the user into a different tenant and some apps only work with a single tenant.
 
-To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority.  MSAL Objective-C doesn't currently support authorities with tenant names so use an authority with GUID tenant ID instead. For example:
+To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority.  MSAL doesn't currently support authorities with tenant names so use an authority with GUID tenant ID instead. For example:
 
 **Correct:** `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 **Incorrect:** `https://login.microsoftonline.com/contoso.com`
@@ -158,9 +158,9 @@ The following shows how to sign a user into a specific tenant:
 
 ### MSALAuthority
 
-The `MSALAuthority` class is the base abstract class for the MSAL authority classes. Do not try to create instance of it. Instead either create one of its subclasses directly (`MSALAADAuthority`, `MSALADFSAuthority`, `MSALB2CAuthority`) or use the factory method `authorityWithURL:error:` to create subclasses using an authority URL.
+The `MSALAuthority` class is the base abstract class for the MSAL authority classes. Don't try to create instance of it. Instead either create one of its subclasses directly (`MSALAADAuthority`, `MSALADFSAuthority`, `MSALB2CAuthority`) or use the factory method `authorityWithURL:error:` to create subclasses using an authority URL.
 
-Use the `url` property to get a normalized authority URL. Extra parameters and path components or fragments that are not part of authority will not be in the normalized authority URL that is returned.
+Use the `url` property to get a normalized authority URL. Extra parameters and path components or fragments that are not part of authority won't be in the returned normalized authority URL.
 
 The following are subclasses of `MSALAuthority` that you can instantiate depending on the authority want to use.
 
@@ -179,6 +179,4 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 > [!IMPORTANT]
 > AD FS is not supported.
 
-An arbitrary URL can be used if it is declared as a known authority in `MSALPublicClientApplicationConfiguration`.
-
-TODO: how?
+An arbitrary URL can be used if it's declared as a known authority in `MSALPublicClientApplicationConfiguration`.

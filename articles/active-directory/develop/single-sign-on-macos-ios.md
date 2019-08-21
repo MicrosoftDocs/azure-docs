@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 The Microsoft Authentication Library (MSAL) for macOS and iOS supports Single Sign-on (SSO) between macOS/iOS apps and browsers. This article covers the following SSO scenarios:
 
-- [Silent SSO between multiple apps](#silent-sso-between-multiple-apps)
+- [Silent SSO between multiple apps](#silent-sso-between-apps)
 
 This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.  
 
@@ -71,7 +71,7 @@ App3 Redirect URI: `msauthcom.contoso.mytestapp3://auth`
 These Redirect URIs are then grouped under the same client ID/application ID and are looked up based on the redirect URI that you return in your SDK configuration.
 
 > [!IMPORTANT]
-> The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris.md#msal-redirect-uri-requirements).
+> The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris.md#msal-redirect-uri-format-requirements).
 
 ### Setup keychain sharing between applications
 

@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 When the [Microsoft Authentication Library for iOS and macOS](msal-overview.md) (MSAL) signs in a user, or refreshes a token, it tries to cache the token in the keychain.
 
-This article covers how to configure an app entitlements so that MSAL can write cached tokens to iOS keychain.
+This article covers how to configure app entitlements so that MSAL can write cached tokens to iOS keychain.
 
 ## Default keychain access group
 
