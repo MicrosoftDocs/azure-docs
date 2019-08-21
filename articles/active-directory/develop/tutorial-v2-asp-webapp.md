@@ -473,7 +473,7 @@ Learn about Web apps calling web APIs:.
 ### Learn the steps to create the application used in this quickstart
 
 > [!div class="nextstepaction"]
-> [Web apps calling Web APIs]( https://aka.ms/msal-net-authorization-code)
+> [Web apps calling Web APIs](https://docs.microsoft.com/en-us/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
