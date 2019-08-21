@@ -25,7 +25,7 @@ Azure Search is well suited for the following application scenarios:
 
 + Easy implementation of search-related features. Azure Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 
-+ Indexing unstructured text, or extracting text and information from image files. The cognitive search feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
++ Indexing unstructured text, or extracting text and information from image files. The [cognitive search](cognitive-search-concept-intro.md) feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
 
 + Linguistic requirements satisfied using the custom and language analyzers of Azure Search. If you have non-English content, Azure Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics.
 
