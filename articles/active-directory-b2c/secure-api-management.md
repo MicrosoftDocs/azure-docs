@@ -58,7 +58,7 @@ You should now have two URLs recorded for use in the next section: the OpenID Co
 
 ```
 https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
-https://yourb2ctenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
+https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
 ## Configure validation in Azure API Management
@@ -72,7 +72,9 @@ You're now ready to add the inbound policy in Azure API Management that validate
 1. Under **Inbound processing**, select **\</\>** to open the policy code editor
 1. Place the following `<validate-jwt>` tag inside the `<inbound>` policy.
 
-    Update the `url` value in the `<openid-config>` tag with your policy's well-known configuration URL. Update the `aud` value with Application ID of the application you created previously in your B2C tenant (for example, *webapp1*).
+    1. Update the `url` value in the `<openid-config>` tag with your policy's well-known configuration URL.
+    1. Update the `aud` value with Application ID of the application you created previously in your B2C tenant (for example, *webapp1*).
+    1. Update the `iss` value with the token issuer endpoint you recorded earlier.
 
     ```xml
     <policies>
@@ -81,10 +83,10 @@ You're now ready to add the inbound policy in Azure API Management that validate
                 <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
                 <required-claims>
                     <claim name="aud">
-                        <value>40000000-0000-0000-0000-000000000000</value>
+                        <value>44444444-0000-0000-0000-444444444444</value>
                     </claim>
                     <claim name="iss">
-                        <value>https://yourb2ctenant.b2clogin.com/80000000-0000-0000-0000-000000000000/v2.0/</value>
+                        <value>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</value>
                     </claim>
                 </required-claims>
             </validate-jwt>
