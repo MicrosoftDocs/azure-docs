@@ -149,7 +149,7 @@ For more information, see [Assigning administrator roles in Azure Active Directo
 | Security reports | Overview | Yes | No | No |
 | Security reports | Risky users | Full access | Limited Information | Limited Information |
 | Security reports | Risky sign-ins | Full access | Limited Information | Limited Information |
-| Security Reports | Risk detections | Full access | Limited Information | No |
+| Security reports | Risk detections | Full access | Limited Information | No |
 | Notifications | Users at risk detected alerts | Yes | No | No |
 | Notifications | Weekly digest | Yes | No | No |
 | | MFA registration policy | Yes | No | No |
