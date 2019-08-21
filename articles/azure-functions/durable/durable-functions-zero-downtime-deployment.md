@@ -114,7 +114,7 @@ Now the new version of your function app should be deployed to the staging slot.
 
 ![Deployment slot](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
-Then swap slot.  Even if there is running orchestrations on Production slot with Ver.2, it was swap out to the Staging Slot. The function app swaps the Storage Account A/B as well. After the swap happens, Ver.2. Orchestration keeps on working and referring the same storage account. 
+Then swap slots. Application settings that aren't marked as deployment slot settings will also be swapped, so the version 2 app keeps its reference to storage account A. Because orchestration state is tracked in the storage account, any orchestrations running on the version 2 app will continue to run in the new slot without interruption.
 
 ![Deployment slot](media/durable-functions-zero-downtime-deployment/deployment-slot-3.png)
 
