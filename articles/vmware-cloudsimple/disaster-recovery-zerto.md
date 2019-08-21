@@ -56,7 +56,7 @@ To enable Zerto Virtual Replication from your on-premises environment to your Pr
 5. [Escalate your CloudSimple privileges](escalate-private-cloud-privileges.md).
 6. Create a new user on your Private Cloud vCenter with the administrative role to use as the service account for Zerto Virtual Manager.
 
-### Optional Configuration on your Private Cloud
+### Optional configuration on your Private Cloud
 
 1. Create one or more resource pools on your Private Cloud vCenter to use as target resource pools for VMs from your on-premises environment.
 2. Create one or more folders on your Private Cloud vCenter to use as target folders for VMs from your on-premises environment.

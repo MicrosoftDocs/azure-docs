@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Migrate workload virtual machines from on-premises vCenter to Private Cloud vCenter environment
+# Migrate workload VMs from on-premises vCenter to Private Cloud vCenter environment
 
 To migrate VMs from an on-premises datacenter to your CloudSimple Private Cloud, several options are available.  The Private Cloud provides native access to VMware vCenter, and tools supported by VMware can be used for workload migration. This article describes some of the vCenter migration options.
 
@@ -23,7 +23,7 @@ Migration of VMs and data from your on-premises datacenter requires network conn
 
 The network path from your on-premises vCenter environment to your Private Cloud must be available for migration of VMs using vMotion.  The vMotion network on your on-premises vCenter must have routing abilities.  Verify that your firewall allows all vMotion traffic between your on-premises vCenter and Private Cloud vCenter. (On the Private Cloud, routing on the vMotion network is configured by default.)
 
-## Migrate ISOs and Templates
+## Migrate ISOs and templates
 
 To create new virtual machines on your Private Cloud, use ISOs and VM templates.  To upload the ISOs and templates to your Private Cloud vCenter and make them available, use the following method.
 
@@ -47,8 +47,8 @@ $vm = Get-VM -Server $sourceVC <name of VM>
 Move-VM -VM $vm -VMotionPriority High -Destination (Get-VMhost -Server $targetVC -Name $vmhost) -Datastore (Get-Datastore -Server $targetVC -Name <name of tgt vc datastore>)
 ```
 
-!!! note "Note"
-    To use the names of the destination vCenter server and ESXi hosts, configure DNS forwarding from on-premises to your Private Cloud.
+> [!NOTE]
+> To use the names of the destination vCenter server and ESXi hosts, configure DNS forwarding from on-premises to your Private Cloud.
 
 ## Migrate VMs using NSX Layer 2 VPN
 

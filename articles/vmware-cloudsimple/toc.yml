@@ -154,6 +154,8 @@
       items:
       - name: Back up workload virtual machines
         href: backup-workloads-veeam.md
+      - name: Configure Private Cloud as disaster recovery site using Zerto
+        href: disaster-recovery-zerto.md
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
       - name: Configure vSAN encryption for your Private Cloud
