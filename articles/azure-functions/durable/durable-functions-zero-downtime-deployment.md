@@ -102,7 +102,7 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-Then configure the staging gate for waiting for the no orchestration is running.  For more details, refer to [Release deployment control using gates](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops).
+Then configure the staging gate to wait until no orchestrations are running. For more details, refer to [Release deployment control using gates](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops
 
 ![Deployment gate](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 
