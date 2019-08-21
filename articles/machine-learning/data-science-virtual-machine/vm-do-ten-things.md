@@ -41,7 +41,7 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 - Install additional tools on your virtual machine.   
 
 > [!NOTE]
-> Additional usage charges apply for many of the data storage and analytics services listed in this article. For details, refer to the [Azure pricing](https://azure.microsoft.com/pricing/) page.
+> Additional usage charges apply for many of the data storage and analytics services listed in this article. For details, see the [Azure pricing](https://azure.microsoft.com/pricing/) page.
 > 
 > 
 
@@ -64,7 +64,7 @@ For Python, you can use an IDE like Visual Studio Community Edition, which has t
 1. Give a description and set the environment prefix path as **c:\anaconda\envs\python2** for Anaconda Python 2.7.
 1. Select **Auto Detect** > **Apply** to save the environment.
 
-Here's what the custom environment setup looks like in Visual Studio.
+Here's what the custom environment setup looks like in Visual Studio:
 
 ![Screenshot of Visual Studio with Python Tools for Visual Studio selected](./media/vm-do-ten-things/PTVSSetup.png)
 
@@ -80,7 +80,7 @@ To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Sta
 After you start Jupyter, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
 * Select the notebook to see the code.
-* Execute each cell by selecting Shift+Enter.
+* Run each cell by selecting Shift+Enter.
 * Run the entire notebook by selecting **Cell** > **Run**.
 * Create a new notebook by selecting the Jupyter icon (upper-left corner), selecting the **New** button on the right, and then choosing the notebook language (also known as kernels).   
 
@@ -102,7 +102,7 @@ When you operationalize your model in Azure Machine Learning, a web service is e
 > 
 
 ### Build and operationalize Python models
-Here's a snippet of code developed in a Python Jupyter notebook that builds a simple model by using the Scikit-learn library.
+Here's a snippet of code developed in a Python Jupyter notebook that builds a simple model by using the Scikit-learn library:
 
 ```python
 # IRIS classification
@@ -128,7 +128,7 @@ def predictIris(sep_l, sep_w, pet_l, pet_w):
 return clf.predict(inputArray)
 ```
 
-A client can now make calls to the web service. Convenience wrappers construct the REST API requests. Here's sample code to consume the web service.
+A client can now make calls to the web service. Convenience wrappers construct the REST API requests. Here's sample code to consume the web service:
 
 ```python
 # Consume through web service URL and keys
@@ -192,7 +192,7 @@ ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema =
 #### Consume the model deployed in Azure Machine Learning
 To consume the model from a client application, use the Azure Machine Learning library to look up the published web service by name. Use the `services` API call to determine the endpoint. Then you just call the `consume` function and pass in the data frame to be predicted.
 
-Use the following code to consume the model published as an Azure Machine Learning web service.
+Use the following code to consume the model published as an Azure Machine Learning web service:
 
 ```r
 library(AzureML)
@@ -247,7 +247,7 @@ New-AzStorageDirectory -Share $s -Path <directory name>
 Get-AzStorageFile -Share $s
 ```
 
-Now that you have created an Azure Files share, you can mount it in any virtual machine in Azure. We recommend that you put the VM in the same Azure datacenter as the storage account, to avoid latency and data transfer charges. Here are the Azure PowerShell commands to mount the drive on the DSVM.
+Now that you have created an Azure Files share, you can mount it in any virtual machine in Azure. We recommend that you put the VM in the same Azure datacenter as the storage account, to avoid latency and data transfer charges. Here are the Azure PowerShell commands to mount the drive on the DSVM:
 
 ```powershell
 # Get the storage key of the storage account that has the Azure Files share from the Azure portal. Store it securely on the VM to avoid being prompted in the next command.
@@ -266,11 +266,11 @@ Visit the [GitHub help pages](https://help.github.com/) for more information on 
 
 The DSVM comes loaded with client tools on the command line and on the GUI to access the GitHub repository. The command-line tool that works with Git and GitHub is called Git Bash. Visual Studio is installed on the DSVM and has the Git extensions. You can find icons for these tools on the **Start** menu and on the desktop.
 
-To download code from a GitHub repository, you use the ```git clone``` command. For example, to download the data science repository published by Microsoft into the current directory, you can run the following command in Git Bash.
+To download code from a GitHub repository, you use the ```git clone``` command. For example, to download the data science repository published by Microsoft into the current directory, you can run the following command in Git Bash:
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio.
+In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio:
 
 ![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -286,7 +286,7 @@ Azure Blob storage is a reliable, economical cloud storage service for data big 
 
    ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, refer to the [AzCopy documentation](../../storage/common/storage-use-azcopy.md).
+* Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, see the [AzCopy documentation](../../storage/common/storage-use-azcopy.md).
 * Start the Azure Storage Explorer tool. You can download it from the  [Storage Explorer webpage](https://storageexplorer.com/). 
 
    ![Screenshot of Azure Storage Explorer accessing a storage account](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -388,7 +388,7 @@ Azure Data Lake Storage is a hyperscale repository for big data analytics worklo
 
 * Create your Azure Data Lake Analytics instance in the [Azure portal](https://portal.azure.com).
 
-   ![Screenshot of creating an Data Lake Analytics instance from the Azure portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+   ![Screenshot of creating a Data Lake Analytics instance from the Azure portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * The  [Azure Data Lake and Stream Analytics Tools for Visual Studio plug-in](https://www.microsoft.com/download/details.aspx?id=49504) is already installed in Visual Studio Community Edition on the virtual machine. After you start Visual Studio and sign in to your Azure subscription, you should see your Azure Data Analytics account and storage in the left panel of Visual Studio.
 
@@ -460,7 +460,7 @@ After your query is submitted to the server, a diagram shows the status of your 
 
 #### Query data in Data Lake: U-SQL
 
-After the dataset is ingested in Azure Data Lake, you can use [U-SQL language](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but it combines some features from C# so that users can write customized modules and user-defined functions. You can use the scripts in the previous step.
+After the dataset is ingested in Azure Data Lake, you can use [U-SQL language](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules and user-defined functions. You can use the scripts in the previous step.
 
 After the query is submitted to the server, tripdata_summary.CSV appears in Azure Data Lake Explorer. You can preview the data by right-clicking the file.
 
@@ -854,7 +854,7 @@ Use the following prerequisite steps to access Azure Cosmos DB from the DSVM:
 
 After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and do some basic querying. You can learn more about Azure Cosmos DB by visiting the service's [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
-## Power BI reports and dashboards 
+## Use Power BI reports and dashboards 
 You can visualize the Volcano JSON file from the preceding Azure Cosmos DB example in Power BI Desktop to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
 
 1. Open Power BI Desktop and select **Get Data**. Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json.
@@ -886,7 +886,7 @@ You can start building reports and visualizations by using the data model. You c
 
 ![Power BI Desktop Report View with connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
-## Dynamic DSVM scaling 
+## Scale the DSVM dynamically 
 You can scale up and down the DSVM to meet your project's needs. If you don't need to use the VM in the evening or on weekends, you can shut down the VM from the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
