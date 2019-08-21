@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -79,8 +79,9 @@ This feature is in preview but, it is supported for Windows app production workl
 * The app and the VNet must be in the same region
 * You cannot delete a VNet with an integrated app. You must remove the integration first 
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet. 
+* You cannot change the subscription of an app or an App Service plan while there is an app that is using Regional VNet Integration
 
-One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate a Premium App Service plan that is scaled to 20 instances.
+One address is used for each App Service plan instance. If you scaled your app to 5 instances, then 5 addresses are used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /26 with 64 addresses is the recommended size. A /27 with 32 addresses would would accommodate a Premium App Service plan 20 instances if you didn't change the size of the App Service plan. When you scale an App Service plan up or down, you need twice as many addresses for a short period of time. 
 
 If you want your apps in another App Service plan to reach a VNet that is connected to already by apps in another App Service plan, you need to select a different subnet than the one being used by the pre-existing VNet Integration.  
 
