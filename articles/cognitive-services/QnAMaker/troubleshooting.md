@@ -16,6 +16,24 @@ ms.custom: seodec18
 
 The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 
+
+## How to get the QnAMaker service hostname
+
+QnAMaker service hostname is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The hostname is a URL in this form: https://*{hostname}*.azurewebsites.net.
+	
+1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
+
+    ![QnAMaker Azure resource group in Azure portal](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+
+1. Select the App Service associated with the QnA Maker resource. Typically, the names are the same.
+
+     ![Select QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
+1. The hostname URL is available in the Overview section
+
+    ![QnAMaker hostname](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    
+
 ## Use the Help bot in the QnA Maker portal
 
 QnA Maker provides a **Help** bot within the QnA Maker portal to help you. The help bot is available on every web page. The bot uses QnA Maker to provide answers and provides the [C# Bot Framework code project](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) to the bot so you can quickly get up and running with your own answer bot. 
