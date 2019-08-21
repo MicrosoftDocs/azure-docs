@@ -290,7 +290,7 @@ For a complete list of Azure Maps REST APIs, see:
 
 To learn more about IoT Plug and Play, see:
 
-* [IoT Plug and Play](https://aka.ms/iotpnpdocs)
+* [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 To get a list of devices that are Azure certified for IoT, visit:
 
