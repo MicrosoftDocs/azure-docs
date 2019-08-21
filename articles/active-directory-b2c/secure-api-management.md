@@ -120,7 +120,14 @@ You first need a token issued by Azure AD B2C to use in the Authorization header
 
 ![Encoded token value displayed on jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
 
-### Call API with Postman
+### Get API subscription key
+
+A client application (in this case, Postman) that calls a published API must include a valid subscription key in HTTP requests when it makes those calls. To get a subscription key for your API to include in your Postman HTTP request:
+
+1. Browse to your API Management instance in the [Azure portal](https://portal.azure.com)
+1.
+
+### Call the API with Postman
 
 1. Add Authorization header with Bearer token value
 
