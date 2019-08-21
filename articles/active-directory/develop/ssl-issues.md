@@ -38,7 +38,7 @@ By default, Apple's new [App Transport Security (ATS)](https://developer.apple.c
 
 Certificates using SHA-1 hashes have known vulnerabilities. Most modern web browsers don't allow certificates with SHA-1 hashes.
 
-## Captive Portals
+## Captive portals
 
 A captive portal presents a web page to a user when they first access a Wi-Fi network and haven't yet been granted access to that network. It intercepts their internet traffic until the user satisfies the requirements of the portal. Network errors resulting from the user not being able to connect to network resources are expected until the user connects through the portal.
 

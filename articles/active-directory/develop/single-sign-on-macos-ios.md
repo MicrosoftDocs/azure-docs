@@ -119,28 +119,32 @@ The following steps are how you enable SSO using an authentication broker for yo
 
 1. Register a broker compatible Redirect URI format for the application in your app's Info.plist. The broker compatible Redirect URI format is `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>`` with your application's bundle ID. For example:
 
-```xml
-<key>CFBundleURLSchemes</key>
-<array>
-    <string>msauth.<app.bundle.id></string>
-</array>
-```
+    ```xml
+    <key>CFBundleURLSchemes</key>
+    <array>
+        <string>msauth.<app.bundle.id></string>
+    </array>
+    ```
 
 1. Add following schemes to your app's Info.plist under `LSApplicationQueriesSchemes`:
 
-```xml
-<key>LSApplicationQueriesSchemes</key>
-<array>
-     <string>msauth</string>
-     <string>msauthv2</string>
-</array>
-```
+    ```xml
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+         <string>msauth</string>
+         <string>msauthv2</string>
+    </array>
+    ```
 
 1. Add the following to your `AppDelegate.m` file to handle callbacks:
 
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
-{
-    return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
-}
-```
+    ```objc
+    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
+    {
+        return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+    }
+    ```
+
+## Next steps
+
+Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

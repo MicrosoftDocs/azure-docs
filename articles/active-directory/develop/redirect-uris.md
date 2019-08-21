@@ -52,7 +52,7 @@ App3 uses `msauth.com.contoso.app1://auth`
 
 When migrating code that used the Azure AD Authentication Library (ADAL) to MSAL, you may already have a redirect URI configured for your app. You can continue using the same redirect URI as long as your ADAL app was configured to support brokered scenarios and your redirect URI satisfies the MSAL redirect URI format requirements.
 
-### MSAL redirect URI format requirements
+## MSAL redirect URI format requirements
 
 * The MSAL redirect URI must be in the form `<scheme>://host`
 
@@ -78,7 +78,7 @@ MSAL will verify if your redirect URI registers correctly, and return an error i
     
 * If you want to use universal links as a redirect URI, the `<scheme>` must be `https`. Configure the app and domain per Apple's instructions at [Universal Links for Developers](https://developer.apple.com/ios/universal-links/).
 
-### Use a custom redirect URI
+## Use a custom redirect URI
 
 To use a custom redirect URI, pass the `redirectUri` parameter to `MSALPublicClientApplicationConfig` and pass that object to `MSALPublicClientApplication` when you initialize the object. If the redirect URI is invalid, the initializer will return `nil` and set the `redirectURIError`with additional information.  For example:
 
@@ -91,3 +91,7 @@ NSError *redirectURIError;
 MSALPublicClientApplication *application =
         [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&redirectURIError];
 ```
+
+## Next steps
+
+Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

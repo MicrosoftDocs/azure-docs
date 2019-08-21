@@ -31,7 +31,9 @@ This article will show you how to configure your Microsoft authentication librar
 > [!NOTE]
 > Active Directory Federation Service (AD FS) is currently not supported.
 
-## Scenarios where you might need to change the default authority
+## Change the default authority
+
+In some scenarios, such as business-to-consumer (B2C), you may need to change the default authority.
 
 ### B2C
 
@@ -180,3 +182,7 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 > AD FS is not supported.
 
 An arbitrary URL can be used if it's declared as a known authority in `MSALPublicClientApplicationConfiguration`.
+
+## Next steps
+
+Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

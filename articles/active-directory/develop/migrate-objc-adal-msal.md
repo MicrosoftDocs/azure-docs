@@ -66,11 +66,11 @@ In MSAL, instead of a single resource identifier, apps provide a set of scopes p
 
 There are two ways to provide scopes in MSAL:
 
-1. Provide a list of all the permissions your apps needs. For example: `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+* Provide a list of all the permissions your apps needs. For example: `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     In this case, the app requests the `directory.read` and `directory.write` permissions. The user will be asked to consent for those permissions if they haven't consented to them before for this app. The application might also receive additional permissions that the user has already consented to for the application. The user will only be prompted to consent for new permissions, or permissions that haven't been granted.
 
-2. The `/.default` scope.
+* The `/.default` scope.
 
 This is the built-in scope for every application. It refers to the static list of permissions configured when the application was registered. Its behavior is similar to that of `resource`. This can be useful when migrating to ensure that a similar set of scopes and user experience is maintained.
 
@@ -310,3 +310,7 @@ If an account is found, call the MSAL `acquireTokenSilent` API:
         }
     }];
 ```
+
+## Next steps
+
+Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

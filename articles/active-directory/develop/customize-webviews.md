@@ -115,3 +115,7 @@ typedef NS_ENUM(NSInteger, MSALWebviewType)
     MSALWebviewTypeWKWebView,
 };
 ```
+
+## Next steps
+
+Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

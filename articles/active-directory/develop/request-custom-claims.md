@@ -58,3 +58,7 @@ MSAL expects the claims string to be URL encoded.  For example:
                       // TODO: handle result or error
     }];
 ```
+
+## Next steps
+
+Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
