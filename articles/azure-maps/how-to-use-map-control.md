@@ -91,7 +91,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
                 aadAppId: '<Your AAD App Id>',
-                aadTenant: 'msft.ccsctp.net'
+                aadTenant: '<Your AAD Tenant Id>'
             }
         });
     </script>
@@ -184,7 +184,7 @@ map = new atlas.Map('myMap', {
         authType: 'aad',
         clientId: '<Your AAD Client Id>',
         aadAppId: '<Your AAD App Id>',
-        aadTenant: 'msft.ccsctp.net'
+        aadTenant: '<Your AAD Tenant Id>'
     }
 });
 ```
