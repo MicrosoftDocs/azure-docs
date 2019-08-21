@@ -22,41 +22,41 @@ ms.date: 08/13/2019
 
 # Provision the Data Science Virtual Machine for Linux (Ubuntu)
 
-The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with machine learning, including deep learning, on Azure. Deep learning tools include:
+The Data Science Virtual Machine (DSVM) for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with machine learning, including deep learning, on Azure. Deep-learning tools include:
 
-* [Caffe](https://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity
-* [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
-* [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
-* [H2O](https://www.h2o.ai/): An open-source big data platform and graphical user interface
-* [Keras](https://keras.io/): A high-level neural network API in Python for TensorFlow, Microsoft Cognitive Toolkit, and Theano
-* [MXNet](https://mxnet.io/): A flexible, efficient deep learning library with many language bindings
-* [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep learning tasks
-* [PyTorch](https://pytorch.org/): A high-level Python library with support for dynamic networks
-* [TensorFlow](https://www.tensorflow.org/): An open-source library for machine intelligence from Google
-* [Theano](http://deeplearning.net/software/theano/): A Python library for defining, optimizing, and efficiently evaluating mathematical expressions involving multi-dimensional arrays
-* [Torch](http://torch.ch/): A scientific computing framework with wide support for machine learning algorithms
-* CUDA, cuDNN, and the NVIDIA driver
-* Many sample Jupyter notebooks
+* [Caffe](https://caffe.berkeleyvision.org/): A deep-learning framework built for speed, expressivity, and modularity.
+* [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe.
+* [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep-learning software toolkit from Microsoft Research.
+* [H2O](https://www.h2o.ai/): An open-source big-data platform and graphical user interface.
+* [Keras](https://keras.io/): A high-level neural network API in Python for TensorFlow, Microsoft Cognitive Toolkit, and Theano.
+* [MXNet](https://mxnet.io/): A flexible, efficient deep-learning library with many language bindings.
+* [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep-learning tasks.
+* [PyTorch](https://pytorch.org/): A high-level Python library with support for dynamic networks.
+* [TensorFlow](https://www.tensorflow.org/): An open-source library for machine intelligence from Google.
+* [Theano](http://deeplearning.net/software/theano/): A Python library for defining, optimizing, and efficiently evaluating mathematical expressions that involve multidimensional arrays.
+* [Torch](http://torch.ch/): A scientific computing framework with wide support for machine learning algorithms.
+* CUDA, cuDNN, and the NVIDIA driver.
+* Many sample Jupyter notebooks.
 
 All libraries are the GPU versions, though they also run on the CPU.
 
 The Data Science Virtual Machine for Linux also contains popular tools for data science and development activities, including:
 
-* Microsoft R Server Developer Edition with Microsoft R Open
-* Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries
-* JuliaPro - a curated distribution of Julia language with popular scientific and data analytics libraries
-* Standalone Spark instance and single node Hadoop (HDFS, Yarn)
-* JupyterHub - a multiuser Jupyter notebook server supporting R, Python, PySpark, Julia kernels
-* Azure Storage Explorer
-* Azure command-line interface (CLI) for managing Azure resources
-* Machine learning tools
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation
-  * [Rattle](https://togaware.com/rattle/): A graphical tool that makes getting started with data analytics and machine learning in R easy
+* Microsoft R Server Developer Edition with Microsoft R Open.
+* Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries.
+* JuliaPro, a curated distribution of Julia language with popular scientific and data analytics libraries.
+* Standalone Spark instance and single node Hadoop (HDFS, Yarn).
+* JupyterHub, a multiuser Jupyter notebook server that supports R, Python, PySpark, Julia kernels.
+* Azure Storage Explorer.
+* The Azure CLI for managing Azure resources.
+* Machine learning tools:
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system that supports techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool that provides fast and accurate boosted tree implementation.
+  * [Rattle](https://togaware.com/rattle/): A graphical tool that makes getting started with data analytics and machine learning in R easy.
   * [LightGBM](https://github.com/Microsoft/LightGBM): A fast, distributed, high-performance gradient boosting framework
-* Azure SDK in Java, Python, node.js, Ruby, PHP
-* Libraries in R and Python for use in Azure Machine Learning and other Azure services
-* Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, vim)
+* Azure SDK in Java, Python, node.js, Ruby, PHP.
+* Libraries in R and Python for use in Azure Machine Learning and other Azure services.
+* Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, vim).
 
 Doing data science involves iterating on a sequence of tasks:
 
@@ -64,93 +64,91 @@ Doing data science involves iterating on a sequence of tasks:
 1. Building and testing models
 1. Deploying the models for consumption in intelligent applications
 
-Data scientists use various tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
+Data scientists use various tools to complete these tasks. It can be time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
 
-The Data Science Virtual Machine for Linux can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also pre-installed.
+The Data Science Virtual Machine for Linux can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and Node.js that are also pre-installed.
 
-There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision. For more information about compute fees, see the [VM listing page in Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-## Other Versions of the Data Science Virtual Machine
+## Other versions of the Data Science Virtual Machine
 
-A [CentOS](linux-dsvm-intro.md) image is also available, with many of the same tools as the Ubuntu image. A [Windows](provision-vm.md) image is available as well.
+A [CentOS](linux-dsvm-intro.md) image is also available, with many of the same tools as the Ubuntu image. A [Windows](provision-vm.md) image is also available.
 
 ## Prerequisites
 
-Before you can create a Data Science Virtual Machine for Linux, you must have an Azure subscription. To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
+Before you can create a Data Science Virtual Machine for Linux, you must have an Azure subscription. You can [get an Azure free trial](https://azure.microsoft.com/free/).
 
 ## Create your Data Science Virtual Machine for Linux
 
 Here are the steps to create an instance of the Data Science Virtual Machine for Linux:
 
-1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). You may be prompted to sign in to your Azure account if you are not already signed in. 
-1. Click **Create** to bring up the wizard.
-    ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. Go to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). You might be prompted to sign in to your Azure account if you're not already signed in. 
+1. Select **Create** to bring up the wizard.
+    ![Wizard for creating a virtual machine](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. The following sections provide the inputs for each of the steps in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
-    a. **Basics**:
+    1. **Basics**:
     
-    * **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
-    * **Resource Group**: You can create a new one or use an existing group.
-    * **Virtual Machine Name**: Name of your data science server you are creating.
-    * **Region**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
-    * **Availability options**: Set this if you want to use this VM in availability sets/zones else leave the default.
-    * **Image**: Leave the default value
-    * **Size**: Select one of the server types that meets your functional requirement and cost constraints. Select an NC or ND-series VM for GPU-based VM instances. 
-    * **User Name**: Administrator user name
-    * **SSH Public Key**: RSA public key in single line format (you can use password instead of SSH key).
+       * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed. You must have resource creation privileges for this subscription.
+       * **Resource group**: You can create a new one or use an existing group.
+       * **Virtual machine name**: Enter the name of the data science server that you're creating.
+       * **Region**: Select the datacenter that's most appropriate. Usually it's the datacenter that has most of your data, or is closest to your physical location for fastest network access.
+       * **Availability options**: Set this if you want to use this VM in availability sets or zones. Otherwise, leave the default.
+       * **Image**: Leave the default value.
+       * **Size**: Select the server type that meets your functional requirements and cost constraints. Select an NC or ND-series VM for GPU-based VM instances. 
+       * **Username**: Enter the administrator username.
+       * **SSH public key**: RSA public key in single-line format. (You can use password instead of SSH key.)
     
-    b. **Disks**:
+    1. **Disks**:
     
-    * **OS Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**.
+       * **OS Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**.
     
-    c. For rest of the settings you can just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
+    1. For rest of the settings, you can use the default values. To consider non-default values, hover over the informational link for help. When you're finished, select **Review + create**.
     
-    Finally, select **Review + create**
+    1. **Review + create**:
     
-    d. **Review + create**:
+       * After validation passes, verify that all information you entered is correct. A link directs you to the terms of use. The VM does not have any additional charges beyond the compute for the server size that you chose in the **Size** input. To start the provisioning, select **Create**.
     
-    * After validation passes, verify that all information you entered is correct. A link is provided to the terms of use. The VM does not have any additional charges beyond the compute for the server size you chose in the Size input. To start the provisioning, click **Create**.
-    
-    The provisioning should take about 5 minutes. The status of the provisioning is displayed on the Azure portal.
+    The provisioning should take about 5 minutes. The status is displayed in the Azure portal.
 
 ## How to access the Data Science Virtual Machine for Linux
 
-You can access the Ubuntu DSVM using three methods:
+You can access the Ubuntu DSVM by using three methods:
 
 1. SSH for terminal sessions
 1. X2Go for graphical sessions
 1. JupyterHub and JupyterLab for Jupyter notebooks
 
-You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+You can also attach a Data Science Virtual Machine to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Azure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### SSH
 
-After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
+After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY or install the X2Go client.
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
 
 ### X2Go
 
-The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
+The Linux VM is already provisioned with X2Go Server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
    * **Session tab**:
-     * **Host**: The host name or IP address of your Linux Data Science VM.
-     * **Login**: User name on the Linux VM.
+     * **Host**: Enter the host name or IP address of your Linux Data Science Virtual Machine.
+     * **Login**: Enter the username on the Linux VM.
      * **SSH Port**: Leave it at 22, the default value.
-     * **Session Type**: Change the value to XFCE. Currently the Linux VM only supports XFCE desktop.
+     * **Session Type**: Change the value to **XFCE**. Currently, the Linux VM supports only the XFCE desktop.
    * **Media tab**: You can turn off sound support and client printing if you don't need to use them.
    * **Shared folders**: If you want directories from your client machines mounted on the Linux VM, add the client machine directories that you want to share with the VM on this tab.
 
-After you sign in to the VM by using either the SSH client or XFCE graphical desktop through the X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE, you can see applications menu shortcuts and desktop icons for many of the tools.
+After you sign in to the VM by using either the SSH client or the XFCE graphical desktop through the X2Go client, you're ready to start using the tools that are installed and configured on the VM. On XFCE, you can see application menu shortcuts and desktop icons for many of the tools.
 
 ### JupyterHub and JupyterLab
 
-The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multi-user Jupyter server. To connect, browse to https:\//your-vm-ip:8000 on your laptop or desktop, enter the username and password that you used to create the VM, and sign in. Many sample notebooks are available for you to browse and try out.
+The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multi-user Jupyter server. To connect, browse to https:\//your-vm-ip:8000 on your laptop or desktop. Enter the username and password that you used to create the VM, and sign in. Many sample notebooks are available for you to browse and try out.
 
-JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, sign in to JupyterHub, then browse to the URL https:\//your-vm-ip:8000/user/your-username/lab. You can set JupyterLab as the default notebook server by adding this line to */etc/jupyterhub/jupyterhub_config.py*:
+JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, sign in to JupyterHub, and then browse to the URL https:\//your-vm-ip:8000/user/your-username/lab. You can set JupyterLab as the default notebook server by adding this line to `/etc/jupyterhub/jupyterhub_config.py`:
 
 ```python
 c.Spawner.default_url = '/lab'
@@ -158,13 +156,13 @@ c.Spawner.default_url = '/lab'
 
 ## Tools installed on the Data Science Virtual Machine for Linux
 
-### Deep Learning Libraries
+### Deep-learning libraries
 
 #### CNTK
 
-The Microsoft Cognitive Toolkit is an open source, deep learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (cntk) that is already in the PATH.
+The Microsoft Cognitive Toolkit is an open-source, deep-learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (CNTK) that's already in the path.
 
-Sample Python notebooks are available in JupyterHub. To run a basic sample at the command line, execute the following commands in the shell:
+Sample Python notebooks are available in JupyterHub. To run a basic sample at the command line, run the following commands in the shell:
 
 ```bash
 cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
@@ -175,11 +173,11 @@ For more information, see the CNTK section of [GitHub](https://github.com/Micros
 
 #### Caffe
 
-Caffe is a deep learning framework from the Berkeley Vision and Learning Center. It is available in /opt/caffe. Examples can be found in /opt/caffe/examples.
+Caffe is a deep-learning framework from the Berkeley Vision and Learning Center. It's available in /opt/caffe. You can find examples in /opt/caffe/examples.
 
 #### Caffe2
 
-Caffe2 is a deep learning framework from Facebook that is built on Caffe. It is available in Python 2.7 in the Conda root environment. To activate it, run the following command from the shell:
+Caffe2 is a deep-learning framework from Facebook that is built on Caffe. It's available in Python 2.7 in the Conda root environment. To activate it, run the following command from the shell:
 
 ```bash
 source /anaconda/bin/activate root
@@ -189,66 +187,69 @@ Some example notebooks are available in JupyterHub.
 
 #### H2O
 
-H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the command-line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
+H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. 
+
+To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
 #### Keras
 
-Keras is a high-level neural network API in Python that is capable of running on top of TensorFlow, Microsoft Cognitive Toolkit, or Theano. It is available in the root and py35 Python environments.
+Keras is a high-level neural network API in Python. It can run on top of TensorFlow, Microsoft Cognitive Toolkit, or Theano. It's available in the root and py35 Python environments.
 
 #### MXNet
 
-MXNet is a deep learning framework designed for both efficiency and flexibility. It has R and Python bindings included on the DSVM. Sample notebooks are included in JupyterHub, and sample code is available in /dsvm/samples/mxnet.
+MXNet is a deep-learning framework designed for both efficiency and flexibility. It has R and Python bindings included on the DSVM. Sample notebooks are included in JupyterHub, and sample code is available in /dsvm/samples/mxnet.
 
 #### NVIDIA DIGITS
 
-The NVIDIA Deep Learning GPU Training System, known as DIGITS, is a system to simplify common deep learning tasks like managing data, designing and training neural networks on GPU systems, and monitoring performance in real time with advanced visualization.
+The NVIDIA Deep Learning GPU Training System, known as DIGITS, is a system to simplify common deep-learning tasks. These tasks include managing data, designing and training neural networks on GPU systems, and monitoring performance in real time with advanced visualization.
 
-DIGITS is available as a service, called digits. Start the service and browse to http://localhost:5000 to get started.
+DIGITS is available as a service, called *digits*. Start the service and browse to http://localhost:5000 to get started.
 
 DIGITS is also installed as a Python module in the Conda root environment.
 
 #### TensorFlow
 
-TensorFlow is Google's deep learning library. It is an open-source software library for numerical computation using data flow graphs. TensorFlow is available in the py35 Python environment, and some sample notebooks are
-included in JupyterHub.
+TensorFlow is Google's deep-learning library. It's an open-source software library for numerical computation using data flow graphs. TensorFlow is available in the py35 Python environment, and some sample notebooks are included in JupyterHub.
 
 #### Theano
 
-Theano is a Python library for efficient numerical computation. It is available in the root and py35 Python environments. 
+Theano is a Python library for efficient numerical computation. It's available in the root and py35 Python environments. 
 
 #### Torch
 
-Torch is a scientific computing framework with wide support for machine learning algorithms. It is available in /dsvm/tools/torch, and the th interactive session and luarocks package manager are available at the command line. Examples are available in /dsvm/samples/torch.
+Torch is a scientific computing framework with wide support for machine learning algorithms. It's available in /dsvm/tools/torch, and the **th** interactive session and LuaRocks package manager are available at the command line. Examples are available in /dsvm/samples/torch.
 
 PyTorch is also available in the root Anaconda environment. Examples are in /dsvm/samples/pytorch.
 
 ### Microsoft R Server
 
-R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft R Server (MRS) with the Microsoft R Open (MRO) and Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100 percent compatible with CRAN-R, and any of the R libraries published in CRAN can be installed on the MRO. MRS gives you scaling and operationalization of R models into web services. You can edit your R programs in one of the default editors, like RStudio, vi, or Emacs. If you prefer using the Emacs editor, it has been pre-installed. The Emacs package ESS (Emacs Speaks Statistics) simplifies working with R files within the Emacs editor.
+R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft R Server with the Microsoft R Open and Math Kernel Library. The Math Kernel Library optimizes math operations common in analytical algorithms. Microsoft R Open is 100 percent compatible with CRAN R, and any of the R libraries published in CRAN can be installed on Microsoft R Open. 
 
-To launch R console, you just type **R** in the shell. This command takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi, and then run the scripts within R. With RStudio, you have a full graphical IDE environment to develop your R program.
+Microsoft R Server gives you scaling and operationalization of R models into web services. You can edit your R programs in one of the default editors, like RStudio, vi, or Emacs. If you prefer using the Emacs editor, it has been pre-installed. The Emacs package ESS (Emacs Speaks Statistics) simplifies working with R files within the Emacs editor.
 
-There is also an R script for you to install the [Top 20 R packages](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
+To open the R console, you just type **R** in the shell. This command takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi, and then run the scripts within R. With RStudio, you have a full graphical IDE to develop your R program.
+
+There's also an R script for you to install the [Top 20 R packages](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. You can run this script after you're in the R interactive interface. As mentioned earlier, you can enter that interface by typing **R** in the shell.  
 
 ### Python
 
 Anaconda Python is installed with Python 2.7 and 3.5 environments. The 2.7 environment is called _root_, and the 3.5 environment is called _py35_. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages.
 
-The py35 environment is the default. To activate the root (2.7) environment:
+The py35 environment is the default. To activate the root (2.7) environment, use this command:
 
 ```bash
 source activate root
 ```
 
-To activate the py35 environment again:
+To activate the py35 environment again, use this command:
 
 ```bash
 source activate py35
 ```
 
-To invoke a Python interactive session, just type **python** in the shell. 
+To invoke a Python interactive session, enter **python** in the shell. 
 
-Install additional Python libraries using ```conda``` or ```pip``` . For pip, activate the correct environment first if you do not want the default:
+Install additional Python libraries by using Conda or pip . For pip, activate the correct environment first if you don't want the default:
 
 ```bash
 source activate root
@@ -261,39 +262,43 @@ Or specify the full path to pip:
 /anaconda/bin/pip install <package>
 ```
 
-For conda, you should always specify the environment name (_py35_ or _root_):
+For Conda, you should always specify the environment name (_py35_ or _root_):
 
 ```bash
 conda install <package> -n py35
 ```
 
-If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.
+If you're on a graphical interface or have X11 forwarding set up, you can enter **pycharm** to open the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. The graphical desktop has a shortcut to Spyder.
 
 ### Jupyter notebook
 
-The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password.
+The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in by using your local Linux username and password.
 
-The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. There is a desktop icon named "Jupyter Notebook" to launch the browser to access the notebook server. If you are on the VM via SSH or X2Go client, you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
+The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you are on the VM via SSH or X2Go client, you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
 
 > [!NOTE]
 > Continue if you get any certificate warnings.
 
-You can access the Jupyter notebook server from any host. Just type *https://\<VM DNS name or IP Address\>:8000/*
+You can access the Jupyter notebook server from any host. Just enter **https://\<VM DNS name or IP address\>:8000/**
 
 > [!NOTE]
 > Port 8000 is opened in the firewall by default when the VM is provisioned. 
 
-We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux user name and password. You can create a new notebook by selecting **New**, and then the appropriate language kernel. If you don't see the **New** button, click the **Jupyter** icon on the top left to go to the home page of the notebook server.
+We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux username and password. You can create a new notebook by selecting **New**, and then selecting the appropriate language kernel. If you don't see the **New** button, select the **Jupyter** icon on the upper left to go to the home page of the notebook server.
 
-### Apache Spark Standalone
+### Apache Spark standalone
 
-A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally first before testing and deploying on large clusters. You can run PySpark programs through the Jupyter kernel. When you open Jupyter, click the **New** button and you should see a list of available kernels. The "Spark - Python" is the PySpark kernel that lets you build Spark applications using Python language. You can also use a Python IDE like PyCharm or Spyder to build your Spark program. In this standalone instance, the Spark stack runs within the calling client program, which makes it faster and easier to troubleshoot issues compared to developing on a Spark cluster.
+A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally before you test and deploy them on large clusters. 
 
-A sample PySpark notebook is provided on Jupyter that you can find in the "SparkML" directory under the home directory of Jupyter ($HOME/notebooks/SparkML/pySpark). 
+You can run PySpark programs through the Jupyter kernel. When you open Jupyter, select the **New** button and you should see a list of available kernels. "Spark - Python" is the PySpark kernel that lets you build Spark applications by using the Python language. You can also use a Python IDE like PyCharm or Spyder to build your Spark program. 
 
-If you are programming in R for Spark, you can use Microsoft R Server, SparkR, or sparklyr. 
+In this standalone instance, the Spark stack runs within the calling client program. This feature makes it faster and easier to troubleshoot issues compared to developing on a Spark cluster.
 
-Before running in Spark context in Microsoft R Server, you need to do a one time setup step to enable a local single node Hadoop HDFS and Yarn instance. By default, Hadoop services are installed but disabled on the DSVM. In order to enable it, you need to run the following commands as root the first time:
+Jupyter provides a sample PySpark notebook. You can find it in the SparkML directory under the home directory of Jupyter ($HOME/notebooks/SparkML/pySpark). 
+
+If you're programming in R for Spark, you can use Microsoft R Server, SparkR, or sparklyr. 
+
+Before you run in a Spark context in Microsoft R Server, you need to do a one-time setup step to enable a local single-node Hadoop HDFS and Yarn instance. By default, Hadoop services are installed but disabled on the DSVM. To enable it, you need to run the following commands as root the first time:
 
 ```bash
 echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
@@ -305,17 +310,19 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-You can stop the Hadoop related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
+You can stop the Hadoop-related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
 
-A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the */dsvm/samples/MRS* directory.
+The /dsvm/samples/MRS directory provides a sample that demonstrates how to develop and test Microsoft R Server in a remote Spark context (the standalone Spark instance on the DSVM).
 
 ### IDEs and editors
 
-You have a choice of several code editors including vi/VIM, Emacs, PyCharm, RStudio, and IntelliJ. IntelliJ, RStudio and PyCharm are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
+You have a choice of several code editors, including vi/Vim, Emacs, PyCharm, RStudio, and IntelliJ. 
 
-**VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](https://ess.r-project.org/).
+PyCharm, RStudio, and IntelliJ are graphical editors. To use them, you need to be signed in to a graphical desktop. You open them by using desktop and application menu shortcuts.
 
-**LaTex** is installed through the texlive package along with an Emacs add-on [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) package, which simplifies authoring your LaTex documents within Emacs.  
+Vim and Emacs are text-based editors. On Emacs, an add-on package called Emacs Speaks Statistics (ESS) makes working with R easier within the Emacs editor. You can find more information at [ESS](https://ess.r-project.org/).
+
+LaTex is installed through the texlive package along with an Emacs add-on [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) package, which simplifies authoring your LaTex documents within Emacs.  
 
 ### Databases
 
@@ -461,17 +468,17 @@ Now a graphical interface opens up with a set of tabs. Here are the quickstart s
 > [!NOTE]
 > If you don't have access to install the package in the system directory (the default), you may see a prompt on your R console window to install packages to your personal library. Answer *y* if you see these prompts.
 
-1. Click **Execute**.
-1. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
-1. Click the **Model** tab.
-1. Click **Execute** to build a decision tree.
-1. Click **Draw** to display the decision tree.
-1. Click the **Forest** radio button, and click **Execute** to build a random forest.
-1. Click the **Evaluate** tab.
-1. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
-1. Click the **Log** tab to show the generate R code for the preceding operations.
+1. Select **Execute**.
+1. A dialog pops up, asking you if you like to use the example weather data set. Select **Yes** to load the example.
+1. Select the **Model** tab.
+1. Select **Execute** to build a decision tree.
+1. Select **Draw** to display the decision tree.
+1. Select the **Forest** radio button, and select **Execute** to build a random forest.
+1. Select the **Evaluate** tab.
+1. Select the **Risk** radio button, and select **Execute** to display two Risk (Cumulative) performance plots.
+1. Select the **Log** tab to show the generate R code for the preceding operations.
    (Due to a bug in the current release of Rattle, you need to insert a *#* character in front of *Export this log ...* in the text of the log.)
-1. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
+1. Select the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
 You can exit Rattle and R. Now you can modify the generated R script, or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is an easy way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
 
