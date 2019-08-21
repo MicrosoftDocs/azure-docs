@@ -33,7 +33,7 @@ Refer to the [MariaDB documentation](https://mariadb.com/kb/en/library/mariadb-1
 ## Managing updates and upgrades
 The service automatically manages upgrades for patch updates. For example, 10.2.21 to 10.2.23.  
 
-Currently, minor and major version upgrades aren't supported. For example, upgrading from MariaDB 10.2 to MariaDB 10.3 isn't supported. If you'd like to upgrade from 10.2 to 10.3, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
+Currently, minor and major version upgrades aren't supported. For example, upgrading from MariaDB 10.2 to MariaDB 10.3 isn't supported. If you'd like to upgrade from 10.2 to 10.3, take a [dump and restore](./howto-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ## Next steps
 
