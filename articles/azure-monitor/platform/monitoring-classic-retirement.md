@@ -74,7 +74,8 @@ The following are examples of cases where you will incur a charge for your alert
 - Any data ingested and retained beyond free units included by Azure Monitor
 - Any multi-test web tests executed by Application Insights
 - Any custom metrics stored beyond free units included in Azure Monitor
-- Any migrated alert rules that are edited and uses newer metric alert features (frequency, multiple resources/dimensions, changing resource/signal, and so on), notifications, or action types that have added (such as SMS, Voice Call, ITSM integration).
+- Any migrated alert rules that are edited to use newer metric alert features like frequency, multiple resources/dimensions, [Dynamic Thresholds](alerts-dynamic-thresholds.md), changing resource/signal, and so on.
+- Any migrated action groups that are edited to use newer notifications, or action types like SMS, Voice Call and/or ITSM integration.
 
 This article will be continually updated with links & details regarding the new Azure monitoring & alerting functionality, as well as the availability of tools to assist users in adopting the new Azure Monitor platform.
 
