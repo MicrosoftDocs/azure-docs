@@ -77,7 +77,7 @@ group, results won't be returned.
 > new subscription added during an active session, the principal must refresh the context. This
 > action happens automatically when logging out and back in.
 
-Azure CLI and Azure PowerShell uses subscriptions that the user has access to. When using REST API
+Azure CLI and Azure PowerShell use subscriptions that the user has access to. When using REST API
 directly, the subscription list is provided by the user. If the user has access to any of the
 subscriptions in the list, the query results are returned for the subscriptions the user has access
 to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list)
