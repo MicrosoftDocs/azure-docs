@@ -276,13 +276,15 @@ and other HTTP requests, set up your firewalls with *all* the
 [inbound](#inbound) *and* [outbound](#outbound) IP addresses 
 used by the Logic Apps service, based on the regions where your 
 logic apps exist. These addresses appear under the **Inbound** 
-and **Outbound** headings in this section, and are sorted by region.
+and **Outbound** headings in this section, and are sorted by region. 
 
 To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
 set up your firewall with *all* the [outbound](#outbound) IP addresses 
 used by these connectors, based on the regions where your logic apps exist. 
 These addresses appear under the **Outbound** heading in this section, 
 and are sorted by region.
+
+For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
 For [Azure Government](../azure-government/documentation-government-overview.md) 
 and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), 
