@@ -163,6 +163,6 @@ Microsoft continues to add features to Azure SQL Database. Visit the Service Upd
 - Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtered to General Availability [(GA) announcements](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
-For information about the Azure SQL Database service, see
+For more information about the Azure SQL Database flavors, see:
 - [What is SQL Database?](sql-database-technical-overview.md)
 - [What is a Managed Instance?](sql-database-managed-instance.md)
