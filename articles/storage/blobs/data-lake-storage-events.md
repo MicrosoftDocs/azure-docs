@@ -378,6 +378,27 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
    ![Latest record appears in table](./media/data-lake-storage-events/final_query.png "Latest record appears in table")
 
+6. To update this record, create a file named `customer-order-update.csv`, paste the following information into that file, and save it to your local computer.
+
+   ```
+   InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+   536371,99999,EverGlow Single,22,1/1/2018 9:01,33.85,20993,Sierra Leone
+   ```
+
+   This csv file is almost identical to the previous one except the quantity of the order is changed to `22` instead of `228`.
+
+7. In Storage Explorer, upload this file to the **input** folder of your storage account.
+
+8. Run the `select` query again to see the updated delta table.
+
+   ```
+   %sql select * from customer_data
+   ```
+
+   The returned table shows the updated record.
+
+   ![Updated record appears in table](./media/data-lake-storage-events/final_query-2.png "Updated record appears in table")
+
 ## Clean up resources
 
 When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and select **Delete**.
