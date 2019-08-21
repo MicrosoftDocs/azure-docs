@@ -59,7 +59,7 @@ For more information about using values from a key vault, see [Use Azure Key Vau
 
 ## Define parameter values
 
-To figure out how to define the parameter values, you need to open the template you are deploying. Look at the parameters section of the template. The following example shows the parameters from a template.
+To figure out how to define the parameter values, open the template you're deploying. Look at the parameters section of the template. The following example shows the parameters from a template.
 
 ```json
 "parameters": {
@@ -95,7 +95,7 @@ The first detail to notice is the name of each parameter. The values in your par
 }
 ```
 
-Then, notice the type of the parameter. The values in your parameter file must have the same types. For this template, you can provide two parameters that are both strings.
+Notice the type of the parameter. The values in your parameter file must have the same types. For this template, you can provide both parameters as strings.
 
 ```json
 {
@@ -146,9 +146,7 @@ Finally, look at the allowed values and any restrictions like max length. They t
 }
 ```
 
-You can create more than one parameter file, and then pass in the appropriate parameter file for the scenario.
-
-## Parameter formats
+## Parameter type formats
 
 The following example shows the formats of different parameter types.
 
@@ -182,6 +180,13 @@ The following example shows the formats of different parameter types.
 }
 ```
 
+## File name
+
+The general convention for naming the parameter file is to add **.parameters** to the template name. For example, if your template is named **azuredeploy.json**, your parameter file is named **azuredeploy.parameters.json**. This naming convention helps you see the connection between the template and the parameters.
+
+To deploy to different environments, create more than one parameter file. When naming the parameter file, add a way to identify its use. For example, use **azuredeploy.parameters-dev.json** and **azuredeploy.parameters-prod.json**
+
+
 ## Parameter precedence
 
 You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
@@ -190,7 +195,7 @@ However, when you use an external parameter file, you can't pass other values ei
 
 ## Parameter name conflicts
 
-If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
+If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for **ResourceGroupNameFromTemplate**. You can avoid this confusion by using parameter names that aren't used for deployment commands.
 
 ## Next steps
 
