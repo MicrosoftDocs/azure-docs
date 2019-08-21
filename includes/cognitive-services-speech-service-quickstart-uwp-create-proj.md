@@ -58,7 +58,7 @@ Next, create your project:
 
    ![helloworld project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
 
-Now, select your target platform architecture. In the Visual Studio toolbar, find the **Solution Platforms** drop-down box. If you're running 64-bit Windows, choose **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
+Now select your target platform architecture. In the Visual Studio toolbar, find the **Solution Platforms** drop-down box. If you're running 64-bit Windows, choose **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
 
 > [!NOTE]
 > The Speech SDK only supports Intel-compatible processors. ARM processors are currently not supported.
@@ -75,7 +75,7 @@ Then allow the project to capture audio input:
 
 1. Select the box for the **Microphone** capability.
 
-1. From the menu bar, choose **File** > **Save** to save your changes to the package application manifest.
+1. From the menu bar, choose **File** > **Save Package.appxmanifest** to save your changes.
 
 ### Install the Speech SDK
 
