@@ -217,7 +217,7 @@ A. Your image is likely misconfigured for serial console access. For information
 
 **Q. Is the serial console available for virtual machine scale sets?**
 
-A. At this time, access to the serial console for virtual machine scale set instances isn't supported.
+A. Yes, it is! See [Serial Console for Virtual Machine Scale Sets](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 ## Next steps
 * For an in-depth guide to CMD and PowerShell commands you can use in the Windows SAC, see [Windows commands: CMD and PowerShell](serial-console-cmd-ps-commands.md).
