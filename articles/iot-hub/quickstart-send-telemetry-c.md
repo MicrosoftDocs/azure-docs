@@ -57,7 +57,7 @@ However, in this quickstart, you'll prepare a development environment used to cl
 
     It's important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
-2. Open a command prompt or Git Bash shell. Navigate to a working directory that you want to clone the SDK into. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+2. Open a command prompt or Git Bash shell and navigate to a working directory that you want to clone the Azure IoT C SDK into. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -133,7 +133,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends a string as simulated telemetry.
 
-1. Using a text editor, open the iothub_convenience_sample.c source file and review the sample code for sending telemetry. The file is located in the following location under the working directory where you cloned the SDK:
+1. Using a text editor, open the iothub_convenience_sample.c source file and review the sample code for sending telemetry. The file is located in the following location under the working directory where you cloned the Azure IoT C SDK:
 
     ```
     azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
