@@ -122,7 +122,7 @@ The following administrator roles are available:
 
 * **[Device Administrator](#device-administrators)**: This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory. 
 
-* **[Directory Readers](#directory-readers)**: This is a role that should be assigned only to legacy applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Don't assign it to users.
+* **[Directory Readers](#directory-readers)**: This is a role that should be assigned only to legacy applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Users in this role can read basic directory information. This role should be used for: 1) Granting a specific set of guest users read access instead of granting it to all guest users. 2) Granting a specific set of non-admin users access to Azure Portal when "Restrict access to Azure AD portal to admins only" is set to "Yes". 3) Granting service principals access to directory whereDirectory.Read.All is not an option.
 
 * **[Directory Synchronization Accounts](#directory-synchronization-accounts)**: Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
 
@@ -658,7 +658,7 @@ Users assigned to this role are added to the local administrators group on Azure
 | microsoft.aad.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
 
 ### Directory Readers
-Can read basic directory information. For granting access to applications, not intended for users.
+Can read basic directory information. Users in this role can read basic directory information. This role should be used for: 1) Granting a specific set of guest users read access instead of granting it to all guest users. 2) Granting a specific set of non-admin users access to Azure Portal when "Restrict access to Azure AD portal to admins only" is set to "Yes". 3) Granting service principals access to directory whereDirectory.Read.All is not an option.
 
 | **Actions** | **Description** |
 | --- | --- |
