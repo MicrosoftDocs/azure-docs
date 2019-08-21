@@ -136,4 +136,4 @@ ms.author: dapine
     }
     ```
 
-We can now correlate the documents of the response payload's JSON data to the original request payload documents by their corresponding `id`. Each document is treated independently containing various statistics such as `characterCount` and `transactionCount`. Additionally, each resulting document has the `detectedLanguages` array with the `name`, [`iso6391Name`](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), and `score` for each language detected. When multiple languages are detected, the `score` is used to determine the most probable language.
+We can now correlate the documents of the response payload's JSON data to the original request payload documents by their corresponding `id`. Each document is treated independently containing various statistics such as `characterCount` and `transactionCount`. Additionally, each resulting document has the `detectedLanguages` array with the `name`, `iso6391Name`, and `score` for each language detected. When multiple languages are detected, the `score` is used to determine the most probable language.
