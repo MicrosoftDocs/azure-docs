@@ -57,7 +57,7 @@ Roles might include the following
 
 | Capability | Description|
 | -| - |
-| [Single sign-on](https://aka.ms/deploymentplans/sso)| Single sign-on helps your users access all the apps and resources they need to do business, while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce, to Box to internal applications without being required to entering credentials a second time. |
+| [Single sign-on](https://aka.ms/deploymentplans/sso)| Single sign-on helps your users access the apps and resources they need to do business while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce to Box to internal applications without being required to enter credentials a second time. |
 | [Access panel](https://aka.ms/deploymentplans/accesspanel)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
 
 
@@ -66,17 +66,16 @@ Roles might include the following
 | Capability | Description|
 | -| -|
 | [ADFS to Password Hash Sync](https://aka.ms/deploymentplans/adfs2phs)| With Password Hash Synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD, letting Azure AD authenticate users with no interaction with the on-premises Active Directory |
-| [ADFS to Pass Through Authentication](https://aka.ms/deploymentplans/adfs2pta)| Azure AD Pass-through Authentication helps your users sign in to both on-premises and cloud-based applications using the same passwords. This feature provides your users a better experience - one less password to remember - and reduces IT helpdesk costs because your users are less likely to forget how to sign in. When people sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory. |
-| [Azure AD Application Proxy](https://aka.ms/deploymentplans/appproxy)| Employees today want to be productive at any place, at any time, and from any device. They need to access all their applications, both SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs). |
-| [Seamless SSO](https://aka.ms/SeamlessSSODPDownload)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. After you turn on this feature, users won't need to type in their passwords to sign in to Azure AD, and usually, won't even need to type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components. |
-
+| [ADFS to Pass Through Authentication](https://aka.ms/deploymentplans/adfs2pta)| Azure AD Pass-through Authentication helps your users sign in to both on-premises and cloud-based applications using the same passwords. This feature provides users with a better experience - one less password to remember - and reduces IT helpdesk costs because users are less likely to forget how to sign in. When people sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory. |
+| [Azure AD Application Proxy](https://aka.ms/deploymentplans/appproxy)| Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs). |
+| [Seamless SSO](https://aka.ms/SeamlessSSODPDownload)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. With this feature, users won't need to type in their passwords to sign in to Azure AD and usually won't need to enter their usernames. This feature provides authorized users with easy access to your cloud-based applications without needing any additional on-premises components. |
 
 ## Deploy user provisioning
 
 | Capability | Description|
 | -| -|
 | [User provisioning](https://aka.ms/UserProvisioningDPDownload)| Azure AD helps you automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications, such as Dropbox, Salesforce, ServiceNow, and more. |
-| [Workday-driven Inbound User Provisioning](https://aka.ms/WorkdayDeploymentPlan)| Workday-driven Inbound User Provisioning to Active Directory creates a foundation for ongoing identity governance and enhances the quality of business processes that rely on authoritative identity data. Using this feature, you can seamlessly manage the identity lifecycle of employees and contingent workers by configuring rules that map Joiner-Mover-Leaver processes (such as New Hire, Terminate, Transfer) to IT provisioning actions (such as Create, Enable, Disable |
+| [Workday-driven Inbound User Provisioning](https://aka.ms/WorkdayDeploymentPlan)| Workday-driven Inbound User Provisioning to Active Directory creates a foundation for ongoing identity governance and enhances the quality of business processes that rely on authoritative identity data. Using this feature, you can seamlessly manage the identity lifecycle of employees and contingent workers by configuring rules that map Joiner-Mover-Leaver processes (such as New Hire, Terminate, Transfer) to IT provisioning actions (such as Create, Enable, Disable) |
 
 ## Deploy governance and reporting
 
