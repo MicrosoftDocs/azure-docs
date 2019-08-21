@@ -109,7 +109,7 @@ landingContent:
             url: tutorial-connect-virtual-networks-cli.md
           - text: Connect VNets with virtual network peering - PowerShell
             url: tutorial-connect-virtual-networks-powershell.md
-        - linkListType: how-to-guide
+      - linkListType: how-to-guide
         links:
           - text: Same deployment model - same subscription
             url: tutorial-connect-virtual-networks-powershell.md
