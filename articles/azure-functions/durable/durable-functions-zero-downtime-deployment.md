@@ -87,10 +87,10 @@ Configure your CI/CD pipeline to deploy only if your function app has no pending
 
 ```csharp
 [FunctionName("StatusCheck")]
-public static async Task<IActionResult> StatusCheck(    [HttpTrigger(AuthorizationLevel.Function, "get", "post")]
-HttpRequestMessage req,
-[OrchestrationClient] DurableOrchestrationClient client,
-ILogger log)
+public static async Task<IActionResult> StatusCheck(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    ILogger log)
 {
     var runtimeStatus = new List<OrchestrationRuntimeStatus>();
 
