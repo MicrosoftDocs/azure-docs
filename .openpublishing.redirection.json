@@ -34900,7 +34900,12 @@
 		},
 		{
 			"source_path": "articles/azure-policy/scripts/req-store-acct-enc.md",
-			"redirect_url": "/azure/governance/policy/samples/require-storage-account-encryption",
+			"redirect_url": "/azure/governance/policy/samples/index",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/governance/policy/samples/require-storage-account-encryption.md",
+			"redirect_url": "/azure/governance/policy/samples/index",
 			"redirect_document_id": false
 		},
 		{
@@ -37865,7 +37870,7 @@
 		},
 		{
 			"source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
-			"redirect_url": "/azure/governance/policy/samples/require-storage-account-encryption",
+			"redirect_url": "/azure/governance/policy/samples/index",
 			"redirect_document_id": true
 		},
 		{
