@@ -11601,7 +11601,7 @@
 			"redirect_document_id": false
 		},
 		{
-			"source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus/md",
+			"source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus.md",
 			"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
 			"redirect_document_id": false
 		},
