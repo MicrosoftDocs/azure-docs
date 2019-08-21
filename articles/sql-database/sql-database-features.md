@@ -132,7 +132,7 @@ Azure platform provides a number of PaaS capabilities that are added as an addit
 | [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
 | Public IP address | Yes. The access can be restricted using firewall or service endpoints.  | Yes. Needs to be explicitly enabled and port 3342 must be enabled in NSG rules. Public IP can be disabled if needed. See [Public endpoint](sql-database-managed-instance-public-endpoint-securely.md) for more details. | 
 | [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - all service tiers other than hyperscale - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Resource pools | Yes, as [Elastic pools](sql-database-elastic-pool.md) | No. A single managed mnstance can have multiple databases that share the same pool of resources. Managed instances cannot share resources. |
+| Resource pools | Yes, as [Elastic pools](sql-database-elastic-pool.md) | No. A single managed instance can have multiple databases that share the same pool of resources. Managed instances cannot share resources. |
 | Scaling up or down (online) | Yes, you can either change DTU or reserved vCores or max storage with the minimal downtime. | Yes, you can change reserved vCores or max storage with the minimal downtime. |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Yes | Yes |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Yes | No |
@@ -148,7 +148,7 @@ Azure SQL database supports various data tools that can help you to manage your 
 
 | **Tool** | **Single databases and elastic pools** | **Managed instances** |
 | --- | --- | --- |
-| Azure Portal | Yes | Yes |
+| Azure portal | Yes | Yes |
 | Azure CLI | Yes | Yes|
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Yes | Yes |
 | Azure Powershell | Yes | Yes |
