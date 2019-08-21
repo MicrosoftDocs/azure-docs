@@ -293,12 +293,7 @@ You can enable the following diagnostic log categories for NSGs:
 
 ### Azure Security Center
 
-
-
-
-
-
-[Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the Security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of Security solutions. Network recommendations center around firewalls, Network Security Groups, configuring inbound traffic rules, and more.
+[Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats which enables you strengthen the security posture your Azure resources. It provides [security monitoring and policy management](../../security-center/tutorial-security-policy) across your Azure subscriptions and detects threats that might otherwise go unnoticed, and informs you of these attacks with [security alerts](../../security-center/security-center-alerts-overview). In addition, [recommendations](../../security-center/security-center-recommendations) are Network recommendations center around firewalls, Network Security Groups, configuring inbound traffic rules, and more.
 
 ## Compute
 
