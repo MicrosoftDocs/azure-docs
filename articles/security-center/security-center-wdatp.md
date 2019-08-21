@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2018
+ms.date: 08/21/2019
 ms.author: "v-mohabe"
 ---
 # Windows Defender Advanced Threat Protection with Azure Security Center
@@ -111,6 +111,7 @@ To generate a benign Windows Defender ATP test alert:
 
 ## Next steps
 
+- [Platforms and features supported by Azure Security Center](security-center-os-coverage.md)
 - [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations in Azure Security Center](security-center-recommendations.md): Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
