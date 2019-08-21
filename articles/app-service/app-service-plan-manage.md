@@ -93,7 +93,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 ## Scale an App Service plan
 
-To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
+To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
 To scale out an app's instance count, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
@@ -109,7 +109,7 @@ To avoid unexpected charges, when you delete the last app in an App Service plan
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Scale up an app in Azure](web-sites-scale.md)
+> [Scale up an app in Azure](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
