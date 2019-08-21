@@ -29,10 +29,7 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
 
 ## Prerequisites
 
-- User with one of the following Azure AD roles:
-    - Azure Information Protection administrator
-    - Security administrator
-    - Global administrator
+- You must be an Azure Information Protection administrator, Security administrator, or Global administrator for your tenant.
     
     > [!NOTE]
     > You cannot use the Azure Information Protection administrator role if your tenant is on the [unified labeling platform](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
