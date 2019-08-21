@@ -97,8 +97,6 @@ The following table lists the major features of SQL Server and provides informat
 | [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Yes|Yes|
 | [Operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Yes - see [T-SQL differences](sql-database-managed-instance-transact-sql-information.md) |
 | [Partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Yes | Yes |
-| Public IP address | Yes. The access can be restricted using firewall or service endpoints.  | Yes. Needs to be explicitly enabled and port 3342 must be enabled in NSG rules. Public IP can be disabled if needed. See [Public endpoint](sql-database-managed-instance-public-endpoint-securely.md) for more details. | 
-| [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - all service tiers other than hyperscale - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function. | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function. |
 | [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Yes | Yes |
 | [Query Notifications](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Yes |
@@ -142,39 +140,47 @@ Azure platform provides a number of PaaS capabilities that are added as an addit
 | --- | --- | --- |
 | [Active geo-replication](sql-database-active-geo-replication.md) | Yes - all service tiers other than hyperscale | No, see [Auto-failover groups(preview)](sql-database-auto-failover-group.md) as an alternative |
 | [Auto-failover groups](sql-database-auto-failover-group.md) | Yes - all service tiers other than hyperscale | Yes, in [public preview](sql-database-auto-failover-group.md)|
+| Auto-scale | Yes, in [serverless model](sql-database-serverless.md) | No, you need to choose reserved compute and storage. |
+| [Azure Active Directory (AAD) authentication](sql-database-aad-authentication.md) | Yes. AAD users only. | Yes. Including server-level AAD logins. |
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Yes | No |
+| Backup retention | Yes. 7 days default, max 35 days. | Yes. 7 days default, max 35 days. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Yes | Yes |
 | File system access | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. |
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Yes - all service tiers other than hyperscale | Yes - using [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Hyperscale architecture](sql-database-service-tier-hyperscale.md) | Yes | No |
 | [Long-term backup retention - LTR](sql-database-long-term-retention.md) | Yes, keep automatically taken backups up to 10 years. | Not yet. Use `COPY_ONLY` [manual backups](sql-database-managed-instance-transact-sql-information.md#backup) as a temporary workaround. |
-| [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
-| Resource pools | Yes, as [Elastic pools](sql-database-elastic-pool.md) | Built-in - a single Managed Instance can have multiple databases that share the same pool of resources |
-| Scaling up or down (online) | Yes, you can either change DTU or reserved vCores or max storage with the minimal downtime. | Yes, you can change reserved vCores or max storage with the minimal downtime. | 
-| Auto-scale | Yes, in [serverless model](sql-database-serverless.md) | No, you need to choose reserved compute and storage. |
 | Pause/resume | Yes, in [serverless model](sql-database-serverless.md) | No | 
-| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Yes](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Yes [version 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
+| [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
+| Public IP address | Yes. The access can be restricted using firewall or service endpoints.  | Yes. Needs to be explicitly enabled and port 3342 must be enabled in NSG rules. Public IP can be disabled if needed. See [Public endpoint](sql-database-managed-instance-public-endpoint-securely.md) for more details. | 
+| [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - all service tiers other than hyperscale - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| Resource pools | Yes, as [Elastic pools](sql-database-elastic-pool.md) | No. A single managed mnstance can have multiple databases that share the same pool of resources. Managed instances cannot share resources. |
+| Scaling up or down (online) | Yes, you can either change DTU or reserved vCores or max storage with the minimal downtime. | Yes, you can change reserved vCores or max storage with the minimal downtime. |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Yes | Yes |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Yes | No |
-| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by Azure SQL Database and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database server and Managed Instance, see [Compare Azure SQL Database single databases/elastic pools and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by Managed Instance and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database and Managed Instance, see [Compare Azure SQL Database single databases/elastic pools and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](https://docs.microsoft.com/power-bi/) | No - [see Power BI](https://docs.microsoft.com/power-bi/) |
 | [Query Performance Insights (QPI)](sql-database-query-performance.md) | Yes | No. Use built-in reports in SQL Server Management Studio and Azure Data Studio. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](sql-database-vnet-service-endpoint-rule-overview.md) | Yes, Managed Instance is injected in customer's VNet. See [subnet](sql-database-managed-instance-transact-sql-information.md#subnet) and [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
+| VNet Service endpoint | [Yes](sql-database-vnet-service-endpoint-rule-overview.md) | No |
 
 ## Tools
 Azure SQL database supports various data tools that can help you to manage your data.
 
-| **SQL Tool** | **Single databases and elastic pools** | **Managed instances** |
+| **Tool** | **Single databases and elastic pools** | **Managed instances** |
 | --- | --- | --- |
+| Azure Portal | Yes | Yes |
+| Azure CLI | Yes | Yes|
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Yes | Yes |
+| Azure Powershell | Yes | Yes |
 | [BACPAC file (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](sql-database-export.md) | Yes - see [SQL Database export](sql-database-export.md) |
 | [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes - see [SQL Database import](sql-database-import.md) | Yes - see [SQL Database import](sql-database-import.md) |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | No | No |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | No | No |
+| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Yes](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Yes [version 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes | Yes |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes [version 18.0 and higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) | Yes |
 | [System Center Operations Manager - SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | No |
 
