@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/20/2019
 tags: connectors
 ---
 
@@ -104,49 +104,45 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    **Create an on-premises SAP connection**
 
-    1. Provide the connection information for your SAP server. For the **Data Gateway** property, select the data gateway you created in the Azure portal for your gateway installation.
+   Provide the connection information for your SAP server. For the **Data Gateway** property, select the data gateway you created in the Azure portal for your gateway installation. When you're finished, select **Create**. Logic Apps sets up and tests your connection to make sure that the connection works properly.
 
-         - If the **Logon Type** property is set to **Application Server**, these properties, which usually appear optional, are required:
+   * If the **Logon Type** property is set to **Application Server**, these properties, which usually appear optional, are required:
 
-            ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-         - If the **Logon Type** property is set to **Group**, these properties, which usually appear optional, are required:
+   * If the **Logon Type** property is set to **Group**, these properties, which usually appear optional, are required:
 
-            ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+     ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-           By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
-
-    1. When you're finished, select **Create**.
-
-       Logic Apps sets up and tests your connection to make sure that the connection works properly.
+   By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
 1. Now find and select an action from your SAP server.
 
-    1. In the **SAP Action** box, select the folder icon. From the file list, find and select the SAP message you want to use. To navigate the list, use the arrows.
+   1. In the **SAP Action** box, select the folder icon. From the file list, find and select the SAP message you want to use. To navigate the list, use the arrows.
 
-       This example selects an IDoc with the **Orders** type.
+      This example selects an IDoc with the **Orders** type.
 
-       ![Find and select IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+      ![Find and select IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
-       If you can't find the action you want, you can manually enter a path, for example:
+      If you can't find the action you want, you can manually enter a path, for example:
 
-       ![Manually provide path to IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
+      ![Manually provide path to IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
-       > [!TIP]
-       > Provide the value for **SAP Action** through the expression editor. 
-       > That way, you can use the same action for different message types.
+      > [!TIP]
+      > Provide the value for **SAP Action** through the expression editor. 
+      > That way, you can use the same action for different message types.
 
-       For more information about IDoc operations, see [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      For more information about IDoc operations, see [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-    1. Click inside the **Input Message** box so that the dynamic content list appears. From that list, under **When a HTTP request is received**, select the **Body** field.
+   1. Click inside the **Input Message** box so that the dynamic content list appears. From that list, under **When a HTTP request is received**, select the **Body** field.
 
-       This step includes the body content from your HTTP Request trigger and sends that output to your SAP server.
+      This step includes the body content from your HTTP Request trigger and sends that output to your SAP server.
 
-       ![Select "Body" field](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
+      ![Select "Body" field](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
 
-       When you're finished, your SAP action looks like this example:
+      When you're finished, your SAP action looks like this example:
 
-       ![Complete SAP action](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+      ![Complete SAP action](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -218,17 +214,17 @@ This example uses a logic app that triggers when the app receives a message from
 
    **Create an on-premises SAP connection**
 
-   - Provide the connection information for your SAP server. For the **Data Gateway** property, select the data gateway you created in the Azure portal for your gateway installation.
+   Provide the connection information for your SAP server. For the **Data Gateway** property, select the data gateway you created in the Azure portal for your gateway installation. When you're finished, select **Create**. Logic Apps sets up and tests your connection to make sure that the connection works properly.
 
-      - If the **Logon Type** property is set to **Application Server**, these properties, which usually appear optional, are required:
+   * If the **Logon Type** property is set to **Application Server**, these properties, which usually appear optional, are required:
 
-         ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      - If the **Logon Type** property is set to **Group**, these properties, which usually appear optional, are required:
+   * If the **Logon Type** property is set to **Group**, these properties, which usually appear optional, are required:
 
-          ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+     ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
-      By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
+   By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
 1. Provide the required parameters based on your SAP system configuration.
 
@@ -266,6 +262,41 @@ Your logic app is now ready to receive messages from your SAP system.
 1. On the logic app menu, select **Overview**. Review the **Runs history** for any new runs for your logic app.
 
 1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
+
+## Receive IDOCs packets from SAP
+
+You can set up SAP to [send IDOCs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), which are batches or groups of IDOCs. To receive IDOC packets, the SAP connector, and specifically the trigger, doesn't need extra configuration. However, to process each item in an IDOC packet after the trigger receives the packet, some additional steps are required to split the packet into individual IDOCs.
+
+Here's an example that shows how to extract individual IDOCs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath): 
+
+1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to set up a [logic app with an SAP trigger](#receive-from-sap). 
+
+   For example:
+
+   ![SAP trigger](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. Get the root namespace from the XML IDOC that your logic app receives from SAP. To extract this namespace from the XML document, add a step that creates a local string variable and stores that namespace by using an `xpath()` expression:
+
+   `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
+
+   ![Get namespace](./media/logic-apps-using-sap-connector/get-namespace.png)
+
+1. To extract an individual IDOC, add a step that creates an array variable and stores the IDOC collection by using another `xpath()` expression:
+
+   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')` 
+
+   ![Get array of items](./media/logic-apps-using-sap-connector/get-array.png)
+
+   The array variable makes each IDOC available for your logic app to process individually by enumerating over the collection. In this example, the logic app transfers each IDOC to an SFTP server by using a loop:
+
+   ![Send IDOC](./media/logic-apps-using-sap-connector/loop-batch.png)
+
+   Each IDOC must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive` element along with the root namespace before sending the IDOC to the downstream app, or SFTP server in this case.
+
+> [!TIP]
+> You can use the quickstart template for this pattern by selecting this template in the Logic App Designer when you create a new logic app.
+>
+> ![Batch template](./media/logic-apps-using-sap-connector/batch-template.png)
 
 ## Generate schemas for artifacts in SAP
 
@@ -464,10 +495,6 @@ When messages are sent with **Safe Typing** enabled, the DATS and TIMS response 
 ## Known issues and limitations
 
 Here are the currently known issues and limitations for the SAP connector:
-
-* Only a single send to SAP call or message works with tRFC. The BAPI commit pattern, such as making multiple tRFC calls in the same session, isn't supported.
-
-* The SAP trigger doesn't support receiving batch IDocs from SAP. This action might result in RFC connection failure between your SAP system and the data gateway.
 
 * The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
 
