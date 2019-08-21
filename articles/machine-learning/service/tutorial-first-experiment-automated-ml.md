@@ -18,7 +18,7 @@ ms.date: 08/14/2019
 
 In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
-With automated machine learning, you can automate away time intensive and iterative tasks to automatically perform algorithm selection and hyperparameter tuning. Automated machine learning rapidly iterates over many combinations of both algorithms and hyperparameters to find the best model based on your criterion.
+With automated machine learning, you can automate away time intensive and iterative tasks to automatically perform algorithm selection and hyperparameter tuning. Automated machine learning rapidly iterates over many combinations of both algorithms and hyperparameters to find the best model based on your primary success metric.
 
 In this tutorial, you learn the following tasks:
 
