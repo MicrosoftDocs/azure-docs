@@ -150,7 +150,7 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. Sign out of the Azure portal and then sign back in to refresh your access.
 1. Select **Azure Active Directory** on the left-hand menu.
 1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
-1. If you encounter validation errors prior to deleting the tenant, use the AzureAD PowerShell module to fully delete all application registrations and service principals (Enterprise Applications). When you connect to the tenant using the AzureAD PowerShell module, make sure you use the newly created Global Administrator account (the one created at step #1).
+1. If you encounter validation errors prior to deleting the tenant, use the [AzureAD PowerShell module](https://docs.microsoft.com/powershell/module/azuread) to fully delete all application registrations and service principals (Enterprise Applications). When you connect to the tenant using the AzureAD PowerShell module, make sure you use the newly created Global Administrator account (the one created at step #1).
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 
