@@ -24,7 +24,9 @@ At the end of this tutorial, you will have two Node.js console apps:
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
 >
 
-To complete this tutorial you need the following:
+## Prerequisites
+
+To complete this tutorial you need:
 
 * Node.js version 10.0.x or later.
 
@@ -50,13 +52,13 @@ In this section, you create a Node.js console app that adds location metadata to
 
 1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
 
-    ```
+    ```cmd/sh
     npm init
     ```
 
 2. At your command prompt in the **addtagsandqueryapp** folder, run the following command to install the **azure-iothub** package:
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 
@@ -69,7 +71,7 @@ In this section, you create a Node.js console app that adds location metadata to
         var iothub = require('azure-iothub');
         var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
-   
+
         registry.getTwin('myDeviceId', function(err, twin){
             if (err) {
                 console.error(err.constructor.name + ': ' + err.message);
@@ -82,7 +84,7 @@ In this section, you create a Node.js console app that adds location metadata to
                       }
                     }
                 };
-   
+
                 twin.update(patch, function(err) {
                   if (err) {
                     console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
@@ -111,7 +113,7 @@ In this section, you create a Node.js console app that adds location metadata to
                     console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
             });
-   
+
             query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
@@ -129,13 +131,13 @@ In this section, you create a Node.js console app that adds location metadata to
 
 6. Run the application with:
 
-    ```
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 
    You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
-   
-    ![See the one device in the query results](media/iot-hub-node-node-twin-getstarted/service1.png)
+
+   ![See the one device in the query results](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 In the next section, you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
@@ -144,14 +146,14 @@ In the next section, you create a device app that reports the connectivity infor
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.
 
 1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
-   
-    ```
+
+    ```cmd/sh
     npm init
     ```
 
 2. At your command prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
@@ -159,20 +161,20 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 4. Add the following code to the **ReportConnectivity.js** file, and substitute the **{device connection string}** placeholder with the device connection string you copied when you created the **myDeviceId** device identity:
 
-    ```
+    ```javascript
         'use strict';
         var Client = require('azure-iot-device').Client;
         var Protocol = require('azure-iot-device-mqtt').Mqtt;
-   
+
         var connectionString = '{device connection string}';
         var client = Client.fromConnectionString(connectionString, Protocol);
-   
+
         client.open(function(err) {
         if (err) {
             console.error('could not open IotHub client');
         }  else {
             console.log('client opened');
-   
+
             client.getTwin(function(err, twin) {
             if (err) {
                 console.error('could not get twin');
@@ -182,7 +184,7 @@ In this section, you create a Node.js console app that connects to your hub as *
                         type: 'cellular'
                     }
                 };
-   
+
                 twin.properties.reported.update(patch, function(err) {
                     if (err) {
                         console.error('could not update twin');
@@ -201,7 +203,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 5. Run the device app
 
-    ```   
+    ```cmd/sh
         node ReportConnectivity.js
     ```
 
@@ -209,7 +211,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 6. Now that the device reported its connectivity information, it should appear in both queries. Go back in the **addtagsandqueryapp** folder and run the queries again:
 
-    ```   
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 
