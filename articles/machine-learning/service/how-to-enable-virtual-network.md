@@ -59,9 +59,7 @@ To use an Azure storage account for the workspace in a virtual network, do the f
     >
     > This applies to physical hardware such as a laptop, a cloud VM, or even a Notebook VM attached to your workspace that you use to develop solutions with the SDK.
     >
-    > To find the IP address of your development environment, use the [https://whatismyipaddress.com/](https://whatismyipaddress.com/) site. It displays the IP address that your computer uses to connect to the internet, which may be different than the one assigned to your computer on the local network.
-    >
-    > To add the IP to the firewall, use the __ADDRESS RANGE__ field to enter the IP address of the development environment.
+    > To add the IP to the firewall, view the __Firewalls and virtual networks__ for the storage account from the development client. Then use the __Add your client IP address__ check box. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment.
 
 1. As you're running the experiment, in your experimentation code, change the run config to use Azure Blob storage:
 
