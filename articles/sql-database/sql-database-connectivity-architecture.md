@@ -52,7 +52,7 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 The table below lists the IP Addresses of Gateways by region. To connect to an Azure SQL Database, you need to allow network traffic to & from **all** Gateways for the region.
 
-Details of how traffic shall be migrated to new Gateways in specific regions is in the following article: [Azure SQL Database traffic migration to newer Gateways](sql-database-gateway-migration.md)
+Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](sql-database-gateway-migration.md)
 
 
 | Region Name          | Gateway IP Addresses |
