@@ -74,7 +74,7 @@ To use direct methods, do the following steps:
 
 1. Right-click your device and select **Invoke Device Direct Method**.
 
-1. Enter the method name and payload in **Invoke Direct Method**, and then click **OK**.
+1. Enter the method name and payload in **Invoke Direct Method**, and then select **OK**.
 
     Results appear in **Output**.
 

@@ -46,7 +46,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
    For more information about tier options, see [Choose the right IoT hub tier](../articles/iot-hub/iot-hub-scaling.md).
 
-1. To review your choices, choose **Review + create**. YOur results will be similar to the following:
+1. To review your choices, choose **Review + create**. Your results will be similar to the following:
 
    ![Information for creating the new IoT hub](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 

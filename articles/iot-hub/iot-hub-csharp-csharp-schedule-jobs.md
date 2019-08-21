@@ -34,7 +34,7 @@ To learn more about each of these capabilities, see:
 
 This tutorial shows you how to:
 
-* Create a device app that implements a direct method called **LockDoor** that can be called by the back-end app.
+* Create a device app that implements a direct method called **LockDoor**, which can be called by the back-end app.
 
 * Create a back-end app that creates a job to call the **LockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
 
@@ -146,7 +146,7 @@ In this section, you create a .NET console app that responds to a direct method 
 1. Save your work and build your solution.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policies. In production code, you should implement retry policies (such as connection retry), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 >
 
 ## Get the IoT hub connection string
@@ -301,6 +301,6 @@ You are now ready to run the apps.
 
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
+* To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
 
-To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
