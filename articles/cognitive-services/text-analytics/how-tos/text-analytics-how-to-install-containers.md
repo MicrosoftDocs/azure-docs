@@ -67,26 +67,6 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-## Get the container image with `docker pull`
-
-Container images for Text Analytics are available from Microsoft Container Registry.
-
-| Container | Repository |
-|-----------|------------|
-|Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Sentiment Analysis| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
-
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
-
-For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
-
-* [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654)
-
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
-
 ::: zone pivot="text-analytics-key-phrase-extraction"
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]

@@ -11,6 +11,18 @@ ms.date: 08/20/2019
 ms.author: dapine
 ---
 
+## Get the Key Phrase Extraction container image with `docker pull`
+
+Container images for Text Analytics are available on the Microsoft Container Registry.
+
+| Container | Container Registry / Repository / Image Name |
+|-----------|------------|
+| Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+
+For a full description of available tags for the Text Analytics containers, see the [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757) container on the Docker Hub.
+
 ### Docker pull for the Key Phrase Extraction container
 
 ```

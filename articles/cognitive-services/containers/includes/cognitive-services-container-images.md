@@ -4,7 +4,7 @@ The tables below are a comprehensive listing of the available container images o
 
 #### Public (container registry: `mcr.microsoft.com`)
 
-The Microsoft container registry hosts all of the general availability (GA) containers for Cognitive Services.
+The Microsoft Container Registry hosts all of the general availability (GA) containers for Cognitive Services.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
@@ -15,7 +15,7 @@ The Microsoft container registry hosts all of the general availability (GA) cont
 
 #### Public Preview (container registry: `containerpreview.azurecr.io`)
 
-The Container preview registry hosts all of the "public preview" containers for Cognitive Services that have not yet been progressed to general availability (GA). These containers require a formal request for access in order to consume them.
+The Container Preview registry hosts all of the "public preview" containers for Cognitive Services that have not yet been progressed to general availability (GA). These containers require a formal request for access in order to consume them.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
