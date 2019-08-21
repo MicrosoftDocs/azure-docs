@@ -164,8 +164,7 @@ landingContent:
             url: virtual-network-public-ip-address.md      
           - text: Deploy an IPV6 dual stack application
             url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md   
-          - text: Deploy an IPV6 dual stack application
-            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md           
+    
 
 
 
