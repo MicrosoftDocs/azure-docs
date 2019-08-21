@@ -34,7 +34,7 @@ This quickstart requires:
 
 ## Optional: Get started fast
 
-This quickstart will describe, step by step, how to make a simple client application to connect to your speech-enabled bot. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
+This quickstart will describe, step by step, how to make a client application to connect to your speech-enabled bot. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
 
 ## Create a Visual Studio project
 
@@ -48,7 +48,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 First, you'll create the application's user interface by adding the XAML code:
 
-1. In **Solution Explorer**, double-click `MainPage.xaml` to open the XAML file.
+1. In **Solution Explorer**, open `MainPage.xaml`.
 
 1. In the designer's XAML view, replace the entire contents with the following code snippet:
 
@@ -97,7 +97,7 @@ First, you'll create the application's user interface by adding the XAML code:
     </Page>
     ```
 
-The `MainPage.xaml` window's UI pane is updated to show the application's user interface.
+The Design view is updated to show the application's user interface.
 
 ### C# code-behind source
 
@@ -286,12 +286,6 @@ To add the code-behind source, follow these steps:
 
 1. Add the following code snippet to the method body of `InitializeDialogServiceConnector`. This code creates the `DialogServiceConnector` with your subscription information.
 
-   > [!NOTE]
-   > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
-
-   > [!NOTE]
-   > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
-
     ```csharp
     // create a DialogServiceConfig by providing a bot secret key 
     // and Cognitive Services subscription key
@@ -309,6 +303,12 @@ To add the code-behind source, follow these steps:
     botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
     connector = new DialogServiceConnector(botConfig);
     ```
+
+   > [!NOTE]
+   > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
+
+   > [!NOTE]
+   > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 1. Replace the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
@@ -367,7 +367,7 @@ To add the code-behind source, follow these steps:
     };
     ```
 
-1. Add the following code snippet to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class. This code sets up `DialogServiceConnector` to listen, as we have already established the configuration and registered the event handlers.
+1. Add the following code snippet to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class. This code sets up `DialogServiceConnector` to listen, since you already established the configuration and registered the event handlers.
 
     ```csharp
     if (connector == null)

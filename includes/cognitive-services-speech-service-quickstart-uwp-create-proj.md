@@ -6,9 +6,11 @@ ms.date: 08/19/2019
 ms.author: erhopf
 ---
 
+To create a Visual Studio project for Universal Windows Platform (UWP) development, you need to set up Visual Studio development options, create the project, select the target architecture, set up audio capture, and install the Speech SDK.
+
 ### Set up Visual Studio development options
 
-To start, make sure you're set up correctly in Visual Studio for Universal Windows Platform (UWP) development:
+To start, make sure you're set up correctly in Visual Studio for UWP development:
 
 1. Open Visual Studio 2019 to display the **Start** window.
 
@@ -22,7 +24,7 @@ To start, make sure you're set up correctly in Visual Studio for Universal Windo
 
 1. In the **Workloads** tab, under **Windows**, find the **Universal Windows Platform development** workload. If the check box next to that workload is already selected, close the **Modifying** dialog box, and go to step 6.
 
-1. Select the **Universal Windows Platform development** check box, select **Modify**, and then in the **Before we get started** dialog box, select **Continue** to install the UWP development workload. Installation of the new feature may take awhile.
+1. Select the **Universal Windows Platform development** check box, select **Modify**, and then in the **Before we get started** dialog box, select **Continue** to install the UWP development workload. Installation of the new feature may take a while.
 
 1. Close Visual Studio Installer.
 
@@ -52,7 +54,7 @@ Next, create your project:
 
 1. In **Target version** (the first drop-down box), choose a value identical to or later than the value in **Minimum version**.
 
-1. Select **OK**. You are returned to the Visual Studio IDE, with the new project created and visible in the **Solution Explorer** pane.
+1. Select **OK**. You're returned to the Visual Studio IDE, with the new project created and visible in the **Solution Explorer** pane.
 
    ![helloworld project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
 
