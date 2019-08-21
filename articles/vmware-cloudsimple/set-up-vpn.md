@@ -16,7 +16,7 @@ VPN gateways allow you to connect to CloudSimple network from your on-premises n
 
 ## VPN gateway types
 
-* **Point-to-site VPN** connection is the simplest way to connect to your Private Cloud from your computer. Use Point-to-Site VPN connectivity for connecting to the Private Cloud remotely.
+* **Point-to-Site VPN** connection is the simplest way to connect to your Private Cloud from your computer. Use Point-to-Site VPN connectivity for connecting to the Private Cloud remotely.
 * **Site-to-Site VPN** connection allows you to set up your Private Cloud workloads to access on-premises services. You can also use on-premises Active Directory as an identity source for authenticating to your Private Cloud vCenter.  Currently, **Policy-Based VPN** type is supported.
 
 In a region, you can create one Site-to-Site VPN gateway and one Point-to-Site VPN gateway.

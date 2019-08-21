@@ -61,10 +61,8 @@ Learn how to perform common tasks, such as:
 * Enable inbound internet access for workloads by [Allocating Public IPs](public-ips.md).
 * Enable connectivity from your internal networks or client workstations by [setting-up VPN](vpn-gateway.md).
 * Enable communications from your [on-premises environments](on-premises-connection.md) as well to [Azure Virtual networks](virtual-network-connection.md).
-<!--* Manage VMware environments by [accessing vSphere Web Client](vsphere-access.md).-->
 * Configure alert targets and view total purchased capacity in the [account summary](account.md)
 * View [users](users.md) that have accessed the CloudSimple portal.
-<!--* [Configure your user profile](edit-profile.md).-->
 * Manage VMware virtual machines from the Azure portal:
     * [Create virtual machines](azure-create-vm.md) in the Azure portal.
     * [Manage virtual machines](azure-manage-vm.md) that you have created.
