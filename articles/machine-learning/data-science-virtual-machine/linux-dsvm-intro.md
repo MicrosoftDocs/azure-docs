@@ -21,93 +21,88 @@ ms.author: vijetaj
 ---
 # Provision a Linux CentOS Data Science Virtual Machine on Azure
 
-The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine that comes with a collection of pre-installed tools. These tools are commonly used for doing data analytics and machine learning. The key software components included are:
+The Linux Data Science Virtual Machine (DSVM) is a CentOS-based Azure virtual machine. The Linux DSVM comes with a collection of preinstalled tools that you can use for data analytics and machine learning. 
 
-* Operating System: Linux CentOS distribution.
+The key software components included in a Linux DSVM are:
+
+* Linux CentOS distribution operating system
 * Microsoft R Server Developer Edition
-* Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries
-* JuliaPro - a curated distribution of Julia language with popular scientific and data analytics libraries
+* Anaconda Python distribution (versions 3.5 and 2.7), including popular data analysis libraries
+* JuliaPro: A curated distribution of the Julia language and popular scientific and data analytics libraries
 * Standalone Spark instance and single node Hadoop (HDFS, Yarn)
-* JupyterHub - a multiuser Jupyter notebook server supporting R, Python, PySpark, Julia kernels
+* JupyterHub: A multiuser Jupyter notebook server that support sR, Python, PySpark, and Julia kernels
 * Azure Storage Explorer
-* Azure command-line interface (CLI) for managing Azure resources
+* The Azure command-line interface (Azure CLI) for managing Azure resources
 * PostgresSQL Database
 * Machine learning tools
-  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
+  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system that supports techniques like online, hashing, allreduce, reductions, learning2search, active, and interactive learning
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool that provides fast and accurate boosted tree implementation
   * [Rattle](https://togaware.com/rattle/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
-* Azure SDK in Java, Python, node.js, Ruby, PHP
-* Libraries in R and Python for use in Azure Machine Learning and other Azure services
+* Azure SDK in Java, Python, node.js, Ruby, and PHP
+* Libraries in R and Python to use in Azure Machine Learning and other Azure services
 * Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
-
 
 Doing data science involves iterating on a sequence of tasks:
 
-1. Finding, loading, and pre-processing data
-1. Building and testing models
-1. Deploying the models for consumption in intelligent applications
+1. Finding, loading, and pre-processing data.
+1. Building and testing models.
+1. Deploying the models for consumption in intelligent applications.
 
-Data scientists use various tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
+Data scientists use various tools to complete these tasks. It can be time consuming to find the correct versions of the software and then download, compile, and install the software.
 
-The Linux Data Science Virtual Machine can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also pre-installed.
+The Linux Data Science Virtual Machine can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also preinstalled.
 
 There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 ## Other Versions of the Data Science Virtual Machine
+
 An [Ubuntu](dsvm-ubuntu-intro.md) image is also available, with many of the same tools as the CentOS image plus deep learning frameworks. A [Windows](provision-vm.md) image is available as well.
 
 ## Prerequisites
-Before you can create a Linux Data Science Virtual Machine, you must have the following:
+
+Before you can create a Linux Data Science Virtual Machine, you must have the following prerequisites:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
 * **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-quickstart-create-account.md). Alternatively, if you do not want to use an existing account, the storage account can be created as part of the process of creating the VM.
 
 ## Create your Linux Data Science Virtual Machine
-Here are the steps to create an instance of the Linux Data Science Virtual Machine:
+
+To create an instance of the Linux Data Science Virtual Machine:
 
 1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
 1. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 1. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
-   
-   a. **Basics**:
-   
-   * **Name**: Name of your data science server you are creating.
-   * **User Name**: First account sign-in ID.
-   * **Password**: First account password (you can use SSH public key instead of password).
-   * **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
-   * **Resource Group**: You can create a new one or use an existing group.
-   * **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
-   
-   b. **Size**:
-   
-   * Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
-   
-   c. **Settings**:
-   
-   * **Disk Type**: Choose **Premium** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard**.
-   * **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
-   * **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
-   
-   d. **Summary**:
-   
-   * Verify that all information you entered is correct.
-   
-   e. **Buy**:
-   
-   * To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
+   1. **Basics**:
+      * **Name**: Name of your data science server you are creating.
+      * **User Name**: First account sign-in ID.
+      * **Password**: First account password (you can use SSH public key instead of password).
+      * **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
+      * **Resource Group**: You can create a new one or use an existing group.
+      * **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
+   1. **Size**:
+       * Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
+   1. **Settings**:
+      * **Disk Type**: Choose **Premium** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard**.
+      * **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
+      * **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
+   1. **Summary**:
+       * Verify that all information you entered is correct.
+   1. **Buy**:
+      * To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
 
-The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.
+The provisioning should take 10-20 minutes. The status of the provisioning is displayed in the Azure portal.
 
 ## How to access the Linux Data Science Virtual Machine
+
 After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 > [!NOTE]
 > The X2Go client performed significantly better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
 > 
-> 
 
-## Installing and configuring X2Go client
+## Install and configure the X2Go client
+
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -159,6 +154,7 @@ To install additional Python libraries, you need to run ```conda``` or ```pip```
 
 
 ### Jupyter notebook
+
 The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password.
 
 The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. There is a desktop icon named "Jupyter Notebook" to launch the browser to access the notebook server. If you are on the VM via SSH or X2Go client, you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
@@ -178,6 +174,7 @@ You can access the Jupyter notebook server from any host. Just type *https://\<V
 We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux user name and password. You can create a new notebook by selecting **New**, and then the appropriate language kernel. If you don't see the **New** button, click the **Jupyter** icon on the top left to go to the home page of the notebook server.
 
 ### Apache Spark Standalone 
+
 A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally first before testing and deploying on large clusters. You can run PySpark programs through the Jupyter kernel. When you open Jupyter and click the **New** button, you should see a list of available kernels. The "Spark - Python" is the PySpark kernel that lets you build Spark applications using Python language. You can also use a Python IDE like PyCharm or Spyder to build you Spark program. Since, this is a standalone  instance, the Spark stack runs within the calling client program. This makes it faster and easier to troubleshoot issues compared to developing on a Spark cluster. 
 
 A sample PySpark notebook is provided on Jupyter that you can find in the "SparkML" directory under the home directory of Jupyter ($HOME/notebooks/SparkML/pySpark). 
@@ -198,6 +195,7 @@ You can stop the Hadoop related services when you don't need them by running ```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors
+
 You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse, and IntelliJ. gEdit, Eclipse, IntelliJ, RStudio and PyCharm are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
 
 **VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](https://ess.r-project.org/).
@@ -207,10 +205,13 @@ You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit, P
 **LaTex** is installed through the texlive package along with an Emacs add-on [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) package, which simplifies authoring your LaTex documents within Emacs.  
 
 ### Databases
+
 #### Postgres
+
 The open source database **Postgres** is available on the VM, with the services running and initdb already completed. You still need to create databases and users. For more information, see the [Postgres documentation](https://www.postgresql.org/docs/).  
 
 #### Graphical SQL client
+
 **SQuirrel SQL**, a graphical SQL client, has been provided to connect to different databases (such as Microsoft SQL Server, Postgres, and MySQL) and to run SQL queries. You can run this from a graphical desktop session (using the X2Go client, for example). To invoke SQuirrel SQL, you can either launch it from the icon on the desktop or run the following command on the shell.
 
     /usr/local/squirrel-sql-3.7/squirrel-sql.sh
@@ -222,6 +223,7 @@ Before the first use, set up your drivers and database aliases. The JDBC drivers
 For more information, see [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
 #### Command-line tools for accessing Microsoft SQL Server
+
 The ODBC driver package for SQL Server also comes with two command-line tools:
 
 **bcp**: The bcp utility bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. The bcp utility can be used to import large numbers of new rows into SQL Server tables, or to export data out of tables into data files. To import data into a table, you must either use a format file created for that table, or understand the structure of the table and the types of data that are valid for its columns.
@@ -238,6 +240,7 @@ For more information, see [Connecting with sqlcmd](https://msdn.microsoft.com/li
 > 
 
 #### Database access libraries
+
 There are libraries available in R and Python to access databases.
 
 * In R, the **RODBC** package or **dplyr** package allows you to query or execute SQL statements on the database server.
@@ -249,6 +252,7 @@ To access **Postgres**:
 * From Python: Use the **psycopg2** library.
 
 ### Azure tools
+
 The following Azure tools are installed on the VM:
 
 * **Azure command-line interface**: The Azure CLI allows you to create and manage Azure resources through shell commands. To invoke the Azure tools, just type **azure help**. For more information, see the [Azure CLI documentation page](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
@@ -262,6 +266,7 @@ The following Azure tools are installed on the VM:
 You can access the [Azure portal](https://portal.azure.com) from the pre-installed Firefox browser. On the Azure portal, you can create, manage, and monitor Azure resources.
 
 ### Azure Machine Learning
+
 Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You build your experiments and models from Azure Machine Learning Studio. It can be accessed from a web browser on the data science virtual machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
 After you sign in to Azure Machine Learning Studio, you have access to an experimentation canvas where you can build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook hosted on Azure Machine Learning and can work seamlessly with the experiments in Machine Learning Studio. Operationalize the machine learning models that you have built by wrapping them in a web service interface. This enables clients written in any language to invoke predictions from the machine learning models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
@@ -276,6 +281,7 @@ For information on how to deploy models in R and Python into Azure Machine Learn
 > 
 
 ### Machine learning tools
+
 The VM comes with a few machine learning tools and algorithms that have been pre-compiled and pre-installed locally. These include:
 
 * **Microsoft Cognitive Toolkit** : A deep learning toolkit.
@@ -289,6 +295,7 @@ The VM comes with a few machine learning tools and algorithms that have been pre
 Here is some additional information about the first three machine learning tools in the list.
 
 #### Microsoft Cognitive Toolkit
+
 This is an open source, deep learning toolkit. It is a command-line tool (cntk), and is already in the PATH.
 
 To run a basic sample, execute the following commands in the shell:
@@ -299,6 +306,7 @@ To run a basic sample, execute the following commands in the shell:
 For more information, see the CNTK section of [GitHub](https://github.com/Microsoft/CNTK), and the [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
 #### Vowpal Wabbit
+
 Vowpal Wabbit is a machine learning system that uses techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
 
 To run the tool on a basic example, do the following:
@@ -310,6 +318,7 @@ To run the tool on a basic example, do the following:
 There are other, larger demos in that directory. For more information on VW, see  [this section of GitHub](https://github.com/JohnLangford/vowpal_wabbit), and the [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 #### xgboost
+
 This is a library that is designed and optimized for boosted (tree) algorithms. The objective of this library is to push the computation limits of machines to the extremes needed to provide large-scale tree boosting that is scalable, portable, and accurate.
 
 It is provided as a command line as well as an R library.
@@ -340,6 +349,7 @@ A .model file is written to the directory specified. Information about this demo
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/), and its [GitHub repository](https://github.com/dmlc/xgboost).
 
 #### Rattle
+
 Rattle (the **R** **A**nalytical **T**ool **T**o **L**earn **E**asily) uses GUI-based data exploration and modeling. It presents statistical and visual summaries of data, transforms data that can be readily modeled, builds both unsupervised and supervised models from the data, presents the performance of models graphically, and scores new data sets. It also generates R code, replicating the operations in the UI that can be run directly in R or used as a starting point for further analysis.
 
 To run Rattle, you need to be in a graphical desktop sign-in session. On the terminal, type ```R``` to enter the R environment. At the R prompt, enter the following commands:
@@ -369,6 +379,7 @@ Now a graphical interface opens up with a set of tabs. Here are the quick start 
 You can exit Rattle and R. Now you can modify the generated R script, or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is an easy way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
 
 ## Next steps
+
 Here's how you can continue your learning and exploration:
 
 * The [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
@@ -376,3 +387,4 @@ Here's how you can continue your learning and exploration:
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 * Visit the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
 
+http:\//link.com
