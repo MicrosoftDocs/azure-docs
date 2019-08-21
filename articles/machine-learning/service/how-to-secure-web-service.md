@@ -145,9 +145,9 @@ Next, you must update your DNS to point to the web service.
   > [!WARNING]
   > If you used *leaf_domain_label* to create the service by using a certificate from Microsoft, don't manually update the DNS value for the cluster. The value should be set automatically.
 
-  Update the DNS on the **Configuration** tab of the Public IP Address of the AKS cluster. (See the following image.) The Public IP Address is a resource type that's created under the resource group that contains the AKS agent nodes and other networking resources.
+  Update the DNS of the Public IP Address of the AKS cluster on the **Configuration** tab under **Settings** in the left pane. (See the following image.) The Public IP Address is a resource type that's created under the resource group that contains the AKS agent nodes and other networking resources.
 
-  ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  [![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## Update the SSL certificate
 
@@ -226,9 +226,7 @@ For more information, see the following reference docs:
 
 ## Disable SSL
 
-To disable SSL for a model deployed to Azure Kubernetes Service, you can use the SDK or CLI:
-
-**Use the SDK**
+To disable SSL for a model deployed to Azure Kubernetes Service, create an `SslConfiguration` with `status="Disabled"`, then perform an update:
 
 ```python
 from azureml.core.compute import AksCompute
@@ -242,12 +240,6 @@ aks_target = AksCompute(ws, clustername)
 ssl_configuration = SslConfiguration(status="Disabled")
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
-```
-
-**Use the CLI**
-
-```azurecli
- az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
 ```
 
 ## Next steps
