@@ -1,6 +1,6 @@
 ---
 title: Copy activity in Azure Data Factory | Microsoft Docs
-description: Learn about the copy activity in Azure Data Factory. You can use it to copy data from a supported source data store to a supported sink data store.
+description: Learn about the Copy activity in Azure Data Factory. You can use it to copy data from a supported source data store to a supported sink data store.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -24,21 +24,21 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Current version](copy-activity-overview.md)
 
-In Azure Data Factory, you can use the copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
+In Azure Data Factory, you can use the Copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use the Copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
-![The role of the copy activity](media/copy-activity-overview/copy-activity.png)
+![The role of the Copy activity](media/copy-activity-overview/copy-activity.png)
 
-The copy activity is executed on an [integration runtime](concepts-integration-runtime.md). You can use different types of integration runtimes for different data copy scenarios:
+The Copy activity is executed on an [integration runtime](concepts-integration-runtime.md). You can use different types of integration runtimes for different data copy scenarios:
 
 * When you're copying data between two data stores that are publicly accessible through the internet from any IP, you can use the Azure integration runtime for the copy activity. This integration runtime is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When you're copying data to and from data stores that are located on-premises or in a network with access control (for example, an Azure virtual network), you need to set up a self-hosted integration runtime.
 
-An integration runtime needs to be associated with each source and sink data store. For information about how the copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
+An integration runtime needs to be associated with each source and sink data store. For information about how the Copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
-To copy data from a source to a sink, the service that runs the copy activity performs these steps:
+To copy data from a source to a sink, the service that runs the Copy activity performs these steps:
 
 1. Reads data from a source data store.
-2. Performs serialization/deserialization, compression/decompression, column mapping, and so on. It does these operations based on the configurations of the input dataset, output dataset, and copy activity.
+2. Performs serialization/deserialization, compression/decompression, column mapping, and so on. It performs these operations based on the configurations of the input dataset, output dataset, and Copy activity.
 3. Writes data to the sink/destination data store.
 
 ![Copy activity overview](media/copy-activity-overview/copy-activity-overview.png)
@@ -49,23 +49,23 @@ To copy data from a source to a sink, the service that runs the copy activity pe
 
 ### Supported file formats
 
-You can use the copy activity to copy files as is between two file-based data stores. In this case, the data is copied efficiently without any serialization or deserialization.
+You can use the Copy activity to copy files as is between two file-based data stores. In this case, the data is copied efficiently without any serialization or deserialization.
 
-The copy activity can also read from and write to files in these formats:
+The Copy activity can also read from and write to files in these formats:
 - Text
 - JSON
 - Avro
 - ORC
 - Parquet
 
-The copy activity can compress and decompress files with these codecs: 
+The Copy activity can compress and decompress files with these codecs: 
 - Gzip
 - Deflate
 - Bzip2
 - ZipDeflate
 For more information, see [Supported file and compression formats](supported-file-formats-and-compression-codecs.md).
 
-For example, you can do the following copy activities:
+For example, you can perform the following copy activities:
 
 * Copy data from an on-premises SQL Server database and write the data to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.
@@ -75,19 +75,19 @@ For example, you can do the following copy activities:
 
 ## Supported regions
 
-The service that enables the copy activity is available globally in the regions and geographies listed in [Azure integration runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Products by region](https://azure.microsoft.com/regions/#services) to check the availability of Data Factory and data movement in a specific region.
+The service that enables the Copy activity is available globally in the regions and geographies listed in [Azure integration runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Products by region](https://azure.microsoft.com/regions/#services) to check the availability of Data Factory and data movement in a specific region.
 
 ## Configuration
 
-To use the copy activity in Azure Data Factory, you need to:
+To use the Copy activity in Azure Data Factory, you need to:
 
 1. **Create linked services for the source data store and the sink data store.** Refer to the connector article's "Linked service properties" section for configuration information and supported properties. You can find the list of supported connectors in the [Supported data stores and formats](#supported-data-stores-and-formats) section of this article.
 2. **Create datasets for the source and sink.** Refer to the "Dataset properties" sections of the source and sink connector articles for configuration information and supported properties.
-3. **Create a pipeline with the copy activity.** The next section provides an example.
+3. **Create a pipeline with the Copy activity.** The next section provides an example.
 
 ### Syntax
 
-The following template of a copy activity contains a complete list of supported properties. Specify the ones that fit your scenario.
+The following template of a Copy activity contains a complete list of supported properties. Specify the ones that fit your scenario.
 
 ```json
 "activities":[
@@ -139,33 +139,33 @@ The following template of a copy activity contains a complete list of supported 
 
 | Property | Description | Required? |
 |:--- |:--- |:--- |
-| type | For a copy activity, set to `Copy` | Yes |
-| inputs | Specify the dataset that you created that points to the source data. The copy activity supports only a single input. | Yes |
-| outputs | Specify the dataset that you created that points to the sink data. The copy activity supports only a single output. | Yes |
+| type | For a Copy activity, set to `Copy` | Yes |
+| inputs | Specify the dataset that you created that points to the source data. The Copy activity supports only a single input. | Yes |
+| outputs | Specify the dataset that you created that points to the sink data. The Copy activity supports only a single output. | Yes |
 | typeProperties | Specify properties to configure the copy activity. | Yes |
 | source | Specify the copy source type and the corresponding properties for retrieving data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | sink | Specify the copy sink type and the corresponding properties for writing data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | translator | Specify explicit column mappings from source to sink. This property applies when the default copy behavior doesn't meet your needs.<br/><br/>For more information, see [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md). | No |
 | dataIntegrationUnits | Specify a measure that represents the amount of power that [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/><br/>For more information, see [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
-| parallelCopies | Specify the parallelism that you want the copy activity to use when reading data from the source and writing data to the sink.<br/><br/>For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
+| parallelCopies | Specify the parallelism that you want the Copy activity to use when reading data from the source and writing data to the sink.<br/><br/>For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
 | enableStaging<br/>stagingSettings | Specify whether to stage the interim data in Blob storage instead of directly copying data from source to sink.<br/><br/>For information about useful scenarios and configuration details, see [Staged copy](copy-activity-performance.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when you copy data from source to sink.<br/><br/>For more information, see [Fault tolerance](copy-activity-fault-tolerance.md). | No |
 
 ## Monitoring
 
-You can monitor the copy activity run in the Azure Data Factory **Author & Monitor** UI or programmatically.
+You can monitor the Copy activity run in the Azure Data Factory **Author & Monitor** UI or programmatically.
 
 ### Monitor visually
 
-To visually monitor the copy activity run, go to your data factory and then go to **Author & Monitor**. On the **Monitor** tab, you see a list of pipeline runs with a **View Activity Run** button in the **Actions** column.
+To visually monitor the Copy activity run, go to your data factory and then go to **Author & Monitor**. On the **Monitor** tab, you see a list of pipeline runs with a **View Activity Run** button in the **Actions** column.
 
 ![Monitor pipeline runs](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
-Select **View Activity Runs** to see the list of activities in this pipeline run. In the **Actions** column, you see links to the copy activity input, output, errors (if copy activity run fails), and details.
+Select **View Activity Runs** to see the list of activities in this pipeline run. In the **Actions** column, you see links to the Copy activity input, output, errors (if the Copy activity run fails), and details.
 
 ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Select the **Details** button in the **Actions** column to see the copy activity's execution details and performance characteristics. You see information like volume/number of rows/number of files of data copied from source to sink, throughput, steps the copy activity goes through with corresponding durations, and configurations used for your copy scenario.
+Select the **Details** button in the **Actions** column to see the Copy activity's execution details and performance characteristics. You see information like volume/number of rows/number of files of data copied from source to sink, throughput, steps the Copy activity goes through with corresponding durations, and configurations used for your copy scenario.
 
 >[!TIP]
 >In some scenarios, you'll also see **Performance tuning tips** at the top of the copy monitoring page. These tips tell you about identified bottlenecks and provide information on what to change to boost copy throughput. For an example, see the [Performance and tuning](#performance-and-tuning) section of this article.
@@ -178,7 +178,7 @@ Select the **Details** button in the **Actions** column to see the copy activity
 
 ### Monitor programmatically
 
-Copy activity execution details and performance characteristics are also returned in the **Copy Activity run result** > **Output** section. Following is a complete list of properties that might be returned. You'll see only the properties that are applicable to your copy scenario. For information about how to monitor activity runs, see [Monitor a peipleline run](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
+Copy activity execution details and performance characteristics are also returned in the **Copy Activity run result** > **Output** section. Following is a complete list of properties that might be returned. You'll see only the properties that are applicable to your copy scenario. For information about how to monitor activity runs, see [Monitor a pipeline run](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Property name  | Description | Unit |
 |:--- |:--- |:--- |
@@ -186,15 +186,15 @@ Copy activity execution details and performance characteristics are also returne
 | dataWritten | Amount of data written to sink. | Int64 value, in bytes |
 | filesRead | Number of files copied during copy from file storage. | Int64 value (no unit) |
 | filesWritten | Number of files copied during copy to file storage. | Int64 value (no unit) |
-| sourcePeakConnections | Peak number of concurrent connections established to the source data store during the copy activity run. | Int64 value (no unit) |
-| sinkPeakConnections | Peak number of concurrent connections established to the sink data store during the copy activity run. | Int64 value (no unit) |
+| sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int64 value (no unit) |
+| sinkPeakConnections | Peak number of concurrent connections established to the sink data store during the Copy activity run. | Int64 value (no unit) |
 | rowsRead | Number of rows read from the source (not applicable for binary copy). | Int64 value (no unit) |
 | rowsCopied | Number of rows copied to sink (not applicable for binary copy). | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows that were skipped. You can enable incompatible rows to be skipped by setting `enableSkipIncompatibleRow` to true. | Int64 value (no unit) |
 | copyDuration | Duration of the copy run. | Int32 value, in seconds |
 | throughput | Rate of data transfer. | Floating point number, in KBps |
-| sourcePeakConnections | Peak number of concurrent connections established to the source data store during the copy activity run. | Int32 value (no unit) |
-| sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the copy activity run.| Int32 value (no unit) |
+| sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int32 value (no unit) |
+| sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the Copy activity run.| Int32 value (no unit) |
 | sqlDwPolyBase | Whether PolyBase is used when data is copied into SQL Data Warehouse. | Boolean |
 | redshiftUnload | Whether UNLOAD is used when data is copied from Redshift. | Boolean |
 | hdfsDistcp | Whether DistCp is used when data is copied from HDFS. | Boolean |
@@ -202,7 +202,7 @@ Copy activity execution details and performance characteristics are also returne
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](#fault-tolerance) later in this article. | Text (string) |
-| executionDetails | More details on the stages the copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change.<br/><br/>Data Factory also reports the detailed durations (in seconds) spent on various stages under `detailedDurations`. The durations of these steps are exclusive. Only those that apply to the given copy activity run appear:<br/>**Queuing duration** (`queuingDuration`): The amount of time before the copy activity actually starts on the integration runtime. If you use a self-hosted IR and this value is large, check the IR capacity and usage, and scale up or out according to your workload. <br/>**Pre-copy script duration** (`preCopyScriptDuration`): The time elapsed between when the copy activity starts on the IR and when the copy activity finishes running the pre-copy script in the sink data store. Applies when you configure the pre-copy script. <br/>**Time-to-first-byte** (`timeToFirstByte`): The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources. If this value is large, check and optimize the query or server.<br/>**Transfer duration** (`transferDuration`): The time elapsed between the end of the previous step and the time when the IR transfers all the data from source to sink. | Array |
+| executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change.<br/><br/>Data Factory also reports the detailed durations (in seconds) spent on various stages under `detailedDurations`. The durations of these steps are exclusive. Only those that apply to the given Copy activity run appear:<br/>**Queuing duration** (`queuingDuration`): The amount of time before the Copy activity actually starts on the integration runtime. If you use a self-hosted IR and this value is large, check the IR capacity and usage, and scale up or out according to your workload. <br/>**Pre-copy script duration** (`preCopyScriptDuration`): The time elapsed between when the Copy activity starts on the IR and when the Copy activity finishes running the pre-copy script in the sink data store. Applies when you configure the pre-copy script. <br/>**Time-to-first-byte** (`timeToFirstByte`): The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources. If this value is large, check and optimize the query or server.<br/>**Transfer duration** (`transferDuration`): The time elapsed between the end of the previous step and the time when the IR transfers all the data from source to sink. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance and tuning](#performance-and-tuning) for details. | Array |
 
 ```json
@@ -252,17 +252,17 @@ Copy activity execution details and performance characteristics are also returne
 
 ## Schema and data type mapping
 
-See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the copy activity maps your source data to your sink.
+See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the Copy activity maps your source data to your sink.
 
 ## Fault tolerance
 
-By default, the copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. You can configure the copy activity to skip and log the incompatible rows and copy only the compatible data to make the copy succeed. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
+By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. You can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data to make the copy succeed. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
 
 ## Performance and tuning
 
-The [Copy activity performance and scalability guide](copy-activity-performance.md) describes key factors that affect the performance of data movement via the copy activity in Azure Data Factory. It also lists the performance values observed during testing and discusses how to optimize the performance of the copy activity.
+The [Copy activity performance and scalability guide](copy-activity-performance.md) describes key factors that affect the performance of data movement via the Copy activity in Azure Data Factory. It also lists the performance values observed during testing and discusses how to optimize the performance of the Copy activity.
 
-In some scenarios, when you run a copy activity in Data Factory, you'll see "**Performance tuning tips**" at the top of the [copy activity monitoring page](#monitor-visually), as shown in the following example. The tips tell you the bottleneck identified for the given copy run. They also provide information on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like using PolyBase when copying data into Azure SQL Data Warehouse, increasing Azure Cosmos DB RUs or Azure SQL Database DTUs when the resource on data store side is the bottleneck, and removing unnecessary staged copies.
+In some scenarios, when you run a Copy activity in Data Factory, you'll see "**Performance tuning tips**" at the top of the [Copy activity monitoring page](#monitor-visually), as shown in the following example. The tips tell you the bottleneck identified for the given copy run. They also provide information on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like using PolyBase when copying data into Azure SQL Data Warehouse, increasing Azure Cosmos DB RUs or Azure SQL Database DTUs when the resource on data store side is the bottleneck, and removing unnecessary staged copies.
 
 **Example: Copy into Azure SQL Database with performance tuning tips**
 
@@ -274,11 +274,11 @@ In this sample, during a copy run, Data Factory tracks a high DTU utilization in
 Data Factory enables you to incrementally copy delta data from a source data store to a sink data store. For details, see [Tutorial: Incrementally copy data](tutorial-incremental-copy-overview.md).
 
 ## Read and write partitioned data
-In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
+In an early version of Azure Data Factory, you could read or write partitioned data by using the **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd** system variables. In the current version, you can perform these tasks by using a pipeline parameter and a trigger's start time or scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:
 
-- [Copy data from one location to another location in the same Azure Blob Storage](quickstart-create-data-factory-dot-net.md)
-- [Copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Copy data from on-premises SQL Server to Azure](tutorial-hybrid-copy-powershell.md)
+- [Copy data from one location to another location in the same Azure Blob storage account](quickstart-create-data-factory-dot-net.md)
+- [Copy data from Azure Blob storage to Azure SQL Database](tutorial-copy-data-dot-net.md)
+- [Copy data from an on-premises SQL Server database to Azure](tutorial-hybrid-copy-powershell.md)
