@@ -198,7 +198,7 @@ When you choose **+ Create new function app in Azure...**, the extension automat
 
 If you want to provide explicit names for the created resources, you must choose the advanced create path.
 
-### Publish a project to a new function app in Azure by using advanced options
+### <a name="enable-publishing-with-advanced-create-options"></a>Publish a project to a new function app in Azure by using advanced options
 
 The following steps publish your project to a new function app created with advanced create options:
 
