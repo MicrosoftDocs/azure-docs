@@ -65,9 +65,9 @@ Serial Console is available on a per-instance basis for virtual machine scale se
 
 ## Advanced uses for Serial Console
 Aside from console access to your VM, you can also use the Azure Serial Console for the following:
-* Sending a system request command to your VM
-* Sending a non-maskable interrupt to your VM
-* Gracefully rebooting or forcefully power-cycling your VM
+* Sending a [system request command to your VM](./serial-console-nmi-sysrq.md)
+* Sending a [non-maskable interrupt to your VM](./serial-console-nmi-sysrq.md)
+* Gracefully [rebooting or forcefully power-cycling your VM](./serial-console-power-options.md)
 
 
 ## Next steps
