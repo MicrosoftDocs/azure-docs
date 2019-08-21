@@ -60,6 +60,24 @@ Use an Azure Resource Manager template to set up Cosmos DB with Advanced Threat 
 For more information, see
 [Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
 
+### Using Azure Policy
+
+Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
+
+1. Launch the Azure **Policy - Definitions** page.
+
+1. Search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
+
+     ![Search Policy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Select an Azure subscription or resource group.
+
+    ![Select Subscription Or Group](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Assign the policy.
+
+    ![Policy Definitions Page](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+
 ## Manage ATP security alerts
 
 When Azure Cosmos DB activity anomalies occur, a security alert is triggered with information about the suspicious security event. 
