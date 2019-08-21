@@ -11,20 +11,20 @@ services: iot-edge
 ms.custom: "mvc, seodec18"
 ---
 
-# Quickstart: Deploy your first IoT Edge module to a Linux device
+# Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
-Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this quickstart, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
+Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine with all prerequisites installed and then delete it when you're finished. 
 
 In this quickstart you learn how to:
 
 1. Create an IoT Hub.
 2. Register an IoT Edge device to your IoT hub.
-3. Install and start the IoT Edge runtime on your device.
+3. Install and start the IoT Edge runtime on your virtual device.
 4. Remotely deploy a module to an IoT Edge device.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 
-This quickstart walks you through creating an Azure virtual machine that's configured to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
+This quickstart walks you through creating a Linux virtual machine that's configured to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 

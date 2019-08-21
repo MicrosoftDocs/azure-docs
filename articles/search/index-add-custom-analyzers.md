@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: "Yahnoosh"
 ms.author: "jlembicz"
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -273,7 +273,7 @@ This section provides the valid values for attributes specified in the definitio
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Description and Options**|  
 |-|-|-|  
 |[keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (type applies only when options are available) |Treats the entire content of a field as a single token. This is useful for data like zip codes, IDs, and some product names.|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibly separates text into terms via a regular expression pattern.<br /><br /> **Options**<br /><br /> lowercase (type: bool) - Determines whether terms are lowercased. The default is true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - A regular expression pattern to match token separators. The default is \w+.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibly separates text into terms via a regular expression pattern.<br /><br /> **Options**<br /><br /> lowercase (type: bool) - Determines whether terms are lowercased. The default is true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - A regular expression pattern to match token separators. The default is \w+.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
 |[simple](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(type applies only when options are available) |Divides text at non-letters and converts them to lower case. |  
 |[standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(Also referred to as standard.lucene)|StandardAnalyzer|Standard Lucene analyzer, composed of the standard tokenizer, lowercase filter, and stop filter.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - The maximum token length. The default is 255. Tokens longer than the maximum length are split. Maximum token length that can be used is 300 characters.<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
 |standardasciifolding.lucene|(type applies only when options are available) |Standard analyzer with Ascii folding filter. |  
