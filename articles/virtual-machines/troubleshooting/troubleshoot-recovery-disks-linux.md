@@ -63,17 +63,10 @@ A snapshot is a full, read-only copy of a VHD. It cannot be attached to a VM. In
 
 ```azurecli
 #Get the OS disk Id 
-$osdiskid=(az vm show \
-   -g myResourceGroup \
-   -n myVM \
-   --query "storageProfile.osDisk.managedDisk.id" \
-   -o tsv)
+$osdiskid=(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 
 #creates a snapshot of the disk
-az snapshot create \
-    --resource-group myResourceGroupDisk \
-    --source "$osdiskid" \
-    --name mySnapshot
+az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --name mySnapshot
 ```
 ## Create a disk from the snapshot
 
@@ -121,19 +114,10 @@ This script attach the disk `myNewOSDisk` to the VM `MyTroubleshootVM`:
 
 ```azurecli
 # Get ID of the OS disk that you just created.
-$myNewOSDiskid=(az vm show \
-   -g myResourceGroupDisk \
-   -n myNewOSDisk \
-   --query "storageProfile.osDisk.managedDisk.id" \
-   -o tsv)
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 
 # Attach the disk to the troubleshooting VM
-az vm disk attach \
-    --disk $diskId \
-    --resource-group MyResourceGroup \
-    --size-gb 128 \
-    --sku Standard_LRS \
-    --vm-name MyTroubleshootVM
+az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 --sku Standard_LRS --vm-name MyTroubleshootVM
 ```
 ## Mount the attached data disk
 
@@ -207,27 +191,16 @@ This example stops the VM named `myVM` and assigns the disk named `myNewOSDisk` 
 
 ```azurecli
 # Stop the affected VM
-az vm stop \
-   -n myVM \
-   -g myResourceGroup
+az vm stop -n myVM -g myResourceGroup
 
 # Get ID of the OS disk that is repaired.
-$myNewOSDiskid=(az vm show \
-   -g myResourceGroupDisk \
-   -n myNewOSDisk \
-   --query "storageProfile.osDisk.managedDisk.id" \
-   -o tsv)
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 
 # Change the OS disk of the affected VM to "myNewOSDisk"
-az vm update \
-   -g myResourceGroup \
-   -n myVM \
-   --os-disk $myNewOSDiskid
+az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid
 
 # Start the VM
-az vm start \
-   -n myVM \
-   -g myResourceGroup
+az vm start -n myVM -g myResourceGroup
 ```
 
 ## Next steps
