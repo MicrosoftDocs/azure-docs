@@ -387,7 +387,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
    536371,99999,EverGlow Single,22,1/1/2018 9:01,33.85,20993,Sierra Leone
    ```
 
-   This csv file is almost identical to the previous one except the quantity of the order is changed to `22` instead of `228`.
+   This csv file is almost identical to the previous one except the quantity of the order is changed from `228` to `22`.
 
 7. In Storage Explorer, upload this file to the **input** folder of your storage account.
 
