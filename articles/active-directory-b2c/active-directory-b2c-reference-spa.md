@@ -23,7 +23,7 @@ Many modern applications have a single-page app front end that is written primar
 
 To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
-Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](active-directory-b2c-reference-policies.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, **fabrikamb2c.onmicrosoft.com** is used as an example. You can replace `fabrikamb2c` with the name of your tenant if you have one and have created a user flow.
+Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](active-directory-b2c-reference-policies.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, **{tenant}.onmicrosoft.com** is used as an example. Replace `{tenant}` with the name of your tenant if you have one and have also created a user flow.
 
 The implicit sign-in flow looks something like the following figure. Each step is described in detail later in the article.
 
@@ -33,12 +33,10 @@ The implicit sign-in flow looks something like the following figure. Each step i
 
 When your web application needs to authenticate the user and run a user flow, it can direct the user to the `/authorize` endpoint. The user takes action depending on the user flow.
 
-In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the user flow to run in the `p` parameter. Three examples are provided in the following sections (with line breaks for readability), each using a different user flow. To get a feel for how each request works, try pasting the request into a browser and running it. You can replace `fabrikamb2c` with the name of your tenant if you have one and have created a user flow.
+In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the user flow to run. To get a feel for how the request works, try pasting the request into a browser and running it. Replace `{tenant}` with the name of your Azure AD B2C tenant. Replace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of the application you've previously registered in your tenant. Replace `{policy}` with the name of a policy you've created in your tenant, for example `b2c_1_sign_in`.
 
-### Use a sign-in user flow
-
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -46,37 +44,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
-&p=b2c_1_sign_in
-```
-
-### Use a sign-up user flow
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=id_token+token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=fragment
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_sign_up
-```
-
-### Use an edit-profile user flow
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=id_token+token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=fragment
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_edit_profile
 ```
 
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
+|{tenant}| Yes | Name of your Azure AD B2C tenant|
+|{policy}| Yes| The user flow to be run. Specify the name of a user flow you've created in your Azure AD B2C tenant. For example: `b2c_1_sign_in`, `b2c_1_sign_up`, or `b2c_1_edit_profile`. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
 | response_type | Yes | Must include `id_token` for OpenID Connect sign-in. It also can include the response type `token`. If you use `token`, your app can immediately receive an access token from the authorize endpoint, without making a second request to the authorize endpoint.  If you use the `token` response type, the `scope` parameter must contain a scope that indicates which resource to issue the token for. |
 | redirect_uri | No | The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
@@ -84,7 +57,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope | Yes | A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web apps. It indicates that your app needs a refresh token for long-lived access to resources. |
 | state | No | A value included in the request that also is returned in the token response. It can be a string of any content that you want to use. Usually, a randomly generated, unique value is used, to prevent cross-site request forgery attacks. The state is also used to encode information about the user's state in the app before the authentication request occurred, like the page they were on. |
 | nonce | Yes | A value included in the request (generated by the app) that is included in the resulting ID token as a claim. The app can then verify this value to mitigate token replay attacks. Usually, the value is a randomized, unique string that can be used to identify the origin of the request. |
-| p | Yes | The policy to execute. It's the name of a policy (user flow) that is created in your Azure AD B2C tenant. The policy name value should begin with **b2c\_1\_**. |
 | prompt | No | The type of user interaction that's required. Currently, the only valid value is `login`. This parameter forces the user to enter their credentials on that request. Single sign-on doesn't take effect. |
 
 At this point, the user is asked to complete the policy's workflow. The user might have to enter their username and password, sign in with a social identity, sign up for the directory, or any other number of steps. User actions depend on how the user flow is defined.
@@ -94,7 +66,7 @@ After the user completes the user flow, Azure AD returns a response to your app 
 ### Successful response
 A successful response that uses `response_mode=fragment` and `response_type=id_token+token` looks like the following, with line breaks for legibility:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
@@ -116,7 +88,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### Error response
 Error responses also can be sent to the redirect URI so that the app can handle them appropriately:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -137,11 +109,15 @@ Many open-source libraries are available for validating JWTs, depending on the l
 
 Azure AD B2C has an OpenID Connect metadata endpoint. An app can use the endpoint to fetch information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your Azure AD B2C tenant. For example, the metadata document for the b2c_1_sign_in user flow in the fabrikamb2c.onmicrosoft.com tenant is located at:
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
+```
 
 One of the properties of this configuration document is the `jwks_uri`. The value for the same user flow would be:
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
+```
 
 To determine which user flow was used to sign an ID token (and where to fetch the metadata from), you have two options. First, the user flow name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which user flow was used. Either method is valid.
 
@@ -171,8 +147,8 @@ Now that you've signed the user into your single-page app, you can get access to
 
 In a typical web app flow, you would make a request to the `/token` endpoint. However, the endpoint does not support CORS requests, so making AJAX calls to get a refresh token is not an option. Instead, you can use the implicit flow in a hidden HTML iframe element to get new tokens for other web APIs. Here's an example, with line breaks for legibility:
 
-```
-https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -181,11 +157,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&p=b2c_1_sign_in
 ```
 
 | Parameter | Required? | Description |
 | --- | --- | --- |
+|{tenant}| Required | Name of your Azure AD B2C tenant|
+{policy}| Required| The user flow to be run. Specify the name of a user flow you've created in your Azure AD B2C tenant. For example: `b2c_1_sign_in`, `b2c_1_sign_up`, or `b2c_1_edit_profile`. |
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |Must include `id_token` for OpenID Connect sign-in.  It might also include the response type `token`. If you use `token` here, your app can immediately receive an access token from the authorize endpoint, without making a second request to the authorize endpoint. If you use the `token` response type, the `scope` parameter must contain a scope that indicates which resource to issue the token for. |
 | redirect_uri |Recommended |The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL-encoded. |
@@ -202,7 +179,7 @@ By setting the `prompt=none` parameter, this request either succeeds or fails im
 ### Successful response
 A successful response by using `response_mode=fragment` looks like this example:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
@@ -222,7 +199,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### Error response
 Error responses also can be sent to the redirect URI so that the app can handle them appropriately.  For `prompt=none`, an expected error looks like this example:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
@@ -243,16 +220,17 @@ When you want to sign the user out of the app, redirect the user to Azure AD to 
 
 You can simply redirect the user to the `end_session_endpoint` that is listed in the same OpenID Connect metadata document described in [Validate the ID token](#validate-the-id-token). For example:
 
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
-p=b2c_1_sign_in
-&post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parameter | Required? | Description |
-| --- | --- | --- |
-| p |Required |The policy to use to sign the user out of your application. |
-| post_logout_redirect_uri |Recommended |The URL that the user should be redirected to after successful sign-out. If it is not included, Azure AD B2C displays a generic message to the user. |
+| Parameter | Required | Description |
+| --------- | -------- | ----------- |
+| {tenant} | Yes | Name of your Azure AD B2C tenant |
+| {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
+| post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. |
+| state | No | If a `state` parameter is included in the request, the same value should appear in the response. The application should verify that the `state` values in the request and response are identical. |
+
 
 > [!NOTE]
 > Directing the user to the `end_session_endpoint` clears some of the user's single sign-on state with Azure AD B2C. However, it doesn't sign the user out of the user's social identity provider session. If the user selects the same identity provider during a subsequent sign-in, the user is re-authenticated, without entering their credentials. If a user wants to sign out of your Azure AD B2C application, it does not necessarily mean they want to completely sign out of their Facebook account, for example. However, for local accounts, the user's session will be ended properly.
