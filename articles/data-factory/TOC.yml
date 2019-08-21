@@ -358,6 +358,14 @@
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
+    - name: Performance and tuning
+      href: copy-activity-performance.md
+    - name: Format and compression support
+      href: supported-file-formats-and-compression-codecs.md
+    - name: Schema and type mapping
+      href: copy-activity-schema-and-type-mapping.md
+    - name: Fault tolerance
+      href: copy-activity-fault-tolerance.md
     - name: Load Data Lake Storage Gen2
       href: load-azure-data-lake-storage-gen2.md
       items:
@@ -371,16 +379,6 @@
       href: load-sap-bw-data.md
     - name: Load Office 365 data
       href: load-office-365-data.md
-    - name: Read or write partitioned data
-      href: how-to-read-write-partitioned-data.md
-    - name: Format and compression support
-      href: supported-file-formats-and-compression-codecs.md
-    - name: Schema and type mapping
-      href: copy-activity-schema-and-type-mapping.md
-    - name: Fault tolerance
-      href: copy-activity-fault-tolerance.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
   - name: Transform data
     href: transform-data.md
     items:
