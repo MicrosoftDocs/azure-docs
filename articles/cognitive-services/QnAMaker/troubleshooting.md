@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/21/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -130,9 +130,21 @@ The disk space for your app service might be full. Steps to fix your disk space:
 
 No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
-### How can I create a bot with QnA Maker?
+### How can I create a new bot with QnA Maker?
 
 Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation to create your Bot with Azure Bot Service.
+
+### How do I use a different knowledge base with an existing Azure bot service?
+
+You need to have the following information about your knowledge base:
+
+* Knowledge base ID.
+* Knowledge base's published endpoint host name - found on **Settings** page after you publish.
+* Knowledge base's published endpoint key - found on **Settings** page after you publish. 
+
+With this information, go to your bot's app service in the Azure portal. Under **Settings -> Configuration -> Application settings**, change those values.  
+
+The knowledge base's endpoint key is labeled `QnAAuthkey` in the ABS service. 
 
 ### How do I embed the QnA Maker service in my website?
 
