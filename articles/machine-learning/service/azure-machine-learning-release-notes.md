@@ -84,6 +84,14 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-widgets**
     + Improved confusion matrix charts for classification training.
 
+### Azure Machine Learning Data Prep SDK v1.1.12
++ **New features**
+  + Lists of strings can now be passed in as input to `read_*` methods.
+
++ **Bug fixes and improvements**
+  + The performance of `read_parquet` has been significantly improved when running in Spark.
+  + Fixed an issue where `column_type_builder` failed in case of a single column with ambiguous date formats.
+
 ### Azure Portal
 + **Preview Feature**
   + Log and output file streaming is now available for run details pages. The files will stream updates in real time when the preview toggle is turned on.

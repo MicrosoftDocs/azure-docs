@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/21/2019
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -131,17 +131,17 @@ Before you create a read replica, the `azure.replication_support` parameter must
 A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
 
 ### Replica configuration
-A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 > [!IMPORTANT]
-> Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
+> Before a master setting is updated to a new value, update the replica configuration to an equal or greater value. This action ensures the replica can keep up with any changes made to the master.
 
 PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
 
 If you try to update the server values, but don't adhere to the limits, you receive an error.
 
 ### max_prepared_transactions
-[PostgreSQL requires](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) the value of the `max_prepared_transactions` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. If you want to change `max_prepared_transactions` on the master, first change it on the replicas.
+[PostgreSQL requires](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) the value of the `max_prepared_transactions` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. If you want to change `max_prepared_transactions` on the master, first change it on the replicas.
 
 ### Stopped replicas
 If you stop replication between a master server and a read replica, the replica restarts to apply the change. The stopped replica becomes a standalone server that accepts both reads and writes. The standalone server can't be made into a replica again.
@@ -150,4 +150,5 @@ If you stop replication between a master server and a read replica, the replica 
 When a master server is deleted, all of its read replicas become standalone servers. The replicas are restarted to reflect this change.
 
 ## Next steps
-Learn how to [create and manage read replicas in the Azure portal](howto-read-replicas-portal.md).
+* Learn how to [create and manage read replicas in the Azure portal](howto-read-replicas-portal.md).
+* Learn how to [create and manage read replicas in the Azure CLI](howto-read-replicas-cli.md).
