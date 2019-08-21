@@ -32,12 +32,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create virtual network - Portal
-            url: quick-create-portal.md
-          - text: Create virtual network - CLI
-            url: quick-create-cli.md
-          - text: Create virtual network - PowerShell
-            url: quick-create-powershell.md            
+          - text: Create virtual network
+            url: quick-create-portal.md    
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a virtual network
@@ -54,12 +50,9 @@ landingContent:
             url: security-overview.md
       - linkListType: tutorial
         links:
-          - text: Filter network traffic using NSGs - Portal
+          - text: Filter network traffic using NSGs
             url: tutorial-filter-network-traffic.md
-          - text: Filter network traffic using NSGs - CLI
-            url: tutorial-filter-network-traffic-cli.md
-          - text: Filter network traffic using NSGs - PowerShell
-            url: tutorial-filter-network-traffic-powershell.md
+
 
   # Card
   - title: Route network traffic
@@ -70,12 +63,9 @@ landingContent:
             url: virtual-networks-udr-overview.md
       - linkListType: tutorial
         links:
-          - text: Route network traffic - Portal
+          - text: Route network traffic
             url: tutorial-create-route-table-portal.md
-          - text: Route network traffic - CLI
-            url: tutorial-create-route-table-cli.md          
-          - text: Route network traffic - PowerShell
-            url: tutorial-create-route-table-powershell.md
+
  # Card
   - title: Restrict network access
     linkLists:
@@ -87,12 +77,8 @@ landingContent:
             url: virtual-network-service-endpoint-policies-overview.md
       - linkListType: tutorial
         links:
-          - text: Restrict network access using service endpoints - Portal
+          - text: Restrict network access using service endpoints
             url: tutorial-restrict-network-access-to-resources.md
-          - text: Connect VNets with virtual network peering - CLI
-            url: tutorial-restrict-network-access-to-resources-cli.md
-          - text: Connect VNets with virtual network peering - PowerShell
-            url: tutorial-restrict-network-access-to-resources-powershell.md
 
   # Card
   - title: Connect virtual networks
@@ -103,12 +89,8 @@ landingContent:
             url: virtual-network-peering-overview.md
       - linkListType: tutorial
         links:
-          - text: Connect VNets with virtual network peering - Portal
+          - text: Connect VNets with virtual network peering
             url: tutorial-connect-virtual-networks-portal.md
-          - text: Connect VNets with virtual network peering - CLI
-            url: tutorial-connect-virtual-networks-cli.md
-          - text: Connect VNets with virtual network peering - PowerShell
-            url: tutorial-connect-virtual-networks-powershell.md
       - linkListType: how-to-guide
         links:
           - text: Same deployment model - same subscription
@@ -121,7 +103,7 @@ landingContent:
             url: create-peering-different-deployment-models-subscriptions.md
 
   # Card
-  - title: Manage IP addresses 
+  - title: Create IP addresses 
     linkLists:
       - linkListType: concept
         links:
@@ -148,12 +130,10 @@ landingContent:
             url: ipv6-overview.md
       - linkListType: deploy
         links:
-          - text: Deploy an IPV6 dual stack application - PowerShell
+          - text: Deploy an IPV6 dual stack application - Standard Load Balancer
             url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md          
-          - text: Deploy an IPV6 dual stack application - CLI
-            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md     
-          - text: Deploy an IPV6 dual stack application - template
-            url: ipv6-configure-standard-load-balancer-template-json.md
+          - text: Deploy an IPV6 dual stack application - Basic Load Balancer
+            url: virtual-network-ipv4-ipv6-dual-stack-powershell.md     
 
   # Card
   - title: Monitor virtual networks
@@ -165,7 +145,27 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a virtual network TAP
-            url: tutorial-tap-virtual-network-cli.md          
+            url: tutorial-tap-virtual-network-cli.md
+
+  # Card
+  - title: Manage IP services
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: IP address types and allocation methods
+            url: virtual-network-ip-addresses-overview-arm.md
+          - text: What is IPv6 for Azure virtual network?
+            url: ipv6-overview.md
+          - text: Public IP address prefix
+            url: public-ip-address-prefix.md        
+      - linkListType: how-to-guide
+        links:
+          - text: Create, change, or delete a public IP address
+            url: virtual-network-public-ip-address.md      
+          - text: Deploy an IPV6 dual stack application
+            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md   
+          - text: Deploy an IPV6 dual stack application
+            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md           
 
 
 
