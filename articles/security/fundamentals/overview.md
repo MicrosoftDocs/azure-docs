@@ -292,18 +292,13 @@ You can enable the following diagnostic log categories for NSGs:
 -	Rules counter: Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
 ### Azure Security Center
-Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the Security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of Security solutions. Network recommendations center around firewalls, Network Security Groups, configuring inbound traffic rules, and more.
 
-Available network recommendations are as follows:
 
--	[Add a Next Generation Firewall](../../security-center/security-center-add-next-generation-firewall.md) Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner to increase your security protections
 
--	[Route traffic through NGFW only](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW.
 
--	[Enable Network Security Groups on subnets or virtual machines](../../security-center/security-center-enable-network-security-groups.md) Recommends that you enable NSGs on subnets or VMs.
 
--	[Restrict access through Internet facing endpoint](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) Recommends that you configure inbound traffic rules for NSGs.
 
+[Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the Security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of Security solutions. Network recommendations center around firewalls, Network Security Groups, configuring inbound traffic rules, and more.
 
 ## Compute
 
