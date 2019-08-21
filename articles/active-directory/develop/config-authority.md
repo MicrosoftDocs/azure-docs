@@ -1,5 +1,5 @@
 ---
-title: Configure a MSAL for iOS and macOS app for different authorities | Microsoft identity platform
+title: Configure a MSAL for iOS and macOS app for different identity providers | Microsoft identity platform
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
 documentationcenter: ''
@@ -20,9 +20,9 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure a MSAL for iOS and macOS app to use different authorities
+# How to: Configure a MSAL for iOS and macOS app to use different identity providers
 
-This article will show you how to configure your app for different authorities such as business-to-consumer (B2C), sovereign clouds, and guest users.
+This article will show you how to configure your app for different authorities such as Azure Active Directory (Azure AD), business-to-consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
 
 ## Default authority configuration
 
