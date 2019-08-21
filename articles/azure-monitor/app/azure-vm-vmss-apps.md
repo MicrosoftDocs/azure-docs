@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 08/21/2019
 ms.author: mbullwin
 
 ---
@@ -32,8 +32,8 @@ There are two ways to enable application monitoring for Azure VM and Azure virtu
     * For Azure VMs and Azure virtual machine scale sets we recommend at a minimum enabling this level of monitoring. After that, based on your specific scenario, you can evaluate whether manual instrumentation is needed.
 
     * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](https://docs.microsoft.com/en-us/azure/azure-monitor/app/auto-collect-dependencies#net) to learn more.
-        >[!NOTE]
-        >Currently only .Net IIS-hosted applications are supported. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications hosted on an Azure VM and VMSS.
+        > [!NOTE]
+        > Currently only .Net IIS-hosted applications are supported. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications hosted on an Azure VM and VMSS.
 
 * **Code-based** via SDK
 
@@ -46,9 +46,11 @@ There are two ways to enable application monitoring for Azure VM and Azure virtu
 
 ## Manage Application Insights Agent for .NET applications on VM using PowerShell
 
-> [!NOTE] Before installing the Application Insights Agent, you'll need an instrumentation key. [Create a new Application Insights Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource) or copy the instrumentation key from an existing application insights resource.
+> [!NOTE]
+> Before installing the Application Insights Agent, you'll need an instrumentation key. [Create a new Application Insights Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource) or copy the instrumentation key from an existing application insights resource.
 
-> [!NOTE] New to powershell? Check out the [Get Started Guide](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> [!NOTE]
+> New to powershell? Check out the [Get Started Guide](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azps-2.5.0).
 
 Install or update the Application Insights Agent as an extension for VM
 ```powershell
@@ -73,9 +75,11 @@ $privateCfgJsonString = '{}';
 
 Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Location "<myVmLocation>" -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -Version "2.8" -SettingString $publicCfgJsonString -ProtectedSettingString $privateCfgJsonString
 ```
-> [!NOTE] Include spaces in VMName. (Example: -VMName "South Central US")
+> [!NOTE]
+> Include spaces in VMName. (Example: -VMName "South Central US")
 
-> [!NOTE] You may install or update the Application Insights Agent as an extension across multiple VMs at-scale using a Powershell loop. Deploying via Azure Policy is not currently supported.
+> [!NOTE]
+> You may install or update the Application Insights Agent as an extension across multiple VMs at-scale using a Powershell loop. Deploying via Azure Policy is not currently supported.
 
 Uninstall Application Insights Agent extension from VM
 ```powershell
@@ -99,7 +103,8 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 ```
 You may also view installed extensions in the VM blade in the Portal.
 
-> [!NOTE] Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the instrumentation key you used to deploy the Application Insights Agent Extension. If you are sending data from multiple VMs, select the target VM under Server Name. It may take up to a minute for data to begin flowing.
+> [!NOTE]
+> Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the instrumentation key you used to deploy the Application Insights Agent Extension. If you are sending data from multiple VMs, select the target VM under Server Name. It may take up to a minute for data to begin flowing.
 
 ## Manage Application Insights Agent for .NET applications on Azure VMSS using powershell
 
