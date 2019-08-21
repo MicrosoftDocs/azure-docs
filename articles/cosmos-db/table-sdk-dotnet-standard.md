@@ -30,6 +30,9 @@ ms.date: 03/18/2019
 
 ## Release notes
 
+### <a name="1.0.5-preview"/>1.0.5-preview
+* Bug fixes
+
 ### <a name="1.0.4"/>1.0.4
 * Bug fixes
 * Provide HttpClientTimeout option for RestExecutorConfiguration.
@@ -71,6 +74,7 @@ This cross-platform .NET Standard library [Microsoft.Azure.Cosmos.Table](https:/
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.0.5-preview](#1.0.5-preview) |Auguest 20, 2019 |--- |
 | [1.0.4](#1.0.4) |Auguest 12, 2019 |--- |
 | [1.0.4-preview](#1.0.4-preview) |July 26, 2019 |--- |
 | 1.0.2-preview |May 2, 2019 |--- |
