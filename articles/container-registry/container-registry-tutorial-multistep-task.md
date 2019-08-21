@@ -361,7 +361,7 @@ As in the preceding example, to test the multi-step task, trigger it manually by
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-By default, the `az acr task run` command streams the log output to your console when you execute the command. As before, the output shows the progress of running each of the task steps. The output is condensed to show key steps
+By default, the `az acr task run` command streams the log output to your console when you execute the command. As before, the output shows the progress of running each of the task steps. The output is condensed to show key steps.
 
 Output:
 
