@@ -30,7 +30,7 @@ The solution requires you to:
 
 The following figure shows the architecture for the Zerto solution.
 
-![Architecture](media/CloudSimple-Zerto-Architecture.png)
+![Architecture](media/cloudsimple-zerto-architecture.png)
 
 ## How to deploy the solution
 
@@ -78,7 +78,7 @@ To enable Zerto Virtual Replication from your on-premises environment to your Pr
 2. Select the virtual machines that require protection for business continuity and customize the boot order if needed.
 3. Select the recovery site as your Private Cloud and the default recovery server as the Private Cloud cluster or the resource group you created. Select **vsanDatastore** for the recovery datastore on your Private Cloud.
 
-    ![VPG](media/CloudSimple-Zerto-VPG.png)
+    ![VPG](media/cloudsimple-zerto-vpg.png)
 
     > [!NOTE]
     > You can customize the host option for individual VMs under the VM Settings option.
