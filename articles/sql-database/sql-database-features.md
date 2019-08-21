@@ -140,19 +140,21 @@ Azure platform provides a number of PaaS capabilities that are added as an addit
 | --- | --- | --- |
 | [Active geo-replication](sql-database-active-geo-replication.md) | Yes - all service tiers other than hyperscale | No, see [Auto-failover groups(preview)](sql-database-auto-failover-group.md) as an alternative |
 | [Auto-failover groups](sql-database-auto-failover-group.md) | Yes - all service tiers other than hyperscale | Yes, in [public preview](sql-database-auto-failover-group.md)|
+| Auto-scale | Yes, in [serverless model](sql-database-serverless.md) | No, you need to choose reserved compute and storage. |
+| Azure Active Directory (AAD) authentication | Yes. AAD users only. | Yes. Including server-level AAD logins. |
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Yes | No |
+| Backup retention | Yes. 7 days default, max 35 days. | Yes. 7 days default, max 35 days. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Yes | Yes |
 | File system access | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. |
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Yes - all service tiers other than hyperscale | Yes - using [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Hyperscale architecture](sql-database-service-tier-hyperscale.md) | Yes | No |
 | [Long-term backup retention - LTR](sql-database-long-term-retention.md) | Yes, keep automatically taken backups up to 10 years. | Not yet. Use `COPY_ONLY` [manual backups](sql-database-managed-instance-transact-sql-information.md#backup) as a temporary workaround. |
+| Pause/resume | Yes, in [serverless model](sql-database-serverless.md) | No | 
 | [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
 | Public IP address | Yes. The access can be restricted using firewall or service endpoints.  | Yes. Needs to be explicitly enabled and port 3342 must be enabled in NSG rules. Public IP can be disabled if needed. See [Public endpoint](sql-database-managed-instance-public-endpoint-securely.md) for more details. | 
 | [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - all service tiers other than hyperscale - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | Resource pools | Yes, as [Elastic pools](sql-database-elastic-pool.md) | Built-in - a single Managed Instance can have multiple databases that share the same pool of resources |
 | Scaling up or down (online) | Yes, you can either change DTU or reserved vCores or max storage with the minimal downtime. | Yes, you can change reserved vCores or max storage with the minimal downtime. | 
-| Auto-scale | Yes, in [serverless model](sql-database-serverless.md) | No, you need to choose reserved compute and storage. |
-| Pause/resume | Yes, in [serverless model](sql-database-serverless.md) | No | 
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Yes](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Yes [version 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Yes | Yes |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Yes | No |
