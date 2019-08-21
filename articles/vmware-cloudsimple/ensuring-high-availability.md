@@ -14,7 +14,7 @@ manager: dikamath
 
 The CloudSimple solution provides high availability for your applications running on VMware in the Azure environment. The following table lists failure scenarios and the associated high availability features.
 
-| Failure Scenario | Application Protected? | Platform HA Feature | VMware HA Feature | Azure HA Feature |
+| Failure scenario | Application protected? | Platform HA feature | VMware HA feature | Azure HA feature |
 ------------ | ------------- | ------------ | ------------ | ------------- |
 | Disk Failure | YES | Fast replacement of failed node | [About the vSAN Default Storage Policy](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
 | Fan Failure | YES | Redundant fans, fast replacement of failed node |  |  |
@@ -36,7 +36,7 @@ Azure VMware Solution by CloudSimple provides the following high availability fe
 
 The CloudSimple control plane software continuously monitors the health of VMware clusters and detects when an ESXi node fails. It then automatically adds a new ESXi host to the affected VMware cluster from its pool of readily available nodes and takes the failed node out of the cluster. This functionality ensures that the spare capacity in the VMware cluster is restored quickly so that the cluster’s resiliency provided by vSAN and VMware HA is restored.
 
-## Placement Groups
+## Placement groups
 
 A user who creates a Private Cloud can select an Azure region and a placement group within the selected region. A placement group is a set of nodes spread across multiple racks but within the same spine network segment. Nodes within the same placement group can reach each other with a maximum of two extra switch hops. A placement group is always within a single Azure availability zone and spans multiple racks. The CloudSimple control plane distributes nodes of a Private Cloud across multiple racks based on best effort. Nodes in different placement groups are guaranteed to be placed in different racks.
 
@@ -56,6 +56,6 @@ All the CloudSimple networking services for the Private Cloud (including VLAN, f
 
 Users can put an Azure Layer 7 Load Balancer in front of the stateless web tier VMs running in the VMware environment to achieve high availability for the web tier.
 
-## Azure Regions
+## Azure regions
 
 An Azure region is a set of data centers deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. For details, see [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions).
