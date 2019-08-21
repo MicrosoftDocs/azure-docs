@@ -1,6 +1,6 @@
 ---
-title: Understaing app usage and user behaviour with Analytics 
-description: Learn how to make smart business decisions by 
+title: Understanding app usage and user behaviour with Analytics 
+description: Learn how to make smart business decisions by understanding how users use your app
 author: elamalani
 
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
@@ -11,7 +11,7 @@ ms.author: emalani
 ---
 
 # Analyze and understand usage of your mobile application 
-How well do you understand how your users use your apps? How many active users does your app have and how is usage changing over time? What features are they using and which ones are used the most? Where are these users based? How many users are using the latest version of hte application? Well, all these questions are important to turn your app into a successful business and to answer those kidns of usage analytics questions, you need to collect usage data from your apps.
+How well do you understand how your users use your apps? How many active users does your app have and how is usage changing over time? What features are they using and which ones are used the most? Where are these users based? How many users are using the latest version of the application? Well, all these questions are important to turn your app into a successful business and to answer those kidns of usage analytics questions, you need to collect usage data from your apps.
 
 The more you drill down into the data, the more you could find ways to improve your app and keep your users happy and it's important to use data to find actionable insights. This way you will do the right thing for users and your app.
 
@@ -53,7 +53,7 @@ The more you drill down into the data, the more you could find ways to improve y
         - **Cohorts** for naming and saving specific groups of users or events so they can be easily referenced from other analytics tools.
     
     **References**
-    - [Azure Portal](https://portal.azure.com/) to create Applidation Insights resource.
+    - [Azure Portal](https://portal.azure.com/) to create Application Insights resource.
     - [Analyze your mobile app with App Center and Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/mobile-center-quickstart)
     - [Usage Analytics with Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-overview)
 

@@ -19,9 +19,9 @@ Push notifications are a powerful technique to provides fast and efficient way t
 ## Importance of push notifications in your mobile apps
 Push notifications provides value to both end users and the business.
 
-Push messages lets businesses:
+Businesses can:
 - **Communicate directly with their users** with sending them messages on supported platform at the right time.
-- **Boost user engagement** by sending real-time updates anr reminders to your users, encouraging them to engage with your app ona regular basis.
+- **Boost user engagement** by sending real-time updates anr reminders to your users, encouraging them to engage with your app on a regular basis.
 - **Retain users** and re-engage with inactive users that have downloaded the app but don't use it to become active again.
 - **Increase conversion rates** by analyzing end-user behavior segmenting end users and leveraging campaigns based on mobile push notifications.
 - **Promote Products and Services** by sending push messages and timely updates to the users.
@@ -44,7 +44,7 @@ For application users, push notification:
         - Send notifications to **audiences** built based on device information and custom properties
         - Send notifications to **specific users**
         - Send notifications to **specific devices**
-    - **Rich telemetry** on push, device, error are available in App Center portal
+    - **Rich telemetry** on push, device, error are available in App Center portal.
     - **Platform Support** - iOS, Android, macOS, Xamarin, React Native, Unity, Cordova.
 
     **References**
@@ -57,12 +57,12 @@ For application users, push notification:
     [Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview) provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform and from any backend (cloud or on-premises).
     
     **Key Features**
-    - **Send push notifications** to any platform from any back-end, in the cloud or on-premises
-    - **Fast broadcast** push to millions of mobile devices with single API call
-    - Tailor push notifications by customer, language, and location
-    - Dynamically define and notify **customer segments**
-    - **Scale instantly** to millions of mobile devices
-    - **Platform Support** - iOS, Android, Windows, Kindle, Baidu
+    - **Send push notifications** to any platform from any back-end, in the cloud or on-premises.
+    - **Fast broadcast** push to millions of mobile devices with single API call.
+    - Tailor push notifications by customer, language, and location.
+    - Dynamically define and notify **customer segments**.
+    - **Scale instantly** to millions of mobile devices.
+    - **Platform Support** - iOS, Android, Windows, Kindle, Baidu.
             
     **References**
     - [Getting started with Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/)   

@@ -17,10 +17,10 @@ Therefore, understanding real-world crash behavior is essential for mobile appli
 
 ## Why monitoring your application for Crashes is important?
 As a developer, you need to:
-- Know details about the health of your application and how its performing for end users.
-- Find the root cause and reasons why and where the crash occurred on users device.
-- Be proactive to triage issues and resolve crashes to make your application stable.
-- Build better apps and iterate faster to provide a great user experience so that users come back to using your app.
+- Know details about the **health of your application** and how its **performing for end users**.
+- **Find the root cause and reasons** why and where the crash occurred on users device.
+- Be **proactive to triage issues and resolve crashes** to make your application stable.
+- Build better apps and **iterate faster** to provide a great user experience so that users come back to using your app.
 
 ## Azure Services
 Below are the services you can leverage to monitor your application for crashes, diagnose issues, and quickly fix them to provide a stable and high quality mobile application for usage.
