@@ -1,6 +1,6 @@
 ---
-title: Restrict web traffic with a web application firewall - Azure PowerShell
-description: Learn how to restrict web traffic with a web application firewall on an application gateway using Azure PowerShell.
+title: Restrict web traffic with a Web Application Firewall - Azure PowerShell
+description: Learn how to restrict web traffic with a Web Application Firewall on an application gateway using Azure PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,9 +9,9 @@ ms.author: victorh
 ms.topic: overview
 ---
 
-# Enable web application firewall using Azure PowerShell
+# Enable Web Application Firewall using Azure PowerShell
 
-You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
+You can restrict traffic on an application gateway with a [Web Application Firewall](ag-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
 In this article, you learn how to:
 
@@ -21,7 +21,7 @@ In this article, you learn how to:
 > * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 
-![Web application firewall example](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+![Web application firewall example](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
 If you prefer, you can complete this article using the [Azure portal](application-gateway-web-application-firewall-portal.md) or the [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
@@ -286,7 +286,7 @@ You can use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicip
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Test base URL in application gateway](./media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
+![Test base URL in application gateway](../media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
 
 ## Clean up resources
 
@@ -298,4 +298,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-[Create an application gateway with SSL termination](./tutorial-ssl-powershell.md)
+[Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)
