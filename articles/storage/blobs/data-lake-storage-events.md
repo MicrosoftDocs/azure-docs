@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: sumameh
 ---
 
-# Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table
+# Tutorial: Implement the Data Lake Capture pattern to update an Azure Databricks Delta table
 
 This tutorial shows you how to handle events in a storage account that has a hierarchical namespace.
 
