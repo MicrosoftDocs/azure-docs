@@ -10,7 +10,7 @@ ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: seo-java-august2019
 ---
-# Quickstart: Build a Java application with the SQL Java SDK from your Azure Cosmos DB API account
+# Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data
 
 
 > [!div class="op_single_selector"]
