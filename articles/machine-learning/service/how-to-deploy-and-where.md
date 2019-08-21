@@ -412,7 +412,20 @@ def run(request):
 
 The inference configuration describes how to configure the model to make predictions. This configuration is not part of your entry script; it references your entry script and is used to locate all the resources required by the deployment. It is used later when actually deploying the model.
 
-The following example demonstrates how to create an inference configuration. This configuration specifies the runtime, the entry script, and (optionally) the conda environment file:
+Inference configuration can use Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace, and then using it with the inference configuration:
+
+```python
+from azureml.core import Environment
+from azureml.core.model import InferenceConfig
+
+deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+inference_config = InferenceConfig(entry_script="x/y/score.py",
+                                   environment=deploy_env)
+```
+
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
+
+You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a conda file:
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -464,10 +477,38 @@ Each of these classes for local, ACI, and AKS web services can be imported from 
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-> [!TIP]
-> Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can profile your model using either the SDK or CLI. For more information, see the [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) and [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) reference.
->
-> Model profiling results are emitted as a `Run` object. For more information, see the [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py) class reference.
+#### Profiling
+
+Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can profile your model using either the SDK or CLI. The following examples show how to use profiling from the SDK:
+
+> [!IMPORTANT]
+> When using profiling, the inference configuration that you provide cannot reference an Azure Machine Learning environment. Instead, define the software dependencies using the `conda_file` parameter of the `InferenceConfig` object.
+
+```python
+import json
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10]
+]})
+
+profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
+profile.wait_for_profiling(true)
+profiling_results = profile.get_results()
+print(profiling_results)
+```
+
+Model profiling results are emitted as a `Run` object. The output of the profile run contains information similar to the following text:
+
+```json
+{'cpu': 1.0, 'memoryInGB': 0.5}
+```
+
+For information on using profiling from the CLI, see [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
+
+For more information, see the following reference documents:
+
+* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
+* [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--model~s--inference-config--input-data-)
+* [Inference configuration file schema](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## Deploy to target
 
@@ -739,7 +780,31 @@ For more sample projects and examples, see the following sample repos:
 * [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
+## Model packaging
+
+In some cases, you may want to create a Docker image without deploying the model. For example, when you plan on [deploying to Azure App Service](how-to-deploy-app-service.md). You can also save the files needed to build a docker image. For example, the Dockerfile, models, and scoring script.
+
+The following example demonstrates how to build an image, which is registered in the Azure Container Registry for your workspace:
+
+```python
+package = Model.package(ws, [model], inference_config)
+package.wait_for_creation(show_output=True)
+```
+
+After creating a package, you can use `package.pull()` to pull the image to your local Docker environment.
+
+The following example demonstrates how to download the Docker file, model, and other assets needed to build the image:
+
+```python
+package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
+package.wait_for_creation(show_output=True)
+package.save("./imagefiles")
+```
+
+This code downloads the files needed to build the image to the `imagefiles` directory. From there, you can then use a local Docker installation to build the image. For example, using the following command from the directory containing the files 
+
 ## Clean up resources
+
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.
 
