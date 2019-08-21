@@ -113,12 +113,12 @@ You first need a token issued by Azure AD B2C to use in the Authorization header
 1. For **Reply URL**, choose *https://jwt.ms*
 1. Select **Run user flow**
 
-![Run user flow page for sign up sign in user flow in Azure portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
+    ![Run user flow page for sign up sign in user flow in Azure portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
 
 1. Complete the sign-in process. You should be redirected to *https://jwt.ms*.
 1. Record encoded token value displayed in your browser. You use this token value for the Authorization header in Postman.
 
-![Encoded token value displayed on jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
+    ![Encoded token value displayed on jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
 
 ### Get API subscription key
 
