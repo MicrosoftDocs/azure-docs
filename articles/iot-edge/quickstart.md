@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 08/16/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -12,20 +12,20 @@ ms.custom: "mvc, seodec18"
 
 ---
 
-# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device
+# Quickstart: Deploy your first IoT Edge module to a virtual Windows device
 
-In this quickstart, use the Azure IoT Edge cloud interface to deploy prebuilt code remotely to an IoT Edge device. To accomplish this task, first create and configure a Windows virtual machine to work as an IoT Edge device, then you can deploy a module to it.
+Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine, install the prerequisites, and then delete it when you're finished. 
 
 In this quickstart you learn how to:
 
 1. Create an IoT Hub.
 2. Register an IoT Edge device to your IoT hub.
-3. Install and start the IoT Edge runtime on your device.
+3. Install and start the IoT Edge runtime on your virtual device.
 4. Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 
-The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
+This quickstart walks you through creating a Windows virtual machine and configuring it to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -68,6 +68,8 @@ IoT Edge device:
 
 > [!NOTE]
 > This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
+>
+> If you're ready to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
 ## Create an IoT hub
 

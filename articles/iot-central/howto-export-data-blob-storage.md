@@ -12,6 +12,8 @@ manager: peterpr
 
 # Export your data to Azure Blob Storage
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 *This topic applies to administrators.*
 
 This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **measurements**, **devices**, and **device templates** to files in Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
