@@ -108,8 +108,6 @@
         href: users.md
       - name: Set up a virtual network connection to the Private Cloud
         href: virtual-network-connection.md
-      - name: Edit your user profile
-        href: edit-profile.md
     - name: Set up VMware virtual machines for the Private Cloud
       items:
       - name: Create a VM in Azure
