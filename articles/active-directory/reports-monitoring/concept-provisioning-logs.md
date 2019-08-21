@@ -1,5 +1,5 @@
 ---
-title: Provisioning logs in the Azure Active Directory portal | Microsoft Docs
+title: Provisioning logs in the Azure Active Directory portal (preview) | Microsoft Docs
 description: Introduction to provisioning activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
-# Provisioning reports in the Azure Active Directory portal
+# Provisioning reports in the Azure Active Directory portal (preview)
 
 The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
 
@@ -192,7 +192,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 ## What you should know
 
-- The Azure portal stores reported provisioning data for 30 days.
+- The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition..
 
 - You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
 
@@ -200,6 +200,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 - There is currently no support for log analytics.
 
+- When you access the provisioning logs from the context of an app, it doesn’t automatically filter events to the specific app the way audit logs do.
 
 ## Next steps
 
