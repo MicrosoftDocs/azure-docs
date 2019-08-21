@@ -20,7 +20,7 @@ ms.author: vijetaj
 
 ---
 
-# Set up a common identity on Data Science Virtual Machines
+# Set up a common identity on a Data Science Virtual Machine
 
 On a Microsoft Azure virtual machine (VM), including a Data Science Virtual Machine (DSVM), you create local user accounts while provisioning the VM. Users then authenticate to the VM by using these credentials. If you have multiple VMs that your users need to access, managing credentials can get very cumbersome. An excellent solution is to deploy common user accounts and  management through a standards-based identity provider. Through this approach, you can use a single set of credentials to access multiple resources on Azure, including multiple DSVMs.
 
