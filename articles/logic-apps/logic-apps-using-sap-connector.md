@@ -265,7 +265,7 @@ Your logic app is now ready to receive messages from your SAP system.
 
 ## Receive IDOCs packets from SAP
 
-You can set up SAP to [send IDOCs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), which are batches or groups of IDOCs. To receive IDOC packets, the SAP connector, and specifically the trigger, doesn't need extra configuration. However, to process each item in an IDOC packet afer the trigger receives the packet, some additional steps are required to split the packet into individual IDOCs.
+You can set up SAP to [send IDOCs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), which are batches or groups of IDOCs. To receive IDOC packets, the SAP connector, and specifically the trigger, doesn't need extra configuration. However, to process each item in an IDOC packet after the trigger receives the packet, some additional steps are required to split the packet into individual IDOCs.
 
 Here's an example that shows how to extract individual IDOCs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath): 
 
