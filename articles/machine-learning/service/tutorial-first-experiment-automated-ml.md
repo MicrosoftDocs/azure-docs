@@ -18,7 +18,7 @@ ms.date: 08/14/2019
 
 In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
-By using the automated machine learning capabilities of the Azure Machine Learning  service and the Azure portal, you begin the automated machine learning process. The algorithm selection and hyperparameter tuning is done for you. The automated machine learning technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
+With automated machine learning, you can automate away time intensive and iterative tasks to automatically perform algorithm selection and hyperparameter tuning. Automated machine learning rapidly iterates over many combinations of both algorithms and hyperparameters to find the best model based on your criterion.
 
 In this tutorial, you learn the following tasks:
 
@@ -32,7 +32,7 @@ In this tutorial, you learn the following tasks:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* Download the [**bankmarketing_train.csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
+* Download the [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
 
 ## Create a workspace
 
@@ -97,7 +97,7 @@ You'll see the **Welcome to Automated Machine Learning** screen, since this is y
 
 1. Select **Start** to run the experiment.
 
-   When the experiment starts, you see a blank **Run Detail** screen with the following status at the top. 
+   When the experiment starts, you see a blank **Run Detail** screen with the following status at the top.
       
 The experiment preparation process takes a couple of minutes. When the process finishes, the status message changes to **Run is Running**.
 
