@@ -138,7 +138,7 @@ In this section, you create three certificates and then connect them in a chain.
 2. Create the IoT Edge device CA certificate and private key with the following command. Provide a name for the CA certificate, for example **MyEdgeDeviceCA**. The name is used to name the files and during certificate generation. 
 
    ```powershell
-   New-CACertsEdgeDevice "MyEdgeDeviceCA"
+   New-CACertsEdgeDeviceCA "MyEdgeDeviceCA"
    ```
 
    This script command creates several certificate and key files, including two that we're going to refer to later in this article:
