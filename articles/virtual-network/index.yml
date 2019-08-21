@@ -56,7 +56,7 @@ landingContent:
         links:
           - text: Filter network traffic using NSGs
             url: tutorial-filter-network-traffic.md
-          - text: Route network traffic
+          - text: Route network traffic using route tables
             url: tutorial-create-route-table-portal.md
           - text: Restrict network access using service endpoints
             url: tutorial-restrict-network-access-to-resources.md
