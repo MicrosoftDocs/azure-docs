@@ -26,7 +26,7 @@ Serial Console works in the same manner for VMs and virtual machine scale set in
 > [!NOTE]
 > The Serial Console is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
 
-## Access the Azure Serial Console
+## Prerequisites to access the Azure Serial Console
 To access the Serial Console on your VM or virtual machine scale set instance, you will need the following:
 
 - Boot diagnostics must be enabled for the VM

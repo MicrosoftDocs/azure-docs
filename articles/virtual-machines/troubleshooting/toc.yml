@@ -96,7 +96,7 @@
   href: reset-network-interface.md
 - name: Restarting or resizing a VM
   href: restart-resize-error-troubleshooting.md
-- name: Serial Console Overview
+- name: Serial Console
   href: serial-console-overview.md
   items:
   - name: Serial Console for Linux
