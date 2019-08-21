@@ -104,11 +104,14 @@ $virtualMachine=myVM
 #Get the snapshot Id 
 $snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query [id] -o tsv)
 
-# Create a new Managed Disks using the snapshot Id. If the resource group and the source snapshot is not in the same region, you will receive the "Resource is not found" error. In this case, you must specify --location to create the disk into the same region as the source snapshot.
+# Create a new Managed Disks using the snapshot Id.
 
 az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType --size-gb $diskSize --source $snapshotId
 
 ```
+
+If the resource group and the source snapshot is not in the same region, you will receive the "Resource is not found" error when you run `az disk create`. In this case, you must specify `--location <region>` to create the disk into the same region as the source snapshot.
+
 Now you have a copy of the original OS disk. You can mount this new disk to another Windows VM for troubleshooting purposes.
 
 ## Attach the new virtual hard disk to another VM
