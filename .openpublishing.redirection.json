@@ -31135,6 +31135,21 @@
 			"redirect_document_id": false
 		},
 		{
+			"source_path": "articles/cognitive-services/QnAMaker/how-to/upgrade-qnamker-service.md",
+			"redirect_url": "/azure/cognitive-services/QnAMaker/how-to/set-up-qnamaker-service-azure",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/cognitive-services/QnAMaker/how-to/troubleshooting-runtime.md",
+			"redirect_url": "/azure/cognitive-services/QnAMaker/how-to/set-up-qnamaker-service-azure",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/cognitive-services/QnAMaker/how-to/key-management.md",
+			"redirect_url": "/azure/cognitive-services/QnAMaker/how-to/set-up-qnamaker-service-azure",
+			"redirect_document_id": false
+		},
+		{
 			"source_path": "articles/cognitive-services/QnAMaker/http-response-codes.md",
 			"redirect_url": "/azure/cognitive-services/QnAMaker/how-to/metadata-generateanswer-usage",
 			"redirect_document_id": false
