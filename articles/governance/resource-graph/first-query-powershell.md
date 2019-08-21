@@ -27,7 +27,7 @@ before you begin.
 
 To enable Azure PowerShell to query Azure Resource Graph, the module must be added. This module can
 be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
-with the [Azure PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/).
+with the [PowerShell Docker image](https://hub.docker.com/_/microsoft-powershell).
 
 ### Base requirements
 
@@ -111,8 +111,11 @@ If you wish to remove the Resource Graph module from your Azure PowerShell envir
 so by using the following command:
 
 ```azurepowershell-interactive
-# Remove the Resource Graph module from the Azure PowerShell environment
+# Remove the Resource Graph module from the current session
 Remove-Module -Name 'Az.ResourceGraph'
+
+# Uninstall the Resource Graph module from the environment
+Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]

@@ -4,8 +4,8 @@ description: Release notes for the Azure File Sync agent.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: article
-ms.date: 7/24/2019
+ms.topic: conceptual
+ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,8 +20,8 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported - [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| July 2019 update rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | July 12, 2019 | Supported - [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported |
+| July 2019 update rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | July 12, 2019 | Supported |
 | V7 Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | June 19, 2019 | Supported |
 | June 2019 update rollup - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | June 27, 2019 | Supported |
 | June 2019 update rollup - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | June 13, 2019 | Supported |
@@ -34,9 +34,9 @@ The following versions are supported for the Azure File Sync agent:
 | December 2018 update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported |
 | December 2018 update rollup | 4.1.0.0 | December 4, 2018 | Supported |
 | V4 Release | 4.0.1.0 | November 13, 2018 | Supported |
-| September 2018 update rollup | 3.3.0.0 | September 24, 2018 | Supported - Agent version will expire on July 19, 2019 |
-| August 2018 update rollup | 3.2.0.0 | August 15, 2018 | Supported - Agent version will expire on July 19, 2019 |
-| General availability | 3.1.0.0 | July 19, 2018 | Supported - Agent version will expire on July 19, 2019 |
+| September 2018 update rollup | 3.3.0.0 | September 24, 2018 | Supported - Agent version will expire on August 19, 2019 |
+| August 2018 update rollup | 3.2.0.0 | August 15, 2018 | Supported - Agent version will expire on August 19, 2019 |
+| General availability | 3.1.0.0 | July 19, 2018 | Supported - Agent version will expire on August 19, 2019 |
 | Expired agents | 1.1.0.0 - 3.0.13.0 | N/A | Not Supported - Agent versions expired on October 1, 2018 |
 
 ### Azure File Sync agent update policy

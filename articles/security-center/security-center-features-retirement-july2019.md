@@ -16,6 +16,7 @@ ms.author: yoafr
 >
 >
 
+
 # Retirement of Security Center features (July 2019)
 
 We've made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to Azure Security Center over the last six months.
@@ -155,7 +156,7 @@ Security Center can enable [integrated security solutions in Azure](https://docs
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-After retirement, you won't be able to add or modify any of solution types mentioned in the preceding list, either from the UI or the API.
+After retirement, you won't be able to add or modify any of solution types mentioned in the preceding list, either from the UI or the API. Azure Security Center will no longer discover any new instances of the aforementioned partner solutions.
 
 If you have existing connected solutions, we encourage you to move to Azure Sentinel.
 

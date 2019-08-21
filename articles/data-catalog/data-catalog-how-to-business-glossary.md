@@ -5,7 +5,7 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 08/01/2019
 ---
 
 # Set up the business glossary for governed tagging
@@ -31,11 +31,11 @@ The business glossary is available only in the Standard Edition of Azure Data Ca
 
 You can access the business glossary via the **Glossary** option in the Data Catalog portal's navigation menu.  
 
-![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Data Catalog - Access the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 Data Catalog administrators and members of the glossary administrators role can create, edit, and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions and tag assets with glossary terms.
 
-![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Data Catalog - Add a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## Creating glossary terms
 

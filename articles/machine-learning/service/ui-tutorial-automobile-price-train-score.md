@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/21/2019
+ms.date: 08/16/2019
 ---
 
 # Tutorial: Predict automobile price with the visual interface
@@ -23,9 +23,11 @@ In part one, you'll set up your environment, drag-and-drop datasets and analysis
 In part one of the tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Import and clean data
+> * Create a new experiment
+> * Import data
+> * Prepare data
 > * Train a machine learning model
-> * Score and evaluate a model
+> * Evaluate a machine learning model
 
 In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service so you can use it to predict the price of any car based on technical specifications you send it. 
 
@@ -33,13 +35,17 @@ A completed version of this tutorial is available as a sample experiment.
 
 To find it, from the **Experiments page**, select **Add New**, then select the **Sample 1 - Regression: Automobile Price Prediction(Basic)** experiment.
 
-## Create a workspace
+## Create a new experiment
+
+To create a visual interface experiment, you first need  an Azure Machine Learnings service workspace. In this section you learn how to create both these resources.
+
+### Create a new workspace
 
 If you have an Azure Machine Learning service workspace, skip to the next section.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Create new experiment
+### Create an experiment
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).
 
@@ -53,7 +59,7 @@ If you have an Azure Machine Learning service workspace, skip to the next sectio
 
 1. Select the default experiment name **"Experiment created on ...**" at the top of the canvas and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
 
-## Specify data
+## Import data
 
 Machine learning depends on data. Luckily, there are several sample datasets included in this interface available for you to experiment with. For this tutorial, use the sample dataset **Automobile price data (Raw)**. 
 
@@ -61,7 +67,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 1. Select the dataset, **Automobile price data (raw)**, and drag it onto the canvas.
 
-   ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
+   ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
@@ -83,22 +89,20 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
     In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
 
-     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.gif)
 
 1. On the lower right, select **OK** to close the column selector.
 
-## Run the experiment
+### Run the experiment
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Visualize** option is disabled, you first need to run the experiment.
-
-An experiment runs on a compute target, which is a compute resource that is attached to your workspace. Once you create a compute target, you can reuse it for future runs.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
 After the compute target is available, the experiment runs. When the run is complete, a green check mark appears on each module.
 
 
-## Visualize the data
+### Visualize the data
 
 Now that you have run your initial experiment, you can visualize the data to understand more about the dataset you have.
 
@@ -108,9 +112,9 @@ Now that you have run your initial experiment, you can visualize the data to und
 
     In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns. There are 205 rows and 26 columns in this dataset.
 
-     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left. For example, when you click on **num-of-doors** you see it has two unique values and two missing values. Scroll down to see the values: two and four doors.
+    Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left.
 
-     ![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    [![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif#lightbox)
 
 1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
@@ -135,15 +139,11 @@ First, remove the **normalized-losses** column completely.
 
     * On the lower right, select **OK** to close the column selector.
 
-    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.gif)
         
     Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except **normalized-losses**.
         
     The properties pane shows that the **normalized-losses** column is excluded.
-        
-    ![Property pane](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
-        
-    You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. 
 
 1. Double-click the **Select Columns in Dataset** module and type the comment "Exclude normalized losses." 
     
@@ -166,22 +166,22 @@ When you train a model, you have to do something about the data that is missing.
 1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
 1. Double-click the module and type the comment "Remove missing value rows."
- 
-    ![Remove rows](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
 
     Your experiment should now look something like this:
     
     ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
 
-## Train the model
+## Train a machine learning model
 
 Now that the data is ready, you can construct a predictive model. You'll use your data to train the model. Then you'll test the model to see how closely it's able to predict prices.
+
+### Select an algorithm
 
 **Classification** and **regression** are two types of supervised machine learning algorithms. **Classification** predicts an answer from a defined set of categories, such as a color (red, blue, or green). **Regression** is used to predict a number.
 
 Because you want to predict price, which is a number, you can use a regression algorithm. For this example, you'll use a linear regression model.
 
-Train the model by giving it a set of data that includes the price. The model scans the data and looks for correlations between a car's features and its price.
+### Split the data
 
 Use your data for both training the model and testing it by splitting the data into separate training and testing datasets.
 
@@ -189,17 +189,17 @@ Use your data for both training the model and testing it by splitting the data i
 
 1. Select the **Split Data** module. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
-    ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
-
 1. Double-click the **Split Data** and type the comment "Split the dataset into training set(0.7) and test set(0.3)"
+
+### Train the model
+
+Train the model by giving it a set of data that includes the price. The model scans the data and looks for correlations between a car's features and its price.
 
 1. To select the learning algorithm, clear your module palette search box.
 
 1. Expand the **Machine Learning** then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms.
 
 1. For this experiment, select **Regression** > **Linear Regression** and drag it to the experiment canvas.
-
-    ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/linear-regression-module.png)
 
 1. Find and drag the **Train Model** module to the experiment canvas. Connect the output of the Linear Regression module to the left input of the Train Model module, and connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
@@ -213,7 +213,7 @@ Use your data for both training the model and testing it by splitting the data i
 
     ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-## Score and evaluate the model
+## Evaluate a machine learning model
 
 Now that you've trained the model using 70 percent of your data, you can use it to score the other 30 percent of the data to see how well your model functions.
 
@@ -242,26 +242,6 @@ The following statistics are shown for your model:
 * **Coefficient of Determination**: Also known as the R squared value, this is a statistical metric indicating how well a model fits the data.
 
 For each of the error statistics, smaller is better. A smaller value indicates that the predictions more closely match the actual values. For Coefficient of Determination, the closer its value is to one (1.0), the better the predictions.
-
-## Manage experiments in Azure Machine Learning service workspace
-
-The experiments you create in the visual interface can be managed from the Azure Machine Learning service workspace. Use the workspace to see more detailed information such as individuals experiment runs, diagnostic logs, execution graphs, and more.
-
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
-
-1. In your workspace, select **Experiments**. Then select the experiment you created.
-
-    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-train-score/portal-experiments.png)
-
-    On this page, you'll see an overview of the experiment and its latest runs.
-
-    ![Screenshot showing overview of experiment statistics in the Azure portal](./media/ui-tutorial-automobile-price-train-score/experiment-overview.png)
-
-1. Select a run number to see more details about a specific execution.
-
-    ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-train-score/run-details.png)
-
-    The run report is updated in real time. If you used an **Execute Python Script** or **Execute R Script** module in your experiment, you can specify script logs to output in the **Logs** tab.
 
 ## Clean up resources
 

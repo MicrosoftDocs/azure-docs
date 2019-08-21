@@ -75,7 +75,7 @@ The steps in this section show how to create a blank API with no backend. It als
 5. Select **200 OK** from the list.
 6. Under the **Representations** heading on the right, select **+ Add representation**.
 7. Enter "*application/json*" into the search box and select the **application/json** content type.
-8. In the **Sample** text box, enter  `{ 'sampleField' : 'test' }`.
+8. In the **Sample** text box, enter  `{ "sampleField" : "test" }`.
 9. Select **Create**.
 
 ## Enable response mocking

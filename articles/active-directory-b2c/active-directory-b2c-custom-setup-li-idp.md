@@ -23,7 +23,7 @@ This article shows you how to enable sign-in for users from a LinkedIn account b
 
 - Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - LinkedIn account - If you don't already have one, [create an account](https://www.linkedin.com/start/join).
-- LinkedIn Page - You need a [LinkedIn Page](https://www.linkedin.com/company/setup/new/) to associate with the LinkedIn application you create in the next section.
+- LinkedIn Page - You need a [LinkedIn Page](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page) to associate with the LinkedIn application you create in the next section.
 
 ## Create an application
 

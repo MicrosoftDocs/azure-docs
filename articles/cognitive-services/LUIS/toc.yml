@@ -6,7 +6,7 @@
   - name: What is Language Understanding?
     href: what-is-luis.md
   - name: What's new
-    href: whats-new.md    
+    href: whats-new.md   
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -25,6 +25,10 @@
       href: sdk-csharp-quickstart-authoring-app.md
     - name: Query prediction endpoint
       href: sdk-csharp-quickstart-query-prediction-endpoint.md
+  - name: Use Python SDK
+    items: 
+    - name: Create and manage app
+      href: sdk-python-quickstart-authoring-app.md 
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -114,6 +118,9 @@
   - name: Best practices
     href: luis-concept-best-practices.md
     displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
+  - name: Using LUIS and QnA Maker
+    href: choose-natural-language-processing-service.md
+    displayName: nlp, qna maker
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md

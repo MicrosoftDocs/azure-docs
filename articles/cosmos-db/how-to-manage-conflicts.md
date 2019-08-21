@@ -4,7 +4,7 @@ description: Learn how to manage conflicts in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 ---
 
@@ -14,7 +14,7 @@ With multi-region writes, when multiple clients write to the same item, conflict
 
 ## Create a last-writer-wins conflict resolution policy
 
-These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. This may also be set to a user-defined path for a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. For SQL API, this may also be set to a user-defined path with a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -109,7 +109,6 @@ Custom conflict resolution stored procedures must be implemented using the funct
 
 > [!IMPORTANT]
 > Just as with any stored procedure, a custom conflict resolution procedure can access any data with the same partition key and can perform any insert, update or delete operation to resolve conflicts.
-
 
 This sample stored procedure resolves conflicts by selecting the lowest value from the `/myCustomId` path.
 
@@ -268,7 +267,6 @@ udp_collection = self.try_create_document_collection(
 
 After your container is created, you must create the `resolver` stored procedure.
 
-
 ## Create a custom conflict resolution policy
 
 These samples show how to set up a container with a custom conflict resolution policy. These conflicts show up in the conflict feed.
@@ -423,10 +421,10 @@ while conflict:
 
 Learn about the following Azure Cosmos DB concepts:
 
-* [Global distribution - under the hood](global-dist-under-the-hood.md)
-* [How to configure multi-master in your applications](how-to-multi-master.md)
-* [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [How to configure multi-master in your applications](how-to-multi-master.md).
-* [Partitioning and data distribution](partition-data.md)
-* [Indexing in Azure Cosmos DB](indexing-policies.md)
+- [Global distribution - under the hood](global-dist-under-the-hood.md)
+- [How to configure multi-master in your applications](how-to-multi-master.md)
+- [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [How to configure multi-master in your applications](how-to-multi-master.md).
+- [Partitioning and data distribution](partition-data.md)
+- [Indexing in Azure Cosmos DB](indexing-policies.md)

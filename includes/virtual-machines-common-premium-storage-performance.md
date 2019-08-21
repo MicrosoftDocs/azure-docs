@@ -264,6 +264,9 @@ By configuring ReadOnly caching on Premium Storage data disks, you can achieve l
 *ReadWrite*  
 By default, the OS disks have ReadWrite caching enabled. We have recently added support for ReadWrite caching on data disks as well. If you are using ReadWrite caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using ReadWrite cache with an application that does not handle persisting the required data can lead to data loss, if the VM crashes.
 
+*None*  
+Currently, **None** is only supported on data disks. It is not supported on OS disks. If you set **None** on an OS disk it will override this internally and set it to **ReadOnly**.
+
 As an example, you can apply these guidelines to SQL Server running on Premium Storage by doing the following,
 
 1. Configure "ReadOnly" cache on premium storage disks hosting data files.  

@@ -7,7 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ---
 # Cognitive Services and machine learning
@@ -99,11 +99,11 @@ The following data categorizes each service by which kind of data it allows or r
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Speaker Recognizer](./speaker-recognition/home.md)||x||
 |[Speech Text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Speech Speech-to-text (STT)](/speech-service/speech-to-text.md)|x|x||
+|[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
 |[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text - custom translator]()||x||
+|[Translator Text - custom translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 
@@ -125,6 +125,10 @@ Cognitive Services that provide exported models for other machine learning tools
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
+## Learn more
+
+* [Architecture Guide - What are the machine learning products at Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Machine learning - Introduction to deep learning vs. machine learning](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
 
 ## Next steps
 

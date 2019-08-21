@@ -41,8 +41,6 @@ These changes might be recommended based on dataset qualities or workflow style.
 To take advantage of higher data speeds between the vFXT cluster and cloud storage in a cloud NAS or gateway scenario (where the vFXT cluster provides NAS-style access to a cloud container), your representative might recommend changing settings like these to more aggressively push data to the storage volume from the cache:
 
 * Increase the number of TCP connections between the cluster and the storage container
-* Decrease the REST timeout value for communication between the cluster and storage to retry writes sooner if they don't immediately succeed  
-* Increase the segment size so that each backend write segment transfers an 8-MB chunk of data instead of 1 MB
 
 ## Cloud bursting or hybrid WAN optimizations
 

@@ -1,20 +1,20 @@
 ---
 title: Understanding a world without passwords with Azure Active Directory | Microsoft Docs
 description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing a passwordless authentication method for their Azure Active Directory implementation. 
-services: active-directory 
 keywords: passwordless, azuread
 author: martincoetzer
 ms.author: martinco
 ms.date: 07/09/2019
 ms.topic: article
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.workload: identity
 ---
 # A world without passwords with Azure Active Directory
 
 It is time to break up your relationship with passwords. Passwords have been good to us in the past, but in today's digital workplace they have become a relatively easy attack vector for hackers. Hackers love passwords and it's not difficult to see why when you consider that most commonly rejected passwords in Azure Active Directory (Azure AD) include terms like the year, the month, the season, or a local sports team. Furthermore, [research has shown](https://aka.ms/passwordguidance) that traditional recommendations for password management such as length requirements, complexity requirements, and change frequencies are counterproductive for a variety of reasons related to human nature.
 
-Three types of attacks commonly used to compromise user accounts are password spray, phishing, and breach replay. Azure AD features such as [smart lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout), [banned passwords](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises), and [password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) can help protect against these kinds of attacks. Likewise, implementing [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) (MFA), or two-step verification, provides additional security by requiring a second form of authentication. But in the long run, a passwordless solution is the best solution for ensuring the most secure method of authentication.
+Three types of attacks commonly used to compromise user accounts are password spray, phishing, and breach replay. Azure AD features such as [smart lockout](../../active-directory/authentication/howto-password-smart-lockout.md), [banned passwords](../../active-directory/authentication/concept-password-ban-bad-on-premises.md), and [password protection](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) can help protect against these kinds of attacks. Likewise, implementing [multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA), or two-step verification, provides additional security by requiring a second form of authentication. But in the long run, a passwordless solution is the best solution for ensuring the most secure method of authentication.
 
 This article is the beginning of your journey to help you understand and implement Microsoft's passwordless solutions and help you choose between one or more of the following options:
 
@@ -103,7 +103,7 @@ For a deeper look at the authentication process in other scenarios involving Win
 
 The [Microsoft PIN reset services](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) is a feature in Azure AD that enables users to reset their PIN if needed. Using group policy, Microsoft Intune or a compatible MDM, an administrator can configure Windows 10 devices to securely use the Microsoft PIN reset service that enables users to reset their forgotten PIN through settings or above the lock screen without requiring re-enrollment.
 
-Sometimes users have to fall back to using passwords. [Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment) (SSPR) is another Azure AD feature that enables users to reset their passwords without needing to contact IT staff. Users must register for or be registered for self-service password reset before using the service. During registration, the user chooses one or more authentication methods enabled by their organization. SSPR enables users to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
+Sometimes users have to fall back to using passwords. [Self-service password reset](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) is another Azure AD feature that enables users to reset their passwords without needing to contact IT staff. Users must register for or be registered for self-service password reset before using the service. During registration, the user chooses one or more authentication methods enabled by their organization. SSPR enables users to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
 ## Passwordless sign-in with Microsoft Authenticator
 
@@ -119,9 +119,9 @@ Prerequisites for using the Microsoft Authenticator app to do passwordless sign 
 
 * End users are enabled for Azure Multi-Factor Authentication
 
-* The ability for users to enroll their devices by using Microsoft Intune or a third-party mobile device management (MDM) solution
+* It is recommended users enroll their devices using Microsoft Intune or a third-party mobile device management (MDM) solution to ease the deployment of the app
 
-Assuming these requirements are met, administrators enable passwordless phone sign-in in the tenant by using [Windows PowerShell.](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) Once phone sign-in is enabled in the tenant, end users may opt to sign-in using their phone by selecting their work or school account on the **Accounts** screen of the app, then selecting **Enable phone sign-in**.
+Assuming these requirements are met, administrators enable passwordless phone sign-in in the tenant by using [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) Once phone sign-in is enabled in the tenant, end users may opt to sign-in using their phone by selecting their work or school account on the **Accounts** screen of the app, then selecting **Enable phone sign-in**.
 
 Assuming passwordless sign-in is enabled by an administrator, end users will need to meet the following requirements:
 
@@ -131,9 +131,9 @@ Assuming passwordless sign-in is enabled by an administrator, end users will nee
 
 * Work or school account with push notifications added to the app
 
-To avoid the potential of getting locked out of your account or having to recreate accounts on a new device, it is recommended that you use Microsoft Authenticator to [backup your account credentials](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-backup-recovery) to the cloud. After backup, you can also use the app to recover your information on a new device, potentially avoiding getting locked out or having to recreate accounts.
+To avoid the potential of getting locked out of your account or having to recreate accounts on a new device, it is recommended that you use Microsoft Authenticator to [backup your account credentials](../../active-directory/user-help/user-help-auth-app-backup-recovery.md) to the cloud. After backup, you can also use the app to recover your information on a new device, potentially avoiding getting locked out or having to recreate accounts.
 
-Since most users are accustomed to using only passwords to authenticate, it is important that your organization educates users regarding this process. Awareness can reduce the likelihood that users call your help desk for any [issues](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#known-issues) related to signing in using the Microsoft Authenticator app.
+Since most users are accustomed to using only passwords to authenticate, it is important that your organization educates users regarding this process. Awareness can reduce the likelihood that users call your help desk for any [issues](../../active-directory/authentication/howto-authentication-passwordless-phone.md) related to signing in using the Microsoft Authenticator app.
 
 > [!NOTE]
 > A potential point of failure for this solution is when a roaming user is in a location where there is no Internet connectivity. FIDO2 security keys and Windows Hello for Business are not subject to the same limitation.
@@ -144,9 +144,9 @@ Since most users are accustomed to using only passwords to authenticate, it is i
 
 Before the Microsoft Authenticator app can be used as a passwordless solution to sign in to an Azure AD account, steps must be performed by both an administrator and the end users.
 
-First, an administrator will need to [enable use of the app as a credential](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) in the tenant using Windows PowerShell. The administrator will also need to enable end users for Azure Multi-Factor Authentication (Azure MFA) and configure the Microsoft Authenticator app as one of the [verification methods](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#verification-methods).
+First, an administrator will need to [enable use of the app as a credential](../../active-directory/authentication/howto-authentication-passwordless-phone.md) in the tenant using Windows PowerShell. The administrator will also need to enable end users for Azure Multi-Factor Authentication (Azure MFA) and configure the Microsoft Authenticator app as one of the [verification methods](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
-End users will need to [download and install](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) the Microsoft Authenticator app and [set up their account](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app) to use the Microsoft Authenticator app as one of the verification methods.
+End users will need to [download and install](../../active-directory/user-help/user-help-auth-app-download-install.md) the Microsoft Authenticator app and [set up their account](../../active-directory/user-help/security-info-setup-auth-app.md) to use the Microsoft Authenticator app as one of the verification methods.
 
 > [!VIDEO https://www.youtube.com/embed/uWbkLuI4g30]
 
@@ -178,7 +178,7 @@ Passwordless authentication using Microsoft Authenticator follows the same basic
 
 #### User manages their passwordless sign-in with Microsoft Authenticator credentials
 
-With [combined registration](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), users can register and get the benefits of both Azure Multi-Factor Authentication and self-service password reset. Users register and manage these settings by navigating to their [My Profile page](https://aka.ms/mysecurityinfo). In addition to enabling SSPR, combined registration supports multiple authentication methods and actions.
+With [combined registration](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md), users can register and get the benefits of both Azure Multi-Factor Authentication and self-service password reset. Users register and manage these settings by navigating to their [My Profile page](https://aka.ms/mysecurityinfo). In addition to enabling SSPR, combined registration supports multiple authentication methods and actions.
 
 ## FIDO2 security keys
 
@@ -220,9 +220,9 @@ We also recommend that each organization create a protocol for users and adminis
 
 #### User sets up FIDO2 security key
 
-While administrators can [manually provision keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) and distribute them to end users, provisioning and enabling the FIDO2 credential provider on the Windows 10 lock screen will be supported through [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administrators will also need to use the [Azure portal](https://portal.azure.com/) to enable hardware token devices as a passwordless authentication method.
+While administrators can [manually provision keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) and distribute them to end users, provisioning and enabling the FIDO2 credential provider on the Windows 10 lock screen will be supported through [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administrators will also need to use the [Azure portal](https://portal.azure.com/) to enable hardware token devices as a passwordless authentication method.
 
-Deploying FIDO2 security keys also requires that users register their keys using [combined registration](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined). With combined registration, users register once and get the benefits of both Azure Multi-Factor Authentication and single sign-on password reset (SSPR).
+Deploying FIDO2 security keys also requires that users register their keys using [combined registration](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). With combined registration, users register once and get the benefits of both Azure Multi-Factor Authentication and single sign-on password reset (SSPR).
 
 In addition to selecting the hardware token as the default multi-factor authentication method, it is recommended that you also select an additional verification option.
 
@@ -336,5 +336,5 @@ The adoption of modern multi-factor authentication technologies such as biometri
 
 ## Next steps
 
-* An overview of [what is passwordless?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
-* [How to enable passwordless in Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* An overview of [what is passwordless?](../../active-directory/authentication/concept-authentication-passwordless.md)
+* [How to enable passwordless in Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
