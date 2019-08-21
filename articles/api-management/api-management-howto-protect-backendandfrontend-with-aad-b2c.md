@@ -1,6 +1,6 @@
 ---
-title: Protect a SPA backend with OAuth 2.0 by using AAD B2C and API Management
-description: Protect an API with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth in order to be able to call it from a JS SPA
+title: Protect a SPA backend with OAuth 2.0 by using Azure Active Directory B2C and Azure API Management
+description: Protect an API with OAuth 2.0 by using Azure Active Directory B2C, Azure API Management, and Easy Auth in order to be able to call it from a JavaScript (JS) SPA
 
 services: api-management, aad-b2c, app-service
 documentationcenter: ''
