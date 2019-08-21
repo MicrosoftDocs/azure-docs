@@ -100,7 +100,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Go to the Function Apps blade of the Azure portal, open your empty function app, then create a new In-Portal 'Webhook + API' function.
 2. Paste the sample code from below into Run.csx over the existing code that appears.
 
-```C#
+```csharp
 
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
@@ -436,7 +436,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 5. An APIM subscription key can be created by heading to the API Management blade for your instance, selecting 'Subscriptions', and clicking 'Add Subscription' then saving the record. Clicking the Ellipsis (...) next to the created row will allow you to show the keys so you can copy the primary key.
 6. It should look something like the below code:-  
 
-```html
+```javascript
 	var applicationConfig = {
 		clientID: "{aadb2c-clientid-goeshere}",
 		authority: "https://{tenant}.b2clogin.com/{tenant}/{policy}",
