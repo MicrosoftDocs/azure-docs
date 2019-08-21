@@ -36,7 +36,7 @@ This quickstart requires:
 
 Now add the XAML code that defines the user interface of the application, and add the C# code-behind implementation.
 
-1. In **Solution Explorer**, double-click `MainPage.xaml` to open the XAML file.
+1. In **Solution Explorer**, open `MainPage.xaml`.
 
 1. In the designer's XAML view, insert the following XAML snippet into the **Grid** tag (between `<Grid>` and `</Grid>`):
 
@@ -54,7 +54,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 1. From the menu bar, choose **File** > **Save All** to save your changes.
 
-## Build and run the app
+## Build and run the application
 
 1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
 

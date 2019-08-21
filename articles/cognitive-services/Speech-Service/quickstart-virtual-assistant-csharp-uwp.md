@@ -398,7 +398,7 @@ To add the code-behind source, follow these steps:
 
 1. From the menu bar, choose **File** > **Save All** to save your changes.
 
-## Build and run the app
+## Build and run the application
 
 1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
