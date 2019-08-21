@@ -22,7 +22,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
     ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. In the following window, you will be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM backup will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. The deletion is deferred until after that period, when permanent deletion will occur.
+2. In the following window, you will be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM backup will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. If **Delete backup data** is chosen, a delete email alert is sent to the configured mail ID informing the user that 14 days remain of extended retention for backup data. Also, an email alert is sent on the 12th day informing that there are two more days left to resurrect the deleted data. The deletion is deferred until the 15th day, when permanent deletion will occur and a final email alert is sent informing about the permanent deletion of the data.
     
     ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
@@ -40,7 +40,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 >If any soft-deleted VMs are present in the vault, the vault cannot be deleted at that time.
 
 
-4.  In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**. A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a “stop protection with retain data” state. Click on the button **Undelete**.
+4.  In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**. A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a “stop protection with retain data” state. The undelete operation resurrects the soft deleted backup item, bringing back the backup jobs. Click on the button **Undelete**.
 
     ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
@@ -50,13 +50,13 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 >
 >Garbage collection will run only if the user performs “Resume backup” operation.
 
-5. After the undelete process is completed, the status will return to “Stop backup with retain data” and then you can choose **Resume backup**. At this point, you can also restore the VM by selecting **Restore VM** from the chosen restore point.
+5. After the undelete process is completed, the status will return to “Stop backup with retain data” and then you can choose **Resume backup**. At this point, you can also restore the VM by selecting **Restore VM** from the chosen restore point. The **Resume backup** operation brings back the backup item in the active state, associated with a backup policy selected by the user defining the backup and retention schedules.
 
     ![Screenshot of Azure portal, Resume Backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-This diagram shows the different steps and states of a backup item:
+This flow chart shows the different steps and states of a backup item:
 
-  ![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
+   ![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
 
 For more information, see the [Frequently Asked Questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) section below.
