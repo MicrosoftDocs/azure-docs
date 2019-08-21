@@ -21,6 +21,9 @@ This article summarizes key best practices to follow.
 > [!IMPORTANT]
 > To ensure maximal security for your IoT space, review additional security resources. Make sure to include your device vendors.
 
+> [!TIP]
+> Use [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/) to help detect IoT security threats and vulnerabilities.
+
 ## IoT security best practices
 
 Some key practices to safely secure your IoT devices include:
