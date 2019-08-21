@@ -63,7 +63,7 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
 
 ### Create certificates
 
-In this section, you create the certificate and key files that you'll use later on when creating your DPS enrollment.
+In this section, you create the certificate and key files that you'll use later on when creating your DPS enrollment and installing the IoT Edge runtime.
 
 1. Create the root CA certificate and one intermediate certificate. These certificates are placed in *\<WRKDIR>*.
 
@@ -158,7 +158,7 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
 
 ### Create certificates
 
-In this section, you create the certificate and key files that you'll use later on when creating your DPS enrollment.
+In this section, you create the certificate and key files that you'll use later on when creating your DPS enrollment and installing the IoT Edge runtime.
 
 1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory.
 
@@ -175,7 +175,7 @@ In this section, you create the certificate and key files that you'll use later 
 1. Create the IoT Edge device identity certificate and private key with the following command. Replace `<name>` with your preferred device ID.
 
    ```powershell
-   New-IdentityCertEdgeDevice  "<name>"
+   New-CACertsEdgeDeviceIdentity  "<name>"
    ```
 
    This command creates several certificate and key files, including two that we'll use when installing the IoT Edge runtime:
