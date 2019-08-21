@@ -1,7 +1,7 @@
 ---
-title: Verify the Language Detection container instance
+title: Verify the Key Phrase Extraction container instance
 titleSuffix: Azure Cognitive Services
-description: Learn how to verify the Language Detection container instance.
+description: Learn how to verify the Key Phrase Extraction container instance.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 08/21/2019
 ms.author: dapine
 ---
 
-## Verify the Language Detection container instance
+## Verify the Key Phrase Extraction container instance
 
 1. Select the **Overview** tab, and copy the IP address.
 1. Open a new browser tab, and enter the IP address. For example, enter `http://<IP-address>:5000 (http://55.55.55.55:5000`). The container's home page is displayed, which lets you know the container is running.

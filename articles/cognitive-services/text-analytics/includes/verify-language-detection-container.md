@@ -44,20 +44,6 @@ ms.author: dapine
     }
     ```
 
-1. Replace the input with the following JSON content:
-
-    ```json
-    {
-      "documents": [
-        {
-          "language": "en",
-          "id": "7",
-          "text": "I was fortunate to attend the KubeCon Conference in Barcelona, it is one of the best conferences I have ever attended. Great people, great sessions and I thoroughly enjoyed it!"
-        }
-      ]
-    }
-    ```
-
 1. Set **showStats** to `true`.
 
 1. Select **Execute** to determine the sentiment of the text.
