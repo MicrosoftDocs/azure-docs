@@ -128,7 +128,7 @@ A system that doesn't have long-running orchestrations lasting more than 24 hour
 * Simple code base
 * Doesn't require additional function app management
 ## Cons
-* Requires additional storage account or task hub managemen
+* Requires additional storage account or task hub management
 * Requires periods of time when no orchestrations are running
 
 # Application Routing
@@ -152,34 +152,35 @@ The router manages the state of which version of your app's code is deployed to 
 
 The application router directs deployment and orchestration requests to the appropriate function app based on the `version` sent with the request, ignoring patch version.
 
-When you deploy a new version of your app without a breaking change, you can increment the patch version. The application router will deploy to your existing function app, and sends requests for the old and new versions of the code are routed to same function app.
+When you deploy a new version of your app *without* a breaking change, you can increment the patch version. The application router will deploy to your existing function app, and sends requests for the old and new versions of the code are routed to same function app.
 
 ![Application Routing (no breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
-
-When you deploy a new app with breaking change, you can update the revision. Then the application router creates a new function app in Azure and deploys to it. The request of the orchestration is never going to the function app with version 1.0.1.  However, running orchestration of the version 1.0.1 is keep on working on it. 
+When you deploy a new version of your app with a breaking change, you can increment the major or minor version. Then the application router creates a new function app in Azure, deploys to it, and routes requests for the new version of your app to it. In the diagram below, running orchestrations on the 1.0.1 version of the app will keep running, but requests for the 1.1.0 version will be routed to the new function app.
 
 ![Application Routing (breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-You can observe the orchestration status on the function apps which is no longer routed. Once all orchestration has been finished, the application router removes the function app. 
+The application router monitoring the status of orchestrations on the 1.0.1 version and removing apps once all orchestrations have been finished.  
 
 Here is a [sample project](https://github.com/TsuyoshiUshio/FunctionAppController) with a migration script.
 
 ## Tracking store settings
 
-For this strategy, you can use Tracking Store settings. In case you want to separete queues for each FunctionApp, however you want to query the instance tables and share the instance/history table, you can use Tracking Store settings. You can configure `trackingStoreConnectionStringName` and `trackingStoreNamePrefix` on your host.json. Then you can share the instance/history table among the function app. In this case, change the TaskHubName for each function app. You can query all function apps status in one place with TaskHubName. For more details, [host.json settings](durable-functions-bindings.md#host-json) and [Manage instances in Durable Functions in Azure](durable-functions-instance-management.md).
+Each function app should use separate scheduling queues, possibly in separate storage accounts. However, if you want to be able to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. Do this by configuring your apps' trackingStoreConnectionStringName and trackingStoreNamePrefix [host.json settings](durable-functions-bindings.md#host-json) so that they all share the same values.
 
+For more details, [Manage instances in Durable Functions in Azure](durable-functions-instance-management.md).
 
 ![Tracking store settings](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 
 ## Usage 
-A system that you have long running orchestration. You can't terminate it. 
+A system that doesn't have periods of time when no orchestrations are running, ex. those with long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations.
 
 ## Pros
-It is enabling long-running orchestration with a new version that has a breaking change.
+Handles new versions of systems with continually running orchestrations that have breaking changes
 
 ## Cons
-You need to develop an intelligent application router. Need to care the maximum number of the Function App of your subscription. It is 100 by default. 
+* Need to develop an intelligent application router
+* Need to take care not to the maximum number of function apps allowed by your subscription (default 100)
 
 # Summary
 ![Comparison](media/durable-functions-zero-downtime-deployment/compare.png)
