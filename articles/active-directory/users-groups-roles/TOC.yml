@@ -92,7 +92,7 @@
         href: groups-bulk-download-members.md
       - name: Bulk remove members (preview)
         href: groups-bulk-remove-members.md
-      - name: Download a list of groups (preview)
+      - name: Bulk download a groups list (preview)
         href: groups-bulk-download.md
     - name: Manage groups in groups
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
