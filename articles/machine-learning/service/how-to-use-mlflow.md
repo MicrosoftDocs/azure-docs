@@ -209,7 +209,7 @@ ws.get_details()
 
 Deploying your MLflow experiments as an Azure Machine Learning web service allows you to leverage the Azure Machine Learning model management and data drift detection capabilities and apply them to your production models.
 
-The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow models despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc.-- as an Azure Machine Learning web service and manage them in your workspace.
+The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow models as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
 
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
