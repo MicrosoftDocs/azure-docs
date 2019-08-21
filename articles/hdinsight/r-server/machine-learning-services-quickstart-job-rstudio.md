@@ -178,3 +178,6 @@ In this quickstart, you learned how to run an R script with RStudio Server that 
 
 > [!div class="nextstepaction"]
 >[Compute context options for ML Services on HDInsight](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> This page describes features of RStudio software. Microsoft Azure HDInsight is not affiliated with RStudio, Inc.
