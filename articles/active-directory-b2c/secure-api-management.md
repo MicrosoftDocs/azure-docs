@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Secure an Azure API Management API with Azure AD B2C
 
-In this article, you learn how to secure an API in Azure API Management by using Azure Active Directory B2C (Azure AD B2C). By creating an inbound policy in Azure API Management (APIM) that verifies the audience and issuer claims in an Azure AD B2C-issued access token, you can ensure that only API calls with a valid token are accepted.
+By creating an inbound policy in Azure API Management (APIM) that restricts access to API calls that include a valid Azure AD B2C-issued access token, you can ensure that only authenticated callers can access your API.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ You need the following resources in place before continuing with the steps in th
 
 ## Get Azure AD B2C application ID
 
-When you secure an API in Azure API Management with Azure AD B2C, you need several values for the inbound policy that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
+When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
 
 1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com)
 1. Under **Manage**, select **Applications**
