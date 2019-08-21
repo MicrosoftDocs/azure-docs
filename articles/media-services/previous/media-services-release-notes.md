@@ -41,6 +41,10 @@ We want to hear from our customers so that we can focus on fixing problems that 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
 
+## September 3019
+
+We are announcing the retirement of *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME). <br/>For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+
 ## March 2019
 
 The Media Hyperlapse Preview feature of Azure Media Services was deprecated.
