@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory Authentication Documentation
+title: Azure Active Directory Authentication documentation
 summary: Learn how to manage and deploy Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout.
 
 metadata:
-  title: Azure Active Directory Authentication Documentation
+  title: Azure Active Directory Authentication documentation
   description: Learn how to manage and deploy Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout.
   services: active-directory
   ms.service: active-directory
