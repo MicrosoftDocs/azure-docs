@@ -21,14 +21,7 @@ Azure SQL Database shares a common code base with SQL Server. Most of the standa
   - Security features - [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ([see, getting started guide](sql-database-dynamic-data-masking-get-started.md)), [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and Threat detection - see getting started guides for   [single database and elastic pools](sql-database-threat-detection.md) and [managed instance](sql-database-managed-instance-threat-detection.md).
   - Multimodel capabilities - [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview), [JSON data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) ([see getting started guide](sql-database-json-features.md)), [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql), [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql).
 
-There are the database features that depend on the type of Azure SQL database that you create. These features are described in the tables below. With Azure SQL Database, you can create a database as part of a [managed instance](sql-database-managed-instance.md), as a single database, or as part of an elastic pool.
-
-Microsoft continues to add features to Azure SQL Database. Visit the Service Updates webpage for Azure for the newest updates using these filters:
-
-- Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
-- Filtered to General Availability [(GA) announcements](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
-
-If you need more details about the differences, you can find them in the separate pages for [Single database and Elastic pools](sql-database-transact-sql-information.md) or [Managed Instance](sql-database-managed-instance-transact-sql-information.md).
+There are the database features that depend on the type of Azure SQL database that you create. These features are described in the tables below. With Azure SQL Database, you can create a database as part of a [managed instance](sql-database-managed-instance.md), as a single database, or as part of an elastic pool. If you need more details about the differences, you can find them in the separate pages for [Single database and Elastic pools](sql-database-transact-sql-information.md) or [Managed Instance](sql-database-managed-instance-transact-sql-information.md).
 
 ## SQL features
 
@@ -165,5 +158,11 @@ Azure SQL database supports various data tools that can help you to manage your 
 
 ## Next steps
 
-- For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
-- For information about a Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
+Microsoft continues to add features to Azure SQL Database. Visit the Service Updates webpage for Azure for the newest updates using these filters:
+
+- Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
+- Filtered to General Availability [(GA) announcements](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
+
+For information about the Azure SQL Database service, see
+- [What is SQL Database?](sql-database-technical-overview.md)
+- [What is a Managed Instance?](sql-database-managed-instance.md).
