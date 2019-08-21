@@ -38,7 +38,7 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
     
     For information about read and write permissions to workspaces, see [Manage log data and workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access).
 
-- Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](https://docs.microsoft.com/en-us/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)
+- Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](https://docs.microsoft.com/en-us/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## Connect to Azure Information Protection
 
