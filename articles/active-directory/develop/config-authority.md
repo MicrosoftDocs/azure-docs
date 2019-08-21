@@ -29,7 +29,7 @@ This article will show you how to configure your Microsoft authentication librar
 `MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios, or working with B2C, you won't need to change it.
 
 > [!NOTE]
-> Active Directory Federation Service (AD FS) is currently not supported.
+> Active Directory Federation Service (AD FS) is not supported.
 
 ## Change the default authority
 
@@ -160,7 +160,7 @@ The following shows how to sign a user into a specific tenant:
 
 ### MSALAuthority
 
-The `MSALAuthority` class is the base abstract class for the MSAL authority classes. Don't try to create instance of it. Instead either create one of its subclasses directly (`MSALAADAuthority`, `MSALADFSAuthority`, `MSALB2CAuthority`) or use the factory method `authorityWithURL:error:` to create subclasses using an authority URL.
+The `MSALAuthority` class is the base abstract class for the MSAL authority classes. Don't try to create instance of it. Instead either create one of its subclasses directly (`MSALAADAuthority`, `MSALB2CAuthority`) or use the factory method `authorityWithURL:error:` to create subclasses using an authority URL.
 
 Use the `url` property to get a normalized authority URL. Extra parameters and path components or fragments that are not part of authority won't be in the returned normalized authority URL.
 
@@ -173,15 +173,6 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 ### MSALB2CAuthority
 
 `MSALB2CAuthority` represents a B2C authority. The authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`
-
-### MSALADFSAuthority
-
-`MSALADFSAuthority` represents an Active Directory Federation Service (AD FS) authority. The authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/adfs`
-
-> [!IMPORTANT]
-> AD FS is not supported.
-
-An arbitrary URL can be used if it's declared as a known authority in `MSALPublicClientApplicationConfiguration`.
 
 ## Next steps
 
