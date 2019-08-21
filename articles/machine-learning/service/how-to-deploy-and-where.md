@@ -496,11 +496,13 @@ profiling_results = profile.get_results()
 print(profiling_results)
 ```
 
-Model profiling results are emitted as a `Run` object. The output of the profile run contains information similar to the following text:
+This code displays a result similar to the following text:
 
-```json
+```python
 {'cpu': 1.0, 'memoryInGB': 0.5}
 ```
+
+Model profiling results are emitted as a `Run` object.
 
 For information on using profiling from the CLI, see [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
@@ -801,7 +803,7 @@ package.wait_for_creation(show_output=True)
 package.save("./imagefiles")
 ```
 
-This code downloads the files needed to build the image to the `imagefiles` directory. From there, you can then use a local Docker installation to build the image. For example, using the following command from the directory containing the files 
+This code downloads the files needed to build the image to the `imagefiles` directory.
 
 ## Clean up resources
 
