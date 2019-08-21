@@ -41,10 +41,7 @@ To create and run the sample, do the following steps:
    1. After the package is successfully installed, close the command prompt window.
 
 1. Copy the following code into a text editor.
-1. Make the following changes in code where needed:
-    1. Replace the value of `subscriptionKey` with your subscription key.
-    1. Replace the value of `uriBase` with the endpoint URL for the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method from the Azure region where you obtained your subscription keys, if necessary.
-    1. Optionally, replace the value of `imageUrl` with the URL of a different image from which you want to extract printed text.
+1. Optionally, replace the value of `imageUrl` with the URL of a different image from which you want to extract printed text.
 1. Save the code as a file with a `.js` extension. For example, `get-printed-text.js`.
 1. Open a command prompt window.
 1. At the prompt, use the `node` command to run the file. For example, `node get-printed-text.js`.
@@ -54,14 +51,11 @@ To create and run the sample, do the following steps:
 
 const request = require('request');
 
-// Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '<Subscription Key>';
+let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-// You must use the same location in your REST call as you used to get your
-// subscription keys. For example, if you got your subscription keys from
-// westus, replace "westcentralus" in the URL below with "westus".
-const uriBase =
-    'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr';
+var uriBase = endpoint + 'vision/v2.0/ocr';
 
 const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/' +
     'Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png';
