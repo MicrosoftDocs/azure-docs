@@ -409,8 +409,8 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 		console.log("calling "  + applicationConfig.webApi +  " with " + token);
 	        // Make the api call here
 		$.ajax({
-		type: "get",
-		headers: [{'Authorization': 'Bearer ' + token}, {'ocp-apim-subscription-key': applicationConfig.subKey}], 			url: applicationConfig.webApi
+			type: "get",
+			headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey}, 					url: applicationConfig.webApi
 		}
 		).done(function (body) {
 			document.getElementById("message").innerHTML = "The API Said " + body;
@@ -432,19 +432,23 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct Azure AD B2C application / client IDs
 2. Go back to the Azure portal storage blade and click on index.html, then choose ‘Edit Blob’ 
 3. Update the auth details to match your front-end application you registered in B2C earlier, noting that the 'b2cScopes' values are for the API backend.
-4. It should look something like the below code:-  
+4. The webApi key and api url can be found in the API Management test pane for the API operation.
+5. An APIM subscription key can be created by heading to the API Management blade for your instance, selecting 'Subscriptions', and clicking 'Add Subscription' then saving the record. Clicking the Ellipsis (...) next to the created row will allow you to show the keys so you can copy the primary key.
+6. It should look something like the below code:-  
 
 ```html
 	var applicationConfig = {
 		clientID: "{aadb2c-clientid-goeshere}",
-		authority: "https://{tenant}.b2clogin.com/tfp/{tenant}/{policy}",
-		b2cScopes: ["https://{tenant}/{app}/{scope}"],
+		authority: "https://{tenant}.b2clogin.com/{tenant}/{policy}",
+		b2cScopes: ["https://{tenant}/{app}/{scope}"], 
 		webApi: 'http://{apim-url-for-your-function}',
-		subKey: '{apim-ocpkey}'
+		subKey: '{apim-subscription-key-goes-here}'
 	};
 ```
 
-## Configure the redirect URIs for the App Registrations in B2C
+7. Click Save
+
+## Configure the redirect URIs for the frontend App Registration in B2C
 1. Open the Azure AD B2C blade and navigate to the application registration for the JavaScript Frontend Application
 2. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above
 
