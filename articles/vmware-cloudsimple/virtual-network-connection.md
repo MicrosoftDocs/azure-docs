@@ -19,7 +19,7 @@ You can extend your Private Cloud network to your Azure virtual network and Azur
 An authorization key is required for the ExpressRoute connection between your Private Cloud and the Azure virtual network. To obtain a key, file a ticket with <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">Support</a>.  Use the following information in the request:
 
 * Issue type: **Technical**
-* Subscription: Select the subscription where CloudSimple service is deployed**
+* Subscription: **Select the subscription where CloudSimple service is deployed**
 * Service: **VMware Solution by CloudSimple**
 * Problem type: **Service request**
 * Problem subtype: **Authorization key for Azure VNET connection**
