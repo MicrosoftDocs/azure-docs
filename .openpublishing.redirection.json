@@ -25935,6 +25935,26 @@
 			"redirect_document_id": false
 		},
 		{
+			"source_path": "articles/security-center/security-center-add-next-generation-firewall.md",
+			"redirect_url": "/azure/sentinel/connect-data-sources",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/security-center/security-center-add-web-application-firewall.md",
+			"redirect_url": "/azure/sentinel/connect-data-sources",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/security-center/security-center-restrict-access-through-internet-facing-endpoints.md",
+			"redirect_url": "/azure/security-center/security-center-network-recommendations",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/security-center/security-center-enable-network-security-groups.md",
+			"redirect_url": "/azure/virtual-network/security-overview",
+			"redirect_document_id": false
+		},
+		{
 			"source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
 			"redirect_url": "/azure/virtual-machines/linux/multiple-nics",
 			"redirect_document_id": false
