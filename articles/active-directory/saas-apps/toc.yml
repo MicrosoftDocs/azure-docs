@@ -1554,6 +1554,8 @@
         href: workday-inbound-tutorial.md
       - name: Workplace by Facebook
         href: workplacebyfacebook-provisioning-tutorial.md
+      - name: Workgrid
+        href: workgrid-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler
