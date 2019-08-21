@@ -118,18 +118,18 @@ Then swap slots. Application settings that aren't marked as deployment slot sett
 
 ![Deployment slot](media/durable-functions-zero-downtime-deployment/deployment-slot-3.png)
 
-If you want to use the same storage account for both slots, you can change the name of TaskHubs. In this case, you need to manage the state of the Slot and TaskHubName.
+If you want to use the same storage account for both slots, you can change the names of your task hubs. In this case, you need to manage the state of your slots and your apps' TaskHubName settings.
 For more details, [Task hubs in Durable Functions (Azure Functions)](durable-functions-task-hubs.md) 
 
 ## Usage 
-A system that doesn't have a long-running orchestration last more than 24 hours nor frequently overlaping orchestrations.
+A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations.
 
 ## Pros
 * Simple code base
-* Doesn't require additional FunctionApp management
+* Doesn't require additional function app management
 ## Cons
-* Additional Storage Account or requires TaskHubName management
-* Not suitable for long-running orchestration.
+* Requires additional storage account or task hub managemen
+* Requires periods of time when no orchestrations are running
 
 # Application Routing
 This strategy is the most complex strategy; however, some customer can't stop the ongoing long-running orchestration. In this case, you can use this strategy.  Let's see how it works. 
