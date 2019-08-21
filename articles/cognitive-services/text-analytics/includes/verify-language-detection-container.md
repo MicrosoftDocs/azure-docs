@@ -1,7 +1,7 @@
 ---
-title: Verify the Sentiment Analysis container instance
+title: Verify the Language Detection container instance
 titleSuffix: Azure Cognitive Services
-description: Learn how to verify the Sentiment Analysis container instance.
+description: Learn how to verify the Language Detection container instance.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 08/21/2019
 ms.author: dapine
 ---
 
-## Verify the Sentiment Analysis container instance
+## Verify the Language Detection container instance
 
 1. Select the **Overview** tab, and copy the IP address.
 1. Open a new browser tab, and enter the IP address. For example, enter `http://<IP-address>:5000 (http://55.55.55.55:5000`). The container's home page is displayed, which lets you know the container is running.
@@ -69,23 +69,71 @@ ms.author: dapine
     ```json
     {
       "documents": [
-      {
-        "id": "7",
-        "score": 0.9826303720474243,
-        "statistics": {
-          "charactersCount": 176,
+        {
+          "id": "1",
+          "detectedLanguages": [
+            {
+              "name": "English",
+              "iso6391Name": "en",
+              "score": 1
+            }
+          ],
+          "statistics": {
+            "charactersCount": 11,
+            "transactionsCount": 1
+          }
+        },
+        {
+          "id": "2",
+          "detectedLanguages": [
+            {
+              "name": "French",
+              "iso6391Name": "fr",
+              "score": 1
+            }
+          ],
+          "statistics": {
+            "charactersCount": 21,
+            "transactionsCount": 1
+          }
+        },
+        {
+          "id": "3",
+          "detectedLanguages": [
+            {
+              "name": "Spanish",
+              "iso6391Name": "es",
+              "score": 1
+            }
+          ],
+          "statistics": {
+            "charactersCount": 65,
+            "transactionsCount": 1
+          }
+        },
+        {
+          "id": "4",
+          "detectedLanguages": [
+            {
+              "name": "French",
+              "iso6391Name": "fr",
+              "score": 1
+            }
+          ],
+          "statistics": {
+            "charactersCount": 8,
             "transactionsCount": 1
           }
         }
       ],
       "errors": [],
       "statistics": {
-        "documentsCount": 1,
-        "validDocumentsCount": 1,
+        "documentsCount": 4,
+        "validDocumentsCount": 4,
         "erroneousDocumentsCount": 0,
-        "transactionsCount": 1
+        "transactionsCount": 4
       }
     }
     ```
 
-We can now correlate the document `id` of the response payload's JSON data to the original request payload document `id`. The score of more than `0.98` indicates a very positive sentiment.
+We can now correlate the documents of the response payload's JSON data to the original request payload documents by their corresponding `id`. Each document is treated independently containing various statistics such as `characterCount` and `transactionCount`. Additionally, each resulting document has the `detectedLanguages` array with the `name`, [`iso6391Name`](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), and `score` for each language detected. When multiple languages are detected, the `score` is used to determine the most probable language.
