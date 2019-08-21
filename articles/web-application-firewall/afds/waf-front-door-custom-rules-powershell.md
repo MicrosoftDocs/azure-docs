@@ -1,5 +1,5 @@
 ---
-title: Configure a web application firewall (WAF) policy with custom rules and Default Ruse Set for Front Door - Azure PowerShell
+title: Configure a Web Application Firewall (WAF) policy with custom rules and Default Ruse Set for Front Door - Azure PowerShell
 description: Learn how to configure a WAF policy consist of both custom and managed rules for an existing Front Door endpoint.
 services: web-application-firewall
 author: vhorne
@@ -9,8 +9,8 @@ ms.date: 08/21/2019
 ms.author: victorh
 ---
 
-# Configure a web application firewall policy using Azure PowerShell
-Azure web application firewall (WAF) policy defines inspections required when a request arrives at Front Door.
+# Configure a Web Application Firewall policy using Azure PowerShell
+Azure Web Application Firewall (WAF) policy defines inspections required when a request arrives at Front Door.
 This article shows how to configure a WAF policy that consists of some custom rules and with Azure-managed Default Ruse Set enabled.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

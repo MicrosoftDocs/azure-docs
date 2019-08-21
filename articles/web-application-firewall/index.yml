@@ -41,13 +41,23 @@ landingContent:
             url: ./afds/waf-front-door-create-portal.md
 
   # Card
-  - title: Manage rules
+  - title: Manage WAF rules on Application Gateway
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Customize Web Application Firewall rules in Azure Application Gateway
+          - text: Customize Web Application Firewall rules on Azure Application Gateway
             url: ./ag/application-gateway-customize-waf-rules-portal.md
       - linkListType: overview
         links:
           - text: Web application firewall CRS rule groups and rules
             url: ./ag/application-gateway-crs-rulegroups-rules.md
+
+# Card
+  - title: Configure WAF on Front Door
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure bot protection
+            url: ./afds/waf-front-door-policy-configure-bot-protection.md
+          - text: Configure a custom response
+            url: ./afds/waf-front-door-configure-custom-response-code.md

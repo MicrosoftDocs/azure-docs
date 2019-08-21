@@ -1,6 +1,6 @@
 ---
-title: Azure web application firewall monitoring and logging
-description: Learn web application firewall (WAF) with FrontDoor monitoring and logging
+title: Azure Web Application Firewall monitoring and logging
+description: Learn Web Application Firewall (WAF) with FrontDoor monitoring and logging
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
@@ -9,9 +9,9 @@ ms.date: 08/21/2019
 ms.author: victorh
 ---
 
-# Azure web application firewall monitoring and logging 
+# Azure Web Application Firewall monitoring and logging 
 
-Azure web application firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs.
+Azure Web Application Firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs.
 
 ## Azure Monitor
 
