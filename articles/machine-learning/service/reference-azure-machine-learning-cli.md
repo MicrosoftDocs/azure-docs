@@ -152,7 +152,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 ## Environments
 
-The following commands demonstrate how to create, register, and list Azure Machine Learning service environments for your workspace:
+The following commands demonstrate how to create, register, and list Azure Machine Learning service [environments](how-to-configure-environment.md) for your workspace:
 
 + Create scaffolding files for an environment:
 
