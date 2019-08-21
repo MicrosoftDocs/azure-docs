@@ -149,7 +149,7 @@ Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Database
 This example shows how to list the LTR backups within a server. 
 
 ```powershell
-# List all LTR backups under the current subscriptin in a specific Azure region 
+# List all LTR backups under the current subscription in a specific Azure region 
 # The list includes backups for existing servers and dropped servers grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest backup first.
 # Requires Subscription scope permission
