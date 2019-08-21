@@ -32,9 +32,10 @@ To create and run the sample, do the following steps:
 1. Copy the following command into a text editor.
 1. Make the following changes in the command where needed:
     1. Replace the value of `<subscriptionKey>` with your subscription key.
-    1. Replace the request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
+    1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
+    [!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Optionally, change the language parameter of the request URL (`language=en`) to use a different supported language.
-    1. Optionally, change the image URL in the request body (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) to the URL of a different image to be analyzed.
+    2. Optionally, change the image URL in the request body (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) to the URL of a different image to be analyzed.
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
