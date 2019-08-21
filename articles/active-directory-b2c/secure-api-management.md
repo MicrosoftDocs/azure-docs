@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Secure an Azure API Management API with Azure AD B2C
 
-By creating an inbound policy in Azure API Management (APIM) that restricts access to API calls that include a valid Azure AD B2C-issued access token, you can ensure that only authenticated callers can access your API.
+Ensure only authenticated callers can access your API by creating an inbound policy in Azure API Management (APIM) that restricts access to requests that include a valid Azure AD B2C-issued access token.
 
 ## Prerequisites
 
@@ -61,9 +61,9 @@ https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-know
 https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
-## Configure validation in Azure API Management
+## Configure claims validation in Azure API Management
 
-You're now ready to add the inbound policy in Azure API Management that validates API calls. By adding an inbound policy that verifies the audience and issuer in an access token, you can ensure that only API calls with a valid token are accepted.
+You're now ready to add the inbound policy in Azure API Management that validates API calls. By adding an inbound policy that verifies the audience and issuer claims in an access token, you can ensure that only API calls with a valid token are accepted.
 
 1. Browse to your Azure API Management instance in the [Azure portal](https://portal.azure.com)
 1. Select **APIs**
@@ -98,9 +98,14 @@ You're now ready to add the inbound policy in Azure API Management that validate
     </policies>
     ```
 
-## Validate Azure API Management configuration
+## Validate secure API access
 
-You can validate the API using a tool like Postman. Get the B2C-generated token, then add it to Authorization header when calling the Azure API.
+To ensure only authenticated callers can access your API, you can validate the configuration in Azure API Management by calling the API with Postman.
+
+1. Get JWT (Run now > webapp1 > )
+1. Add Authorization header with Bearer token value
+
+Get the B2C-generated token, then add it to Authorization header when calling the Azure API.
 
 For example, in Postman:
 
