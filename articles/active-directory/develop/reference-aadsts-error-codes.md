@@ -261,6 +261,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
 
 ## Next steps
 
