@@ -4,7 +4,7 @@ description: Learn how to configure a rate limit rule for an existing Front Door
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.workload: infrastructure-services
+services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ---

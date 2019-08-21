@@ -5,7 +5,6 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao

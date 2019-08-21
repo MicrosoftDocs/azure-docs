@@ -4,7 +4,7 @@ description: Learn web application firewall (WAF).
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.workload: infrastructure-services
+services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ---
