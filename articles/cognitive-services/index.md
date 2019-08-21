@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 08/15/2019
+ms.date: 08/21/2019
 ms.topic: hub-page
 ---
 
@@ -157,14 +157,14 @@ ms.topic: hub-page
 
 
 <h2>Cognitive Services APIs</h2>
-<ul class="cardsL panelContent singlePanelContent" style="display:flex!important;">
+<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Vision</h3>
-                        <h4 >Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
+                        <br><h4>Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
