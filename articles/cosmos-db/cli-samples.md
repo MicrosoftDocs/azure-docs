@@ -23,7 +23,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 | [Create an Azure Cosmos DB account using Table API](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB account, database, and table. |
 |**Scale Azure Cosmos DB**||
 | [Scale container throughput](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Changes the provisioned throughput on a container.|
-| [Replicate Azure Cosmos DB database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Globally replicates account data into multiple regions with a specified failover priority.|
+| [Replicate Azure Cosmos database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Globally replicates account data into multiple regions with a specified failover priority.|
 |**Secure Azure Cosmos DB**||
 | [Get account keys](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
 | [Get the connection string for Cosmos account configured with Azure Cosmos DB's API for MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Gets the connection string to connect MongoDB app to your Azure Cosmos DB account.|
@@ -32,5 +32,5 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 |**High availability, disaster recovery, backup and restore**||
 | [Configure failover policy](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Sets the failover priority of each region in which the account is replicated.|
 |**Connect Azure Cosmos DB to resources**||
-| [Connect a web app to Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Create and connect an Azure Cosmos DB database and an Azure web app.|
+| [Connect a web app to Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Create and connect an Azure Cosmos database and an Azure web app.|
 |||
