@@ -4,7 +4,7 @@ description: When using Azure delegated resource management, it’s important to
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 08/16/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
 ---
