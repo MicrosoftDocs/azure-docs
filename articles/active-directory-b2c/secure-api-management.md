@@ -28,7 +28,7 @@ You need the following resources in place before continuing with the steps in th
 
 ## Get Azure AD B2C application ID
 
-When you secure an API in Azure API Management with Azure AD B2C, you need several values for the inbound policy that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, you can use the application ID for *webbapp1*.
+When you secure an API in Azure API Management with Azure AD B2C, you need several values for the inbound policy that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
 
 1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com)
 1. Under **Manage**, select **Applications**
