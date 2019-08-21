@@ -45,9 +45,9 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
 
 ## Connect to Azure Information Protection
 
-Like Sentinel, Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. When you connect Sentinel to Azure Information Protection, you're prompted to select a workspace and you must select the workspace that you're currently using for Sentinel.
+Like Sentinel, Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. When you connect Sentinel to Azure Information Protection, you're prompted to select a workspace and you must select the same workspace that you've currently selected to use for Sentinel.
 
-If a different workspace has already been [configured for Azure Information Protection analytics](https://docs.microsoft.com/azure//information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), the configuration for Sentinel changes the configuration for Azure Information Protection analytics. New logging data from Azure Information Protection will now be stored in the Sentinel workspace, and any custom queries created for the previously configured workspace will need to be recreated for the Sentinel workspace.
+If a different workspace has already been [configured for Azure Information Protection analytics](https://docs.microsoft.com/azure//information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), the configuration for Sentinel changes the configuration for Azure Information Protection analytics. New logging data from Azure Information Protection will now be stored in the workspace you're using for Sentinel, and any custom queries created for the previously configured workspace will need to be recreated for the Sentinel workspace.
 
 1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection**.
 
