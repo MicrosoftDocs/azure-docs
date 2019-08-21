@@ -128,7 +128,7 @@ Update to [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) 
 
 ### SDK For Java
 
-Update to [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/) or later of the HDInsight SDK for Java. Minimal code modifications may be required if you are using a method affected by these changes:
+Update to [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) or later of the HDInsight SDK for Java. Minimal code modifications may be required if you are using a method affected by these changes:
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) will **no longer return sensitive parameters** like storage keys (core-site) or HTTP credentials (gateway).
     - To retrieve all configurations, including sensitive parameters, use [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) going forward.  Note that users with the 'Reader' role will not be able to use this method. This allows for granular control over which users can access sensitive information for a cluster. 
@@ -200,7 +200,7 @@ If this still doesn’t work, contact your AAD admin to acquire the correct perm
 
 ### What will happen if I take no action?
 
-The `GET /configurations` and `POST /configurations/gateway` will no longer return any information and the `GET /configurations/{configurationName}` call will no longer return sensitive parameters, such as storage account key or cluster password. The same is true of corresponding SDK methods and PowerShell cmdlets.
+The `GET /configurations` and `POST /configurations/gateway` calls will no longer return any information and the `GET /configurations/{configurationName}` call will no longer return sensitive parameters, such as storage account keys or the cluster password. The same is true of corresponding SDK methods and PowerShell cmdlets.
 
 If you are using an older version of one of the tools for Visual Studio, VSCode, IntelliJ or Eclipse mentioned above, they will no longer function until you update.
 

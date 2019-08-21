@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -72,6 +72,9 @@ To use storage account key authentication, the following properties are supporte
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
+>Secondary Blob Service Endpoint is not supported when using account key authentication. You can use other authentication types.
+
+>[!NOTE]
 >If you were using "AzureStorage" type linked service, it is still supported as-is, while you are suggested to use this new "AzureBlobStorage" linked service type going forward.
 
 **Example:**
@@ -129,7 +132,7 @@ To use storage account key authentication, the following properties are supporte
 A shared access signature provides delegated access to resources in your storage account. You can use a shared access signature to grant a client limited permissions to objects in your storage account for a specified time. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
->- Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures).
+>- Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 >- In later dataset configuration, the folder path is the absolute path starting from container level. You need to configure one aligned with the path in your SAS URI.
 
 > [!TIP]

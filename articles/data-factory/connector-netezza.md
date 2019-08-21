@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -25,6 +25,10 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 You can copy data from Netezza to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
+
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
@@ -40,7 +44,7 @@ The following properties are supported for the Netezza linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **Netezza**. | Yes |
 | connectionString | An ODBC connection string to connect to Netezza. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault and pull the `pwd` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can choose a self-hosted Integration Runtime or the Azure Integration Runtime (if your data store is publicly accessible). If not specified, the default Azure Integration Runtime is used. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. The following table describes more properties that you can set:
 

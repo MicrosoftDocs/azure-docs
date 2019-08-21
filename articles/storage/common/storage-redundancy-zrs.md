@@ -6,16 +6,18 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Zone-redundant storage (ZRS): Highly available Azure Storage applications
+# Zone-redundant storage (ZRS) for building highly available Azure Storage applications
+
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
+
 ZRS currently supports standard general-purpose v2 account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
@@ -41,6 +43,7 @@ Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure 
 - Managed disks do not support ZRS. You can store snapshots and images for Standard SSD Managed Disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## What happens when a zone becomes unavailable?
+
 Your data is still accessible for both read and write operations even if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling. These practices include implementing retry policies with exponential back-off.
 
 When a zone is unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you are accessing your data before the updates have completed.
@@ -48,6 +51,7 @@ When a zone is unavailable, Azure undertakes networking updates, such as DNS rep
 ZRS may not protect your data against a regional disaster where multiple zones are permanently affected. Instead, ZRS offers resiliency for your data if it becomes temporarily unavailable. For protection against regional disasters, Microsoft recommends using geo-redundant storage (GRS). For more information about GRS, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md).
 
 ## Converting to ZRS replication
+
 Migrating to or from LRS, GRS, and RA-GRS is straightforward. Use the Azure portal or the Storage Resource Provider API to change your account's redundancy type. Azure will then replicate your data accordingly. 
 
 Migrating data to ZRS requires a different strategy. ZRS migration involves the physical movement of data from a single storage stamp to multiple stamps within a region.
@@ -57,14 +61,14 @@ There are two primary options for migration to ZRS:
 - Manually copy or move data to a new ZRS account from an existing account.
 - Request a live migration.
 
-Microsoft strongly recommends that you perform a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
+If you need the migration to complete by a certain date consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
 To perform a manual migration, you have options:
 - Use existing tooling like AzCopy, one of the Azure Storage client libraries, or reliable third-party tools.
 - If you're familiar with Hadoop or HDInsight, attach both source and destination (ZRS) account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
 - Build your own tooling using one of the Azure Storage client libraries.
 
-A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration. 
+A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration with no downtime. 
 
 During a live migration, you can use your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
 
@@ -133,9 +137,10 @@ ZRS Classic is available only for **block blobs** in general-purpose V1 (GPv1) s
 
 To manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RA-GRS account, use one of the following tools: AzCopy, Azure Storage Explorer, Azure PowerShell, or Azure CLI. You can also build your own migration solution with one of the Azure Storage client libraries.
 
-You can also upgrade your ZRS Classic account(s) to ZRS in the Portal or using Azure PowerShell or Azure CLI in the regions where ZRS is available.
+You can also upgrade your ZRS Classic account(s) to ZRS in the Portal or using Azure PowerShell or Azure CLI in the regions where ZRS is available. 
+To upgrade to ZRS in the Azure portal, navigate to the **Configuration** section of the account and choose **Upgrade**:
 
-To upgrade to ZRS in the Portal go to the Configuration section of the account and choose Upgrade:![Upgrade ZRS Classic to ZRS in the Portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+![Upgrade ZRS Classic to ZRS in the Portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.png)
 
 To upgrade to ZRS using PowerShell call the following command:
 ```powershell
