@@ -44,7 +44,9 @@ At the end of this tutorial, you have two .NET (C#) console apps:
 
 * **ScheduleJob**. This app uses jobs to call the **LockDoor** direct method and update the device twin desired properties on multiple devices.
 
-To complete this tutorial, you need the following prerequisites:
+## Prerequisites
+
+To complete this tutorial, you need:
 
 * Visual Studio.
 
@@ -217,7 +219,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
         CloudToDeviceMethod directMethod = 
           new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
           TimeSpan.FromSeconds(5));
-       
+
         JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
             $"DeviceId IN ['{deviceId}']",
             directMethod,
@@ -254,7 +256,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 
     > [!NOTE]
     > For more information about query syntax, see [IoT Hub query language](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
-    > 
+    >
 
 1. Finally, add the following lines to the **Main** method:
 

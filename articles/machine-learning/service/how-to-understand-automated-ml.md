@@ -42,15 +42,15 @@ After running an automated machine learning experiment, a history of the runs ca
 
 1. In the list of experiments, select the one you want to explore.
 
-   ![Experiment list](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)
+   [![Experiment list](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
 1. In the bottom table, select the **Run Number**.
 
-   ![Experiment run](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)
+   [![Experiment run](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
 1. In the Iterations table, select the **Iteration Number** for the model that you want to explore further.
 
-   ![Experiment model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)
+   [![Experiment model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
 You also see these same results during a run when you use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
@@ -201,7 +201,7 @@ Example 1: A regression model with low accuracy in predictions
 ![A regression model with low accuracy in predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
 Example 2: A regression model with high accuracy in its predictions
-![A regression model with high accuracy in its predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
+[![A regression model with high accuracy in its predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
