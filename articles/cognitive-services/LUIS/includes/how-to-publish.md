@@ -27,6 +27,6 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
     ![LUIS publish to endpoint](./media/cognitive-services-luis/publish-to-endpoint-success.png)
 
-1. Select the **endpoints** link in the green status bar to go to the **Keys and endpoints** page. The endpoint URLs are listed at the bottom.
+1. Select the **endpoints** link in the green status bar to go to the **Azure Resources** page. The endpoint URLs are listed at the bottom.
 
     <!-- TBD: add image -->

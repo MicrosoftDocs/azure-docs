@@ -55,9 +55,9 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 1. Sign in to the [LUIS portal](https://www.luis.ai) and choose the **myEnglishApp** app from the apps list.
 
-1. Select **Manage** in the upper-right menu, and then select **Keys and endpoints**.
+1. Select **Manage** in the upper-right menu, and then select **Azure Resources**.
 
-1. To add the LUIS, select **Assign Resource +**.
+1. To add the LUIS, select **Add prediction resource**.
 
    [![Assign a resource to your app](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
 

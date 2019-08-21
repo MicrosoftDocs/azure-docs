@@ -58,7 +58,7 @@ When your app is successfully published, a green success notification appears at
 
 ![Publishing pop-up window with link to endpoint](./media/luis-how-to-publish-app/publish-success.png)
 
-If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Keys and Endpoints** in the left menu. 
+If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Azure Resources** in the left menu. 
 
 ## Sentiment analysis
 

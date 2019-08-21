@@ -9,13 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08//2019
+ms.date: 08/21/2019
 ms.author: diberry
 ---
 
 # Migration Steps
 
 From the Language Understanding (LUIS) portal, migrate all the apps you own to use the Azure authoring resource.
+
+## Find the migration process
+
+On a regular basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
 
 ## Begin the migration process
 

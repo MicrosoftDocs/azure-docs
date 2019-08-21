@@ -13,29 +13,47 @@ ms.date: 08/25/2019
 ms.author: diberry
 ---
 
-# Using authoring and runtime keys
+# Using authoring and runtime resource keys
 
-The two key pieces of information for a LUIS app are the authoring key(s) and the runtime key(s). 
+The two key pieces of authentication information for a LUIS app are:
 
-When you work with the LUIS portal, you are using your LUIS authoring resource key. When you intend to publish the app, then you use your runtime key. 
+* The authoring resource and its key(s) - for managing your LUIS app and its prediction model.
+* The runtime resource and its key(s) - for using the prediction model with a user's utterance.
 
 For testing and prototype only, use the free runtime (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) runtime tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## Authoring key
+## Authoring resource and key
 
 This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of runtime endpoint queries each month.
 
-[![LUIS Settings page](./media/luis-how-to-azure-subscription/account-settings.png)](./media/luis-how-to-azure-subscription/account-settings.png#lightbox)
+<!-- TBD: add screenshot of user settings page -->
 
 The authoring key is:
 
 * Used for any apps you own as well as any apps you are listed as a collaborator.
 * Specific to the [authoring region](luis-reference-regions.md#publishing-regions). The key does not work in a different [authoring region](luis-reference-regions.md#luis-authoring-regions).
 
-## Reset authoring key
+### Create an authoring resource for your app
+
+Create an authoring resource through:
+
+* LUIS portal's **[User Settings](https://www.luis.ai/user/settings)** page.
+* Azure portal's create resource with kind `luis-authoring`.
+
+From the LUIS portal's **User Settings** page, you can create an authoring resource and assign it to the app. Access the **User Settings** by selecting your name in the top, right corner of the [LUIS portal](https://www.luis.ai).  
+
+### Assign an authoring resource for your app
+
+Assign an authoring resource through the LUIS portal:
+
+* Create a new app with a new authoring key from the apps list page
+* Create a new authoring key in **User Settings**
+* Assign an existing authoring in **Manage** -> **Azure Resources**
+
+### Reset authoring key
 
 If your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that resource. 
 
