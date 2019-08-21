@@ -105,7 +105,7 @@ az aks create \
 It takes a few minutes to create the cluster.
 
 > [!NOTE]
-> To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
+> To ensure your cluster operates reliably, you should run at least 2 (two) nodes in the default node pool, as essential system services are running across this node pool.
 
 When the cluster is ready, use the [az aks get-credentials][az-aks-get-credentials] command to get the cluster credentials for use with `kubectl`:
 
