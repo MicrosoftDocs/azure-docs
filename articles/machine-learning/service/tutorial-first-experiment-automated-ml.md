@@ -23,10 +23,9 @@ By using the automated machine learning capabilities of the Azure Machine Learni
 In this tutorial, you learn the following tasks:
 
 > [!div class="checklist"]
-> * Configure an Azure Machine Learning service workspace.
-> * Create an experiment.
-> * Auto-train a classification model.
-> * View training run details.
+> * Create an Azure Machine Learning service workspace.
+> * Run an automated machine learning experiment.
+> * View experiment details.
 > * Deploy the model.
 
 ## Prerequisites
@@ -69,8 +68,6 @@ You'll see the **Welcome to Automated Machine Learning** screen, since this is y
 
 1. Select **Upload** and choose the **bankmarketing_train.csv** file from your local computer to upload it to the default container. Public preview supports only local file uploads and Azure Blob storage accounts. When the upload is complete, select the file from the list. 
 
-    [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
-
 1. The **Preview** tab allows us to further configure our data for this experiment.
 
     On the **Preview** tab, indicate that the data includes headers. The service defaults to include all of the features (columns) for training. For this example, scroll to the right and **Ignore** the **day_of_week** feature.
@@ -101,8 +98,6 @@ You'll see the **Welcome to Automated Machine Learning** screen, since this is y
 1. Select **Start** to run the experiment.
 
    When the experiment starts, you see a blank **Run Detail** screen with the following status at the top. 
-
-      ![Run preparing](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
       
 The experiment preparation process takes a couple of minutes. When the process finishes, the status message changes to **Run is Running**.
 
@@ -134,11 +129,9 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
     
 1. Select **Deploy**.
 
-    The following message appears when deployment successfully finishes:
-
-    ![Deployment complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
+    A deployment complete message appears when deployment successfully finishes.
     
-    Now you have an operational web service to generate predictions.
+Now you have an operational web service to generate predictions.
 
 ## Clean up resources
 
