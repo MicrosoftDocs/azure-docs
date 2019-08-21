@@ -27890,6 +27890,11 @@
 			"redirect_document_id": true
 		},
 		{
+			"source_path": "articles/active-directory/authentication/howto-authentication-passwordless-enable.md",
+			"redirect_url": "/azure/active-directory/authentication/concept-authentication-passwordless",
+			"redirect_document_id": true
+		},
+		{
 			"source_path": "articles/active-directory/authentication/howto-authentication-phone-sign-in.md",
 			"redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-phone",
 			"redirect_document_id": true
@@ -34895,7 +34900,12 @@
 		},
 		{
 			"source_path": "articles/azure-policy/scripts/req-store-acct-enc.md",
-			"redirect_url": "/azure/governance/policy/samples/require-storage-account-encryption",
+			"redirect_url": "/azure/governance/policy/samples/index",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/governance/policy/samples/require-storage-account-encryption.md",
+			"redirect_url": "/azure/governance/policy/samples/index",
 			"redirect_document_id": false
 		},
 		{
@@ -37860,7 +37870,7 @@
 		},
 		{
 			"source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
-			"redirect_url": "/azure/governance/policy/samples/require-storage-account-encryption",
+			"redirect_url": "/azure/governance/policy/samples/index",
 			"redirect_document_id": true
 		},
 		{
