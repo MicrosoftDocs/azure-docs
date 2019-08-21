@@ -214,7 +214,8 @@ The following diagram demonstrates that with the MLflow deploy API you can deplo
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
 ### Log your model
-Before we can deploy, be sure that your model is saved so you can reference it and its path location for deployment. In your training script, there should be code similar to the following [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) method, that saves your model to the specified outputs directory. 
+
+Before you can deploy, be sure that your model is saved so you can reference it and its path location for deployment. In your training script, there should be code similar to the following [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) method, that saves your model to the specified outputs directory. 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -228,7 +229,7 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 
 ### Retrieve model from previous run
 
-To retrieve the desired run we need the run ID and the path in run history of where the model was saved. 
+To retrieve the desired run you need the run ID and the path in run history of where the model was saved. 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -245,7 +246,7 @@ model_save_path = 'model'
 
 The `mlflow.azureml.build_image()` function builds a Docker image from the saved model in a framework-aware manner. It automatically creates the framework-specific inferencing wrapper code and specifies package dependencies for you. Specify the model path, your workspace, run ID and other parameters.
 
-In the following code, we build a docker image using *runs:/<run.id>/model* as the model_uri path for a Scikit-learn experiment.
+The following code builds a docker image using *runs:/<run.id>/model* as the model_uri path for a Scikit-learn experiment.
 
 ```python
 import mlflow.azureml
@@ -291,9 +292,9 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### Deploy to AKS
 
-To deploy to AKS you need to create an AKS cluster and bring over the Docker image you want to deploy. For this example, we bring over the previously created image from our ACI deployment.
+To deploy to AKS you need to create an AKS cluster and bring over the Docker image you want to deploy. For this example, bring over the previously created image from the ACI deployment.
 
-To get the image from the previous ACI deployment we use the [Image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) class. 
+To get the image from the previous ACI deployment use the [Image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) class. 
 
 ```python
 from azureml.core.image import Image
