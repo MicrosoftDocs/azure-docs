@@ -8,7 +8,7 @@ ms.author: erhopf
 
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Create a project and import required modules
 
