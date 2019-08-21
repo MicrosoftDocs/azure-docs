@@ -24,7 +24,13 @@
     - name: Configure WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
 - name: Samples  
-- name: Concepts 
+- name: Concepts
+  items:
+  - name: Application Gateway
+    items:
+    - name: Request size limits and exclusion lists
+      href: ./ag/application-gateway-waf-configuration.md
+  - name: Front Door
 - name: How-to guides
   items:
   - name: Application Gateway
