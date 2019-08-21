@@ -149,6 +149,8 @@
       href: display-feature-information-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
+  - name: Provide data feedback
+    href: how-to-use-feedback-tool.md
 - name: Reference
   items:
   - name: API and parameter extensions
