@@ -40,7 +40,7 @@ Applications that don't experience frequent [breaking changes.](durable-function
 * Every function must be copied and its references to other functions updated. You can make it easier by writing a script. Here is a [sample project](https://github.com/TsuyoshiUshio/DurableVersioning) with a migration script.
 
 >[!NOTE]
->This strategies uses Deployment slots. Avoiding downtime of the deployment, use Deployment Slot. For more detailed information about how to create and use new deployment slots refer to [Deployment technologies in Azure Functions](../functions-deployment-technologies.md#deployment-slots)
+>This strategy uses deployment slots to avoid downtime during deployment. For more detailed information about how to create and use new deployment slots refer to [Deployment technologies in Azure Functions](../functions-deployment-technologies.md#deployment-slots)
 
 # Status Check with Slot
 While the current version of your function app is running in your production slot, deploy the new version of your function app to your staging slot. Before you swap your production and staging slots, check if there are running orchestration instances. If all orchestration instances are completed, you can perform the swap. This strategy works when you have predictable periods when no orchestration instances are in-flight - for example, if you don't have long-running orchestrations, or orchestrations whose executions frequently overlap.
