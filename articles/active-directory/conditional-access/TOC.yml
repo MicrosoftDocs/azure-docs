@@ -42,7 +42,7 @@
     href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
-  - name: Common policy templates
+  - name: Common Conditional Access policies
     items: 
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
