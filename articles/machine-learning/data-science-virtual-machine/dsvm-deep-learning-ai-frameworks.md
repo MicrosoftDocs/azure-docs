@@ -22,7 +22,7 @@ ms.author: vijetaj
 ---
 
 # Deep learning and AI frameworks
- [Data Science Virtual Machines](https://aka.ms/dsvm) (DSVM) supports a number of deep-learning frameworks to help build artificial intelligence (AI) applications that have predictive analytics and cognitive capabilities, like image and language understanding.
+ [Data Science Virtual Machines](https://aka.ms/dsvm) (DSVM) support a number of deep-learning frameworks to help build artificial intelligence (AI) applications that have predictive analytics and cognitive capabilities, like image and language understanding.
 
 Deep-learning frameworks available through DSVM include:
 

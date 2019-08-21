@@ -200,7 +200,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
   Open a command prompt and run `julia`.
 * Use in an IDE:
 
-  Use `Juno`, with the Julia IDE installed on the DSVM and available as a desktop shortcut.
+  Use `Juno` with the Julia IDE installed on the DSVM and available as a desktop shortcut.
 
 * Use in Jupyter:
 
