@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/20/2019
+  ms.date: 08/21/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -42,43 +42,25 @@ landingContent:
             url: virtual-network-manage-subnet.md
 
   # Card
-  - title: Filter network traffic
+  - title: Manage network traffic
     linkLists:
       - linkListType: concept
         links:
           - text: Network security groups (NSGs)
             url: security-overview.md
+          - text: Route tables
+            url: virtual-networks-udr-overview.md
+          - text: Virtual network service endpoints
+            url: virtual-network-peering-overview.md
       - linkListType: tutorial
         links:
           - text: Filter network traffic using NSGs
             url: tutorial-filter-network-traffic.md
-
-
-  # Card
-  - title: Route network traffic
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Route network traffic with route tables
-            url: virtual-networks-udr-overview.md
-      - linkListType: tutorial
-        links:
           - text: Route network traffic
             url: tutorial-create-route-table-portal.md
-
- # Card
-  - title: Restrict network access
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Virtual network service endpoints
-            url: virtual-network-peering-overview.md
-          - text: Virtual network service endpoint policies
-            url: virtual-network-service-endpoint-policies-overview.md
-      - linkListType: tutorial
-        links:
           - text: Restrict network access using service endpoints
             url: tutorial-restrict-network-access-to-resources.md
+
 
   # Card
   - title: Connect virtual networks
