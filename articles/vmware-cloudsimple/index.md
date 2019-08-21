@@ -77,7 +77,6 @@ These guides describe solutions to goals such as:
 * Install third-party tools, enable additional users and external authentication source in vSphere using [privilege escalation](escalate-privileges.md).
 * Configure access to various VMware services by [configuring on-premises DNS](on-premises-dns-setup.md).
 * Enable name and address allocation for your workloads by [configuring workload DNS and DHCP](dns-dhcp-setup.md).
-* Understand how the service ensures security and functionality in your platform through service [updates and upgrades](updates-upgrades.md).
 * Save TCO on backup by creating a sample backup architecture with a [third-party backup software such as Veeam](backup-workloads-veeam.md).
 * Create a secure environment by enabling encryption at rest with a [third-party KMS encryption software](vsan-encryption.md).
 * Extend Azure Active Directory (Azure AD) management into VMware by configuring the [Azure AD identity source](azure-ad.md).
