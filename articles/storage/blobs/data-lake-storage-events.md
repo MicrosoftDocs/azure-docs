@@ -135,10 +135,9 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
     spark.conf.set("fs.azure.account.auth.type", "OAuth")
     spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-    spark.conf.set("fs.azure.account.oauth2.client.id", "<appId")
+    spark.conf.set("fs.azure.account.oauth2.client.id", "<appId>")
     spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
     spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant>/oauth2/token")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
 
     adlsPath = 'abfss://data@contosoorders.dfs.core.windows.net/'
     inputPath = adlsPath + dbutils.widgets.get('source_file')
@@ -146,6 +145,9 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
     ```
 
     This code creates a widget named **source_file**. Later, you'll create an Azure Function that calls this code and passes a file path to that widget.  This code also authenticates your service principal with the storage account, and creates some variables that you'll use in other cells.
+
+    > [!NOTE]
+    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. <br><br>For example, instead of using this line of code: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, you would use the following line of code: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>After you've completed this tutorial, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
 
 2. Press the **SHIFT + ENTER** keys to run the code in this block.
 
@@ -304,7 +306,7 @@ Create an Azure Function that runs the Job.
         log.LogInformation(eventGridEvent.Data.ToString());
 
         if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" | | eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
-            var fileData = ((JObject)(eventGridEvent.Data)) .ToObject<StorageBlobCreatedEventData>();
+            var fileData = ((JObject)(eventGridEvent.Data)).ToObject<StorageBlobCreatedEventData>();
             if (fileData.Api == "FlushWithClose") {
                 log.LogInformation("Triggering Databricks Job for file: " + fileData.Url);
                 var fileUrl = new Uri(fileData.Url);
