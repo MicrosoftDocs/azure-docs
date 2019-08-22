@@ -14,6 +14,9 @@ manager: philmea
 
 This article explains how to deploy the OPC UA Certificate Management Service in Azure.
 
+> [!NOTE]
+> For more information on deployment details and instructions, see the GitHub [OPC Vault repository](https://github.com/Azure/azure-iiot-opc-vault-service).
+
 ## Prerequisites
 
 ### Install required software

@@ -19,13 +19,13 @@ This article explains how to register applications and how to issue signed appli
 ### Deploy the Certificate Management Service
 
 First of all, the service needs to be deployed to the Azure cloud.
-Please find an article describing how to deploy the Certificate Management Service [here](howto-opc-vault-deploy.md).
+Please find an article describing how to [deploy the OPC Vault Certificate Management Service](howto-opc-vault-deploy.md).
 
 ### Create the Issuer CA certificate
 
 If you have not done so yet, create the Issuer CA certificate.
 
-Find an article describing how to create and manage the Issuer certificate [here](howto-opc-vault-manage.md).
+Find an article describing how to [create and manage the Issuer certificate for OPC Vault](howto-opc-vault-manage.md).
 
 ## Secure OPC UA applications
 
