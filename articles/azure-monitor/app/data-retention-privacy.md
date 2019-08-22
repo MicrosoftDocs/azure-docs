@@ -274,7 +274,7 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-collection) will walk you through your options.
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).
