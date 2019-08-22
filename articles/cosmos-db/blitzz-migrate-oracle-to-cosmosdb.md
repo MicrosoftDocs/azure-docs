@@ -11,11 +11,11 @@ ms.reviewer: sngun
 
 # Migrate data from Oracle to Azure Cosmos DB Cassandra API account using Blitzz
 
-Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Oracle for a variety of reasons such as:
+Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads that are running on Oracle for a variety of reasons such as:
 
 * **Better scalability and availability:** It eliminates single points of failure, better scalability, and availability for your applications.
 
-* **Significant cost savings:** You can save cost with Azure Cosmos DB, which includes the cost of VM’s, bandwidth, and any applicable Oracle licenses. Additionally, you don’t have to manage the data centers, servers, SSD storage, networking, and electricity costs like you would do for on-premise workloads.
+* **Significant cost savings:** You can save cost with Azure Cosmos DB, which includes the cost of VM’s, bandwidth, and any applicable Oracle licenses. Additionally, you don’t have to manage the data centers, servers, SSD storage, networking, and electricity costs.
 
 * **No overhead of managing and monitoring:** As a fully managed cloud service, Azure Cosmos DB removes the overhead of managing and monitoring a myriad of settings.
 
@@ -29,17 +29,17 @@ Blitzz’s migration solution follows a step by step approach to migrate complex
 
 * Blitzz offers high-volume and parallel database replication. It enables both the source and target platforms to be in-sync during the migration by using a technique called Change-Data-Capture (CDC). By using CDC, Blitzz continuously pulls a stream of changes from the source database(Oracle) and applies it to the destination database(Azure Cosmos DB).
 
-* It is fault-tolerant and guarantees exactly once delivery of data even if there is a hardware or software failure in the system.
+* It is fault-tolerant and guarantees exactly once delivery of data even during a hardware or software failure in the system.
 
-* It secures your data in motion using a variety of security methodologies like SSL, encryption.
+* It secures the data during transit using a variety of security methodologies like SSL, encryption.
 
 * It offers services to convert complex business logic written in PL/SQL to equivalent business logic in Azure Cosmos DB.
 
 ## Steps to migrate data
 
-This section describes the steps required to setup Blitzz and migrate data from Oracle database to Azure Cosmos DB.
+This section describes the steps required to setup Blitzz and migrates data from Oracle database to Azure Cosmos DB.
 
-1. From the computer where you plan to install the Blitzz replicant, add a security certificate. This certificate is required by the Blitzz replicant to establish a SSL connection with the specified Azure Cosmos DB account. You can add the certificate with the following steps:
+1. From the computer where you plan to install the Blitzz replicant, add a security certificate. This certificate is required by the Blitzz replicant to establish an SSL connection with the specified Azure Cosmos DB account. You can add the certificate with the following steps:
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt
@@ -47,13 +47,13 @@ This section describes the steps required to setup Blitzz and migrate data from 
    keytool -keystore $JAVA_HOME/lib/security/cacerts -importcert -alias bc2025ca -file bc2025.cer
    ```
 
-1. You can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](https://www.blitzz.io) or by sending an [email](mailto:success@blitzz.io) to the team.
+1. ou can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](https://www.blitzz.io). Alternatively, you can also send an [email](mailto:success@blitzz.io) to the team.
 
    ![Blitzz replicant tool download](./media/blitzz-migrate-oracle-to-cosmosdb/blitzz-replicant-download.png)
 
    ![Blitzz replicant files](./media/blitzz-migrate-oracle-to-cosmosdb/replicant-files.png)
 
-1. From the CLI terminal, setup the source database configuration. Open the configuration file using **`vi conf/conn/oracle.yml`** command and add a comma separated list of IP addresses of the oracle nodes, port number, username, password and any other required details. The following is an example of contents in the configuration file:
+1. From the CLI terminal, set up the source database configuration. Open the configuration file using **`vi conf/conn/oracle.yml`** command and add a comma-separated list of IP addresses of the oracle nodes, port number, username, password, and any other required details. The following code shows an example configuration file:
 
    ```bash
    type: ORACLE
@@ -76,7 +76,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
    After filling out the configuration details, save and close the file.
 
-1. Optionally, you can setup the source database filter file. The filter file specifies which schemas or tables to migrate. Open the configuration file using **`vi filter/oracle_filter.yml`** command and enter the following configuration details:
+1. Optionally, you can set up the source database filter file. The filter file specifies which schemas or tables to migrate. Open the configuration file using **`vi filter/oracle_filter.yml`** command and enter the following configuration details:
 
    ```bash
 
@@ -87,7 +87,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
  
    After filling out the database filter details, save and close the file.
 
-1. Next you will setup the destination database configuration. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account). [Choose the right partition key](partitioning-overview.md#choose-partitionkey) from your data and then create a Keyspace, and a table to store the migrated data.
+1. Next you will set up the configuration of the destination database. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account). [Choose the right partition key](partitioning-overview.md#choose-partitionkey) from your data and then create a Keyspace, and a table to store the migrated data.
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time. 
 
@@ -95,9 +95,9 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
    You must decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles.
 
-1. Get the **Contact Point, Port, Username** and **Primary Password** of your Azure Cosmos account from the **Connection String** pane. You will use these values in the configuration file.
+1. Get the **Contact Point, Port, Username**, and **Primary Password** of your Azure Cosmos account from the **Connection String** pane. You will use these values in the configuration file.
 
-1. From the CLI terminal, setup the destination database configuration. Open the configuration file using **`vi conf/conn/cosmosdb.yml`** command and add a comma separated list of host URI, port number, username, password, and other required parameters. The following is an example of contents in the configuration file:
+1. From the CLI terminal, set up the destination database configuration. Open the configuration file using **`vi conf/conn/cosmosdb.yml`** command and add a comma-separated list of host URI, port number, username, password, and other required parameters. The following is an example of contents in the configuration file:
 
    ```bash
    type: COSMOSDB
@@ -116,7 +116,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
    * **Full mode** – In this mode, the replicant continues to run after migration and it listens for any changes on the source Oracle system. If it detects any changes, they are replicated on the target Azure Cosmos account in real time.
 
-   * **Snapshot mode** – In this mode, you can perform schema migration and one-time data snapshot replication. Real-time replication isn’t supported with this option.
+   * **Snapshot mode** – In this mode, you can perform schema migration and one-time data replication. Real-time replication isn’t supported with this option.
 
 
    By using the above two modes, migration can be performed with zero downtime.
@@ -131,7 +131,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
    ![Oracle data migration output](./media/blitzz-migrate-oracle-to-cosmosdb/oracle-data-migration-output.png)
 
-1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Oracle database and validate that they are replicated real-time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.
+1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Oracle database. Later you can validate that they are replicated real time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.
 
 1. You can stop the replicant any point and restart it with **--resume** switch. The replication resumes from the point it has stopped without compromising on data consistency. The following command shows how to use the resume switch.
 
