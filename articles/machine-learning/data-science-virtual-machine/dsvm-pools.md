@@ -28,7 +28,7 @@ You can use many methods and technologies to create a pool of DSVMs. This articl
 
 ## Interactive VM pool
 
-A pool of interactive VMs that are shared by the whole articial intelligence (AI)/data science team allows users to log in to an available instance of the DSVM instead of having a dedicated instance for each set of users. This setup enables better availability and more effective utilization of resources.
+A pool of interactive VMs that are shared by the whole AI/data science team allows users to log in to an available instance of the DSVM instead of having a dedicated instance for each set of users. This setup enables better availability and more effective utilization of resources.
 
 The technology that you use to create an interactive VM pool is [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). You can use scale sets to create and manage a group of identical, load-balanced, and autoscaling VMs.
 
