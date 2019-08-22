@@ -1,9 +1,9 @@
 {
   "redirections": [
     {
-        "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
-        "redirect_url": "/azure/azure-government/documentation-government-welcome",
-        "redirect_document_id": false
+      "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
+      "redirect_url": "/azure/azure-government/documentation-government-welcome",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
@@ -4904,7 +4904,7 @@
       "source_path": "articles/application-gateway/create-vmss-template.md",
       "redirect_url": "/azure/application-gateway/resource-manager-template-samples",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
@@ -7490,12 +7490,12 @@
       "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-tutorial",
       "redirect_document_id": true
     },
-	{
+    {
       "source_path": "articles/active-directory/active-directory-saas-cisco-spark-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial",
       "redirect_document_id": true
     },
-	{
+    {
       "source_path": "articles/active-directory/saas-apps/cisco-spark-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial",
       "redirect_document_id": false
@@ -25580,7 +25580,7 @@
       "redirect_document_id": true
     },
     {
-    "source_path": "articles/data-factory/data-factory-spark.md",
+      "source_path": "articles/data-factory/data-factory-spark.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-spark",
       "redirect_document_id": true
     },
@@ -26890,6 +26890,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-plc-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-server-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-scratch.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-deploy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
       "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
       "redirect_document_id": false
@@ -28155,109 +28170,109 @@
       "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-auditing-and-logging.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-auditing-and-logging",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-auditing-and-logging.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-auditing-and-logging",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-authentication.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-authentication",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-authentication.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-authentication",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-authorization.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-authorization",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-authorization.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-authorization",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-communication-security.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-communication-security",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-communication-security.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-communication-security",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-configuration-management.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-configuration-management",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-configuration-management.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-configuration-management",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-cryptography.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-cryptography",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-cryptography.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-cryptography",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-exception-management.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-exception-management",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-exception-management.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-exception-management",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-feature-overview.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-feature-overview",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-feature-overview.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-feature-overview",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-getting-started.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-getting-started",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-getting-started.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-getting-started",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-input-validation.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-input-validation",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-input-validation.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-input-validation",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-mitigations.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-mitigations",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-mitigations.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-mitigations",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71509112.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71509112",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71509112.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71509112",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71510231.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71510231",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71510231.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71510231",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71601261.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71601261",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71601261.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71601261",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71604081.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71604081",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71604081.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71604081",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71607021.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71607021",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71607021.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71607021",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-releases.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-releases.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-releases",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-sensitive-data.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-sensitive-data",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-sensitive-data.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-sensitive-data",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-session-management.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-session-management",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-session-management.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-session-management",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool-threats.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool-threats",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool-threats.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool-threats",
+      "redirect_document_id": true
     },
     {
-            "source_path": "articles/security/azure-security-threat-modeling-tool.md",
-            "redirect_url": "/azure/security/develop/threat-modeling-tool",
-            "redirect_document_id": true
+      "source_path": "articles/security/azure-security-threat-modeling-tool.md",
+      "redirect_url": "/azure/security/develop/threat-modeling-tool",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
@@ -31023,12 +31038,12 @@
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs#publish-a-knowledge-base",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-nodejs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
@@ -41030,11 +41045,11 @@
       "redirect_url": "/azure/lab-services/devtest-lab-integrate-ci-cd",
       "redirect_document_id": true
     },
-	  {
+    {
       "source_path": "articles/azure-monitor/learn/java-quick-start.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
       "redirect_document_id": false
-	  },
+    },
     {
       "source_path": "articles/cognitive-services/Translator/quickstart-csharp-translate.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
