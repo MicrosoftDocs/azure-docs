@@ -177,6 +177,8 @@
         href: blackboard-learn-tutorial.md
       - name: Blackboard Learn - Shibboleth
         href: blackboard-learn-shibboleth-tutorial.md
+      - name: Blink
+        href: blink-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
       - name: Bomgar Remote Support
@@ -1082,7 +1084,7 @@
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: ScaleX Enterprise
-        href: scalexenterprise-tutorial.md
+        href: scalex-enterprise-tutorial.md
       - name: SCC LifeCycle
         href: scclifecycle-tutorial.md
       - name: Screencast-O-Matic
@@ -1133,6 +1135,8 @@
         href: signagelive-tutorial.md
       - name: SignalFx
         href: signalfx-tutorial.md
+      - name: Sigstr
+        href: sigstr-tutorial.md
       - name: SilkRoad Life Suite
         href: silkroad-life-suite-tutorial.md
       - name: Silverback
@@ -1317,6 +1321,8 @@
         href: vidyard-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
+      - name: Vocoli
+        href: vocoli-tutorial.md
       - name: Vodeclic
         href: vodeclic-tutorial.md
       - name: Voyance
@@ -1494,6 +1500,8 @@
         href: merchlogix-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
+      - name: Mindtickle
+        href: mindtickle-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netsuite
@@ -1526,6 +1534,8 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Symantec Web Security Service (WSS)
+        href: symantec-web-security-service.md
       - name: Smartfile
         href: smartfile-provisioning-tutorial.md
       - name: StarLeaf
@@ -1534,6 +1544,10 @@
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
+      - name: Templafy
+        href: templafy-provisioning-tutorial.md
+      - name: TheOrgWiki
+        href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Workday

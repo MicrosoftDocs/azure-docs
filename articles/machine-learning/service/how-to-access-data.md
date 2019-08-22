@@ -30,7 +30,7 @@ This how-to shows examples of the following tasks:
 
 To use datastores, you first need a [workspace](concept-workspace.md).
 
-Start by either [creating a new workspace](setup-create-workspace.md#sdk) or retrieving an existing one:
+Start by either [creating a new workspace](how-to-manage-workspace.md) or retrieving an existing one:
 
 ```Python
 import azureml.core

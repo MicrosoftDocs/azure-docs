@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
-ms.date: 07/05/2019
+ms.date: 08/14/2019
 ---
 # Time zones in Azure SQL Database Managed Instance
 
@@ -77,10 +77,10 @@ You can restore a backup file or import data to a managed instance from an insta
 
 ### Point-in-time restore
 
-<del>When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This setting avoids any ambiguity due to daylight saving time and its potential changes.<del>
+<del>When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This way any ambiguities due to daylight saving time and its potential changes are avoided.<del>
 
  >[!WARNING]
-  > Current behavior is not in line with the statement above, and time to restore to is interpreted as per the time zone of the source managed instance where automatic database backups are taken from. We are working on correcting this behavior to interpret given point in time as UTC time. See [Known issues](sql-database-managed-instance-timezone.md#known-issues) for more details.
+  > Current behavior is not in line with the statement above, and time to restore to is interpreted as per the time zone of the source managed instance where automatic database backups are taken from. We are working on correcting this behavior to interpret given point in time as UTC time.
 
 ### Auto-failover groups
 

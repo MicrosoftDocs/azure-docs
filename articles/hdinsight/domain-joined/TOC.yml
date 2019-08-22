@@ -17,47 +17,53 @@
   - name: Configure ESP clusters using Azure AD DS
     href: apache-domain-joined-configure-using-azure-adds.md
   - name: Synchronize Azure AD users to an HDInsight cluster
-    href: ../hdinsight-sync-aad-users-to-cluster.md
+    href: ../hdinsight-sync-aad-users-to-cluster.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
   - name: Configure Apache Hive policies
     href: apache-domain-joined-run-hive.md
   - name: Use VSCode to link to ESP cluster
     href: ../hdinsight-for-vscode.md
   - name: Use IntelliJ to link to ESP cluster
-    href: ../spark/apache-spark-intellij-tool-plugin.md
+    href: ../spark/apache-spark-intellij-tool-plugin.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
   - name: Use Eclipse to link to ESP cluster
-    href: ../spark/apache-spark-eclipse-tool-plugin.md
+    href: ../spark/apache-spark-eclipse-tool-plugin.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
   - name: Use Apache Oozie in ESP clusters
     href: hdinsight-use-oozie-domain-joined-clusters.md
   - name: Securing data
-    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
   - name: Network access
     items:
     - name: HDInsight virtual network architecture
-      href: ../hdinsight-virtual-network-architecture.md
+      href: ../hdinsight-virtual-network-architecture.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Plan VNETs for HDInsight
-      href: ../hdinsight-plan-virtual-network-deployment.md
+      href: ../hdinsight-plan-virtual-network-deployment.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Create VNETs for HDInsight
-      href: ../hdinsight-create-virtual-network.md
+      href: ../hdinsight-create-virtual-network.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Required IP Addresses for NSGs and UDRs
-      href: ../hdinsight-management-ip-addresses.md
+      href: ../hdinsight-management-ip-addresses.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Connect HDInsight with on-premises network
-      href: ../connect-on-premises-network.md
+      href: ../connect-on-premises-network.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Create Apache HBase cluster in Azure VNet
-      href: ../hbase/apache-hbase-provision-vnet.md
+      href: ../hbase/apache-hbase-provision-vnet.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Apache HBase cluster replication in Azure VNet
-      href: ../hbase/apache-hbase-replication.md
+      href: ../hbase/apache-hbase-replication.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
   - name: Monitoring using Azure Monitor logs
     items:
     - name: Use Azure Monitor logs
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Use queries with Azure Monitor logs
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Monitor cluster performance
-      href: ../hdinsight-key-scenarios-to-monitor.md
+      href: ../hdinsight-key-scenarios-to-monitor.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
 - name: How to
   items:
   - name: Create ESP clusters and sync with on-premises
     href: apache-domain-joined-create-configure-enterprise-security-cluster.md
+  - name: Troubleshoot
+    items:
+    - name: Authentication issues
+      href: ./domain-joined-authentication-issues.md
+    - name: Unable to sign in to Zeppelin
+      href: ./domain-joined-zeppelin-signin.md
 - name: Reference
   items:
   - name: Code samples
@@ -71,7 +77,7 @@
   - name: Java SDK
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
-    href: ../hdinsight-go-sdk-overview.md
+    href: ../hdinsight-go-sdk-overview.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: REST
@@ -86,9 +92,9 @@
   - name: Release notes
     items:
     - name: Current release notes
-      href: ../hdinsight-release-notes.md
+      href: ../hdinsight-release-notes.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Archived release notes
-      href: ../hdinsight-release-notes-archive.md
+      href: ../hdinsight-release-notes-archive.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum
@@ -100,4 +106,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Windows tools for HDInsight
-    href: ../hdinsight-hadoop-windows-tools.md
+    href: ../hdinsight-hadoop-windows-tools.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json

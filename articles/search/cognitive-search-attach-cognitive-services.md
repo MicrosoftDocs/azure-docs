@@ -1,15 +1,14 @@
 ---
 title: Attach a Cognitive Services resource with a skillset - Azure Search
 description: Instructions for attaching a Cognitive Services all-in-one subscription to a cognitive enrichment pipeline in Azure Search.
-manager: cgronlun
+manager: nitinme
 author: LuisCabrer
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
-ms.custom: seodec2018
 ---
 # Attach a Cognitive Services resource with a skillset in Azure Search 
 
