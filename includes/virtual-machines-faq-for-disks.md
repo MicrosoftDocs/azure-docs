@@ -271,6 +271,10 @@ Yes
 
 Yes.
 
+**Is the boot volume encrypted by default on a managed disk?**
+
+Yes. 
+
 **Who manages the encryption keys?**
 
 Microsoft manages the encryption keys.
