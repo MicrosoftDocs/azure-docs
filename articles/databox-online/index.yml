@@ -41,17 +41,17 @@ landingContent:
             url: data-box-gateway-1905-release-notes.md
 
   # Card
-  - title: "View requirements & limits"
+  - title: "Review"
     linkLists:
       - linkListType: concept
         links:
-          - text: For Data Box Gateway
+          - text: Data Box Gateway requirements
             url: data-box-gateway-system-requirements.md
-          - text: For Data Box Edge
+          - text: For Data Box Edge requirements
             url: data-box-edge-system-requirements.md
-          - text: Data Box Gateway
+          - text: Data Box Gateway limits
             url: data-box-gateway-limits.md
-          - text: Data Box Edge
+          - text: Data Box Edge limits
             url: data-box-edge-limits.md
 
   # Card
@@ -85,9 +85,9 @@ landingContent:
             url: data-box-gateway-manage-shares.md
           - text: Data Box Edge shares
             url: data-box-edge-manage-shares.md
-          - text: Manage Edge compute
+          - text: Edge compute
             url: data-box-edge-manage-compute.md
-          - text: Manage Edge compute network
+          - text: Edge compute network
             url: data-box-edge-extend-compute-access-modules.md
 
   # Card
