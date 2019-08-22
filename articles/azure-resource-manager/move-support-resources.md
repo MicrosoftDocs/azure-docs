@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/09/2019
+ms.date: 08/22/2019
 ms.author: tomfitz
 ---
 
@@ -23,6 +23,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.Backup](#microsoftbackup)
 > - [Microsoft.Batch](#microsoftbatch)
@@ -98,6 +99,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Maps](#microsoftmaps)
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft.Media](#microsoftmedia)
+> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
@@ -109,9 +111,12 @@ Jump to a resource provider namespace:
 > - [Microsoft.PortalSdk](#microsoftportalsdk)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProjectArcadia](#microsoftprojectarcadia)
 > - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.ResourceGraph.PPE](#microsoftresourcegraphppe)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
@@ -140,6 +145,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
 > - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.VMwareVirtustream](#microsoftvmwarevirtustream)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
@@ -148,6 +154,7 @@ Jump to a resource provider namespace:
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domainservices | No | No |
+| domainservices/replicasets | No | No |
 
 ## microsoft.aadiam
 | Resource type | Resource group | Subscription |
@@ -204,6 +211,11 @@ Jump to a resource provider namespace:
 | ------------- | ----------- | ---------- |
 | b2cdirectories | Yes | Yes |
 
+## Microsoft.AzureData
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| sqlserverregistrations | No | No |
+
 ## Microsoft.AzureStack
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -241,6 +253,7 @@ Jump to a resource provider namespace:
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | blockchainmembers | Yes | Yes |
+| watchers | No | No |
 
 ## Microsoft.Blueprint
 | Resource type | Resource group | Subscription |
@@ -258,11 +271,12 @@ Jump to a resource provider namespace:
 | redis | Yes | Yes |
 
 > [!IMPORTANT]
-> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks move limitations](./move-limitations/networking-move-limitations.md).
+> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks move limitations](./move-limitations/virtual-network-move-limitations.md).
 
 ## Microsoft.Cdn
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
+| cdnwebapplicationfirewallpolicies | No | No |
 | profiles | Yes | Yes |
 | profiles/endpoints | Yes | Yes |
 
@@ -310,6 +324,7 @@ Jump to a resource provider namespace:
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Yes | Yes |
+| diskencryptionsets | No | No |
 | disks | Yes | Yes |
 | galleries | No | No |
 | galleries/images | No | No |
@@ -473,7 +488,7 @@ Jump to a resource provider namespace:
 ## Microsoft.DevSpaces
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| controllers | No | No |
+| controllers | Yes | Yes |
 
 ## Microsoft.DevTestLab
 | Resource type | Resource group | Subscription |
@@ -533,7 +548,8 @@ Jump to a resource provider namespace:
 ## Microsoft.HanaOnAzure
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| hanainstances | Yes | Yes |
+| hanainstances | No | No |
+| sapmonitors | Yes | Yes |
 
 ## Microsoft.HDInsight
 | Resource type | Resource group | Subscription |
@@ -618,7 +634,7 @@ Jump to a resource provider namespace:
 ## Microsoft.LocationBasedServices
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| accounts | Yes | Yes |
+| accounts | No | No |
 
 ## Microsoft.LocationServices
 | Resource type | Resource group | Subscription |
@@ -659,7 +675,7 @@ Jump to a resource provider namespace:
 ## Microsoft.MachineLearningModelManagement
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| accounts | Yes | Yes |
+| accounts | No | No |
 
 ## Microsoft.MachineLearningOperationalization
 | Resource type | Resource group | Subscription |
@@ -692,6 +708,11 @@ Jump to a resource provider namespace:
 | mediaservices | Yes | Yes |
 | mediaservices/liveevents | Yes | Yes |
 | mediaservices/streamingendpoints | Yes | Yes |
+
+## Microsoft.Microservices4Spring
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| appclusters | No | No |
 
 ## Microsoft.Migrate
 | Resource type | Resource group | Subscription |
@@ -755,8 +776,8 @@ Jump to a resource provider namespace:
 | virtualnetworks | Yes | Yes |
 | virtualnetworktaps | No | No |
 | virtualwans | No | No |
-| vpngateways | No | No |
-| vpnsites | No | No |
+| vpngateways (Virtual WAN) | No | No |
+| vpnsites (Virtual WAN) | No | No |
 | webapplicationfirewallpolicies | Yes | Yes |
 
 > [!IMPORTANT]
@@ -808,6 +829,13 @@ Jump to a resource provider namespace:
 | ------------- | ----------- | ---------- |
 | capacities | Yes | Yes |
 
+## Microsoft.ProjectArcadia
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| workspaces | No | No |
+| workspaces/sparkcomputes | No | No |
+| workspaces/sqlcomputes | No | No |
+
 ## Microsoft.ProjectOxford
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -825,6 +853,16 @@ Jump to a resource provider namespace:
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | namespaces | Yes | Yes |
+
+## Microsoft.ResourceGraph
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| queries | Yes | Yes |
+
+## Microsoft.ResourceGraph.PPE
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| queries | No | No |
 
 ## Microsoft.SaaS
 | Resource type | Resource group | Subscription |
@@ -849,6 +887,7 @@ Jump to a resource provider namespace:
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | iotsecuritysolutions | Yes | Yes |
+| playbookconfigurations | No | No |
 
 ## Microsoft.ServerManagement
 | Resource type | Resource group | Subscription |
@@ -866,6 +905,7 @@ Jump to a resource provider namespace:
 | ------------- | ----------- | ---------- |
 | applications | No | No |
 | clusters | Yes | Yes |
+| clusters/applications | No | No |
 | containergroups | No | No |
 | containergroupsets | No | No |
 | edgeclusters | No | No |
@@ -1016,6 +1056,11 @@ Jump to a resource provider namespace:
 | dedicatedcloudnodes | Yes | Yes |
 | dedicatedcloudservices | Yes | Yes |
 | virtualmachines | Yes | Yes |
+
+## Microsoft.VMwareVirtustream
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| privateclouds | No | No |
 
 ## Microsoft.Web
 | Resource type | Resource group | Subscription |
