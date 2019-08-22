@@ -34,14 +34,14 @@ landingContent:
           - text: Choose Azure data transfer options
             url: /azure/storage/common/storage-choose-data-transfer-solution
           - text: Use network or offline transfer
-            url: /azure/storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
+            url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
           - text: 1905 release notes
             url: data-box-gateway-1905-release-notes.md
 
   # Card
-  - title: "View requirements & deploy"
+  - title: "View requirements & limits"
     linkLists:
       - linkListType: concept
         links:
@@ -49,6 +49,14 @@ landingContent:
             url: data-box-gateway-system-requirements.md
           - text: For Data Box Edge
             url: data-box-edge-system-requirements.md
+          - text: Data Box Gateway
+            url: data-box-gateway-limits.md
+          - text: Data Box Edge
+            url: data-box-edge-limits.md
+
+  # Card
+  - title: "Deploy"
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Data Box Gateway
@@ -56,6 +64,17 @@ landingContent:
           - text: Data Box Edge
             url: data-box-edge-deploy-prep.md
 
+  # Card
+  - title: Develop Edge compute
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Develop C# compute module
+            url: data-box-edge-manage-compute.md
+      - linkListType: download
+        links:
+          - text: "Samples - C# for Data Box Edge"
+            url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 
   # Card
   - title: Manage 
@@ -66,31 +85,10 @@ landingContent:
             url: data-box-gateway-manage-shares.md
           - text: Data Box Edge shares
             url: data-box-edge-manage-shares.md
-          - text: Data Box Gateway users
-            url: data-box-gateway-manage-users.md
-          - text: Data Box Edge users
-            url: data-box-edge-manage-users.md
-          - text: Data Box Gateway power, access, connectivity
-            url: data-box-gateway-manage-access-power-connectivity-mode.md
-          - text: Data Box Edge power, access, connectivity
-            url: data-box-edge-manage-access-power-connectivity-mode.md
-
-
-  # Card
-  - title: Develop, manage Edge compute
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Develop C# compute module
-            url: data-box-edge-manage-compute.md
           - text: Manage Edge compute
             url: data-box-edge-manage-compute.md
           - text: Manage Edge compute network
             url: data-box-edge-extend-compute-access-modules.md
-      - linkListType: download
-        links:
-          - text: "Samples - C# for Data Box Edge"
-            url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 
   # Card
   - title: Troubleshoot
