@@ -75,8 +75,8 @@ You can specify the following metadata types in the Get Metadata activity field 
 | size | Size of the file, in bytes. Applicable only to files. |
 | created | Created datetime of the file or folder. |
 | lastModified | Last modified datetime of the file or folder. |
-| childItems | List of subfolders and files in the given folder. Applicable only to folders. Returned value is a list of name and type of each child item. |
-| contentMD5 | MD5 of the file. Applicable to file only. |
+| childItems | List of subfolders and files in the given folder. Applicable only to folders. Returned value is a list of the name and type of each child item. |
+| contentMD5 | MD5 of the file. Applicable only to files. |
 | structure | Data structure inside the file or relational database table. Output value is a list of column name and column type. |
 | columnCount | Number of columns inside the file or relational table. |
 | exists| Whether a file/folder/table exists or not. Note if "exists" is specified in the GetaMetadata field list, the activity won't fail even when the item (file/folder/table) doesn't exists; instead, it returns `exists: false` in the output. |
