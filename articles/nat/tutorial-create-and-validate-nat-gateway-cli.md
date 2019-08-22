@@ -22,7 +22,7 @@ ms.custom: seodec18
 This tutorial shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for virtual machines  in Azure. To test the NAT gateway, you deploy a source and destination virtual machine.  You will test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
 
 [!NOTE] 
-Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
+Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -58,7 +58,7 @@ To access the public Internet, you need one or more public IP addresses for the 
 
 ### Create a public IP prefix
 
-You can use one or more public IP address resources or one or more public IP prefix or both with NAT gateway. We will add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) to create a public IP prefix resource named *myPublicIPprefix* in *myResourceGroupNAT*.
+You can use one or more public IP address resources or one or more public IP prefixes or both with NAT gateway. We will add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) to create a public IP prefix resource named *myPublicIPprefix* in *myResourceGroupNAT*.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -108,7 +108,7 @@ Create a virtual network named *myVnetsource* with a subnet named *mySubnetsourc
 
 ### Configure NAT service for source subnet
 
-We already created the NAT gateway and now configure the source subnet **mySubnetsource** in virtual network **myVnetsource** to use a specific NAT gateway resource **myNATsource** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet).  This will activate the NAT service on the specified subnet.
+We already created the NAT gateway and now configure the source subnet **mySubnetsource** in virtual network **myVnetsource** to use a specific NAT gateway resource **myNATsource** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet).  This command will activate the NAT service on the specified subnet.
 
 ```azurecli-interactive
     az network vnet subnet update \
@@ -119,7 +119,7 @@ We already created the NAT gateway and now configure the source subnet **mySubne
 
 All outbound traffic to Internet destinations is now using the NAT service.  It is not necessary to configure a UDR.
 
-Before we can test the NAT gateway, we need to create a source VM.  We will assign a public IP address resource as an instance-level Public IP to access this VM from the outside but this is only used to access it for the test.  We will demonstrate NAT service takes precedence over other outbound originated options.
+Before we can test the NAT gateway, we need to create a source VM.  We will assign a public IP address resource as an instance-level Public IP to access this VM from the outside. This address is only used to access it for the test.  We will demonstrate how the NAT service takes precedence over other outbound options.
 
 You could also create this VM without a public IP and create another VM to use as a jumpbox without a public IP as an exercise.
 
@@ -136,7 +136,7 @@ We create a public IP to be used to access the source VM.
 
 ### Create an NSG for source VM
 
-Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this will not be used for outbound once NAT gateway is configured on the same subnet.
+Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this NSG will not be used for outbound once NAT gateway is configured on the same subnet.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -187,7 +187,7 @@ We will now create a destination for the outbound traffic translated by the NAT 
 
 ### Configure virtual network for destination
 
-Before you deploy a VM and for the destination, we also need to create a virtual network where the destination virtual machine can be placed.  These are the same steps as for source VM with some small changes to expose the destination endpoint as well.
+Before you deploy a VM and for the destination, we also need to create a virtual network where the destination virtual machine can be placed.  These are the same steps as for the source VM with some small changes to expose the destination endpoint.
 
 Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16** and the subnet within the virtual network is **192.168.0.0/24**.
 
@@ -214,7 +214,7 @@ We create a public IP to be used to access the source VM.
 
 ### Create an NSG for destination VM
 
-Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this will not be used for outbound once NAT gateway is configured on the same subnet.
+Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this NSG will not be used for outbound once NAT gateway is configured on the same subnet.
 
 ```azurecli-interactive
     az network nsg create \
@@ -307,7 +307,7 @@ sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
 ```
 
-This will update your virtual machine, install nginx, and create a 100 KBytes file you can use to retrieve from the source VM using the NAT service.
+These commands will update your virtual machine, install nginx, and create a 100 KBytes file you can use to retrieve from the source VM using the NAT service.
 
 ## Prepare test on source VM
 

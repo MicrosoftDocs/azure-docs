@@ -207,12 +207,6 @@ The SSH credentials should be stored in your cloud shell from the previous opera
 
 You're now ready to use the NAT service.
 
-```
-
-This will update your virtual machine, install go, install [hey](https://github.com/rakyll/hey) from github, and update your shell environment.
-
-You are now ready to test NAT service.
-
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
