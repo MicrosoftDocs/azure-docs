@@ -31,14 +31,15 @@ Find an article describing how to create and manage the Issuer certificate [here
 
 ### Step 1: Register your OPC UA application 
 
-**Important Note:** The 'Writer' role is required to register an application.
+[!IMPORTANT]
+The 'Writer' role is required to register an application.
 
 1. Open your certificate service at `https://myResourceGroup-app.azurewebsites.net` and sign in.
 2. Navigate to the `Register New` page.
 1. For an application registration, a user needs to have at least the 'Writer' role assigned.
 2. The entry form follows naming conventions in the OPC UA world. As an example, in the picture below the settings for the [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) sample in the OPC UA .NetStandard stack is shown:
 
-![UA Reference Server Registration](media/howto-opc-vault-secure/UAReferenceServerRegistration.png "UA Reference Server Registration")
+   ![UA Reference Server Registration](media/howto-opc-vault-secure/reference-server-registration.png "UA Reference Server Registration")
 
 5. Press the `Register` button to register the application in the certificate service application database. The workflow directly guides the user to the next step to request a signed certificate for the application.
 
@@ -57,20 +58,20 @@ In general, the CSR method is recommended, because it doesn't require a private 
 1. Navigate to the `Applications` page.
 3. Start the certificate request workflow by choosing `New Request` for a listed application.
 
-![Request New Certificate](media/howto-opc-vault-secure/RequestNewCertificate.png "Request New Certificate")
+   ![Request New Certificate](media/howto-opc-vault-secure/request-new-certificate.png "Request New Certificate")
 
 3. Press 'Request new KeyPair and Certificate' to request a private key and a new signed certificate with the public key for your application.
 
-![Generate New Key Pair](media/howto-opc-vault-secure/GenerateNewKeyPair.png "Generate New Key Pair")
+   ![Generate New Key Pair](media/howto-opc-vault-secure/generate-new-key-pair.png "Generate New Key Pair")
 
 4. Fill in the form with a subject, the domain names and choose PEM or PFX with password for the private key. Press the `Generate New Certificate` button to create the certificate request.
 
-![Approve Certificate](media/howto-opc-vault-secure/ApproveReject.png "Approve Certificate")
+   ![Approve Certificate](media/howto-opc-vault-secure/approve-reject.png "Approve Certificate")
 
 5. The approval step requires a user with 'Approver' role and with signing permissions in Azure Key Vault. In the typical workflow, the Approver and Requester role should be assigned to different users.
 6. Approve or Reject the certificate request to start or cancel the actual creation of the key pair and the signing operation. The new key pair is created and stored securely in Azure Key Vault until downloaded by the certificate requester. The resulting certificate with public key is signed by the CA. These operations may take a few seconds to finish.
 
-![View Key Pair](media/howto-opc-vault-secure/ViewKeyPair.png "View Key Pair")
+   ![View Key Pair](media/howto-opc-vault-secure/view-key-pair.png "View Key Pair")
 
 7. The resulting private key (PFX or PEM) and certificate (DER) can be downloaded from here in the format selected as binary file download. A base64 encoded version is also available, for example, to copy paste the certificate to a command line or text entry. 
 8. Once the private key is downloaded and stored securely, it can be deleted from the service with the `Delete Private Key` button. The certificate with the public key remains available for future use.
@@ -82,19 +83,19 @@ In general, the CSR method is recommended, because it doesn't require a private 
 1. Navigate to the `Applications` page.
 3. Start the certificate request workflow by choosing `New Request` for a listed application.
 
-![Request New Certificate](media/howto-opc-vault-secure/RequestNewCertificate.png "Request New Certificate")
+   ![Request New Certificate](media/howto-opc-vault-secure/request-new-certificate.png "Request New Certificate")
 
 3. Press 'Request new Certificate with signing request' to request a new signed certificate for your application.
 
-![Generate New Certificate](media/howto-opc-vault-secure/GenerateNewCertificate.png "Generate New Certificate")
+   ![Generate New Certificate](media/howto-opc-vault-secure/generate-new-certificate.png "Generate New Certificate")
 
 4. Upload CSR by selecting a local file or by pasting a base64 encoded CSR in the form. Press the `Generate New Certificate` button to create the certificate request.
 
-![Approve CSR](media/howto-opc-vault-secure/ApproveRejectCSR.png "Approve CSR")
+   ![Approve CSR](media/howto-opc-vault-secure/approve-reject-csr.png "Approve CSR")
 
 5. The approval step requires a user with 'Approver' role and with signing permissions in Azure Key Vault. Approve or Reject the certificate request to start or cancel the actual signing operation. The resulting certificate with public key is signed by the CA. This operation may take a few seconds to finish.
 
-![View Certificate](media/howto-opc-vault-secure/ViewCertCSR.png "View Certificate")
+   ![View Certificate](media/howto-opc-vault-secure/view-cert-csr.png "View Certificate")
 
 6. The resulting certificate (DER) can be downloaded from here as binary file. A base64 encoded version is also available, for example, to copy paste the certificate to a command line or text entry. 
 10. Once the certificate is downloaded and stored securely, it can be deleted from the service with the `Delete Certificate` button.

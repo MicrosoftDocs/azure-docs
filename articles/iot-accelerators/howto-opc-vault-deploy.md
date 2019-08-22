@@ -20,7 +20,7 @@ This article explains how to deploy the OPC UA Certificate Management Service in
 
 Currently the build and deploy operation is limited to Windows.
 The samples are all written for C# .Net Standard, which is needed to build the service and samples for deployment.
-All the tools you need for .Net Standard come with the .Net Core tools. See [here](https://docs.microsoft.com/en-us/dotnet/articles/core/getting-started) for what you need.
+All the tools you need for .Net Standard come with the .Net Core tools. See [here](https://docs.microsoft.com/dotnet/articles/core/getting-started) for what you need.
 
 1. [Install .NET Core 2.1+][dotnet-install].
 2. [Install Docker][docker-url] (optional, only if the local docker build is required).
@@ -72,7 +72,7 @@ In case you run into issues follow the steps [below](#troubleshooting-deployment
 11. To take a look at the Swagger Api open: `https://myResourceGroup-service.azurewebsites.net`
 13. To start a local GDS server with dotnet start `.\myResourceGroup-gds.cmd` or with docker start `.\myResourceGroup-dockergds.cmd`.
 
-As a sidenote, it is possible to redeploy a build with exactly the same settings. Be aware that such an operation renews all application secrets and may reset some settings in the Azure Active Directory (AAD) application registrations.
+As a sidenote, it is possible to redeploy a build with exactly the same settings. Be aware that such an operation renews all application secrets and may reset some settings in the Azure Active Directory (Azure AD) application registrations.
 
 It is also possible to redeploy just the web app binaries. With the parameter `-onlyBuild 1` new zip packages of the service and the app are deployed to the web applications.
 
@@ -101,13 +101,13 @@ Ensure you use a short and simple resource group name.  The name is used also to
 It is possible that the name of the website is already in use.  If you run into this error, you need to use a different resource group name. The hostnames in use by the deployment script are: https://resourcegroupname.azurewebsites.net and https://resourgroupname-service.azurewebsites.net.
 Other names of services are built by the combination of short name hashes and are unlikely to conflict with other services.
 
-### Azure Active Directory (AAD) Registration 
+### Azure Active Directory (Azure AD) Registration 
 
-The deployment script tries to register three AAD applications in Azure Active Directory.  
-Depending on your permissions in the selected AAD tenant, this operation might fail.   There are two options:
+The deployment script tries to register three Azure AD applications in Azure Active Directory.  
+Depending on your permissions in the selected Azure AD tenant, this operation might fail.   There are two options:
 
-1. If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
-2. Alternatively, deploy a private AAD tenant in another subscription, restart the script and select to use it.
+1. If you chose an Azure AD tenant from a list of tenants, restart the script and choose a different one from the list.
+2. Alternatively, deploy a private Azure AD tenant in another subscription, restart the script and select to use it.
 
 ## Deployment script options
 
@@ -147,7 +147,7 @@ Optional, a resource group location. If specified, will try to create a new reso
 ```
 
 
-AAD tenant to use. 
+Azure AD tenant to use. 
 
 ```
 -development 0|1
@@ -161,8 +161,8 @@ Optional, to deploy for development. Use debug build and set the ASP.Net Environ
 
 Optional, to rebuild and to redeploy only the web apps and to rebuild the docker containers.
 
-[azure-free]:https://azure.microsoft.com/en-us/free/
-[powershell-install]:https://azure.microsoft.com/en-us/downloads/#PowerShell
+[azure-free]:https://azure.microsoft.com/free/
+[powershell-install]:https://azure.microsoft.com/downloads/#powershell
 [docker-url]: https://www.docker.com/
 [dotnet-install]: https://www.microsoft.com/net/learn/get-started
 
