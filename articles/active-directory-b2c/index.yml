@@ -36,6 +36,42 @@ landingContent:
             url: tutorial-register-applications.md
           - text: Create user flows
             url: tutorial-create-user-flows.md
+      - linkListType: learn
+        links:
+          - text: Customer identity management with Azure AD B2C (video)
+            url: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
+
+  # Card
+  - title: Enable common identity scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to user flows
+            url: active-directory-b2c-reference-policies.md
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up and sign in users
+            url: tutorial-create-user-flows.md
+          - text: Customize the user interface
+            url: customize-ui-overview.md
+          - text: Enable sign-in with Facebook
+            url: active-directory-b2c-setup-fb-app.md
+
+  # Card
+  - title: Build advanced identity scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to custom policies
+            url: active-directory-b2c-overview-custom.md
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up and sign in users
+            url: active-directory-b2c-get-started-custom.md
+          - text: Customize the user interface
+            url: active-directory-b2c-ui-customization-custom.md
+          - text: Enable sign-in with LinkedIn
+            url: active-directory-b2c-custom-setup-li-idp.md
 
   # Card
   - title: Add identity to ASP.NET apps
