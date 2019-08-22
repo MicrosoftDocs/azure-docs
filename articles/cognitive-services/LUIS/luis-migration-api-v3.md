@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 07/22/2019
+ms.topic: conceptual
+ms.date: 07/30/2019
 ms.author: diberry
 ---
 
@@ -146,7 +146,9 @@ The top JSON properties for V3 are:
 }
 ```
 
-The `normalizedQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
 
 The `intents` object is an unordered list. Do not assume the first child in the `intents` corresponds to the `topIntent`. Instead, use the `topIntent` value to find the score:
 

@@ -1,14 +1,13 @@
 ﻿---
 title: Security attributes for Azure Backup
 description: A checklist of security attributes for evaluating Azure Backup
-
-author: utraghuv
-manager: barbkess
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
-
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
+ms.author: dacurwin
 
 ---
 # Security attributes for Azure Backup

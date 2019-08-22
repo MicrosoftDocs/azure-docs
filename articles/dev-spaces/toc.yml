@@ -9,18 +9,18 @@
     items:
     - name: Team development
       href: quickstart-team-development.md
-    - name: Run an application
+    - name: Debug and iterate
+      items:
+      - name: Use Visual Studio Code and Java
+        href: quickstart-java.md
+      - name: Use Visual Studio Code and .NET Core
+        href: quickstart-netcore.md
+      - name: Use Visual Studio Code and Node.js
+        href: quickstart-nodejs.md
+      - name: Use Visual Studio and .NET Core
+        href: quickstart-netcore-visualstudio.md
+    - name: Develop using the CLI
       href: quickstart-cli.md
-    - name: Run an application with a Dockerfile
-      href: quickstart-cli-dockerfile.md
-    - name: Run and debug Java with VS Code
-      href: quickstart-java.md
-    - name: Run and debug .NET Core with VS Code
-      href: quickstart-netcore.md
-    - name: Run and debug Node.js with VS Code
-      href: quickstart-nodejs.md
-    - name: Run and debug .NET Core with Visual Studio
-      href: quickstart-netcore-visualstudio.md
   - name: Tutorials
     items:
     - name: Java (VS Code & CLI)
@@ -85,5 +85,7 @@
       href: how-to/dev-spaces-business-continuity.md
     - name: Interact with Windows containers
       href: how-to/run-dev-spaces-windows-containers.md
+    - name: Use traefik for custom ingress and HTTPS
+      href: how-to/ingress-https-traefik.md
   - name: Troubleshooting
     href: troubleshooting.md

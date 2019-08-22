@@ -5,7 +5,7 @@ author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 07/01/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
@@ -25,7 +25,7 @@ Following conditions must be met for shrink of a Private Cloud.  Management clus
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Shrink a Private Cloud 
+## Shrink a Private Cloud
 
 1. [Access the CloudSimple portal](access-cloudsimple-portal.md).
 

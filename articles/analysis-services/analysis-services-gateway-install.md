@@ -5,14 +5,16 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Install and configure an on-premises data gateway
 
-An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources. To learn more about the gateway, see [On-premises data gateway](analysis-services-gateway.md). This article is specific to **Azure Analysis Services**.
+An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources.  While the gateway you install is the same as used by other services like Power BI, Power Apps, and Logic Apps, when installing for Azure Analysis Services, there are some additional steps you need to complete. This install article is specific to **Azure Analysis Services**.
+
+To learn more about the gateway and how it's use by Azure Analysis Services, see [Connecting to on-premises data sources](analysis-services-gateway.md).
 
 ## Prerequisites
 

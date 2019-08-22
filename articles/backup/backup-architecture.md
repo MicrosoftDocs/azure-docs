@@ -10,7 +10,7 @@ ms.date: 02/19/2019
 ms.author: dacurwin
 ---
 
-# Azure Backup architecture
+# Azure Backup architecture and components
 
 You can use the [Azure Backup service](backup-overview.md) to back up data to the Microsoft Azure cloud platform. This article summarizes Azure Backup architecture, components, and processes. 
 
@@ -116,7 +116,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - Only blocks of data that changed since the last backup are copied.
     - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
     - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. After the data is sent to the vault, the snapshot is removed, and a recovery point is created.
+1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
 
 Azure VMs need internet access for control commands. If you're backing up workloads inside the VM (for example, SQL Server database backups), the back-end data also needs internet access. 
 

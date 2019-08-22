@@ -100,6 +100,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 * [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault Documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Azure Key Vault Documentation](index.yml)
 * [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
 * [Azure REST API Reference](https://docs.microsoft.com/rest/api/keyvault/)

@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/20/2019
 ---
 
 # Secure your cluster in Azure Data Explorer
@@ -15,7 +15,7 @@ ms.date: 07/22/2019
   
 ## Enable encryption at rest
   
-Enabling [encryption at rest](/azure/security/azure-security-encryption-atrest) on your cluster provides data protection for stored data (at rest). 
+Enabling [encryption at rest](/azure/security/fundamentals/encryption-atrest) on your cluster provides data protection for stored data (at rest). 
 
 1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under the **Settings** heading, select **Security**. 
 
@@ -24,6 +24,9 @@ Enabling [encryption at rest](/azure/security/azure-security-encryption-atrest) 
 1. In the **Security** window, select **On** for the **Disk encryption** security setting. 
 
 1. Select **Save**.
+ 
+> [!NOTE]
+> The encryption can be disabled after it has been activated.
 
 ## Next steps
 

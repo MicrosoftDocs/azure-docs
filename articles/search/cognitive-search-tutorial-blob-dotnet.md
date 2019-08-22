@@ -5,7 +5,7 @@ manager: eladz
 author: MarkHeff
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
