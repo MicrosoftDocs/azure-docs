@@ -42,21 +42,19 @@ landingContent:
             url: virtual-network-manage-subnet.md
 
   # Card
-  - title: Manage network traffic
+  - title: Secure network traffic
     linkLists:
       - linkListType: concept
         links:
-          - text: Network security groups (NSGs)
+          - text: Security groups
             url: security-overview.md
-          - text: Application security groups
-            url: security-overview.md#application-security-groups
           - text: Route tables
             url: virtual-networks-udr-overview.md
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
       - linkListType: tutorial
         links:
-          - text: Filter network traffic using NSGs
+          - text: Filter network traffic using network security groups
             url: tutorial-filter-network-traffic.md
           - text: Route network traffic using route tables
             url: tutorial-create-route-table-portal.md
