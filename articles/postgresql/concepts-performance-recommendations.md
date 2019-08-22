@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 08/21/2019
 ---
 # Performance Recommendations in Azure Database for PostgreSQL - Single Server
 
@@ -41,7 +41,8 @@ Currently, two types of recommendations are supported: *Create Index* and *Drop 
 ### Drop Index recommendations
 Besides detecting missing indexes, Azure Database for PostgreSQL analyzes the performance of existing indexes. If an index is either rarely used or redundant, the analyzer recommends dropping it.
 
-
+## Considerations
+* Performance Recommendations is not available for [read replicas](concepts-read-replicas.md).
 ## Next steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
 

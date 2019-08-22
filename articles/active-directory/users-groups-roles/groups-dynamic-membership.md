@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -40,6 +40,12 @@ A membership rule that automatically populates a group with users or devices is 
 * Value
 
 The order of the parts within an expression are important to avoid syntax errors.
+
+### Rule builder in the Azure portal
+
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports up to five rules. To add a sixth and any subsequent rule terms, you must use the text box. For more step-by-step instructions, see [Update a dynamic group](groups-update-rule.md).
+
+   ![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
 ### Rules with a single expression
 

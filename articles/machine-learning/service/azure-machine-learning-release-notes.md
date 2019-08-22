@@ -8,15 +8,93 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 07/25/2019
+ms.date: 08/19/2019
 ms.custom: seodec18
 ---
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://aka.ms/aml-sdk) reference page.
+In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://aka.ms/aml-sdk) reference page. 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2019-08-19
+
+### Azure Machine Learning SDK for Python v1.0.57
++ **New features**
+  + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/azureml/howto/createdatasets.
+  
++ **Bug fixes and improvements**
+  + **automl-client-core-nativeclient**
+    + Fixed the error, raised when training and/or validation labels (y and y_valid) are provided in the form of pandas dataframe but not as numpy array.
+    + Updated interface to create a `RawDataContext` to only require the data and the `AutoMLBaseSettings` object.
+    +  Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
+  + **azure-cli-ml**
+    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
+  + **azureml-automl-core**
+    + Fixed an issue in AutoML where rows with missing labels were not removed properly.
+    + Improved error logging in AutoML; full error messages will now always be written to the log file.
+    + AutoML has updated its package pinning to include `azureml-defaults`, `azureml-explain-model`, and `azureml-dataprep`. AutoML will no longer warn on package mismatches (except for `azureml-train-automl` package).
+    + Fixed an issue in timeseries where cv splits are of unequal size causing bin calculation to fail.
+    + When running ensemble iteration for the Cross-Validation training type, if we ended up having trouble downloading the models trained on the entire dataset, we were having an inconsistency between the model weights and the models that were being fed into the voting ensemble.
+    + Fixed the error, raised when training and/or validation labels (y and y_valid) are provided in the form of pandas dataframe but not as numpy array.
+    + Fixed the issue with the forecasting tasks when None was encountered in the Boolean columns of input tables.
+    + Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
+  + **azureml-core**
+    + Fixed issue with blob_cache_timeout parameter ordering.
+    + Added external fit and transform exception types to system errors.
+    + Added support for Key Vault secrets for remote runs. Add a azureml.core.keyvault.Keyvault class to add, get and list secrets from the keyvault associated with your workspace. Supported operations are:
+      + azureml.core.workspace.Workspace.get_default_keyvault()
+      + azureml.core.keyvault.Keyvault.set_secret(name, value)
+      + azureml.core.keyvault.Keyvault.set_secrets(secrets_dict)
+      + azureml.core.keyvault.Keyvault.get_secret(name)
+      + azureml.core.keyvault.Keyvault.get_secrets(secrets_list)
+      + azureml.core.keyvault.Keyvault.list_secrets()
+    + Additional methods to obtain default keyvault and get secrets during remote run:
+      + azureml.core.workspace.Workspace.get_default_keyvault()
+      + azureml.core.run.Run.get_secret(name)
+      + azureml.core.run.Run.get_secrets(secrets_list)
+    + Added additional override parameters to submit-hyperdrive CLI command.
+    + Improve reliability of API calls be expanding retries to common requests library exceptions.
+    + Add support for submitting runs from a submitted run.
+    + Fixed expiring SAS token issue in FileWatcher which caused files to stop being uploaded after their initial token had expired.
+    + Supported importing HTTP csv/tsv files in dataset python SDK.
+    + Deprecated the Workspace.setup() method. Warning message shown to users suggests to use create() or get()/from_config() instead.
+    + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages (.whl) to the workspace and securely using them to build/materialize the environment.
+    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
+  + **azureml-explain-model**
+    + Added parameter to add a model ID to explanations on upload.
+    + Added `is_raw` tagging to explanations in memory and upload.
+    + Added pytorch support and tests for azureml-explain-model package.
+  + **azureml-opendatasets**
+    + Support detecting and logging auto test environment.
+    + Added classes to get US population by county and zip.
+  + **azureml-pipeline-core**
+    + Added label property to input and output port definitions.
+  + **azureml-telemetry**
+    + Fixed an incorrect telemetry configuration.
+  + **azureml-train-automl**
+    + Fixed the bug where on setup failure, error was not getting logged in "errors" field for the setup run and hence was not stored in parent run "errors".
+    + Fixed an issue in AutoML where rows with missing labels were not removed properly.
+    + Allow AutoML users to drop training series that are not long enough when forecasting.
+    + Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
+    + Now AutoMLStep passes through automl config to backend to avoid any issues on changes or additions of new config parameters.
+  + **azureml-train-core**
+    + Added torch 1.2 support in PyTorch Estimator.
+  + **azureml-widgets**
+    + Improved confusion matrix charts for classification training.
+
+### Azure Machine Learning Data Prep SDK v1.1.12
++ **New features**
+  + Lists of strings can now be passed in as input to `read_*` methods.
+
++ **Bug fixes and improvements**
+  + The performance of `read_parquet` has been significantly improved when running in Spark.
+  + Fixed an issue where `column_type_builder` failed in case of a single column with ambiguous date formats.
+
+### Azure Portal
++ **Preview Feature**
+  + Log and output file streaming is now available for run details pages. The files will stream updates in real time when the preview toggle is turned on.
 
 ## 2019-08-05
 
