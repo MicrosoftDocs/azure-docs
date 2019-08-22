@@ -107,8 +107,7 @@ The other option for expanding storage is to extend the existing drive. This opt
 
 This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure portal.
 
-* If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
-* If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.
+* From storage selected for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.
 * Automatic storage configuration always uses [premium SSDs](../disks-types.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
 
 For pricing information, see the [Storage pricing](https://azure.microsoft.com/pricing/details/storage) page on the **Disk Storage** tab.
