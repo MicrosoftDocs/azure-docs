@@ -99,6 +99,8 @@ landingContent:
             url: data-box-gateway-troubleshoot.md
           - text: Data Box Edge
             url: data-box-edge-troubleshoot.md
+          - text: Edge compute modules
+            url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
           - text: Return or replace Data Box Edge
             url: data-box-edge-return-device.md
           - text: Open Support ticket
