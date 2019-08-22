@@ -140,12 +140,6 @@
       href: security-center-vulnerability-assessment-recommendations.md
     - name: Enable Network Security Groups
       href: security-center-enable-network-security-groups.md
-    - name: Route traffic through NGFW only
-      href: security-center-enable-auditing-on-sql-databases.md
-    - name: Enable auditing and threat detection on SQL servers
-      href: security-center-enable-auditing-on-sql-servers.md
-    - name: Enable Transparent Data Encryption
-      href: security-center-enable-transparent-data-encryption.md  
     - name: Threat reports
       href: security-center-threat-report.md
     - name: Custom alerts
