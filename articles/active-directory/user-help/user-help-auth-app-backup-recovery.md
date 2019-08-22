@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Backup and recover account credentials with the Microsoft Authenticator app
 
-**Applies to**
+**Applies to:**
 
 - iOS devices, running version 5.7.0 and later
 
