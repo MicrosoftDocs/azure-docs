@@ -812,7 +812,7 @@ After creating a package, you can use `package.pull()` to pull the image to your
 
 ```text
 REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
-larryml08024f78fd10.azurecr.io/package   20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
 ```
 
 To start a local container using this image, use the following command to start a named container from the shell or command line. Replace the `<imageid>` value with the image ID returned from the `docker images` command:
