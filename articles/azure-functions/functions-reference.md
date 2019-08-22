@@ -40,6 +40,8 @@ The function.json file defines the function's trigger, bindings, and other confi
 }
 ```
 
+For more examples, see [Function.json wiki page](https://github.com/Azure/azure-functions-host/wiki/function.json).
+
 The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings which are specific to a particular type of binding. Every binding requires the following settings:
 
 | Property | Values/Types | Comments |
