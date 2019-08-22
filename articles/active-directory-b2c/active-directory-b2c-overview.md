@@ -39,11 +39,11 @@ By serving as the central authentication authority for your web applications, mo
 
 ## Integrate with external user stores
 
-Azure AD B2C provides a directory which can hold over 100 custom attributes per user. However, you may also integrate with an external system that stores user profile or personal data. Satisfy data residency requirements like regional or on-premises data storage policies.
+Azure AD B2C provides a directory that can hold over 100 custom attributes per user. However, you can also integrate with external systems. For example, use Azure AD B2C for authentication, but delegate to an external customer relationship management (CRM) or customer loyalty database as the source of truth for customer data.
+
+Another external user store scenario is to have Azure AD B2C handle the authentication for your application, but integrate with an external system that stores user profile or personal data. For example, to satisfy data residency requirements like regional or on-premises data storage policies.
 
 ![A logical diagram of Azure AD B2C communicating with an external user store](media/active-directory-b2c-overview/scenario_remoteprofile.png)
-
-Another external user store scenario is to have Azure AD B2C handle the authentication for your application, but delegate to an external customer relationship management (CRM) or customer loyalty database as the source of truth for customer data.
 
 Azure AD B2C can facilitate collecting the information from the user during registration or profile editing, then hand that data off to the external system. Then, during future authentications, Azure AD B2C can retrieve the data from the external system and, if needed, include it as a part of the authentication token response it sends to your application.
 
