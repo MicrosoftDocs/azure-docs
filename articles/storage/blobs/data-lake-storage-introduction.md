@@ -60,7 +60,7 @@ The following are the equivalent entities, as described by different concepts. U
 | Concept                                | Top Level Organization | Lower Level Organization                                            | Data Container |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
-| ADLS Gen2 – Analytics Storage          | File system             | Directory                                                           | File           |
+| ADLS Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
 
 ## Supported open source platforms
 
