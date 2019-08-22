@@ -6,9 +6,14 @@
     href: Overview/overview.md
 - name: Quickstarts
   items:
-  - name: Create a new knowledge base
-    href: How-To/create-knowledge-base.md
-  - name: Get answer from knowledge base
+  - name: Using QnA Maker portal
+    items: 
+    - name: Create a new knowledge base
+      href: How-To/create-knowledge-base.md
+    - name: Add questions and answers with metadata
+      href: add-question-answer-metadata-portal.md
+      href: How-To/create-knowledge-base.md
+      - name: Get answer from knowledge base
     items:
     - name: Using Postman
       href: Quickstarts/get-answer-from-kb-using-postman.md
