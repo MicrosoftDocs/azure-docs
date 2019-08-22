@@ -20,7 +20,7 @@ ms.author: juliako
 
 This article discusses the steps for migrating from the legacy Windows Azure Media Encoder (WAME) media processor, which is being retired on Nov 30, 2019, to the Media Encoder Standard media processor.
 
-When encoding files with WAME, customers typically used a named preset string such as *H264 Adaptive Bitrate MP4 Set 1080p*. In order to migrate, your code needs to be updated to use the **Media Encoder Standard** media processor instead of WAME, and one of the equivalent system presets like *H264 Multiple Bitrate 1080p*. 
+When encoding files with WAME, customers typically used a named preset string such as `H264 Adaptive Bitrate MP4 Set 1080p`. In order to migrate, your code needs to be updated to use the **Media Encoder Standard** media processor instead of WAME, and one of the equivalent [system presets](media-services-mes-presets-overview.md) like `H264 Multiple Bitrate 1080p`. 
 
 ## Migrating to Media Encoder Standard
 
@@ -72,4 +72,5 @@ Media Encoder Standard is more robust, reliable, has better performance, and pro
 
 ## Next steps
 
-[Legacy components](legacy-components.md)
+* [Legacy components](legacy-components.md)
+* [Pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding)
