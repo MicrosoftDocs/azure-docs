@@ -31,7 +31,7 @@ az group delete --name <resource-group-name>
 
 # [Portal](#tab/azure-portal)
 
-1. In the [portal](htttps://portal.azure.com), select the resource group you want to delete.
+1. In the [portal](https://portal.azure.com), select the resource group you want to delete.
 
 1. Select **Delete resource group**.
 
@@ -65,7 +65,7 @@ az resource delete \
 
 # [Portal](#tab/azure-portal)
 
-1. In the [portal](htttps://portal.azure.com), select the resource you want to delete.
+1. In the [portal](https://portal.azure.com), select the resource you want to delete.
 
 1. Select **Delete**. The following screenshot shows the management options for a virtual machine.
 
