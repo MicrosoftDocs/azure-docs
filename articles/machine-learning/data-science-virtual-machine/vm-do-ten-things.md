@@ -62,10 +62,6 @@ For Python, you can use an IDE like Visual Studio Community Edition, which has t
 * Give a description and set the environment prefix path as *c:\anaconda\envs\python2* for Anaconda Python 2.7
 * Click **Auto Detect** and then **Apply** to save the environment.
 
-Here is what the custom environment setup looks like in Visual Studio.
-
-![Screenshot of Visual Studio with Python Tools for Visual Studio selected](./media/vm-do-ten-things/PTVSSetup.png)
-
 See the [PTVS documentation](https://aka.ms/ptvsdocs) for additional details on how to create Python Environments.
 
 Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](https://aka.ms/ptvsdocs).
@@ -217,7 +213,7 @@ To administer your Azure subscription and cloud resources, you have two options:
 [Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for full details. 
 
 ## 5. Extend storage with shared file systems
-Data scientists can share large datasets, code, or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
+Data scientists can share large datasets, code, or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
 
 > [!NOTE]
 > The maximum space of the Azure File Service share is 5 TB and individual file size limit is 1 TB. 
@@ -478,7 +474,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 ![Enable remote access to the HDInsight cluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Create an Azure Machine Learning workspace. Your Machine Learning Experiments are stored in this Machine Learning workspace. Select the highlighted options in Portal as shown in the following screenshot:
+* Create an Azure Machine Learning workspace. Your Machine Learning Experiments are stored in this Machine Learning workspace. Select the highlighted options in portal as shown in the following screenshot:
 
 ![Create an Azure Machine Learning workspace](./media/vm-do-ten-things/Create_ML_Space.PNG)
 
