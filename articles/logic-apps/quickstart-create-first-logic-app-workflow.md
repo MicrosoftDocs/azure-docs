@@ -38,10 +38,10 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | My-First-Logic-App | The name for your logic app |
-   | **Subscription** | <*your-Azure-subscription-name*> | The name for your Azure subscription |
-   | **Resource group** | My-First-LA-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources |
-   | **Location** | West US | The region where to store your logic app information |
+   | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, or the `-`, `(`, `)`, `_`, `.` characters. This example uses "My-First-Logic-App". |
+   | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
+   | **Location** | <*Azure-region*> | The region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
 
@@ -162,7 +162,7 @@ Congratulations, you've now successfully built and run your first logic app with
 
 When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
-1. On the main Azure menu, go to **Resource groups**, and select your logic app's resource group. On the **Overview** page, select **Delete resource group**.
+1. On the main Azure menu, select **Resource groups**, and then select your logic app's resource group. On the **Overview** pane, select **Delete resource group**.
 
    !["Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
