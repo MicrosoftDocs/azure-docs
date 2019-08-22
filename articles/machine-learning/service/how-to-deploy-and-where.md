@@ -786,6 +786,11 @@ For more sample projects and examples, see the following sample repos:
 
 In some cases, you may want to create a Docker image without deploying the model. For example, when you plan on [deploying to Azure App Service](how-to-deploy-app-service.md). You can also save the files needed to build a docker image. For example, the Dockerfile, models, and scoring script.
 
+> [!IMPORTANT]
+> Functionality such as building an image locally requires a working [Docker](https://www.docker.com) installation on your development environment.
+
+### Build an image without deploying
+
 The following example demonstrates how to build an image, which is registered in the Azure Container Registry for your workspace:
 
 ```python
@@ -795,15 +800,106 @@ package.wait_for_creation(show_output=True)
 
 After creating a package, you can use `package.pull()` to pull the image to your local Docker environment.
 
+### Package and download a model
+
 The following example demonstrates how to download the Docker file, model, and other assets needed to build the image:
 
 ```python
 package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
 package.wait_for_creation(show_output=True)
 package.save("./imagefiles")
+# Get the Azure Container Registry that the model/Dockerfile uses
+acr=package.get_container_registry()
+print("Address:", acr.address)
+print("Username:", acr.username)
+print("Password:", acr.password)
 ```
 
-This code downloads the files needed to build the image to the `imagefiles` directory.
+This code downloads the files needed to build the image to the `imagefiles` directory. The Dockerfile included in the save files references a base image stored in an Azure Container Registry. When building the image on your local Docker installation, you must use the address, user name, and password to authenticate to this registry. Use the following steps to build the image using a local Docker installation:
+
+1. From a shell or command-line session, use the following command to authenticate Docker with the Azure Container Registry. Replace `<address>`, `<username>`, and `<password>` with the values retrieved using `package.get_container_registry()`:
+
+    ```bash
+    docker login <address> -u <username> -p <password>
+    ```
+
+2. To build the image, use the following command. Replace `<imagefiles>` with the path to the directory where `package.save()` saved the files:
+
+    ```bash
+    docker build --tag myimage <imagefiles>
+    ```
+
+    This command sets the image name to `myimage`.
+
+To verify that the image has been built, use the `docker images` command. You should see the `myimage` image in the list:
+
+```text
+REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
+<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43GB
+myimage         latest              739f22498d64        3 minutes ago       1.43GB
+```
+
+To start the docker image locally, use the following command:
+
+```bash
+docker run -p 6789:5001 --name mycontainer myimage:latest
+```
+
+This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`. The following example demonstrates posting data using Python:
+
+```python
+import requests
+import json
+
+# URL for the web service
+scoring_uri = 'http://localhost:6789/score'
+
+# Two sets of data to score, so we get two results back
+data = {"data":
+        [
+            [
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
+        }
+# Convert to JSON string
+input_data = json.dumps(data)
+
+# Set the content type
+headers = {'Content-Type': 'application/json'}
+
+# Make the request and display the response
+resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.text)
+```
+
+For more example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
+
+To stop the container, use the following command from a different shell or command line:
+
+```bash
+docker kill mycontainer
+```
 
 ## Clean up resources
 
