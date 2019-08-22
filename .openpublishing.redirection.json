@@ -25965,6 +25965,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-sql-database.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-data-services",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/security-center/security-center-enable-auditing-on-sql-databases.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-auditing-on-sql-servers.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-transparent-data-encryption.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
@@ -28511,6 +28531,11 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-workload.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
       "redirect_document_id": false
     },
@@ -35554,11 +35579,6 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/monitoring/monitoring-service-map-configure.md",
-      "redirect_url": "/azure/azure-monitor/insights/service-map-configure",
-      "redirect_document_id": "false"
-    },
-    {
       "source_path": "articles/monitoring/monitoring-service-map-scom.md",
       "redirect_url": "/azure/azure-monitor/insights/service-map-scom",
       "redirect_document_id": "false"
@@ -41202,7 +41222,6 @@
       "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/quick-start.md",
       "redirect_url": "/azure/cognitive-services/bing-image-search",
@@ -41392,7 +41411,12 @@
       "source_path": "articles/media-services/previous/meda-services-managing-multiple-storage-accounts.md",
       "redirect_url": "/azure/media-services/previous/media-services-managing-multiple-storage-accounts",
       "redirect_document_id": false
-    },
+	},
+	{
+		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
+		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/media-services/previous/media-services-upload-files-with-aspera.md",
       "redirect_url": "/azure/media-services",
