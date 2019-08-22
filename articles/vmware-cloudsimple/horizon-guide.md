@@ -69,6 +69,7 @@ The following sections outline the instructions to set up a deployment similar t
 * AD/DHCP/DNS installed for your Private Cloud.
 
 #### CloudSimple portal: Create a dedicated VLAN/subnet for desktop pools
+
 Create a VLAN for the Horizon desktop pools and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the desktop virtual machines will run.
 
 Follow standard security best practices to secure your Horizon deployment:
@@ -134,6 +135,6 @@ Uploading the volumes to the Private Cloud datastore requires the ESXi root pass
 
 You can now [de-escalate the privileges](escalate-private-cloud-privileges.md#de-escalate-privileges) of the 'cloudowner' user.
 
-## Ongoing Management of your Horizon solution
+## Ongoing management of your Horizon solution
 
 You have full control over Horizon and App Volume Manager software in your Private Cloud environment and are expected to perform the necessary software lifecycle management. Ensure that any new versions of software are compatible with the Private Cloud vCenter and PSC before updating or upgrading Horizon or App Volume.
