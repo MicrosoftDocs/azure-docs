@@ -101,7 +101,7 @@ There are three types of maintenance for ARO: upgrades, backup and restoration o
 General upgrade process:
 
 
-Running an upgrade should be a safe process to run and should not disrupt cluster services. The SRE can trigger the upgrade process when new versions are available or CVEs are oustanding.
+Running an upgrade should be a safe process to run and should not disrupt cluster services. The SRE can trigger the upgrade process when new versions are available or CVEs are outstanding.
 
 
 Available updates are tested in a stage environment and then applied to production clusters. When applied, a new node is temporarily added and nodes are updated in a rotating fashion so that pods maintain replica counts. Following best practices helps ensure minimal to no downtime.
@@ -117,7 +117,7 @@ We do not distinguish between the two types of maintenance. Our teams are availa
 
 ## How will host operating system and OpenShift software be updated?
 
-The host operating system and OpenShift software is updated through our general upgrade and image build process.
+The host operating system and OpenShift software are updated through our general upgrade and image build process.
 
 ## What’s the process to reboot the updated node?
 
@@ -133,7 +133,7 @@ Syslog, docker logs, journal, and dmesg are handled by the managed service and a
 
 ## How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc. I cannot seem to run `kubectl top` on an ARO cluster.
 
-`kubectl top` is not available on Red Hat OpenShift. It requires a backing metrics source, either Heapster (deprecated) or metrics-server (incubating/alpha), neither of which are included in the OpenShift monitoring stack.
+`kubectl top` is not available on Red Hat OpenShift. It requires a backing metrics source, either Heapster (deprecated) or metrics-server (incubating or alpha), neither of which are included in the OpenShift monitoring stack.
 
 ## What is the default pod scheduler configuration for ARO?
 
@@ -143,9 +143,9 @@ Advanced/Custom scheduling is currently unsupported. This could be something we 
 
 ## If we scale up the deployment, how do Azure fault domains map into pod placement to ensure all pods for a service do not get knocked out by a failure in a single fault domain?
 
-There are by default five fault domains when using Azure VMScalesets. Each VM instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
+There are by default five fault domains when using Azure Virtual Machine Scale sets. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
 
-Refer to [Choosing the right number of fault domains for virtual machine scale set](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) for more details.
+Refer to [Choosing the right number of fault domains for virtual machine scale set](https://docs.microsoft.com//azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) for more details.
 
 ## Is there a way to manage pod placement?
 
@@ -163,7 +163,7 @@ Caution must be used when using specific labels:
 
 ## What is the maximum number of pods in an ARO cluster?  What is the maximum number of pods per node in ARO?
 
-Refer to [upstream OpenShift docs](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) for more details. Red Hat OpenShift 3.11 has a 250-pod/node limit, whereas [ARO has a 20-compute node limit](https://docs.microsoft.com/en-us/azure/openshift/openshift-faq#what-cluster-operations-are-available), so that caps the maximum number of pods supported in an ARO cluster to 250*20 = 5000.
+Refer to [upstream OpenShift docs](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) for more details. Red Hat OpenShift 3.11 has a 250-pod/node limit, whereas [ARO has a 20-compute node limit](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), so that caps the maximum number of pods supported in an ARO cluster to 250*20 = 5000.
 
 ## Can we specify IP ranges for deployment on the private VNET, avoiding clashes with other corporate VNETs once peered?
 
