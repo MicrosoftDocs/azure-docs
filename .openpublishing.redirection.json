@@ -26574,11 +26574,16 @@
       "redirect_url": "/azure/hdinsight/hadoop/submit-apache-hadoop-jobs-programmatically",
       "redirect_document_id": true
     },
-    {
-      "source_path": "articles/hdinsight/hdinsight-troubleshoot-hbase.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-troubleshoot-hbase",
-      "redirect_document_id": true
-    },
+	{
+		"source_path": "articles/hdinsight/hdinsight-troubleshoot-hbase.md",
+		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+		"redirect_document_id": false
+	},
+	{
+		"source_path": "articles/hdinsight/hbase/apache-troubleshoot-hbase.md",
+		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+		"redirect_document_id": false
+	},
     {
       "source_path": "articles/hdinsight/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
       "redirect_url": "/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox",
