@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/21/2019
+  ms.date: 08/22/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -48,10 +48,12 @@ landingContent:
         links:
           - text: Network security groups (NSGs)
             url: security-overview.md
+          - text: Application security groups
+            url: security-overview.md#application-security-groups
           - text: Route tables
             url: virtual-networks-udr-overview.md
           - text: Virtual network service endpoints
-            url: virtual-network-peering-overview.md
+            url: virtual-network-service-endpoints-overview.md
       - linkListType: tutorial
         links:
           - text: Filter network traffic using NSGs
@@ -145,7 +147,9 @@ landingContent:
           - text: Create, change, or delete a public IP address
             url: virtual-network-public-ip-address.md      
           - text: Deploy an IPV6 dual stack application
-            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md   
+            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+          - text: Create, change, or delete a public IP address prefix
+            url: manage-public-ip-address-prefix.md  
     
 
 
