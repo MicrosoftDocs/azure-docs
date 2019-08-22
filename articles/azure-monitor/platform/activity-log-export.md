@@ -58,8 +58,10 @@ If retention policies are set, but storing logs in a storage account is disabled
 
 > [!WARNING]
 > The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](diagnostic-logs-append-blobs.md)
->
->
+
+
+> [!IMPORTANT]
+> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
 
 ### Create log profile using the Azure portal
 
