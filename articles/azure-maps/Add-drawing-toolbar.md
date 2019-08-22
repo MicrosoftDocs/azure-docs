@@ -17,7 +17,7 @@ This article shows you how to use the Drawing Tools module and display the drawi
 
 ## Add a polygon drawing tool
 
-The following code creates an instance of the drawing manager and display the toolbar with just a polygon drawing tool on the map.
+The following code creates an instance of the drawing manager and displays the toolbar with just a polygon drawing tool on the map.
 
 ```Javascript
 //Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
@@ -41,7 +41,7 @@ Below is the complete running code sample of the functionality above:
 
 ## Add drawing tools
 
-The following code creates an instance of the drawing manager and display the toolbar with all of the drawing tools on the map.
+The following code creates an instance of the drawing manager and displays the toolbar with all of the drawing tools on the map.
 
 ```Javascript
 //Create an instance of the drawing manager and display the drawing toolbar.
@@ -65,7 +65,7 @@ Below is the complete running code sample of the functionality above:
 
 ## Change drawing rendering style
 
-The following code gets the rendering layers from the drawing manager and modify their options to rendering style for drawing.
+The following code gets the rendering layers from the drawing manager and modifies their options to rendering style for drawing.
 
 ```Javascript
 var layers = drawingManager.getLayers();
@@ -88,6 +88,8 @@ var layers = drawingManager.getLayers();
 ```
 
 Below is the complete running code sample of the functionality above:
+
+<br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Change drawing rendering style" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Change drawing rendering style</a> by Azure Maps
