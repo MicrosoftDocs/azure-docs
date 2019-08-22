@@ -78,7 +78,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes)
 ```
 
-This query can be used in an [Azure Log Alert](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log) to set up alerting on data volumes. 
+This query can be used in an [Azure Log Alert](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) to set up alerting on data volumes. 
 
 The volume of data you send can be managed in three ways:
 
