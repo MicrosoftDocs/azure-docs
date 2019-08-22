@@ -93,7 +93,7 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 
 This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
-Transactions that are proven to be fraudulent will not count towards a publisher’s [billed sales program tier](aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
+Transactions that are proven to be fraudulent will not count towards a publisher’s [billed sales program tier](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
 
 ## Next steps
 
