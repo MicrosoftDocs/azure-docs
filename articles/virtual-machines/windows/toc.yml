@@ -251,6 +251,8 @@
       href: mitigate-se.md
     - name: Scheduled events
       href: scheduled-events.md
+    - name: Monitor scheduled events
+      href: scheduled-event-service.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Enable nested virtualization
