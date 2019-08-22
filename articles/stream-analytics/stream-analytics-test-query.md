@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Test a Stream Analytics query with sample data
 
-By using Azure Stream Analytics, you can sample data from inputs or upload sample data to test queries in the Azure portal without starting or stopping a job.
+In Azure Stream Analytics, you can test the query without starting or stopping the job. You can test your query on a sample of incoming data from your input source or from an uploaded sample data file.
 
 ## Upload or sample data from a live source to test the query
 
