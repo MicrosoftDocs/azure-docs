@@ -55,8 +55,9 @@ definition, for resource groups, and artifact objects support this property. `de
 array of artifact names that the particular artifact needs to be created before it's created.
 
 > [!NOTE]
-> When creating blueprint objects, each object gets its name from the filename, if using PowerShell,
-> or the URL endpoint, if using REST API.
+> When creating blueprint objects, each artifact resource gets its name from the filename, if using [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact),
+> or the URL endpoint, if using [REST API](/rest/api/blueprints/artifacts/createorupdate).
+> _resourceGroup_ references in artifacts must match those defined in the blueprint definition.
 
 ### Example - ordered resource group
 
