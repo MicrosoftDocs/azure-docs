@@ -87,7 +87,7 @@
     - name: Set up Private Cloud networking
       items: 
       - name: Create and manage VLANs and subnets
-        href:  create-vlan-subnet.md
+        href: create-vlan-subnet.md
       - name: Set up firewall tables and rules
         href: firewall.md
       - name: Allocate public IP addresses
