@@ -96,16 +96,11 @@ There are three types of maintenance for ARO: upgrades, backup and restoration o
 
 + Cloud provider-initiated maintenance includes network, storage, and regional outages. The maintenance is dependent on the cloud provider and relies on provider-supplied updates.
 
-## General upgrade process
-
-General upgrade process:
-
+## What is the general upgrade process?
 
 Running an upgrade should be a safe process to run and should not disrupt cluster services. The SRE can trigger the upgrade process when new versions are available or CVEs are outstanding.
 
-
 Available updates are tested in a stage environment and then applied to production clusters. When applied, a new node is temporarily added and nodes are updated in a rotating fashion so that pods maintain replica counts. Following best practices helps ensure minimal to no downtime.
-
 
 Depending on the severity of the pending upgrade or update, the process might differ in that the updates might be applied quickly to mitigate the service’s exposure to a CVE. A new image will be built asynchronously, tested, and rolled out as a cluster upgrade. Other than that, there is no difference between emergency and planned maintenance. Planned maintenance is not prescheduled with the customer.
 
@@ -139,27 +134,23 @@ Syslog, docker logs, journal, and dmesg are handled by the managed service and a
 
 ARO uses the default scheduler that ships in OpenShift. There are a couple of additional mechanisms that are not supported in ARO. Refer to [default scheduler documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) and [master scheduler documentation](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) for more details.
 
-Advanced/Custom scheduling is currently unsupported. This could be something we plan for the future, but we do not have anything currently supported for ARO. Refer to [](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) for more details.
+Advanced/Custom scheduling is currently unsupported. Refer to the [Scheduling documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) for more details.
 
 ## If we scale up the deployment, how do Azure fault domains map into pod placement to ensure all pods for a service do not get knocked out by a failure in a single fault domain?
 
-There are by default five fault domains when using Azure Virtual Machine Scale sets. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
+There are by default five fault domains when using virtual machine scale sets in Azure. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
 
 Refer to [Choosing the right number of fault domains for virtual machine scale set](https://docs.microsoft.com//azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) for more details.
 
 ## Is there a way to manage pod placement?
 
-
 With the impending customer-admin update, customers will have the ability to get nodes and view labels.  This will provide a way to target any VM in the scale set.
-
 
 Caution must be used when using specific labels:
 
+- Hostname must not be used. Hostname gets rotated often with upgrades and updates and is guaranteed to change.
 
-+ Hostname must not be used. Hostname gets rotated often with upgrades and updates and is guaranteed to change.
-
-
-+ If the customer has a request for specific labels or a deployment strategy, this could be accomplished but would require engineering efforts and is not supported today.
+- If the customer has a request for specific labels or a deployment strategy, this could be accomplished but would require engineering efforts and is not supported today.
 
 ## What is the maximum number of pods in an ARO cluster?  What is the maximum number of pods per node in ARO?
 
