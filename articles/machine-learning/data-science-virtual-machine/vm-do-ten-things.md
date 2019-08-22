@@ -205,7 +205,7 @@ ep <- endpoints(ws, s)
 ans = consume(ep, sleepstudy)$ans
 ```
 
-More information about the Azure Machine Learning R library can be found [here](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
+See more information about [R packages in Machine Learning Studio](/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning.md).
 
 ## 4. Administer your Azure resources using Azure portal or Powershell
 The DSVM not only allows you to build your analytics solution locally on the virtual machine, but also allows you to access services on Microsoft's Azure cloud. Azure provides several compute, storage, data analytics services, and other services that you can administer and access from your DSVM.
