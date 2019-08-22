@@ -18,16 +18,16 @@ This article explains the administrative tasks for the OPC UA Certificate Manage
 
 To create the root CA certificate is a mandatory step after deployment. Without a valid Issuer CA certificate, no application certificates can be signed and issued.<br>Refer to the chapter about [Certificate Lifetimes](howto-opc-vault-secure-ca.md#certificates) to manage your certificates with reasonable, secure lifetimes. 
 An Issuer CA certificate should be renewed after half of its lifetime, but no later than before the configured lifetime of a newly signed application certificate would exceed the lifetime of the Issuer certificate.<br>
-[!IMPORTANT]
-The 'Administrator' role is required to create or renew the Issuer CA certificate.
+> [!IMPORTANT]
+> The 'Administrator' role is required to create or renew the Issuer CA certificate.
 
 1. Open your certificate service at `https://myResourceGroup-app.azurewebsites.net` and sign in.
 2. Navigate to the `Certificate Groups` page.
 3. There is one `Default` Certificate Group listed. Click on `Edit`.
 4. In `Edit Certificate Group Details` you can modify the Subject Name and Lifetime of your CA and application certificates.<br>The subject and the lifetimes should only be set once before the first CA certificate is issued. Lifetime changes during operations may result in inconsistent lifetimes of issued certificates and CRLs.
 5. Enter a valid Subject, for example, `CN=My CA Root, O=MyCompany, OU=MyDepartment`.<br>
-   [!IMPORTANT]
-   Changing the subject requires to renew the Issuer certificate, or the service will fail to sign application certificates. The subject of the configuration is sanity checked against the subject of the active Issuer certificate. If the subjects do not match, certificate signing is refused.
+   > [!IMPORTANT]
+   > Changing the subject requires to renew the Issuer certificate, or the service will fail to sign application certificates. The subject of the configuration is sanity checked against the subject of the active Issuer certificate. If the subjects do not match, certificate signing is refused.
 6. Click on the `Save` button.
 7. If you hit a 'forbidden' error at this point, your user credentials do not have the administrator permission to modify or create a new root certificate. By default, the user who deployed the service has administrator and signing roles with the service, other users need to be added to the 'Approver', 'Writer' or 'Administrator' roles as appropriate in the AzureAD application registration.
 8. Click on the `Details` button. The `View Certificate Group Details` should display the updated information.
@@ -40,11 +40,11 @@ The 'Administrator' role is required to create or renew the Issuer CA certificat
 Renewal of the Certificate Revocation List (CRL) is an update, which should be distributed to the applications at regular intervals. OPC UA devices, which support the CRL Distribution Point X509 extension, can directly update the CRL from the microservice endpoint. Other OPC UA devices may require manual updates or in the best case, can be updated using GDS server push extensions (*) to update the trust lists with the certificates and CRLs.
 
 In the following workflow all certificate requests in the deleted states are revoked in the CRLs, which correspond to the Issuer CA certificate they were issued for. The version number of the CRL is incremented by 1. <br>
-[!NOTE]
- All issued CRLs are valid until the expiration of the Issuer CA certificate, because the OPC UA specification does not require a mandatory, deterministic distribution model for CRL.
+> [!NOTE]
+> All issued CRLs are valid until the expiration of the Issuer CA certificate, because the OPC UA specification does not require a mandatory, deterministic distribution model for CRL.
 
-[!IMPORTANT]
-The 'Administrator' role is required to renew the Issuer CRL.
+> [!IMPORTANT]
+> The 'Administrator' role is required to renew the Issuer CRL.
 
 1. Open your certificate service at `https://myResourceGroup.azurewebsites.net` and sign in.
 2. Navigate to the `Certificate Groups` page.

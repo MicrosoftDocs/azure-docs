@@ -20,10 +20,10 @@ This article explains how to run the OPC UA Certificate Management Service secur
 
 The OPC Vault microservice is configured to allow for distinct roles to access various parts of the service.
 
-[!IMPORTANT]
-During deployment, the script only adds the user who runs the deployment script as a user for all roles.
-This role assignment should be reviewed for a production deployment and reconfigured appropriately following the guidelines below.
-This task requires manual assignment of roles and services in the Azure AD Enterprise Applications portal.
+> [!IMPORTANT]
+> During deployment, the script only adds the user who runs the deployment script as a user for all roles.
+> This role assignment should be reviewed for a production deployment and reconfigured appropriately following the guidelines below.
+> This task requires manual assignment of roles and services in the Azure AD Enterprise Applications portal.
 
 ### Certificate Management Service Roles
 
@@ -95,8 +95,8 @@ The certificate service must have an up-to-date Security Response Plan on file, 
 
 All systems must be continuously monitored and updated with latest security updates/patch compliance.
 
-[!IMPORTANT]
-The GitHub repository of the OPC Vault service is continuously updated with security patches. The updates on GitHub should be monitored and the updates be applied to the service at regular intervals.
+> [!IMPORTANT]
+> The GitHub repository of the OPC Vault service is continuously updated with security patches. The updates on GitHub should be monitored and the updates be applied to the service at regular intervals.
 
 ### Security monitoring
 
@@ -104,15 +104,16 @@ Subscribe to or implement appropriate security monitoring, e.g.,  by subscribing
 (for example, Azure Security Center, O365 monitoring solution) and configure it appropriately to ensure 
 that security events are transmitted to the monitoring solution.
 
-[!IMPORTANT]
-By default, the OPC Vault service is deployed with the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) as a monitoring solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
+> [!IMPORTANT]
+> By default, the OPC Vault service is deployed with the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) as a monitoring 
+> solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
 
 ### Assess Security of Open Source Software Components
 
 All open-source components used within a product or service must be free of moderate or greater security vulnerabilities.
 
-[!IMPORTANT]
-The GitHub repository of the OPC Vault service is scanning all components during continuous integration builds for vulnerabilities. The updates on GitHub should be monitored and the updates be applied to the service at regular intervals.
+> [!IMPORTANT]
+> The GitHub repository of the OPC Vault service is scanning all components during continuous integration builds for vulnerabilities. The updates on GitHub should be monitored and the updates be applied to the service at regular intervals.
 
 ### Maintain an inventory
 
@@ -145,15 +146,15 @@ The CA hierarchy documentation must contain all operated CAs including all relat
 subordinate CAs, parent CAs, and root CAs, even when they are not managed by the service. 
 An exhaustive set of all non-expired CA certificates may be provided instead of formal documentation.
 
-[!IMPORTANT]
-The OPC Vault sample application supports for download of all certificates used and produced in the service for documentation.
+> [!IMPORTANT]
+> The OPC Vault sample application supports for download of all certificates used and produced in the service for documentation.
 
 ### Document the issued certificates by all Certification Authorities (CAs)
 
 An exhaustive set of all certificates issued in the past 12 months should be provided for documentation.
 
-[!IMPORTANT]
-The OPC Vault sample application supports for download of all certificates used and produced in the service for documentation.
+> [!IMPORTANT]
+> The OPC Vault sample application supports for download of all certificates used and produced in the service for documentation.
 
 ### Document the SOP for securely deleting cryptographic keys
 
@@ -173,18 +174,18 @@ The OPC Vault microservice follows these guidelines in the default implementatio
 - All certificates must include the following X.509 fields as specified below:
   - The content of the version field must be v3. 
   - The contents of the serialNumber field must include at least 8 bytes of entropy obtained from a FIPS (Federal Information Processing Standards) 140 approved random number generator.<br>
-    [!IMPORTANT]
-    The OPC Vault serial number is by default 20 bytes and obtained from the OS cryptographic random number generator. The random number generator is FIPS 140 approved on Windows devices, however not on Linux flavors. This fact needs to be considered when choosing a service deployment, which uses Linux VMs or Linux docker containers, on which the underlying technology OpenSSL is not FIPS 140 approved.
+    > [!IMPORTANT]
+    > The OPC Vault serial number is by default 20 bytes and obtained from the OS cryptographic random number generator. The random number generator is FIPS 140 approved on Windows devices, however not on Linux flavors. This fact needs to be considered when choosing a service deployment, which uses Linux VMs or Linux docker containers, on which the underlying technology OpenSSL is not FIPS 140 approved.
   - The issuerUniqueID and subjectUniqueID fields must not be present.
   - End-entity certificates must be identified with the Basic Constraints extension in accordance with IETF RFC 5280.
   - The pathLenConstraint field must be set to 0 for the Issuing CA certificate. 
   - The Extended Key Usage extension must be present and contain the minimum set of Extended Key Usage object identifiers (OIDs). The anyExtendedKeyUsage OID (2.5.29.37.0) must not be specified. 
   - The CRL Distribution Point (CDP) extension must be present in the Issuer CA certificate.<br>
-    [!IMPORTANT]
-    The CRL Distribution Point (CDP) extension is present in OPC Vault CA certificates, nevertheless OPC UA devices use custom methods to distribute CRLs.
+    > [!IMPORTANT]
+    > The CRL Distribution Point (CDP) extension is present in OPC Vault CA certificates, nevertheless OPC UA devices use custom methods to distribute CRLs.
   - The Authority Information Access extension must be present in the subscriber certificates.<br>
-    [!IMPORTANT]
-    The Authority Information Access extension is present in OPC Vault subscriber certificates, nevertheless OPC UA devices use custom methods to distribute Issuer CA information.
+    > [!IMPORTANT]
+    > The Authority Information Access extension is present in OPC Vault subscriber certificates, nevertheless OPC UA devices use custom methods to distribute Issuer CA information.
 - Approved asymmetric algorithms, key lengths, hash functions and padding modes must be used.
   - **RSA** and **SHA-2** are the only supported algorithms (*).
   - RSA may be used for encryption, key exchange, and signature.
@@ -196,11 +197,11 @@ The OPC Vault microservice follows these guidelines in the default implementatio
 - Certificate Lifetime
   - Root CA certificates: The maximum certificate validity period for root CAs must not exceed 25 years.
   - Sub CA or online Issuer CA certificates: The maximum certificate validity period for CAs that are online and issue only subscriber certificates must not exceed six years. For these CAs, the related private signature key must not be used longer than three years to issue new certificates.<br>
-    [!IMPORTANT]
-    The Issuer certificate as it is generated in the default OPC Vault microservice without external Root CA is treated like an online Sub CA with respective requirements and lifetimes. The default lifetime is set to five years with a key length >= 2048.
+    > [!IMPORTANT]
+    > The Issuer certificate as it is generated in the default OPC Vault microservice without external Root CA is treated like an online Sub CA with respective requirements and lifetimes. The default lifetime is set to five years with a key length >= 2048.
   - All asymmetric keys must have a maximum five-year lifetime, recommended one-year lifetime.<br>
-    [!IMPORTANT]
-    By default the lifetimes of application certificates issued with OPC Vault have a lifetime of two years and should be replaced every year. 
+    > [!IMPORTANT]
+    > By default the lifetimes of application certificates issued with OPC Vault have a lifetime of two years and should be replaced every year. 
   - Whenever a certificate is renewed, it is renewed with a new key.
 - OPC UA-specific extensions in application instance certificates
   - The subjectAltName extension includes the application Uri and hostnames, which may also include FQDN, IPv4 and IPv6 addresses.

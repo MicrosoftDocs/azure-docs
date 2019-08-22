@@ -31,8 +31,8 @@ Find an article describing how to create and manage the Issuer certificate [here
 
 ### Step 1: Register your OPC UA application 
 
-[!IMPORTANT]
-The 'Writer' role is required to register an application.
+> [!IMPORTANT]
+> The 'Writer' role is required to register an application.
 
 1. Open your certificate service at `https://myResourceGroup-app.azurewebsites.net` and sign in.
 2. Navigate to the `Register New` page.
