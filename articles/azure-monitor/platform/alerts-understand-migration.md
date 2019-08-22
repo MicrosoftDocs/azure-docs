@@ -256,11 +256,11 @@ Due to some recent changes to classic alert rules in your subscription, the subs
 
 ### Scope lock preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the migration failure email notification, and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the [migration tool](alerts-using-migration-tool.md), and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/resource-group-lock-resources.md#portal).
 
 ### Policy with 'Deny' effect preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. Resolve this problem by either removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. The policies that are blocking the process are listed in the [migration tool](alerts-using-migration-tool.md). Resolve this problem by either removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## Next steps
 
