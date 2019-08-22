@@ -150,7 +150,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     For more information, see [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
 
-## Environments
+## Environment management
 
 The following commands demonstrate how to create, register, and list Azure Machine Learning service [environments](how-to-configure-environment.md) for your workspace:
 
