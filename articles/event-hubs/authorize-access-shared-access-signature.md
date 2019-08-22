@@ -7,7 +7,7 @@ documentationcenter: ''
 author: spelluru
 
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/22/2019
 ms.author: spelluru
 
 ---
@@ -24,7 +24,7 @@ SAS is a claim-based authorization mechanism using simple tokens. Using SAS, key
 >
 > Microsoft recommends using Azure AD with your Azure Event Hubs applications when possible. For more information, see [Authorize access to Azure Event Hubs resource using Azure Active Directory](authorize-access-azure-active-directory.md).
 
-> [!IMPORANT]
+> [!IMPORTANT]
 > SAS (Shared Access Signatures) tokens are critical to protect your resources. While providing granularity, SAS grants clients access to your Event Hubs resources. They should not be shared publicly. When sharing, if required for troubleshooting reasons, consider using a reduced version of any log files or deleting the SAS tokens (if present) from the log files, and make sure the screenshots don’t contain the SAS information either.
 
 ## Shared access authorization policies

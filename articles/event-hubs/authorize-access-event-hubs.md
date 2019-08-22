@@ -7,7 +7,7 @@ documentationcenter: ''
 author: spelluru
 
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/22/2019
 ms.author: spelluru
 
 ---
@@ -31,11 +31,11 @@ By default, all Event Hubs resources are secured, and are available only to the 
 For more information about authorization using SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md).
 
 ## Next steps
-See the following articles:
-
-- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
-- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
-- [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
-- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
-- [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
+- Review [RBAC samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) published in our GitHub repository. 
+- See the following articles:
+    - [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
+    - [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
+    - [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
+    - [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+    - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
 

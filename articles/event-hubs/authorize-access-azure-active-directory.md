@@ -7,7 +7,7 @@ documentationcenter: ''
 author: spelluru
 
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/22/2019
 ms.author: spelluru
 
 ---
@@ -56,8 +56,9 @@ The following list describes the levels at which you can scope access to Event H
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating custom RBAC roles, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md).
 
 ## Next Steps
-- To learn how to assign a built-in-RBAC role to a security principal, see [Authenticate access to Event Hubs resources using Azure Active Directory](authenticate-application.md).
-- [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+- Learn how to assign a built-in-RBAC role to a security principal, see [Authenticate access to Event Hubs resources using Azure Active Directory](authenticate-application.md).
+- Learn [how to create custom roles with RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
+- Learn [How to use Azure Active Directory with EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 See the following related articles:
 

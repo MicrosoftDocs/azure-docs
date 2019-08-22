@@ -7,7 +7,7 @@ documentationcenter: ''
 author: spelluru
 
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/22/2019
 ms.author: spelluru
 
 ---
@@ -25,6 +25,9 @@ Azure provides the following built-in RBAC roles for authorizing access to Event
 - [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview): Use this role to give complete access to Event Hubs resources.
 - [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender-preview): Use this role to give send access to Event Hubs resources.
 - [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver-preview): Use this role to give receiving access to Event Hubs resources.   
+
+> [!IMPORTANT]
+> Our preview release supported adding Event Hubs data access privileges to Owner or Contributor role. However, data access privileges for Owner and Contributor role are no longer honored. If you are using the Owner or Contributor role, switch to using the Azure Event Hubs Data Owner role.
 
 ## Assign RBAC roles using the Azure portal  
 To learn more on managing access to Azure resources using RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 

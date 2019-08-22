@@ -8,7 +8,7 @@ author: spelluru
 manager: 
 
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/22/2019
 ms.author: spelluru
 
 ---
@@ -77,13 +77,10 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 ```
 
 ## Next Steps
-See the following article to learn about managed identities for Azure resources: [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
-
-See the [sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
-
-See the following related articles:
-
-- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
-- [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
-- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
-- [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
+- Download the [sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp) from GitHub.
+- See the following article to learn about managed identities for Azure resources: [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+- See the following related articles:
+    - [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
+    - [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
+    - [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+    - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)

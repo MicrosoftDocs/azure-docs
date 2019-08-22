@@ -11371,6 +11371,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-role-based-access-control.md",
+      "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
       "redirect_document_id": false
