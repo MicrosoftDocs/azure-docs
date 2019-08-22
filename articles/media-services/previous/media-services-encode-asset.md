@@ -7,7 +7,6 @@ author: juliako
 manager: femila
 editor: ''
 
-ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -39,9 +38,6 @@ Media Services supports the following on demand encoders that are described in t
 This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
 
 By default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information, see [Scaling encoding units](media-services-scale-media-processing-overview.md).
-
-> [!IMPORTANT]
-> We are announcing the retirement of *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME). <br/>For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
 ## Media Encoder Standard
 

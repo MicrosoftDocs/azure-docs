@@ -19,7 +19,7 @@ ms.author: juliako
 # Migrate from Azure Media Encoder to Media Encoder Standard
 
 > [!IMPORTANT]
-> This article discusses the steps for migrating from the legacy Azure Media Encoder media processor, which is being retired on Oct 31, 2019 
+> This article discusses the steps for migrating from the legacy Azure Media Encoder media processor, which is being retired on Nov 30, 2019.  
 
 ## Next steps
 

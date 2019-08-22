@@ -49,6 +49,15 @@
       href: media-services-dotnet-live-encode-with-onpremises-encoders.md
 - name: How To
   items:
+  - name: Legacy components
+    href: legacy-components.md
+    items:
+      - name: Migrate from Azure Media Encoder
+        href: migrate-azure-media-encoder.md
+        displayName: AME
+      - name: Migrate from Windows Azure Media Encoder
+        href: migrate-windows-azure-media-encoder.md
+        displayName: WAME          
   - name: Manage
     items:
     - name: Accounts
@@ -100,13 +109,6 @@
       href: media-services-copying-existing-blob.md
   - name: Encode content
     href: media-services-encode-asset.md
-    items:
-    - name: Migrate to Media Encoder Standard
-      items:
-        - name: Azure Media Encoder
-          href: migrate-azure-media-encoder.md
-        - name: Windows Azure Media Encoder
-          href: migrate-windows-azure-media-encoder.md
     - name: Compare encoders
       href: media-services-compare-encoders.md
     - name: Manage speed and concurrency of your encoding

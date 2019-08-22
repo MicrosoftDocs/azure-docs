@@ -43,7 +43,7 @@ For information about the Media Services REST API version history, see the [Azur
 
 ## September 3019
 
-We are announcing the retirement of *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME). <br/>For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+We are announcing the retirement of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired on Nov 30, 2019.<br/>For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
 ## March 2019
 
