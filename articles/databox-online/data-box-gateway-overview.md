@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 07/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
@@ -53,7 +53,6 @@ Data Box Gateway has the following capabilities:
 |Fast access     | Local cache on the device for fast access of most recently used files.|
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
-|Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*       |
 |Resiliency     | Built-in network resiliency        |
 
 

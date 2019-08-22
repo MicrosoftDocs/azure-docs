@@ -52,6 +52,7 @@ System properties help identify contents and source of the messages.
 | contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
 | iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
+| iothub-interface-name | string | This value is set by the user and represents the name of the digital twin interface that implements the telemetry message. To query, use `$interfaceName`. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). |
 
 As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding**, and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.
 
@@ -81,7 +82,7 @@ To combine these queries, you can use Boolean expressions and functions:
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-A full list of supported operators and functions are listed in [Expression and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions)
+A full list of supported operators and functions is shown in [Expression and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## Message routing query based on message body 
 
@@ -158,7 +159,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## Message routing query based on device twin 
 
-Message routing enables you to query on [Device Twin](iot-hub-devguide-device-twins.md) tags and properties, which are JSON objects. Note that querying on module twin is not supported. A sample of Device Twin tags and properties is shown below.
+Message routing enables you to query on [Device Twin](iot-hub-devguide-device-twins.md) tags and properties, which are JSON objects. Querying on module twin is not supported. A sample of Device Twin tags and properties is shown below.
 
 ```JSON
 {
