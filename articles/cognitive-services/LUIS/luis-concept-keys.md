@@ -41,7 +41,7 @@ An authoring key, also known as a starter key, is created automatically when you
 
 To find the authoring Key, sign in to [LUIS](luis-reference-regions.md#luis-website) and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
-![authoring Key](./media/luis-concept-keys/programatic-key.png)
+![authoring Key](./media/luis-concept-keys/authoring-key.png)
 
 When you want to make **runtime queries**, create the Azure [LUIS resource](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
