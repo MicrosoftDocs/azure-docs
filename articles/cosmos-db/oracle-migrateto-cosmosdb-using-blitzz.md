@@ -49,9 +49,9 @@ This section describes the steps required to setup Blitzz and migrates data from
 
 1. ou can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](https://www.blitzz.io). Alternatively, you can also send an [email](mailto:success@blitzz.io) to the team.
 
-   ![Blitzz replicant tool download](./media/blitzz-migrate-oracle-to-cosmosdb/blitzz-replicant-download.png)
+   ![Blitzz replicant tool download](./media/oracle-migrateto-cosmosdb-using-blitzz/blitzz-replicant-download.png)
 
-   ![Blitzz replicant files](./media/blitzz-migrate-oracle-to-cosmosdb/replicant-files.png)
+   ![Blitzz replicant files](./media/oracle-migrateto-cosmosdb-using-blitzz/replicant-files.png)
 
 1. From the CLI terminal, set up the source database configuration. Open the configuration file using **`vi conf/conn/oracle.yml`** command and add a comma-separated list of IP addresses of the oracle nodes, port number, username, password, and any other required details. The following code shows an example configuration file:
 
@@ -70,9 +70,9 @@ This section describes the steps required to setup Blitzz and migrates data from
    use-ssl: false
    ```
 
-   ![Open Oracle connection editor](./media/blitzz-migrate-oracle-to-cosmosdb/open-connection-editor-oracle.png)
+   ![Open Oracle connection editor](./media/oracle-migrateto-cosmosdb-using-blitzz/open-connection-editor-oracle.png)
 
-   ![Oracle connection configuration](./media/blitzz-migrate-oracle-to-cosmosdb/oracle-connection-configuration.png)
+   ![Oracle connection configuration](./media/oracle-migrateto-cosmosdb-using-blitzz/oracle-connection-configuration.png)
 
    After filling out the configuration details, save and close the file.
 
@@ -91,7 +91,7 @@ This section describes the steps required to setup Blitzz and migrates data from
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time. 
 
-   ![Scale Azure Cosmos container throughout](./media/blitzz-migrate-oracle-to-cosmosdb/scale-throughput.png)
+   ![Scale Azure Cosmos container throughout](./media/oracle-migrateto-cosmosdb-using-blitzz/scale-throughput.png)
 
    You must decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles.
 
@@ -129,7 +129,7 @@ This section describes the steps required to setup Blitzz and migrates data from
 
    The replicant UI shows the replication progress. Once the schema migration and snapshot operation are done, the progress shows 100%. After the migration is complete, you can validate the data on the target Azure Cosmos database.
 
-   ![Oracle data migration output](./media/blitzz-migrate-oracle-to-cosmosdb/oracle-data-migration-output.png)
+   ![Oracle data migration output](./media/oracle-migrateto-cosmosdb-using-blitzz/oracle-data-migration-output.png)
 
 1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Oracle database. Later you can validate that they are replicated real time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.
 

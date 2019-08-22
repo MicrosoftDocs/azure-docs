@@ -47,9 +47,9 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
 1. You can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](https://www.blitzz.io). Alternatively, you can also send an [email](mailto:success@blitzz.io) to the team.
 
-   ![Blitzz replicant tool download](./media/blitzz-migrate-cassandra-to-cosmosdb/blitzz-replicant-download.png)
+   ![Blitzz replicant tool download](./media/cassandra-migrateto-cosmosdb-using-blitzz/blitzz-replicant-download.png)
 
-   ![Blitzz replicant files](./media/blitzz-migrate-cassandra-to-cosmosdb/replicant-files.png)
+   ![Blitzz replicant files](./media/cassandra-migrateto-cosmosdb-using-blitzz/replicant-files.png)
 
 1. From the CLI terminal, set up the source database configuration. Open the configuration file using **`vi conf/conn/cassandra.yml`** command and add a comma-separated list of IP addresses of the Cassandra nodes, port number, username, password, and any other required details. The following is an example of contents in the configuration file:
 
@@ -66,9 +66,9 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
    ```
 
-   ![Open Cassandra connection editor](./media/blitzz-migrate-cassandra-to-cosmosdb/open-connection-editor-cassandra.png)
+   ![Open Cassandra connection editor](./media/cassandra-migrateto-cosmosdb-using-blitzz/open-connection-editor-cassandra.png)
 
-   ![Cassandra connection configuration](./media/blitzz-migrate-cassandra-to-cosmosdb/cassandra-connection-configuration.png)
+   ![Cassandra connection configuration](./media/cassandra-migrateto-cosmosdb-using-blitzz/cassandra-connection-configuration.png)
 
    After filling out the configuration details, save and close the file.
 
@@ -87,7 +87,7 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time.
 
-   ![Scale Azure Cosmos container throughout](./media/blitzz-migrate-cassandra-to-cosmosdb/scale-throughput.png)
+   ![Scale Azure Cosmos container throughout](./media/cassandra-migrateto-cosmosdb-using-blitzz/scale-throughput.png)
 
    Decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles.
 
@@ -123,7 +123,7 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
    The replicant UI shows the replication progress. Once the schema migration and snapshot operation are done, the progress shows 100%. After the migration is complete, you can validate the data on the target Azure Cosmos database.
 
-   ![Cassandra data migration output](./media/blitzz-migrate-cassandra-to-cosmosdb/cassandra-data-migration-output.png)
+   ![Cassandra data migration output](./media/cassandra-migrateto-cosmosdb-using-blitzz/cassandra-data-migration-output.png)
 
 
 1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Apache Cassandra database. Later validate that they are replicated real time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.
