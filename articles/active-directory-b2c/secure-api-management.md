@@ -133,11 +133,26 @@ A client application (in this case, Postman) that calls a published API must inc
 
 ### Call the API with Postman
 
-1. Add `Ocp-Apim-Subscription-Key` header
-1. Add `Authorization` header with token value
-1. **[TODO]** ...stuff. **[TODO]**
+Create a new GET request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published in the prerequisites. For example:
 
-**[IMAGE(S) HERE]**
+```
+https://contosoapim.azure-api.net/conference/speakers
+```
+
+Next, add the following headers:
+
+| Key | Value |
+| --- | ----- |
+| `Ocp-Apim-Subscription-Key` | APIM subscription key you recorded earlier |
+| `Authorization` | Encoded token value you recorded earlier, prefixed with `Bearer ` (include the space) |
+
+Your **GET** request URL and **Headers** should appear similar to:
+
+![Postman UI showing the GET request URL and headers](media/secure-apim-with-b2c-token/postman-01-headers.png)
+
+Select the **Send** button to execute the request.
+
+**[TODO: show successful output, also how they can test failure (mangle the token)]**
 
 ## Migrate an existing API to b2clogin.com
 
