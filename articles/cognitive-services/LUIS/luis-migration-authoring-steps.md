@@ -29,7 +29,7 @@ Before you migrate to the Azure resource authoring experience, you need to have 
 
 1. Choose to migrate now or migrate later. You have 9 months to migrate to the new authoring key in Azure.
 
-1. [Sign up to Azure]() and create your first subscription if you do not have an Azure subscription. 
+1. [Sign up to Azure](https://azure.microsoft.com/en-us/free/) and create your first subscription if you do not have an Azure subscription. 
 
 1. Send email to your collaborators. Select the apps and its collaborators to notify your collaborators about the migration.
 
