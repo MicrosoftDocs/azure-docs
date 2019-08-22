@@ -12,13 +12,15 @@ ms.author: v-qiwe
 
 # Your commercial marketplace benefits
 
-As part of your publishing journey, you need to create technical and marketing assets for your offer. As a result, there are technical and marketing benefits that Microsoft AppSource and Azure Marketplace publishers can use in order to improve customer engagement with your offer, and support you in growing your marketplace presence and impact.
+You’ve published to marketplace, now you want to see your offer be successful. We provide you the benefits – sales, technical, and marketing - you need to accelerate your offer’s growth.
 
-When you go live with your offer, the Marketplace Rewards team will reach out to you to you based on your eligibility to deliver benefits or begin the engagement.
+When you go live with your offer, the Marketplace Rewards team will reach out to begin working with you on your eligible benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
 ## Marketplace Rewards
 
-As you increase your investment in marketplace, you increase your available rewards. You start with awareness-based activities when you first launch your offer and move on to demand generation and co-selling activities.
+Marketplace Rewards is designed to support you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the marketplace, you unlock new benefits designed to help you convert customers and close deals. 
+
+The program creates a positive feedback loop: the benefits at each stage of growth are designed to progress you to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft’s field, and through Microsoft’s channel by leveraging the commercial marketplace as your platform. 
 
 Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
@@ -34,13 +36,13 @@ You will get support in understanding the resources available to you and in impl
 
 Detailed descriptions of all program benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
-To access these benefits, you will need to:
+Your steps to get started are easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
 2. The team reaches out to the “owner” or “primary contact” per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
 
 >[!Note]
->If your offer has been live for more than 3 weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
@@ -54,11 +56,11 @@ The table below summarize the eligibility requirements for list and trial offers
 
 ## Marketplace Rewards for transact partners
 
-When you go live with your transactable offer in either Azure Marketplace or AppSource, you are able to access additional benefits as you grow your billed sales transactions through the commercial marketplace. 
+When you go live with your transactable offer in either Azure Marketplace or Microsoft AppSource, you are able to access additional benefits as you grow your billed sales transactions through the commercial marketplace. 
 
-These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, more leads, and convert more business.
+These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
 
-All partners who have a live offer get to work with a dedicated engagement manager to choose the highest-value activities and across your portfolio of marketplace offers. This engagement is evergreen per offer, meaning you can choose your activities and the timing of these activities to be part of your marketing and sales strategies. 
+All partners who have a live offer get to work with a dedicated engagement manager to choose the highest-value activities for your portfolio of marketplace offers. This engagement is evergreen per offer, meaning you can choose your activities and the timing of these activities to align to the timing of your company's broader marketing and sales strategies. 
 
 ![Marketing benefits](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -66,35 +68,32 @@ All partners who have a live offer get to work with a dedicated engagement manag
 
 ![Technical benefits](./media/marketplace-publishers-guide/technical-benefit.png)
 
-Detailed descriptions for all of these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
+Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
-In addition to the rewards benefits, Business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
+In addition to the rewards benefits, business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
 
 ## Marketplace Rewards requirements and restrictions
 
 ### Publisher Agreement
 
-All the activities described on this page are covered by the marketplace publisher agreement.
+All the activities described on this page are covered by the [marketplace publisher agreement](https://docs.microsoft.com/legal/marketplace/terms) and are pursuant to the Commercial Benefits Program Addendum.
 
 ### Cancellation policy
 
-List and Trial partners can opt in or opt out to activities per offer publication. Partners may opt out of any engagement at any time. 
+[List and Trial](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) publishers can opt in or opt out to activities per offer publication. Partners may opt out of any engagement at any time. 
 
-Microsoft reserves the right to cancel service to partners who engage in illegal activity using their marketplace listing.
+Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who: 
 
-Microsoft reserves the right to cancel services to partners who are de-listed from the marketplace due to violations of the [marketplace participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) or the publisher agreement.
-
-Microsoft reserves the right to cancel service to partners who use their offer to show marketing or other content that violates copyright or trademark laws.
- 
-Microsoft reserves the right to refuse services to partners who enter into joint ventures with or are acquired by competitors.
-
-Microsoft reserves the right to decline Azure sponsorship for partners who violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or bitcoin mining. 
+* engage in illegal activity using their marketplace listing.
+* are de-listed from the commercial marketplace. 
+* use their offer to show marketing or other content that violates copyright or trademark laws.
+* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or bitcoin mining. 
 
 ### Offer Availability
 
-This offer is conducted in English for all partners with a live offer in Azure Marketplace or AppSource.
+This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
-Transactions that are proven to be fraudulent will not count towards a publisher’s billed sales program tier. Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
+Transactions that are proven to be fraudulent will not count towards a publisher’s [billed sales program tier](aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
 
 ## Next steps
 
@@ -105,6 +104,5 @@ If you created your offer in Partner Center, sign in to create or configure your
 Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) and learn about relevant topics or join the discussion.
-
 
 ---
