@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
 ---
 
@@ -32,7 +32,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application of type Native. Or you can reuse an existing Native app registration.
 
-1. Under **Required permissions**, select **Add** and enter **Azure Digital Twins** under **Add API access**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Grant Permissions > Delegated Permissions** and **Done**.
+1. Under **API permissions**, select **Add a permission". Then, **Azure Digital Twins** under **APIs my organization uses**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Delegated Permissions**, **Read** > **Read.Write** and **Add permission**.
 
     [![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
