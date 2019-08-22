@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 08/23/2019
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
-PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
 
 ## How to use PostgreSQL extensions
-PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) command from psql tool to load the packaged objects into your database.
+PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command from psql tool to load the packaged objects into your database.
 
-Azure Database for PostgreSQL currently supports a subset of key extensions as listed below. Extensions beyond the ones listed are not supported; you cannot create your own extension with Azure Database for PostgreSQL service.
+Azure Database for PostgreSQL supports a subset of key extensions as listed below. Extensions beyond the ones listed are not supported. You cannot create your own extension in Azure Database for PostgreSQL.
 
 ## Extensions supported by Azure Database for PostgreSQL
 The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
@@ -101,9 +101,52 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > |---|---|
 > | [TimescaleDB](https://docs.timescale.com/latest) | A time-series SQL database that supports automated partitioning for faster ingest and queries. Provides time-oriented analytical functions, optimizations, and scales PostgreSQL for time-series workloads. TimescaleDB is developed by and a registered trademark of [Timescale, Inc.](https://www.timescale.com/) (See below for a note on this extension). |
 
+## Postgres 11 extensions
+
+The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 11.
+
+> [!div class="mx-tableFixed"]
+> | **Extension**| **Extension version** | **Description** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
+> |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
+> |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
+> |[citext](https://www.postgresql.org/docs/11/static/citext.html)                       | 1.5             | data type for case-insensitive character strings|
+> |[cube](https://www.postgresql.org/docs/11/static/cube.html)                         | 1.4             | data type for multidimensional cubes|
+> |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | connect to other PostgreSQL databases from within a database|
+> |[dict_int](https://www.postgresql.org/docs/11/static/dict-int.html)                     | 1.0             | text search dictionary template for integers|
+> |[earthdistance](https://www.postgresql.org/docs/11/static/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/11/static/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
+> |[hstore](https://www.postgresql.org/docs/11/static/hstore.html)                       | 1.5             | data type for storing sets of (key, value) pairs|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.2           | Hypothetical indexes for PostgreSQL|
+> |[intarray](https://www.postgresql.org/docs/11/static/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
+> |[isn](https://www.postgresql.org/docs/11/static/isn.html)                          | 1.2             | data types for international product numbering standards|
+> |[ltree](https://www.postgresql.org/docs/11/static/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
+> |[pgcrypto](https://www.postgresql.org/docs/11/static/pgcrypto.html)                     | 1.3             | cryptographic functions|
+> |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting Extension|
+> |[pgrowlocks](https://www.postgresql.org/docs/11/static/pgrowlocks.html)                   | 1.2             | show row-level locking information|
+> |[pgstattuple](https://www.postgresql.org/docs/11/static/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pg_buffercache](https://www.postgresql.org/docs/11/static/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
+> |[pg_partman]https://github.com/pgpartman/pg_partman                   | 4.0.0           | Extension to manage partitioned tables by time or ID|
+> |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | prewarm relation data|
+> |[pg_stat_statements](https://www.postgresql.org/docs/11/static/pgstatstatements.html)           | 1.6             | track execution statistics of all SQL statements executed|
+> |[pg_trgm](https://www.postgresql.org/docs/11/static/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
+> |[plpgsql](https://www.postgresql.org/docs/11/static/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
+> |[plv8](https://plv8.github.io/)                         | 2.3.11          | PL/JavaScript (v8) trusted procedural language|
+> |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometry, geography, and raster spatial types and functions|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS SFCGAL functions|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS tiger geocoder and reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS topology spatial types and functions|
+> |[postgres_fdw](https://www.postgresql.org/docs/11/static/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
+> |[tablefunc](https://www.postgresql.org/docs/11/static/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
+> |[unaccent](https://www.postgresql.org/docs/11/static/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
+> |[uuid-ossp](https://www.postgresql.org/docs/11/static/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
+
 
 ## pg_stat_statements
-The [pg\_stat\_statements extension](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you a means of tracking execution statistics of SQL statements.
+The pg_stat_statements extension is preloaded on every Azure Database for PostgreSQL server to provide you a means of tracking execution statistics of SQL statements.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) or the [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
