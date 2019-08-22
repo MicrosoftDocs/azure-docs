@@ -134,7 +134,7 @@ The easiest way to do test this scenario is to use the same machine that you use
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protoco](https://www.ssh.com/ssh/scp/) to move the certificate files.
+   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 self-signed authentication and assigns a parent device: 
 
@@ -188,7 +188,7 @@ The easiest way to test this scenario is to use the same machine that you used t
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protoco](https://www.ssh.com/ssh/scp/) to move the certificate files.
+   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 CA signed authentication and assigns a parent device: 
 
