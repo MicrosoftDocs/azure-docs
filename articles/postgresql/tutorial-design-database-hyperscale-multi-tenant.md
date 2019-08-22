@@ -151,6 +151,8 @@ done
 Back inside psql, bulk load the data. Be sure to run psql in the same directory where you downloaded the data files.
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy companies from 'companies.csv' with csv
 \copy campaigns from 'campaigns.csv' with csv
 \copy ads from 'ads.csv' with csv
