@@ -7,7 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ---
 # Cognitive Services and machine learning
@@ -125,6 +125,10 @@ Cognitive Services that provide exported models for other machine learning tools
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
+## Learn more
+
+* [Architecture Guide - What are the machine learning products at Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Machine learning - Introduction to deep learning vs. machine learning](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
 
 ## Next steps
 

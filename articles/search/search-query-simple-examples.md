@@ -2,7 +2,7 @@
 title: Query examples using the "simple" search syntax - Azure Search
 description: Simple query examples for full text search, filter search, geo search, faceted search, and other query strings used to query an Azure Search index.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search

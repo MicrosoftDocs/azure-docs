@@ -40,7 +40,7 @@ Copy and paste the script below into Cloud Shell and press Enter. It runs the sc
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id)
 
 # Concatenate this number onto the resources that have to be globally unique.

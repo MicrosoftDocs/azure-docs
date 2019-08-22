@@ -119,7 +119,7 @@ Prerequisites for using the Microsoft Authenticator app to do passwordless sign 
 
 * End users are enabled for Azure Multi-Factor Authentication
 
-* The ability for users to enroll their devices by using Microsoft Intune or a third-party mobile device management (MDM) solution
+* It is recommended users enroll their devices using Microsoft Intune or a third-party mobile device management (MDM) solution to ease the deployment of the app
 
 Assuming these requirements are met, administrators enable passwordless phone sign-in in the tenant by using [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) Once phone sign-in is enabled in the tenant, end users may opt to sign-in using their phone by selecting their work or school account on the **Accounts** screen of the app, then selecting **Enable phone sign-in**.
 
@@ -220,7 +220,7 @@ We also recommend that each organization create a protocol for users and adminis
 
 #### User sets up FIDO2 security key
 
-While administrators can [manually provision keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) and distribute them to end users, provisioning and enabling the FIDO2 credential provider on the Windows 10 lock screen will be supported through [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administrators will also need to use the [Azure portal](https://portal.azure.com/) to enable hardware token devices as a passwordless authentication method.
+While administrators can [manually provision keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) and distribute them to end users, provisioning and enabling the FIDO2 credential provider on the Windows 10 lock screen will be supported through [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administrators will also need to use the [Azure portal](https://portal.azure.com/) to enable hardware token devices as a passwordless authentication method.
 
 Deploying FIDO2 security keys also requires that users register their keys using [combined registration](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). With combined registration, users register once and get the benefits of both Azure Multi-Factor Authentication and single sign-on password reset (SSPR).
 
@@ -337,4 +337,4 @@ The adoption of modern multi-factor authentication technologies such as biometri
 ## Next steps
 
 * An overview of [what is passwordless?](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [How to enable passwordless in Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* [How to enable passwordless in Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

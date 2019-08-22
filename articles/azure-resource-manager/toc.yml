@@ -97,9 +97,6 @@
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
-    - name: Manage secrets
-      displayname: key vault
-      href: resource-manager-keyvault-parameter.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
     - name: Use template extensions
@@ -120,14 +117,17 @@
     - name: Deploy - REST API
       displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
-    - name: Secure templates with SAS token
-      items:
-      - name: Use the Azure CLI
-        href: resource-manager-cli-sas-token.md
-      - name: Use Azure PowerShell
-        href: resource-manager-powershell-sas-token.md
+    - name: Secure template with SAS token
+      href: secure-template-with-sas-token.md
     - name: Deploy to multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
+  - name: Provide parameters
+    items:
+    - name: Create parameter file
+      href: resource-manager-parameter-files.md
+    - name: Pass sensitive values
+      displayname: key vault
+      href: resource-manager-keyvault-parameter.md
   - name: CI/CD
     items:
     - name: VS project with pipelines
@@ -150,12 +150,12 @@
         href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
       - name: Classic deployment
         href: ./move-limitations/classic-model-move-limitations.md
+      - name: Networking
+        href: ./move-limitations/networking-move-limitations.md
       - name: Recovery Services
         href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
       - name: Virtual Machines
         href: ./move-limitations/virtual-machines-move-limitations.md
-      - name: Virtual Networks
-        href: ./move-limitations/virtual-network-move-limitations.md
   - name: Tags
     items:
     - name: Tag resources
