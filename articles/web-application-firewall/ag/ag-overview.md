@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Web Application Firewall for Azure Application Gateway
-description: This article provides an overview of web application firewall (WAF) for Application Gateway
+title: Introduction to Azure Web Application Firewall on Azure Application Gateway
+description: This article provides an overview of web application firewall (WAF) on Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,11 +9,11 @@ ms.author: victorh
 ms.topic: overview
 ---
 
-# Azure Web Application Firewall for Azure Application Gateway
+# Azure Web Application Firewall on Azure Application Gateway
 
-Azure Application Gateway offers a  web application firewall (WAF) that provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
+Azure Web Application Firewall (WAF) on Azure Application Gateway provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
-The Application Gateway WAF is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed.
+WAF on Application Gateway is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed.
 
 ![Application Gateway WAF diagram](../media/ag-overview/WAF1.png)
 
@@ -23,7 +23,7 @@ Application Gateway security enhancements include SSL policy management and end-
 
 ## Benefits
 
-This section describes the core benefits that Application Gateway and its WAF provide.
+This section describes the core benefits that WAF on Application Gateway provides.
 
 ### Protection
 
