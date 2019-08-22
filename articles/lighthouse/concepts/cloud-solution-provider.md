@@ -15,8 +15,6 @@ If you're a [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-c
 
 With Azure Lighthouse, you can use Azure delegated resource management along with AOBO. This helps improve security and reduces unnecessary access by enabling more granular permissions for your users. It also allows for greater efficiency and scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
 
-![Granular access](../media/csp-3.jpg)
-
 ## Administer on Behalf of (AOBO)
 
 With AOBO, any user with the [Admin Agent](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your tenant will have AOBO access to Azure subscriptions that you create through the CSP program. Any users who need access to any customers' subscriptions must be a member of this group. AOBO doesn’t allow the flexibility to create distinct groups that work with different customers, or to enable different roles for groups or users.
@@ -31,13 +29,8 @@ Onboarding a subscription that you created through the CSP program follows the s
 
 ![Tenant management using AOBO and Azure delegated resource management](../media/csp-2.jpg)
 
-## Partner Admin Link
-
-Be sure to associate your Microsoft Partner Network (MPN) ID with onboarded subscriptions to track your impact across customer engagements.
-
-If you [publish a managed services offer to the Azure Marketplace](../how-to/publish-managed-services-offers.md), your MPN ID is associated with your publisher profile and is automatically associated with the offer. If you [onboard customers for Azure delegated resource management using Azure Resource Manager templates](../how-to/onboard-customer.md), you can still associate your MPN ID in order to receive recognition for your impact on customer engagements, but you will have to do so manually. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). 
-
 ## Next steps
 
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
+- Learn how to [onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md).
 - Learn about the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview).
