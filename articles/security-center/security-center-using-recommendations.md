@@ -71,6 +71,6 @@ Monitoring recommendations in Security Center helps you eliminate security vulne
 ## Next steps
 Make sure you have a monitoring process in place, in which you regularly check the recommendations in Security Center so that you can make sure to keep your resources secure over time.
 
-This scenario showed you how to use security policies and recommendations in Security Center to help mitigate a security attack. See the [incident response scenario](security-center-incident-response.md) to learn how to have an incident response plan in place before an attack takes place.
+This scenario showed you how to use security policies and recommendations in Security Center to help mitigate a security attack.
 
 Learn how to respond to threats with [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md).
