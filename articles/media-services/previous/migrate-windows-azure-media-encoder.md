@@ -18,10 +18,7 @@ ms.author: juliako
 ---
 # Migrate from Windows Azure Media Encoder to Media Encoder Standard
 
-> [!IMPORTANT]
-> This article discusses the steps for migrating from the legacy Windows Azure Media Encoder media processor, which is being retired on Nov 30, 2019.
-
-At the launch of Azure Media Services in June 2012, in order to encode source video files for delivery via streaming or other means, customers had access to a component called the Windows Azure Media Encoder (WAME) media processor. This component was last updated in 2014. Since then, there have been steady improvements to the encoding features of Azure Media Services. The Media Encoder Standard (MES) and Premium Workflow (MEPW) encoder capabilities provide significant improvements in terms of capability, robustness, reliability, price, and performance. Older applications that were built on top of WAME have been at a significant disadvantage. As a result, we are retiring the legacy component, WAME, on October 15, 2019. You will need to migrate your code to use the Media Encoder Standard (MES) component.   
+This article discusses the steps for migrating from the legacy Windows Azure Media Encoder (WAME) media processor, which is being retired on Nov 30, 2019, to the Media Encoder Standard media processor.
 
 When encoding files with WAME, customers typically used a named preset string such as *H264 Adaptive Bitrate MP4 Set 1080p*. In order to migrate, your code needs to be updated to use the **Media Encoder Standard** media processor instead of WAME, and one of the equivalent system presets like *H264 Multiple Bitrate 1080p*. 
 
@@ -44,7 +41,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
     TaskOptions.None); 
 ```
 
-Here is the updated version 
+Here is the updated version that uses Media Encoder Standard.
 
 ```csharp
 // Declare a new job. 
@@ -67,7 +64,7 @@ If you had created your own encoding preset for WAME using its schema, there is 
 
 ## Known differences 
 
-Media Encoder Standard is known to be more robust, reliable, preferment, and produces better quality output than the legacy WAME encoder. In addition,: 
+Media Encoder Standard is more robust, reliable, has better performance, and produces better quality output than the legacy WAME encoder. In addition,: 
 
 * Media Encoder Standard produces output files with a different naming convention than WAME.
 * Media Encoder Standard produces artifacts such as files containing the [metadata](media-services-input-metadata-schema.md) about the input file, and [metadata](media-services-output-metadata-schema.md) about the output file(s).
