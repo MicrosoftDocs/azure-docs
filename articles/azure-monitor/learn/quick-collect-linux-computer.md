@@ -140,7 +140,7 @@ Now that you have enabled data collection, lets run a simple log search example 
  
     ![Log Analytics log search](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
-    For example, the query in the following image returned 735 Performance records.
+    For example, the query in the following image returned 10,000 Performance records. Your results will be significantly less.
 
     ![Log Analytics log search result](media/quick-collect-linux-computer/log-analytics-search-perf.png)
 

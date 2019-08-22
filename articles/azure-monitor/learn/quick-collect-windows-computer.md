@@ -134,9 +134,9 @@ Now that you've enabled data collection, let's run a simple log search to see so
  
     ![Log Analytics log search](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
-    For example, the query in this image returned 735 Performance records:
+    For example, the query in this image returned 10,000 Performance records. Your results will be significantly less.
 
-    ![Log Analytics log search result](media/quick-collect-windows-computer/log-analytics-search-perf.png)
+    ![Log Analytics log search result](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## Clean up resources
 
@@ -145,7 +145,9 @@ You can remove the agent from your computer and delete the Log Analytics workspa
 To remove the agent, complete these steps:
 
 1. Open Control Panel.
+
 2. Open **Programs and Features**.
+
 3. In **Programs and Features**, select **Microsoft Monitoring Agent** and then select **Uninstall**.
 
 To delete the Log Analytics workspace you created earlier, select it, and, on the resource page, select **Delete**:
