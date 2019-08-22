@@ -1,6 +1,6 @@
 ---
 title: Explore your Azure resources
-description: Learn to use the Resource Graph query language to explore your resources and discover how they are connected.
+description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/22/2019
@@ -275,9 +275,9 @@ The JSON results are structured similar to the following example:
 
 ## Explore virtual machines to find public IP addresses
 
-These set of queries first find and store all the network interfaces (NIC) resources connected to
+This set of queries first finds and stores all the network interfaces (NIC) resources connected to
 virtual machines. Then the queries use the list of NICs to find each IP address resource that is a
-public IP address and store those values. Finally, the queries provides a list of the public IP
+public IP address and store those values. Finally, the queries provide a list of the public IP
 addresses.
 
 ```azurecli-interactive
