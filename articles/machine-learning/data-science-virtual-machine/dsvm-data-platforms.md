@@ -52,7 +52,7 @@ To run SQL Server Management Studio, you can search for "SQL Server Management S
 
 ### How to use and run it?  
 
-By default, the database server with the default database instance runs automatically. You can use tools like SQL Server Management Studio on the VM to access the SQL Server database locally. Local administrators accounts have admin access on the database.
+By default, the database server with the default database instance runs automatically. You can use tools like SQL Server Management Studio on the VM to access the SQL Server database locally. Local administrator accounts have admin access on the database.
 
 Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure SQL Data Warehouse from applications written in multiple languages, including Python and R.
 
@@ -65,7 +65,7 @@ Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL
 
 | | |
 | ------------- | ------------- |
-| What is it?   | A standalone (single node in-process) instance of the popular Apache Spark platform; a system for fast, large-scale data processing and machine learning     |
+| What is it?   | A standalone (single node in-process) instance of the popular Apache Spark platform; a system for fast, large-scale data processing and machine-learning     |
 | Supported DSVM editions      | Linux <br /> Windows (Experimental)      |
 | Typical uses      | * Rapid development of Spark/PySpark applications locally with a smaller dataset and later deployment on large Spark clusters such as Azure HDInsight<br/> * Test Microsoft R Server Spark context <br />* Use SparkML or Microsoft's open-source [MMLSpark](https://github.com/Azure/mmlspark) library to build ML applications |
 | Links to samples      |    Jupyter sample: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (Spark context): /dsvm/samples/MRS/MRSSparkContextSample.R |
@@ -77,12 +77,12 @@ You can submit Spark jobs on the command line by running the `spark-submit` or `
 You can use Spark from R by using libraries like SparkR, Sparklyr, and Microsoft R Server, which are available on the DSVM. See pointers to samples in the preceding table.
 
 > [!NOTE]
-> Running Microsoft R Server in Spark context of DSVM is only supported on the Ubuntu Linux DSVM edition. 
+> Running Microsoft R Server in Spark context of DSVM is supported on the Ubuntu Linux DSVM edition only.
 
 
 
 ### Setup
-Before running in a Spark context in Microsoft R Server on Ubuntu Linux DSVM edition, you must do a one-time setup step to enable a local single node Hadoop HDFS and Yarn instance. By default, Hadoop services are installed but disabled on the DSVM. To enable them, run the following commands as root the first time:
+Before running in a Spark context in Microsoft R Server on Ubuntu Linux DSVM edition, you must complete a one-time setup step to enable a local single node Hadoop HDFS and Yarn instance. By default, Hadoop services are installed but disabled on the DSVM. To enable them, run the following commands as root the first time:
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
     cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
@@ -104,9 +104,9 @@ A sample that demonstrates how to develop and test MRS in a remote Spark context
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-Libraries to access data from Azure Blob storage or Azure Data Lake storage (ADLS), using the Microsoft MMLSpark machine learning libraries, are preinstalled in $SPARK_HOME/jars. These JARs are automatically loaded when Spark starts up. By default, Spark uses data on the local disk. 
+Libraries to access data from Azure Blob storage or Azure Data Lake Storage, using the Microsoft MMLSpark machine-learning libraries, are preinstalled in $SPARK_HOME/jars. These JARs are automatically loaded when Spark starts up. By default, Spark uses data on the local disk. 
 
-For the Spark instance on the DSVM to access data stored in Blob storage or ADLS, you must create and configure the `core-site.xml` file based on the template found in $SPARK_HOME/conf/core-site.xml.template. You must also have the appropriate credentials to access Blob storage and ADLS. (Note that the template files uses placeholders for Blob storage and ADLS configurations.) 
+For the Spark instance on the DSVM to access data stored in Blob storage or Azure Data Lake Storage, you must create and configure the `core-site.xml` file based on the template found in $SPARK_HOME/conf/core-site.xml.template. You must also have the appropriate credentials to access Blob storage and Azure Data Lake Storage. (Note that the template files use placeholders for Blob storage and Azure Data Lake Storage configurations.)
 
-For more detailed info about creating the ADLS service credentials, see [Authentication with Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). After the credentials for Blob storage or ADLS are entered in the core-site.xml file, you can reference the data stored in those sources through the URI prefix of wasb:// or adl://.
+For more detailed info about creating Azure Data Lake Storage service credentials, see [Authentication with Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). After the credentials for Blob storage or Azure Data Lake Storage are entered in the core-site.xml file, you can reference the data stored in those sources through the URI prefix of wasb:// or adl://.
 
