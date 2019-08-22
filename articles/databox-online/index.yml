@@ -70,7 +70,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Develop C# Edge compute module
-            url: data-box-edge-manage-compute.md
+            url: data-box-edge-create-iot-edge-module.md
       - linkListType: download
         links:
           - text: "Samples - C# for Data Box Edge"
