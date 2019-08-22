@@ -53,9 +53,10 @@ Before you assign an RBAC role to a security principal, determine the scope of a
 
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
-- **Service Bus namespace**: Role assignment spans the entire topology of Event Hubs under the namespace and to the consumer group associated with it.
-- **Resource group**: Role assignment applies to all the Event Hubs resources under the resource group.
-- **Subscription**: Role assignment applies to all the Event Hubs resources in all of the resource groups in the subscription.
+- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus RBAC roles at the subscription level. 
+- **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace and to the consumer group associated with it.
+- **Resource group**: Role assignment applies to all the Service Bus resources under the resource group.
+- **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
 
 > [!NOTE]
 > Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
@@ -120,7 +121,7 @@ Now, modify the default page of the ASP.NET application you created. You can use
 
 The Default.aspx page is your landing page. The code can be found in the Default.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Service Bus to either send or receive messages.
 
-Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) object is initialized. Instead of using the Shared Access Token (SAS) token provider, the code creates a token provider for the managed identity with the `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` call. As such, there are no secrets to retain and use. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token provider. It is a simpler model than using SAS.
+Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) object is initialized. Instead of using the Shared Access Token (SAS) token provider, the code creates a token provider for the managed identity with the `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` call. As such, there are no secrets to retain and use. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token provider. It is a simpler model than using SAS.
 
 After you make these changes, publish and run the application. You can obtain the correct publishing data easily by downloading and then importing a publishing profile in Visual Studio:
 

@@ -31,8 +31,8 @@ Azure Active Directory (Azure AD) integration for Service Bus resources provides
 
 For more information about authenticating with Azure AD, see the following articles:
 
-- [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
-- [Managed identities for Azure resources](service-bus-managed-service-identity.md)
+- [Authenticate with managed identities](service-bus-managed-service-identity.md)
+- [Authenticate from an application](authenticate-application.md)
 
 ## Shared access signature
 [SAS authentication](service-bus-sas.md) enables you to grant a user access to Service Bus resources, with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.

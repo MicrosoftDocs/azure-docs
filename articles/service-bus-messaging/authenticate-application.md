@@ -1,8 +1,8 @@
 ---
 title: Authenticate an application to access Azure Service Bus entities
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Service Bus  entities (queues, topics, etc.)
-services: event-hubs
-ms.service: event-hubs
+services: service-bus-messaging
+ms.service: service-bus-messaging
 documentationcenter: ''
 author: spelluru
 
@@ -45,9 +45,10 @@ Before you assign an RBAC role to a security principal, determine the scope of a
 
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
-- **Service Bus namespace**: Role assignment spans the entire topology of Event Hubs under the namespace and to the consumer group associated with it.
-- **Resource group**: Role assignment applies to all the Event Hubs resources under the resource group.
-- **Subscription**: Role assignment applies to all the Event Hubs resources in all of the resource groups in the subscription.
+- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus RBAC roles at the subscription level. 
+- **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace and to the consumer group associated with it.
+- **Resource group**: Role assignment applies to all the Service Bus resources under the resource group.
+- **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
 
 > [!NOTE]
 > Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
@@ -79,7 +80,7 @@ After you've determined the appropriate scope for a role assignment, navigate to
         
         ![User in the list](./media/authenticate-application/user-in-list.png)
 
-You can follow similar steps to assign a role scoped to a resource group, or a subscription. Once you define the role and its scope, you can test this behavior with the samples on GitHub (https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
+You can follow similar steps to assign a role scoped to a resource group, or a subscription. Once you define the role and its scope, you can test this behavior with the [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
 
 ## Authenticate from an application
