@@ -3,7 +3,7 @@ title: Create a blueprint with PowerShell
 description: Use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/27/2019
+ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
@@ -41,7 +41,7 @@ a role assignment on the resource group.
    level parameters. The parameters are set during assignment and used by the artifacts added in
    later steps.
 
-   - JSON file - MyBlueprint.json
+   - JSON file - blueprint.json
 
      ```json
      {
@@ -51,6 +51,13 @@ a role assignment on the resource group.
              "parameters": {
                  "storageAccountType": {
                      "type": "string",
+                     "defaultValue": "Standard_LRS",
+                     "allowedValues": [
+                         "Standard_LRS",
+                         "Standard_GRS",
+                         "Standard_ZRS",
+                         "Premium_LRS"
+                     ],
                      "metadata": {
                          "displayName": "storage account type.",
                          "description": null
@@ -73,13 +80,15 @@ a role assignment on the resource group.
                  "contributors": {
                      "type": "array",
                      "metadata": {
-                         "description": "List of AAD object IDs that is assigned Contributor role at the subscription"
+                         "description": "List of AAD object IDs that is assigned Contributor role at the subscription",
+                         "strongType": "PrincipalId"
                      }
                  },
                  "owners": {
                      "type": "array",
                      "metadata": {
-                         "description": "List of AAD object IDs that is assigned Owner role at the resource group"
+                         "description": "List of AAD object IDs that is assigned Owner role at the resource group",
+                         "strongType": "PrincipalId"
                      }
                  }
              },
@@ -98,8 +107,12 @@ a role assignment on the resource group.
      # Login first with Connect-AzAccount if not using Cloud Shell
 
      # Get a reference to the new blueprint object, we'll use it in subsequent steps
-     $blueprint = New-AzBlueprint -Name 'MyBlueprint' -BlueprintFile .\MyBlueprint.json
+     $blueprint = New-AzBlueprint -Name 'MyBlueprint' -BlueprintFile .\blueprint.json
      ```
+
+     > [!NOTE]
+     > Use the filename _blueprint.json_ when creating your blueprint definitions programmatically.
+     > This file name is used when calling [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
 
      The blueprint object is created in the default subscription by default. To specify the
      management group, use parameter **ManagementGroupId**. To specify the subscription, use
@@ -111,7 +124,7 @@ a role assignment on the resource group.
    configured to a parameter that is set during blueprint assignment. This example uses the
    _Contributor_ built-in role with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
-   - JSON file - roleContributor.json
+   - JSON file - \artifacts\roleContributor.json
 
      ```json
      {
@@ -127,7 +140,7 @@ a role assignment on the resource group.
 
      ```azurepowershell-interactive
      # Use the reference to the new blueprint object from the previous steps
-     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'roleContributor' -ArtifactFile .\roleContributor.json
+     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'roleContributor' -ArtifactFile .\artifacts\roleContributor.json
      ```
 
 1. Add policy assignment at subscription. The **ArtifactFile** defines the _kind_ of artifact, the
@@ -136,12 +149,13 @@ a role assignment on the resource group.
    uses the _Apply tag and its default value to resource groups_ built-in policy with a GUID of
    `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - JSON file - policyTags.json
+   - JSON file - \artifacts\policyTags.json
 
      ```json
      {
          "kind": "policyAssignment",
          "properties": {
+             "displayName": "Apply tag and its default value to resource groups",
              "description": "Apply tag and its default value to resource groups",
              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/49c88fc8-6fd1-46fd-a676-f12d1d3a4c71",
              "parameters": {
@@ -160,7 +174,7 @@ a role assignment on the resource group.
 
      ```azurepowershell-interactive
      # Use the reference to the new blueprint object from the previous steps
-     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyTags' -ArtifactFile .\policyTags.json
+     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyTags' -ArtifactFile .\artifacts\policyTags.json
      ```
 
 1. Add another policy assignment for Storage tag (reusing _storageAccountType_ parameter) at
@@ -170,12 +184,13 @@ a role assignment on the resource group.
    account that is created in the next step. This example uses the _Apply tag and its default value
    to resource groups_ built-in policy with a GUID of `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - JSON file - policyStorageTags.json
+   - JSON file - \artifacts\policyStorageTags.json
 
      ```json
      {
          "kind": "policyAssignment",
          "properties": {
+             "displayName": "Apply storage tag to resource group",
              "description": "Apply storage tag and the parameter also used by the template to resource groups",
              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/49c88fc8-6fd1-46fd-a676-f12d1d3a4c71",
              "parameters": {
@@ -194,7 +209,7 @@ a role assignment on the resource group.
 
      ```azurepowershell-interactive
      # Use the reference to the new blueprint object from the previous steps
-     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\policyStorageTags.json
+     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\artifacts\policyStorageTags.json
      ```
 
 1. Add template under resource group. The **TemplateFile** for a Resource Manager template includes
@@ -204,7 +219,7 @@ a role assignment on the resource group.
    the template JSON that key-value pair is used to inject the value. The blueprint and template
    parameter names could be the same.
 
-   - JSON Azure Resource Manager template file - templateStorage.json
+   - JSON Azure Resource Manager template file - \artifacts\templateStorage.json
 
      ```json
      {
@@ -213,13 +228,6 @@ a role assignment on the resource group.
          "parameters": {
              "storageAccountTypeFromBP": {
                  "type": "string",
-                 "defaultValue": "Standard_LRS",
-                 "allowedValues": [
-                     "Standard_LRS",
-                     "Standard_GRS",
-                     "Standard_ZRS",
-                     "Premium_LRS"
-                 ],
                  "metadata": {
                      "description": "Storage Account type"
                  }
@@ -249,7 +257,7 @@ a role assignment on the resource group.
              "tags": {
                  "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
              },
-             "location": "[resourceGroups('storageRG').location]",
+             "location": "[resourceGroup().location]",
              "sku": {
                  "name": "[parameters('storageAccountTypeFromBP')]"
              },
@@ -265,11 +273,31 @@ a role assignment on the resource group.
      }
      ```
 
+   - JSON Azure Resource Manager template parameter file - \artifacts\templateStorageParams.json
+
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "storageAccountTypeFromBP": {
+                 "value": "[parameters('storageAccountType')]"
+             },
+             "tagNameFromBP": {
+                 "value": "[parameters('tagName')]"
+             },
+             "tagValueFromBP": {
+                 "value": "[parameters('tagValue')]"
+             }
+         }
+     }
+     ```
+
    - PowerShell command
 
      ```azurepowershell-interactive
      # Use the reference to the new blueprint object from the previous steps
-     New-AzBlueprintArtifact -Blueprint $blueprint -Type TemplateArtifact -Name 'templateStorage' -TemplateFile .\templateStorage.json
+     New-AzBlueprintArtifact -Blueprint $blueprint -Type TemplateArtifact -Name 'templateStorage' -TemplateFile .\artifacts\templateStorage.json -TemplateParameterFile .\artifacts\templateStorageParams.json -ResourceGroupName storageRG
      ```
 
 1. Add role assignment under resource group. Similar to the previous role assignment entry, the
@@ -277,7 +305,7 @@ a role assignment on the resource group.
    parameter from the blueprint. This example uses the _Owner_ built-in role with a GUID of
    `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
-   - JSON file - roleOwner.json
+   - JSON file - \artifacts\roleOwner.json
 
      ```json
      {
@@ -294,7 +322,7 @@ a role assignment on the resource group.
 
      ```azurepowershell-interactive
      # Use the reference to the new blueprint object from the previous steps
-     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'roleOwner' -ArtifactFile .\roleOwner.json
+     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'roleOwner' -ArtifactFile .\artifacts\roleOwner.json
      ```
 
 ## Publish a blueprint
