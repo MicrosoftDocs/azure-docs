@@ -1,13 +1,11 @@
 ---
 title: Develop Azure Functions by using Visual Studio Code | Microsoft Docs
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
-services: functions
 author: ggailey777  
-manager: jeconnoc
-
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 08/21/2019
 ms.author: glenga
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -190,25 +188,17 @@ To learn more, see the [Queue storage output binding](functions-bindings-storage
 
 Visual Studio Code lets you publish your Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology.
+When you publish from Visual Studio Code to a new function app in Azure, you are offered both a quick function app create path and an advanced path. 
 
-### Quick function app creation
+When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology. 
 
-By default, Visual Studio Code automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+### Quick function app create
 
-If you want to provide explicit names for the created resources, you must enable publishing with advanced options.
+When you choose **+ Create new function app in Azure...**, the extension automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
 
-### Enable publishing with advanced create options
+If you want to provide explicit names for the created resources, you must choose the advanced create path.
 
-To get control over the settings associated with creating Azure Functions apps, update the Azure Functions extension to enable advanced settings:
-
-1. Select **File** > **Preferences** > **Settings**.
-
-1. Go to **User Settings** > **Extensions** > **Azure Functions**.
-
-1. Select **Azure Function: Advanced Creation**.
-
-### Publish a project to a new function app in Azure by using advanced options
+### <a name="enable-publishing-with-advanced-create-options"></a>Publish a project to a new function app in Azure by using advanced options
 
 The following steps publish your project to a new function app created with advanced create options:
 
@@ -218,7 +208,7 @@ The following steps publish your project to a new function app created with adva
 
 1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
 
-1. If you have multiple subscriptions, **Select a subscription** for the function app, and then select **Create New Function App in Azure**.
+1. If you have multiple subscriptions, **Select a subscription** for the function app, and then select **+ Create New Function App in Azure... _Advanced_**. This _Advanced_ option gives you more control over the resources you create in Azure. 
 
 1. Following the prompts, provide this information:
 
