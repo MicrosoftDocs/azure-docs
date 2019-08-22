@@ -57,7 +57,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     * Choose whether you want to enable **Application Insights** or not. If **Application Insights** is enabled, QnA Maker collects telemetry on traffic, chat logs, and errors.
     * Choose the **App insights location** where Application Insights resource will be deployed.
-    * For cost savings measures, you can [share](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker. 
+    * For cost savings measures, you can [share](#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker. 
 
 1. Once all the fields are validated, select **Create**. It can take a few minutes to complete.
 

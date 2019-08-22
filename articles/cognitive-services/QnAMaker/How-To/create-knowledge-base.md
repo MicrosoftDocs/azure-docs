@@ -65,7 +65,7 @@ When you are done with the knowledge base, remove it in the QnA Maker portal.
 
 ## Next steps
 
-For cost savings measures, you can [share](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
+For cost savings measures, you can [share](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Add chit-chat personal](./chit-chat-knowledge-base.md)

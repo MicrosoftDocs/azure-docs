@@ -99,4 +99,4 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage keys](./key-management.md)
+> [Choose capactiy](../tutorials/choosing-capacity-qnamaker-deployment.md)

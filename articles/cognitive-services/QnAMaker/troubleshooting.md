@@ -23,15 +23,15 @@ QnAMaker service hostname is useful for debugging purposes when you contact QnAM
 	
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
 
-    ![QnAMaker Azure resource group in Azure portal](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    ![QnAMaker Azure resource group in Azure portal](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 1. Select the App Service associated with the QnA Maker resource. Typically, the names are the same.
 
-     ![Select QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+     ![Select QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
 1. The hostname URL is available in the Overview section
 
-    ![QnAMaker hostname](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![QnAMaker hostname](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## Use the Help bot in the QnA Maker portal
@@ -120,7 +120,7 @@ To use multiple language and multiple knowledge bases, the user has to create an
 
 ### How can I change the name of the Azure Search resource used by QnA Maker?
 
-The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
+The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-azure-search-service).
 
 ### When QnA Maker returns `Runtime core is not initialized,` how do I fix it?
 
