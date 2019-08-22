@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 02/28/2019
+ms.date: 08/06/2019
 ---
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
@@ -151,8 +151,14 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 There are two ways you can create an elastic pool in the Azure portal.
 
-1. You can create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** on the SQL elastic pools browse blade. You are able to specify a new or existing server through this pool provisioning workflow.
-2. Or you can create an elastic pool by navigating to an existing SQL server and clicking **Create pool** to create a pool directly into that server. The only difference here is you skip the step where you specify the server during the pool provisioning workflow.
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If Azure SQL is not in the list, select **All services**, then type *Azure SQL* in the search box.
+2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about elastic pools by selecting **Show details** on the **Databases** tile.
+3. On the **Databases** tile, select **Elastic pool** in the **Resource type** dropdown, then select **Create**:
+
+   ![Create an elastic pool](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. Or you can create an elastic pool by navigating to an existing Azure SQL server and clicking **+ New pool** to create a pool directly into that server.
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
@@ -206,9 +212,9 @@ For more information, see [create SQL Database alerts in Azure portal](sql-datab
 
   Umbraco uses elastic pools with Azure SQL Database to quickly provision and scale services for thousands of tenants in the cloud.
 
-- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)	
 
-  Daxko/CSI uses elastic pools with Azure SQL Database to accelerate its development cycle and to enhance its customer services and performance.
+   Daxko/CSI uses elastic pools with Azure SQL Database to accelerate its development cycle and to enhance its customer services and performance.	
 
 ## Next steps
 

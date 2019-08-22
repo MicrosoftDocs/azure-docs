@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: alkohli
 ---
 
@@ -123,8 +123,10 @@ Create a C# solution template that you can customize with your own code.
 2. At the top of the **FileCopyModule namespace**, add the following using statements for types that are used later. **Microsoft.Azure.Devices.Client.Transport.Mqtt** is a protocol to send messages to IoT Edge Hub.
 
     ```
-    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
-    using Newtonsoft.Json;
+    namespace FileCopyModule
+    {
+        using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+        using Newtonsoft.Json;
     ```
 3. Add the **InputFolderPath** and **OutputFolderPath** variable to the Program class.
 
@@ -136,7 +138,7 @@ Create a C# solution template that you can customize with your own code.
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Add the **FileEvent** class to define the message body.
+4. Immediately after the previous step, add the **FileEvent** class to define the message body.
 
     ```
     /// <summary>
@@ -152,7 +154,7 @@ Create a C# solution template that you can customize with your own code.
     }
     ```
 
-5. In the **Init** method, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime using MQTT protocol to send and receive messages. The connection string that's used in the Init method is supplied to the module by the IoT Edge runtime. The code registers a FileCopy callback to receive messages from an IoT Edge hub via the **input1** endpoint.
+5. In the **Init method**, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime using MQTT protocol to send and receive messages. The connection string that's used in the Init method is supplied to the module by the IoT Edge runtime. The code registers a FileCopy callback to receive messages from an IoT Edge hub via the **input1** endpoint. Replace the **Init method** with the following code.
 
     ```
     /// <summary>
@@ -174,11 +176,11 @@ Create a C# solution template that you can customize with your own code.
     }
     ```
 
-6. Insert the code for **FileCopy**.
+6. Remove the code for **Pipe message method** and in its place, insert the code for **FileCopy**.
 
     ```
         /// <summary>
-        /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
+        /// This method is called whenever the module is sent a message from the IoT Edge Hub.
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
         /// </summary>
@@ -232,6 +234,7 @@ Create a C# solution template that you can customize with your own code.
     ```
 
 7. Save this file.
+8. You can also [download an existing code sample](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
 
 ## Build your IoT Edge solution
 
@@ -242,7 +245,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
     `docker login <ACR login server> -u <ACR username>`
 
-    Use the login server and username that you copied from your container registry. 
+    Use the login server and username that you copied from your container registry.
 
     ![Build and push IoT Edge solution](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 

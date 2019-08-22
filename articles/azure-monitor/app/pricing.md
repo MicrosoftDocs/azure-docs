@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin    
-ms.date: 08/13/2019
+ms.date: 08/19/2019
 ms.author: dalek
 
 ---
@@ -88,7 +88,7 @@ You can use one of the following options to see how much data your app is sendin
 Here are some things you can do to reduce your data volume:
 
 * Use [Sampling](../../azure-monitor/app/sampling.md). This technology reduces your data rate without skewing your metrics. You don't lose the ability to navigate between related items in Search. In server apps, sampling operates automatically.
-* [Limit the number of Ajax calls that can be reported](../../azure-monitor/app/javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
+* [Limit the number of Ajax calls that can be reported](../../azure-monitor/app/javascript.md#configuration) in every page view, or switch off Ajax reporting.
 * [Edit ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry among separate instrumentation keys. 
 * Pre-aggregate metrics. If you put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
@@ -99,7 +99,7 @@ You can use the daily volume cap to limit the data collected. However, if the ca
 
 Instead of using the daily volume cap, use [sampling](../../azure-monitor/app/sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
 
-To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**.
+To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** page, select  **Daily Cap**.
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
 
@@ -131,11 +131,14 @@ In each retained record, `itemCount` indicates the number of original records th
 
 ## Change the data retention period
 
-Application Insights is now onboarding a limited number of Application Insights customers to our variable retention preview. Information on how to participate in this preview program is available [here](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
 
-The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 120, 180, 270, 365, 550 or 730 days. 
+To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
 
-When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/).  Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
+
+When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. 
+Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/). Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## Limits summary
 

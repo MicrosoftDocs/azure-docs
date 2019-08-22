@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
@@ -9,6 +14,26 @@
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/use-deep-learning-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough#deep-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-overview.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview#included",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/setup-create-workspace.md",
@@ -3266,6 +3291,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/move-limitations/virtual-network-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/move-limitations/networking-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-powershell-sas-token.md",
+      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-cli-sas-token.md",
+      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
       "redirect_document_id": false
@@ -5667,7 +5707,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-manage-azure-website.md",
-      "redirect_url": "/azure/app-service/web-sites-scale",
+      "redirect_url": "/azure/app-service/manage-scale-up",
       "redirect_document_id": false
     },
     {
@@ -6302,7 +6342,12 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-scale.md",
-      "redirect_url": "/azure/app-service/web-sites-scale",
+      "redirect_url": "/azure/app-service/manage-scale-up",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-scale.md",
+      "redirect_url": "/azure/app-service/manage-scale-up",
       "redirect_document_id": false
     },
     {
@@ -6782,7 +6827,7 @@
     },
     {
       "source_path": "articles/app-service/app-service-scale-readme.md",
-      "redirect_url": "/azure/app-service/web-sites-scale",
+      "redirect_url": "/azure/app-service/manage-scale-up",
       "redirect_document_id": false
     },
     {
@@ -9026,8 +9071,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/active-directory-saas-scalexenterprise-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/scalexenterprise-tutorial",
+      "source_path": "articles/active-directory/saas-apps/scalexenterprise-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/scalex-enterprise-tutorial",
       "redirect_document_id": true
     },
     {
@@ -14053,6 +14098,36 @@
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore-points",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-september-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-august-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-july-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-june-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-may-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-april-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
     },
     {
@@ -21335,6 +21410,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
+      "redirect_url": "/azure/iot-hub/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md",
       "redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy",
       "redirect_document_id": false
@@ -25855,6 +25935,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-alerts-type.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-ueba-mcas.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-service-layer#azure-management-layer-azure-resource-manager-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-encryption-for-storage-account.md",
+      "redirect_url": "/azure/storage/common/storage-service-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-vm-agent.md",
+      "redirect_url": "/azure/security-center/security-center-enable-data-collection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-remediate-os-vulnerabilities.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-update-os-version.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-sql-database.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-data-services",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/security-center/security-center-enable-auditing-on-sql-databases.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-auditing-on-sql-servers.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-transparent-data-encryption.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
@@ -27780,6 +27910,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-enable.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-authentication-passwordless",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/howto-authentication-phone-sign-in.md",
       "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-phone",
       "redirect_document_id": true
@@ -28021,7 +28156,7 @@
     },
     {
       "source_path": "articles/security/quick-encrypt-vm-powershell.md",
-      "redirect_url": "/azure/security/fundamentals/quick-encrypt-vm-powershell",
+      "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
       "redirect_document_id": true
     },
     {
@@ -30726,37 +30861,37 @@
     },
     {
       "source_path": "articles/security/blueprints/fedramp-controls-overview.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-controls-overview",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-access-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-access-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-audit-accountability-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-audit-accountability-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-awareness-training-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-awareness-training-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-configuration-manager-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-configuration-management-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-contingency-planning-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-contingency-planning-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-identification-authentication-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-identification-authentication-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
@@ -30771,57 +30906,57 @@
     },
     {
       "source_path": "articles/security/blueprints/fedramp-incident-response-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-incident-response-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-maintenance-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-maintenance-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-media-protection-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-media-protection-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-personnel-security-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-personnel-security-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-physical-environmental-protection-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-physical-environmental-protection-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-planning-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-planning-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-risk-assessment-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-risk-assessment-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-security-assessment-authorization-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-security-assessment-authorization-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-system-communications-protection-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-communications-protection-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-system-information-integrity-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-information-integrity-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
-      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls",
+      "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
       "redirect_document_id": true
     },
     {
@@ -31017,6 +31152,16 @@
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md",
       "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/http-response-codes.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/how-to/metadata-generateanswer-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/glossary.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
       "redirect_document_id": false
     },
     {
@@ -33291,7 +33436,7 @@
     },
     {
       "source_path": "articles/security/azure-security-best-practices-vms.md",
-      "redirect_url": "/azure/security/azure-security-iaas",
+      "redirect_url": "/azure/security/fundamentals/iaas",
       "redirect_document_id": false
     },
     {
@@ -33686,7 +33831,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/user-help-my-apps-overview.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-overview",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-overview",
       "redirect_document_id": false
     },
     {
@@ -33696,7 +33841,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/active-directory-saas-access-panel-user-help.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-troubleshoot",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot",
       "redirect_document_id": false
     },
     {
@@ -34775,7 +34920,12 @@
     },
     {
       "source_path": "articles/azure-policy/scripts/req-store-acct-enc.md",
-      "redirect_url": "/azure/governance/policy/samples/require-storage-account-encryption",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/require-storage-account-encryption.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
@@ -35421,11 +35571,6 @@
     {
       "source_path": "articles/monitoring/monitoring-service-map.md",
       "redirect_url": "/azure/azure-monitor/insights/service-map",
-      "redirect_document_id": "false"
-    },
-    {
-      "source_path": "articles/monitoring/monitoring-service-map-configure.md",
-      "redirect_url": "/azure/azure-monitor/insights/service-map-configure",
       "redirect_document_id": "false"
     },
     {
@@ -37324,6 +37469,76 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-features.md",
+      "redirect_url": "/azure/active-directory-domain-services/overview#azure-ad-ds-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-compare-with-azure-ad-join.md",
+      "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/comparison.md",
+      "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/manage-domain.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-management-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/create-instance.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-network.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-admingroup.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/configure-ldaps.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-ldaps-configure-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-ldaps-bind-lockdown.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/redis-cache/index.md",
       "redirect_url": "/azure/azure-cache-for-redis/",
       "redirect_document_id": false
@@ -37518,10 +37733,14 @@
       "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/machine-learning/service/how-to-manage-dataset-definitions.md",
       "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-explore-prepare-data.md",
+      "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py",
       "redirect_document_id": false
     },
     {
@@ -37666,7 +37885,7 @@
     },
     {
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
-      "redirect_url": "/azure/governance/policy/samples/require-storage-account-encryption",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": true
     },
     {
@@ -40929,7 +41148,6 @@
       "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
@@ -40999,7 +41217,6 @@
       "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/quick-start.md",
       "redirect_url": "/azure/cognitive-services/bing-image-search",
@@ -41183,6 +41400,21 @@
     {
       "source_path": "articles/cognitive-services/Translator/quickstart-python-dictionary.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-dictionary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/meda-services-managing-multiple-storage-accounts.md",
+      "redirect_url": "/azure/media-services/previous/media-services-managing-multiple-storage-accounts",
+      "redirect_document_id": false
+	},
+	{
+		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
+		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud",
+		"redirect_document_id": false
+	  },
+    {
+      "source_path": "articles/media-services/previous/media-services-upload-files-with-aspera.md",
+      "redirect_url": "/azure/media-services",
       "redirect_document_id": false
     },
     {

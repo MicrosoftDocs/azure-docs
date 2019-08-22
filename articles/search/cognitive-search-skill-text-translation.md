@@ -6,7 +6,6 @@ manager: briansmi
 author: careyjmac
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
