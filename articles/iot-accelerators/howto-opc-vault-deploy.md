@@ -54,20 +54,20 @@ or enter a full command line:
 7. If you plan to develop with this deployment, add `-development 1` to enable the Swagger UI and to deploy debug builds.
 6. Follow the instructions in the script to sign in to your subscription and to provide additional information.
 9. After a successful build and deploy operation, you should see the following message:
+   ```
+   To access the web client go to:
+   https://myResourceGroup.azurewebsites.net
 
-```
-To access the web client go to:
-https://myResourceGroup.azurewebsites.net
+   To access the web service go to:
+   https://myResourceGroup-service.azurewebsites.net
 
-To access the web service go to:
-https://myResourceGroup-service.azurewebsites.net
+   To start the local docker GDS server:
+   .\myResourceGroup-dockergds.cmd
 
-To start the local docker GDS server:
-.\myResourceGroup-dockergds.cmd
+   To start the local dotnet GDS server:
+   .\myResourceGroup-gds.cmd
+   ```
 
-To start the local dotnet GDS server:
-.\myResourceGroup-gds.cmd
-```
 In case you run into issues follow the steps [below](#troubleshooting-deployment-failures).
 
 8. Open your favorite browser and open the application page: `https://myResourceGroup.azurewebsites.net`
