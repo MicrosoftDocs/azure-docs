@@ -540,7 +540,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
                 "https://%s.search.windows.net/indexes/%s?api-version=%s",
                 _serviceName,_indexName,_apiVersion));
         //Read in index definition file
-        var inputStream = SearchServiceClient.class.getResourceAsStream("indexDefinitionFile");
+        var inputStream = SearchServiceClient.class.getResourceAsStream(indexDefinitionFile);
         var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         //Send HTTP PUT request to create the index in the search service
         var request = httpRequest(uri, _adminKey, "PUT", indexDef);
