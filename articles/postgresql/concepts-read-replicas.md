@@ -115,9 +115,27 @@ You can stop replication between a master and a replica. The stop action causes 
 > The standalone server can't be made into a replica again.
 > Before you stop replication on a read replica, ensure the replica has all the data that you require.
 
-When you stop replication, the replica loses all links to its previous master and other replicas. There is no automated failover between a master and replica. 
+When you stop replication, the replica loses all links to its previous master and other replicas.
 
 Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
+
+## Fail over
+There is no automated failover between master and replica servers. 
+
+Since replication is asynchronous, there is lag between the master and the replica. The amount of lag depends on how heavy the workload running on the master server is. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
+
+> [!Tip]
+> If you fail over to the replica, the lag at the time you delink the replica from the master will indicate how much data is lost.
+
+Once you have decided you want to fail over to a replica, 
+
+1. Stop replication to the replica
+	This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will restart and be delinked from the master. Once you initiate stop replication, the backend process typically takes about 2 minutes to complete. Learn more about [stop replication](#stop-replication).
+	
+2. Point your application to the (former) replica
+	Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
+	
+Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
 
 
 ## Considerations
