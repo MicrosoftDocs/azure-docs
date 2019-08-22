@@ -11,7 +11,7 @@ ms.date: 08/19/2019
 # Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an IoT Hub, so I can analyze streaming data.
 ---
 
-# Ingest data from IoT Hub into Azure Data Explorer
+# Ingest data from IoT Hub into Azure Data Explorer (Preview)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from IoT Hub, a big data streaming platform and IoT ingestion service.
 
@@ -30,6 +30,8 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device to the IoT Hub
+
+\\To do: Use include
 
 A device must be registered with your IoT hub before it can connect. In this article, you use the Azure Cloud Shell to register a simulated device.
 
@@ -107,10 +109,10 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     **Setting** | **Field description**
     |---|---|
     | Data connection name | The name of the connection you want to create in Azure Data Explorer
-    | IoT Hub | IoT Hub name
-    | Shared access policy | The name of the shared access policy
-    | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint
-	| SystemProperties | The IoT Hub event system properties
+    | IoT Hub | IoT Hub name |
+    | Shared access policy | The name of the shared access policy. Must have read permissions |
+    | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint |
+	| Event system properties | The IoT Hub event system properties |
     | | 
 
     Target table:
@@ -154,6 +156,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
+\\To do: change location of png file    
     ![Run the simulated device](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
 
 ## Review the data flow
@@ -179,13 +182,15 @@ With the app generating data, you can now see the flow of that data from the Iot
 
     The result set should look like the following:
 	
-    ![Show ingested data results](media/ingest-data-iot-hub/message-result-set.png)
+    ![Show ingested data results](media/ingest-data-iot-hub/show-ingested-data.png)
 
     > [!NOTE]
     > * Azure Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes or 500 MB of data, by default, so you may experience a latency. See [batching policy](/azure/kusto/concepts/batchingpolicy) for aggregation options. 
     > * Configure your table to support streaming and remove the lag in response time. See [streaming policy](/azure/kusto/concepts/streamingingestionpolicy). 
 
 ## Clean up resources
+
+\\To do: change this to an include
 
 If you don't plan to use your IoT Hub again, clean up **test-hub-rg**, to avoid incurring costs.
 
