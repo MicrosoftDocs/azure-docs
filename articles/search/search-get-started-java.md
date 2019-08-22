@@ -109,7 +109,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
                         </execution>
                     </executions>
                     <configuration>
-                        <mainClass>app.App</mainClass>
+                        <mainClass>main.java.app.App</mainClass>
                         <cleanupDaemonThreads>false</cleanupDaemonThreads>
                     </configuration>
                 </plugin>
@@ -162,9 +162,9 @@ Begin by opening IntelliJ IDEA and setting up a new project.
     The commented code in this class will be uncommented in a later section of this quickstart.
 
     ```java
-    package main.app;
+    package main.java.app;
     
-    import service.SearchServiceClient;
+    import main.java.service.SearchServiceClient;
     import java.io.IOException;
     import java.util.Properties;
     
@@ -179,7 +179,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
     
         public static void main(String[] args) {
             try {
-                var config = loadPropertiesFromResource("config.properties");
+                var config = loadPropertiesFromResource("/app/config.properties");
                 var client = new SearchServiceClient(
                         config.getProperty("SearchServiceName"),
                         config.getProperty("SearchServiceAdminKey"),
@@ -191,11 +191,11 @@ Begin by opening IntelliJ IDEA and setting up a new project.
     
     //Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
     //            if(client.indexExists()){ client.deleteIndex();}
-    //            client.createIndex("index.json");
+    //            client.createIndex("/service/index.json");
     //            Thread.sleep(1000L); // wait a second to create the index
     
     //Uncomment the next 2 lines in the 2 - Load Documents section of the quickstart
-    //            client.uploadDocuments("hotels.json");
+    //            client.uploadDocuments("/service/hotels.json");
     //            Thread.sleep(2000L); // wait 2 seconds for data to upload
     
     //Uncomment the following 5 search queries in the 3 - Search an index section of the quickstart
@@ -257,7 +257,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added in a later section.
 
     ```java
-    package service;
+    package main.java.service;
 
     import javax.json.Json;
     import javax.net.ssl.HttpsURLConnection;
@@ -540,7 +540,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
                 "https://%s.search.windows.net/indexes/%s?api-version=%s",
                 _serviceName,_indexName,_apiVersion));
         //Read in index definition file
-        var inputStream = SearchServiceClient.class.getResourceAsStream("index.json");
+        var inputStream = SearchServiceClient.class.getResourceAsStream("indexDefinitionFile");
         var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         //Send HTTP PUT request to create the index in the search service
         var request = httpRequest(uri, _adminKey, "PUT", indexDef);
@@ -555,7 +555,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
 
     ```java
         if (client.indexExists()) { client.deleteIndex();}
-          client.createIndex("index.json");
+          client.createIndex("/service/index.json");
           Thread.sleep(1000L); // wait a second to create the index
     ```
 
@@ -673,7 +673,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
 1. Uncomment the following code in the `App` class. This code uploads the documents in "hotels.json" to the index.
 
     ```java
-    client.uploadDocuments("hotels.json");
+    client.uploadDocuments("/service/hotels.json");
     Thread.sleep(2000L); // wait 2 seconds for data to upload
     ```
 
