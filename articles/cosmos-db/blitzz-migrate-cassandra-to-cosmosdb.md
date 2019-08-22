@@ -19,7 +19,7 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 
 * **Ability to use existing code and tools:** Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB Cassandra API with trivial changes.
 
-There are various ways to migrate database workloads from one platform to another. [Blitzz](http://www.blitzz.io/) is a tool that offers a secure and reliable way to perform zero downtime migration from a variety of databases to Azure Cosmos DB. This article describes the steps required to migrate data from Apache Cassandra database to Azure Cosmos DB Cassandra API using Blitzz.
+There are various ways to migrate database workloads from one platform to another. [Blitzz](https://www.blitzz.io) is a tool that offers a secure and reliable way to perform zero downtime migration from a variety of databases to Azure Cosmos DB. This article describes the steps required to migrate data from Apache Cassandra database to Azure Cosmos DB Cassandra API using Blitzz.
 
 ## Benefits using Blitzz for migration
 
@@ -45,7 +45,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
    keytool -keystore $JAVA_HOME/lib/security/cacerts -importcert -alias bc2025ca -file bc2025.cer
    ```
 
-1. You can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](www.blitzz.io) or by sending an [email](success@blitzz.io) to the team.
+1. You can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](https://www.blitzz.io) or by sending an [email](mailto:success@blitzz.io) to the team.
 
    ![Blitzz replicant tool download](./media/blitzz-migrate-cassandra-to-cosmosdb/blitzz-replicant-download.png)
 
@@ -89,7 +89,7 @@ This section describes the steps required to setup Blitzz and migrate data from 
 
    ![Scale Azure Cosmos container throughout](./media/blitzz-migrate-cassandra-to-cosmosdb/scale-throughput.png)
 
-   You must decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner) articles.
+   You must decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles.
 
 1. Get the **Contact Point, Port, Username** and **Primary Password** of your Azure Cosmos account from the **Connection String** pane. You will use these values in the configuration file.
 
@@ -140,4 +140,4 @@ To learn more on the data migration to destination, real-time migration, see the
 
 * [Provision throughput on containers and databases](set-throughput.md) 
 * [Partition key best practices](partitioning-overview.md#choose-partitionkey)
-* [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner) articles
+* [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles
