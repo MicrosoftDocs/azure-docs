@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 8/16/2019
+ms.date: 8/22/2019
 ms.author: dapine
 ---
 
@@ -169,32 +169,19 @@ The *Helm chart* contains the configuration of which docker image(s) to pull fro
 
 The provided *Helm charts* pull the docker images of the Computer Vision Service, and the recognize text services from the `containerpreview.azurecr.io` container registry.
 
-## Package and Install the Helm chart on the Kubernetes cluster
+## Install the Helm chart on the Kubernetes cluster
 
-To package the Helm chart, use the [`helm package`][helm-package-cmd] command, given the chart name.
-
-```console
-helm package text-recognizer
-```
-
-Here is the expected output from a successful package execution:
+To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `text-recognizer` folder.
 
 ```console
-Successfully packaged chart and saved it to: .\text-recognizer-1.0.0.tgz
-```
-
-To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory containing the `text-recognizer-1.0.0.tgz` TAR archive file.
-
-```console
-helm install -f text-recognizer/values.yaml \
-    text-recognizer-1.0.0.tgz --name text-recognizer
+helm install text-recognizer --name text-recognizer
 ```
 
 Here is an example output you might expect to see from a successful install execution:
 
 ```console
 NAME:   text-recognizer
-LAST DEPLOYED: Fri Aug 16 13:24:06 2019
+LAST DEPLOYED: Thu Aug 22 13:24:06 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
@@ -255,7 +242,6 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
 [helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
-[helm-package-cmd]: https://helm.sh/docs/helm/#helm-pacakge
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
 [helm-charts]: https://helm.sh/docs/developing_charts
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
