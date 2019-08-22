@@ -16,19 +16,20 @@ ms.custom: seodec18
 
 Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
 
-## How to manage keys in QnA Maker
+## Types of keys in QnA Maker
 
 Your QnA Maker service deals with two kinds of keys, **subscription keys** and **endpoint keys**.
 
 ![key management](../media/qnamaker-how-to-key-management/key-management.png)
 
-* **Subscription Keys**: These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created with you create a new QnA Maker service.  
-
-* **Endpoint Keys**: These keys are used to access the published knowledge base endpoint to get a response for a user question. You typically use this endpoint in your chat bot, or client application code that connects to the QnA Maker service. These keys are created when you publish your QnA Maker knowledge base. 
+|Name|Location|Purpose|
+|--|--|--|
+|Subscription Key|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new QnA Maker service.<br><br>Find these keys on the **Cognitive Services** resource, on the **Keys** page.|
+|Endpoint Key|[Qna Maker portal](http://www.qnamaker.ai)|These keys are used to access the published knowledge base endpoint to get a response for a user question. You typically use this endpoint in your chat bot, or client application code that connects to the QnA Maker service. These keys are created when you publish your QnA Maker knowledge base.<br><br>Find these keys on the **Service settings** page. Find this page from the top, right user's menu as a choice in the drop-down.|
 
 ## Create a new QnA Maker service
 
-This procedure creates the Azure resources needed to manage the knowledge base content.
+This procedure creates the Azure resources needed to manage the knowledge base content. When you complete these steps, you find the _subscription_ keys on the **Keys** page for the resource in the Azure portal.
 
 1. Sign in to the Azure portal and [create a QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
 
@@ -58,16 +59,19 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * Choose the **App insights location** where Application Insights resource will be deployed.
     * For cost savings measures, you can [share](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker. 
 
-1. Once all the fields are validated, you can select **Create** to start deployment of these services in your subscription. It will take a few minutes to complete.
+1. Once all the fields are validated, select **Create**. It can take a few minutes to complete.
 
 1. Once the deployment is done, you will see the following resources created in your subscription.
 
     ![Resource created a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
 
+    The resource with the type _Cognitive Services_ has your _subscription_ keys.
 
-## Subscription Keys
-You can view and reset your subscription keys from the Azure portal where you created the QnA Maker resource. 
-1. Go to the QnA Maker resource in the Azure portal.
+## Find subscription keys in Azure portal
+
+You can view and reset your subscription keys, which edit your  from the Azure portal where you created the QnA Maker resource. 
+
+1. Go to the QnA Maker resource in the Azure portal and select the resource with the type _Cognitive Services_.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
@@ -75,7 +79,7 @@ You can view and reset your subscription keys from the Azure portal where you cr
 
     ![subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## Endpoint Keys
+## Find endpoint keys in QnA Maker portal
 
 Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
@@ -90,18 +94,13 @@ Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
     >[!NOTE]
     >Refresh your keys if you feel they have been compromised. This may require corresponding changes to your client application or bot code.
 
-## Share or upgrade your QnA Maker service
-Share or upgrade your QnA Maker services in order to manage the resources better. 
-
-You can choose to upgrade individual components of the QnA Maker stack after the initial creation. See the details of the dependent components and SKU selection [here](https://aka.ms/qnamaker-docs-capacity).
-
 ## Share existing services with QnA Maker
 
 QnA Maker creates several Azure resources. In order to reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
 
-|Service|Share|
-|--|--|
-|Cognitive Services|X|
+|Service|Share|Explanation|
+|--|--|--|
+|Cognitive Services|X|Do not share the QnA Maker service.|
 |App service plan|✔|
 |App service|X|
 |Application Insights|✔|
