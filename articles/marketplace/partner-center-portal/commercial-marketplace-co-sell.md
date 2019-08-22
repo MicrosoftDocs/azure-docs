@@ -17,15 +17,15 @@ Providing information on the Co-sell tab is entirely optional. It is required to
 
 Choose any of the Microsoft products that your offer is built on top of or designed to work with.
 
+## Customer Segments
+
+Select the size of business that your offer is targeting.
+
 **SMB:** Small and medium-sized businesses (< 500 employees)
 
 **Corporate:** (< 2500 employees)
 
 **Enterprise:** Large enterprise companies (2500+ employees)
-
-## Customer Segments
-
-Select the size of business that your offer is targeting.
 
 ## Offer type
 
