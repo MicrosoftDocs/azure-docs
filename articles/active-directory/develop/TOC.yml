@@ -249,6 +249,8 @@
           href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
+        - name: Authorization agents (Android)
+          href: authorization-agents.md
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
@@ -602,6 +604,8 @@
       items:
       - name: Use the Active Directory connected service
         href: vs-active-directory-add-connected-service.md
+      - name: Use the Android emulator with your MSAL project
+        href: use-android-emulator-with-msal.md
       - name: Get started with .NET MVC projects
         href: vs-active-directory-dotnet-getting-started.md
       - name: What happened to my .NET MVC project?
