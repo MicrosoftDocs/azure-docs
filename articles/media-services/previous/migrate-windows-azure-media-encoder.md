@@ -1,6 +1,6 @@
 ---
 title: Migrate from Windows Azure Media Encoder to Media Encoder Standard | Microsoft Docs
-description: This topic discusses how to migrate from Azure Media Encoder to Media Encoder Standard.
+description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -60,14 +60,14 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### Advanced scenarios 
 
-If you had created your own encoding preset for WAME using its schema, there is an equivalent schema for MES [documented here](media-services-mes-schema.md). If you have questions on how to map the older settings to the new encoder, please reach out to us via mailto:amshelp@microsoft.com  
+If you had created your own encoding preset for WAME using its schema, there is an [equivalent schema for Media Encoder Standard](media-services-mes-schema.md). If you have questions on how to map the older settings to the new encoder, please reach out to us via mailto:amshelp@microsoft.com  
 
 ## Known differences 
 
 Media Encoder Standard is more robust, reliable, has better performance, and produces better quality output than the legacy WAME encoder. In addition,: 
 
 * Media Encoder Standard produces output files with a different naming convention than WAME.
-* Media Encoder Standard produces artifacts such as files containing the [metadata](media-services-input-metadata-schema.md) about the input file, and [metadata](media-services-output-metadata-schema.md) about the output file(s).
+* Media Encoder Standard produces artifacts such as files containing the [input file metadata](media-services-input-metadata-schema.md) and the [output file(s) metadata](media-services-output-metadata-schema.md).
 * As documented on the [pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding) (especially in the FAQ section), when you encode videos using Media Encoder Standard, you get billed based on the duration of the files produced as output. With WAME, you would be billed based on the sizes of the input video file(s) and output video file(s).
 
 ## Next steps
