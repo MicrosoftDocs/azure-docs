@@ -4,21 +4,20 @@ description: Learn how to configure Java apps running in Azure App Service on Li
 keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
 services: app-service
 author: bmitchell287
-manager: douge
+manager: barbkess
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 08/21/2019
 ms.author: brendm
 ms.custom: seodec18
-
 ---
 
 # Configure a Linux Java app for Azure App Service
 
-Azure App Service on Linux lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
+Azure App Service on Linux lets Java developers quickly build, deploy, and scale their Tomcat, Wildfly, or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
 This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Java quickstart](quickstart-java.md) and [Java with PostgreSQL tutorial](tutorial-java-enterprise-postgresql-app.md) first.
 
@@ -639,6 +638,86 @@ For more info on configuring database connectivity with WildFly, see [PostgreSQL
 
 To enable message driven Beans using Service Bus as the messaging mechanism:
 
+<!-- more intro needed  -->
+
+1. Download the [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html). Locate the .jar files in the *lib* and *lib/optional* directories.
+
+2. Create a file named *module.xml* and add the following markup. Replace each instance of the `<version>` placeholder (including the angle brackets) with the correct version for each .jar file so the filenames match the files you extracted in step 1.
+
+    ```xml
+    <module xmlns="urn:jboss:module:1.1" name="org.jboss.genericjms.provider">
+        <resources>
+            <resource-root path="proton-j-<version>.jar"/>
+            <resource-root path="qpid-jms-client-<version>.jar"/>
+            <resource-root path="slf4j-log4j12-<version>.jar"/>
+            <resource-root path="slf4j-api-<version>.jar"/>
+            <resource-root path="log4j-<version>.jar"/>
+            <resource-root path="netty-buffer-<version>.jar" />
+            <resource-root path="netty-codec-<version>.jar" />
+            <resource-root path="netty-codec-http-<version>.jar" />
+            <resource-root path="netty-common-<version>.jar" />
+            <resource-root path="netty-handler-<version>.jar" />
+            <resource-root path="netty-resolver-<version>.jar" />
+            <resource-root path="netty-transport-<version>.jar" />
+            <resource-root path="netty-transport-native-epoll-<version>-linux-x86_64.jar" />
+            <resource-root path="netty-transport-native-kqueue-<version>-osx-x86_64.jar" />
+            <resource-root path="netty-transport-native-unix-common-<version>.jar" />
+            <resource-root path="qpid-jms-discovery-<version>jar" />
+        </resources>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="javax.jms.api"/>
+        </dependencies>
+    </module>
+    ```
+
+3. Create a file named *datasource-commands.cli* and add the following code.
+
+    ```console
+    /subsystem=ee:list-add(name=global-modules, value={"name" => "org.jboss.genericjms.provider", "slot" =>"main"}
+    /subsystem=naming/binding="java:global/remoteJMS":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/home/site/deployments/tools/jndi.properties])
+    /subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)
+    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/SBF)
+    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=SBF)
+    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=JndiParameters:add(value="java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;java.naming.provider.url=/home/site/deployments/tools/jndi.properties")
+    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)
+    /subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)
+    reload --use-current-server-config=true
+    ```
+
+    This file is run by the startup script described in the next step.
+
+    <!-- It configures JMS and JNDI ... (describe more) -->
+
+4. Create a file named *startup.sh* and add the following code.
+
+    <!-- need env var stuff first -->
+
+    ```bash
+    echo "Generating jndi.properties file in /home/site/deployments/tools directory"
+    echo "connectionfactory.SBF=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}" > /home/site/deployments/tools/jndi.properties
+    echo "queue.jmstestqueue=${SB_QUEUE}" >> /home/site/deployments/tools/jndi.properties
+    echo "====== contents of /home/site/deployments/tools/jndi.properties ======"
+    cat /home/site/deployments/tools/jndi.properties
+    echo "====== EOF /home/site/deployments/tools/jndi.properties ======"
+    mkdir /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider
+    mkdir /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main
+    cp  /home/site/deployments/tools/*.jar /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main/
+    cp /home/site/deployments/tools/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main/
+    cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/
+    /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli
+    ```
+
+5. Use FTP to upload the .jar files, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+Your bean is now configured to use Service Bus as the messaging mechanism.
+
+For more information, see [How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
+
+<!--
+
+To enable message driven Beans using Service Bus as the messaging mechanism:
+
 1. Use the [Apache QPId JMS messaging library](https://qpid.apache.org/proton/index.html). Include this dependency in your pom.xml (or other build file) for the application.
 
 2. Create [Service Bus resources](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp). Create an Azure Service Bus namespace and queue within that namespace and a Shared Access Policy with send and receive capabilities.
@@ -646,6 +725,8 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
 3. Pass the shared access policy key to your code either by URL-encoding the primary key of your policy or [Use the Service Bus SDK](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp#setup-jndi-context-and-configure-the-connectionfactory).
 
 4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files, you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. See [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
+
+-->
 
 ## Use Redis as a session cache with Tomcat
 
