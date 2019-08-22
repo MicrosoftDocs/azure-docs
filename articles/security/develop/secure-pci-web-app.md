@@ -140,7 +140,8 @@ Each of the Network security groups has specific ports and protocols open so tha
 NSG config for App Service Environment should be configured as shown in the image below.
 
  ![NSG_Config](./media/secure-pci-web-app/nsg-config.png)
-Subnets: Each subnet is associated with its corresponding network security group.
+
+Each subnet is associated with its corresponding network security group.
 
 ### Config
 Subnets are configured as shown in the image below.
