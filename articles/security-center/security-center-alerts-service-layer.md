@@ -45,6 +45,10 @@ Security Center network-layer analytics are based on sample [IPFIX data](https:/
 |**Network communication with a malicious address has been detected**|Sampled network traffic analysis detected communication originating from a resource in your deployment with a possible command and control (C&C) server. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|
 
 To understand how Security Center can use network related signals to apply threat protection, see [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
+
+>[!NOTE]
+>Azure Network layer threat detection alerts in Azure Security Center are not applied to short-lived virtual machines.
+
 ## Azure Management layer (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
 
 >[!NOTE]
