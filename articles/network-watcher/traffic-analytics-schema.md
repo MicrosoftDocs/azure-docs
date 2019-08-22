@@ -84,7 +84,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 ### Fields used in Traffic Analytics schema
   > [!IMPORTANT]
   > The Traffic Analytics Schema has been updated on 22nd August, 2019.
-  > The new schema makes provides source and destination IPs separately removing need to parse FlowDirection field making queries simpler.  
+  > The new schema provides source and destination IPs separately removing need to parse FlowDirection field making queries simpler.  
   > FASchemaVersion_s updated from 1 to 2.
   > Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s
   > New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s
