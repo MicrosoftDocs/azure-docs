@@ -6,7 +6,6 @@ services: nat
 documentationcenter: na
 author: asudbring
 manager: twooley
-tags: azure-resource-manager
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.custom: seodec18
 ms.service: nat
@@ -14,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
-ms.author: christiankuhtz
-ms.custom: mvc
+ms.date: 08/21/2019
+ms.author: allensu
+ms.custom: seodec18
 ---
 # Tutorial: Create a NAT Gateway using Azure CLI and test the NAT service
 
 This tutorial shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for virtual machines  in Azure. To test the NAT gateway, you deploy a source and destination virtual machine.  You will test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
 
 [!NOTE] 
-Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](httpsazure.microsoft.comsupportlegalpreview-supplemental-terms) for details.
+Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -379,4 +378,4 @@ In this tutorial, you created a NAT gateway,  created a source and destination V
 You can also review metrics in Azure Monitor to see your NAT service operating and diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
 > [!div class="nextstepaction"]
-> [Azure NAT Service tutorials](tutorial-nat-portal.md)
+#> [Azure NAT Service tutorials](tutorial-nat-portal.md)#

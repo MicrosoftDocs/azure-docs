@@ -29,11 +29,11 @@ You can create [Availability Zones](../availability-zones/availability-zones-ove
 NAT service is a fully managed, resilient service for outbound connectivity. You can combine NAT service with Standard public IP address resources and Standard Load Balancer to create additional inbound originated scenarios.
 
 [!NOTE] 
-Azure NAT service is available as public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](httpsazure.microsoft.comsupportlegalpreview-supplemental-terms) for details.
+Azure NAT service is available as public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 ## NAT Gateways
 
-Azure NAT service provides a NAT Gateway resource. This resource can be configured with one or more public IP addresses using [Standard public IP address](..virtual-networkvirtual-network-ip-addresses-overview-arm.md#standard) or [Standard public IP prefix](..virtual-networkpublic-ip-address-prefix.md) resources or both. You use the NAT service by configuring subnets of a virtual network resource to use a specific NAT Gateway. A NAT Gateway can be used on multiple subnets of the same virtual network. Different virtual networks need separate NAT Gateways.
+Azure NAT service provides a NAT Gateway resource. This resource can be configured with one or more public IP addresses using [Standard public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md#standard) or [Standard public IP prefix](../virtual-network/public-ip-address-prefix.md) resources or both. You use the NAT service by configuring subnets of a virtual network resource to use a specific NAT Gateway. A NAT Gateway can be used on multiple subnets of the same virtual network. Different virtual networks need separate NAT Gateways.
 
 A subnet will begin using the NAT Gateway for outbound connections when it has been configured for a subnet of a virtual network. NAT Gateway replaces the default Internet destination of a subnet and configuration of a UDR is not needed. Outbound translations are provided on demand as virtual machines create them.
 
@@ -87,7 +87,7 @@ NAT service can create predictable outbound originated only connectivity for you
 
 NAT service allows you to plan outbound connectivity for peak workload scale of a virtual network (or subnets within) rather than peak virtual machine instance scale.  And you can accomodate additional demand more easily by increasing the number of public IP addresses on the fly for all subnets of the entire virtual netowrk rather than calculating and replanning Load Balancer SNAT port allocation. NAT service shares SNAT ports available for outbound connectivity and allocates them on demand to accomodate bursty or not easily predictable workloads.  Load Balancer preallocates a specific number of SNAT ports for a given virtual machine instance.  
 
-NAT service always returns TCP Reset (RST) packets to the sender for non-existing flows (e.g. due to idle timeout). Standard Load Balancer can be configured to enable [TCP Reset on Idle](../load-balancer/load-balancer-tcp-reset) which creates TCP RST packets to both endpoints of a connection at the time of idle timeout.
+NAT service always returns TCP Reset (RST) packets to the sender for non-existing flows (e.g. due to idle timeout). Standard Load Balancer can be configured to enable [TCP Reset on Idle](../load-balancer/load-balancer-tcp-reset.md) which creates TCP RST packets to both endpoints of a connection at the time of idle timeout.
 
 ## Regions
 

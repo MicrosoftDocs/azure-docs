@@ -6,7 +6,6 @@ services: nat
 documentationcenter: na
 author: asudbring
 manager: twooley
-tags: azure-resource-manager
 Customer intent: I want to create a NAT Gateway for outbound connectivity for my virtual network.
 ms.custom: seodec18
 ms.service: nat
@@ -14,16 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
-ms.author: christiankuhtz
-ms.custom: mvc
+ms.date: 08/21/2019
+ms.author: allensu
+ms.custom: seodec18
 ---
+
 # Quickstart: Create a NAT Gateway using Azure CLI
 
 This quickstart shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 [!NOTE] 
-Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](httpsazure.microsoft.comsupportlegalpreview-supplemental-terms) for details.
+Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -230,4 +230,4 @@ In this tutorial, you created a NAT gateway and a VM to use the NAT service. To 
 You can also review metrics in Azure Monitor to see your NAT service operating and diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
 > [!div class="nextstepaction"]
-> [Azure NAT service tutorials](tutorial-nat.md)
+#> [Azure NAT service tutorials](tutorial-nat.md)#
