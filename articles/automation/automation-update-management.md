@@ -366,7 +366,7 @@ The following addresses are required specifically for Update Management. Communi
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-For Windows Machines, you must also allow traffic to any endpoints required by Windows Update.  You can find an updated list of required endoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS Key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+For Windows Machines, you must also allow traffic to any endpoints required by Windows Update.  You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS Key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 For Red Hat Linux Machines, please refer to [The IPs for the RHUI content delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux Distributions, refer to provider documentation.
 
