@@ -47,7 +47,7 @@ Security Center network-layer analytics are based on sample [IPFIX data](https:/
 To understand how Security Center can use network related signals to apply threat protection, see [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 >[!NOTE]
->Azure Network layer threat detection alerts, in Azure Security Center, are not generated for short-lived virtual machines.
+>Azure network layer threat detection alerts, in Azure Security Center, are not generated during the first hour after creating the VM.
 
 ## Azure Management layer (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
 
