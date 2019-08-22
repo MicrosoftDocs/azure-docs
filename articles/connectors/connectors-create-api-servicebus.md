@@ -36,12 +36,12 @@ make the output available to other actions in your logic apps.
 You can also have other actions use the output from Service Bus actions. 
 If you're new to Service Bus and Logic Apps, review 
 [What is Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md) 
-and [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
+and [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * A Service Bus namespace and messaging entity, such as a queue. 
 If you don't have these items, learn how to 
@@ -187,14 +187,7 @@ For this example, follow the relevant steps for your trigger or action:
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are 
-described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/servicebus/).
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+The Service Bus connector can save up to 1,500 unique sessions at a time from a service bus to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For other technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/servicebus/).
 
 ## Next steps
 
