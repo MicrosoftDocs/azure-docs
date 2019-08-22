@@ -23,6 +23,8 @@
       href: powershell-create-instance.md
 - name: Concepts
   items:
+    - name: Common deployment scenarios
+      href: scenarios.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: Plan for Azure AD DS
       items: 
-        - name: Common scenarios
-          href: scenarios.md
         - name: Virtual network considerations
           href: network-considerations.md
     - name: Manage Azure AD DS
