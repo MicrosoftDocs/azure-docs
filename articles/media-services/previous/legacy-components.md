@@ -22,4 +22,3 @@ Over time, there have been steady improvements and enhancements to Media Service
 
 * [Migrate from Windows Azure Media Encoder to Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [Migrate from Azure Media Encoder to Media Encoder Standard](migrate-azure-media-encoder.md)
-
