@@ -26,7 +26,7 @@ Multi Factor authentication is supported if Azure Active Directory (Azure AD) is
 * Client presents token to Azure Resource Manager & all Azure Machine Learning services
 * Azure Machine Learning service provides an Azure Machine Learning token to the user compute. For example, Machine Learning Compute. This token is used by user compute to call back into Azure Machine Learning service (limits scope to workspace) after the run is complete.
 
-![Screenshot showing how authentication works in Azure Machine Learning service](./media/enterprise-readiness/authentication.png)
+[![Screenshot showing how authentication works in Azure Machine Learning service](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### Authentication for Web service deployment
 
@@ -180,7 +180,7 @@ Each workspace has an associated system-assigned Managed Identity (with the same
 
 Azure Monitor metrics can be used to view and monitor metrics for your Azure Machine Learning service workspace. From the [Azure portal](https://portal.azure.com), select your workspace and then use the __Metrics__ link.
 
-![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)
+[![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 Metrics includes information on runs, deployments, and registrations.
 
@@ -192,7 +192,7 @@ You can see the activity log under the workspace to see various operations perfo
 
 The following screenshot shows the activity log for a workspace:
 
-![Screenshot showing activity log under a workspace](./media/enterprise-readiness/workspace-activity-log.png)
+[![Screenshot showing activity log under a workspace](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Scoring request details are stored in Application Insight, which is created in user’s subscription while creating the workspace. Logged information includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration etc.
 
@@ -215,14 +215,14 @@ User logs into Azure AD from any of the supported Azure Machine Learning service
 
 Other computes attached to a workspace (Azure Kubernetes Service, VM etc.) can also be provisioned by customers as needed.
 
-![Screenshot showing create workspace workflow](./media/enterprise-readiness/create-workspace.png)
+[![Screenshot showing create workspace workflow](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### Save source code (training scripts)
 
 The following diagram shows the code snapshot workflow.
 Associated with an Azure Machine Learning service workspace are directories (experiments), which contains the source code (training scripts).  These scripts are stored on the customer’s local machine and in the cloud (in the Azure Blob Storage under customer’s subscription). The code snapshots are used for execution or inspection for historical auditing.
 
-![Screenshot showing create workspace workflow](./media/enterprise-readiness/code-snapshot.png)
+[![Screenshot showing create workspace workflow](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### Training
 
@@ -249,7 +249,7 @@ Since Machine Learning Compute is a managed compute that is, it is managed by Mi
 
 This step is shown in the flow where training compute writes the *Run Metrics* back to the Azure Machine Learning service from where it gets stored in the Cosmos DB. Clients can call Azure Machine Learning service that will in turn pull metrics from the Cosmos DB and return it back to the client.
 
-![Screenshot showing create workspace workflow](./media/enterprise-readiness/training-and-metrics.png)
+[![Screenshot showing create workspace workflow](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### Creating web services
 
@@ -263,7 +263,7 @@ See details below:
 * Scoring request details are stored in Application Insight, which is in user’s subscription
 * Telemetry is also pushed to Microsoft/Azure subscription
 
-![Screenshot showing create workspace workflow](./media/enterprise-readiness/inferencing.png)
+[![Screenshot showing create workspace workflow](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## Next steps
 

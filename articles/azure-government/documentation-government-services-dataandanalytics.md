@@ -36,9 +36,10 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 | ---- | ---- | ---- |
 | USDoD Central | 52.180.249.174</br>52.180.250.239 | 443 |
 | USDoD East | 52.181.164.168</br>52.181.164.151 | 443 |
-| USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
+| USGov Iowa | 13.72.184.124</br>13.72.190.110 </br>13.72.49.126</br>13.72.55.55| 443 |
 | USGov Texas | 52.238.116.212</br>52.238.112.86 | 443 |
-| USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
+| USGov Virginia | 13.72.49.126</br>13.72.55.55</br> 13.72.184.124</br>13.72.190.110 | 443 |
+
 
 For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).
 
