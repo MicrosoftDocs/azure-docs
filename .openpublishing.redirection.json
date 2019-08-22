@@ -26890,21 +26890,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-plc-communication.md",
-      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-server-communication.md",
-      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-scratch.md",
-      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-deploy",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
       "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
       "redirect_document_id": false
@@ -41198,6 +41183,21 @@
     {
       "source_path": "articles/cognitive-services/Translator/quickstart-python-dictionary.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-dictionary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-plc-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-server-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-scratch.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-deploy",
       "redirect_document_id": false
     }
   ]
