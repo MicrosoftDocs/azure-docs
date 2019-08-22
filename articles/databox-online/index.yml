@@ -65,11 +65,11 @@ landingContent:
             url: data-box-edge-deploy-prep.md
 
   # Card
-  - title: Develop Edge compute
+  - title: Develop
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Develop C# compute module
+          - text: Develop C# Edge compute module
             url: data-box-edge-manage-compute.md
       - linkListType: download
         links:
