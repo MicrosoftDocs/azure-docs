@@ -39,11 +39,11 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
 1. On the Security Center dashboard, you see the **Security alerts** tile.
 
-    ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+    ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-alerts.png)
 
 2. Click the tile to open the **Security alerts** to see more details about the alerts.
 
-   ![The Security alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
+   ![The Security alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
 In the bottom part of this page are the details for each alert. To sort, click the column that you want to sort by. The definition for each column is given below:
 
@@ -80,16 +80,18 @@ You can filter alerts based on date, state, and severity. Filtering alerts can b
 
 1. Click **Filter** on the **Security Alerts**. The **Filter** opens and you select the date, state, and severity values you wish to see.
 
-    ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
+    ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
 
 ### Respond to security alerts
 Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert opens a page containing a list of the grouped alerts.
 
-![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
+![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
+
+![Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
 In this case, the alerts that were triggered refer to suspicious Remote Desktop Protocol (RDP) activity. The first column shows which resources were attacked; the second shows how many times the resource was attacked; the third shows the time of the attack; the fourth shows state of the alert; and the fifth shows the severity of the attack. After reviewing this information, click the resource that was attacked.
 
-![Suggestions for what to do about security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
+![Suggestions for what to do about security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
 In the **Description** field, you find more details about this event. These additional details offer insight into what triggered the security alert, the target resource, when applicable the source IP address, and recommendations about how to remediate.  In some instances, the source IP address is empty (not available) because not all Windows security events logs include the IP address.
 
