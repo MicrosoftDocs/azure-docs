@@ -294,8 +294,6 @@ To move data between your local files and blob storage, you can use AzCopy in co
 
 Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure portal](https://portal.azure.com).
 
-![Screenshot of the Storage account keys and container information in the Azure portal](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
-
 Run AzCopy command in PowerShell or from a command prompt. Here is some example usage of AzCopy command:
 
 ```powershell
