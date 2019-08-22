@@ -378,4 +378,4 @@ In this tutorial, you created a NAT gateway,  created a source and destination V
 You can also review metrics in Azure Monitor to see your NAT service operating and diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
 > [!div class="nextstepaction"]
-#> [Azure NAT Service tutorials](tutorial-nat-portal.md)#
+

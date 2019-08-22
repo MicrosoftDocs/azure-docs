@@ -24,7 +24,7 @@ You can use NAT service to provide outbound connectivity to public IP address de
 
 You can define which subnets of a virtual network should use NAT service. You can scale outbound connectivity with one or more IP addresses. And you can tune the idle timeout from 4 to 120 minutes. NAT service will also always send TCP Resets when inactive connections are reused as would be the case after idle timeout has been reached. 
 
-You can create [Availability Zones](../availability-zones/availability-zones-overview.md) scenarios by placing NAT service in a specific availability zone.
+You can create [Availability Zones](../availability-zones/az-overview.md) scenarios by placing NAT service in a specific availability zone.
 
 NAT service is a fully managed, resilient service for outbound connectivity. You can combine NAT service with Standard public IP address resources and Standard Load Balancer to create additional inbound originated scenarios.
 
