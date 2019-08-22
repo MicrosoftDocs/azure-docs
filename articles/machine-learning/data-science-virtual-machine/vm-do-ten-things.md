@@ -389,9 +389,7 @@ Azure Data Lake Storage is a hyper-scale repository for big data analytics workl
 
 **Move data from VM to Data Lake: Azure Data Lake Explorer**
 
-You can use **Azure Data Lake Explorer** to upload data from the local files in your Virtual Machine to Data Lake storage.
-
-![Screenshot of using the Data Lake Explorer to upload files](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+You can use **Azure Data Lake Explorer** to [upload data from the local files in your Virtual Machine to Data Lake storage](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 You can also build a data pipeline to operationalize your data movement to or from Azure Data Lake using the [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Refer to this [article](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) to guide you through the steps to build the data pipelines.
 
@@ -402,8 +400,6 @@ If your data resides in Azure Blob storage, you can directly read data from Azur
 ![Screenshot of the Add Data Source dialog](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 In Visual Studio, you can read data from blob storage, do some data manipulation, feature engineering, and output the resulting data to either Azure Data Lake or Azure Blob Storage. When you reference the data in blob storage, use **wasb://**; when you reference the data in Azure Data Lake, use **swbhdfs://**
-
-![Screenshot of the query with the WASB entry highlighted](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 You may use the following U-SQL queries in Visual Studio:
 
