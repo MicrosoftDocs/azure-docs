@@ -187,7 +187,7 @@ For this example, follow the relevant steps for your trigger or action:
 
 ## Connector reference
 
-The Service Bus connector can have up to 1,500 sessions in cache. If the session count exceeds this limit, old sessions are removed. For other technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/servicebus/).
+The Service Bus connector can save up to 1,500 unique sessions at a time from a service bus to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For other technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/servicebus/).
 
 ## Next steps
 
