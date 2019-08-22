@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure HPC Cache Documentation
+title: Azure HPC Cache Documentation (PUBLIC PREVIEW)
 metadata:
   title: Azure HPC Cache Documentation 
   description: Use Azure HPC Cache to expedite read-intensive high-performance computing (HPC) tasks
@@ -10,14 +10,9 @@ metadata:
   ms.date: 08/22/2019
   ms.author: v-erkell
 abstract:
-  description: The Azure HPC Cache is ... [ xxx ]
-
-  
+  description: The Azure HPC Cache is a high performance cache for file-based workloads. It solves the latency problem between compute and storage for read-heavy workloads. Customers can use show a single virtual filesystem that includes data located in an on-premises datacenter, in Azure, or from both locations. The Azure HPC Cache provides scale into tens of thousands of cores. Azure HPC Cache is in *Public Preview*. Additional product changes might be made during this phase and before the general availability release.
 sections:
-- title: 5-Minute quickstarts 
-  items:
-    <!-- xxx tbd -->
-- title: Step-by-step tutorials  
+- title: Step-by-step tutorials
   items:
   - type: list
     style: unordered
@@ -30,14 +25,23 @@ sections:
     - html: <a href="fxt-add-storage">Add back-end storage and configure virtual namespace</a>
     - html: <a href="fxt-configure-network">Configure the cluster's network settings</a>
 
+- title: Concepts
+  items: 
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="hpc-cache-prereqs">Prerequisites</a>
+    - html: <a href="hpc-cache-namespace">Use the aggregated namespace</a>
+
 - title: How-to guides
   items:
   - type: list
     style: unordered
     items: 
-    - html: <a href="fxt-mount-clients">Connect clients to the Azure FXT Edge Filer cluster</a> 
-    - html: <a href="fxt-monitor">Monitor the Azure FXT Edge Filer</a>
-    - html: <a href="fxt-power-off">Safely power off a hardware node</a>
+    - html: <a href="hpc-cache-mount">Connect to the Azure HPC Cache</a> 
+    - html: <a href="hpc-cache-monitor">Monitor the Azure HPC Cache</a>
+    - html: <a href="hpc-cache-ingest">Populate new Azure Blob storage</a>
+
 
 - title: Resources
   items: 
