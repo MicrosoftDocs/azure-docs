@@ -41,7 +41,7 @@ Renewal of the Certificate Revocation List (CRL) is an update, which should be d
 
 In the following workflow all certificate requests in the deleted states are revoked in the CRLs, which correspond to the Issuer CA certificate they were issued for. The version number of the CRL is incremented by 1. <br>
 [!NOTE]
- All issued CRLs are valid until the expiry of the Issuer CA certificate, because the OPC UA specification does not require a mandatory, deterministic distribution model for CRL.*
+ All issued CRLs are valid until the expiration of the Issuer CA certificate, because the OPC UA specification does not require a mandatory, deterministic distribution model for CRL.
 
 [!IMPORTANT]
 The 'Administrator' role is required to renew the Issuer CRL.
