@@ -6,7 +6,7 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ---
     
 # Migrate to granular role-based access for cluster configurations
