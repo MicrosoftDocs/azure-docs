@@ -156,16 +156,18 @@ the *EastUS* region:
 az aks get-versions --location eastus --output table
 ```
 
-The output is similar to the following example, which shows that Kubernetes version *1.13.5* is the most recent version
+The output is similar to the following example, which shows that Kubernetes version *1.14.6* is the most recent version
 available:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.14.5               None available
-1.13.9               1.14.5
-1.12.8               1.13.9
-1.12.7               1.12.8, 1.13.9
+1.14.6               None available
+1.14.5               1.14.6
+1.13.10              1.14.5, 1.14.6
+1.13.9               1.13.10, 1.14.5, 1.14.6
+1.12.8               1.13.9, 1.13.10
+1.12.7               1.12.8, 1.13.9, 1.13.10
 1.11.10              1.12.7, 1.12.8
 1.11.9               1.11.10, 1.12.7, 1.12.8
 1.10.13              1.11.9, 1.11.10

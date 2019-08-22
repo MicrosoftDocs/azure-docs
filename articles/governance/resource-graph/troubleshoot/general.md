@@ -3,7 +3,7 @@ title: Troubleshoot common errors
 description: Learn how to troubleshoot issues querying Azure resources with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/07/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
@@ -77,6 +77,22 @@ tools or agents default to **text/plain**, which is unsupported by the REST API.
 
 Validate that the tool or agent you're using to query Azure Resource Graph has the REST API header
 `Content-Type` configured for **application/json**.
+### <a name="rest-403"></a>Scenario: No read permission to all subscriptions in list
+
+#### Issue
+
+Customers that explicitly pass a list of subscriptions with an Azure Resource Graph query get a
+_403_ (Forbidden) response.
+
+#### Cause
+
+If the customer doesn’t have read permission to all the provided subscriptions, the request is
+denied due to lack of appropriate security rights.
+
+#### Resolution
+
+Include at least one subscription in the subscription list that the customer running the query has
+at least read access to. For more information, see [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## Next steps
 
