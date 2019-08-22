@@ -28535,6 +28535,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-workload.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/create-user-defined-route-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
       "redirect_document_id": false
@@ -41415,6 +41420,21 @@
     {
       "source_path": "articles/media-services/previous/media-services-upload-files-with-aspera.md",
       "redirect_url": "/azure/media-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-plc-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-server-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-scratch.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-deploy",
       "redirect_document_id": false
     }
   ]
