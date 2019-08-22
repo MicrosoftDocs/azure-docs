@@ -18,6 +18,7 @@ ms.author: magattus
 ms.custom: 
 
 ---
+
 # Retrieve the current Verizon POP IP list for Azure CDN
 
 You can use the REST API to retrieve the set of IPs for Verizon’s point of presence (POP) servers. These POP servers  make requests to origin servers that are associated with Azure Content Delivery Network (CDN) endpoints on a Verizon profile (**Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon**). Note that this set of IPs is different from the IPs that a client would see when making requests to the POPs. 
@@ -30,8 +31,8 @@ To lock down your application to accept traffic only from Azure CDN from Microso
 
 Configure IP ACLing for your backends to accept traffic from Azure CDN from Microsoft's backend IP address space and Azure's infrastructure services only. 
 
-Azure CDN from Microsoft's IPv4 backend IP space: 147.243.0.0/16 
-Azure CDN from Microsoft's IPv6 backend IP space: 2a01:111:2050::/44
+* Azure CDN from Microsoft's IPv4 backend IP space: 147.243.0.0/16
+* Azure CDN from Microsoft's IPv6 backend IP space: 2a01:111:2050::/44
 
 IP Ranges and Service tags for Microsoft services can be found [here](https://www.microsoft.com/download/details.aspx?id=56519)
 
