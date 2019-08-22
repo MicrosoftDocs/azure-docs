@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 08/21/2019
 ---
 
 # Create and manage read replicas from the Azure CLI
@@ -62,12 +62,15 @@ To create a cross region read replica, use the `--location` parameter. The CLI e
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
+> [!NOTE]
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
+
 If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized master server and restarted the server, you receive an error. Complete those two steps before you create a replica.
 
-A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 > [!IMPORTANT]
-> Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
+> Before a master server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ## List replicas
 You can view the list of replicas of a master server by using [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) command.
@@ -95,4 +98,5 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 ```
 
 ## Next steps
-Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
+* Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
+* Learn how to [create and manage read replicas in the Azure portal](howto-read-replicas-portal.md).
