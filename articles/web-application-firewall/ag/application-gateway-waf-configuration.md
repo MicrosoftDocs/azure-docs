@@ -1,9 +1,9 @@
 ---
 title: Web application firewall request size limits and exclusion lists in Azure Application Gateway - Azure portal
 description: This article provides information on Web Application Firewall request size limits and exclusion lists configuration in Application Gateway with the Azure portal.
-services: application-gateway
+services: web-application-firewall
 author: vhorne
-ms.service: application-gateway
+ms.service: web-application-firewall
 ms.date: 08/22/2019
 ms.author: victorh
 ms.topic: conceptual

@@ -1,9 +1,9 @@
 ---
 title: Azure Application Gateway web application firewall CRS rule groups and rules
 description: This page provides information on web application firewall CRS rule groups and rules.
-services: application-gateway
+services: web-application-firewall
 author: vhorne
-ms.service: application-gateway
+ms.service: web-application-firewall
 ms.date: 4/11/2019
 ms.author: victorh
 ms.topic: conceptual

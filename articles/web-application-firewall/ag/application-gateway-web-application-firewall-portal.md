@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Create an application gateway with a web application firewall - Azure portal | Microsoft Docs
 description: In this tutorial, you learn how to create an application gateway with a web application firewall by using the Azure portal.
-services: application-gateway
+services: web-application-firewall
 author: vhorne
-ms.service: application-gateway
+ms.service: web-application-firewall
 ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: victorh

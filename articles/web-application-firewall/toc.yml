@@ -41,6 +41,16 @@
          href: ./ag/tutorial-restrict-web-traffic-powershell.md
        - name: Azure CLI
          href: ./ag/tutorial-restrict-web-traffic-cli.md
+     - name: Customize WAF rules
+       items:
+       - name: Azure portal
+         href: ./ag/application-gateway-customize-waf-rules-portal.md
+       - name: Azure PowerShell
+         href: ./ag/application-gateway-customize-waf-rules-powershell.md
+       - name: Azure CLI
+         href: ./ag/application-gateway-customize-waf-rules-cli.md    
+     - name: Troubleshoot WAF
+       href: .ag/web-application-firewall-troubleshoot.md
   - name: Front Door
     items:
     - name: Configure WAF policy - PowerShell

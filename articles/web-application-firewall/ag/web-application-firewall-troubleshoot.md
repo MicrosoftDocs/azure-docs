@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot the Web Application Firewall for Azure Application Gateway
 description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
-services: application-gateway
+services: web-application-firewall
 author: vhorne
-ms.service: application-gateway
+ms.service: web-application-firewall
 ms.date: 08/22/2019
 ms.author: ant
 ms.topic: conceptual
@@ -173,7 +173,7 @@ This is a field you can exclude. To learn more about exclusion lists, See [Web a
 
 ![WAF exclusion](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, diagnostic logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
 Examine the firewall log and view the PT1H.json file for the hour that the request you want to inspect occurred.
 
@@ -282,7 +282,7 @@ In this example, you can see that you have four rules with the same TransactionI
 -	}
 ```
 
-With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 works with an anomaly scoring system (see [Web application firewall for Azure Application Gateway](waf-overview.md)) you know that the bottom two rules with the **action: Blocked** property are blocking based on the total anomaly score. The rules to focus on are the top two.
+With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 works with an anomaly scoring system (see [Web Application Firewall for Azure Application Gateway](ag-overview.md)) you know that the bottom two rules with the **action: Blocked** property are blocking based on the total anomaly score. The rules to focus on are the top two.
 
 The first entry is logged because the user used a numeric IP address to navigate to the Application Gateway, which can be ignored in this case.
 

@@ -1,9 +1,9 @@
 ---
 title: Introduction to Azure Web Application Firewall for Azure Application Gateway
 description: This article provides an overview of web application firewall (WAF) for Application Gateway
-services: application-gateway
+services: web-application-firewall
 author: vhorne
-ms.service: application-gateway
+ms.service: web-application-firewall
 ms.date: 08/15/2019
 ms.author: victorh
 ms.topic: overview
