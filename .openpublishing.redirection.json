@@ -28535,6 +28535,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-workload.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/create-user-defined-route-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
       "redirect_document_id": false
