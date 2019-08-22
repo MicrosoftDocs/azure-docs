@@ -58,7 +58,7 @@ Use the information in the following table when setting up your Active Directory
 When you have the information in the previous table, you can add your on-premises Active Directory as a Single Sign-On identity source on vCenter.
 
 > [!TIP]
-> You'll find more information on Single Sign-On identity sources on the [VMware Documentation page](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
+> You'll find more information on Single Sign-On identity sources on the [VMware documentation page](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## Set Up new Active Directory on a Private Cloud
 
