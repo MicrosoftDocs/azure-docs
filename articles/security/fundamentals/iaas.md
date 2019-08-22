@@ -75,7 +75,7 @@ You should install antimalware protection to help identify and remove viruses, s
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 
-You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for ease of deployment and built-in detections (alerts and incidents).
+You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](../../security-center/index.yml) for ease of deployment and built-in detections (alerts and incidents).
 
 **Best practice**: Install an antimalware solution to protect against malware.   
 **Detail**: [Install a Microsoft partner solution or Microsoft Antimalware](../../security-center/security-center-install-endpoint-protection.md)
@@ -178,7 +178,7 @@ Monitor and restrict VM direct internet connectivity. Attackers constantly scan 
 **Detail**: Use RBAC to ensure that only the central networking group has permission to networking resources.
 
 **Best practice**: Identify and remediate exposed VMs that allow access from “any” source IP address.   
-**Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) to source IP addresses that actually need access.
+**Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-network-recommendations.md) to source IP addresses that actually need access.
 
 **Best practice**: Restrict management ports (RDP, SSH).   
 **Detail**: [Just-in-time (JIT) VM access](../../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When JIT is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the JIT solution.

@@ -37,10 +37,7 @@ The Qualys Vulnerability Assessment agent is not available.
 - **Windows Defender Advanced Threat Protection alerts**  
 Windows Defender ATP installation on Windows VMs via Security Center and the associated alerts are not available.
 
-### Alerts and notifications
-
-- **Email notifications for high severity alerts and JIT access**  
-Alerts and just-in-time access will function normally. However, email notifications are not available.
+### Notifications
 
 - **Azure activity logs**  
 User activity in Security Center is not logged in Azure activity logs in Microsoft Azure Government. This means that there’s no trace or audit for user performed actions.

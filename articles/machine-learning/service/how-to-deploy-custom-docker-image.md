@@ -1,5 +1,5 @@
 ---
-title: Deploy models with a custom base image
+title: Deploy models with a custom Docker base image
 titleSuffix: Azure Machine Learning service
 description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning service models. When deploying a trained model, a base container image is deployed to run your model for inference. While Azure Machine Learning service provides a default base image for you, you can also use your own base image.'
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ---
 
 # Deploy a model using a custom Docker base image
@@ -25,7 +25,7 @@ A base image is used as the starting point when an image is created for a deploy
 Typically, you create a custom base image when you want to use Docker to manage your dependencies, maintain tighter control over  component versions or save time during deployment. For example, you might want to standardize on a specific version of Python, Conda, or other component. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
 
 > [!IMPORTANT]
-> When deploying a model, you cannot override core components such as the web server or IoT Edge components. These components provide a known working environment that is tested and supported by Microsoft.
+> When you deploy a model, you cannot override core components such as the web server or IoT Edge components. These components provide a known working environment that is tested and supported by Microsoft.
 
 > [!WARNING]
 > Microsoft may not be able to help troubleshoot problems caused by a custom image. If you encounter problems, you may be asked to use the default image or one of the images Microsoft provides to see if the problem is specific to your image.
@@ -95,6 +95,8 @@ If you've already trained or deployed models using the Azure Machine Learning se
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     The information returned is similar to the following text:
 

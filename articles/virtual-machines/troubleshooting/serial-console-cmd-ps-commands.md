@@ -237,7 +237,7 @@ Adding `/f` will force running applications to close without warning users.
 ### Detect Safe Mode boot
 `bcdedit /enum | find /i "safeboot"` 
 
-# Windows Commands - PowerShell
+## Windows Commands - PowerShell
 
 To run PowerShell in SAC, after you reach a CMD prompt, type:
 

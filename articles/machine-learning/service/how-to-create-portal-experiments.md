@@ -62,6 +62,10 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 1. Select a storage container.
 
 1. Select a data file from your storage container, or upload a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
+    >[!Important]
+    > Requirements for training data:
+    >* Data must be in tabular form.
+    >* The value you want to predict (target column) must be present in the data.
 
     [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
