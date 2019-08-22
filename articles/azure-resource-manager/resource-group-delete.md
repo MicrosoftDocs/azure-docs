@@ -48,13 +48,19 @@ Use one of the following methods to delete a resource.
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Remove-AzResource -ResourceGroupName ExampleResourceGroup -ResourceName ExampleVM -ResourceType Microsoft.Compute/virtualMachines
+Remove-AzResource `
+  -ResourceGroupName ExampleResourceGroup `
+  -ResourceName ExampleVM `
+  -ResourceType Microsoft.Compute/virtualMachines
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az resource delete --resource-group ExampleResourceGroup --name ExampleVM --resource-type "Microsoft.Compute/virtualMachines"
+az resource delete \
+  --resource-group ExampleResourceGroup \
+  --name ExampleVM \
+  --resource-type "Microsoft.Compute/virtualMachines"
 ```
 
 # [Portal](#tab/azure-portal)
@@ -64,6 +70,8 @@ az resource delete --resource-group ExampleResourceGroup --name ExampleVM --reso
 1. Select **Delete**. The following screenshot shows the management options for a virtual machine.
 
    ![Delete resource](./media/resource-group-delete/delete-resource.png)
+
+1. When prompted, confirm the deletion.
 
 ---
 
