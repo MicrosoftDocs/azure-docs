@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train your first model."
+title: "Tutorial: Train your first ML model"
 titleSuffix: Azure Machine Learning service
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: trbye
 ms.date: 07/20/2019
 ---
 
-# Tutorial: Train your first model
+# Tutorial: Train your first ML model
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
@@ -26,11 +26,13 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-The only prerequisite is to run the previous tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+The only prerequisite is to run part one of this tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+
+In this part of the tutorial, you run the code in the sample Jupyter notebook opened at the end of part one. This article walks through the same code that is in the notebook.
 
 ## Connect workspace and create experiment
 
-Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. If you are running this notebook in a cloud notebook server in your workspace, the file is automatically in the root directory.
+Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. In a cloud notebook server, the file is automatically in the root directory.
 
 If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token.
 
