@@ -61,7 +61,7 @@ Once the data loads to excel and is available in your Excel sheet you can analyz
 
     ![Create pivot table](media/excel/create-pivot-table.png)
 
-1. In the **PivotTable Fields** pane, select the relevant table columns to create summary tables. In the example below,  **Event Id** and **State** are selected.
+1. In the **PivotTable Fields** pane, select the relevant table columns to create summary tables. In the example below,  **EventId** and **State** are selected.
     
     ![Select PivotTable fields](media/excel/pivot-table-pick-fields.png)
 
