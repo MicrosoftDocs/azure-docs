@@ -23,7 +23,7 @@ With AOBO, any user with the [Admin Agent](https://docs.microsoft.com/partner-ce
 
 ## Azure delegated resource management
 
-Using Azure delegated resource management, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through Azure delegated resource management, you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access). This provides greater security by limiting unnecessary access to your customers’ resources. It also gives you more flexibility to manage multiple customers at scale.
+Using Azure delegated resource management, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through Azure delegated resource management, you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access). This helps improves security by limiting unnecessary access to your customers’ resources. It also gives you more flexibility to manage multiple customers at scale.
 
 Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md). Any user who has the Admin Agent role in your tenant can perform this onboarding.
 
