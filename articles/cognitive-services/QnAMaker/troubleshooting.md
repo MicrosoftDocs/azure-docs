@@ -146,6 +146,10 @@ With this information, go to your bot's app service in the Azure portal. Under *
 
 The knowledge base's endpoint key is labeled `QnAAuthkey` in the ABS service. 
 
+### Can two or more client applications share a knowledge base? 
+
+Yes, the knowledge base can be queried from any number of clients. If the response from the knowledge base appears to be slow or time out, consider upgrading the service tier for the app service associated with the knowledge base.
+
 ### How do I embed the QnA Maker service in my website?
 
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
