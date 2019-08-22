@@ -71,12 +71,24 @@
       href: event-hubs-geo-dr.md  
   - name: Security
     items:
-    - name: Managed identity for Azure resources
-      href: event-hubs-managed-service-identity.md
-    - name: Role-Based Access Control (preview)
-      href: event-hubs-role-based-access-control.md
-    - name: Authentication and security model overview
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Authorization
+      items:
+      - name: Authorize access to Azure Event Hubs 
+        href: authorize-access-event-hubs.md        
+      - name: Authorize access with Azure Active Directory
+        href: authorize-access-azure-active-directory.md
+      - name: Authorize access with a shared access signature
+        href: authorize-access-shared-access-signature.md
+    - name: Authentication
+      items:
+      - name: Authenticate with Azure Active Directory
+        items: 
+        - name: Authenticate with a managed identity
+          href: authenticate-managed-identity.md
+        - name: Authenticate from an application
+          href: authenticate-application.md
+      - name: Authenticate with a shared access signature
+        href: authenticate-shared-access-signature.md
     - name: Security Attributes
       href: event-hubs-security-attributes.md
   - name: AMQP 1.0 protocol guide
@@ -166,6 +178,8 @@
       href: event-hubs-service-endpoints.md
     - name: Enable Virtual Networks Integration and Firewalls on Event Hubs Namespace
       href: event-hubs-tutorial-virtual-networks-firewalls.md
+    - name: Configure customer-managed keys for encrypting data at rest 
+      href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:
     - name: Exceptions
