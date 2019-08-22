@@ -143,8 +143,8 @@ Next, add the following headers:
 
 | Key | Value |
 | --- | ----- |
-| `Ocp-Apim-Subscription-Key` | APIM subscription key you recorded earlier |
 | `Authorization` | Encoded token value you recorded earlier, prefixed with `Bearer ` (include the space) |
+| `Ocp-Apim-Subscription-Key` | APIM subscription key you recorded earlier |
 
 Your **GET** request URL and **Headers** should appear similar to:
 
