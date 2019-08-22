@@ -878,9 +878,7 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 ![Power BI desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
-You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report. The output is a report that looks like the following.
-
-![Power BI Desktop Report View - Power BI connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
+You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report.
 
 ## 9. Dynamic DSVM scaling 
 You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shut down the VM from the [Azure portal](https://portal.azure.com).
@@ -892,9 +890,7 @@ You can scale up and down the DSVM to meet your project needs. If you don't need
 
 If you need to handle some large-scale analysis and need more CPU and/or memory and/or disk capacity you can find a large choice of VM sizes in terms of CPU cores, GPU-based instances for deep learning, memory capacity, and disk types (including Solid-state drives) that meet your compute and budgetary needs. The full list of VMs along with their hourly compute pricing is available on the [Azure Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) page.
 
-Similarly, if your need for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure portal](https://portal.azure.com) and going to the settings of your VM instance. Here is a screenshot.
-
-![VM instance settings](./media/vm-do-ten-things/VMScaling.PNG)
+Similarly, if your need for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure portal](https://portal.azure.com) and going to the settings of your VM instance. 
 
 ## 10. Add more tools
 There are several tools pre-built into the DSVM that can address many of the common data analytics needs. This saves you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
