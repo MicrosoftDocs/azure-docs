@@ -77,12 +77,12 @@ You can specify the following metadata types in the Get Metadata activity field 
 | lastModified | Last modified datetime of the file or folder. |
 | childItems | List of subfolders and files in the given folder. Applicable only to folders. Returned value is a list of the name and type of each child item. |
 | contentMD5 | MD5 of the file. Applicable only to files. |
-| structure | Data structure inside the file or relational database table. Output value is a list of column name and column type. |
-| columnCount | Number of columns inside the file or relational table. |
-| exists| Whether a file/folder/table exists or not. Note if "exists" is specified in the GetaMetadata field list, the activity won't fail even when the item (file/folder/table) doesn't exists; instead, it returns `exists: false` in the output. |
+| structure | Data structure in the file or relational database table. Returned value is a list of column names and column types. |
+| columnCount | Number of columns in the file or relational table. |
+| exists| Whether a file, folder, or table exists. Note that if `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
 
 >[!TIP]
->When you want to validate if a file/folder/table exists or not, specify `exists` in the GetMetadata activity field list, then you can check the `exists: true/false` result from the activity output. If `exists` is not configured in the field list, the GetMetadata activity will fail when the object is not found.
+>When you want to validate if a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
 
 >[!NOTE]
 >When you get metadata from file stores and configure `modifiedDatetimeStart` and/or `modifiedDatetimeEnd`, the `childItems` in output only returns files under the given path with last modified time between the range, but no sub-folders.
