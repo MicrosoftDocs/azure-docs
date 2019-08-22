@@ -25,9 +25,7 @@ This topic describes the security model of Azure Notification Hubs.
 
 ## Shared Access Signature Security (SAS)
 
-Notification Hubs implements an entity-level security scheme called SAS (Shared Access Signature). This scheme enables messaging entities to declare up to 12 authorization rules in their description that grant rights on that entity.
-
-Each rule contains a name, a key value (shared secret), and a set of rights, as explained in [Security Claims](#security-claims). When creating a Notification Hub, two rules are automatically created: one with **Listen** rights (that the client app uses) and one with **all** rights (that the app backend uses).
+Notification Hubs implements an entity-level security scheme called SAS (Shared Access Signature). Each rule contains a name, a key value (shared secret), and a set of rights, as explained in [Security Claims](#security-claims). When creating a Notification Hub, two rules are automatically created: one with **Listen** rights (that the client app uses) and one with **all** rights (that the app backend uses).
 
 When performing registration management from client apps, if the information sent via notifications is not sensitive (for example, weather updates), a common way to access a Notification Hub is to give the key value of the rule Listen-only access to the client app, and to give the key value of the rule full access to the app backend.
 
