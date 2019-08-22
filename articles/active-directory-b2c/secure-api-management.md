@@ -135,23 +135,19 @@ A client application (in this case, Postman) that calls a published API must inc
 
 1. Add `Ocp-Apim-Subscription-Key` header
 1. Add `Authorization` header with token value
-1. ...stuff.
+1. **[TODO]** ...stuff. **[TODO]**
 
-![Example request header in Postman](media/secure-apim-with-b2c-token/postman-01.png)
-
-## Enable multiple JWT validation in Azure API Management
-
-You can add multiple JWT validations in Azure API Management. This is useful when you generate tokens using multiple issuer URLs for B2C (for example, `logn.microsoftonline.com` and `b2clogin.com`) to validate against a single API in Azure API Management.
+**[IMAGE(S) HERE]**
 
 ## Migrate an existing API to b2clogin.com
 
-**[TODO: This might go in its own doc that talks about migrating APIM-fronted APIs protected by B2C to b2clogin.com]**
+**[TODO: This should probably go in its own doc that talks about migrating APIM-fronted APIs protected by B2C to b2clogin.com]**
 
 If you previously protected an API in Azure API Management with Azure AD B2C using the `login.microsoftonline.com` issuer endpoint, you should migrate the API to support tokens issued by [b2clogin.com](b2clogin.md). During the migration, you might wish to support both endpoints to continue supporting clients with tokens issued by the legacy `login.microsoftonline.com` endpoint.
 
-To enable support for multiple token issuer domains, use the `<choose>` in your API Management policy tag to enable a branching flow within the policy. To inform the API which condition to validate, modify the `Authorization` header.
+To enable support for multiple token issuer domains, use the `<choose>` element in your API Management policy to enable a branching flow within the policy. To inform the API which condition to validate, modify the `Authorization` header.
 
-For example, this policy enables support for
+For example, this policy enables support for **TODO**
 
 ```xml
 <policies>
@@ -202,7 +198,7 @@ For example, this policy enables support for
 </policies>
 ```
 
-## Validate Azure API Management in multiple config URLs case
+### Validate Azure API Management in multiple config URLs case
 
 **[TODO: EXPLANATION HERE]**
 
