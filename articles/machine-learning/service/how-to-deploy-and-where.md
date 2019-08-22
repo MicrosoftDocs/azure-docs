@@ -832,14 +832,14 @@ package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
 package.wait_for_creation(show_output=True)
 # Download the package
 package.save("./imagefiles")
-# Get the Azure Container Registry that the model/Dockerfile uses
+# Get the Azure Container Registry that the model/dockerfile uses
 acr=package.get_container_registry()
 print("Address:", acr.address)
 print("Username:", acr.username)
 print("Password:", acr.password)
 ```
 
-This code downloads the files needed to build the image to the `imagefiles` directory. The Dockerfile included in the save files references a base image stored in an Azure Container Registry. When building the image on your local Docker installation, you must use the address, user name, and password to authenticate to this registry. Use the following steps to build the image using a local Docker installation:
+This code downloads the files needed to build the image to the `imagefiles` directory. The dockerfile included in the save files references a base image stored in an Azure Container Registry. When building the image on your local Docker installation, you must use the address, user name, and password to authenticate to this registry. Use the following steps to build the image using a local Docker installation:
 
 1. From a shell or command-line session, use the following command to authenticate Docker with the Azure Container Registry. Replace `<address>`, `<username>`, and `<password>` with the values retrieved using `package.get_container_registry()`:
 
