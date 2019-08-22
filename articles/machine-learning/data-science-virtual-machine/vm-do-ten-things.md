@@ -62,10 +62,6 @@ For Python, you can use an IDE like Visual Studio Community Edition, which has t
 * Give a description and set the environment prefix path as *c:\anaconda\envs\python2* for Anaconda Python 2.7
 * Click **Auto Detect** and then **Apply** to save the environment.
 
-Here is what the custom environment setup looks like in Visual Studio.
-
-![Screenshot of Visual Studio with Python Tools for Visual Studio selected](./media/vm-do-ten-things/PTVSSetup.png)
-
 See the [PTVS documentation](https://aka.ms/ptvsdocs) for additional details on how to create Python Environments.
 
 Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](https://aka.ms/ptvsdocs).
@@ -217,7 +213,7 @@ To administer your Azure subscription and cloud resources, you have two options:
 [Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for full details. 
 
 ## 5. Extend storage with shared file systems
-Data scientists can share large datasets, code, or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
+Data scientists can share large datasets, code, or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
 
 > [!NOTE]
 > The maximum space of the Azure File Service share is 5 TB and individual file size limit is 1 TB. 
@@ -293,8 +289,6 @@ To move data between your local files and blob storage, you can use AzCopy in co
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
 Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure portal](https://portal.azure.com).
-
-![Screenshot of the Storage account keys and container information in the Azure portal](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Run AzCopy command in PowerShell or from a command prompt. Here is some example usage of AzCopy command:
 
@@ -391,9 +385,7 @@ Azure Data Lake Storage is a hyper-scale repository for big data analytics workl
 
 **Move data from VM to Data Lake: Azure Data Lake Explorer**
 
-You can use **Azure Data Lake Explorer** to upload data from the local files in your Virtual Machine to Data Lake storage.
-
-![Screenshot of using the Data Lake Explorer to upload files](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+You can use **Azure Data Lake Explorer** to [upload data from the local files in your Virtual Machine to Data Lake storage](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 You can also build a data pipeline to operationalize your data movement to or from Azure Data Lake using the [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Refer to this [article](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) to guide you through the steps to build the data pipelines.
 
@@ -404,8 +396,6 @@ If your data resides in Azure Blob storage, you can directly read data from Azur
 ![Screenshot of the Add Data Source dialog](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 In Visual Studio, you can read data from blob storage, do some data manipulation, feature engineering, and output the resulting data to either Azure Data Lake or Azure Blob Storage. When you reference the data in blob storage, use **wasb://**; when you reference the data in Azure Data Lake, use **swbhdfs://**
-
-![Screenshot of the query with the WASB entry highlighted](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 You may use the following U-SQL queries in Visual Studio:
 
@@ -484,7 +474,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 ![Enable remote access to the HDInsight cluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Create an Azure Machine Learning workspace. Your Machine Learning Experiments are stored in this Machine Learning workspace. Select the highlighted options in Portal as shown in the following screenshot:
+* Create an Azure Machine Learning workspace. Your Machine Learning Experiments are stored in this Machine Learning workspace. Select the highlighted options in portal as shown in the following screenshot:
 
 ![Create an Azure Machine Learning workspace](./media/vm-do-ten-things/Create_ML_Space.PNG)
 
@@ -878,9 +868,7 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 ![Power BI desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
-You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report. The output is a report that looks like the following.
-
-![Power BI Desktop Report View - Power BI connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
+You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report.
 
 ## 9. Dynamic DSVM scaling 
 You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shut down the VM from the [Azure portal](https://portal.azure.com).
@@ -892,9 +880,7 @@ You can scale up and down the DSVM to meet your project needs. If you don't need
 
 If you need to handle some large-scale analysis and need more CPU and/or memory and/or disk capacity you can find a large choice of VM sizes in terms of CPU cores, GPU-based instances for deep learning, memory capacity, and disk types (including Solid-state drives) that meet your compute and budgetary needs. The full list of VMs along with their hourly compute pricing is available on the [Azure Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) page.
 
-Similarly, if your need for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure portal](https://portal.azure.com) and going to the settings of your VM instance. Here is a screenshot.
-
-![VM instance settings](./media/vm-do-ten-things/VMScaling.PNG)
+Similarly, if your need for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure portal](https://portal.azure.com) and going to the settings of your VM instance. 
 
 ## 10. Add more tools
 There are several tools pre-built into the DSVM that can address many of the common data analytics needs. This saves you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.

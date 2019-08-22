@@ -9,7 +9,7 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ---
-# Provision nodes for VMware Solution by CloudSimple - Azure
+# Provision nodes for Azure VMware Solution by CloudSimple
 
 Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity for your CloudSimple private cloud environment.
 
