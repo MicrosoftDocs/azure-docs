@@ -18,6 +18,7 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 
 - An Analysis Services server in your subscription. To learn more, see [Quickstart: Create a server - Portal](analysis-services-create-server.md) or [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)
 - One or more IP address ranges for client computers (if needed).
+- Please Note that Import scenario from Power BI Premium is currently not supported.
 
 ## Sign in to the Azure portal 
 

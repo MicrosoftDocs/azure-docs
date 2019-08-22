@@ -46,6 +46,9 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 ```
 
 > [!NOTE]
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
+
+> [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master.
 
 ## Stop replication to a replica server

@@ -94,7 +94,7 @@ As soon as the IP address is updated, Site Recovery components will start receiv
 ## Migrate few protected virtual machines to a new vCenter
 
 > [!NOTE]
-> This section is applicable only when you are migrating a few of your protected virtual machines to a new vCenter. If you want protect a new set of virtual machines from a new vCenter, [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault) and start with **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
+> This section is applicable only when you are migrating a few of your protected virtual machines to a new vCenter. If you want to protect a new set of virtual machines from a new vCenter, [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault) and start with **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
 
 To move a few virtual machines to a new vCenter:
 

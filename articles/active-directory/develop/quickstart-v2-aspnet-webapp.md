@@ -90,7 +90,7 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 > Where:
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
 > - `Enter_the_Tenant_Info_Here` - is one of the options below:
->   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.onmicrosoft.com)
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >   - If your application supports **All Microsoft account users**, replace this value with `common`
 >
