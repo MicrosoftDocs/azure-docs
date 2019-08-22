@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.harness.io/`
 
 	> [!NOTE]
-	> The Reply URL value is not real. You will get the actual Reply URL from the **Configure Harness SSO** section, which is explained later in the tutorial .You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Reply URL value is not real. You will get the actual Reply URL from the **Configure Harness SSO** section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -132,11 +132,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your Harness company site as an administrator.
 
-1. On the top-right of the page, Click on **Continuous Security** > **Access Management** > **Authentication Settings**.
+1. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Authentication Settings**.
 
 	![Harness configuration](./media/harness-tutorial/configure01.png)
 
-1. On the **SSO Providers** section, Click on **+ Add SSO Providers** > **SAML**.
+1. On the **SSO Providers** section, click on **+ Add SSO Providers** > **SAML**.
 
 	![Harness configuration](./media/harness-tutorial/configure03.png)
 
@@ -160,11 +160,11 @@ To enable Azure AD users to sign in to Harness, they must be provisioned into Ha
 
 1. Sign in to Harness as an Administrator.
 
-1. On the top-right of the page, Click on **Continuous Security** > **Access Management** > **Users**.
+1. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Users**.
 
     ![Harness configuration](./media/harness-tutorial/configure04.png)
 
-1. On the right side of page, Click on **+ Add User**.
+1. On the right side of page, click on **+ Add User**.
 
     ![Harness configuration](./media/harness-tutorial/configure05.png)
 
