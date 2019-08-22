@@ -1,6 +1,6 @@
 ---
 title: Terminate notification for Azure virtual machine scale set instances | Microsoft Docs
-description: Learn how to enable terminate notification for Azure virtual machine scale set instances
+description: Learn how to enable termination notification for Azure virtual machine scale set instances
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -23,7 +23,7 @@ Scale set instances can opt in to receive instance termination notifications and
 
 The termination notification will be sent through Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), which provides notifications for and delaying of impactful operations such as reboots and redeploy. The preview solution adds another event – Terminate – to the list of Scheduled Events, and the associated delay of the terminate event will depend on the delay limit as specified by users in their scale set model configurations.
 
-Once enrolled into the feature, scale set instances don't need to wait for specified timeout to expire before the instance is deleted. After receiving a Terminate notification, the instance can choose to be deleted at any time before the terminate timeout period expiration.
+Once enrolled into the feature, scale set instances don't need to wait for specified timeout to expire before the instance is deleted. After receiving a Terminate notification, the instance can choose to be deleted at any time before the terminate timeout expires.
 
 > [!IMPORTANT]
 > Terminate notification for scale set instances is currently in Public Preview. No opt in procedure is needed to use the public preview functionality described below.
@@ -65,7 +65,7 @@ After enabling *scheduledEventsProfile* on the scale set model and setting the *
 >Terminate notifications on scale set instances can only be enabled with API version 2019-03-01 and above
 
 ### Azure PowerShell
-When creating a new VMSS you can enable terminate notifications on the scale set by using the [New-AzVmssVM](/powershell/module/az.compute/new-azvmssvm) cmdlet.
+When creating a new scale set, you can enable termination notifications on the scale set by using the [New-AzVmssVM](/powershell/module/az.compute/new-azvmssvm) cmdlet.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -80,9 +80,9 @@ New-AzVmss `
   -TerminateScheduledEvents
 ```
 
-The above example creates a new scale set with terminate notifications enabled with a 5 minute default timeout. When creating a new scale set, the parameter *TerminateScheduledEvents* does not require a value. To change the timeout period, specify the desired timeout through the *TerminateScheduledEventNotBeforeTimeoutInMinutes* parameter. Any new VMs created from the scale set model will have terminate notifications enabled.
+The above example creates a new scale set with terminate notifications enabled with a 5-minute default timeout. When creating a new scale set, the parameter *TerminateScheduledEvents* does not require a value. To change the timeout value, specify the desired timeout through the *TerminateScheduledEventNotBeforeTimeoutInMinutes* parameter.
 
-Use the [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet to enable terminate notifications on an existing scale set.
+Use the [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet to enable termination notifications on an existing scale set.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -91,9 +91,9 @@ Update-AzVmss `
   -TerminateScheduledEvents $true
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
-The above example enables terminate notifications on an existing scale set and sets a 15 minute timeout for the terminate event.
+The above example enables terminate notifications on an existing scale set and sets a 15-minute timeout for the terminate event.
 
-After enabling scheduled events on the scale set model and setting the timeout, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) to reflect the changes. Any new VMs created from the scale set model will have terminate notifications enabled with the event timeout period specified in the scale set model.
+After enabling scheduled events on the scale set model and setting the timeout, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) to reflect the changes.
 
 ## Get Terminate notifications
 
@@ -130,10 +130,10 @@ In the case where there are scheduled events, the response contains an array of 
 ```
 The DocumentIncarnation is an ETag and provides an easy way to inspect if the Events payload has changed since the last query.
 
-For more details on each of the fields above, refer to the Scheduled Events documentation for [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) and [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
+For more details on each of the fields above, see the Scheduled Events documentation for [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) and [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
 
 ### Respond to events
-Once you've learnt of an upcoming event and completed your logic for graceful shutdown, you may approve the outstanding event by making a POST call to the metadata service with the EventId. The POST call indicates to Azure that it can proceed with the VM delete.
+Once you've learnt of an upcoming event and completed your logic for graceful shutdown, you may approve the outstanding event by making a POST call to the metadata service with the EventId. The POST call indicates to Azure that it can continue with the VM delete.
 
 Below is the json expected in the POST request body. The request should contain a list of StartRequests. Each StartRequest contains the EventId for the event you want to expedite:
 ```
@@ -153,9 +153,9 @@ You can also refer to samples scripts for querying and responding to events usin
 ## Tips and best practices
 -	Terminate notifications for all ‘delete’ operations – All delete operation (manual or Autoscale-initiated) will get Terminate events if your scale set has *scheduledEventsProfile* enabled.
 -	No mandatory wait for timeout – You can start the terminate operation at any time after the event has been received and before the event's *NotBefore* time expires.
--	Mandatory delete at timeout – The preview doesn't provide any capability of extending the timeout period after an event has been generated. Once the timeout period expires, the pending terminate event will be processed and the VM will be deleted.
--	Modifiable timeout period – You can modify the timeout period at any time before an instance is deleted, by modifying the *notBeforeTimeout* property on the scale set model and updating the VM instances to the latest model.
--	Approve all pending deletes – If there’s a pending delete on VM_1 that isn't approved, and you've approved another terminate event on VM_2, then VM_2 won't be deleted until the terminate event for VM_1 is approved, or its timeout has elapsed. Once you approve the terminate event for VM_1, then both VM_1 and VM_2 are deleted.
+-	Mandatory delete at timeout – The preview doesn't provide any capability of extending the timeout value after an event has been generated. Once the timeout expires, the pending terminate event will be processed and the VM will be deleted.
+-	Modifiable timeout value – You can modify the timeout value at any time before an instance is deleted, by modifying the *notBeforeTimeout* property on the scale set model and updating the VM instances to the latest model.
+-	Approve all pending deletes – If there’s a pending delete on VM_1 that isn't approved, and you've approved another terminate event on VM_2, then VM_2 isn't deleted until the terminate event for VM_1 is approved, or its timeout has elapsed. Once you approve the terminate event for VM_1, then both VM_1 and VM_2 are deleted.
 -	Approve all simultaneous deletes – Extending the above example, if VM_1 and VM_2 have the same *NotBefore* time, then both terminate events must be approved or neither VM is deleted before the timeout expires.
 
 ## Troubleshoot
