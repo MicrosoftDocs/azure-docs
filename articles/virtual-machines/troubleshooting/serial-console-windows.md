@@ -41,10 +41,6 @@ For serial console documentation for Linux, see [Azure Serial Console for Linux]
 
     ![Boot diagnostics settings](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-b
-
-  1. From the **Support + troubleshooting** section, select **Serial console**. A new pane with the serial console opens and starts the connection.
-
 ## Enable Serial Console functionality for Windows Server
 
 > [!NOTE]
