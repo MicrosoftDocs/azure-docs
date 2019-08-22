@@ -4,7 +4,7 @@ description: The Azure storage emulator provides a free local development enviro
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/10/2018
+ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual

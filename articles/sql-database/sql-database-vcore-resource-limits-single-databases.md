@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 08/14/2019
+ms.date: 08/22/2019
 ---
 # Resource limits for single databases using the vCore-based purchasing model
 
@@ -295,7 +295,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|30000|
-|Number of replicas|2|2|2|2|2|2|2|2|
+|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage |7|7|7|7|7|7|7|7|
