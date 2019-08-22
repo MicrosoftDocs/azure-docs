@@ -30,9 +30,9 @@ Through the Postman client, solutions developers can specify the kind of HTTP re
 
 Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant flow.
 
-1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application of type Native. Or you can reuse an existing Native app registration.
+1. Follow the steps in [our quickstart](https://docs.microsoft.com/azure/digital-twins/quickstart-view-occupancy-dotnet) to create an Azure AD application of type Native. Or you can reuse an existing Native app registration.
 
-1. Under **API permissions**, select **Add a permission". Then, **Azure Digital Twins** under **APIs my organization uses**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Delegated Permissions**, **Read** > **Read.Write** and **Add permission**.
+1. Under **API permissions**, select **Add a permission**. Then, **Azure Digital Twins** under **APIs my organization uses**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Delegated Permissions**, **Read** > **Read.Write** and **Add permission**.
 
     [![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
