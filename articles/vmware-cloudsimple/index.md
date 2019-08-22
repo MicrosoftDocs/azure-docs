@@ -61,10 +61,8 @@ Learn how to perform common tasks, such as:
 * Enable inbound internet access for workloads by [Allocating Public IPs](public-ips.md).
 * Enable connectivity from your internal networks or client workstations by [setting-up VPN](vpn-gateway.md).
 * Enable communications from your [on-premises environments](on-premises-connection.md) as well to [Azure Virtual networks](virtual-network-connection.md).
-<!--* Manage VMware environments by [accessing vSphere Web Client](vsphere-access.md).-->
 * Configure alert targets and view total purchased capacity in the [account summary](account.md)
 * View [users](users.md) that have accessed the CloudSimple portal.
-<!--* [Configure your user profile](edit-profile.md).-->
 * Manage VMware virtual machines from the Azure portal:
     * [Create virtual machines](azure-create-vm.md) in the Azure portal.
     * [Manage virtual machines](azure-manage-vm.md) that you have created.
@@ -77,6 +75,7 @@ These guides describe solutions to goals such as:
 * Install third-party tools, enable additional users and external authentication source in vSphere using [privilege escalation](escalate-privileges.md).
 * Configure access to various VMware services by [configuring on-premises DNS](on-premises-dns-setup.md).
 * Enable name and address allocation for your workloads by [configuring workload DNS and DHCP](dns-dhcp-setup.md).
+* Understand how the service ensures security and functionality in your platform through service [updates and upgrades](vmware-components.md#updates-and-upgrades).
 * Save TCO on backup by creating a sample backup architecture with a [third-party backup software such as Veeam](backup-workloads-veeam.md).
 * Create a secure environment by enabling encryption at rest with a [third-party KMS encryption software](vsan-encryption.md).
 * Extend Azure Active Directory (Azure AD) management into VMware by configuring the [Azure AD identity source](azure-ad.md).
