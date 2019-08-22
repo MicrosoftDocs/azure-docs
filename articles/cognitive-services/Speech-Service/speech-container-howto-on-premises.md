@@ -145,7 +145,7 @@ To install the *helm chart* we'll need to execute the [`helm install`][helm-inst
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
-    --version 0.1.0 \
+    --version 0.1.1 \
     --values <config-values.yaml> \
     --name onprem-speech
 ```
