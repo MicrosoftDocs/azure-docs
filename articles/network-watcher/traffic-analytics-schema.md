@@ -87,7 +87,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
   > FASchemaVersion_s updated from 1 to 2. </br>
   > Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s </br>
   > New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
-  > Deprecated fields will be available until 22 November, 2019.
+  > Deprecated fields will be available until 22nd November, 2019.
 
 Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
 
