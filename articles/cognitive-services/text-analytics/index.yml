@@ -10,8 +10,6 @@ metadata:
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/29/2019
   ms.author: nitinme

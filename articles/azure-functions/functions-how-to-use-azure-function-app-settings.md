@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-
 ---
+
 # Manage your function app 
 
 In Azure Functions, a function app provides the execution context for your individual functions. Function app behaviors apply to all functions hosted by a given function app. All functions in a function app must be of the same [language](supported-languages.md). 

@@ -30,11 +30,11 @@ Connecting your on-premises network to your Private Cloud network allows you to 
 * Use your Private Cloud as part of a disaster recovery solution.
 * Consume on-premises resources on your Private Cloud workload VMs.
 
-## Connecting ExpressRoute Circuits
+## Connecting ExpressRoute circuits
 
 To establish the ExpressRoute connection, you must create an authorization on your ExpressRoute circuit and provide the authorization information to CloudSimple.
 
-### Create ExpressRoute Authorization
+### Create ExpressRoute authorization
 
 1. Sign in to the Azure portal.
 

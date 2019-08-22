@@ -57,7 +57,7 @@ When you change any of your triggers, the Functions infrastructure must be aware
 
 ### Remote build
 
-Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds are not performed when an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. 
+Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds are not performed when an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. To learn how to use remote build, navigate to [zip deploy](#zip-deploy).
 
 > [!NOTE]
 > If you're having issues with remote build, it might be because your app was created before the feature was made available (August 1, 2019). Try creating a new function app.
@@ -82,11 +82,11 @@ When apps are built remotely on Linux, they [run from the deployment package](ru
 
 ##### Consumption (preview) plan
 
-Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds. These remote builds use [Oryx](https://github.com/microsoft/Oryx).
+Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
 
 ##### Dedicated and Premium (preview) plans
 
-Function apps running on Linux in the [Dedicated (App Service) plan](functions-scale.md#app-service-plan) and the [Premium plan](functions-scale.md#premium-plan) also have a limited SCM/Kudu site, which itself takes advantage of [Oryx](https://github.com/microsoft/Oryx).
+Function apps running on Linux in the [Dedicated (App Service) plan](functions-scale.md#app-service-plan) and the [Premium plan](functions-scale.md#premium-plan) also have a limited SCM/Kudu site.
 
 ## Deployment technology details
 
@@ -108,7 +108,7 @@ Use zip deploy to push a .zip file that contains your function app to Azure. Opt
 
 >__How to use it:__ Deploy by using your favorite client tool: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-To perform a zip deploy with a remote build, use the following [Core Tools](functions-run-local.md) command:
+To perform a zip deploy with a [remote build](#remote-build), use the following [Core Tools](functions-run-local.md) command:
 
 ```bash
 func azure functionapp publish <app name> --build remote
@@ -204,23 +204,7 @@ The following table shows the operating systems and languages that support porta
 
 ## Deployment slots
 
-When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of deploying directly to production. For more information about deployment slots, see [Azure App Service slots](../app-service/deploy-staging-slots.md).
-
-### Deployment slots levels of support
-
-There are two levels of support for deployment slots:
-
-* **General availability (GA)**: Fully supported and approved for production use.
-* **Preview**: Not yet supported, but is expected to reach GA status in the future.
-
-| OS/hosting plan | Level of support |
-| --------------- | ------ |
-| Windows Consumption | Preview |
-| Windows Premium (preview) | Preview |
-| Windows Dedicated | General availability |
-| Linux Consumption | Unsupported |
-| Linux Premium (preview) | Preview |
-| Linux Dedicated | General availability |
+When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](../app-service/deploy-staging-slots.md) documentation for details.
 
 ## Next steps
 
