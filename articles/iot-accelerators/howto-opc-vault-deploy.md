@@ -10,7 +10,7 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# Build and Deploy the OPC UA Certificate Management Service
+# Build and deploy the OPC UA Certificate Management Service
 
 This article explains how to deploy the OPC UA Certificate Management Service in Azure.
 
@@ -41,7 +41,7 @@ cd azure-iiot-opc-vault-service
 
 or clone the repo directly in Visual Studio 2017.
 
-### Build and Deploy the Azure service on Windows
+### Build and deploy the Azure service on Windows
 
 A Powershell script provides an easy way to deploy the OPC Vault microservice and the application.<br>
 
@@ -81,7 +81,7 @@ It is also possible to redeploy just the web app binaries. With the parameter `-
 
 After successful deployment, feel free to start using the services: [How to manage the OPC Vault Certificate Management Service](howto-opc-vault-manage.md)
 
-## Delete the Certificate management services from the subscription
+## Delete the Certificate Management Services from the subscription
 
 1. Sign in to the Azure portal: `https://portal.azure.com`.
 2. Go to the resource group in which the service was deployed.
@@ -104,7 +104,7 @@ Ensure you use a short and simple resource group name.  The name is used also to
 It is possible that the name of the website is already in use.  If you run into this error, you need to use a different resource group name. The hostnames in use by the deployment script are: https://resourcegroupname.azurewebsites.net and https://resourgroupname-service.azurewebsites.net.
 Other names of services are built by the combination of short name hashes and are unlikely to conflict with other services.
 
-### Azure Active Directory (Azure AD) Registration 
+### Azure Active Directory (Azure AD) registration 
 
 The deployment script tries to register three Azure AD applications in Azure Active Directory.  
 Depending on your permissions in the selected Azure AD tenant, this operation might fail.   There are two options:

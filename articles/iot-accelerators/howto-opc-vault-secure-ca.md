@@ -25,7 +25,7 @@ The OPC Vault microservice is configured to allow for distinct roles to access v
 > This role assignment should be reviewed for a production deployment and reconfigured appropriately following the guidelines below.
 > This task requires manual assignment of roles and services in the Azure AD Enterprise Applications portal.
 
-### Certificate Management Service Roles
+### Certificate Management Service roles
 
 The microservice defines the following roles:
 
@@ -60,7 +60,7 @@ The following roles should also be considered and assigned when running the serv
 but are not directly trusted to perform CA operations are defined to be in the authorized role. 
 The set of tasks persons in the authorized role is allowed to perform must also be documented.
 
-### Memberships of Trusted and Authorized Roles must be reviewed annually
+### Memberships of trusted and authorized roles must be reviewed annually
 
 Membership of trusted and authorized roles must be reviewed at least quarterly to 
 ensure the set of people (for manual processes) or service identities 
@@ -80,12 +80,12 @@ Assignment of privileged roles, such as authorizing membership of the Administra
 access revoked within 24 hours. Finally, privileged role assignments must be reviewed on a quarterly 
 basis and any unneeded or expired assignments must be removed.
 
-### Privileged roles should use Two-Factor Authentication
+### Privileged roles should use two-factor authentication
 
 Multi-factor authentication (Two-Factor Authentication, MFA, or TFA) must be used for 
 interactive logons of Approvers and Administrators to the service.
 
-## Certificate service operation guidelines
+## Certificate Service operation guidelines
 
 ### Operational contacts
 
@@ -108,7 +108,7 @@ that security events are transmitted to the monitoring solution.
 > By default, the OPC Vault service is deployed with the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) as a monitoring 
 > solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
 
-### Assess Security of Open Source Software Components
+### Assess security of open source software components
 
 All open-source components used within a product or service must be free of moderate or greater security vulnerabilities.
 
@@ -222,7 +222,7 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 Keys created or imported as HSM-protected are processed inside an HSM, validated to FIPS 140-2 Level 2.<br>
 Keys created or imported as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1.
 
-## Operational Practices
+## Operational practices
 
 ### Document and maintain standard operational PKI practices for certificate enrollment
 

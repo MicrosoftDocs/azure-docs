@@ -52,7 +52,7 @@ In the following workflow all certificate requests in the deleted states are rev
 4. Click on the `Update CRL Revocation List(CRL)` button to issue an updated CRL for all active Issuer certificates in the OPC Vault storage.
 5. After a few seconds the `Certificate Details` are shown. Press `Issuer` or `Crl` to download the latest CA certificate and CRL for distribution to your OPC UA applications.
 
-## Manage User Roles
+## Manage user roles
 
 User roles for the OPC Vault microservice are managed in the Azure Active Directory Enterprise Application.
 
@@ -60,7 +60,7 @@ For a detailed description of the role definitions refer to the [Roles](howto-op
 
 By default, an authenticated user in the tenant can sign in the service as a 'Reader'. Higher privileged roles require manual management in the Azure portal or using Powershell.
 
-### Add User
+### Add user
 
 1. Open the Azure portal at `portal.azure.com`.
 2. Navigate to `Azure Active Directory`/`Enterprise applications`.
@@ -72,7 +72,7 @@ By default, an authenticated user in the tenant can sign in the service as a 'Re
 8. Press the `Assign` button.
 9. For users in `Administrator` or `Approver` role, continue to add Azure Key Vault access policies.
 
-### Remove User
+### Remove user
 
 1. Open the Azure portal at `portal.azure.com`.
 2. Navigate to `Azure Active Directory`/`Enterprise applications`.
@@ -82,7 +82,7 @@ By default, an authenticated user in the tenant can sign in the service as a 'Re
 6. Press the `Remove` button.
 7. Remove removed Administrators and Approvers also from Azure Key Vault policies.
 
-### Add User Access Policy to Azure Key Vault
+### Add user access policy to Azure Key Vault
 
 Additional access policies are required for **Approvers** and **Administrators**.
 
@@ -118,7 +118,7 @@ By default, the service identity has only limited permissions to access Key Vaul
 11. Click `Ok`.
 12. `Save`changes.
 
-### Remove User Access Policy from Azure Key Vault
+### Remove user access policy from Azure Key Vault
 
 1. Open the Azure portal at `portal.azure.com`.
 2. Navigate to your OPC Vault  `resourceGroupName`used during deployment.
