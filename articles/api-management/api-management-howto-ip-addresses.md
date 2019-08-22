@@ -80,7 +80,7 @@ For [multi-regional deployments](api-management-howto-deploy-multi-region.md), e
 
 If your API Management service is Consumption tier service, it doesn't have a dedicated IP address. It runs on a shared infrastructure and the IP address is not deterministic. 
 
-For traffic restriction purposes, you can use the range of IP addresses of Azure data centers. Refer to [the Azure Functions documentation article](../azure-functions/ip-addresses#data-center-outbound-ip-addresses.md) for precise steps.
+For traffic restriction purposes, you can use the range of IP addresses of Azure data centers. Refer to [the Azure Functions documentation article](../azure-functions/ip-addresses.md#data-center-outbound-ip-addresses) for precise steps.
 
 ## Changes to the IP addresses
 
