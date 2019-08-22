@@ -73,11 +73,11 @@ Windows 10 Enterprise multi-session, versions 1809, 1903, and later are supporte
  
 ## Which profile management solution should I use for Windows 10 Enterprise multi-session?
 
-In non-persistent virtualized environments, we recommended using a roaming profile solution. This greatly enhances user experience by making sure the user profile is available and up-to-date whenever a user session is created. We highly recommend using FSLogix on Windows 10 Enterprise multi-session to provide seamless profile management. FSLogix can store the user profile in a virtual hard drive (VHD or VHDX) outside of the VM on a fileserver and/or Azure blob. When a user is assigned a VM and a session is created, the FSLogix technology makes sure the VHD/VHDX is mounted to %userprofile%. All WVD users are entitled to use FSLogix at no additional cost.
+In non-persistent virtualized environments, we recommended using a roaming profile solution. This ensures the user profile is available and up-to-date whenever a user session is created. We recommend using FSLogix on Windows 10 Enterprise multi-session for seamless profile management. FSLogix can store the user profile in a virtual hard drive (VHD or VHDX) outside of the VM on a file server and/or Azure blob. Whenever a user is assigned a VM and a session is created, FSLogix mounts the virtual hard drive to %userprofile%. All Windows Virtual Desktop users can use FSLogix at no additional cost.
 
 <!--This sounds like marketing language. Change?-->
  
-For more information about how to configure the FSLogix profile container, see [Configure the FSLogix profile container](./virtual-desktop/create-host-pools-user-profile#configure-the-fslogix-profile-container).  
+For more information about how to configure an FSLogix profile container, see [Configure the FSLogix profile container](./virtual-desktop/create-host-pools-user-profile#configure-the-fslogix-profile-container).  
 
 ## Which license do I need to access Windows 10 Enterprise multi-session?
 
