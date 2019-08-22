@@ -13,7 +13,7 @@ services: iot-edge
 
 # Create and provision an IoT Edge device using X.509 certificates
 
-Azure IoT Edge devices can be autoprovisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of autoprovisioning, review the [autoprovisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+Azure IoT Edge devices can be autoprovisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that aren't edge-enabled. If you're unfamiliar with the process of autoprovisioning, review the [autoprovisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
 This article shows you how to create a Device Provisioning Service individual enrollment using X.509 certificates on an IoT Edge device with the following steps:
 
@@ -67,7 +67,7 @@ In this section, you create the certificate and key files that you'll use later 
 
 1. Create the root CA certificate and one intermediate certificate. These certificates are placed in *\<WRKDIR>*.
 
-   If you've already created root and intermediate certificates in this working directory, don't run this script again. Rerunning this script will overwrite the existing certificates. Instead, proceed to the next step.
+   If you've already created root and intermediate certificates in this working directory, don't run this script again. Rerunning this script will overwrite the existing certificates. Instead, continue with the next step.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -162,7 +162,7 @@ In this section, you create the certificate and key files that you'll use later 
 
 1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory.
 
-   If you've already created root and intermediate certificates in this working directory, don't run this script again. Rerunning this script will overwrite the existing certificates. Instead, proceed to the next step.
+   If you've already created root and intermediate certificates in this working directory, don't run this script again. Rerunning this script will overwrite the existing certificates. Instead, continue with the next step.
 
    ```powershell
    New-CACertsCertChain rsa
