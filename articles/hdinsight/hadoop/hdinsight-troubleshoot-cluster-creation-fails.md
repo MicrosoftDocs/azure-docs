@@ -69,6 +69,8 @@ Ensure that you are using a [supported version of Azure HDInsight](../hdinsight-
 
 Storage account names cannot be more than 24 characters and cannot contain a special character. These restrictions also apply to the default container name in the storage account.
 
+Other naming restrictions also apply for cluster creation. See [Cluster name restrictions](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name), for more information.
+
 ## Service outages
 
 Check [Azure status](https://status.azure.com/status) for any potential outages or service issues.
