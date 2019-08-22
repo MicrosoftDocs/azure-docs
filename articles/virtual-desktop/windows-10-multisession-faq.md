@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/22/2019
 ms.author: helohr
 ---
 # Windows 10 Enterprise multi-session FAQ
@@ -47,15 +47,15 @@ You can start a virtual machine (VM) in Azure with Windows 10 Windows 10 Enterpr
  
 Alternatively, you can create a VM in Azure with Windows 10 Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you can use the downloaded VHD to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
 
-Customize the image to your needs by installing LOB applications and sysprep the image. Once done, you can upload the image to Azure and put the VHD in an image.   You can then use the marketplace offering called “Windows Virtual Desktop” to deploy a new host pool with the customized image. 
+Customize the image to your needs by installing LOB applications and sysprep the image. Once done, you can upload the image to Azure and put the VHD in an image. You can then use the marketplace offering called “Windows Virtual Desktop” to deploy a new host pool with the customized image. 
  
 ## How do I manage Windows 10 Enterprise multi-session after deployment?
 
 You can use any supported configuration tool, but we recommend System Center Configuration Manager 1906 because it supports Windows 10 Enterprise multi-session. We're currently working on Microsoft Intune support.
  
-## Can Windows 10 Enterprise multi-session be Azure Active Directory (AAD) joined?
+## Can Windows 10 Enterprise multi-session be Azure Active Directory (AD)-joined?
 
-Windows 10 Enterprise multi-session currently is supported to be hybrid joined. After Windows 10 Enterprise multi-session is domain joined, use the existing Group Policy Object to enable AAD registration. We're currently working on Azure AD support (non-hybrid).
+Windows 10 Enterprise multi-session is currently supported to be hybrid Azure AD-joined. After Windows 10 Enterprise multi-session is domain-joined, use the existing Group Policy Object to enable Azure AD registration. For more information, see [Plan your hybrid Azure Active Directory join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
  
 ## Where can I find the Windows 10 Enterprise multi-session image?
 
@@ -71,7 +71,7 @@ In the Azure gallery, you can find several releases including Windows 10 Enterpr
 
 Windows 10 Enterprise multi-session, versions 1809, 1903, and later are supported and are available in the Azure gallery. These releases follow the same support life cycle policy as Windows 10 Enterprise. This means the spring release is supported for 18 months and the fall release for 30 months.
  
-##Which profile management solution should I use for Windows 10 Enterprise multi-session?
+## Which profile management solution should I use for Windows 10 Enterprise multi-session?
 
 In non-persistent virtualized environments, we recommended using a roaming profile solution. This greatly enhances user experience by making sure the user profile is available and up-to-date whenever a user session is created. We highly recommend using FSLogix on Windows 10 Enterprise multi-session to provide seamless profile management. FSLogix can store the user profile in a virtual hard drive (VHD or VHDX) outside of the VM on a fileserver and/or Azure blob. When a user is assigned a VM and a session is created, the FSLogix technology makes sure the VHD/VHDX is mounted to %userprofile%. All WVD users are entitled to use FSLogix at no additional cost.
 
@@ -81,18 +81,7 @@ For more information about how to configure the FSLogix profile container, see [
 
 ## Which license do I need to access Windows 10 Enterprise multi-session?
 
-A user connecting to Windows 10 Enterprise multi-session needs to have one of the following licenses:
-
-- Windows 10 Enterprise E3 per-user 
-- Windows 10 Enterprise E5 per-user 
-- Microsoft 365 E3 per-user 
-- Microsoft 365 E5 per-user 
-- Microsoft 365 Business per-user 
-- Microsoft 365 F1 per-user 
- 
-Accessing Windows 10 Enterprise multi-session doesn't require an RDS Client Access License (CAL).
-
-For more information about licenses and pricing, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+For a full list of applicable licenses, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
  
 ## How do I get started?
 
