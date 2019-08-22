@@ -46,8 +46,10 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Security groups
+          - text: Network security groups
             url: security-overview.md
+          - text: Application security groups
+            url: security-overview.md#application-security-groups 
           - text: Route tables
             url: virtual-networks-udr-overview.md
           - text: Virtual network service endpoints
@@ -60,6 +62,8 @@ landingContent:
             url: tutorial-create-route-table-portal.md
           - text: Restrict network access using service endpoints
             url: tutorial-restrict-network-access-to-resources.md
+          - text: Work with application security groups
+            url: manage-network-security-group.md#work-with-application-security-groups
 
 
   # Card
