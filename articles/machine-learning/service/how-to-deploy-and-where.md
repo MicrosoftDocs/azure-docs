@@ -784,12 +784,22 @@ For more sample projects and examples, see the following sample repos:
 
 ## Model packaging
 
-In some cases, you may want to create a Docker image without deploying the model. For example, when you plan on [deploying to Azure App Service](how-to-deploy-app-service.md). You can also save the files needed to build a docker image. For example, the Dockerfile, models, and scoring script.
+In some cases, you may want to create a Docker image without deploying the model. For example, when you plan on [deploying to Azure App Service](how-to-deploy-app-service.md). Or you may want to download the image and run on a local Docker install. You may even want to download the files used to build the image, inspect them, modify them, and build it manually.
+
+Model packaging enables you to do both. It packages up all the assets needed to host a model as a web service and allows you to download either a fully built Docker image or the files needed to build one. There are two ways to use model packaging:
+
+* __Download packaged model__: You download a Docker image containing the model and other files needed to host it as a web service.
+* __Generate dockerfile__: You download the dockerfile, model, entry script, and other assets needed to build a Docker image. You can then inspect the files or make changes before building the image locally.
+
+Both packages can be used to get a local Docker image. 
+
+> [!TIP]
+> Creating a package is similar to deploying a model, as it uses a registered model and inference configuration.
 
 > [!IMPORTANT]
-> Functionality such as building an image locally requires a working [Docker](https://www.docker.com) installation on your development environment.
+> Functionality such as downloading a fully built image or building an image locally requires a working [Docker](https://www.docker.com) installation on your development environment.
 
-### Build an image without deploying
+### Download a packaged model
 
 The following example demonstrates how to build an image, which is registered in the Azure Container Registry for your workspace:
 
@@ -798,15 +808,29 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-After creating a package, you can use `package.pull()` to pull the image to your local Docker environment.
+After creating a package, you can use `package.pull()` to pull the image to your local Docker environment. The output of this command will display the name of the image. For example, `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. After downloading, use the `docker images` command to list the local images:
 
-### Package and download a model
+```text
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+larryml08024f78fd10.azurecr.io/package   20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+```
 
-The following example demonstrates how to download the Docker file, model, and other assets needed to build the image:
+To start a local container using this image, use the following command to start a named container from the shell or command line. Replace the `<imageid>` value with the image ID returned from the `docker images` command:
+
+```bash
+docker run -p 6789:5001 --name mycontainer <imageid>
+```
+
+This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`.
+
+### Generate dockerfile and dependencies
+
+The following example demonstrates how to download the dockerfile, model, and other assets needed to build the image locally. The `generate_dockerfile=True` parameter indicates that we want the files, not a fully built image:
 
 ```python
 package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
 package.wait_for_creation(show_output=True)
+# Download the package
 package.save("./imagefiles")
 # Get the Azure Container Registry that the model/Dockerfile uses
 acr=package.get_container_registry()
@@ -839,13 +863,17 @@ REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
 myimage         latest              739f22498d64        3 minutes ago       1.43GB
 ```
 
-To start the docker image locally, use the following command:
+To start a new container based on this image, use the following command:
 
 ```bash
 docker run -p 6789:5001 --name mycontainer myimage:latest
 ```
 
-This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`. The following example demonstrates posting data using Python:
+This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`.
+
+### Example client to test the local container
+
+The following code is an example of a Python client that can be used with the container:
 
 ```python
 import requests
@@ -857,29 +885,8 @@ scoring_uri = 'http://localhost:6789/score'
 # Two sets of data to score, so we get two results back
 data = {"data":
         [
-            [
-                0.0199132141783263,
-                0.0506801187398187,
-                0.104808689473925,
-                0.0700725447072635,
-                -0.0359677812752396,
-                -0.0266789028311707,
-                -0.0249926566315915,
-                -0.00259226199818282,
-                0.00371173823343597,
-                0.0403433716478807
-            ],
-            [
-                -0.0127796318808497,
-                -0.044641636506989,
-                0.0606183944448076,
-                0.0528581912385822,
-                0.0479653430750293,
-                0.0293746718291555,
-                -0.0176293810234174,
-                0.0343088588777263,
-                0.0702112981933102,
-                0.00720651632920303]
+            [ 1,2,3,4,5,6,7,8,9,10 ],
+            [ 10,9,8,7,6,5,4,3,2,1 ]
         ]
         }
 # Convert to JSON string
@@ -894,6 +901,8 @@ print(resp.text)
 ```
 
 For more example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
+
+### Stop the Docker container
 
 To stop the container, use the following command from a different shell or command line:
 
