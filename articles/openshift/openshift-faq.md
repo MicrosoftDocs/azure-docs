@@ -85,3 +85,79 @@ Yes. You can use OSBA with Azure Red Hat OpenShift. See [Open Service Broker for
 ## I am trying to peer into a virtual network in a different subscription but getting `Failed to get vnet CIDR` error.
 
 In the subscription that has the virtual network, make sure to register `Microsoft.ContainerService` provider with `az provider register -n Microsoft.ContainerService --wait` 
+
+## What is the Azure Red Hat OpenShift (ARO) maintenance process?
+
+There are three types of maintenance for ARO: upgrades, backup and restoration of etcd data, and cloud provider-initiated maintenance.
+
++ Upgrades include software upgrades and CVEs. CVE remediation occurs on startup by running `yum update` and provides for immediate mitigation.  In parallel a new image build will be created for future cluster creates.
+
++ Backup and management of etcd data is an automated process that may require cluster downtime depending on the action. If the etcd database is being restored from a backup there will be downtime. We back up etcd hourly and retain the last 6 hours of backups.
+
++ Cloud provider-initiated maintenance includes network, storage, and regional outages. The maintenance is dependent on the cloud provider and relies on provider-supplied updates.
+
+## What is the general upgrade process?
+
+Running an upgrade should be a safe process to run and should not disrupt cluster services. The SRE can trigger the upgrade process when new versions are available or CVEs are outstanding.
+
+Available updates are tested in a stage environment and then applied to production clusters. When applied, a new node is temporarily added and nodes are updated in a rotating fashion so that pods maintain replica counts. Following best practices helps ensure minimal to no downtime.
+
+Depending on the severity of the pending upgrade or update, the process might differ in that the updates might be applied quickly to mitigate the service’s exposure to a CVE. A new image will be built asynchronously, tested, and rolled out as a cluster upgrade. Other than that, there is no difference between emergency and planned maintenance. Planned maintenance is not prescheduled with the customer.
+
+Notifications may be sent via ICM and email if communication to the customer is required.
+
+## What about emergency vs. planned maintenance windows?
+
+We do not distinguish between the two types of maintenance. Our teams are available 24/7/365 and do not use traditional scheduled “out-of-hours” maintenance windows.
+
+## How will host operating system and OpenShift software be updated?
+
+The host operating system and OpenShift software are updated through our general upgrade and image build process.
+
+## What’s the process to reboot the updated node?
+
+This should be handled as a part of an upgrade.
+
+## Is data stored in etcd encrypted on ARO?
+
+It is not encrypted on the etcd level. The option to turn it on is currently unsupported. OpenShift supports this feature, but engineering efforts are required to make it on the road map. The data is encrypted at the disk level. Refer to [Encrypting Data at Datastore Layer](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) for more information.
+
+## Can logs of underlying VMs be streamed out to a customer log analysis system?
+
+Syslog, docker logs, journal, and dmesg are handled by the managed service and are not exposed to customers.
+
+## How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc. I cannot seem to run `kubectl top` on an ARO cluster.
+
+`kubectl top` is not available on Red Hat OpenShift. It requires a backing metrics source, either Heapster (deprecated) or metrics-server (incubating or alpha), neither of which are included in the OpenShift monitoring stack.
+
+## What is the default pod scheduler configuration for ARO?
+
+ARO uses the default scheduler that ships in OpenShift. There are a couple of additional mechanisms that are not supported in ARO. Refer to [default scheduler documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) and [master scheduler documentation](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) for more details.
+
+Advanced/Custom scheduling is currently unsupported. Refer to the [Scheduling documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) for more details.
+
+## If we scale up the deployment, how do Azure fault domains map into pod placement to ensure all pods for a service do not get knocked out by a failure in a single fault domain?
+
+There are by default five fault domains when using virtual machine scale sets in Azure. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
+
+Refer to [Choosing the right number of fault domains for virtual machine scale set](https://docs.microsoft.com//azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) for more details.
+
+## Is there a way to manage pod placement?
+
+With the impending customer-admin update, customers will have the ability to get nodes and view labels.  This will provide a way to target any VM in the scale set.
+
+Caution must be used when using specific labels:
+
+- Hostname must not be used. Hostname gets rotated often with upgrades and updates and is guaranteed to change.
+
+- If the customer has a request for specific labels or a deployment strategy, this could be accomplished but would require engineering efforts and is not supported today.
+
+## What is the maximum number of pods in an ARO cluster?  What is the maximum number of pods per node in ARO?
+
+Refer to [upstream OpenShift docs](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) for more details. Red Hat OpenShift 3.11 has a 250-pod/node limit, whereas [ARO has a 20-compute node limit](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), so that caps the maximum number of pods supported in an ARO cluster to 250*20 = 5000.
+
+## Can we specify IP ranges for deployment on the private VNET, avoiding clashes with other corporate VNETs once peered?
+
+Azure Red Hat OpenShift supports VNET peering and allows the customer to provide a VNET to peer with and a VNET CIDR in which the OpenShift network will operate.
+
+The VNET created by ARO will be protected and will not accept configuration changes. The VNET that is peered is controlled by the customer and resides in their subscription.
