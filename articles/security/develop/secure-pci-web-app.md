@@ -99,7 +99,8 @@ To get the application up and running, you need to install these tools:
 
 This sample is composed of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM).
 
-Quickstart
+#### Quickstart
+
 1.	Clone or download [this](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM.git) GitHub repository to your local workstation.
 2.	Review 0-Setup-AdministrativeAccountAndPermission.md and run the provided commands.
 3.	Deploy a test solution with Contoso sample data or pilot an initial production environment.
