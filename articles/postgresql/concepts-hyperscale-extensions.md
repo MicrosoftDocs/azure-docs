@@ -29,7 +29,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Provides a case-insensitive character string type. |
 > | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Provides a data type for multidimensional cubes. |
-> | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Provides a data type for storing sets of key or value pairs. |
+> | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Provides a data type for storing sets of key-value pairs. |
 > | [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Provides data types for international product numbering standards. |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. |
 > | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Provides a data type for hierarchical tree-like structures. |
@@ -130,7 +130,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 
 
 ## pg_stat_statements
-The [pg\_stat\_statements extension](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you with a means of tracking execution statistics of SQL statements.
+The [pg\_stat\_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you with a means of tracking execution statistics of SQL statements.
 
 The setting `pg_stat_statements.track` controls what statements are counted by the extension. It defaults to `top`, which means that all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) or the [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 

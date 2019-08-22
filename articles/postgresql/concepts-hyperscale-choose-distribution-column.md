@@ -30,9 +30,8 @@ all relevant data placed on the same node is called colocation.
 
 The following diagram illustrates colocation in the multi-tenant data
 model. It contains two tables, Accounts and Campaigns, each distributed
-by `account_id`. The shaded boxes represent shards. Each color
-represents which worker node it contains. Green shards are stored
-together on one worker node, and blue shards are stored on another. Notice how a join
+by `account_id`. The shaded boxes represent shards. Green shards are stored
+together on one worker node, and blue shards are stored on another worker node. Notice how a join
 query between Accounts and Campaigns has all the necessary data
 together on one node when both tables are restricted to the same
 account\_id.
@@ -72,7 +71,7 @@ and uses data colocation to route queries per tenant. By contrast, real-time
 architectures depend on specific distribution properties of their data
 to achieve highly parallel processing.
 
-The term "entity ID" is used for distribution columns in the real-time
+We use "entity ID" as a term for distribution columns in the real-time
 model. Typical entities are users, hosts, or devices.
 
 Real-time queries typically ask for numeric aggregates grouped by date or
