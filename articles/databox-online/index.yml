@@ -69,7 +69,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Develop C# Edge compute module
+          - text: C# Edge compute module
             url: data-box-edge-create-iot-edge-module.md
       - linkListType: download
         links:
