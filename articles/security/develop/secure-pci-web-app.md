@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2019
+ms.date: 08/22/2019
 ms.author: terrylan
 ---
 # Develop a secure infrastructure for a PCI app
@@ -43,7 +43,7 @@ In developing and deploying this app, you learn how to:
 
 - Create an Azure Key Vault instance and store and retrieve secrets from it.
 - Deploy Azure Database for Azure SQL, set up secure data, and authorize access to it.
-- Deploy the Azure web app with App Service environment which is a dedicated isolated with front end firewall aEcess.
+- Deploy the Azure web app with App Service environment which is a dedicated isolated with front-end firewall aEcess.
 - Create and configure an Azure Application Gateway instance with a firewall that uses [OWASP Top 10 Ruleset](https://coreruleset.org/).
 - Enable encryption of data in transit and at rest by using Azure services.
 - Set up the Azure policy and blue prints to evaluate the compliances
@@ -92,25 +92,21 @@ Developers improve the overall security of the system by mitigating each of the 
 ### Prerequisites
 To get the application up and running, you need to install these tools:
 
-- A code editor to modify and view the application code. [Visual Studio Code](https://code.visualstudio.com/) is an open source option.
+- A code editor to modify and view the application code. [Visual Studio Code](https://code.visualstudio.com/) is an open-source option.
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) on your development computer.
 - [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
 - [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
 
-This sample is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM).
+This sample is composed of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM).
 
 Quickstart
 1.	Clone or download [this](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM.git) GitHub repository to your local workstation.
 2.	Review 0-Setup-AdministrativeAccountAndPermission.md and run the provided commands.
-    ![0-Setup-AdministrativeAccountAndPermission](./media/secure-pci-web-app/0-Setup-AdministrativeAccountAndPermission.ps1)
 3.	Deploy a test solution with Contoso sample data or pilot an initial production environment.
-	![1A-ContosoWebStoreDemoAzureResources.ps1](./media/secure-web-app/1A-ContosoWebStoreDemoAzureResources.ps1)
 
     This script deploys Azure resources for a demonstration of a web store using Contoso sample data.
 
 In this example you run the deployment script that deploys the web app onto App Service and creates the resources.
-
-The app can use the different deployment models shown below:
 
 There are many ways to deploy apps on Azure, including:
 
@@ -135,16 +131,19 @@ following network security groups exist:
 - 1 network security group for Azure SQL Database
 - 1 network security group for bastion host
 
-Each of the Nntwork security groups have specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each network security group:
+Each of the Network security groups has specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each network security group:
 
 - Diagnostic logs and events(https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) are enabled and stored in a storage account
 - Azure Monitor logs are connected to the network security group's diagnostics(https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 ### NSG Config
+NSG config for App Service Environment should be configured as shown in the image below.
+
  ![NSG_Config](./media/secure-pci-web-app/nsg-config.png)
 Subnets: Each subnet is associated with its corresponding network security group.
 
 ### Config
+Subnets are configured as shown in the image below.
  ![Config](./media/secure-pci-web-app/config.png)
 
 ### Azure DNS
@@ -177,7 +176,7 @@ The Azure SQL Database instance uses the following database security measures:
 The following technologies provide capabilities to manage access to cardholder data in the Azure environment:
 
 - Azure Active Directory is Microsoft's multi-tenant cloud-based directory and identity management service. All users for this solution are created in Azure Active Directory, including users accessing the Azure SQL Database.
-- Authentication to the application is performed using Azure Active Directory. For more information, see Integrating applications with Azure Active Directory. Additionally, the database column encryption uses Azure Active Directory to authenticate the application to Azure SQL Database. For more information, see how to protect sensitive data in Azure SQL Database.
+- Authentication to the application is performed using Azure Active Directory. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-an-application-integration). Additionally, the database column encryption uses Azure Active Directory to authenticate the application to Azure SQL Database. For more information, see [how to protect sensitive data in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview).
 - Azure role-based access control enables administrators to define fine-grained access permissions to grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted permission for Azure resources, administrators can allow only certain actions for accessing cardholder data. Subscription access is limited to the subscription administrator.
 - Azure Active Directory Privileged Identity Management enables customers to minimize the number of users who have access to certain information such as cardholder data. Administrators can use Azure Active Directory Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality can also be used to enforce on-demand, just-in-time administrative access when needed.
 - Azure Active Directory Identity Protection detects potential vulnerabilities affecting an organization's identities, configures automated responses to detected suspicious actions related to an organization's identities, and investigates suspicious incidents to take appropriate action to resolve them.
@@ -239,6 +238,7 @@ The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management service for web developers on multiple platforms. Application Insights detects performance anomalies and customers can use it to monitor the live web application. It includes powerful analytics tools to help customers diagnose issues and to understand what users actually do with their app. It's designed to help customers continuously improve performance and usability.
 
 ### Azure Key Vault
+Create a vault for the organization in which to store keys, and maintain accountability for operational tasks like below:
 
 - Data stored in Key Vault includes:
 
@@ -252,12 +252,12 @@ The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-
 - Key Vault access policies are defined with minimum required permissions to keys and secrets
 - All keys and secrets in Key Vault have expiration dates
 - All keys in Key Vault are protected by HSM [Key Type = HSM Protected 2048-bit RSA Key]
-- All users/identities are granted minimum required permissions using Role Based Access Control (RBAC)
+- All users/identities are granted minimum required permissions using Role-Based Access Control (RBAC)
 - Applications do not share a Key Vault unless they trust each other and they need access to the same secrets at runtime
 - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
 - Permitted cryptographic operations for keys are restricted to the ones required
 
-## VPN and ExpressRoute
+### VPN and ExpressRoute
 A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
 
 By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-Site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. The IPsec tunnel mode is used in this option as an encryption mechanism.
@@ -270,15 +270,6 @@ Best practices for implementing a secure hybrid network that extends an on-premi
 If you don't already have an Azure account, you can create a free one. Go to the [free account page](https://azure.microsoft.com/free/) to get started, see what you can do with a free Azure account, and learn which products are free for 12 months.
 
 To deploy the resources in the sample app with the security features, you need to pay for some premium features. As the app scales and the free tiers and trials offered by Azure need to be upgraded to meet application requirements, your costs might increase. Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs.
-
-## Disclaimer
-
-- This document is for informational purposes only. MICROSOFT MAKES NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided "as-is." Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.
-- This document does not provide customers with any legal rights to any intellectual property in any Microsoft product or solutions.
-- Customers may copy and use this document for internal reference purposes.
-- Certain recommendations in this document may result in increased data, network, or compute resource usage in Azure, and may increase a customer's Azure license or subscription costs.
-- This architecture is intended to serve as a foundation for customers to adjust to their specific requirements and should not be used as-is in a production environment.
-- This document is developed as a reference and should not be used to define all means by which a customer can meet specific compliance requirements and regulations. Customers should seek legal support from their organization on approved customer implementations.
 
 ## Next steps
 The following articles can help you design, develop, and deploy secure applications.
