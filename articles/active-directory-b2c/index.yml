@@ -72,8 +72,6 @@ landingContent:
             url: active-directory-b2c-ui-customization-custom.md
           - text: Enable sign-in with LinkedIn
             url: active-directory-b2c-custom-setup-li-idp.md
-      - linkListType: reference
-         - text: TrustFrameworkPolicy
 
   # Card
   - title: Add identity to ASP.NET apps
