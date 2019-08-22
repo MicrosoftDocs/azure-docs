@@ -111,12 +111,10 @@ Jump to a resource provider namespace:
 > - [Microsoft.PortalSdk](#microsoftportalsdk)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectArcadia](#microsoftprojectarcadia)
 > - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft.ResourceGraph.PPE](#microsoftresourcegraphppe)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
@@ -145,7 +143,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
 > - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.VMwareVirtustream](#microsoftvmwarevirtustream)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
@@ -829,13 +826,6 @@ Jump to a resource provider namespace:
 | ------------- | ----------- | ---------- |
 | capacities | Yes | Yes |
 
-## Microsoft.ProjectArcadia
-| Resource type | Resource group | Subscription |
-| ------------- | ----------- | ---------- |
-| workspaces | No | No |
-| workspaces/sparkcomputes | No | No |
-| workspaces/sqlcomputes | No | No |
-
 ## Microsoft.ProjectOxford
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -858,11 +848,6 @@ Jump to a resource provider namespace:
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | queries | Yes | Yes |
-
-## Microsoft.ResourceGraph.PPE
-| Resource type | Resource group | Subscription |
-| ------------- | ----------- | ---------- |
-| queries | No | No |
 
 ## Microsoft.SaaS
 | Resource type | Resource group | Subscription |
@@ -1056,11 +1041,6 @@ Jump to a resource provider namespace:
 | dedicatedcloudnodes | Yes | Yes |
 | dedicatedcloudservices | Yes | Yes |
 | virtualmachines | Yes | Yes |
-
-## Microsoft.VMwareVirtustream
-| Resource type | Resource group | Subscription |
-| ------------- | ----------- | ---------- |
-| privateclouds | No | No |
 
 ## Microsoft.Web
 | Resource type | Resource group | Subscription |
