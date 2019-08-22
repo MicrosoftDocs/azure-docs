@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2019
+ms.date: 08/23/2019
 ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
