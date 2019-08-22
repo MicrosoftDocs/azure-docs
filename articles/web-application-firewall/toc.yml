@@ -50,7 +50,7 @@
        - name: Azure CLI
          href: ./ag/application-gateway-customize-waf-rules-cli.md    
      - name: Troubleshoot WAF
-       href: .ag/web-application-firewall-troubleshoot.md
+       href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
     items:
     - name: Configure WAF policy - PowerShell
