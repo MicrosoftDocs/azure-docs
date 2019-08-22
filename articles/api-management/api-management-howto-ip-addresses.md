@@ -26,7 +26,7 @@ You can use IP address to create firewall rules, filter the incoming traffic to 
 
 If your API Management service is Developer, Basic, Standard, or Premium tier service, you can retrieve the IP address from the overview dashboard of your resource in the Azure portal.
 
-![API Management IP address](media/api-management-howto-retrieve-ip-addresses/public-ip.png)
+![API Management IP address](media/api-management-howto-ip-addresses/public-ip.png)
 
 You can also fetch it programmatically with the following API call:
 
@@ -52,7 +52,7 @@ Public IP addresses will be part of the response:
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private. You will see both types of addresses in the Azure portal and in the response of the API call:
 
-![API Management in VNET IP address](media/api-management-howto-retrieve-ip-addresses/vnet-ip.png)
+![API Management in VNET IP address](media/api-management-howto-ip-addresses/vnet-ip.png)
 
 
 ```json
