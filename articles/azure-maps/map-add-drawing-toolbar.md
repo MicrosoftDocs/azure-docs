@@ -12,7 +12,7 @@ manager: philmea
 
 # Add a drawing tools toolbar to a map
 
-This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) adds the drawing toolbar on the map. You will learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
+This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) control adds the drawing toolbar on the map. You will learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
 
 
 ## Add a polygon drawing tool
@@ -65,7 +65,7 @@ Below is the complete running code sample of the functionality above:
 
 ## Change drawing rendering style
 
-The following code gets the rendering layers from the drawing manager and modifies their options to rendering style for drawing.
+The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing.
 
 ```Javascript
 var layers = drawingManager.getLayers();
