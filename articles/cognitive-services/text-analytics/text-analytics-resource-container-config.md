@@ -3,7 +3,6 @@ title: Configure containers - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
-zone_pivot_groups: cogsvcs-text-analytics-features
 author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
@@ -96,23 +95,19 @@ Replace {_argument_name_} with your own values:
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
 > The ApiKey value is the **Key** from the Azure `Text Analytics` Resource keys page. 
 
-::: zone pivot="text-analytics-key-phrase-extraction"
+#### [Key Phrase Extraction](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 
-::: zone-end
-
-::: zone pivot="text-analytics-language-detection"
+#### [Language Detection](#tab/language)
 
 [!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
-::: zone-end
-
-::: zone pivot="text-analytics-sentiment-analysis"
+#### [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
 
-::: zone-end
+***
 
 ## Next steps
 

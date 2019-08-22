@@ -3,7 +3,6 @@ title: Run Azure Container Instances - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Deploy the text analytics containers to the Azure Container Instance, and test it in a web browser.
 services: cognitive-services
-zone_pivot_groups: cogsvcs-text-analytics-features
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
@@ -25,23 +24,19 @@ Learn how to deploy the Cognitive Services [Text Analytics][install-and-run-cont
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](../../containers/includes/create-container-instances-resource.md)]
 
-::: zone pivot="text-analytics-key-phrase-extraction"
+#### [Key Phrase Extraction](#tab/keyphrase)
 
 [!INCLUDE [Verify the Key Phrase Extraction container instance](../includes/verify-key-phrase-extraction-container.md)]
 
-::: zone-end
-
-::: zone pivot="text-analytics-language-detection"
+#### [Language Detection](#tab/language)
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-::: zone-end
-
-::: zone pivot="text-analytics-sentiment-analysis"
+#### [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-::: zone-end
+***
 
 ## Next steps 
 

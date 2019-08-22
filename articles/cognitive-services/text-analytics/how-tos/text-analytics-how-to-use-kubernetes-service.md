@@ -3,7 +3,6 @@ title: Run Azure Kubernetes Service - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Deploy the Text Analytics container image to Azure Kubernetes Service, and test it in a web browser.
 services: cognitive-services
-zone_pivot_groups: cogsvcs-text-analytics-features
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
@@ -33,29 +32,25 @@ This procedure requires several tools that must be installed and run locally. Do
 
 [!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-::: zone pivot="text-analytics-key-phrase-extraction"
+#### [Key Phrase Extraction](#tab/keyphrase)
 
 [!INCLUDE [Key Phrase Extraction Kubernetes config and deploy steps](../includes/key-phrase-extraction-kubernetes-config-and-deploy-steps.md)]
 
 [!INCLUDE [Verify the Key Phrase Extraction container instance](../includes/verify-key-phrase-extraction-container.md)]
 
-::: zone-end
-
-::: zone pivot="text-analytics-language-detection"
+#### [Language Detection](#tab/language)
 
 [!INCLUDE [Language Detection Kubernetes config and deploy steps](../includes/language-detection-kubernetes-config-and-deploy-steps.md)]
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-::: zone-end
-
-::: zone pivot="text-analytics-sentiment-analysis"
+#### [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [Sentiment Analysis Kubernetes config and deploy steps](../includes/sentiment-analysis-kubernetes-config-and-deploy-steps.md)]
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-::: zone-end
+***
 
 ## Next steps
 
