@@ -782,7 +782,7 @@ For more sample projects and examples, see the following sample repos:
 * [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
-## Model packaging
+## Package models
 
 In some cases, you may want to create a Docker image without deploying the model. For example, when you plan on [deploying to Azure App Service](how-to-deploy-app-service.md). Or you may want to download the image and run on a local Docker install. You may even want to download the files used to build the image, inspect them, modify them, and build it manually.
 
