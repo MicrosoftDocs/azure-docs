@@ -1,6 +1,6 @@
 ---
-title: Customize web application firewall rules in Azure Application Gateway - Azure CLI
-description: This article provides information on how to customize web application firewall rules in Application Gateway with the Azure CLI.
+title: Customize Web Application Firewall rules in Azure Application Gateway - Azure CLI
+description: This article provides information on how to customize Web Application Firewall rules in Application Gateway with the Azure CLI.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,9 +9,9 @@ ms.author: victorh
 ms.topic: article
 ---
 
-# Customize web application firewall rules through the Azure CLI
+# Customize Web Application Firewall rules through the Azure CLI
 
-The Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ## View rule groups and rules
 
