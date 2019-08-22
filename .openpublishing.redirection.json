@@ -25985,6 +25985,11 @@
       "redirect_document_id": false
     },  
     {
+      "source_path": "articles/security-center/security-center-security-center-incident-response.md",
+      "redirect_url": "/azure/security-center/security-center-security-center-incident",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
