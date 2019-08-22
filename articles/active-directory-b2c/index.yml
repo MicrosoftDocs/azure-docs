@@ -90,7 +90,7 @@ landingContent:
             url: active-directory-b2c-tutorials-web-api.md
 
   # Card
-  - title: Add identity to single-page apps (SPA)
+  - title: Add identity to single-page apps
     linkLists:
       - linkListType: quickstart
         links:
