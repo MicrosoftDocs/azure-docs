@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 manager: twooley
 Customer intent: I want to create a NAT Gateway for outbound connectivity for my virtual network.
-ms.custom: seodec18
 ms.service: nat
 ms.devlang: na
 ms.topic: tutorial
@@ -23,7 +22,7 @@ ms.custom: seodec18
 This quickstart shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 [!NOTE] 
-Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
+Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -59,7 +58,7 @@ To access the public Internet, you need one or more public IP addresses for the 
 
 ### Create a public IP prefix
 
-You can use one or more public IP address resources or one or more public IP prefix or both with NAT gateway. We will add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) to create a public IP prefix resource named *myPublicIPprefix* in *myResourceGroupNAT*.
+You can use one or more public IP address resources or one or more public IP prefixes or both with NAT gateway. We will add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) to create a public IP prefix resource named *myPublicIPprefix* in *myResourceGroupNAT*.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -105,7 +104,7 @@ Create a virtual network named **myVnet** with a subnet named **mySubnet** in th
 
 ### Configure NAT service for source subnet
 
-We already created the NAT gateway and now configure the source subnet **mySubnet** in virtual network **myVnet** to use a specific NAT gateway resource **myNAT** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet).  This will activate the NAT service on the specified subnet.
+We'll configure the source subnet **mySubnet** in virtual network **myVnet** to use a specific NAT gateway resource **myNAT** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet).  This command will activate the NAT service on the specified subnet.
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -118,7 +117,7 @@ All outbound traffic to Internet destinations is now using the NAT service.  It 
 
 ## Create a VM to use the NAT service
 
-We will now create a VM to use the NAT service.  This VM has a public IP to use as an instance-level Public IP to allow you to access the VM.  NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address will not be used for outbound connections.
+We'll now create a VM to use the NAT service.  This VM has a public IP to use as an instance-level Public IP to allow you to access the VM.  NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
 
 ### Create public IP for source VM
 
@@ -189,7 +188,7 @@ While the command will return immediately, it may take a few minutes for the VMs
 
 ## Discover the IP address of the VM
 
-First we need to discover the IP address of the VM we have created.  To retrieve the public IP address of the dVM, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
+First we need to discover the IP address of the VM you've created. To retrieve the public IP address of the VM, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \
@@ -206,7 +205,7 @@ First we need to discover the IP address of the VM we have created.  To retrieve
 
 The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine.
 
-You are now ready to use the NAT service.
+You're now ready to use the NAT service.
 
 ```
 
