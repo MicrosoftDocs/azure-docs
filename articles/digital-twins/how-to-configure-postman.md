@@ -32,7 +32,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. Follow the steps in [our quickstart](https://docs.microsoft.com/azure/digital-twins/quickstart-view-occupancy-dotnet) to create an Azure AD application of type Native. Or you can reuse an existing Native app registration.
 
-1. Under **API permissions**, select **Add a permission**. Then, **Azure Digital Twins** under **APIs my organization uses**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Delegated Permissions**, **Read** > **Read.Write** and **Add permission**.
+1. Under **API permissions**, select **Add a permission**. Then, **Azure Digital Twins** under **APIs my organization uses**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Delegated Permissions**, **Read** > **Read.Write**, and **Add permission**.
 
     [![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
@@ -70,7 +70,7 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
     | Grant Type | `Implicit` |
     | Callback URL | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL | Use the **Authorization URL** from step 2 |
-    | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or repurposed from the previous section |
+    | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or reused from the previous section |
     | Scope | Leave blank |
     | State | Leave blank |
     | Client Authentication | `Send as Basic Auth header` |
