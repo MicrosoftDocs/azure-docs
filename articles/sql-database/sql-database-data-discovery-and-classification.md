@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
-ms.date: 08/30/2019
+ms.date: 08/22/2019
 ---
 # Azure SQL Database and SQL Data Warehouse data discovery & classification
 
