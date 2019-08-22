@@ -473,7 +473,7 @@ Now a graphical interface opens with a set of tabs. Use the following quickstart
 1. Select the **Evaluate** tab.
 1. Select the **Risk** option, and select **Execute** to display two **Risk (Cumulative)** performance plots.
 1. Select the **Log** tab to show the generated R code for the preceding operations.
-   (Due to a bug in the current release of Rattle, you need to insert a **#** character in front of **Export this log** in the text of the log.)
+   (Because of a bug in the current release of Rattle, you need to insert a **#** character in front of **Export this log** in the text of the log.)
 1. Select the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
 You can exit Rattle and R. Now you can modify the generated R script. Or, use the script as it is, and run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is a way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
