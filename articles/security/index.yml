@@ -89,19 +89,19 @@ conceptualContent:
         url: https://docs.microsoft.com/azure/key-vault/
         text: See more
 
-    - title: Encryption
+    - title: Data protection
       links: 
-        - url: ./fundamentals/data-encryption-best-practices.md
-          itemType: concept
-          text:  Best practices
         - url: ./fundamentals/encryption-atrest.md
           itemType: concept
           text:  Data Encryption-at-Rest
-        - url: azure-security-disk-encryption-overview.md
-          itemType: overview
-          text:  Azure Disk Encryption
+        - url: ./fundamentals/data-encryption-best-practices.md
+          itemType: concept
+          text:  Data security and encryption best practices
+        - url: https://docs.microsoft.com/azure/storage/common/storage-security-guide
+          itemType: concept
+          text:  Storage security
       footerLink: 
-        url: ./fundamentals/index.md
+        url: azure-security-disk-encryption-overview.md
         text: See more
 
     - title: Identity management
@@ -116,7 +116,7 @@ conceptualContent:
           itemType: concept
           text:  Enforce MFA for subscription admins
       footerLink: 
-        url: ./fundamentals/index.md
+        url: https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview
         text: See more
 
     - title: Compliance
