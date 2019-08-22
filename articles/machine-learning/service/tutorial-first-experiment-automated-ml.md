@@ -18,9 +18,9 @@ ms.date: 08/14/2019
 
 In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
-With automated machine learning, you can automate away time intensive and iterative tasks to automatically perform algorithm selection and hyperparameter tuning. Automated machine learning rapidly iterates over many combinations of both algorithms and hyperparameters to find the best model based on your primary success metric.
+With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
-In this tutorial, you learn the following tasks:
+In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning service workspace.
@@ -38,7 +38,7 @@ In this tutorial, you learn the following tasks:
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Create an experiment
+## Create and run the experiment
 
 These steps walk you through experiment set up from data selection to choosing your primary metric and model type. 
 
@@ -46,8 +46,6 @@ These steps walk you through experiment set up from data selection to choosing y
 You'll see the **Welcome to Automated Machine Learning** screen, since this is your first experiment with Automated Machine Learning.
 
     ![Azure portal navigation pane](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
-
-
 
 1. Select **Create experiment**. Then enter **my-1st-automl-experiment** as the experiment name.
 
@@ -73,7 +71,6 @@ You'll see the **Welcome to Automated Machine Learning** screen, since this is y
     On the **Preview** tab, indicate that the data includes headers. The service defaults to include all of the features (columns) for training. For this example, scroll to the right and **Ignore** the **day_of_week** feature.
 
     ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
-
 
     >[!NOTE]
     > Data profiling is not available with computes that have zero minimum nodes.
@@ -157,7 +154,6 @@ In this automated machine learning tutorial, you used the Azure portal to create
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md)
-
 
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
