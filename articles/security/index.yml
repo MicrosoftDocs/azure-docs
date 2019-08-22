@@ -15,42 +15,34 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/19/2019
+  ms.date: 08/22/2019
 
 highlightedContent: 
   items: 
-    - title: What is Azure security?
+    - title: Introduction to Azure security
       itemType: overview 
       url: ./fundamentals/overview.md
-    - title: How does Microsoft share security responsibilities with my organization? 
-      itemType: download
-      url: https://aka.ms/sharedresponsibility
-    - title: Secure PaaS deployments
-      itemType: overview
-      url: ./fundamentals/paas-deployments.md
-    - title: What monitoring and auditing options are available in Azure? 
-      itemType: overview
-      url: ./fundamentals/management-monitoring-overview.md
-    - title: How does Azure secure my data at rest?
+    - title: Security best practices and patterns
       itemType: concept
-      url: ./fundamentals/encryption-atrest.md
-    - title: How do I encrypt Azure virtual machines?
+      url: ./fundamentals/best-practices-and-patterns.md
+    - title: What is Azure Security Center?
       itemType: overview
-      url: azure-security-disk-encryption-overview.md
+      url: https://docs.microsoft.com/azure/security-center/security-center-intro
+
 
 conceptualContent:
   items: 
     - title: Fundamentals
       links: 
-        - url: ./fundamentals/overview.md
+        - url: ./fundamentals/technical-capabilities.md
           itemType: overview
-          text: Introduction to Azure security
-        - url: ./fundamentals/best-practices-and-patterns.md
+          text: Azure security technical capabilities
+        - url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
           itemType: concept
-          text: Security best practices
-        - url: ./fundamentals/threat-detection.md
+          text: Shared responsibilities for cloud computing
+        - url: ./fundamentals/common-security-attributes.md
           itemType: concept
-          text: Advanced threat detection
+          text: Security controls for Azure services
       footerLink: 
         url: ./fundamentals/index.md
         text: See More
@@ -70,7 +62,7 @@ conceptualContent:
         url: ./develop/index.yml
         text: See More
 
-    - title: Security benchmarks
+    - title: Benchmarks and recommendations
       links: 
         - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
           itemType: download
@@ -78,26 +70,23 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/security-center/security-center-using-recommendations
           itemType: overview
           text: Azure Security Center recommendations
-        - url: ./fundamentals/common-security-attributes.md
-          itemType: concept
-          text: Security attributes for Azure services 
       footerLink: 
         url: ./fundamentals/index.md
         text: See More
 
-    - title: Data security
+    - title: Secrets and keys
       links: 
-        - url: https://docs.microsoft.com/azure/key-vault/
+        - url: https://docs.microsoft.com/azure/key-vault/key-vault-overview
           itemType: overview
-          text:  Azure Key Vault
-        - url: https://docs.microsoft.com/azure/dedicated-hsm/
+          text:  What is Azure Key Vault?
+        - url: https://docs.microsoft.com/azure/key-vault/quick-create-cli
+          itemType: quickstart
+          text:  Set and retrieve a secret
+        - url: https://docs.microsoft.com/azure/dedicated-hsm/overview
           itemType: overview
-          text:  Azure Dedicated HSM
-        - url: ./fundamentals/storage-overview.md
-          itemType: overview
-          text:  Azure Storage security
+          text:  What is Azure Dedicated HSM?
       footerLink: 
-        url: ./fundamentals/index.md
+        url: https://docs.microsoft.com/azure/key-vault/
         text: See more
 
     - title: Encryption
