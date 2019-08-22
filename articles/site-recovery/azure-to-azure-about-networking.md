@@ -144,7 +144,7 @@ These rules are required so that replication can be enabled from the target regi
 
    **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
     --- | --- | ---
-   Central US | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
 
 ## Network virtual appliance configuration
 

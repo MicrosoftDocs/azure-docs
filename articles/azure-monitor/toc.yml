@@ -930,6 +930,8 @@
         href: platform/alerts-understand-migration.md
       - name: Use the migration tool
         href: platform/alerts-using-migration-tool.md
+      - name: Automatic migration process
+        href: platform/alerts-automatic-migration.md
       - name: Manage classic metric alerts
         href: platform/alerts-classic-portal.md
       - name: Classic metric alert using a Resource Manager template
@@ -1050,6 +1052,8 @@
         href: app/data-model-context.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure CLI - Application Insights (Preview)
+    href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
   - name: Azure Functions
     href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
