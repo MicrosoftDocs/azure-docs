@@ -36,7 +36,7 @@ Select your offer type:
 | Device | A Device is OEM hardware.  This offer type can be used for an offer that involves building or selling OEM hardware. |
 | IP | Also called Apps, IP is copyrightable material that is licensed for use. For example, IP might be a CRM program that can be licensed and installed on premises. |
 | Service | A service typically delivers expertise for a specific project, often via consultants. For example, a service might set up a customer database for a client; the client would then assume responsibility for operating the database after delivery. |
-| Managed Service | A managed service typically delivers and manages cloud-based services; for example a managed service provider might offer a platform and tools for running a database online. Operations would then be provided by the managed service provider on an ongoing basis. |
+| Managed Service | A managed service typically delivers and manages cloud-based services; for example, a managed service provider might offer a platform and tools for running a database online. Operations would then be provided by the managed service provider on an ongoing basis. |
 
 ## Solution Areas
 
@@ -50,7 +50,7 @@ Solution areas help define the scenarios that your offer is designed to address.
 | :------------------- | :-------------------|
 | *Customer one-pager* | 1-2 page customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Dynamics 365 One-pager template <br> <ul> <li> Azure one-pager: https://aka.ms/Customer-One-Pager_MicrosoftAzure </li> <li> Dynamics one-pager: https://aka.ms/Customer-One-Pager_MicrosoftDynamics365 </li> <li> Office one-pager: https://aka.ms/Customer-One-Pager_MicrosoftOffice365 </li> <li>Windows one-pager: https://aka.ms/Customer-One-Pager_Windows </li> </ul>
  |
-| *Customer presentation* | 5-10 page slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> See customer Presentation template for more information.|
+| *Customer presentation* | 5-10 page slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> For more information, see customer Presentation template.|
 | *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed this solution in prior cases. |
 | *Channel pitch deck* | A slide deck with information that will help channel resellers learn more about your solution and ready their sales teams to sell your offer. It typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
 | *Reference architecture diagrams* | A document showing the model that represents the IP created by the partner, along with its relationship with Microsoft cloud services, and how it meets the technical requirements of the IP Co-sell program. |
@@ -77,7 +77,7 @@ You can also export your existing list of contacts of an offer, and then make ch
     | *Partner technical sales* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
     | *Partner customer success manager* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer’s organization. |
 
-* *Countries/Regions:* (Required) When filling out the template, use the two letter country codes as listed below. If the contact covers all Countries/Regions use the three letter code “OOO”. If a contact covers more than one Country/Region enter each of the 2 letter codes separated by a comma (e.g. enter “US, CA, FR” without quotation marks into the template)
+* *Countries/Regions:* (Required) When filling out the template, use the two letter country codes as listed below. If the contact covers all Countries/Regions use the three letter code “OOO”. If a contact covers more than one Country/Region enter each of the two letter codes separated by a comma (for example, enter “US, CA, FR” without quotation marks into the template)
 
     The countries/regions should reflect each contact’s territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region. 
 
@@ -336,4 +336,4 @@ You can also export your existing list of contacts of an offer, and then make ch
 
 ## Next steps
 
-- See [selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft) for more information.
+- For more information, see [selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
