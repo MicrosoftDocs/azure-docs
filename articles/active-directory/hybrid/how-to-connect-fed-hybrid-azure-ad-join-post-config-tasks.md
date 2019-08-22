@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 After you have run Azure AD Connect to configure your organization for Hybrid Azure AD join, there are a few additional steps that you must complete to finalize that setup.  Carry out only the steps that apply for your devices.
 
 ## 1. Configure controlled rollout (Optional)
-All domain-joined devices running Windows 10 and Windows Server 2016 automatically register with Azure AD once all configuration steps are complete. If you prefer a controlled rollout rather than this auto-registration, you can use group policy to selectively enable or disable automatic rollout.  This group policy should be set before starting the other configuration steps:Azure AD
+All domain-joined devices running Windows 10 and Windows Server 2016 automatically register with Azure AD once all configuration steps are complete. If you prefer a controlled rollout rather than this auto-registration, you can use group policy to selectively enable or disable automatic rollout.  This group policy should be set before starting the other configuration steps:
 * Create a group policy object in your Active Directory.
 * Name it (ex- Hybrid Azure AD join).
 * Edit & go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration.
