@@ -100,7 +100,7 @@ Once you've registered your application and granted it permissions to send/recei
 For a list of scenarios for which acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
 
 
-## Next Steps
+## Next steps
 - To learn more about RBAC, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

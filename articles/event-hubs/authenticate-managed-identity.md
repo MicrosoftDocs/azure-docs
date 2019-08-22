@@ -76,7 +76,7 @@ Install the latest package from [Nuget](https://www.nuget.org/packages/Microsoft
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
 ```
 
-## Next Steps
+## Next steps
 - Download the [sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp) from GitHub.
 - See the following article to learn about managed identities for Azure resources: [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 - See the following related articles:
