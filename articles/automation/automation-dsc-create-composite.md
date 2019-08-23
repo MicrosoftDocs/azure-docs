@@ -64,7 +64,7 @@ you can use them in the
 [Composable Authoring Experience](/azure/automation/compose-configurationwithcompositeresources)
 in Azure,
 or add them to 
-[DSC Configuration scripts](/powershell/dsc/resources/configurations)
+[DSC Configuration scripts](/powershell/dsc/configurations/configurations)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
