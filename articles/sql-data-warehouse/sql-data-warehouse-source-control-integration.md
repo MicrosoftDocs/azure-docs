@@ -44,7 +44,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 2. Right-click on your empty sqlproject  and import your data warehouse into the database project
 
-   ![Import Project](media/sql-data-warehouse-source-control-integration/6-mport-new-project.png "Import Project")  
+   ![Import Project](media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Import Project")  
 
 3. In team explorer in Visual Studio, commit your all changes to your local Git repository 
 
