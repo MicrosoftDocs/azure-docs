@@ -20,6 +20,9 @@ The right answer is a single answer but there can be many ways a customer could 
 
 For example, the questions in the following table are about service limits, but each has to do with a different service. 
 
+<a name="qna-table"></a>
+
+
 |Questions|Answer|Metadata|
 |--|--|--|
 |`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna-maker, link-in-answer=true`|
@@ -76,4 +79,4 @@ The current knowledge base has the QnA Maker troubleshooting question and answer
 
 Adding metadata to a question and answer set allows your client application to request filtered answers. 
 
-Add the second question and answer set, without the metadata, from the first table in the quickstart, then continue with the following steps. 
+Add the second question and answer set, without the metadata, from the [first table in this quickstart](#qna-table), then continue with the following steps. 
