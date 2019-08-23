@@ -51,7 +51,7 @@ The following table describes the network topologies supported by Azure NetApp F
 |    Connectivity to volume in a peered VNet (Same region)    |    Yes    |         |
 |    Connectivity to volume in a peered VNet (Cross region or global   peering)    |    No    |    None    |
 |    Connectivity to a volume over ExpressRoute gateway    |    Yes    |         |
-|    Connectivity from on-premises to a volume in a spoke VNet over   ExpressRoute gateway and VNet peering with gateway transit    |    No    |    Create a delegated subnet in the hub VNet (Azure VNet with   Gateway)    |
+|    Connectivity from on-premises to a volume in a spoke VNet over   ExpressRoute gateway and VNet peering with gateway transit    |    Yes    |        |
 |    Connectivity from on-premises to a volume in a spoke VNet over VPN   gateway    |    Yes    |         |
 |    Connectivity from on-premises to a volume in a spoke VNet over VPN   gateway and VNet peering with gateway transit    |    Yes    |         |
 

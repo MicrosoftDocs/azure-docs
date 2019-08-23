@@ -85,7 +85,7 @@ Then, choose **Save** > **Yes**.
 
 When you want to automate creating and deploying 
 Azure resources such as logic apps, you can use 
-[Azure Resource Manager templates](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). 
+[Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). 
 To create a system-assigned managed identity for 
 your logic app through a template, add the `"identity"` 
 element and `"type"` property to your logic app workflow 

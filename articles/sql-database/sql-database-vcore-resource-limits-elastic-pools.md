@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/26/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
@@ -32,7 +31,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 ## General Purpose service tier: Storage sizes and compute sizes
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
+> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ### General Purpose service tier: Generation 4 compute platform (part 1)
 
@@ -148,7 +147,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 ## Business Critical service tier: Storage sizes and compute sizes
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
+> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ### Business Critical service tier: Generation 4 compute platform (part 1)
 

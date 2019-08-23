@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/08/2019
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Prepare your development environment on Windows
@@ -65,8 +65,8 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.4.641
-* Service Fabric runtime 6.5.641
+* Service Fabric SDK and Tools 3.4.658
+* Service Fabric runtime 6.5.658
 * Service Fabric Tools for Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 includes Service Fabric Tools for Visual Studio 2.4.11024.1 
 * Visual Studio 2019 16.1 includes Service Fabric Tools for Visual Studio 2.5.20423.3

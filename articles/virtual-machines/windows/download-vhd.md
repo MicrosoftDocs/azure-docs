@@ -48,11 +48,11 @@ To use the VHD as a disk for a new instance of an existing VM or data disk, comp
 To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
 1.	On the menu of the blade for the VM, click **Disks**.
-2.	Select the operating system disk for the VM, and then click **Export**.
+2.	Select the operating system disk for the VM, and then click **Disk Export**.
 3.	Set the expiration time of the URL to *36000*.
 4.	Click **Generate URL**.
 
-    ![Generate URL](./media/download-vhd/export-generate.png)
+    ![Generate URL](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
 > The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. You can expect a VHD file that contains the Windows Server operating system to take several hours to download depending on your connection. If you are downloading a VHD for a data disk, the default time is sufficient. 

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
@@ -13,9 +13,9 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
@@ -45,6 +45,7 @@ The following tools are included in a DSVM:
   * [Apache Drill](https://drill.apache.org/) - a schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage. It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Git, including Git Bash, to work with source code repositories that include GitHub and Azure DevOps. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
+* Development tools and editors (RStudio, PyCharm)
 
 ### About data science
 
@@ -103,7 +104,7 @@ To create a DSVM instance:
 
 After the VM is created and provisioned, you can remote desktop into it by using the admin account credentials that you configured in the preceding **Basics** section. You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through start menu tiles and desktop icons.
 
-You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
 

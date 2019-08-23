@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-manager: craigg
 ms.date: 06/26/2019
 ---
 # Overview Azure SQL Database managed instance resource limits
@@ -34,11 +33,10 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 | Number of vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Max memory (memory/core ratio) | 7 GB per vCore<br/>Add more vCores to get more memory. | 5.1 GB per vCore<br/>Add more vCores to get more memory. |
 | Max In-Memory OLTP memory | Instance limit: 3 GB per vCore<br/>Database limits:<br/> - 8-core: 8 GB per database<br/> - 16-core: 20 GB per database<br/> - 24-core: 36 GB per database | Instance limit: 2.5 GB per vCore<br/>Database limits:<br/> - 8-core: 13 GB per database<br/> - 16-core: 32 GB per database |
-| Max instance reserved storage (General Purpose) |  8 TB | 8 TB |
-| Max instance reserved storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
+| Max instance reserved storage |  General Purpose:8 TB<br/>Business Critical: 1TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
+> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ### Service tier characteristics
 
@@ -52,11 +50,13 @@ Managed instance has two service tiers: General Purpose and Business Critical. T
 | Max database size | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
 | Max number of database files per instance | Up to 280 | 32,767 files per database |
+| Max file size | 8 TB | 4 TB |
 | Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit | 3 MB/s per vCore<br/>Max 22 MB/s per instance | 4 MB/s per vCore<br/>Max 48 MB/s per instance|
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore)<br/>Add more vCores to get more TempDB space. | Limited by the max instance storage size. TempDB log file size is currently limited to 24GB/vCore. |
+| In-memory OLTP | Not supported | Available |
 | Max sessions | 30000 | 30000 |
 
 > [!NOTE]

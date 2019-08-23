@@ -1,0 +1,10 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Migrate
+    tocHref: /azure/
+    topicHref: /azure/migrate/index
+
+
+

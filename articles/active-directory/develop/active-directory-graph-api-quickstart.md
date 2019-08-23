@@ -18,7 +18,7 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: sureshja
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
 

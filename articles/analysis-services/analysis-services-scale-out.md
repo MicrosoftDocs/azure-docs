@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -68,7 +68,7 @@ To learn more, see [Monitor server metrics](analysis-services-monitor.md).
 
 ### In Azure portal
 
-1. In the portal, click **Scale-out**. Use the slider to select the number of query replica servers. The number of replicas you choose is in addition to your existing server.
+1. In the portal, click **Scale-out**. Use the slider to select the number of query replica servers. The number of replicas you choose is in addition to your existing server.  
 
 2. In **Separate the processing server from the querying pool**, select yes to exclude your processing server from query servers. Client [connections](#connections) using the default connection string (without `:rw`) are redirected to replicas in the query pool. 
 
@@ -137,6 +137,10 @@ For end-user client connections like Power BI Desktop, Excel, and custom apps, u
 For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and AMO, use **Management server name**. The management server name includes a special `:rw` (read-write) qualifier. All processing operations occur on the (primary) management server.
 
 ![Server names](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## Scale-up, Scale-down vs. Scale-out
+
+You can change the pricing tier on a server with multiple replicas. The same pricing tier applies to all replicas. A scale operation will first bring down all replicas all at once then bring up all replicas on the new pricing tier.
 
 ## Troubleshoot
 

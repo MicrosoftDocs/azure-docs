@@ -14,7 +14,13 @@ ms.author: banders
 ---
 # Prevent unexpected charges with Azure billing and cost management
 
-When you sign up for Azure, there are several things you can do to get a better idea of your spending. The [pricing calculator](https://azure.microsoft.com/pricing/calculator/) can provide an estimate of costs before you create an Azure resource. The [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) provides you with the current cost breakdown and forecast for your subscription. If you want to group and understand costs for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md).
+When you sign up for Azure, there are several things you can do to get a better idea of your spending:
+
+- The [pricing calculator](https://azure.microsoft.com/pricing/calculator/) can provide an estimate of costs before you create an Azure resource. 
+
+- The [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) provides you with the current cost breakdown and forecast for your subscription. 
+
+- If you want to group and understand costs for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md).
 
 - If your subscription was created from an Enterprise Agreement (EA), you can view your costs in the Azure portal. If your subscription is through a Cloud Solution Provider (CSP), or Azure Sponsorship, then some of the following features may not apply to you. For more information, see [Additional resources for EA, CSP, and Sponsorship](#other-offers).
 
@@ -24,7 +30,7 @@ When you sign up for Azure, there are several things you can do to get a better 
 
 ## Get estimated costs before adding Azure services
 
-You can get estimated costs using:
+Here is some additional information about estimating costs using the following tools:
 - Azure pricing calculator
 - Azure portal
 - Spending limit
@@ -41,11 +47,11 @@ For example, in the pricing calculator, an A1 Windows Virtual Machine (VM) is es
 
 ![Screenshot of the pricing calculator showing an A1 Windows VM estimated cost per month](./media/billing-getting-started/pricing-calcvm.png)
 
-For more information about pricing, see the [Pricing FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to an Azure salesperson, you can call the phone number shown at the top of the FAQ page.
+For more information about pricing, see the [Pricing FAQ](https://azure.microsoft.com/pricing/faq/). If you want to talk to an Azure salesperson, call the phone number shown at the top of the FAQ page.
 
 ### Review estimated costs in the Azure portal
 
-Typically when you add a service in the Azure portal, there's a view that shows you an estimated cost per month in your billed currency. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
+Typically, when you add a service in the Azure portal, there's a view that shows you an estimated cost per month in your billed currency. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
 
 ![Example: an A1 Windows VM showing estimated cost per month](./media/billing-getting-started/vm-size-cost.png)
 
@@ -66,7 +72,7 @@ Click the banner and follow the prompts to remove the spending limit. If you did
 You can create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds.
 
 ## Monitor costs when using Azure services
-You can monitor costs with:
+You can monitor costs with the following tools:
 
 - Tags
 - Cost breakdown and burn rate
@@ -74,7 +80,7 @@ You can monitor costs with:
 
 ### <a name="tags"></a> Add tags to resources to group billing data
 
-You can use tags to group billing data for supported services. For example, if you run several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or environment (production, pre-production, test).
+You can use tags to group billing data for supported services. For example, if you run several VMs for different teams, then you can use tags to categorize costs by cost center (for example: HR, marketing, finance, etc.) or environment (for example: production, pre-production, test).
 
 ![Screenshot that shows setting up tags in the portal](./media/billing-getting-started/tags.png)
 
@@ -84,7 +90,7 @@ For more information, see [Using tags to organize your Azure resources](../azure
 
 ### <a name="costs"></a> Monitor cost breakdown and burn rate
 
-After you have your Azure services running, regularly check how much they're costing you. You can see the current spending and burn rate in the Azure portal.
+After you have your Azure services running, regularly check charges. You can see the current spending and burn rate in the Azure portal.
 
 1. Visit the [Subscriptions in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
@@ -92,7 +98,7 @@ After you have your Azure services running, regularly check how much they're cos
 
     ![Screenshot of burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
-3. Click [Cost analysis](../cost-management/quick-acm-cost-analysis.md) in the list one the left to see the cost breakdown by resource. Wait 24 hours after you add a service for the data to appear.
+3. Click [Cost analysis](../cost-management/quick-acm-cost-analysis.md) in the list one the left to see the cost breakdown by resource. After you add a service, wait 24 hours for the data to display.
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.png)
 
@@ -102,12 +108,12 @@ After you have your Azure services running, regularly check how much they're cos
 
     ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/costhistory.png)
 
-We recommend that you compare the costs that you see with the estimates you saw when you selected the services. If the costs are significantly different from the estimates, double check the pricing plan that you've selected for your resources.
+Compare the costs that you see with the estimates that you saw when you selected the services. If the costs are significantly different from the estimates, check the pricing plan that you've selected for your resources.
 
 ## Optimize and reduce costs
-If you're unfamiliar with the principles of cost management, read the [How to optimize your cloud investment with Azure Cost Management](../cost-management/cost-mgt-best-practices.md) best practices article.
+If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Azure Cost Management](../cost-management/cost-mgt-best-practices.md).
 
-In the Azure portal, you can also optimize and reduce Azure costs with Auto shutdown for VMs and Advisor recommendations.
+In the Azure portal, you can also optimize and reduce Azure costs with auto shutdown for VMs and Advisor recommendations.
 
 ### Consider cost-cutting features like auto shutdown for VMs
 
@@ -121,11 +127,11 @@ For more cost-cutting features for your development and test environments, check
 
 ### Turn on and review Azure Advisor recommendations
 
-[Azure Advisor](../advisor/advisor-overview.md) is a feature that helps you reduce costs by identifying resources with low usage. Visit Advisor in the Azure portal:
+[Azure Advisor](../advisor/advisor-overview.md) helps you reduce costs by identifying resources with low usage. Visit Advisor in the Azure portal:
 
 ![Screenshot of Azure Advisor button in Azure portal](./media/billing-getting-started/advisor-button.png)
 
-Then, you can get actionable recommendations in the **Cost** tab in the Advisor dashboard:
+You can get actionable recommendations in the **Cost** tab in the Advisor dashboard:
 
 ![Screenshot of Advisor cost recommendation example](./media/billing-getting-started/advisor-action.png)
 
@@ -133,7 +139,7 @@ Review the [Optimize costs from recommendations](../cost-management/tutorial-acm
 
 ## Review costs against your latest invoice
 
-After the end of your billing cycle, your latest invoice is available. You can also [download invoices and detailed usage files](billing-download-azure-invoice-daily-usage-date.md) to make sure you were charged correctly. For more information about comparing your daily usage with your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+At the end of the billing cycle, your latest invoice is available. You can also [download invoices and detailed usage files](billing-download-azure-invoice-daily-usage-date.md) to make sure you were charged correctly. For more information about comparing your daily usage with your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ### Billing API
 
@@ -170,11 +176,11 @@ Enterprise cost views are currently in Public Preview. Items to note:
 
 To view costs, you must have [subscriptions-level access to billing information](billing-manage-access.md). Only the Account Admin can access the [Account Center](https://account.azure.com/Subscriptions), change billing information, and manage subscriptions. The Account Admin is the person who went through the sign-up process. For more information, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
 
-To see if you're the Account admin, go to [Subscriptions in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Look at the list of subscriptions you have access to. Look under **My role**. If it says *Account admin*, then you're ok. If it says something else like *Owner*, then you don't have full privileges.
+To see if you're the Account admin, go to [Subscriptions in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). View the list of subscriptions and find **My role**. If *Account admin* is the role, then you have full privileges. If it says something else, like *Owner*, you don't have full privileges.
 
 ![Screenshot of your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-If you're not the Account admin, then somebody probably gave you partial access by using [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md) (RBAC). To manage subscriptions and change billing info, [find the Account Admin](billing-subscription-transfer.md#whoisaa). Ask the Account Admin to do the tasks or [transfer the subscription to you](billing-subscription-transfer.md).
+To manage subscriptions and change billing info, [find the Account Admin](billing-subscription-transfer.md#whoisaa). Ask the Account Admin to complete the tasks or [transfer the subscription to you](billing-subscription-transfer.md).
 
 If your Account admin is no longer with your organization and you need to manage billing, [contact us](https://go.microsoft.com/fwlink/?linkid=2083458).
 
@@ -185,7 +191,7 @@ The Service Level Agreement (SLA) describes Microsoft’s commitments for uptime
 
 To request a credit:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. This helps Support personnel automatically collect the necessary background information and resolve the case faster.
+1. Sign-in to the [Azure portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. 
 2. Create a new support request.
 3. Under **Issue type**, select **Billing**.
 4. Under **Problem type**, select **Refund Request**.
@@ -196,7 +202,7 @@ SLA thresholds vary by service. For example, the SQL Web Tier has an SLA of 99.9
 
 For some services, there are prerequisites for the SLA to apply. For example, virtual machines must have two or more instances deployed in the same Availability Set.
 
-For more information, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) documentation and the [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
+For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) and the [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
 
 ## Need help? Contact us.
 

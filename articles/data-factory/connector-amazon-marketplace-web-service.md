@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2018
 ms.author: jingwang
 
 ---
@@ -95,11 +95,12 @@ To copy data from Amazon Marketplace Web Service, set the type property of the d
     "name": "AmazonMWSDataset",
     "properties": {
         "type": "AmazonMWSObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 

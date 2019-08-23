@@ -48,7 +48,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Creates the Batch account. |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Authenticates against the specified Batch account for further CLI interaction.  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#az-batch-pool-node-agent-skus-list) | Lists available node agent SKUs and image information.  |
+| [az batch pool node-agent-skus list](../batch-linux-nodes.md#list-of-virtual-machine-images) | Lists available node agent SKUs and image information.  |
 | [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | Creates a pool of compute nodes.  |
 | [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-resize) | Resizes the number of running VMs in the specified pool.  |
 | [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-show) | Displays the properties of a pool.  |

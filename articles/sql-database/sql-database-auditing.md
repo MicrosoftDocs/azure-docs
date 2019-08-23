@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/16/2019
 ---
 # Get started with SQL database auditing

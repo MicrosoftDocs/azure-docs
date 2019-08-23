@@ -5,7 +5,7 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---
@@ -82,12 +82,13 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 ## Additional resources
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## Next steps
 
-You can now proceed to learn more about change feed in the following articles:
+You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed](change-feed.md)
-* [Ways to read change feed](read-change-feed.md)
-* [Using change feed with Azure Functions](change-feed-functions.md)
+* [Using the change feed estimator](how-to-use-change-feed-estimator.md)
+* [Change feed processor start time](how-to-configure-change-feed-start-time.md)

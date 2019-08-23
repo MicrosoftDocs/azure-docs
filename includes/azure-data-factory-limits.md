@@ -35,7 +35,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Bytes per object for pipeline objects<sup>3</sup> | 200 KB | 200 KB |
 | Bytes per object for dataset and linked service objects<sup>3</sup> | 100 KB | 2,000 KB |
 | Data Integration Units<sup>1</sup> per copy activity run | 256 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Write API calls | 2,500/h<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Write API calls | 1,200/h<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Read API calls | 12,500/h<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Monitoring queries per minute | 1,000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Entity CRUD operations per minute | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

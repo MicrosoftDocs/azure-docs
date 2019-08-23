@@ -87,7 +87,7 @@ You can do horizontal scaling either [manually](https://docs.microsoft.com/azure
 
 Scale out a Service Fabric cluster by increasing the instance count for a particular virtual machine scale set. You can scale out programmatically by using `AzureClient` and the ID for the desired scale set to increase the capacity.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -129,7 +129,7 @@ To scale in manually, update the capacity in the SKU property of the desired [vi
 
 You must prepare the node for shutdown to scale in programmatically. Find the node to be removed (the highest-instance node). For example:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -146,7 +146,7 @@ using (var client = new FabricClient())
 
 Deactivate and remove the node by using the same `FabricClient` instance (`client` in this case) and node instance (`instanceIdString` in this case) that you used in the previous code:
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

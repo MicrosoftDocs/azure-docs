@@ -319,9 +319,9 @@ Traffic Manager responds with the DNS name or IP address of the endpoint. To sup
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
 
-### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?
+### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group or subscription?
 
-Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile.
+Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group or subscription, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile.
 
 ## Traffic Manager endpoint monitoring
 
@@ -435,7 +435,7 @@ Traffic Manager monitoring settings are at a per profile level. If you need to u
 Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level will override the profile level one.
 One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint’s HTTP(S) request logs
 
-## What host header do endpoint health checks use?
+### What host header do endpoint health checks use?
 
 If no custom host header setting is provided, the host header used by Traffic Manager is the DNS name of the endpoint target configured in the profile, if that is available.
 

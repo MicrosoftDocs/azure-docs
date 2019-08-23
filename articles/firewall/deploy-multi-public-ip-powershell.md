@@ -5,21 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
 ---
 
 # Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell
 
-> [!IMPORTANT]
-> Azure Firewall with multiple public IP addresses is available via Azure PowerShell, Azure CLI, REST, and templates. The portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
-
-You can deploy an Azure Firewall with up to 100 public IP addresses.
-
 This feature enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
+ 
+Azure Firewall with multiple public IP addresses is available via the Azure portal, Azure PowerShell, Azure CLI, REST, and templates. You can deploy an Azure Firewall with up to 100 public IP addresses.
 
 The following Azure PowerShell examples show how you can configure, add, and remove public IP addresses for Azure Firewall.
 

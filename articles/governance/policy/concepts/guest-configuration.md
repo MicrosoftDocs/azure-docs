@@ -17,6 +17,9 @@ Configuration extension and client. The extension, through the client, validates
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
 
+At this time, Azure Policy Guest Configuration only performs an audit of setings inside the machine.
+It is not yet possible to apply configurations.
+
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Extension and client
@@ -161,6 +164,11 @@ inside Linux and Windows virtual machines* contains 18 policies. There are six *
 and **Audit** pairs for Windows and three pairs for Linux. In each case, the logic inside the
 definition validates only the target operating system is evaluated based on the [policy rule](definition-structure.md#policy-rule)
 definition.
+
+## Multiple assignments
+
+Guest Configuration policies currently only support assigning the same Guest Assignment once
+per virtual machine, even if the Policy assignment uses different parameters.
 
 ## Client log files
 

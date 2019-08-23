@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an object detection project with the Custom Vision SDK for Node.js"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the Node.js SDK.
 services: cognitive-services
 author: areddish
@@ -9,7 +9,7 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 08/08/2019
 ms.author: areddish
 ---
 
@@ -43,9 +43,10 @@ Create a new file called *sample.js* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
 
 ```javascript
+const fs = require('fs');
 const util = require('util');
 const TrainingApi = require("@azure/cognitiveservices-customvision-training");
 const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");
@@ -83,7 +84,7 @@ To create classification tags to your project, add the following code to the end
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
 
-To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
+To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height. You can upload up to 64 images in a single batch.
 
 ```javascript
 const forkImageRegions = {

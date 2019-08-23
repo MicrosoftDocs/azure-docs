@@ -1,5 +1,5 @@
 ---
-title: Install Speech containers
+title: Install Speech containers - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.  
 services: cognitive-services
@@ -164,7 +164,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required but not used billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
@@ -227,13 +227,13 @@ By default, the Speech SDK uses online speech services. To use the container, yo
 
 Change from using this Azure-cloud initialization call:
 
-```C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 to this call using the container endpoint:
 
-```C#
+```csharp
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
     "YourSubscriptionKey");
