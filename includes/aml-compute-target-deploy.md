@@ -22,4 +22,4 @@ ms.date: 08/23/2019
 | [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | via IoT Edge |  &nbsp; | yes | Deploy & serve ML models on IoT devices. |
 
 > [!NOTE]
-> While compute resources like local, Notebook VM, and Azure Machine Learning Compute support GPU for training and experimentation, using GPU for inference is only supported on Azure Kubernetes Service.
+> While compute targets like local, Notebook VM, and Azure Machine Learning Compute support GPU for training and experimentation, using GPU for inference is only supported on Azure Kubernetes Service.
