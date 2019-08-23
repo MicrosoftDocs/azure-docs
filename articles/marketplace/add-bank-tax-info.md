@@ -18,8 +18,10 @@ ms.author: blevens
 ---
 
 # Add bank and tax information  
+
 The bank and tax information is required for all commercial offers using the transact listing type.  
 
+## Partner Center
 
 Bank and tax information is now managed within Partner Center. Instructions to configure these settings can be found in the "Financial Details" section of [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
 
