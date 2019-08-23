@@ -23,7 +23,7 @@ The breadth of threat coverage is growing. The need to detect even the slightest
 
 Fusion analytics is the technology and analytic back end that powers Security Center incidents, enabling it to correlate different alerts and contextual signals together. Fusion looks at the different signals reported on a subscription across the resources. Fusion finds patterns that reveal attack progression or signals with shared contextual information, indicating that you should use a unified response procedure for them.
 
-Fusion analytics combine security domain knowledge with AI to analyze alerts, discovering new attack patterns as they occur. 
+Fusion analytics combines security domain knowledge with AI to analyze alerts, discovering new attack patterns as they occur. 
 
 Security Center leverages MITRE Attack Matrix to associate alerts with their perceived intent, helping formalize security domain knowledge. In addition, by using the information gathered for each step of an attack, Security Center can rule out activity that appears to be steps of an attack, but actually isn't.  
 
