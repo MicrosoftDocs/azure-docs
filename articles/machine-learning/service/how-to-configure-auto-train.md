@@ -68,6 +68,11 @@ Automated machine learning supports data that resides on your local desktop or i
 * Numpy arrays X (features) and y (target variable or also known as label)
 * Pandas dataframe
 
+>[!Important]
+> Requirements for training data:
+>* Data must be in tabular form.
+>* The value you want to predict (target column) must be present in the data.
+
 Examples:
 
 *	Numpy arrays
@@ -196,6 +201,8 @@ The three different `task` parameter values determine the list of algorithms to 
 
 ### Primary Metric
 The primary metric; as shown in the examples above determines the metric to be used during model training for optimization. The primary metric you can select is determined by the task type you choose. Below is a list of available metrics.
+
+Learn about the specific definitions of these in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 |Classification | Regression | Time Series Forecasting
 |-- |-- |--

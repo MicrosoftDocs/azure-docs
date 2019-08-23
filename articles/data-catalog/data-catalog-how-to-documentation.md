@@ -7,7 +7,8 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ---
-# Document data sources
+# How to document data sources in Azure Data Catalog
+
 ## Introduction
 **Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, *understand*, and use data sources, and helping organizations to get more value from their existing data.
 

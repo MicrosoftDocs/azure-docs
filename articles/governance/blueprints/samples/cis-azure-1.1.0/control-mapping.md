@@ -19,8 +19,11 @@ recommendations. Use the navigation on the right to jump directly to a specific 
 Many of the mapped recommendations are implemented with an [Azure Policy](../../../policy/overview.md)
 initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
 **Definitions** page. Then, find and select the **\[Preview\] Audit CIS Microsoft Azure Foundations
-Benchmark v1.1.0 recommendations and deploy specific VM Extensions to support audit requirements** built-in
-policy initiative.
+Benchmark v1.1.0 recommendations and deploy specific VM Extensions to support audit requirements** 
+built-in policy initiative.
+
+> [!NOTE]
+> The full blueprint sample is coming soon. The associated Azure Policy initiative is available now.
 
 ## 1.1 Ensure that multi-factor authentication is enabled for all privileged users
 
@@ -236,6 +239,14 @@ This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 this CIS recommendation.
 
 - Web Application should only be accessible over HTTPS
+
+## Next steps
+
+Now that you've reviewed the control mapping of the CIS Microsoft Azure Foundations Benchmark 
+blueprint, visit the Azure Policy in the Azure portal to assign the initiative:
+
+> [!div class="nextstepaction"]
+> [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
 
 Addition articles about blueprints and how to use them:
 

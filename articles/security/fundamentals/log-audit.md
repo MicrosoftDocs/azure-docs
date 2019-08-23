@@ -160,7 +160,7 @@ You can enable Azure Diagnostics on a virtual machine by doing any of the follow
 
 * [Use PowerShell to set up diagnostics on Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-* [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Storage Analytics
 

@@ -58,7 +58,7 @@ After a database is chosen for backup, the Azure Backup service  configures back
 
 Take care of inputs while restoring a single container database (SDC) for HANA to another SDC machine. The database name should be given with lowercase and with "sdc" appended in brackets. The HANA instance will be displayed in capitals.
 
-Assume an SDC HANA instance "H21" is backed up. The backup items page will show the backup item name as **"h21(sdc)"**. If you attempt to restore this database to another target SDC, say H11, then following inputs need to provided.
+Assume an SDC HANA instance "H21" is backed up. The backup items page will show the backup item name as **"h21(sdc)"**. If you attempt to restore this database to another target SDC, say H11, then following inputs need to be provided.
 
 ![SDC restore inputs](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
@@ -66,7 +66,7 @@ Note the following
 - By default, the restored db name will be populated with the backup item name i.e., h21(sdc)
 - Selecting the target as H11 will NOT change the restored db name automatically. **It should be edited to h11(sdc)**. In case of SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
 - Since SDC can have only single database, you also need to click the checkbox to allow override of the existing database data with the recovery point data.
-- Linux is case sensitive and hence make sure to preserve the case.
+- Linux is case-sensitive and hence make sure to preserve the case.
 
 ### Multiple Container Database (MDC) restore
 
