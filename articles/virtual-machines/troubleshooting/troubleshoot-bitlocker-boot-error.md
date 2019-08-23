@@ -279,7 +279,7 @@ If you are using the old AZ PowerShell module, you must change the two commands 
 
 **Parameters samples**
 
-| Parameters  | value sample  |comments   |
+| Parameters  | Value sample  |Comments   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | The name of the key Vault that stores the key |
 |$kekName   |mykey   | The name of the key that is used to encrypt the VM|
