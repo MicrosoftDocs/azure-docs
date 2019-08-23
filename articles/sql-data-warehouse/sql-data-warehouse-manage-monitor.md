@@ -260,7 +260,8 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## Monitor PolyBase load
-Monitor your load when using PolyBase and external tables.
+The following query provides a ballpark estimate of the progress of your load. The query only shows files currently being processed. 
+
 ```sql
 
 -- To track bytes and files
