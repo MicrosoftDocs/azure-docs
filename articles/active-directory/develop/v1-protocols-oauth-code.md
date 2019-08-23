@@ -22,6 +22,10 @@ ms.collection: M365-identity-device-management
 
 # Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
 
+> [!NOTE]
+>  If you don't tell the server what resource you plan to call, then the server will not trigger the conditional access policies for that resource. So in order to have MFA trigger, you will need to include a resource in your URL. 
+>
+
 Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our [open-source libraries](active-directory-authentication-libraries.md).
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
