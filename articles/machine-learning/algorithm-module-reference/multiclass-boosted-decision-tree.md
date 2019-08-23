@@ -54,7 +54,7 @@ You can train this type of model by using the [Train Model](././train-model.md).
 
 1. Train the model.
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.
 
 ## Next steps
 
