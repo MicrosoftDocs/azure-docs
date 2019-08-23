@@ -36,10 +36,10 @@ landingContent:
             url: tutorial-register-applications.md
           - text: Set up user journeys
             url: tutorial-create-user-flows.md
-#      - linkListType: learn
-#        links:
-#          - text: Customer identity management with Azure AD B2C (video)
-#            url: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
+      - linkListType: learn
+        links:
+          - text: Customer identity management with Azure AD B2C (video)
+            url: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
 
   # Card
   - title: Add identity to ASP.NET apps
