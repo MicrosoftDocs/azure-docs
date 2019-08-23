@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: mmacy
   ms.author: marsma
-  ms.date: 08/24/2019
+  ms.date: 08/29/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -50,6 +50,8 @@ landingContent:
             url: active-directory-b2c-quickstarts-web-app.md
       - linkListType: tutorial
         links:
+          - text: Add external identity providers
+            url: tutorial-add-identity-providers.md
           - text: Authenticate users
             url: active-directory-b2c-tutorials-web-app.md
           - text: Grant API access
@@ -64,6 +66,8 @@ landingContent:
             url: active-directory-b2c-quickstarts-desktop-app.md
       - linkListType: tutorial
         links:
+          - text: Add external identity providers
+            url: tutorial-add-identity-providers.md
           - text: Authenticate users
             url: active-directory-b2c-tutorials-spa.md
           - text: Grant API access
@@ -101,19 +105,21 @@ landingContent:
           - text: Enable sign-in with LinkedIn
             url: active-directory-b2c-custom-setup-li-idp.md
 
-#  # Card
-#  - title: Add identity to desktop apps
-#    linkLists:
-#      - linkListType: quickstart
-#        links:
-#          - text: Set up sign-in
-#            url: active-directory-b2c-quickstarts-desktop-app.md
-#      - linkListType: tutorial
-#        links:
-#          - text: Authenticate users
-#            url: active-directory-b2c-tutorials-desktop-app.md
-#          - text: Grant API access
-#            url: active-directory-b2c-tutorials-desktop-app-webapi.md
+  # Card
+  - title: Add identity to desktop apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-desktop-app.md
+      - linkListType: tutorial
+        links:
+          - text: Add external identity providers
+            url: tutorial-add-identity-providers.md
+          - text: Authenticate users
+            url: active-directory-b2c-tutorials-desktop-app.md
+          - text: Grant API access
+            url: active-directory-b2c-tutorials-desktop-app-webapi.md
 
 #  # Card
 #  - title: cardtitle2
