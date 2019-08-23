@@ -28,8 +28,8 @@ You can create [Availability Zones](../availability-zones/az-overview.md) scenar
 
 NAT service is a managed, resilient service for outbound connectivity. You can combine NAT service with Standard public IP address resources and Standard Load Balancer to create additional inbound scenarios.
 
-[!NOTE] 
-Azure NAT service is available as public Preview at this time. Currently it's only available in a limited set of [regions](#regions). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
+>[!NOTE] 
+>Azure NAT service is available as public Preview at this time. Currently it's only available in a limited set of [regions](#regions). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 ## NAT Gateways
 
@@ -63,7 +63,7 @@ You can address multiple workloads within the same subnet easily.  Unlike Azure 
 
 NAT Gateway implements idle timeouts and sends TCP Resets (RST) for flows that don't exist.  Timeouts can be configured from 4 minutes (default) to 120 minutes. A TCP RST packet is returned to the source when it arrives at NAT Gateway and no matching connection exists. When a flow has reached idle timeout, the flow is removed from NAT Gateway and the port becomes available for the next flow that is established. For example, if a TCP connection has reached idle timeout and additional packets are seen for an already timed out connection, a TCP RST is sent to the source.  Your application can use TCP keepalives to signal and provide synchronization of endpoint state if needed.
 
-## Availability Zones
+## Availability zones
 
 NAT Gateways can be placed in a specific availability zone if necessary.  
 
@@ -75,7 +75,7 @@ You can align the data plane of the NAT Gateway with a virtual machine in a spec
 
 The availability zone placement of a NAT Gateway can't be changed and you can't convert a NAT Gateway from regional to zonal or zonal to regional.
 
-## Using NAT service vs Load Balancer for outbound connectivity
+## Outbound connection service comparison
 
 NAT Gateway and Load Balancer outbound connectivity are intended for different scenarios. Simplicity, on-demand allocation, and virtual network level scale versus pool-centric, per instance granularity and more complicated scenarios are the key trade offs to consider.  There are also a number of other behavior differences and planning considerations.
 
@@ -94,15 +94,6 @@ NAT service always returns TCP Reset (RST) packets to the sender for non-existin
 NAT service is available in these regions
 - US East 2
 - West Central US
-
-## Pricing
-
-NAT Gateway resources are charged per hour and for how data is processed.
-
-| dimension | unit | 
-| --- | --- |
-| resource hours | $0.045 hour | 
-| data processed | $0.045 GB |
 
 ## Limitations
 

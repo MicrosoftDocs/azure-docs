@@ -21,8 +21,8 @@ ms.custom: seodec18
 
 This quickstart shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
-[!NOTE] 
-Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
+>[!NOTE] 
+>Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -43,7 +43,7 @@ The following example creates a resource group named *myResourceGroupNAT* in the
     --location westcentralus
 ```
 
-## Create the NAT service by configuring a NAT gateway resource
+## Create the NAT Gateway
 
 ### Create a public IP address
 
@@ -86,7 +86,7 @@ Create a public Azure NAT Gateway with [az network nat gateway create](https://d
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
 
-### Configure virtual network
+## Configure virtual network
 
 Before you deploy a VM and can use your NAT gateway, we need to create the virtual network.
 
