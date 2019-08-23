@@ -42,7 +42,7 @@ All libraries are the GPU versions, though they also run on the CPU.
 
 The Data Science Virtual Machine for Linux also contains popular tools for data science and development activities, including:
 
-* Microsoft R Server Developer Edition with Microsoft R Open.
+* Microsoft Machine Learning Server with Microsoft R Open.
 * Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries.
 * JuliaPro, a curated distribution of Julia language with popular scientific and data analytics libraries.
 * Standalone Spark instance and single-node Hadoop (HDFS, Yarn).
@@ -219,11 +219,11 @@ Torch is a scientific computing framework with wide support for machine learning
 
 PyTorch is also available in the root Anaconda environment. Examples are in /dsvm/samples/pytorch.
 
-### Microsoft R Server
+### Microsoft Machine Learning Server
 
-R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft R Server with Microsoft R Open and Math Kernel Library. Math Kernel Library optimizes math operations common in analytical algorithms. Microsoft R Open is 100 percent compatible with CRAN R, and any of the R libraries published in CRAN can be installed on Microsoft R Open. 
+R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft Machine Learning Server with Microsoft R Open and Math Kernel Library. Math Kernel Library optimizes math operations common in analytical algorithms. Microsoft R Open is 100 percent compatible with CRAN R, and any of the R libraries published in CRAN can be installed on Microsoft R Open. 
 
-Microsoft R Server gives you scaling and operationalization of R models into web services. You can edit your R programs in one of the default editors, like RStudio, vi, or Emacs. If you prefer using the Emacs editor, it has been pre-installed. The Emacs ESS (Emacs Speaks Statistics) package simplifies working with R files within the Emacs editor.
+Machine Learning Server gives you scaling and operationalization of R models into web services. You can edit your R programs in one of the default editors, like RStudio, vi, or Emacs. If you prefer using the Emacs editor, it has been pre-installed. The Emacs ESS (Emacs Speaks Statistics) package simplifies working with R files within the Emacs editor.
 
 To open the R console, you enter **R** in the shell. This command takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi, and then run the scripts within R. With RStudio, you have a full graphical IDE to develop your R program.
 
@@ -294,9 +294,9 @@ In this standalone instance, the Spark stack runs within the calling client prog
 
 Jupyter provides a sample PySpark notebook. You can find it in the SparkML directory under the home directory of Jupyter ($HOME/notebooks/SparkML/pySpark). 
 
-If you're programming in R for Spark, you can use Microsoft R Server, SparkR, or sparklyr. 
+If you're programming in R for Spark, you can use Microsoft Machine Learning Server, SparkR, or sparklyr. 
 
-Before you run in a Spark context in Microsoft R Server, you need to do a one-time setup step to enable a local single-node Hadoop HDFS and Yarn instance. By default, Hadoop services are installed but disabled on the DSVM. To enable it, you need to run the following commands as root the first time:
+Before you run in a Spark context in Microsoft Machine Learning Server, you need to do a one-time setup step to enable a local single-node Hadoop HDFS and Yarn instance. By default, Hadoop services are installed but disabled on the DSVM. To enable it, you need to run the following commands as root the first time:
 
 ```bash
 echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
@@ -310,7 +310,7 @@ systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
 You can stop the Hadoop-related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
 
-The /dsvm/samples/MRS directory provides a sample that demonstrates how to develop and test Microsoft R Server in a remote Spark context (the standalone Spark instance on the DSVM).
+The /dsvm/samples/MRS directory provides a sample that demonstrates how to develop and test Microsoft Machine Learning Server in a remote Spark context (the standalone Spark instance on the DSVM).
 
 ### IDEs and editors
 
