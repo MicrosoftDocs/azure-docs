@@ -29,6 +29,8 @@
     href: ./samples/index.md
   - name: CIS Microsoft Azure Foundations Benchmark
     items:
+    - name: Overview
+      href: ./samples/cis-azure-1.1.0/index.md
     - name: Recommendation mapping
       href: ./samples/cis-azure-1.1.0/control-mapping.md
   - name: IRS 1075

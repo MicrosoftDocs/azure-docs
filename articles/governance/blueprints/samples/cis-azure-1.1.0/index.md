@@ -29,7 +29,7 @@ You've reviewed the overview and of the CIS Microsoft Azure Foundations Benchmar
 Next, visit the following article to learn about the recommendation mapping:
 
 > [!div class="nextstepaction"]
-> CIS Microsoft Azure Foundations Benchmark blueprint - Control mapping](./control-mapping.md)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Recommendation mapping](./control-mapping.md)
 
 Addition articles about blueprints and how to use them:
 
