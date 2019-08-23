@@ -151,7 +151,7 @@ Before you can run the sample, edit the **app.config** file and, depending on yo
 When you run the console application, you are prompted to select a scenario. Select **Interactive User Login** by typing its number and pressing ENTER. The application displays a login window, asks for your consent to access Service Bus, and then uses the service to run through the send/receive scenario using the login identity.
 
 
-## Next Steps
+## Next steps
 - To learn more about RBAC, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
