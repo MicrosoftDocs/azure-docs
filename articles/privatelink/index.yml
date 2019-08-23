@@ -1,0 +1,45 @@
+### YamlMime:Landing
+
+title: Private Link documentation
+summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+
+metadata:
+  title: Private Link Documentation - Tutorials, quickstarts, API references
+  description: Learn how to use Azure Private Link service. Quickstarts, tutorials, show you how to deploy a Private Link service.
+  ms.service: private-link
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 08/23/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Private Link
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Private Link?
+            url: privatelink-overview.md.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create Private Link - Portal
+            url: create-privatelink-portal.md
+          - text: Create Private Link - CLI
+            url: create-privatelink-cli.md
+          - text: Create Private Link - PowerShell
+            url: create-privatelink-powershell.md            
+
+
+            
+                
+
+
