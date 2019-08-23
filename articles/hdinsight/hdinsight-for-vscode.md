@@ -11,7 +11,7 @@ ms.date: 05/30/2019
 
 # Use Spark & Hive Tools for Visual Studio Code
 
-Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install Spark & Hive Tools in Visual Studio Code, and then we'll walk through how to submit jobs to Spark & Hive.  
+Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install Spark & Hive Tools in Visual Studio Code, and then we'll walk through how to submit jobs to Spark & Hive Tools.  
 
 Spark & Hive Tools can be installed on platforms that are supported by Visual Studio Code, which include Windows, Linux, and macOS. Note the following prerequisites for different platforms.
 
@@ -277,8 +277,8 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
 
     ![Livy configuration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
 
->[!NOTE]
->For the **driverMemory** and **executorMemory** settings, set the value and unit. For example: 1g or 1024m.
+    >[!NOTE]
+    >For the **driverMemory** and **executorMemory** settings, set the value and unit. For example: 1g or 1024m.
 
 + Supported Livy configurations:   
 
@@ -315,8 +315,8 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
     | log | Log lines | List of strings |
     | state |Batch state | String |
 
->[!NOTE]
->The assigned Livy config is displayed in the output pane when you submit the script.
+    >[!NOTE]
+    >The assigned Livy config is displayed in the output pane when you submit the script.
 
 ## Integrate with Azure HDInsight from Explorer
 
@@ -362,12 +362,12 @@ You can preview Hive Table in your clusters directly through the **Azure HDInsig
    2. When the number of rows in the table is less than or equal to 100, you see a message like the following: "60 rows are displayed for Hive table."
    3. When there's no content in the table, you see the following message: "0 rows are displayed for Hive table."
 
->[!NOTE]
->
->In Linux, install xclip to enable copy-table data.
->
->![Spark & Hive for Visual Studio code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
-## Additional features
+    >[!NOTE]
+    >
+    >In Linux, install xclip to enable copy-table data.
+    >
+    >![Spark & Hive for Visual Studio code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+    ## Additional features
 
 Spark & Hive for Visual Studio Code also supports the following features:
 
@@ -400,11 +400,11 @@ When submitting job to an HDInsight cluster, you're prompted to link the cluster
 
    ![Spark & Hive Tools for Visual Studio Code Password](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
 
-> [!NOTE]
->
->You can use `Spark / Hive: List Cluster` to check the linked cluster:
->
->![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result.png)
+  > [!NOTE]
+  >
+  >You can use `Spark / Hive: List Cluster` to check the linked cluster:
+  >
+  >![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## Azure Data Lake Storage Gen2
 
