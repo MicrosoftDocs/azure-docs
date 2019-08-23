@@ -122,26 +122,27 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
+6. After the disk was successfully unlocked by using the BEK key, we can consider the BitLocker problem to be resolved. Detach the disk from the recovery VM, and then recreate the VM by using this new OS disk. 
 
-    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
+    > [!NOTE]
+    > Swapping OS Disk is not supported for VMs using disk encryption.
+
+If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
+
+- Suspend protection to temporarily turn BitLocker OFF by running the following 
+ 
+            manage-bde -protectors -disable F: -rc 0
+- Fully decrypt the drive. To do this, run the following command:
     
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, run the following command:
+            manage-bde -off F:
 
-        ```powershell
-        manage-bde -off F:
-        ```
-8.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-windows.md).
 
 ### Key Encryption Key scenario
 
 For a Key Encryption Key scenario, follow these steps:
 
 1. Make sure that the logged-in user account requires the "unwrapped" permission in the Key Vault Access policies in the **USER|Key permissions|Cryptographic Operations|Unwrap Key**.
-2. Save the following scripts to a .PS1 file:
+2. Save the following script to a .PS1 file:
 
     ```powershell
     #Set the Parameters for the script
