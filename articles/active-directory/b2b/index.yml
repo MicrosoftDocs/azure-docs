@@ -1,3 +1,97 @@
+### YamlMime:Landing
+
+title: Azure Active Directory B2B documentation
+summary: Learn how to use Azure AD business-to-business (B2B) collaboration to securely share your company's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data.
+
+metadata: 
+   title: Application Management Documentation
+   description: Learn how to use Azure AD business-to-business (B2B) collaboration to securely share your company's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data.
+   ms.service: active-directory
+   ms.subservice: manage-apps
+   ms.workload: identity
+   ms.topic: landing-page
+   ms.date: 08/16/2019
+   author: msmimart
+   ms.author: mimart
+   manager: celested
+
+landingContent:
+  - title: Invite external users to collaborate
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is B2B guest user access?
+            url: what-is-b2b.md
+      - linkListType: concept
+        links:
+          - text: Invitation redemption
+            url: redemption-experience.md
+          - text: Understand the B2B user
+            url: user-properties.md
+      - linkListType: quickstart
+        links:
+          - text: Add a guest user to your directory
+            url: b2b-quickstart-add-guest-users-portal.md
+          - text: Add a guest user with PowerShell
+            url: b2b-quickstart-invite-powershell.md
+      - linkListType: deploy
+        links:
+          - text: Direct federation preview
+            url: direct-federation.md
+          - text: Google federation
+            url: google-federation.md
+          - text: One-time passcode preview
+            url: one-time-passcode.md
+  - title: Provision users and groups to an app
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is automatic user provisioning?
+            url: user-provisioning.md
+      - linkListType: concept
+        links:
+          - text: Use SCIM to provision users and groups
+            url: use-scim-to-provision-users-and-groups.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure automatic user provisioning
+            url: configure-automatic-user-provisioning-portal.md
+          - text: Customize attribute mappings
+            url: customize-application-attributes.md
+          - text: Check provisioning status
+            url: application-provisioning-when-will-provisioning-finish-specific-user.md
+      - linkListType: reference
+        links:
+          - text: Write expressions for attribute mappings
+            url: functions-for-customizing-application-data.md
+  - title: Publish on-premises apps with Application Proxy
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Application Proxy?
+            url: what-is-application-proxy.md
+      - linkListType: concept
+        links:
+          - text: Plan for Application Proxy
+            url: application-proxy-deployment-plan.md
+      - linkListType: tutorial
+        links: 
+          - text: Add an on-premises app
+            url: application-proxy-add-on-premises-application.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure connectors with proxy servers
+            url: application-proxy-configure-connectors-with-proxy-servers.md
+          - text: Configure a custom home page
+            url: application-proxy-configure-custom-home-page.md
+      - linkListType: deploy
+        links:
+          - text: Publish Remote Desktop with Application Proxy
+            url: application-proxy-integrate-with-remote-desktop-services.md
+          - text: Enable remote access to SharePoint with Azure AD Application Proxy
+            url: application-proxy-integrate-with-sharepoint-server.md
+
+
 ### YamlMime:YamlDocument
 documentType: LandingData
 title: Azure Active Directory B2B Documentation
