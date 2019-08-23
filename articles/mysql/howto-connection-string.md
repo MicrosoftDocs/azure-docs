@@ -33,7 +33,7 @@ String url ="jdbc:mysql://%s:%s/%s[?verifyServerCertificate=true&useSSL=true&req
 
 ## Node.js
 ```node.js
-var conn = mysql.createConnection({host: {your_host}, user: {username@servername}, password: {your_password}, database: {your_database}, Port: {your_port}, ssl:{ca:fs.readFileSync({ca-cert filename})}});
+var conn = mysql.createConnection({host: {your_host}, user: {username@servername}, password: {your_password}, database: {your_database}, Port: {your_port}[, ssl:{ca:fs.readFileSync({ca-cert filename})}}]);
 ```
 
 ## ODBC
