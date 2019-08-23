@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 08/23/2019
 
 ms.author: mimart
 author: msmimart
@@ -19,7 +19,7 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Bulk invite Azure AD B2B collaboration users
+# Tutorial: Bulk invite Azure AD B2B collaboration users (preview)
 
 |     |
 | --- |
@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
 
 > [!div class="checklist"]
-> * Use **Bulk invite** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
+> * Use **Bulk invite users (Preview)** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
 > * Upload the .csv file to Azure AD
 > * Verify the users were added to the directory
 
@@ -40,12 +40,15 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
 
-## Invite guest users in bulk (preview)
+## Invite guest users in bulk
 
 1.	Sign in to the Azure portal with an account that is a User administrator in the organization.
 2.	In the navigation pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Users** > **Bulk invite**.
 4.	On the **Bulk invite users (Preview)** page, select **Download** to get a valid .csv file with invitation properties. 
+    
+    ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
+
 5.	Open the .csv file and add a line for each guest user. Then save the file.
    
     ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
