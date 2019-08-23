@@ -98,7 +98,7 @@
         href: data-box-disk-deploy-copy-data.md 
       - name: 4 - Return
         href: data-box-disk-deploy-picked-up.md  
-      - name: 4 - Upload, verify
+      - name: 5 - Verify upload
         href: data-box-disk-deploy-upload-verify.md 
     - name: Concepts
       items:
