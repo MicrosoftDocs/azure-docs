@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # Configure a Linux Java app for Azure App Service
 
-Azure App Service on Linux lets Java developers quickly build, deploy, and scale their Tomcat, Wildfly, or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
+Azure App Service on Linux lets Java developers quickly build, deploy, and scale their Tomcat, WildFly, or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
 This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Java quickstart](quickstart-java.md) and [Java with PostgreSQL tutorial](tutorial-java-enterprise-postgresql-app.md) first.
 
@@ -184,9 +184,9 @@ Java applications running in App Service for Linux have the same set of [securit
 
 Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) article.
 
-#### Tomcat and Wildfly
+#### Tomcat and WildFly
 
-Your Tomcat or Wildfly application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
+Your Tomcat or WildFly application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -634,15 +634,34 @@ Your App Service instance is now configured to access your database.
 
 For more info on configuring database connectivity with WildFly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
-### Enable messaging providers
+### Use Service Bus as a message broker with WildFly
 
-To enable message driven Beans using Service Bus as the messaging mechanism:
+You can configure your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. You can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
 
-<!-- more intro needed  -->
+To use Service Bus with your bean, you must configure your Wild
 
-1. Download the [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html). Locate the .jar files in the *lib* and *lib/optional* directories.
+The following steps assume you have created an App Service instance for hosting your bean, and a Service Bus Namespace and Queue.
 
-2. Create a file named *module.xml* and add the following markup. Replace each instance of the `<version>` placeholder (including the angle brackets) with the correct version for each .jar file so the filenames match the files you extracted in step 1.
+<!-- more intro needed. add links to topics on creating app service, service bus, queue  -->
+
+1. Open a Bash terminal and use `export <variable>=<value>` to set each of the following environment variables.
+
+    | Variable            | Value                                                                      |
+    |---------------------|----------------------------------------------------------------------------|
+    | RESOURCEGROUP_NAME  | The name of the resource group containing your App Service instance.       |
+    | WEBAPP_NAME         | The name of your App Service instance.                                     |
+    | WEBAPP_PLAN_NAME    | The name of your App Service plan.                                         |
+    | REGION              | The name of the region where your app is hosted.                           |
+    | DEFAULT_SBNAMESPACE | The name of your Service Bus Namespace.                                    |
+    | SB_QUEUE            | The name of your Service Bus Queue.                                        |
+    | SB_SAS_POLICY       | The name of the shared access signature (SAS) policy for your queue.       |
+    | SB_SAS_KEY          | The primary or secondary key for your queue's SAS policy.                  |
+
+    You can find this information in the Azure portal. For the SAS policy and key, be sure to use the values for the queue, not for its namespace. To find these values on the Azure portal, navigate to your queue, select **Shared access policies**, and then select your SAS policy.
+
+2. Download the [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html). Locate the .jar files in the *lib* and *lib/optional* directories.
+
+3. Create a file named *module.xml* and add the following markup. Replace each instance of the `<version>` placeholder (including the angle brackets) with the correct version for each .jar file so the filenames match the files you extracted in step 1.
 
     ```xml
     <module xmlns="urn:jboss:module:1.1" name="org.jboss.genericjms.provider">
@@ -671,7 +690,7 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
     </module>
     ```
 
-3. Create a file named *datasource-commands.cli* and add the following code.
+4. Create a file named *commands.cli* and add the following code.
 
     ```console
     /subsystem=ee:list-add(name=global-modules, value={"name" => "org.jboss.genericjms.provider", "slot" =>"main"}
@@ -689,9 +708,9 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
 
     <!-- It configures JMS and JNDI ... (describe more) -->
 
-4. Create a file named *startup.sh* and add the following code.
+5. Create a file named *startup.sh* and add the following code.
 
-    <!-- need env var stuff first -->
+    <!-- needs env var stuff -->
 
     ```bash
     echo "Generating jndi.properties file in /home/site/deployments/tools directory"
@@ -708,13 +727,96 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli
     ```
 
-5. Use FTP to upload the .jar files, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+6. Use FTP to upload the .jar files, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+    <!-- add env var stuff here -->
+
+7. Update your MessageListener implementation to add the following `imports` statements.
+
+    ```java
+    import javax.ejb.TransactionAttribute;
+    import javax.ejb.TransactionAttributeType;
+    import javax.ejb.TransactionManagement;
+    import javax.ejb.TransactionManagementType;
+    ```
+
+8. Next, update your listener class annotations to match the following:
+
+    <!-- need to say something about initialization of the ${} values. -->
+
+    <!-- need to say something about Queue vs. Topic, and add placeholder for that in the code shown here. -->
+
+    ```java
+    @TransactionManagement(TransactionManagementType.BEAN)
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    @MessageDriven(name = "MyMessageListener", activationConfig = {
+            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
+            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.queue}"),
+            @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
+            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
+    public class MyMessageListener implements MessageListener {
+        // ...
+    }
+    ```
+
+9. Update the `azure-webapp-maven-plugin` configuration in your bean's *pom.xml* file to refer to your Service Bus account info. This file uses the environment variables you set previously to keep your account information out of your source files.
+
+    If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+
+    ```xml
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.7.0</version>
+        <configuration>
+
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+
+            <!-- Java Runtime Stack for Web App on Linux-->
+            <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+
+            <appSettings>
+                <property>
+                    <name>DEFAULT_SBNAMESPACE</name>
+                    <value>${DEFAULT_SBNAMESPACE}</value>
+                </property>
+                <property>
+                    <name>SB_SAS_POLICY</name>
+                    <value>${SB_SAS_POLICY}</value>
+                </property>
+                <property>
+                    <name>SB_SAS_KEY</name>
+                    <value>${SB_SAS_KEY}</value>
+                </property>
+                <property>
+                    <name>PROVIDER_URL</name>
+                    <value>${PROVIDER_URL}</value>
+                </property>
+                <property>
+                    <name>SB_QUEUE</name>
+                    <value>${SB_QUEUE}</value>
+                </property>
+            </appSettings>
+        </configuration>
+    </plugin>
+    ```
+
+10. Rebuild and redeploy your app.
+
+    ```bash
+    mvn package
+    mvn azure-webapp:deploy
+    ```
 
 Your bean is now configured to use Service Bus as the messaging mechanism.
 
-For more information, see [How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
-
 <!--
+For more information, see [How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
+-->
+<!-- OLD CONTENT:
 
 To enable message driven Beans using Service Bus as the messaging mechanism:
 
@@ -740,7 +842,7 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | The name of the resource group containing your App Service instance.       |
     | WEBAPP_NAME              | The name of your App Service instance.                                     |
-    | WEBAPP_PLAN_NAME         | The name of your App Service plan                                          |
+    | WEBAPP_PLAN_NAME         | The name of your App Service plan.                                         |
     | REGION                   | The name of the region where your app is hosted.                           |
     | REDIS_CACHE_NAME         | The name of your Azure Cache for Redis instance.                           |
     | REDIS_PORT               | The SSL port that your Redis cache listens on.                             |
