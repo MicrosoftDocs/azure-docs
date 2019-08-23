@@ -37,7 +37,7 @@ In this document, you will:
 
 - Ensure that you're making an informed decision and that stakeholders are informed. Your VM won't be protected against disasters until the move of the VM is complete.
 
-## Identify the resources that Azure Site Recovery used
+## Identify the resources that were used by Azure Site Recovery
 We recommend that you do this step before you proceed to the next one. It's easier to identify the relevant resources while the VMs are being replicated.
 
 For each Azure VM that's being replicated, go to **Protected Items** > **Replicated Items** > **Properties** and identify the following resources:
