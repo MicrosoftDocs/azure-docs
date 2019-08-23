@@ -3,8 +3,8 @@ title: Use tenant restrictions to manage access to SaaS cloud applications - Azu
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: richagi
 
 ms.collection: M365-identity-device-management
@@ -38,7 +38,7 @@ The overall solution comprises the following components:
 
 3. **Client software**: To support tenant restrictions, client software must request tokens directly from Azure AD, so that the proxy infrastructure can intercept traffic. Browser-based Office 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
 
-4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Office 365 cloud services to use modern authentication protocols by default. For the latest information on Office 365 support for modern authentication, read [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Office 365 cloud services to use modern authentication protocols by default. For the latest information on Office 365 support for modern authentication, read [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 The following diagram illustrates the high-level traffic flow. Tenant restrictions requires SSL inspection only on traffic to Azure AD, not to the Office 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
@@ -124,7 +124,7 @@ Office 365 applications must meet two criteria to fully support tenant restricti
 1. The client used supports modern authentication.
 2. Modern authentication is enabled as the default authentication protocol for the cloud service.
 
-Refer to [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) for the latest information on which Office clients currently support modern authentication. That page also includes links to instructions for enabling modern authentication on specific Exchange Online and Skype for Business Online tenants. SharePoint Online already enables Modern authentication by default.
+Refer to [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) for the latest information on which Office clients currently support modern authentication. That page also includes links to instructions for enabling modern authentication on specific Exchange Online and Skype for Business Online tenants. SharePoint Online already enables Modern authentication by default.
 
 Office 365 browser-based applications (the Office Portal, Yammer, SharePoint sites, Outlook on the Web, and more) currently support tenant restrictions. Thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint, and more) can enforce tenant restrictions only when using modern authentication.  
 
@@ -181,5 +181,5 @@ For specific details, refer to your proxy server documentation.
 
 ## Next steps
 
-- Read about [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- Read about [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Review the [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

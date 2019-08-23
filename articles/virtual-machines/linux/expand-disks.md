@@ -1,18 +1,9 @@
 ---
 title: Expand virtual hard disks on a Linux VM in Azure | Microsoft Docs
 description: Learn how to expand virtual hard disks on a Linux VM with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.topic: conceptual
 ms.date: 10/15/2018    
 ms.author: rogarana
 ms.subservice: disks
@@ -23,7 +14,7 @@ ms.subservice: disks
 This article describes how to expand managed disks for a Linux virtual machine (VM) with the Azure CLI. You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. 
 
 > [!WARNING]
-> Always make sure that your filesystem is in a healthy state and ensure your data is backed up before you perform disk resize operations. For more information, see [Back up Linux VMs in Azure](tutorial-backup-vms.md).
+> Always make sure that your filesystem is in a healthy state, your disk partition table type will support the new size, and ensure your data is backed up before you perform disk resize operations. For more information, see [Back up Linux VMs in Azure](tutorial-backup-vms.md). 
 
 ## Expand an Azure Managed Disk
 Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and are signed in to an Azure account by using [az login](/cli/azure/reference-index#az-login).

@@ -4,7 +4,7 @@ description: This article provides technical details relating to global distribu
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
 
@@ -30,7 +30,7 @@ As shown in the following image, the data within a container is distributed alon
 
 A physical partition is implemented by a group of replicas, called a *replica-set*. Each machine hosts hundreds of replicas that correspond to various physical partitions within a fixed set of processes as shown in the image above. Replicas corresponding to the physical partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
 
-A replica uniquely belongs to an Azure Cosmos DB tenant. Each replica hosts an instance of Cosmos DB’s [database engine](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), which manages the resources as well as the associated indexes. The Cosmos DB database engine operates on an atom-record-sequence (ARS) based type system. The engine is agnostic to the concept of a schema, blurring the boundary between the structure and instance values of records. Cosmos DB achieves full schema agnosticism by automatically indexing everything upon ingestion in an efficient manner, which allows users to query their globally distributed data without having to deal with schema or index management.
+A replica uniquely belongs to an Azure Cosmos DB tenant. Each replica hosts an instance of Cosmos DB’s [database engine](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), which manages the resources as well as the associated indexes. The Cosmos database engine operates on an atom-record-sequence (ARS) based type system. The engine is agnostic to the concept of a schema, blurring the boundary between the structure and instance values of records. Cosmos DB achieves full schema agnosticism by automatically indexing everything upon ingestion in an efficient manner, which allows users to query their globally distributed data without having to deal with schema or index management.
 
 The Cosmos database engine consists of components including implementation of several coordination primitives, language runtimes, the query processor, and the storage and indexing subsystems responsible for transactional storage and indexing of data, respectively. To provide durability and high availability, the database engine persists its data and index on SSDs and replicates it among the database engine instances within the replica-set(s) respectively. Larger tenants correspond to higher scale of throughput and storage and have either bigger or more replicas or both. Every component of the system is fully asynchronous – no thread ever blocks, and each thread does short-lived work without incurring any unnecessary thread switches. Rate-limiting and back-pressure are plumbed across the entire stack from the admission control to all I/O paths. Cosmos database engine is designed to exploit fine-grained concurrency and to deliver high throughput while operating within frugal amounts of system resources.
 
@@ -80,5 +80,5 @@ The semantics of the five consistency models in Cosmos DB are described [here](c
 Next learn how to configure global distribution by using the following articles:
 
 * [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [How to create a custom conflict resolution policy](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

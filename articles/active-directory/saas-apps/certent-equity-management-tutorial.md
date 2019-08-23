@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with Certent Equity Management, perform the
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact Certent Integration Analyst assigned by Customer Success Manager to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Certent Equity Management application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+5. Certent Equity Management application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Certent Equity Management test user
 
-In this section, you create a user called Britta Simon in Certent Equity Management. Work with Certent Integration Analyst assigned by Customer Success Manager to add the users in the Certent Equity Management platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Certent Equity Management. Work with Certent Integration Analyst assigned by Customer Success Manager to add the users in the Certent Equity Management platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
@@ -226,5 +226,5 @@ When you click the Certent Equity Management tile in the Access Panel, you shoul
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

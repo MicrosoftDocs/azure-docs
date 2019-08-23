@@ -3,9 +3,9 @@ title: Run shell scripts in an Linux VM on Azure
 description: This topic describes how to run scripts within an Azure Linux virtual machine using Run Command
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 10/25/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ---
@@ -72,9 +72,9 @@ This table shows the list of commands available for Linux VMs. The **RunShellScr
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission, which the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher have.
+Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission at the subscription level, which the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher have.
 
-Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission, which the [Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher have.
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission at the subscription level, which the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher have.
 
 You can use one of the [built-in](../../role-based-access-control/built-in-roles.md) roles or create a [custom](../../role-based-access-control/custom-roles.md) role to use Run Command.
 

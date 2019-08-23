@@ -4,7 +4,7 @@ description: How to create and use an SSH public-private key pair for Linux VMs 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

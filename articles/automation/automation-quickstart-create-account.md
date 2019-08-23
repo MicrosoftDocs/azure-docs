@@ -32,7 +32,7 @@ Sign in to Azure at https://portal.azure.com
     ![Enter information about your Automation account in the page](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > For an updated list of locations that you can deploy an Automation Account to see, [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
+    > For an updated list of locations that you can deploy an Automation Account to see, [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
 1. When the deployment has completed, click **All Services**, select **Automation Accounts** and select the Automation Account you created.
 

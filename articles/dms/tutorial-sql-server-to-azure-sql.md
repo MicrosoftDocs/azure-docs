@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/09/2019
 ---
 
 # Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS
@@ -19,6 +19,7 @@ You can use the Azure Database Migration Service to migrate the databases from a
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
+>
 > - Assess your on-premises database by using the Data Migration Assistant.
 > - Migrate the sample schema by using the Data Migration Assistant.
 > - Create an instance of the Azure Database Migration Service.
@@ -35,7 +36,7 @@ This article describes an offline migration from SQL Server to a single database
 
 To complete this tutorial, you need to:
 
-- Download and install [SQL Server 2016 or later](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
+- Download and install [SQL Server 2016 or later](https://www.microsoft.com/sql-server/sql-server-downloads).
 - Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Create a single (or pooled) database in Azure SQL Database, which you do by following the detail in the article [Create a single database in Azure SQL Database using the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 
@@ -43,22 +44,22 @@ To complete this tutorial, you need to:
     > If you use SQL Server Integration Services (SSIS) and want to migrate the catalog database for your SSIS projects/packages (SSISDB) from SQL Server to Azure SQL Database, the destination SSISDB will be created and managed automatically on your behalf when you provision SSIS in Azure Data Factory (ADF). For more information about migrating SSIS packages, see the article [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
   
 - Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
-- Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Create an Azure Virtual Network (VNet) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
-    > During VNET setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > During VNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
     > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
     > - Storage endpoint
     > - Service bus endpoint
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
 
-- Ensure that your VNET Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
-- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the VNET used for the Azure Database Migration Service.
+- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the VNet used for the Azure Database Migration Service.
 - Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
 - Ensure that the credentials used to connect to target Azure SQL Database instance have CONTROL DATABASE permission on the target Azure SQL databases.
 
@@ -74,7 +75,7 @@ Before you can migrate data from an on-premises SQL Server instance to a single 
    - Check database compatibility
    - Check feature parity
 
-     Both report types are selected by default.
+    Both report types are selected by default.
 
 3. In the Data Migration Assistant, on the **Options** screen, select **Next**.
 4. On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.
@@ -164,19 +165,17 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
 4. Select the location in which you want to create the instance of the Azure Database Migration Service.
 
-5. Select an existing virtual network (VNET) or create a new one.
+5. Select an existing VNet or create a new one.
 
-    The VNET provides the Azure Database Migration Service with access to the source SQL Server and the target Azure SQL Database instance.
+    The VNet provides the Azure Database Migration Service with access to the source SQL Server and the target Azure SQL Database instance.
 
-    For more information about how to create a VNET in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
+    For more information about how to create a VNet in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
 6. Select a pricing tier.
 
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
-    If you need help with choosing the right Azure Database Migration Service tier, refer to the recommendations in the posting [here](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configure Azure Database Migration Service instance settings](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
 
 7. Select **Create** to create the service.
 

@@ -251,9 +251,7 @@ Azure Data Factory version 1 supports reading or writing partitioned data by usi
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-For more information, see the instructions in [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
+```
 
 ## JSON schema
 The following JSON definition shows you how to create a schedule trigger with scheduling and recurrence:
@@ -271,7 +269,7 @@ The following JSON definition shows you how to create a schedule trigger with sc
         "timeZone": "UTC"
         "schedule": {                    // Optional (advanced scheduling specifics)
           "hours": [<<0-23>>],
-          "weekDays": : [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurrences": [

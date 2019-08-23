@@ -3,7 +3,7 @@ title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to
 description: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -25,7 +25,7 @@ The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino-comp
 
 To complete the steps in this tutorial, first do the following tasks:
 
-* Configure your DevKit's Wi-Fi and prepare your development environment by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Configure your DevKit's Wi-Fi and prepare your development environment by following the "Prepare the development environment" section steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Upgrade to the latest firmware (1.3.0 or later) with the [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) tutorial.
 * Create and link an IoT Hub with a Device Provisioning service instance by following the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](/azure/iot-dps/quick-setup-auto-provision).
 
@@ -74,7 +74,7 @@ In device code, you need to specify the [Device provisioning endpoint](/azure/io
 1. In the Azure portal, select the **Overview** pane of your Device Provisioning service and note down the **Global device endpoint** and **ID Scope** values.
   ![Device Provisioning Service Global Endpoint and ID Scope](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
-1. Open **DeKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
+1. Open **DevKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
   ![Device Provisioning Service Endpoint](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Fill the `registrationId` variable in the code. Only alphanumeric, lowercase, and hyphen combination with a maximum of 128 characters is allowed. Also noted down the value.

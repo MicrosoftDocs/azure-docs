@@ -18,7 +18,10 @@ ms.date: 01/04/2019
 ms.author: jowargo
 ---
 
-# Tutorial: Push notification to specific Android application users by using Azure Notification Hubs
+# Tutorial: Push notification to specific Android application users by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
+
+> [!WARNING]
+> As of April 10, 2018, Google has deprecated Google Cloud Messaging (GCM). The GCM server and client APIs are deprecated and will be removed as soon as May 29, 2019. For more information, see [GCM and FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -137,7 +140,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <string name="loginButton">1. Log in</string>
+    <string name="loginButton">1. Sign in</string>
     <string name="send_button">2. Send Notification</string>
     <string name="notification_message_hint">Notification message</string>
     <string name="notification_message_tag_hint">Recipient username</string>
@@ -253,7 +256,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
     }
     ```
 
-    This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). It uses an authorization token stored in local storage when you click the **Log in** button.
+    This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). It uses an authorization token stored in local storage when you click the **Sign in** button.
 4. In your  class, remove or comment out your private field for `NotificationHub`, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint. Be sure to replace `<Enter Your Backend Endpoint>` with your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -315,7 +318,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Then, add the following methods to handle the **Log in** button click event and sending push notifications.
+9. Then, add the following methods to handle the **Sign in** button click event and sending push notifications.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -397,7 +400,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
     }
     ```
 
-    The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (it represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
+    The `login` handler for the **Sign in** button generates a basic authentication token using on the input username and password (it represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
 
     The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag. The platform notification service that `sendPush` targets depends on the `pns` string passed in.
 
@@ -463,7 +466,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 
 1. Run the application on a device or an emulator using Android Studio.
 2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
-3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. It enables the **Send Notification** button.
+3. In the Android app, click **Sign in**. Wait for a toast message that states **Logged in and registered**. It enables the **Send Notification** button.
 
     ![][A2]
 4. Click the toggle buttons to enable all platforms where you ran the app and registered a user.

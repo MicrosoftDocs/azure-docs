@@ -1,14 +1,14 @@
 ---
-title: Pricing tiers for Azure Database for PostgreSQL
-description: This article describes the pricing tiers for Azure Database for PostgreSQL.
+title: Pricing tiers for Azure Database for PostgreSQL - Single Server
+description: This article describes the pricing tiers for Azure Database for PostgreSQL - Single Server.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 07/31/2019
 ---
 
-# Azure Database for PostgreSQL pricing tiers
+# Pricing tiers in Azure Database for PostgreSQL - Single Server
 
 You can create an Azure Database for PostgreSQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the PostgreSQL server level. A server can have one or many databases.
 
@@ -31,57 +31,9 @@ To choose a pricing tier, use the following table as a starting point.
 
 After you create a server, the number of vCores, hardware generation, and pricing tier (except to and from Basic) can be changed up or down within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
 
-
 ## Compute generations and vCores
 
-Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available). 
-
-> [!IMPORTANT]
-> Beginning December 12, 2018, new customers will not be able to provision compute generation 4 servers in Brazil South, Canada Central, Canada East, East Asia, East US 2, Central India, West India, Japan West, North Central US, West US. Previously created compute generation 4 servers will be migrated to compute generation 5 starting February 1, 2019 in these regions.
->
-> [!IMPORTANT]
-> Beginning February 19, 2019, new customers will not be able to provision compute generation 4 servers in Central US, East US, Japan East, North Europe, South Central US, Southeast Asia, West Europe. Previously created compute generation 4 servers will be migrated to compute generation 5 starting April 1, 2019 in these regions.
-
-| **Azure region** | **Gen 4** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Central US |  | X |
-| East US |  | X |
-| East US 2 |  | X |
-| North Central US |  | X |
-| South Central US | X | X |
-| West US |  | X |
-| West US 2 |  | X |
-| Brazil South |  | X |
-| Canada Central |  | X |
-| Canada East |  | X |
-| North Europe | X | X |
-| West Europe |  | X |
-| France Central |  | X |
-| UK South |  | X |
-| UK West |  | X |
-| East Asia |  | X |
-| Southeast Asia | X | X |
-| Australia East |  | X |
-| Australia Central |  | X |
-| Australia Central 2 |  | X |
-| Australia Southeast |  | X |
-| Central India |  | X |
-| South India |  | X |
-| West India |  | X |
-| Japan East | X | X |
-| Japan West |  | X |
-| Korea Central |  | X |
-| Korea South |  | X |
-| China East 1 | X |  |
-| China East 2 |  | X |
-| China North 1 | X |  |
-| China North 2 |  | X |
-| Germany Central |  | X |
-| US DoD Central  | X |  |
-| US DoD East  | X |  |
-| US Gov Arizona |  | X |
-| US Gov Texas |  | X |
-| US Gov Virginia |  | X |
+Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. China East 1, China North 1, US DoD Central, and US DoD East utilize Gen 4 logical CPUs that are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. All other regions utilize Gen 5 logical CPUs that are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors.
 
 ## Storage
 
@@ -94,19 +46,54 @@ The storage you provision is the amount of storage capacity available to your Az
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
 
-You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
+You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
+
+>[!NOTE]
+> Storage can only be scaled up, not down.
+
+The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
+### Large storage (Preview)
+
+We are increasing the storage limits in our General Purpose and Memory Optimized tiers. Newly created servers that opt-in to the preview can provision up to 16 TB of storage. The IOPS scale at a 3:1 ratio up to 20,000 IOPS. As with the current generally available storage, you can add additional storage capacity after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
+
+|              | **General Purpose** | **Memory Optimized** |
+|:-------------|:--------------------|:---------------------|
+| Storage type | Azure Premium Storage | Azure Premium Storage |
+| Storage size | 32 GB to 16 TB| 32 GB to 16 TB |
+| Storage increment size | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+> [!IMPORTANT]
+> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
+>
+> The large storage preview currently does not support:
+>
+> * Incoming connections through virtual network service endpoints
+> * Geographically redundant backups
+> * Read replicas
+
 ### Reaching the storage limit
 
-The server is marked read-only when the amount of free storage reaches less than 5 GB or 5% of provisioned storage, whichever is less. For example, if you have provisioned 100 GB of storage, and the actual utilization goes over 95 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 250 MB.  
+Servers with less than 100 GB provisioned storage are marked read-only if the free storage is less than 512MB or 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
+
+For example, if you have provisioned 110 GB of storage, and the actual utilization goes over 105 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 512 MB.
 
 When the server is set to read-only, all existing sessions are disconnected and uncommitted transactions are rolled back. Any subsequent write operations and transaction commits fail. All subsequent read queries will work uninterrupted.  
 
 You can either increase the amount of provisioned storage to your server or start a new session in read-write mode and drop data to reclaim free storage. Running `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` sets the current session to read write mode. In order to avoid data corruption, do not perform any write operations when the server is still in read-only status.
 
-We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).
+We recommend that you turn on storage auto-grow or to set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).
+
+### Storage auto-grow
+
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified above apply.
+
+For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 950 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+
+Remember that storage can only be scaled up, not down.
 
 ## Backup
 
@@ -115,6 +102,9 @@ The service automatically takes backups of your server. The minimum retention pe
 ## Scale resources
 
 After you create your server, you can independently change the vCores, the hardware generation, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
+
+> [!NOTE] 
+> The storage size can only be increased. You cannot go back to a smaller storage size after the increase.
 
 When you change the number of vCores, the hardware generation, or the pricing tier, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute.
 

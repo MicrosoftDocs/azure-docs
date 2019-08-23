@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Improve your secure score in Azure Security Center

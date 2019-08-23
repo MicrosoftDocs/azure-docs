@@ -4,27 +4,27 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 07/09/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: "mvc, seodec18"
 ---
 
-# Quickstart: Deploy your first IoT Edge module to a Linux device
+# Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
-Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this quickstart, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
+Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine with all prerequisites installed and then delete it when you're finished. 
 
 In this quickstart you learn how to:
 
 1. Create an IoT Hub.
 2. Register an IoT Edge device to your IoT hub.
-3. Install and start the IoT Edge runtime on your device.
+3. Install and start the IoT Edge runtime on your virtual device.
 4. Remotely deploy a module to an IoT Edge device.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 
-This quickstart walks you through creating an Azure virtual machine that's configured to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
+This quickstart walks you through creating a Linux virtual machine that's configured to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -50,19 +50,18 @@ Cloud resources:
 
 IoT Edge device:
 
-* A Linux device or virtual machine to act as your IoT Edge device. You should use the Microsoft-provided [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtual machine, which preinstalls everything you need to run IoT Edge on a device. Create this virtual machine using the following command:
+* A Linux device or virtual machine to act as your IoT Edge device. You should use the Microsoft-provided [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtual machine, which preinstalls everything you need to run IoT Edge on a device. Accept the terms of use and create this virtual machine using the following commands:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
    It may take a few minutes to create and start the new virtual machine.
 
-   You may get a `MarketplacePurchaseEligibilityFailed` error at this point. If this happens, you need to accept the terms by going to [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) and clicking `Get It Now`. Sign in and accept the terms there before retrying the command.
-
    When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You will use this public IP address to connect to the virtual machine later in the quickstart.
 
-* If you prefer to run the Azure IoT Edge runtime on your own device, follow instructions at [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+* If you prefer to run the Azure IoT Edge runtime on your own device, follow instructions at [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md).
 
 ## Create an IoT hub
 
@@ -114,7 +113,7 @@ Start the Azure IoT Edge runtime on your IoT Edge device.
 
 ![Diagram - Start the runtime on device](./media/quickstart-linux/start-runtime.png)
 
-The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
+The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an IoT Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
 
 During the runtime configuration, you provide a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure.
 
@@ -126,7 +125,7 @@ If you're using the Azure IoT Edge on Ubuntu virtual machine as described in the
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
-If you're running IoT Edge on your local machine or an ARM32 device, you need to install the IoT Edge runtime and its prerequisites on your device. Follow the instructions in [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md), then return to this quickstart.
+If you're running IoT Edge on your local machine or an ARM32 or ARM64 device, you need to install the IoT Edge runtime and its prerequisites on your device. Follow the instructions in [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md), then return to this quickstart.
 
 ### View the IoT Edge runtime status
 
@@ -141,13 +140,13 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 >[!TIP]
 >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands.
 
-1. Check to see that the Edge Security Daemon is running as a system service.
+1. Check to see that the IoT Edge security daemon is running as a system service.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![See the Edge Daemon running as a system service](./media/quickstart-linux/iotedged-running.png)
+   ![See the IoT Edge daemon running as a system service](./media/quickstart-linux/iotedged-running.png)
 
 2. If you need to troubleshoot the service, retrieve the service logs.
 
@@ -201,38 +200,22 @@ You can also watch the messages arrive at your IoT hub by using the [Azure IoT H
 
 ## Clean up resources
 
-If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. Otherwise, you can delete the Azure resources that you created and remove the IoT Edge runtime from your device.
-
-### Delete Azure resources
+If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. Otherwise, you can delete the Azure resources that you created to avoid charges.
 
 If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. Double check the contents of the resource group to make sure that there's nothing you want to keep. If you don't want to delete the whole group, you can delete individual resources instead.
 
 Remove the **IoTEdgeResources** group.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### Remove the IoT Edge runtime
-
-If you want to remove the installations from your device, use the following commands.  
-
-Remove the IoT Edge runtime.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-Remove the container runtime.
-
-   ```bash
-   sudo apt-get remove --purge moby-cli
-   sudo apt-get remove --purge moby-engine
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## Next steps
 
-This quickstart is the prerequisite for all of the IoT Edge tutorials. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
+
+In this quickstart, you created an IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment.
+
+The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic. 
 
 > [!div class="nextstepaction"]
-> [Filter sensor data using an Azure Function](tutorial-deploy-function.md)
+> [Start developing IoT Edge modules for Linux devices](tutorial-develop-for-linux.md)

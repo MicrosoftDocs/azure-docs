@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
-manager: craigg
 ms.date: 10/16/2018
 ---
 # Deploy and explore a sharded multi-tenant application
@@ -52,7 +51,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 ### Plan the names
 
 In the steps of this section, you provide a *user* value that is used to ensure resource names are globally unique, and a name for the *resource group* which contains all the resources created by a deployment of the app. For a person named *Ann Finley*, we suggest:
-- *User:* **af1**  *(Her initials, plus a digit. Use a different value (e.g. af2) if you deploy the app a second time.)*
+- *User:* **af1**  *(Their initials, plus a digit. Use a different value (e.g. af2) if you deploy the app a second time.)*
 - *Resource group:* **wingtip-mt-af1** *(wingtip-mt indicates this is the sharded multi-tenant app. Appending the user name af1 correlates the resource group name with the names of the resources it contains.)*
 
 Choose your names now, and write them down. 

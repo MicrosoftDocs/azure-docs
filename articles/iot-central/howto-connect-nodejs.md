@@ -3,7 +3,7 @@ title: Connect a generic Node.js client application to Azure IoT Central | Micro
 description: As a device developer, how to connect a generic Node.js device to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,6 +11,8 @@ manager: philmea
 ---
 
 # Connect a generic client application to your Azure IoT Central application (Node.js)
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This article describes how, as a device developer, to connect a generic Node.js application representing a real device to your Microsoft Azure IoT Central application.
 
@@ -63,6 +65,18 @@ Add the following event on the **Measurements** page:
 
 > [!NOTE]
 > The data type of the Event measurement is string.
+
+### Location measurements
+
+Add the following location measurement on the **Measurements** page:
+
+| Display Name | Field Name  |
+| ------------ | ----------- |
+| Location     | location    |
+
+The location measurement data type is made up of two floating point numbers for longitude and latitude, and an optional floating point number for altitude.
+
+Enter field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the location can't be displayed in the application.
 
 ### Device properties
 
@@ -139,12 +153,14 @@ The following steps show how to create a client application that implements the 
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Update the placeholder `{your device connection string}` with the [device connection string](tutorial-add-device.md#generate-connection-string). In this sample, you initialize `targetTemperature` to zero, you could use the current reading from the device or a value from the device twin.
 
-1. To send telemetry, state, and event measurements to your Azure IoT Central application, add the following function to the file:
+1. To send telemetry, state, event, and location measurements to your Azure IoT Central application, add the following function to the file:
 
     ```javascript
     // Send device measurements.
@@ -153,12 +169,18 @@ The following steps show how to create a client application that implements the 
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -315,6 +337,10 @@ As an operator in your Azure IoT Central application, for your real device you c
 * View the telemetry on the **Measurements** page:
 
     ![View telemetry](media/howto-connect-nodejs/viewtelemetry.png)
+
+* View the location on the **Measurements** page:
+
+    ![View location measurements](media/howto-connect-nodejs/viewlocation.png)
 
 * View the device property values sent from your device on the **Properties** page. The device property tiles update when the device connects:
 

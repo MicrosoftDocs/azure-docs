@@ -2,7 +2,6 @@
 title: Use multiple HDInsight clusters with an Azure Data Lake Storage account - Azure 
 description: Learn how to use more than one HDInsight cluster with a single Data Lake Storage account
 keywords: hdinsight storage,hdfs,structured data,unstructured data, data lake store
-services: hdinsight,storage
 author: hrasheed-msft
 ms.reviewer: jasonh
 

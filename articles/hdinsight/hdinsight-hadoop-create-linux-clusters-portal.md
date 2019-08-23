@@ -1,14 +1,13 @@
 ---
 title: Create Apache Hadoop clusters by using a web browser, Azure HDInsight 
 description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight by using a web browser and the Azure preview portal.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/29/2019
 ms.author: hrasheed
 
 ---
@@ -66,7 +65,7 @@ The Azure portal exposes most of the cluster properties. By using Azure Resource
 
     * Select **Next** to move to the next page.
 
-4. From **2 Security + networking**, you can connect your cluster to a virtual network by using the provided drop-down menu. Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a virtual network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). The article includes specific configuration requirements for the virtual network. 
+4. From **2 Security + networking**, you can connect your cluster to a virtual network by using the provided drop-down menu. Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a virtual network, see [Plan a virtual network deployment for Azure HDInsight clusters](hdinsight-plan-virtual-network-deployment.md). The article includes specific configuration requirements for the virtual network. 
 
     If you want to use the **Enterprise Security Package**, follow these instructions: [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 

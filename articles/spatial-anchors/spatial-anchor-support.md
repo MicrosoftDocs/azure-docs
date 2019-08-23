@@ -4,7 +4,7 @@ description: Azure Spatial Anchors information on how to open a request with the
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors

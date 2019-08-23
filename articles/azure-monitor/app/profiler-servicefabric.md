@@ -26,7 +26,7 @@ Application Insights Profiler is included with Azure Diagnostics. You can instal
 
 To set up your environment, take the following actions:
 
-1. To ensure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later, it's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later.
+1. Profiler supports .NET Framework and .Net Core. If you're using .NET Framework, make sure you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later. Profiler supports .NET Core 2.1 and newer applications.
 
 1. Search for the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) extension in the deployment template file.
 
@@ -49,12 +49,10 @@ To set up your environment, take the following actions:
   If your settings are correct, Application Insights Profiler will be installed and enabled when the Azure Diagnostics extension is installed. 
 
 1. Add Application Insights to your Service Fabric application.  
-  For Profiler to collect profiles for your requests, your application must be tracking operations with Application Insights. For stateless APIs, you can refer to instructions for [tracking Requests for profiling](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). For more information about tracking custom operations in other kinds of apps, refer to [track custom operations with Application Insights .NET SDK](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
+  For Profiler to collect profiles for your requests, your application must be tracking operations with Application Insights. For stateless APIs, you can refer to instructions for [tracking Requests for profiling](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). For more information about tracking custom operations in other kinds of apps, see [track custom operations with Application Insights .NET SDK](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Redeploy your application.
 
-> [TIP]
-> For virtual machines, an alternative to the preceding JSON-based steps is to navigate in the Azure portal to **Virtual Machines** > **Diagnostic Settings** > **Sinks** > **Set send diagnostic data to Application Insights to Enabled** and then select either an Application Insights account or a specific ikey.
 
 ## Next steps
 

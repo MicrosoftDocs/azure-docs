@@ -4,9 +4,9 @@ description: Validate EDI and generate XML with EDIFACT message encoder for Azur
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017

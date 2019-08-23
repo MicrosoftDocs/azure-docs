@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
-manager: craigg
 ms.date: 02/18/2019
 ---
 # Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance

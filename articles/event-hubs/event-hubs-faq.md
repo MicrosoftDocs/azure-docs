@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
 
 ---
@@ -20,6 +20,15 @@ ms.author: shvija
 
 ### What is an Event Hubs namespace?
 A namespace is a scoping container for Event Hub/Kafka Topics. It gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). A namespace serves as an application container that can house multiple Event Hub/Kafka Topics. 
+
+### When do I create a new namespace vs. use an existing namespace?
+Capacity allocations ([throughput units (TUs)](#throughput-units)) are billed at the namespace level. A namespace is also associated with a region.
+
+You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
+
+- You need an Event Hub associated with a new region.
+- You need an Event Hub associated with a different subscription.
+- You need an Event Hub with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
 
 ### What is the difference between Event Hubs Basic and Standard tiers?
 
@@ -47,6 +56,47 @@ Event Hubs Standard tier currently supports a maximum retention period of seven 
 
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+
+### What ports do I need to open on the firewall? 
+You can use the following protocols with Azure Service Bus to send and receive messages:
+
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
+
+| Protocol | Ports | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
+
+### What IP addresses do I need to whitelist?
+To find the right IP addresses to white list for your connections, follow these steps:
+
+1. Run the following command from a command prompt: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Note down the IP address returned in `Non-authoritative answer`. The only point in time it would change is if you restore the namespace on to a different cluster.
+
+If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+
+1. First, you run nslookup on the namespace.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
 ## Apache Kafka integration
 
@@ -140,8 +190,9 @@ You create an Event Hubs dedicated cluster by submitting a [quota increase suppo
 ## Best practices
 
 ### How many partitions do I need?
+The number of partitions is specified at creation and must be between 2 and 32. The partition count is not changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information on partitions, see [Partitions](event-hubs-features.md#partitions).
 
-The partition count on an event hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. 
+You may want to set it to be the highest possible value, which is 32, at the time of creation. Remember that having more than one partition will result in events sent to multiple partitions without retaining the order, unless you configure senders to only send to a single partition out of the 32 leaving the remaining 31 partitions redundant. In the former case, you will have to read events across all 32 partitions. In the latter case, there is no obvious additional cost apart from the extra configuration you have to make on Event Processor Host.
 
 Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you are looking to scale your event processing, you may want to consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 

@@ -27,7 +27,7 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect** window is sh
 
 |Task|Purpose|
 |---|---|
-|Add an Azure Account | Redirects you to your organizations login page to authenticate you to Azure. |
+|Add an Azure Account | Redirects you to your organization's sign-in page to authenticate you to Azure. |
 |Use a connection string or shared access signature URI | Can be used to directly access a container or storage account with a SAS token or a shared connection string. |
 |Use a storage account name and key| Use the storage account name and key of your storage account to connect to Azure storage.|
 
@@ -35,7 +35,7 @@ Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen pr
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
+When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
@@ -43,7 +43,7 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
 
-To create a container, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your blob container. See the [Create the container and set permissions](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+To create a container, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your blob container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
 ## Upload blobs to the container
 

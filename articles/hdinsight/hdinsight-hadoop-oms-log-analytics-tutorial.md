@@ -1,17 +1,14 @@
 ---
 title: Use Azure Monitor logs to monitor Azure HDInsight clusters 
-description: Learn how to use Azure Azure Monitor logs to monitor jobs running in an HDInsight cluster.
-services: hdinsight
+description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive 
-ms.topic: conceptual
-ms.date: 02/20/2019
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 08/05/2019
 ---
+
 # Use Azure Monitor logs to monitor HDInsight clusters
 
 Learn how to enable Azure Monitor logs to monitor Hadoop cluster operations in HDInsight, and how to add an HDInsight monitoring solution.
@@ -46,21 +43,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you configure an existing HDInsight Hadoop cluster to use an Azure Log Analytics workspace to monitor jobs, debug logs, etc.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal page.
 
-2. From the left menu, select **All services**.
+1. From the left, under **Monitoring**, select **Operations Management Suite**.
 
-3. Under **ANALYTICS**, select **HDInsight clusters**.
+1. From the main view, under **OMS Monitoring**, select **Enable**.
 
-4. Select your cluster from the list.
+1. From the **Select a workspace** drop-down list, select an existing Log Analytics workspace.
 
-5. From the left, under **Monitoring**, select **Operations Management Suite**.
-
-6. From the main view, under **OMS Monitoring**, select **Enable**.
-
-7. From the **Select a workspace** drop-down list, select an existing Log Analytics workspace.
-
-8. Select **Save**.  It takes a few moments to save the setting.
+1. Select **Save**.  It takes a few moments to save the setting.
 
     ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 
@@ -109,6 +100,10 @@ For the instructions to install a management solution, see [Management solutions
 ![HDInsight monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 Because the cluster is a brand new cluster, the report doesn't show any activities.
+
+## Configuring performance counters
+
+Azure monitor also supports collecting and analyzing performance metrics for the nodes in your cluster. For more information on enabling and configuring this feature, see [Linux performance data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
 
 ## Next steps
 

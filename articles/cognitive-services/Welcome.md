@@ -1,48 +1,51 @@
 ---
 title: What are Azure Cognitive Services?
+titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services are APIs, SDKs, and services that you can use with Microsoft Azure to build intelligent applications.
 services: cognitive-services
 author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: article
-ms.date: 03/19/2019
-ms.author: nitinme 
+ms.subservice:
+ms.topic: overview
+ms.date: 04/19/2019
+ms.author: nitinme
 ---
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge. Azure Cognitive Services enable developers to easily add cognitive features such as emotion and video detection; facial, speech, and vision recognition; and speech and language understanding – into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Search, and Knowledge.
+Azure Cognitive Services are APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge. Azure Cognitive Services enable developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
 
 ## Vision APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
 |[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")|The Computer Vision service provides you with access to advanced algorithms for processing images and returning information.|
-|[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service") (Preview)|The Custom Vision Service allows you to build custom image classifiers.|
-|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
+|[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|The Custom Vision Service allows you to build custom image classifiers.|
 |[Face API](https://docs.microsoft.com/azure/cognitive-services/face/ "Face API")|Face API provides access to advanced face algorithms, enabling face attribute detection and recognition.|
-| [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer enables you to extract insights from your video.|
+|[Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Form Recognizer") (Preview)|Form Recognizer identifies and extracts key-value pairs and table data from form documents; then outputs structured data including the relationships in the original file.|
+|[Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Ink Recognizer") (Preview)|Ink Recognizer allows you to recognize and analyze digital ink stroke data, shapes and handwritten content, and output a document structure with all recognized entities.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer enables you to extract insights from your video.|
 
 ## Speech APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Service") (Preview)|Speech Service adds speech-enabled features to applications.|
-|[Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech API")|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
-|[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech")|Translator Speech is a machine translation service.|
+|[Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Services")|Speech Service adds speech-enabled features to applications.|
 |[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
+|[Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
+|[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
 
 ## Language APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check allows you to perform contextual grammar and spell checking.|
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding service  (LUIS) allows your application to understand what a person wants in their own words.|
+|[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content.|
 |[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics provides natural language processing over raw text for sentiment analysis, key phrase extraction and language detection.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator text provides for machine-based text translation in near real-time.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer enables you to extract insights from your video.|
 
 ## Search APIs
 
@@ -57,12 +60,15 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing Image Search")|Bing Image Search returns a display of images determined to be relevant to the user's query.|
 |[Bing Visual Search](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search provides returns insights about an image such as visually similar images, shopping sources for products found in the image, and related searches.|
 |[Bing Local Business Search](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing Local Business Search")| Bing Local Business Search API enables your applications to find contact and location information about local businesses based on search queries.|
+|[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check allows you to perform contextual grammar and spell checking.|
 
-## Knowledge APIs
+## Decision APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content.|
+|[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") (Preview)|Anomaly Detector allows you to monitor and detect abnormalities in your time series data.|
+|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
+|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer") (Preview)|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 
 ## Use free trials
 
@@ -70,11 +76,11 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 
 ## Subscription management
 
-Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/en-us/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
+Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
 
 ## Upgrade to unlock limits
 
-All APIs have a free trial plan.  As paid offerings become available for each API, you'll be directed to the Azure portal to complete the purchase.  You can find *Buy* links in your Subscriptions page if you're already using them or you can skip trial altogether and purchase with provided links on [Pricing](https://www.microsoft.com/cognitive-services/en-us/pricing "pricing").  You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
+All APIs have a free trial plan which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
 
 ## Regional availability
 
@@ -92,11 +98,11 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
 ## Certifications and compliance
 
-Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. 
+Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA.
 
-You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications for your own audits and security reviews. 
+You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications for your own audits and security reviews.
 
-To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/). 
+To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/).
 
 ## Support
 

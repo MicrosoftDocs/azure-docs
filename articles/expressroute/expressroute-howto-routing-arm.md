@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -297,6 +297,10 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ## <a name="public"></a>Azure public peering
 
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
+
+> [!Note]
+> Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
+>
 
 ### To create Azure public peering
 

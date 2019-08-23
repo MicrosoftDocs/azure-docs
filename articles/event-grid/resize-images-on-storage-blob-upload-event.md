@@ -271,6 +271,8 @@ Click **Choose File** to select a file, then click **Upload Image**. When the up
 
 ![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
+---
+
 ## Next steps
 
 In this tutorial, you learned how to:

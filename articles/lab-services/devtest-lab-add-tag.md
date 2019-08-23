@@ -4,7 +4,7 @@ description: Learn how to add a tag to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
-manager: 
+manager:
 editor: ''
 
 ms.assetid: dc5b327a-62e4-41bc-80ef-deb3c23d51b2
@@ -38,8 +38,8 @@ Every tag is made up of a **name**/**value** pair. For example, you might create
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. Your lab might already be shown on the Dashboard under **All Resources**.
-1. From the list of labs, select the lab in which you want to add or manage tags.  
-1. On the lab's **Overview** area, select **Configuration and policies**.  
+1. From the list of labs, select the lab in which you want to add or manage tags.
+1. On the lab's **Overview** area, select **Configuration and policies**.
 
     ![Configuration and policies button](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -52,7 +52,7 @@ Every tag is made up of a **name**/**value** pair. For example, you might create
 
 The following limitations apply to tags:
 
-* Each resource or resource group can have a maximum of 15 tag name/value pairs. This limitation applies only to tags directly applied to the resource group or resource. A resource group can contain many resources that each have 15 tag name/value pairs. 
+* Each resource or resource group can have a maximum of 15 tag name/value pairs. This limitation applies only to tags directly applied to the resource group or resource. A resource group can contain many resources that each have 15 tag name/value pairs.
 * The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
 * Tags applied to the resource group are not inherited by the resources in that resource group.
 
@@ -62,4 +62,4 @@ The following limitations apply to tags:
 
 ## Next steps
 * You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [Set policies and schedules](devtest-lab-set-lab-policy.md).
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

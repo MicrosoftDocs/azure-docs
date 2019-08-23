@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB triggers and bindings in Azur
 services: functions
 author: craigshoemaker
 ms.author: cshoe
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 ms.service: azure-functions
 ms.topic: reference

@@ -2,16 +2,10 @@
 title: Go-To-Market Services - your marketplace benefits | Azure
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
-author: qianw211
-manager: Patrick.Butler
-editor:
 
-ms.assetid: 
+author: qianw211
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
@@ -38,11 +32,7 @@ The Go-to-Market benefits are accessible to partners who have recently published
 2. Microsoft Marketplaces Consultation: Take advantage of this [FREE consultation](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) to help plan the architecture of your app in marketplace.
 3. Marketplace Forums: Ask your questions directly to Microsoft employees and other marketplace partners in the [Marketplace forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 4. Technical Support: Use the Help menu in [Cloud Partner Portal](https://cloudpartner.azure.com/) to get help on your marketplace-related support questions. 
-5. Development Testing Sponsorship: Review eligibility below and submit your request for sponsorship using the [registration form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3omd2bW7etLoEoufw2-vMdUNUkxSjQ5V0hJOEtZSks3ME45TDJNTkVUTi4u):
-    * Dev and testing are for the purpose of publishing to the Azure Marketplace.
-    * The funding cannot be used for any other purpose.
-    * The award is $5,000 for 90 days of use, starting from when the first action is taken in the assigned subscription.
-    * The app being tested must go live in the Azure Marketplace within 30 days of the last day of funding: For example, if such funding is used starting on December 1st, then the app must be live by March 31st.
+5. AAD Integration and Development and Testing sponsorship: you will be opted in when you go live with a transactable (deployable and billable offer). See the next section for how to get started with go-to-market benefits.
 
 ## Go-to-market (GTM) benefits in the Marketplace
 
@@ -50,8 +40,8 @@ New listings in both Azure Marketplace and AppSource are eligible to receive fre
 
 | Storefront | Additional available benefits |
 |:--- |:--- |
-| AppSource |  Microsoft Gold partners <br> Trial Apps |
-| The Azure Marketplace | Transact offers <br> Trial offers |
+| AppSource |  Microsoft Gold partners <br> Transact offers – Marketplace rewards <br> Trial Apps |
+| The Azure Marketplace | Transact offers  – Marketplace rewards <br> Trial offers |
 
 Your GTM support includes templates, web content, training, and tools to promote your business.
 
@@ -60,21 +50,25 @@ To access these benefits, you will need to:
 1. Publish an offer in either Azure Marketplace or AppSource.
 2. Ensure you have entered a marketing contact in the **contact information** portion of your offer. This should be a dedicated marketing resource, as opposed to a catch-all alias. (i.e, avoid using “support\@”, “info\@”, “marketing\@”, etc.)
 
-Based on your solution status, offer being List, Trial, or Transact, you will receive either an email with self-help resources, or an invitation to a consultation call with a dedicated Engagement Manager. You do not need to do anything to initiate the call—the Marketplace Onboarding Team will reach out to you based on the information you provide in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Based on your solution status, offer being List, Trial, or Transact – Marketplace rewards, you will receive either an email with self-help resources, or an invitation to a consultation call with a dedicated Engagement Manager. You do not need to do anything to initiate the call—the Marketplace Onboarding Team will reach out to you based on the information you provide in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion.  These listings are also eligible for additional marketing benefits based on solution status (List, Trial, or Transact), chosen marketplace, and Microsoft Partner Competency achievement.
+The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion.  These listings are also eligible for additional marketing benefits based on solution status (List, Trial, or Transact - marketplace rewards), chosen marketplace, and Microsoft Partner Competency achievement.
 
-The table below summarize the eligibility requirements:
+The table below summarize the eligibility requirements for list and trial offers:
 
-![](./media/marketplace-publishers-guide/gtm-activities-table.png)
+![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 \* Requires silver or gold competency. <br>
 \*\* Requires gold competency. <br>
 \*\*\* Requires gold competency and Co-sell Ready in Partner Listings. <br>
 ^ Transact only, applicable to Azure Marketplace.
 
+## Marketplace rewards for transact partners
+
+The full list of benefits for marketplace rewards can be viewed in the [program summary slides](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
+
 ## Next steps
 
-Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
 
 ---

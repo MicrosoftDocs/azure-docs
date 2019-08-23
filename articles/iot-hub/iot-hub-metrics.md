@@ -1,12 +1,12 @@
 ---
 title: Use metrics to monitor Azure IoT Hub | Microsoft Docs
 description: How to use Azure IoT Hub metrics to assess and monitor the overall health of your IoT hubs.
-author: nberdy
+author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/25/2017
-ms.author: nberdy
+ms.date: 04/24/2019
+ms.author: jlian
 ---
 
 # Understand IoT Hub metrics
@@ -14,6 +14,9 @@ ms.author: nberdy
 IoT Hub metrics give you better data about the state of the Azure IoT resources in your Azure subscription. IoT Hub metrics enable you to assess the overall health of the IoT Hub service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view IoT Hub metrics from the Azure portal.
+
+> [!NOTE]
+> You can use IoT Hub metrics to view information about IoT Plug and Play devices connected to your IoT Hub. IoT Plug and Play devices are part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md).
 
 ## How to view IoT Hub metrics
 
@@ -55,12 +58,14 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|Routing: message latency for Service Bus Queue|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus queue endpoint.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|Routing: messages delivered to Service Bus Topic|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|No Dimensions|
 |d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|Routing: message latency for Service Bus Topic|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus topic endpoint.|No Dimensions|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events).|No Dimensions|
-|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events).|No Dimensions|
+|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
+|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.storage|Routing: messages delivered to storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|No Dimensions|
 |d2c<br>.endpoints<br>.latency<br>.storage|Routing: message latency for storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a storage endpoint.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Routing: data delivered to storage|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Routing: blobs delivered to storage|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|No Dimensions|
+|EventGridDeliveries|Event Grid deliveries (preview)|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid). To see the where the requests come from, use the EventType dimension.|Result, EventType|
+|EventGridLatency|Event Grid latency (preview)|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType|
 |d2c<br>.twin<br>.read<br>.success|Successful twin reads from devices|Count|Total|The count of all successful device-initiated twin reads.|No Dimensions|
 |d2c<br>.twin<br>.read<br>.failure|Failed twin reads from devices|Count|Total|The count of all failed device-initiated twin reads.|No Dimensions|
 |d2c<br>.twin<br>.read<br>.size|Response size of twin reads from devices|Bytes|Average|The average, min, and max of all successful device-initiated twin reads.|No Dimensions|
@@ -94,8 +99,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |jobs<br>.failed|Failed jobs|Count|Total|The count of all failed jobs.|No Dimensions|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
 |dailyMessage<br>QuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
-|deviceDataUsage|Total device data usage (deprecated)|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
-|deviceDataUsageV2|Total device data usage (preview)|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
+|deviceDataUsage|Total device data usage|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
 |totalDeviceCount|Total devices (preview)|Count|Average|Number of devices registered to your IoT hub|No Dimensions|
 |connected<br>DeviceCount|Connected devices (preview)|Count|Average|Number of devices connected to your IoT hub|No Dimensions|
 |configurations|Configuration Metrics|Count|Total|Metrics for Configuration Operations|No Dimensions|

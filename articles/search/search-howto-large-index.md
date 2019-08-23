@@ -3,7 +3,7 @@ title: Index large data set using built-in indexers - Azure Search
 description: Learn strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: search
 ms.topic: conceptual
@@ -50,7 +50,7 @@ Indexer scheduling is an important mechanism for processing large data sets, as 
 
 By design, scheduled indexing starts at specific intervals, with a job typically completing before resuming at the next scheduled interval. However, if processing does not complete within the interval, the indexer stops (because it ran out of time). At the next interval, processing resumes where it last left off, with the system keeping track of where that occurs. 
 
-In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). For more information about setting schedules in general, see [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
+In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). For more information about setting schedules in general, see [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) or see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -63,7 +63,7 @@ For non-routine, computationally intensive indexing requirements - such as OCR o
 Parallel processing has these elements:
 
 + Subdivide source data among multiple containers or multiple virtual folders inside the same container. 
-+ Map each mini data set to its own [date source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Map each mini data set to its own [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + For cognitive search, reference the same [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in each indexer definition.
 + Write into the same target search index. 
 + Schedule all indexers to run at the same time.

@@ -2,9 +2,9 @@
 title: Understand the Windows agent check results in Azure Update Management
 description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 12/14/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
@@ -20,6 +20,9 @@ The following list are the three readiness states a machine can be in:
 * **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
 * **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
 * **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+
+> [!NOTE]
+> There may be a slight delay between what the Azure portal shows and the current state of the machine.
 
 ## Start the troubleshooter
 
@@ -47,15 +50,15 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later |.NET Framework 4.5.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 and later |.NET Framework 4.6.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### .NET 4.5.1
+### .NET 4.6.1+
 
-The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653) installed.
+The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) installed.
 
 ### WMF 5.1
 
-The WMF check verifies that the system has the required version of the Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the earliest supported version. We recommend that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) to increase reliability of the Hybrid Runbook Worker.
+The WMF check verifies that the system has the required version of the Windows Management Framework (WMF) - [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### TLS 1.2
 
@@ -99,7 +102,9 @@ The Crypto folder access check determines whether the Local System Account has a
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. You can get the script,  [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), in the PowerShell Gallery. The output of this script looks like the following example:
+You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. You can get the script,  [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), in the PowerShell Gallery. You must have WMF 4.0, or greater, installed to run the script. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+
+The output of this script looks like the following example:
 
 ```output
 RuleId                      : OperatingSystemCheck
@@ -136,7 +141,7 @@ RuleId                      : AutomationAgentServiceConnectivityCheck1
 RuleGroupId                 : connectivity
 RuleName                    : Registration endpoint
 RuleGroupName               : connectivity
-RuleDescription             : 
+RuleDescription             :
 CheckResult                 : Failed
 CheckResultMessage          : Unable to find Workspace registration information in registry
 CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound

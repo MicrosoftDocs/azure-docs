@@ -11,12 +11,16 @@
   items:
   - name: ASP.NET Core - C#
     href: signalr-quickstart-dotnet-core.md
+  - name: ASP.NET - C#
+    href: signalr-quickstart-dotnet.md
   - name: Azure Functions - JavaScript
     href: signalr-quickstart-azure-functions-javascript.md
   - name: Azure Functions - C#
     href: signalr-quickstart-azure-functions-csharp.md
   - name: Azure Functions - Java
     href: signalr-quickstart-azure-functions-java.md
+  - name: Azure Functions - Python
+    href: signalr-quickstart-azure-functions-python.md
   - name: REST API
     href: signalr-quickstart-rest-api.md
 
@@ -56,7 +60,8 @@
     href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
-
+  - name: Event handling
+    href: signalr-concept-event-grid-integration.md
 - name: How-to guides
   items:
   - name: Scale
@@ -71,7 +76,8 @@
     items:
     - name: Azure Functions bindings
       href: signalr-concept-azure-functions.md
-
+    - name: Event Grid integration
+      href: signalr-howto-event-grid-integration.md
 
 - name: References
   items:

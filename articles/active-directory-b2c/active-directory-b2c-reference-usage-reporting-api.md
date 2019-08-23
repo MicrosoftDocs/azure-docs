@@ -2,14 +2,14 @@
 title: Usage reporting API samples and definitions in Azure Active Directory B2C | Microsoft Docs
 description: Guide and samples on getting reports on Azure AD B2C tenant users, authentications, and multi-factor authentications.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

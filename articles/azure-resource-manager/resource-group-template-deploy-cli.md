@@ -1,17 +1,10 @@
 ---
 title: Deploy resources with Azure CLI and template | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
 
 ---
@@ -38,6 +31,8 @@ To deploy to a **subscription**, use [az deployment create](/cli/azure/deploymen
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
+
+Currently, management group deployments are only supported through the REST API. See [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
 
 The examples in this article use resource group deployments. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
@@ -98,11 +93,11 @@ az group deployment create --resource-group examplegroup \
 
 ## Redeploy when deployment fails
 
-This feature is also known as *Rollback on error*. When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use the `--rollback-on-error` parameter in the deployment command. This functionality is useful if you have got a known good state for your infrastructure deployment and want this to be reverted to. There are a number of caveats and restrictions:
+This feature is also known as *Rollback on error*. When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use the `--rollback-on-error` parameter in the deployment command. This functionality is useful if you've got a known good state for your infrastructure deployment and want to revert to this state. There are a number of caveats and restrictions:
 
-- The redeployment is run exactly as it was run previously with the same parameters. You can not change the parameters.
+- The redeployment is run exactly as it was run previously with the same parameters. You can't change the parameters.
 - The previous deployment is run using the [complete mode](./deployment-modes.md#complete-mode). Any resources not included in the previous deployment are deleted, and any resource configurations are set to their previous state. Make sure you fully understand the [deployment modes](./deployment-modes.md).
-- The redeployment only affects the resources, any data changes are not affected.
+- The redeployment only affects the resources, any data changes aren't affected.
 - This feature is only supported on Resource Group deployments, not subscription level deployments. For more information about subscription level deployment, see [Create resource groups and resources at the subscription level](./deploy-to-subscription.md).
 
 To use this option, your deployments must have unique names so they can be identified in the history. If you don't have unique names, the current failed deployment might overwrite the previously successful deployment in the history. You can only use this option with root level deployments. Deployments from a nested template aren't available for redeployment.
@@ -133,7 +128,7 @@ The specified deployment must have succeeded.
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameter file. The preceding examples in this article show inline parameters.
+To pass parameter values, you can use either inline parameters or a parameter file.
 
 ### Inline parameters
 
@@ -145,6 +140,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the array in the format: `exampleArray="['value1','value2']"`.
 
 You can also get the contents of file and provide that content as an inline parameter.
 
@@ -170,23 +167,7 @@ The arrayContent.json format is:
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI.
 
-The parameter file must be in the following format:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-Notice that the parameters section includes a parameter name that matches the parameter defined in your template (storageAccountType). The parameter file contains a value for the parameter. This value is automatically passed to the template during deployment. You can create more than one parameter file, and then pass in the appropriate parameter file for the scenario. 
-
-Copy the preceding example and save it as a file named `storage.parameters.json`.
+For more information about the parameter file, see [Create Resource Manager parameter file](resource-manager-parameter-files.md).
 
 To pass a local parameter file, use `@` to specify a local file named storage.parameters.json.
 
@@ -196,18 +177,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### Parameter precedence
-
-You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## Test a template deployment

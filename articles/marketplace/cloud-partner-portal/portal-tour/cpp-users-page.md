@@ -1,20 +1,12 @@
 ---
-title: Users page for Azure Marketplace | Microsoft Docs
-description: .
+title: Users page for Azure Marketplace 
+description: Overview of the Users page in the Cloud Partner Portal for Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Users page

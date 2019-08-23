@@ -12,15 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 06/03/2019
 ms.author: juliako
 
 ---
 # Create filters with Media Services .NET SDK
 
-When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
+When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+
+For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
 
 This topic shows how to use Media Services .NET SDK to define a filter for a Video on Demand asset and create [Account Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) and [Asset Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+
+> [!NOTE]
+> Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## Prerequisites 
 
@@ -72,6 +77,40 @@ The following code shows how to use .NET to create an asset filter that includes
 AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, encodedOutputAsset.Name, "assetFilterName1", assetFilterParams);
 ```
+
+## Associate filters with Streaming Locator
+
+You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [Dynamic Packager (Streaming Endpoint)](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+
+The following C# code shows how to create a Streaming Locator and specify `StreamingLocator.Filters`. This is an optional property that takes an `IList<string>` of filter names.
+
+```csharp
+IList<string> filters = new List<string>();
+filters.Add("filterName");
+
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
+        Filters = filters
+    });
+```
+      
+## Stream using filters
+
+Once you define filters, your clients could use them in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols: Apple HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming.
+
+The following table shows some examples of URLs with filters:
+
+|Protocol|Example|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## Next steps
 

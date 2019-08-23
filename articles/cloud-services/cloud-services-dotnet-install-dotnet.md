@@ -3,18 +3,13 @@ title: Install .NET on Azure Cloud Services roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/22/2018
-ms.author: jeconnoc
+ms.author: gwallace
 ---
 
 # Install .NET on Azure Cloud Services roles
@@ -30,6 +25,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
+* [.NET 4.8 web installer](https://dotnet.microsoft.com/download/thank-you/net48)
 * [.NET 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 web installer](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -98,7 +94,8 @@ You can use startup tasks to perform operations before a role starts. Installing
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
    set netfx="NDP472"
-   
+   REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
+      
    REM ***** Set script start timestamp *****
    set timehour=%time:~0,2%
    set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%

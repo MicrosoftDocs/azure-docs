@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech, Java (Windows, Linux) - Speech Services'
+title: 'Quickstart: Translate speech, Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll create a simple Java application to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows and Linux users.
 services: cognitive-services
@@ -8,13 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
 # Quickstart: Translate speech with the Speech SDK for Java
 
-In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Ubuntu Linux 16.04/18.04, and is built with the Speech SDK Maven package and the Eclipse Java IDE.
+Quickstarts are also available for [speech-to-text](quickstart-java-jre.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
+
+In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It is built with the Speech SDK Maven package and the Eclipse Java IDE.
 
 For a complete list of languages available for speech translation, see [language support](language-support.md).
 
@@ -22,17 +24,26 @@ For a complete list of languages available for speech translation, see [language
 
 This quickstart requires:
 
-* Operating System: 64-bit Windows or 64-bit Ubuntu Linux 16.04/18.04
+* Operating System: 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or macOS 10.13 or later
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
-If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before starting Eclipse.
+If you're running Linux, make sure these dependencies are installed before starting Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * On Ubuntu:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * On Debian 9:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).

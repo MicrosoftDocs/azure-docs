@@ -133,7 +133,7 @@ Stage 2 of the roadmap focuses on mitigating the most frequently used attack tec
 
 #### Conduct an inventory of services, owners, and admins
 
-With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../../security/security-management-and-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
+With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../../security/fundamentals/management-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
 
 * Identify the users who have administrative roles and the services where they can manage.
 * Use Azure AD PIM to find out which users in your organization have admin access to Azure AD, including additional roles beyond those listed in Stage 1.
@@ -167,7 +167,7 @@ Azure AD recommends that you require multi-factor authentication (MFA) for all y
 
 Turn on:
 
-* [MFA using conditional access policies](../authentication/howto-mfa-getstarted.md) for all users in your organization.
+* [MFA using Conditional Access policies](../authentication/howto-mfa-getstarted.md) for all users in your organization.
 
 If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
@@ -211,9 +211,9 @@ The Azure Activity Log provides a history of subscription-level events in Azure.
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD
 
-#### Configure conditional access policies
+#### Configure Conditional Access policies
 
-Prepare conditional access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises conditional access by using Azure Active Directory device registration](../active-directory-device-registration-on-premises-setup.md).
+Prepare Conditional Access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises Conditional Access by using Azure Active Directory device registration](../active-directory-device-registration-on-premises-setup.md).
 
 
 ## Stage 3: Build visibility and take full control of admin activity
@@ -259,7 +259,7 @@ If you’re already using Azure AD Privileged Identity Management, adjust timefr
 
 #### Determine exposure to password-based sign-in protocols (if using Exchange Online)
 
-In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and conditional access. You can block [legacy authentication using conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication). Please check the details on [how to block basic authentication](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchnage online. 
+In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and Conditional Access. You can block [legacy authentication using Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Please check the details on [how to block basic authentication](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchnage online. 
 
 #### Complete a roles review assessment for Office 365 roles (if using Office 365)
 
@@ -289,7 +289,7 @@ Use Privileged identity Management with Azure AD administrator roles to manage, 
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems 
 
-Azure log integration enables you to integrate raw logs from your Azure resources to your organization’s existing Security Information and Event Management (SIEM) systems. [Azure log integration](../../security/security-azure-log-integration-overview.md) collects Windows events from Windows Event Viewer logs, and Azure resources from Azure Activity Logs, Azure Security Center alerts, and Azure Diagnostic logs. 
+Azure log integration enables you to integrate raw logs from your Azure resources to your organization’s existing Security Information and Event Management (SIEM) systems. [Azure log integration](../../security/fundamentals/azure-log-integration-overview.md) collects Windows events from Windows Event Viewer logs, and Azure resources from Azure Activity Logs, Azure Security Center alerts, and Azure Diagnostic logs. 
 
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD
@@ -302,9 +302,9 @@ Azure AD allows you to automate the creation, maintenance, and removal of user i
 
 MCAS allows you to investigate files and set policies based on Azure Information Protection classification labels, enabling greater visibility and control of your data in the cloud. Scan and classify files in the cloud and apply Azure information protection labels. For more information, see [Azure Information Protection integration](https://docs.microsoft.com/cloud-app-security/azip-integration).
 
-#### Configure conditional access
+#### Configure Conditional Access
 
-Configure conditional access based on a group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Azure AD connected apps. 
+Configure Conditional Access based on a group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Azure AD connected apps. 
 
 #### Monitor activity in connected cloud apps
 

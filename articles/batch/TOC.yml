@@ -27,6 +27,8 @@
     href: tutorial-rendering-batchexplorer-blender.md
   - name: Parallel R simulation
     href: tutorial-r-doazureparallel.md
+  - name: OCR with Batch and Functions
+    href: tutorial-batch-functions.md
 - name: Samples
   items:
   - name: Code samples
@@ -49,6 +51,8 @@
     href: batch-pool-vm-sizes.md
   - name: High availability and disaster recovery
     href: high-availability-disaster-recovery.md
+  - name: Task runtime environment variables
+    href: batch-compute-node-environment-variables.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -57,13 +61,15 @@
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
+    - name: Cost analysis and budgets
+      href: budget.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
       href: batch-aad-auth.md
     - name: Azure AD with Batch Management
       href: batch-aad-auth-management.md
-  - name: Create application packages
+  - name: Using application packages
     href: batch-application-packages.md
   - name: Create and manage pools
     items:
@@ -73,10 +79,12 @@
       href: batch-pool-vm-sizes.md
     - name: Configure access to compute nodes
       href: pool-endpoint-configuration.md
-    - name: Create a pool with a custom image
+    - name: Create a pool with the Shared Image Gallery
       href: batch-custom-images.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
+    - name: Mount a virtual file system
+      href: virtual-file-mount.md
     - name: Mount an Azure file share
       href: pool-file-shares.md
     - name: Use RDMA or GPU instances
@@ -199,8 +207,6 @@
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
-  - name: Batch compute node environment variables
-    href: batch-compute-node-environment-variables.md
 - name: Resources
   items:
   - name: Azure Roadmap

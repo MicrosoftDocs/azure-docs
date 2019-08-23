@@ -1,20 +1,12 @@
 ---
-title: Deploy a VM from your VHDs for the Azure Marketplace | Microsoft Docs
+title: Deploy a VM from your VHDs for the Azure Marketplace 
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: qianw211
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: pbutlerm
+ms.date: 08/08/2019
+ms.author: evansma
 ---
 
 # Deploy a VM from your VHDs
@@ -62,7 +54,7 @@ After your VM is deployed, you are ready to [certify your VM image](./cpp-certif
    |  -------------              |   ---------------                                                            |
    | User Storage Account Name   | Storage account name where the generalized VHD is located                    |
    | User Storage Container Name | Container name where the generalized VHD is located                          |
-   | DNS Name for Public IP      | Public IP DNS name                                                           |
+   | DNS Name for Public IP      | Public IP DNS name. The DNS Name is of the VM, you will define this in the Azure Portal, once the offer is deployed.  |
    | Admin User Name             | Administrator account's username for new VM                                  |
    | Admin Password              | Administrator account's password for new VM                                  |
    | OS Type                     | VM operating system: `Windows` \| `Linux`                                    |

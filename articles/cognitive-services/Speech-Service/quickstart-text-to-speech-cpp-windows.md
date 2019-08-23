@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C++ (Windows) - Speech Services'
+title: 'Quickstart: Synthesize speech, C++ (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in C++ on Windows Desktop by using the Speech SDK
 services: cognitive-services
@@ -8,15 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
 ---
 
 # Quickstart: Synthesize speech in C++ on Windows by using the Speech SDK
 
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+Quickstarts are also available for [speech-recognition](quickstart-cpp-windows.md) and [speech-translation](quickstart-translate-speech-cpp-windows.md).
 
-The feature described within this article is available from [Speech SDK 1.4.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.4.0).
+In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later (any edition).
+
+The feature described within this article is available from [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 
 For a complete list of languages/voices available for speech synthesis, see [language support](language-support.md#text-to-speech).
 
@@ -26,7 +28,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 ## Create a Visual Studio project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Add sample code
 

@@ -22,25 +22,12 @@
     href: policy/overview.md
   - name: Blueprints
     href: blueprints/overview.md
-- name: Implementations
-  expanded: true
+- name: Cloud Adoption Framework
   items:
-  - name: Enterprise Cloud Adoption
-    items:
-    - name: What is cloud resource governance?
-      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-    - name: Resource access governance in Azure
-      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-    - name: Governance design for a single team
-      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-    - name: Governance design for multiple teams
-      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-  - name: Azure Enterprise Scaffold
-    items:
-    - name: Prescriptive Subscription Governance
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-    - name: Implement Azure Enterprise Scaffold
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+  - name: Overview
+    href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+  - name: Governance Overview
+    href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
 - name: Resources
   items:
   - name: Azure roadmap

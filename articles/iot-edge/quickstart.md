@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 08/16/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -12,23 +12,20 @@ ms.custom: "mvc, seodec18"
 
 ---
 
-# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
+# Quickstart: Deploy your first IoT Edge module to a virtual Windows device
 
-In this quickstart, use the Azure IoT Edge cloud interface to deploy prebuilt code remotely to an IoT Edge device. To accomplish this task, first create and configure a Windows virtual machine to work as an IoT Edge device, then you can deploy a module to it.
+Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine, install the prerequisites, and then delete it when you're finished. 
 
 In this quickstart you learn how to:
 
 1. Create an IoT Hub.
 2. Register an IoT Edge device to your IoT hub.
-3. Install and start the IoT Edge runtime on your device.
+3. Install and start the IoT Edge runtime on your virtual device.
 4. Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 
-The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
-
-> [!NOTE]
-> The IoT Edge runtime on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This quickstart walks you through creating a Windows virtual machine and configuring it to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -67,6 +64,12 @@ IoT Edge device:
   1. On the **RDP** tab, select **Download RDP File**.
 
   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
+
+
+> [!NOTE]
+> This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
+>
+> If you're ready to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
 ## Create an IoT hub
 
@@ -126,30 +129,40 @@ During the runtime installation, you're asked for a device connection string. Us
 
 The steps in this section all take place on your IoT Edge device, so you want to connect to that virtual machine now via remote desktop.
 
-### Prepare your device for containers
-
-The installation script automatically installs the Moby engine on your device before installing IoT Edge. Prepare your device by turning on the Containers feature.
-
-1. In the start bar, search for **Turn Windows features on or off** and open the control panel program.
-1. Find and select **Containers**.
-1. Select **OK**.
-
-Once complete, you need to restart Windows for the changes to take effect, but you can do so from your Remote Desktop session instead of restarting the virtual machine from the Azure portal.
-
-### Download and install the IoT Edge service
+### Install and configure the IoT Edge service
 
 Use PowerShell to download and install the IoT Edge runtime. Use the device connection string that you retrieved from IoT Hub to configure your device.
 
-1. On your IoT Edge device, run PowerShell as an administrator.
+1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device-portal.md) to register your device and retrieve the device connection string. 
 
-2. Download and install the IoT Edge service on your device.
+2. Run PowerShell as an administrator.
+
+   >[!NOTE]
+   >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
+3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the moby runtime, and then downloads the IoT Edge runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Windows
+   Deploy-IoTEdge -ContainerOs Windows
    ```
 
-3. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
+4. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now. 
+
+5. Run PowerShell as an administrator again.
+
+6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Windows
+   ```
+
+7. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
 
 ### View the IoT Edge runtime status
 
@@ -164,14 +177,7 @@ Verify that the runtime was successfully installed and configured.
 2. If you need to troubleshoot the service, retrieve the service logs.
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
-
-   Get-WinEvent -ea SilentlyContinue `
-    -FilterHashtable @{ProviderName= "iotedged";
-      LogName = "application"; StartTime = [datetime]::Today} |
-    select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false} |
-    format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device.
@@ -222,34 +228,21 @@ You can also watch the messages arrive at your IoT hub by using the [Azure IoT H
 
 ## Clean up resources
 
-If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. Otherwise, you can delete the Azure resources that you created and remove the IoT Edge runtime from your device.
-
-### Delete Azure resources
+If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. Otherwise, you can delete the Azure resources that you created to avoid charges.
 
 If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. Double check the contents of the resource group to make sure that there's nothing you want to keep. If you don't want to delete the whole group, you can delete individual resources instead.
 
 Remove the **IoTEdgeResources** group.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### Remove the IoT Edge runtime
-
-If you want to remove the installations from your device, use the following commands.  
-
-Remove the IoT Edge runtime. If you plan on reinstalling IoT Edge, leave out the `-DeleteConfig` and `-DeleteMobyDataRoot` parameters so that you can reinstall with the same configuration that you just set up.
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## Next steps
 
 In this quickstart, you created an IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment.
 
-You are ready to continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
+The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic. 
 
 > [!div class="nextstepaction"]
-> [Filter sensor data using an Azure Function](tutorial-deploy-function.md)
+> [Start developing IoT Edge modules for Windows devices](tutorial-develop-for-windows.md)

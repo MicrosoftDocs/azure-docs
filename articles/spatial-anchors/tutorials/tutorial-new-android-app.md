@@ -19,7 +19,7 @@ This tutorial will show you how to create a new Android app that integrates ARCo
 
 To complete this tutorial, make sure you have:
 
-- A Windows or macOS machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+- A Windows or macOS machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
 
 ## Getting started
@@ -53,12 +53,12 @@ Modify `app\manifests\AndroidManifest.xml` to include the following entries insi
 </application>
 ```
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets ARCore version 1.5 (support for ARCore 1.6+ on Azure Spatial Anchors will be coming soon). After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets ARCore version 1.8. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.5.0'
+    implementation 'com.google.ar:core:1.8.0'
     ...
 }
 ```
@@ -67,7 +67,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> makes it simple to render realistic 3D scenes in Augmented Reality apps, without having to learn OpenGL.
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.5, since it should match the version of ARCore your app is using. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.8, since it should match the version of ARCore your app is using. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
 ```
 android {
@@ -81,7 +81,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
     ...
 }
 ```
@@ -119,13 +119,13 @@ Finally, add the following `handleTap()` method, that will tie everything togeth
 
 ## Attach a local Azure Spatial Anchor
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets Azure Spatial Anchors version 1.0.2. That said, referencing any recent version of Azure Spatial Anchors should work.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets Azure Spatial Anchors version 1.3.0. That said, referencing any recent version of Azure Spatial Anchors should work.
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.0.2]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.0.2]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
     ...
 }
 ```

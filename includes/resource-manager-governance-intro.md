@@ -12,7 +12,7 @@
 
 When deploying resources to Azure, you have tremendous flexibility when deciding what types of resources to deploy, where they are located, and how to set them up. However, that flexibility may open more options than you would like to allow in your organization. As you consider deploying resources to Azure, you might be wondering:
 
-* How do I meet legal requirements for data sovereignty in certain countries?
+* How do I meet legal requirements for data sovereignty in certain countries/regions?
 * How do I control costs?
 * How do I ensure that someone does not inadvertently change a critical system?
 * How do I track resource costs and bill it accurately?

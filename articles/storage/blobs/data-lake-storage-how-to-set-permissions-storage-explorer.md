@@ -1,15 +1,13 @@
 ---
 title: "Set permissions for Data Lake Storage Gen2 with Azure Storage Explorer"
 description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 capable storage account.
-services: storage
-author: roygara
-
-ms.custom: mvc
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: stewu
 ---
 
 # Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2
@@ -25,11 +23,11 @@ In this article, you learn how to use Azure Storage Explorer to:
 
 ## Prerequisites
 
-In order to best depict the process, we require that you complete our [Azure Storage Explorer quickstart](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (filesystem created and data uploaded to it).
+In order to best depict the process, we require that you complete our [Azure Storage Explorer quickstart](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (container created and data uploaded to it).
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your filesystem and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
+You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

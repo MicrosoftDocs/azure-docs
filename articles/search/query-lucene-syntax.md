@@ -4,11 +4,11 @@ description: Reference for the full Lucene syntax, as used with Azure Search.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 08/08/2019
 
 author: "brjohnstmsft"
 ms.author: "brjohnst"
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -22,7 +22,7 @@ translation.priority.mt:
   - "zh-tw"
 ---
 # Lucene query syntax in Azure Search
-You can write queries against Azure Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Search through `$filter` expressions. 
+You can write queries against Azure Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Search through `$filter` expressions. 
 
 ## How to invoke full parsing
 
@@ -37,13 +37,13 @@ The following example finds documents in the index using the Lucene query syntax
 The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
  Alternatively, use POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2015-02-28
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -74,7 +74,7 @@ The example above is the tilde (~), but the same principle applies to every oper
  Special characters must be escaped to be used as part of the search text. You can escape them by prefixing them with backslash (\\). Special characters that need to be escaped include the following:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- For example, to escape a wildcard character, use \\*.
+ For example, to escape a wildcard character, use \\\*.
 
 ### Encoding unsafe and reserved characters in URLs
 
@@ -116,19 +116,22 @@ Using `searchMode=all` increases the precision of queries by including fewer res
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring wildcard and regex queries
  Azure Search uses frequency-based scoring ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
 
-##  <a name="bkmk_fields"></a> Field-scoped queries  
- You can specify a `fieldname:searchterm` construction to define a fielded query operation, where the field is a single word, and the search term is also a single word or a phrase, optionally with boolean operators. Some examples include the following:  
+##  <a name="bkmk_fields"></a> Fielded search  
+You can define a fielded search operation with the `fieldName:searchExpression` syntax, where the search expression can be a single word or a phrase, or a more complex expression in parentheses, optionally with Boolean operators. Some examples include the following:  
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, in this case searching for two distinct artists in the `artists` field.  
+Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, in this case searching for two distinct artists in the `artists` field.  
 
-  The field specified in `fieldname:searchterm` must be a `searchable` field.  See [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.  
+The field specified in `fieldName:searchExpression` must be a `searchable` field.  See [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.  
+
+> [!NOTE]
+> When using fielded search expressions, you do not need to use the `searchFields` parameter because each fielded search expression has a field name explicitly specified. However, you can still use the `searchFields` parameter if you want to run a query where some parts are scoped to a specific field, and the rest could apply to several fields. For example, the query `search=genre:jazz NOT history&searchFields=description` would match `jazz` only to the `genre` field, while it would match `NOT history` with the `description` field. The field name provided in `fieldName:searchExpression` always takes precedence over the `searchFields` parameter, which is why in this example, we do not need to include `genre` in the `searchFields` parameter.
 
 ##  <a name="bkmk_fuzzy"></a> Fuzzy search  
- A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Fuzzy searches can expand a term up to the maximum of 50 terms that meet the distance criteria. 
+ A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Fuzzy searches can expand a term up to the maximum of 50 terms that meet the distance criteria. 
 
  To do a fuzzy search, use the tilde "~" symbol at the end of a single word with an optional parameter, a number between 0 and 2 (default), that specifies the edit distance. For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
@@ -147,7 +150,7 @@ The following example helps illustrate the differences. Suppose that there's a s
  To boost a term use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. You can also boost phrases. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.20).  
 
 ##  <a name="bkmk_regex"></a> Regular expression search  
- A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+ A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  For example, to find documents containing "motel" or "hotel", specify `/[mh]otel/`.  Regular expression searches are matched against single words.   
 
