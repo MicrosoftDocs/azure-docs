@@ -12,18 +12,17 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control. This is the first step in building your continuous integration and deployment pipeline with SQL Data
-Warehouse. 
+This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with SQL Data Warehouse. 
 
 # Before you begin
 
-- Sign up for an [Azure DevOps account](https://azure.microsoft.com/services/devops/)
+- Sign up for an [Azure DevOps organization](https://azure.microsoft.com/services/devops/)
 - Go through the [Create and Connect](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/create-data-warehouse-portal) tutorial
 -  [Install Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/) 
 
 ## Set up and connect to Azure DevOps
 
-1. In your Azure DevOps Organization, create a project which will host your SSDT database project via an Azure Repo repository
+1. In your Azure DevOps Organization, create a project that will host your SSDT database project via an Azure Repo repository
 
    ![Create Project](media/sql-data-warehouse-source-control-integration/1_create_project_azure-devops.png "Create Project")
 
@@ -43,7 +42,7 @@ Warehouse.
 
    ![Create new project](media/sql-data-warehouse-source-control-integration/5_create_new_project.png "Create new project")  
 
-2. Right-click on your empty .sqlproject  and import your data warehouse into the database project
+2. Right-click on your empty sqlproject  and import your data warehouse into the database project
 
    ![Import Project](media/sql-data-warehouse-source-control-integration/6_import_new_project.png "Import Project")  
 
@@ -71,7 +70,7 @@ Warehouse.
 
    ![Verify](media/sql-data-warehouse-source-control-integration/10_verify_column_change_pushed.png "Verify changes")
 
-4. (**Optional**) Use schema compare and update the changes to your target data warehouse using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your data warehouse
+4. (**Optional**) Use Schema Compare and update the changes to your target data warehouse using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your data warehouse
 
 ## Next steps
 
