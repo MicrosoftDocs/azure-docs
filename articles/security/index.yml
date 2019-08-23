@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/22/2019
+  ms.date: 08/23/2019
 
 highlightedContent: 
   items: 
@@ -106,20 +106,155 @@ conceptualContent:
 
     - title: Identity management
       links: 
-        - url: ./fundamentals/identity-management-overview.md
-          itemType: overview
-          text:  Security overview
         - url: ./fundamentals/choose-ad-authn.md
           itemType: concept
-          text:  Authentication for hybrid identity solution
-        - url: ./fundamentals/global-admin.md
+          text:  Choose the right authentication method
+        - url: ./fundamentals/steps-secure-identity.md
           itemType: concept
-          text:  Enforce MFA for subscription admins
+          text:  Securing your identity infrastructure
+        - url: ./fundamentals/identity-management-best-practices.md
+          itemType: concept
+          text:  Security best practices
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview
+        url: ./fundamentals/identity-management-overview.md
         text: See more
 
-    - title: Compliance
+    - title: Security monitoring
+      links: 
+        - url: https://docs.microsoft.com/azure/security-center/security-center-get-started
+          itemType: quickstart
+          text:  Onboard your subscription to Security Center
+        - url: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
+          itemType: how-to-guide
+          text:  Just-in-time virtual machine access
+        - url: https://docs.microsoft.com/azure/security-center/tutorial-security-policy
+          itemType: how-to-guide
+          text:  Working with security policies
+      footerLink: 
+        url: https://docs.microsoft.com/azure/security-center/
+        text: See more
+
+    - title: Security monitoring for IoT
+      links: 
+        - url: https://docs.microsoft.com/azure/asc-for-iot/overview
+          itemType: overview
+          text:  Introducing Azure Security Center for IoT
+        - url: https://docs.microsoft.com/azure/asc-for-iot/architecture
+          itemType: how-to-guide
+          text:  Azure Security Center for IoT architecture
+        - url: https://docs.microsoft.com/azure/asc-for-iot/getting-started
+          itemType: how-to-guide
+          text:  Get started with Azure Security Center for IoT
+      footerLink: 
+        url: https://docs.microsoft.com/azure/asc-for-iot/
+        text: See more
+
+    - title: Security analytics
+      links: 
+        - url: https://docs.microsoft.com/azure/sentinel/overview
+          itemType: overview
+          text:  What is Azure Sentinel preview?
+        - url: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+          itemType: quickstart
+          text:  Onboard Azure Sentinel preview
+        - url: https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility
+          itemType: quickstart
+          text:  Get started with Azure Sentinel preview
+      footerLink: 
+        url: https://docs.microsoft.com/azure/sentinel/
+        text: See more
+
+    - title: Threat protection
+      links: 
+        - url: https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp
+          itemType: overview
+          text:  What is Azure Advanced Threat Protection?
+        - url: https://docs.microsoft.com/azure-advanced-threat-protection/atp-prerequisites
+          itemType: overview
+          text:  Advanced Threat Protection prerequisites
+        - url: https://docs.microsoft.com/azure-advanced-threat-protection/atp-capacity-planning
+          itemType: quickstart
+          text:  Plan capacity for Advanced Threat Protection
+      footerLink: 
+        url: https://docs.microsoft.com/azure-advanced-threat-protection/
+        text: See more
+
+    - title: Logging and auditing
+      links: 
+        - url: ./fundamentals/log-audit.md
+          itemType: concept
+          text:  Azure logging & auditing
+        - url: ./fundamentals/management-monitoring-overview.md
+          itemType: overview
+          text:  Management and monitoring overivew
+        - url: ./fundamentals/azure-log-integration-overview.md
+          itemType: overview
+          text:  Introduction to Azure Log Integration
+      footerLink: 
+        url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
+        text: Search for more 
+
+    - title: Network security
+      links: 
+        - url: ./fundamentals/network-overview.md
+          itemType: overview
+          text:  Security overview
+        - url: ./fundamentals/network-best-practices.md
+          itemType: concept
+          text:  Security best practices
+        - url: ./fundamentals/ddos-best-practices.md
+          itemType: concept
+          text:  DDoS Protection
+      footerLink: 
+        url: ./fundamentals/index.md
+        text: See more
+
+    - title: Infrastructure security
+      links: 
+        - url: ./fundamentals/physical-security.md
+          itemType: concept
+          text:  Azure facilities, premises, & physical security
+        - url: ./fundamentals/infrastructure-network.md
+          itemType: concept
+          text:  Network architecture
+        - url: ./fundamentals/protection-customer-data.md
+          itemType: concept
+          text:  Customer data protection
+      footerLink: 
+        url: ./fundamentals/infrastructure.md
+        text: See more
+
+    - title: Virtual machine security
+      links: 
+        - url: ./fundamentals/virtual-machines-overview.md
+          itemType: overview
+          text:  Security overview
+        - url: ./fundamentals/iaas.md
+          itemType: concept
+          text:  Best practices for IaaS workloads
+        - url: ./fundamentals/azure-marketplace-images.md
+          itemType: concept
+          text:  Security configuration recommendations
+      footerLink: 
+        url: ./fundamentals/index.md
+        text: See more
+
+    - title: Database security
+      links: 
+        - url: ./fundamentals/database-security-overview.md
+          itemType: overview
+          text:  Security overview
+        - url: ./fundamentals/database-best-practices.md
+          itemType: concept
+          text:  Security best practices
+        - url: ./fundamentals/database-security-checklist.md
+          itemType: concept
+          text:  Security checklist
+      footerLink: 
+        url: ./fundamentals/index.md
+        text: See more
+
+    - title: Governance and compliance
       links: 
         - url: ./blueprints/au-protected-iaaswa-overview.md
           itemType: tutorial
@@ -131,80 +266,5 @@ conceptualContent:
           itemType: overview
           text:  Azure Blueprints service
       footerLink: 
-        url: ./fundamentals/index.md
-        text: See more
-
-    - title: Monitor, log & audit
-      links: 
-        - url: ./fundamentals/management-monitoring-overview.md
-          itemType: overview
-          text:  Monitoring overivew
-        - url: ./fundamentals/log-audit.md
-          itemType: concept
-          text:  What is Azure logging & auditing?
-        - url: ./fundamentals/azure-log-integration-overview.md
-          itemType: overview
-          text:  Azure Log Integration
-      footerLink: 
-        url: ./fundamentals/index.md
-        text: See more
-
-    - title: Network security
-      links: 
-        - url: ./fundamentals/network-overview.md
-          itemType: overview
-          text:  Security overview
-        - url: ./fundamentals/network-best-practices.md
-          itemType: concept
-          text:  Best practices
-        - url: ./fundamentals/ddos-best-practices.md
-          itemType: concept
-          text:  DDoS Protection
-      footerLink: 
-        url: ./fundamentals/index.md
-        text: See more
-
-    - title: Virtual machine security
-      links: 
-        - url: ./fundamentals/virtual-machines-overview.md
-          itemType: overview
-          text:  Security overview
-        - url: ./fundamentals/iaas.md
-          itemType: concept
-          text:  Best practices
-        - url: ./fundamentals/azure-marketplace-images.md
-          itemType: concept
-          text:  Security configuration recommendations
-      footerLink: 
-        url: ./fundamentals/index.md
-        text: See more
-
-    - title: Threat detection and protection
-      links: 
-        - url: ./fundamentals/antimalware.md
-          itemType: concept
-          text:  Microsoft Antimalware
-        - url: https://docs.microsoft.com/azure/security-center/
-          itemType: overview
-          text:  Azure Security Center
-        - url: https://docs.microsoft.com/azure/sentinel/
-          itemType: overview
-          text:  Azure Sentinel
-      footerLink: 
-        url: ./fundamentals/threat-detection.md
-        text: See more
-
-    - title: Database security
-      links: 
-        - url: ./fundamentals/database-security-overview.md
-          itemType: overview
-          text:  Security overview
-        - url: ./fundamentals/database-best-practices.md
-          itemType: concept
-          text:  Best practices
-        - url: ./fundamentals/database-security-checklist.md
-          itemType: concept
-          text:  Security checklist
-      footerLink: 
-        url: ./fundamentals/index.md
+        url: https://docs.microsoft.com/azure/governance/
         text: See more
