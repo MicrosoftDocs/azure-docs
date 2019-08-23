@@ -1,6 +1,6 @@
 ---
-title: Abort a pending blob copy operation with .NET - Azure Storage
-description: Learn how to abort a pending copy operation in your Azure Storage account using the .NET client library.
+title: Abort an ongoing blob copy operation with .NET - Azure Storage
+description: Learn how to abort an ongoing copy operation in your Azure Storage account using the .NET client library.
 services: storage
 author: mhopkins-msft
 
@@ -11,15 +11,15 @@ ms.subservice: blobs
 ms.topic: conceptual
 ---
 
-# Abort a pending blob copy operation with .NET
+# Abort an ongoing blob copy operation with .NET
 
-This article shows how to abort a pending blob copy operation. The example code uses the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+This article shows how to abort an ongoing blob copy operation. The example code uses the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 
 ## Abort a blob copy operation
 
-The Abort Copy Blob operation aborts a pending Copy Blob operation, and leaves a destination blob with zero length and full metadata. Version 2012-02-12 and newer.
+The [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) and [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) methods cancel an ongoing blob copy operation, and leave a destination blob with zero length and full metadata. Version 2012-02-12 and newer.
 
-The following code example creates a large block blob, and copies it to a new blob in the same container. If the copy operation does not complete within the specified interval, abort the copy operation.
+The following code example creates a large block blob, and copies it to a new blob in the same container. If the copy operation does not complete within the specified interval, the example aborts the copy operation.
 
 ```csharp
 private static async Task CopyLargeBlockBlobAsync(CloudBlobContainer container, int sizeInMb)
@@ -111,7 +111,11 @@ private static async Task CopyLargeBlockBlobAsync(CloudBlobContainer container, 
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources-include.md)]
+## Remarks
+
+When you abort an ongoing blob copy operation, the destination blob’s [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet). Aborting a copy operation results in a destination blob of zero length for block blobs, append blobs, and page blobs. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly in the [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) or [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) call. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling `StartCopy` or `StartCopyAsync`.
+
+You can only abort a copy operation that is pending completion.
 
 ## Next steps
 
