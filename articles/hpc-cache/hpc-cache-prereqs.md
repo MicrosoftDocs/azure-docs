@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 08/26/2019
 ms.author: v-erkell
 ---
 
@@ -25,7 +25,7 @@ Azure HPC Cache is available in these Azure regions:
 
 ## Azure subscription
 
-A paid subscription is recommended. [ xxx Have we tested this with free subscriptions or partner subscriptions yet? Will we? xxx ]
+A paid subscription is recommended. <!-- [ xxx Have we tested this with free subscriptions or partner subscriptions yet? Will we? xxx ] -->
 
 ## Network infrastructure
 
@@ -55,14 +55,13 @@ If you only need access to Blob storage, you can use the default Azure-provided 
 
 Learn more about Azure virtual networks and DNS server configurations in [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
-
-xxx stopped here 08/19 xxx 
-
 ## Permissions
 
-* The Azure HPC Cache needs to be able to create virtual network interfaces (NICs). The user who creates the cache must have sufficient privileges in the subscription to create NICs. There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more.
+Check these permission-related prerequisites before starting to create your cache.
 
-* If using Blob storage, the Azure HPC Cache instance needs authorization to access your storage account as a Storage Account Contributor. Details are [below](#add-the-access-control-role-to-your-account).
+* The Azure HPC Cache needs to be able to create virtual network interfaces (NICs). The user who creates the cache must have sufficient privileges in the subscription to create NICs. <!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
+
+* If using Blob storage, the Azure HPC Cache instance needs authorization to access your storage account as a Storage Account Contributor. You can use role-based access control (RBAC) to give the cache access to your Blob storage. Follow the instructions in the storage target section of [Create the cache](hpc-cache-create.md#add-the-access-control-role-to-your-account-blob-storage-only).
 
 ## Storage infrastructure
 
@@ -79,6 +78,6 @@ xxx stopped here 08/19 xxx
 
   It is a good practice to use a storage account in the same location as your cache.
 
-* Authorize the cache to access your Azure storage account by assigning it the Storage Account Contributor role as described [below](#add-the-access-control-role-to-your-account). If you are not the storage account owner, have the owner do this step.
+* Authorize the cache to access your Azure storage account by assigning it the Storage Account Contributor role as described in [Create the cache](hpc-cache-create.md#add-the-access-control-role-to-your-account-blob-storage-only). If you are not the storage account owner, have the owner do this step.
 
 * On-premises NFS storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.

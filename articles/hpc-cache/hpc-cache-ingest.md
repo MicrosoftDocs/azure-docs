@@ -2,9 +2,9 @@
 title: Move data to an Azure HPC Cache cloud container 
 description: How to
 author: ekpgh
-ms.service: hpc-cache
-ms.topic: how-to
-ms.date: 08/30/2019
+ms.service: conceptual
+ms.topic: conceptual
+ms.date: 08/26/2019
 ms.author: v-erkell
 ---
 
@@ -20,7 +20,7 @@ Keep these facts in mind:
 
 * Copying data through the Azure HPC Cache is best when you use multiple clients and parallel operations. A simple copy command from one client gives slow copy performance.
 
-A Python-based utility is available to load content onto a Blob storage container. Read [Pre-load data in Blob storage](#pre-loading-data-in-blob-storage) to learn more.
+A Python-based utility is available to load content onto a Blob storage container. Read [Pre-load data in Blob storage](#pre-load-data-in-blob-storage-with-clfsload) to learn more.
 
 If you don't want to use the loading utility, or if you want to add content to an existing storage target, follow the parallel data ingest instructions to write the data through the Azure HPC Cache.
 

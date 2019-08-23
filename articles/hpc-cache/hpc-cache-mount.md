@@ -3,8 +3,8 @@ title: Create an Azure HPC Cache
 description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: how-to
-ms.date: 08/30/2019
+ms.topic: conceptual
+ms.date: 08/26/2019
 ms.author: v-erkell
 ---
 

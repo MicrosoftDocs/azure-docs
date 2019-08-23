@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 08/30/2019
+ms.date: 08/26/2019
 ms.author: v-erkell
 ---
 
@@ -50,7 +50,6 @@ Click the **Add storage target link** to define your back-end storage systems. T
 
 You can define up to ten different storage targets.
 
-
 ## Storage target details 
 
 Slightly different information is used for Blob storage targets than for NFS storage targets.
@@ -67,7 +66,7 @@ Both NFS and Blob storage targets require this *common information*:
 
   **Note:** Although the example in a screenshot below uses an IP address, FQDN is preferred. An IP address can be used if necessary.
 
-* **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model, below](#choose-a-usage-model).
+* **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model, below](#choose-a-usage-model-nfs-storage-targets-only).
 
 *For a Blob storage target*, you also need to supply this information: 
 
@@ -75,7 +74,7 @@ Both NFS and Blob storage targets require this *common information*:
 * **Storage container** - The name of the empty container to reference
 
   You can move data to the Blob storage target after the cache is created. Consult your Azure HPC Cache support representative for more information.
-* If you have not already done it, add the access role permission to the storage account as explained [below](#add-the-access-control-role-to-your-account).
+* If you have not already done it, add the access role permission to the storage account as explained [below](#add-the-access-control-role-to-your-account-blob-storage-only).
 
 ![screenshot of blob storage target creation form](media/create-add-blob.png)
 
