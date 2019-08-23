@@ -5,11 +5,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.service: sql-database
 ms.topic: overview 
+ms.reviewer: vanto
 ms.date: 08/07/2019
 ---
 
 # What is Private Link?
-Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality go to http://aka.ms/privatelink. A private endpoint is essentially a private IP address within a specific Vnet and Subnet. 
+Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality go to https://docs.microsoft.com/en-us/azure/privatelink. A private endpoint is essentially a private IP address within a specific Vnet and Subnet. 
 
 For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls failed to properly address customers concerns around data exfiltration prevention and  on-premises connectivity via private peering.
 
@@ -36,18 +37,26 @@ With Private Link, customers can enable cros-premises access to the private endp
 ## How to set up Private Link for Azure SQL Database 
 
 ### Creation Process
-*TBD Azure Networking docs TBD*
+Private Endpoints can be created as follows
+- Portal: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-portal
+- PowerShell: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-powershell
+- CLI: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-cli
+
 ### DNS configuration process
 *TBD Azure Networking docs TBD*
 
 ### Approval Process
-Once the network admin creates the Private Endpoint(PE), the Sql admin shall manage the Private Endpoint Connection (PEC) to SQL Database. Browse down to the Private endpoint connections blade under SQL Server that will show result like this listing all the PECs and their states
+Once the network admin creates the Private Endpoint(PE), the Sql admin shall manage the Private Endpoint Connection (PEC) to SQL Database. 
+Browse down to the Private endpoint connections blade(#1 in the screenshot below) to see a list of all Private Endpoint Connections(PECs) (#2) corresponding to each Private Endpoint(PE) (#3) created
  ![Screenshot of all PECs][3]
 
-Click on individual PECs in Pending State and then choose Approve or Reject. 
+Select an individual PEC from the list by clicking on it
+![Screenshot selected PEC][6]
+
+Sql Admin can choose Approve or Reject a PEC and optionally add a short text response 
 ![Screenshot of PEC approval][4]
 
-After approval/ rejection the list will reflect the appropriate state
+After approval/ rejection the list will reflect the appropriate state along with the response text
 ![Screenshot of all PECs after approval][5]
 
 ## Use cases of Private Link for Azure SQL Database 
@@ -115,3 +124,4 @@ To establish connectivity from on-premises, choose & implement one of the option
 [3]: ./media/sql-database-get-started-portal/pec-list-before.png
 [4]: ./media/sql-database-get-started-portal/pec-approve.png
 [5]: ./media/sql-database-get-started-portal/pec-list-after.png
+[6]: ./media/sql-database-get-started-portal/pec-select.png
