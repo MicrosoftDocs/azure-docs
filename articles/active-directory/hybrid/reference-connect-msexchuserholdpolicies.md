@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 07/18/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -64,16 +64,6 @@ The msExchangeUserHoldPolicies is a single authority attribute.  A single author
 To allow users to set a hold policy on a user object in the cloud, the cloudMSExchangeUserHoldPolicies attribute is used. This attribute is used because Azure AD cannot set msExchangeUserHoldPolicies directly based on the rules explained above.  This attribute will then synchronize back to the on-premises directory if, the msExchangeUserHoldPolicies is not null and replace the current value of msExchangeUserHoldPolicies.
 
 Under certain circumstances, for instance, if both were changed on-premise and in Azure at the same time, this could cause some issues.  
-
-The following are important things to remember:
-
-- Any value set in Azure AD (except NULL) will always flow down and overwrite the on-premises (AD) value.  If you always edit the value for a particular User in Azure, then you should be fine.
-
-- A value set in Active Directory (on-premises) **MAY** flow to the cloud assuming some cloud value has not already been set.  If you always edit the value for a particular User in Active Directory, then you should be fine.
-
-Problems can arise if changes are made both on-premises and in the cloud.
-
-To work around this, you can disable the cloudMSExchangeUserHoldPolicies to msExchUserHoldPolicies in the **Out to AD – UserExchangeOnline** synchronization rule. See [Changes to Synchronization rules](how-to-connect-sync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
