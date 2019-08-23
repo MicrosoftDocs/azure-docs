@@ -122,14 +122,14 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-8. After the disk was successfully unlocked by using the BEK key, detach the disk from the recovery VM, and then recreate the VM by using this new OS disk. 
+8. After the disk was successfully unlocked by using the BEK key, detach the disk from the recovery VM, and then recreate the VM by using this new OS disk.
 
     > [!NOTE]
     > Swapping OS Disk is not supported for VMs using disk encryption.
 
 9. If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
 
-    - Suspend protection to temporarily turn BitLocker OFF by running the following：
+    - Suspend protection to temporarily turn BitLocker OFF by running the following:
 
                     manage-bde -protectors -disable F: -rc 0
            
@@ -258,7 +258,7 @@ For a Key Encryption Key scenario, follow these steps:
 
 7. If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
 
-    - Suspend protection to temporarily turn BitLocker OFF by running the following command：
+    - Suspend protection to temporarily turn BitLocker OFF by running the following command:
 
              manage-bde -protectors -disable F: -rc 0
            
