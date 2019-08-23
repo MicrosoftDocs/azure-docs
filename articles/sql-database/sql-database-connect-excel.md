@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: joseidz
 ms.author: craigg
 ms.reviewer: 
-manager: craigg
 ms.date: 02/12/2019
 ---
 # Connect Excel to a single database in Azure SQL database and create a report

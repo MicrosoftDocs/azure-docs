@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
+ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 

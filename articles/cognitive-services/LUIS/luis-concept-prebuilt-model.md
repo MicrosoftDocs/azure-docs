@@ -1,6 +1,6 @@
 ---
-title: Prebuilt models
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Prebuilt models - LUIS
+titleSuffix: Azure Cognitive Services
 description: Prebuilt models provide domains, intents, utterances, and entities. You can start your app with a prebuilt domain or add a relevant domain to your app later. 
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Regions - Speech Services
-titlesuffix: Azure Cognitive Services
+title: Regions - Speech Service
+titleSuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft

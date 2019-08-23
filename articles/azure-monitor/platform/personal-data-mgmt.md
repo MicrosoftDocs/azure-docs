@@ -94,6 +94,11 @@ We have made available as part of a privacy handling a *purge* API path. This pa
 
 Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be cautiously delegated due to the potential for data loss. 
 
+> [!IMPORTANT]
+> In order to manage system resources, purge requests are throttled at 50 requests per hour. You should batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. You should run the query before executing the purge request to verify that the results are expected. 
+
+
+
 Once the Azure Resource Manager role has been assigned, two new API paths are available: 
 
 #### Log data
@@ -102,7 +107,7 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
 
     ```
-    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]

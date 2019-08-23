@@ -41,7 +41,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
-- Note that after you failures to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
+- Note that after you fail over to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
 
 ### Verify Azure account permissions
 

@@ -472,5 +472,5 @@ For more information, see [How do I roll over the Kerberos decryption key of the
 ## Next steps
 
 * Learn about [Azure AD Connect design concepts](plan-connect-design-concepts.md).
-* Choose the [right authentication](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Choose the [right authentication](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Learn about [supported topologies](plan-connect-design-concepts.md).

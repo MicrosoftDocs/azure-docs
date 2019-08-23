@@ -72,21 +72,21 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 ### Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
-        password='yourpassword', 
-        database='quickstartdb', 
-        host='mydemoserver.mariadb.database.azure.com', 
-        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+    conn = mysql.connector.connect(user='myadmin@mydemoserver',
+                                   password='yourpassword',
+                                   database='quickstartdb',
+                                   host='mydemoserver.mariadb.database.azure.com',
+                                   ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 ### Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@mydemoserver', 
-        password = 'yourpassword', 
-        database = 'quickstartdb', 
-        host = 'mydemoserver.mariadb.database.azure.com', 
-        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+conn = pymysql.connect(user='myadmin@mydemoserver',
+                       password='yourpassword',
+                       database='quickstartdb',
+                       host='mydemoserver.mariadb.database.azure.com',
+                       ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 ### Ruby
 ```ruby

@@ -19,7 +19,7 @@ Azure Blockchain Service uses several Azure capabilities to keep your data secur
 
 ## Isolation
 
-Azure Blockchain Service resources are isolated in a private virtual network. Each transaction and validation node is a virtual machine (VM). VMs in one virtual network cannot communicate directly to VMs in a different virtual network. Isolation ensures communication remains private within the virtual network. For more information on Azure virtual network isolation, see [isolation in the Azure Public Cloud](../../security/azure-isolation.md#networking-isolation).
+Azure Blockchain Service resources are isolated in a private virtual network. Each transaction and validation node is a virtual machine (VM). VMs in one virtual network cannot communicate directly to VMs in a different virtual network. Isolation ensures communication remains private within the virtual network. For more information on Azure virtual network isolation, see [isolation in the Azure Public Cloud](../../security/fundamentals/isolation-choices.md#networking-isolation).
 
 ![VNET diagram](./media/data-security/vnet.png)
 

@@ -375,4 +375,4 @@ If you are able to login with this account, then you have configured your ESP cl
 
 ## Next steps
 
-* [An introduction to Apache Hadoop security with Enterprise Security Package](apache-domain-joined-introduction.md)
+* [An introduction to Apache Hadoop security with Enterprise Security Package](hdinsight-security-overview.md)

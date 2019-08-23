@@ -22,7 +22,7 @@ The Azure Machine Learning Python SDK allows you to enable logging using both th
 > * Deployed models
 > * Python `logging` settings
 
-[Create an Azure Machine Learning service workspace](setup-create-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
+[Create an Azure Machine Learning service workspace](how-to-manage-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
 
 ## Training models and compute target logging
 
@@ -59,7 +59,7 @@ The SDK also supports using the default python logging package in certain scenar
 from azureml.train.automl import AutoMLConfig
 import logging
 
-automated_ml_config = AutoMLConfig(task = 'regression',
+automated_ml_config = AutoMLConfig(task='regression',
                                    verbosity=logging.INFO,
                                    X=your_training_features,
                                    y=your_training_labels,
@@ -73,7 +73,8 @@ You can also use the `show_output` parameter when creating a persistent compute 
 ```python
 from azureml.core.compute import ComputeTarget
 
-compute_target = ComputeTarget.attach(workspace=ws, name="example", attach_configuration=config)
+compute_target = ComputeTarget.attach(
+    workspace=ws, name="example", attach_configuration=config)
 compute.wait_for_completion(show_output=True)
 ```
 

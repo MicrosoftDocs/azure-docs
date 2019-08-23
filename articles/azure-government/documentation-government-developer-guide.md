@@ -55,7 +55,6 @@ Currently, US DoD East, US DoD Central, US Gov Virginia, US Gov Arizona, US Gov 
 Navigate through the links below to get started using Azure Government.
 
 * [Login to Azure Government Portal](documentation-government-get-started-connect-with-portal.md)
-* [Connect with Visual Studio](documentation-government-get-started-connect-with-vs.md)
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 * [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)

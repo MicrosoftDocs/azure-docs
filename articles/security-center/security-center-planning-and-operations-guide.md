@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2019
+ms.date: 08/22/2019
 ms.author: v-mohabe
 
 ---
@@ -242,7 +242,7 @@ Once you identify the compromised system, you can run security [playbooks](https
 In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
 
 > [!NOTE]
-> Read [Leveraging Azure Security Center for Incident Response](security-center-incident-response.md) for more information on how to use Security Center capabilities to assist you during your Incident Response process.
+> Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to use Security Center capabilities to assist you during your Incident Response process.
 >
 >
 

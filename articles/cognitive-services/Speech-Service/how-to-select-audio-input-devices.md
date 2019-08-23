@@ -1,5 +1,5 @@
 ---
-title: How to select an audio input device with the Speech SDK - Speech Services
+title: How to select an audio input device with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn about selecting audio input devices in the Speech SDK.
 services: cognitive-services

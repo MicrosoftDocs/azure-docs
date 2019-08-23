@@ -1,5 +1,5 @@
 ---
-title: Simple entity, phrase list
+title: Simple entity, phrase list - LUIS
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, extract machine-learned data of employment job name from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 services: cognitive-services
@@ -133,7 +133,7 @@ Simple entities need many examples in order to have a high confidence of predict
 
 1. Label the jobs in the example utterances
 
-    If there are more example utterances in one intent than another intent, that intent has a higher likelihood of being the highest predicted intext. 
+    If there are more example utterances in one intent than another intent, that intent has a higher likelihood of being the highest predicted intent. 
 
 ## Train the app so the changes to the intent can be tested 
 

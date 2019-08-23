@@ -38,10 +38,10 @@ $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-
 To create a new App Service Plan, you can use `New-AzAppServicePlan` command as in the following example
 
 ```powershell
-New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
+New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-Using the `New-AzWebApp` command, you can create the new app in the North Central US region, and tie it to an existing premium tier App Service Plan. Moreover, you can use the same resource group as the source app, or define a new resource group, as shown in the following command:
+Using the `New-AzWebApp` command, you can create the new app in the North Central US region, and tie it to an existing App Service Plan. Moreover, you can use the same resource group as the source app, or define a new resource group, as shown in the following command:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
@@ -56,7 +56,7 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 To clone an existing app within the same region, you need to create a new resource group and a new app service plan in the same region, and then use the following PowerShell command to clone the app:
 
 ```powershell
-$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
+$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcapp
 ```
 
 ## Cloning an existing App to an App Service Environment

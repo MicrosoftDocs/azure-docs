@@ -1,6 +1,6 @@
 ---
-title: Create a new app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Create a new app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ---

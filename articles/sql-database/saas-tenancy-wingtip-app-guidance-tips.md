@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps

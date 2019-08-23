@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 04/08/2019
 ---
 
@@ -194,6 +193,8 @@ SQL Database makes building and maintaining applications easier and more product
   A free, downloadable, open-source, code editor for Windows, macOS, and Linux that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on the MacOS, Linux, and Windows. SQL Database supports the same [connection libraries](sql-database-libraries.md) as SQL Server.
+
+[!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 
 ## SQL Database frequently asked questions (FAQ)
 

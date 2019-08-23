@@ -22,7 +22,7 @@ Microsoft uses the email address in a user’s profile, an account user who is n
 
 ## Change your profile information
 
-1. Sign in to the [Azure Account Center](https://account.azure.com/Profile).
+1. Sign in to the [Azure Account Center](https://account.azure.com/subscriptions).
 1. Select the **Edit details** button, and then update the **Profile** information.
 
    ![Example of Azure profile information](./media/billing-how-to-change-azure-account-profile/profile.png)
@@ -66,7 +66,7 @@ Enter the email address where you want to receive communications about your acco
 
 You can change your contact email address by using one of the following methods:
 
-* Sign in to the [Azure Account Center](https://account.azure.com/Profile). Select **Edit details** and then update the profile email address. Updating your profile email address doesn't update your sign-in email address.
+* Sign in to the [Azure Account Center](https://account.azure.com/subscriptions). Select **Edit details** and then update the profile email address. Updating your profile email address doesn't update your sign-in email address.
 
 * Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter an email address. The address that you provide receives service and marketing communications. The email address in the Azure Account Center Profile is updated to match automatically. Updating your profile email address doesn't update your sign-in email address.
 

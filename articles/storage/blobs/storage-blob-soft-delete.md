@@ -226,10 +226,12 @@ from azure.storage.blob import BlockBlobService
 from azure.storage.common.models import DeleteRetentionPolicy
 
 # Initialize a block blob service
-block_blob_service = BlockBlobService(account_name='<enter your storage account name>', account_key='<enter your storage account key>')
+block_blob_service = BlockBlobService(
+    account_name='<enter your storage account name>', account_key='<enter your storage account key>')
 
 # Set the blob client's service property settings to enable soft delete
-block_blob_service.set_blob_service_properties(delete_retention_policy = DeleteRetentionPolicy(enabled = True, days = 7))
+block_blob_service.set_blob_service_properties(
+    delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
 ### .NET Client Library

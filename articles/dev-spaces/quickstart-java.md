@@ -1,5 +1,5 @@
 ---
-title: "Develop with Java on Kubernetes using Azure Dev Spaces"
+title: "Debug and iterate with Visual Studio Code and Java on Kubernetes using Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -11,7 +11,7 @@ description: "Rapid Kubernetes development with containers, microservices, and J
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Develop with Java on Kubernetes using Azure Dev Spaces
+# Quickstart: Debug and iterate with Visual Studio Code and Java on Kubernetes using Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -73,7 +73,7 @@ git clone https://github.com/Azure/dev-spaces
 
 Open Visual Studio Code, click *File* then *Open...*, navigate to the *dev-spaces/samples/java/getting-started/webfrontend* directory, and click *Open*.
 
-You now have the *webfrontend* project open in Visual Studio Code. To run the application in your dev space, generate the Docker and Helm chart assets using the Azure Dev Spaces extension in the Command Pallette.
+You now have the *webfrontend* project open in Visual Studio Code. To run the application in your dev space, generate the Docker and Helm chart assets using the Azure Dev Spaces extension in the Command Palette.
 
 To open the Command Palette in Visual Studio Code, click *View* then *Command Palette*. Begin typing `Azure Dev Spaces` and click on `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 

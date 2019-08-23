@@ -3,7 +3,6 @@ title: Azure SQL Database Release Notes| Microsoft Docs
 description: Learn about the new features and improvements in the Azure SQL Database service and in the Azure SQL Database documentation
 services: sql-database
 author: stevestein
-manager: craigg
 ms.service: sql-database
 ms.subservice: service
 ms.devlang: 

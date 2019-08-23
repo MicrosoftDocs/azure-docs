@@ -99,3 +99,4 @@ Other reference topics in this IoT Hub developer guide include:
 * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
 * [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md)
+* [Understand your IoT hub IP address](iot-hub-understand-ip-address.md)

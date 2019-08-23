@@ -97,7 +97,7 @@ Port 22
 ## Use the Azure CLI
 If you haven't already, install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account using [az login](/cli/azure/reference-index).
 
-If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
+If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](../extensions/agent-linux.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH configuration
 You can initially try resetting the SSH configuration to default values and rebooting the SSH server on the VM. This does not change the user account name, password, or SSH keys.
@@ -172,7 +172,7 @@ If you haven't already, [install the Azure classic CLI and connect to your Azure
 azure config mode arm
 ```
 
-If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
+If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](../extensions/agent-linux.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH configuration
 The SSHD configuration itself may be misconfigured or the service encountered an error. You can reset SSHD to make sure the SSH configuration itself is valid. Resetting SSHD should be the first troubleshooting step you take.

@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 05/08/2019
 ---
 # Azure SQL Database and SQL Data Warehouse access control

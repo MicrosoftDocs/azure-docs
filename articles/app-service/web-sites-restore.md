@@ -29,7 +29,7 @@ your original app's backups. Azure App Service supports the following databases 
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
-up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tier allows a greater number of daily
+up your app, see [Scale up an app in Azure](manage-scale-up.md). **Premium** tier allows a greater number of daily
 backups to be performed than **Standard** tier.
 
 <a name="PreviousBackup"></a>

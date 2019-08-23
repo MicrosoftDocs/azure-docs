@@ -1,6 +1,6 @@
 ---
 title: Configure containers - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Configure various settings for Recognize Text containers in Computer Vision.
 services: cognitive-services
 author: IEvangelist
@@ -92,8 +92,8 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{BILLING_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | The billing endpoint value including region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+|{API_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | The billing endpoint value including region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).
@@ -109,8 +109,8 @@ The following Docker examples are for the recognize text container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### Logging example 
@@ -119,8 +119,8 @@ The following Docker examples are for the recognize text container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

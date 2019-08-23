@@ -13,11 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/07/2019
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
 This article provides references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  
+
+## Solutions for Azure Kubernetes Service (AKS)
+
+[Azure NetApp Files integration with AKS](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
 
 ## Solutions for Oracle database
 

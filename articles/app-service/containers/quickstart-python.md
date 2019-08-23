@@ -4,7 +4,7 @@ description: Deploy your first Python hello world app in Azure App Service on Li
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 
 experimental: true
@@ -80,7 +80,7 @@ In the Cloud Shell, create a quickstart directory and then change to it.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Next, run the following command to clone the sample app repository to your quickstart directory.
@@ -103,7 +103,7 @@ Checking connectivity... done.
 
 Change to the directory that contains the sample code and run the `az webapp up` command.
 
-In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+In the following example, replace `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*).
 
 ```bash
 cd python-docs-hello-world
@@ -197,7 +197,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](how-to-configure-python.md)
