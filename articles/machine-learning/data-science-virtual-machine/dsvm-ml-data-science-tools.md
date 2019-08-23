@@ -43,7 +43,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning library      |
 | How is it configured or installed?      |  Installed with GPU support   |
-| How to use or run it      | As a Python library (2.7 and 3.5), R package, and as an on-path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows, `/dsvm/tools/xgboost/xgboost` for Linux)    |
+| How to use or run it      | As a Python library (2.7 and 3.5), R package, and as an on-path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows and `/dsvm/tools/xgboost/xgboost` for Linux)    |
 | Links to samples      | Samples are included on the VM, in `/dsvm/tools/xgboost/demo` on Linux, and `C:\dsvm\tools\xgboost\demo` on Windows.   |
 | Related tools      | LightGBM, MXNet   |
 
