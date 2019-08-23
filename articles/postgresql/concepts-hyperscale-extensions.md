@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL extensions in Azure Database for PostgreSQL - Hyperscale (Citus)
+title: PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
@@ -8,7 +8,7 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ---
-# PostgreSQL extensions in Azure Database for PostgreSQL - Hyperscale (Citus)
+# PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
 PostgreSQL provides the ability to extend the functionality of your database by using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function like built-in features. For more information on PostgreSQL extensions, see [Package related objects into an extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
