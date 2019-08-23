@@ -350,7 +350,7 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 This page lets you provide additional information about your offer to help us validate your offer. This information is not shown to customers or published to the marketplace.
 
-### Key usage scenario (required)
+### Key usage scenario
 
 You must upload a .pdf file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 

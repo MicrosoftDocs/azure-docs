@@ -351,23 +351,23 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 This page lets you provide additional information about your offer to help us validate your offer. This information is not shown to customers or published to the marketplace.
 
-### Target release (required)
+### Target release
 
 Indicate which release of Microsoft Dynamics Business Central your solution targets: **Current**, **Next major**, or **Next minor**. This information lets us test your solution appropriately.
 
-### Supported editions (required)
+### Supported editions
 
 Indicate whether your solution supports the Essentials and/or Premium edition of Microsoft Dynamics 365 Business Central. At least one value must be selected.
 
-### Key usage scenario (required)
+### Key usage scenario
 
-Upload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+You must pload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
-### App tests automation (optional)
+### App tests automation
 
-Also upload an **App tests automation** file here (.app).
+You can optionally upload an **App tests automation** file here (.app).
 
-### Test accounts (optional)
+### Test accounts
 
 If a test account is needed in order for our certification team to properly review your offer, upload a .pdf, .doc, or .docx file with your **Test accounts** information.
 
