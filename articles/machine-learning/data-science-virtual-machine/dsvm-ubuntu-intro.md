@@ -332,7 +332,7 @@ SQuirrel SQL, a graphical SQL client, can connect to various databases (such as 
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 ```
 
-Before the first use, set up your drivers and database aliases. The JDBC drivers are located at */usr/share/java/jdbcdrivers*.
+Before the first use, set up your drivers and database aliases. The JDBC drivers are located at /usr/share/java/jdbcdrivers.
 
 For more information, see [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
@@ -396,7 +396,7 @@ The VM comes with machine learning tools and algorithms that have been pre-compi
 * **Rattle**: An R-based graphical tool for easy data exploration and modeling.
 * **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
 * **LightGBM**: A fast, distributed, high-performance gradient boosting framework based on decision tree algorithms.
-* **R**: A rich library of machine learning functions is available for R. Pre-installed libraries include lm, glm, randomForest, and rpart. You can install other libraries by running:
+* **R**: A rich library of machine learning functions is available for R. Pre-installed libraries include lm, glm, randomForest, and rpart. You can install other libraries by running this command:
   
         install.packages(<lib name>)
 
@@ -420,7 +420,7 @@ There are other, larger demos in that directory. For more information on Vowpal 
 
 The xgboost library is designed and optimized for boosted (tree) algorithms. The objective of this library is to push the computation limits of machines to the extremes needed to provide large-scale tree boosting that is scalable, portable, and accurate.
 
-It's provided as a command line as well as an R library. To use this library in R, you can start an interactive R session (by entering **R** in the shell) and load the library.
+It's provided as a command line and an R library. To use this library in R, you can start an interactive R session (by entering **R** in the shell) and load the library.
 
 Here's a simple example that you can run in an R prompt:
 
@@ -476,13 +476,13 @@ Now a graphical interface opens with a set of tabs. Use the following quickstart
    (Because of a bug in the current release of Rattle, you need to insert a **#** character in front of **Export this log** in the text of the log.)
 1. Select the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
-You can exit Rattle and R. Now you can modify the generated R script. Or, use the script as it is, and run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is a way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
+You can exit Rattle and R. Now you can modify the generated R script. Or, use the script as it is, and run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is a way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify or learn.
 
 ## Next steps
 
 Here's how you can continue your learning and exploration:
 
-* The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux DSVM provisioned here. 
+* The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to do several common data science tasks with the Linux DSVM provisioned here. 
 * Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://aka.ms/tdsp).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
