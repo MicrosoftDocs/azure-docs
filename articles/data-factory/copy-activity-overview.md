@@ -273,9 +273,6 @@ In this sample, during a copy run, Data Factory tracks a high DTU utilization in
 ## Incremental copy
 Data Factory enables you to incrementally copy delta data from a source data store to a sink data store. For details, see [Tutorial: Incrementally copy data](tutorial-incremental-copy-overview.md).
 
-## Read and write partitioned data
-In an early version of Azure Data Factory, you could read or write partitioned data by using the **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd** system variables. In the current version, you can perform these tasks by using a pipeline parameter and a trigger's start time or scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
-
 ## Next steps
 See the following quickstarts, tutorials, and samples:
 
