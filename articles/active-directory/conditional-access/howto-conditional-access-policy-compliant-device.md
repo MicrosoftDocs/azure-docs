@@ -52,4 +52,4 @@ The following steps will help create a Conditional Access policy to require devi
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[Device compliance policies work with Azure AD](/intune/device-compliance-get-started.md#device-compliance-policies-work-with-azure-ad)
+[Device compliance policies work with Azure AD](https://docs.microsoft.com/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
