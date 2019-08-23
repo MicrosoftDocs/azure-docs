@@ -362,11 +362,11 @@ You can preview Hive Table in your clusters directly through the **Azure HDInsig
    2. When the number of rows in the table is less than or equal to 100, you see a message like the following: "60 rows are displayed for Hive table."
    3. When there's no content in the table, you see the following message: "0 rows are displayed for Hive table."
 
-    >[!NOTE]
-    >
-    >In Linux, install xclip to enable copy-table data.
-    >
-    >![Spark & Hive for Visual Studio code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+        >[!NOTE]
+        >
+        >In Linux, install xclip to enable copy-table data.
+        >
+        >![Spark & Hive for Visual Studio code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
     ## Additional features
 
 Spark & Hive for Visual Studio Code also supports the following features:
