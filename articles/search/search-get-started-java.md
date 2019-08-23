@@ -21,7 +21,7 @@ ms.date: 07/11/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable),  and the [Azure Search Service REST API](/rest/api/searchservice/).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://docs.microsoft.com/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable),  and the [Azure Search Service REST API](/rest/api/searchservice/).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,7 +31,7 @@ We used the following software and services to build and test this sample:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
@@ -677,7 +677,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
     Thread.sleep(2000L); // wait 2 seconds for data to upload
     ```
 
-    A two-second pause is inserted after the upload request ensto ensure that the document loading process completes before you query the index.
+    A two-second pause is inserted after the upload request to ensure that the document loading process completes before you query the index.
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 
@@ -691,7 +691,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
 
 1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to search the indexed data and prints the search results.
 
-    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](/rest/api/searchservice/search-documents).
 
     The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
 
@@ -824,8 +824,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for deeper learning.
 
-+ [Index operations](/rest/api/searchservice/index-operations.md)
++ [Index operations](/rest/api/searchservice/index-operations)
 
-+ [Document operations](/rest/api/searchservice/document-operations.md)
++ [Document operations](/rest/api/searchservice/document-operations)
 
-+ [Indexer operations](/rest/api/searchservice/indexer-operations.md)
++ [Indexer operations](/rest/api/searchservice/indexer-operations)
