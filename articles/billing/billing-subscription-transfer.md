@@ -42,7 +42,7 @@ If you're an Enterprise Agreement(EA) customer, your enterprise administrators c
 
     > [!IMPORTANT]
     >
-    > If you choose to move the subscription to the new account's Azure AD tenant, all [role-based access control (RBAC)](../role-based-access-control/overview.md) assignments to manage resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. For more information, see [Transferring subscription to a user in another Azure AD tenant](../active-directory/managed-identities-azure-resources/known-issues.md). Alternatively, you can uncheck the box for Subscription Azure AD tenant to transfer billing ownership without moving the subscription to the recipient’s tenant. If you do so, existing RBAC permissions to manage Azure resources will be maintained.
+    > If you choose to move the subscription to the new account's Azure AD tenant, all [role-based access control (RBAC)](../role-based-access-control/overview.md) assignments to manage resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. For more information, see [Transferring subscription to a user in another Azure AD tenant](../active-directory/managed-identities-azure-resources/known-issues.md). Alternatively, you can uncheck the box for Subscription Azure AD tenant to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing RBAC permissions to manage Azure resources will be maintained.
   
     ![Send transfer page](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
@@ -68,7 +68,7 @@ An Azure Active Directory (AD) tenant is created for you when you sign up for Az
 
 When you create a new subscription, it is hosted in the Azure AD tenant of your account. If you want to provide others access to your subscription or its resources, you need to invite them to join your tenant. This helps you control access to your subscriptions and resources.
 
-When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. If you do so, all users, groups, or service principals who had [role based access (RBAC)](./role-based-access-control/role-assignments-portal.md) to manage subscriptions and its resources lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. To provide access to the users who originally had access, the new owner would have to [manually add these users to the subscription](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. If you do so, all users, groups, or service principals who had [role based access (RBAC)](../role-based-access-control/role-assignments-portal.md) to manage subscriptions and its resources lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. To provide access to the users who originally had access, the new owner would have to [manually add these users to the subscription](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 
 ## Transferring Visual Studio, MPN and Pay as you go Dev/Test subscriptions
@@ -155,7 +155,7 @@ If you can't transfer subscription ownership, you can manually migrate your reso
 
 ### If I transfer a Visual Studio or Microsoft Partner Network subscription, does my credit carry forward with the subscription in the new account?
 
-No, your credit is not available in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The subscription uses the Visual Studio credit that is available in the user's account. For more information, see [Transferring Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscriptions](#transferring-visual-studio-microsoft-partner-network-mpn-and-pay-as-you-go-devtest-subscriptions)
+No, your credit is not available in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The subscription uses the Visual Studio credit that is available in the user's account. For more information, see [Transferring Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscriptions](#transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions).
 
 
 ## Frequently asked questions (FAQ) for recipients
