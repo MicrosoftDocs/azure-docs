@@ -34,9 +34,9 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Create and connect to an Ubuntu Linux VM
 
-If you have an existing Ubuntu Linux VM in Azure, connect to it using SSH, continue on to the next step to start configuring the VM.
+If you have an existing Ubuntu Linux VM in Azure, connect to it using SSH, then continue on to the next step to [start configuring the VM](#configure-the-hosts-file).
 
-If you need to create an Ubuntu Linux VM, or want to create a test for use with this article, you can create a VM using one of the following methods:
+If you need to create an Ubuntu Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
@@ -51,7 +51,7 @@ Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
 ## Configure the hosts file
 
-To make sure that your VM's host name is set correctly for the managed domain, edit the */etc/hosts* file to set the hostname:
+To make sure that your VM's host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
 
 ```console
 sudo vi /etc/hosts
@@ -72,13 +72,14 @@ When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
 ## Install required packages
 
-The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `apt-get`:
+The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `apt-get`
+
+During the Kerberos installation, the *krb5-user* package prompts for the realm name in ALL UPPERCASE. For example, if the name of your Azure AD DS managed domain is *contoso.com*, enter *CONTOSO.COM* as the realm. The installation writes the `[realm]` and `[domain_realm]` sections in */etc/krb5.conf* configuration file. Make sure that you specify the realm an ALL UPPERCASE:
 
 ```console
-sudo apt-get update && sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
+sudo apt-get update
+sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
 ```
-
-During the Kerberos installation, the *krb5-user* package prompts for the realm name in ALL UPPERCASE. For example, if the name of your Azure AD DS managed domain is *contoso.com*, enter *CONTOSO.COM* as the realm. The installation writes the `[realm]` and `[domain_realm]` sections in */etc/krb5.conf* configuration file. Make sure that you specify the realm an ALL UPPERCASE.
 
 ## Configure Network Time Protocol (NTP)
 
@@ -123,19 +124,20 @@ Now that the required packages are installed on the VM and NTP is configured, jo
     ```
 
    If *realm discover* can't find your Azure AD DS managed domain, review the following troubleshooting steps:
+
        * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
        * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
        * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
-1. Now initialize Kerberos using the `kinit` command. Make sure that you specify a user who belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Now initialize Kerberos using the `kinit` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the user *contosoadmin@contoso.com* is used to initialize Kerberos. Enter your own user that's a member of the *AAD DC Administrators* group:
+    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group:
 
     ```console
     kinit contosoadmin@CONTOSO.COM
     ```
 
-1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group you specified in the previous `kinit` command, such as *contosoadmin@CONTOSO.COM*.
+1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@CONTOSO.COM`:
 
     ```console
     sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
@@ -151,7 +153,7 @@ If your VM can't successfully complete the domain-join process, make sure that t
 
 ## Update the SSSD configuration
 
-One of the packages installed in a previous step was for System Security Services Daemon (SSSD). When a user tries to sign in to a VM using domain credentials, SSSD relays the request to the authentication provider. In this scenario, SSSD uses Azure AD DS to authenticate the request.
+One of the packages installed in a previous step was for System Security Services Daemon (SSSD). When a user tries to sign in to a VM using domain credentials, SSSD relays the request to an authentication provider. In this scenario, SSSD uses Azure AD DS to authenticate the request.
 
 1. Open the *sssd.conf* file with an editor:
 
@@ -159,7 +161,7 @@ One of the packages installed in a previous step was for System Security Service
     sudo vi /etc/sssd/sssd.conf
     ```
 
-1. Comment out the line for *use_fully_qualified_names = True*:
+1. Comment out the line for *use_fully_qualified_names* as follows:
 
     ```console
     # use_fully_qualified_names = True
@@ -175,11 +177,11 @@ One of the packages installed in a previous step was for System Security Service
 
 ## Configure user account and group settings
 
-With the VM joined to the Azure AD DS managed domain and configured for authentication, there are a few user configuration options to complete. These configuration changes including allowing password-based authentication, and automatically creating home directories on the local VM when domain users first sign in.
+With the VM joined to the Azure AD DS managed domain and configured for authentication, there are a few user configuration options to complete. These configuration changes include allowing password-based authentication, and automatically creating home directories on the local VM when domain users first sign in.
 
 ### Allow password authentication for SSH
 
-By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to an Azure AD DS managed domain, those domain users need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
+By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to an Azure AD DS managed domain, those domain accounts need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
 
 1. Open the *sshd_conf* file with an editor:
 
@@ -236,11 +238,13 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
+    When done, save and exit the editor using the `Ctrl-X` command.
+
 ## Sign in to the VM using a domain account
 
 To verify that the VM has been successfully joined to the Azure AD DS managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
 
-1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as *contosoadmin@contoso.com*, and then enter the address of your VM, such as *ubuntu.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@contoso.com` and then enter the address of your VM, such as *ubuntu.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```console
     ssh -l contosoadmin@CONTOSO.com ubuntu.contoso.com
