@@ -158,5 +158,5 @@ In this tutorial, you:
 Continue to the second tutorial to set up an Azure Migrate project, and assess VMware VMs for migration to Azure.
 
 > [!div class="nextstepaction"] 
-> [Assess VMware VMs](./tutorial-migrate-vmware.md) 
+> [Assess VMware VMs](./tutorial-assess-vmware.md) 
 
