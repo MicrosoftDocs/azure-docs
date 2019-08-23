@@ -56,6 +56,10 @@ landingContent:
             url: active-directory-b2c-tutorials-web-api.md
           - text: Enable enterprise and social login
             url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for web apps and APIs
+            url: code-samples.md#web-apps-and-apis
 
   # Card
   - title: Add identity to single-page apps
@@ -72,6 +76,30 @@ landingContent:
             url: active-directory-b2c-tutorials-spa-webapi.md
           - text: Enable enterprise and social login
             url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for single-page apps (SPA)
+            url: code-samples.md#single-page-apps
+
+  # Card
+  - title: Add identity to desktop apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-desktop-app.md
+      - linkListType: tutorial
+        links:
+          - text: Authenticate users in native clients
+            url: active-directory-b2c-tutorials-desktop-app.md
+          - text: Grant API access to native clients
+            url: active-directory-b2c-tutorials-desktop-app-webapi.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for mobile and desktop apps
+            url: code-samples.md
 
   # Card
   - title: Enable common identity scenarios
@@ -104,22 +132,6 @@ landingContent:
             url: active-directory-b2c-ui-customization-custom.md
           - text: Enable sign-in with LinkedIn
             url: active-directory-b2c-custom-setup-li-idp.md
-
-  # Card
-  - title: Add identity to desktop apps
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Set up sign-in
-            url: active-directory-b2c-quickstarts-desktop-app.md
-      - linkListType: tutorial
-        links:
-          - text: Authenticate users in native clients
-            url: active-directory-b2c-tutorials-desktop-app.md
-          - text: Grant API access to native clients
-            url: active-directory-b2c-tutorials-desktop-app-webapi.md
-          - text: Enable enterprise and social login
-            url: tutorial-add-identity-providers.md
 
 #  # Card
 #  - title: cardtitle2
