@@ -127,7 +127,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
+3. Select **Get Secret permissions** and then get and list **Certificate permissions** to allow CDN to perform these permissions to get and list the certificates. 
 
 4. Select **OK**. 
 
