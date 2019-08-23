@@ -87,7 +87,7 @@ Click a security alert to learn more about the event(s) that triggered the alert
 
 ![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
 
-After reviewing th information, click the resource that was attacked.
+After reviewing the information, click the resource that was attacked.
 
 ![Suggestions for what to do about security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
