@@ -9,20 +9,25 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
+ms.date: 08/23/2019
 ---
 
 # Deploy a deep learning model for inference with GPU
 
-This article teaches you how to use the Azure Machine Learning service to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
-
-Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
-
-> [!TIP]
-> Although the code snippets in this article usee a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
+This article teaches you how to use the Azure Machine Learning service to deploy a GPU-enabled model as a web service. Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
 
 > [!NOTE]
 > The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
+
+> [!IMPORTANT]
+> GPU inference is supported by the following compute targets:
+>
+> * Azure Kubernetes Service (AKS)
+> * Azure Machine Learning Compute
+> * Azure Machine Learning Notebook VM. GPU inference is only supported if a GPU-enabled VM size was selected when creating the VM.
+> * Your local compute may also provide a GPU.
+>
+> The information in this document is based on using AKS. Although the code snippets in this article usee a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
 
 ## Prerequisites
 
