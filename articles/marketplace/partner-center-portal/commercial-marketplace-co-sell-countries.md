@@ -13,7 +13,7 @@ ms.date: 08/23/2019
 
 |   Country/Region Name               |   ISO-2   |
 |-------------------------------------|-----------|
-| For Global Contacts use OOO         | OOO       |
+| Global contacts                     | OOO       |
 | Afghanistan                         | AF        |
 | Åland Islands                       | AX        |
 | Albania                             | AL        |
