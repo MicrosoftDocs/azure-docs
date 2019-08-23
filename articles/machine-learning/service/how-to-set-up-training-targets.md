@@ -428,7 +428,9 @@ Or you can:
 * Submit an experiment [using the CLI extension](reference-azure-machine-learning-cli.md#experiments).
 * Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
 
-## GitHub tracking and integration
+<a id="gitintegration"></a>
+
+## Git tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 

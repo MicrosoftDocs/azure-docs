@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
@@ -16,8 +11,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview.md",
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro",
       "redirect_document_id": false
     },
     {
@@ -25272,6 +25277,11 @@
     {
       "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
       "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/how-to-read-write-partitioned-data.md",
+      "redirect_url": "/azure/data-factory/tutorial-incremental-copy-overview",
       "redirect_document_id": false
     },
     {

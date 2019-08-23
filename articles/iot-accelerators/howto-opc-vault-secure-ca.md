@@ -1,6 +1,6 @@
 ---
-title: How to run the OPC Vault Certificate Management Service securely - Azure | Microsoft Docs
-description: Describes how to run the OPC Vault Certificate Management Service securely in Azure and other security guidelines to consider.
+title: How to run the OPC Vault certificate management service securely - Azure | Microsoft Docs
+description: Describes how to run the OPC Vault certificate management service securely in Azure and other security guidelines to consider.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2019
@@ -10,9 +10,9 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# How to run the OPC UA Certificate Management Service securely
+# How to run the OPC Vault certificate management service securely
 
-This article explains how to run the OPC UA Certificate Management Service securely in Azure and other security guidelines to consider.
+This article explains how to run the OPC Vault certificate management service securely in Azure and other security guidelines to consider.
 
 ## Roles
 
@@ -25,9 +25,9 @@ The OPC Vault microservice is configured to allow for distinct roles to access v
 > This role assignment should be reviewed for a production deployment and reconfigured appropriately following the guidelines below.
 > This task requires manual assignment of roles and services in the Azure AD Enterprise Applications portal.
 
-### Certificate Management Service Roles
+### Certificate management service roles
 
-The microservice defines the following roles:
+The OPC Vault microservice defines the following roles:
 
 - **Reader**: By default any authenticated user in the tenant has read access. 
   - Read access to applications and certificate requests. Can list and query for applications and certificate requests. Also device discovery information and public certificates are accessible with read access.
@@ -60,7 +60,7 @@ The following roles should also be considered and assigned when running the serv
 but are not directly trusted to perform CA operations are defined to be in the authorized role. 
 The set of tasks persons in the authorized role is allowed to perform must also be documented.
 
-### Memberships of Trusted and Authorized Roles must be reviewed annually
+### Memberships of trusted and authorized roles must be reviewed annually
 
 Membership of trusted and authorized roles must be reviewed at least quarterly to 
 ensure the set of people (for manual processes) or service identities 
@@ -80,7 +80,7 @@ Assignment of privileged roles, such as authorizing membership of the Administra
 access revoked within 24 hours. Finally, privileged role assignments must be reviewed on a quarterly 
 basis and any unneeded or expired assignments must be removed.
 
-### Privileged roles should use Two-Factor Authentication
+### Privileged roles should use two-factor authentication
 
 Multi-factor authentication (Two-Factor Authentication, MFA, or TFA) must be used for 
 interactive logons of Approvers and Administrators to the service.
@@ -108,7 +108,7 @@ that security events are transmitted to the monitoring solution.
 > By default, the OPC Vault service is deployed with the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) as a monitoring 
 > solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
 
-### Assess Security of Open Source Software Components
+### Assess security of open source software components
 
 All open-source components used within a product or service must be free of moderate or greater security vulnerabilities.
 
@@ -146,14 +146,14 @@ The CA hierarchy documentation must contain all operated CAs including all relat
 subordinate CAs, parent CAs, and root CAs, even when they are not managed by the service. 
 An exhaustive set of all non-expired CA certificates may be provided instead of formal documentation.
 
-> [!IMPORTANT]
+> [!NOTE]
 > The OPC Vault sample application supports for download of all certificates used and produced in the service for documentation.
 
 ### Document the issued certificates by all Certification Authorities (CAs)
 
 An exhaustive set of all certificates issued in the past 12 months should be provided for documentation.
 
-> [!IMPORTANT]
+> [!NOTE]
 > The OPC Vault sample application supports for download of all certificates used and produced in the service for documentation.
 
 ### Document the SOP for securely deleting cryptographic keys
@@ -222,7 +222,7 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 Keys created or imported as HSM-protected are processed inside an HSM, validated to FIPS 140-2 Level 2.<br>
 Keys created or imported as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1.
 
-## Operational Practices
+## Operational practices
 
 ### Document and maintain standard operational PKI practices for certificate enrollment
 
@@ -238,7 +238,7 @@ The OPC Vault microservice SOP is described in the [Overview](overview-opc-vault
 
 The certificate revocation process is described in the [Overview](overview-opc-vault-architecture.md) and the [How to manage](howto-opc-vault-manage.md) documents.
 	
-### Document Certification Authority key generation ceremony 
+### Document Certification Authority (CA) key generation ceremony 
 
 The Issuer CA key generation in the OPC Vault microservice is simplified due to the secure storage in Azure KeyVault and described in the [How to manage](howto-opc-vault-manage.md) documentation.
 
