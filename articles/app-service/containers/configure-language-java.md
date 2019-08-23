@@ -428,7 +428,7 @@ This section contains the following subsections:
 - [Customize application server configuration](#customize-application-server-configuration)
 - [Install modules and dependencies](#install-modules-and-dependencies)
 - [Configure data sources](#configure-data-sources)
-- [Enable messaging providers](#enable-messaging-providers)
+- [Use Service Bus as a message broker](#use-service-bus-as-a-message-broker)
 
 ### Scale with App Service
 
@@ -634,7 +634,7 @@ Your App Service instance is now configured to access your database.
 
 For more info on configuring database connectivity with WildFly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
-### Use Service Bus as a message broker with WildFly
+### Use Service Bus as a message broker
 
 You can configure your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. You can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
 
@@ -807,8 +807,7 @@ The following steps assume you have created an App Service instance for hosting 
 10. Rebuild and redeploy your app.
 
     ```bash
-    mvn package
-    mvn azure-webapp:deploy
+    mvn package -DskipTests azure-webapp:deploy
     ```
 
 Your bean is now configured to use Service Bus as the messaging mechanism.
@@ -938,8 +937,7 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
 9. Rebuild and redeploy your app.
 
     ```bash
-    mvn package
-    mvn azure-webapp:deploy
+    mvn package -DskipTests azure-webapp:deploy
     ```
 
 Your app will now use your Redis cache for session management.
