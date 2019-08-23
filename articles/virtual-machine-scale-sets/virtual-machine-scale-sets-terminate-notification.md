@@ -19,9 +19,7 @@ ms.author: manayar
 
 ---
 # Terminate notification for Azure virtual machine scale set instances (Preview)
-Scale set instances can opt in to receive instance termination notifications and set a pre-defined delay timeout to the terminate operation.
-
-The termination notification will be sent through Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), which provides notifications for and delaying of impactful operations such as reboots and redeploy. The preview solution adds another event – Terminate – to the list of Scheduled Events, and the associated delay of the terminate event will depend on the delay limit as specified by users in their scale set model configurations.
+Scale set instances can opt in to receive instance termination notifications and set a pre-defined delay timeout to the terminate operation. The termination notification is sent through Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), which provides notifications for and delaying of impactful operations such as reboots and redeploy. The preview solution adds another event – Terminate – to the list of Scheduled Events, and the associated delay of the terminate event will depend on the delay limit as specified by users in their scale set model configurations.
 
 Once enrolled into the feature, scale set instances don't need to wait for specified timeout to expire before the instance is deleted. After receiving a Terminate notification, the instance can choose to be deleted at any time before the terminate timeout expires.
 
@@ -151,7 +149,7 @@ Ensure that every VM in the scale set is only approving the EventID relevant for
 You can also refer to samples scripts for querying and responding to events using [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) and [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## Tips and best practices
--	Terminate notifications for all ‘delete’ operations – All delete operation (manual or Autoscale-initiated) will get Terminate events if your scale set has *scheduledEventsProfile* enabled.
+-	Terminate notifications only on ‘delete’ operations – All delete operations (manual delete or Autoscale-initiated scale-in) will generate Terminate events if your scale set has *scheduledEventsProfile* enabled. Other operations such as reboot, reimage, redeploy and stop/deallocate do not generate Terminate events. Terminate notifications can't be enabled for low-priority VMs.
 -	No mandatory wait for timeout – You can start the terminate operation at any time after the event has been received and before the event's *NotBefore* time expires.
 -	Mandatory delete at timeout – The preview doesn't provide any capability of extending the timeout value after an event has been generated. Once the timeout expires, the pending terminate event will be processed and the VM will be deleted.
 -	Modifiable timeout value – You can modify the timeout value at any time before an instance is deleted, by modifying the *notBeforeTimeout* property on the scale set model and updating the VM instances to the latest model.
