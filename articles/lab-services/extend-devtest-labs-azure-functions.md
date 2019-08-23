@@ -44,7 +44,7 @@ When you select the **Select here to refresh** button, the page calls the first 
 
 There’s an additional action that can be taken, for any VMs on which the Windows Update artifacts hasn't been applied recently, there will be a button to apply windows updates to the VM. When you select the ***Run Windows update** button for a VM, the page calls the second Azure Function: **ApplyWindowsUpdateArtifact**. This function checks whether the virtual machine is running and if so, applies the [Windows Update](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) artifact directly.
 
-## Step-by-step Walkthrough
+## Step-by-step walkthrough
 This section provides step-by-step instructions for setting up Azure Resources needed to update the **Internal support** page. This walkthrough provides one example of extending DevTest Labs. You can use use this pattern for other scenarios.
 
 ### Step 1: Create a service principal 
@@ -62,7 +62,7 @@ Download a copy of the [C# Azure Functions sample](https://github.com/Azure/azur
 1. Build the solution. Select **Build** and then **Build Solution** menu item.
 
 ### Step 3: Deploy the sample to Azure
-In Visual Studio, In the **Solution Explorer** window, right-click the **AzureFunctions** project, and then select **Publish**. Follow the wizard to complete publishing to either a new or an existing Azure Function App. For detailed information on developing and deploying Azure functions using Visual Studio, see [Develop Azure Functions using Visual Studio](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs).
+In Visual Studio, In the **Solution Explorer** window, right-click the **AzureFunctions** project, and then select **Publish**. Follow the wizard to complete publishing to either a new or an existing Azure Function App. For detailed information on developing and deploying Azure functions using Visual Studio, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md).
 
 ![Publish dialog](./media/extend-devtest-labs-azure-functions/publish-dialog.png)
 
