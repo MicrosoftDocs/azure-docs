@@ -262,6 +262,6 @@ ms.date: 08/23/2019
 | Zimbabwe                            | ZW        |
 |   |   |   |
 
-## Next steps
+**Next steps**
 
 - For more information, see [co-sell option in Partner Center](./commercial-marketplace-co-sell.md#contacts).
