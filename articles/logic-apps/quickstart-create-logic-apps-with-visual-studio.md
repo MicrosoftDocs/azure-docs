@@ -102,6 +102,10 @@ for example:
    ![Create Azure Resource Group project](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > Resource group names can contain only letters, numbers, 
+   > periods (`.`), underscores (`_`), hyphens (`-`), and 
+   > parentheses (`(`, `)`), but can't *end* with periods (`.`).
+   >
    > If **Cloud** or **Azure Resource Group** doesn't appear, 
    > make sure you install the Azure SDK for Visual Studio.
 
