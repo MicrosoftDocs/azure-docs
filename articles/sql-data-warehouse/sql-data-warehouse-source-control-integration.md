@@ -11,10 +11,11 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
+# Source Control Integration for Azure SQL Data Warehouse
 
 This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with SQL Data Warehouse. 
 
-# Before you begin
+## Before you begin
 
 - Sign up for an [Azure DevOps organization](https://azure.microsoft.com/services/devops/)
 - Go through the [Create and Connect](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal) tutorial
