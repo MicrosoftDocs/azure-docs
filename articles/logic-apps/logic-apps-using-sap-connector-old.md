@@ -35,8 +35,8 @@ example uses the [HTTP request trigger](../connectors/connectors-native-reqres.m
 as the first step in the logic app's workflow. For SAP 
 connector-specific technical information, see these reference articles: 
 
-* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">SAP Application Server connector</a>
-* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">SAP Message Server connector</a>
+* <a href="https://docs.microsoft.com/connectors/sap" target="blank">SAP Application Server connector</a>
+* <a href="https://docs.microsoft.com/connectors/sap/#send-message-to-sap" target="blank">SAP Message Server connector</a>
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
@@ -274,8 +274,8 @@ For technical details about the connector
 as described by the connectors' Swagger files, 
 see these reference articles: 
 
-* [SAP Application Server](/connectors/sapapplicationserver/)
-* [SAP Message Server](/connectors/sapmessageserver/)
+* [SAP Application Server](/connectors/sap)
+* [SAP Message Server](/connectors/sap/#send-message-to-sap)
 
 ## Get support
 
