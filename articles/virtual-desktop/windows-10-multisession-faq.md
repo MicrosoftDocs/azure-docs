@@ -77,7 +77,7 @@ In non-persistent virtualized environments, we recommended using a roaming profi
 
 <!--This sounds like marketing language. Change?-->
  
-For more information about how to configure an FSLogix profile container, see [Configure the FSLogix profile container](./virtual-desktop/create-host-pools-user-profile#configure-the-fslogix-profile-container).  
+For more information about how to configure an FSLogix profile container, see [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).  
 
 ## Which license do I need to access Windows 10 Enterprise multi-session?
 
@@ -85,4 +85,4 @@ For a full list of applicable licenses, see [Windows Virtual Desktop pricing](ht
  
 ## How do I get started?
 
-Learn more about Windows Virtual Desktop and Windows 10 Enterprise multi-session by reading the [Windows Virtual Desktop Preview documentation](overview.md), visit our [TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), or follow along with the [Windows Virtual Desktop tutorials](./virtual-desktop/tenant-setup-azure-active-directory.md).
+Learn more about Windows Virtual Desktop and Windows 10 Enterprise multi-session by reading the [Windows Virtual Desktop Preview documentation](overview.md), visit our [TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), or follow along with the [Windows Virtual Desktop tutorials](tenant-setup-azure-active-directory.md).
