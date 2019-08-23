@@ -36,7 +36,7 @@ Version 10 of the Azure Search .NET SDK targets the latest generally available v
     - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
 * On certain occasions, errors and warnings that show up in [indexer execution status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) can have additional details that help in debugging. `IndexerExecutionResult` has been updated to reflect this behavior.
 * Individual skills defined within a [skillset](cognitive-search-defining-skillset.md) can optionally be identified by specifying a `name` property.
-* `ServiceLimits` shows limits for [complex types](https://docs.microsoft.com/en-us/azure/search/search-howto-complex-data-types) and `IndexerExecutionInfo` shows pertinent indexer limits/quotas.
+* `ServiceLimits` shows limits for [complex types](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) and `IndexerExecutionInfo` shows pertinent indexer limits/quotas.
 
 <a name="UpgradeSteps"></a>
 
@@ -59,7 +59,7 @@ There are several breaking changes in version 10 that may require code changes i
 > [!NOTE]
 > The list of changes below is not exhaustive. Some changes will likely not result in build errors, but are technically breaking since they break binary compatibility with assemblies that depend on earlier versions of the Azure Search .NET SDK assemblies. Significant changes that fall under this category are also listed along with recommendations. Please rebuild your application when upgrading to version 10 to avoid any binary compatibility issues.
 
-### Custom Web API Skill Definition
+### Custom Web API skill definition
 
 The definition of the [Custom Web API skill](cognitive-search-custom-skill-web-api.md) was incorrectly specified in version 9 and older. 
 
@@ -138,9 +138,9 @@ var skillset = new Skillset()
 
 If you choose to identify skills by a custom name, make sure to update all instances of your clients to version 10 of the SDK first. Otherwise, there is a possibility that a client using an older version of the SDK could `null` out the `Name` property of a skill, causing the client to fall back on the default naming scheme.
 
-## Additional details for errors and warnings as part of indexer execution status
+## Details about errors and warnings
 
-`ItemError` and `ItemWarning` models that encapsulate details of errors and warnings (respectively) that occur during an indexer execution have been modified to include 3 new properties, with the objective to aid in debugging the indexer. These properties are:
+`ItemError` and `ItemWarning` models that encapsulate details of errors and warnings (respectively) that occur during an indexer execution have been modified to include three new properties with the objective to aid in debugging the indexer. These properties are:
 
 - `Name`: The name of the source at which the error originated. For example, it could refer to a particular skill in the attached skillset.
 - `Details`: Additional verbose details about the error or warning.
