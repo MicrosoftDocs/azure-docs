@@ -183,7 +183,7 @@ Advance to the next how-to to learn how to verify data upload from Data Box Disk
 
     - [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
     - [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
-    - [Schedule a pickup for countries in Australia-Pacific region](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region) such as Australia, Japan, Korea, and Singapore.
+    - [Schedule a pickup for countries in Australia-Pacific region](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific) such as Australia, Japan, Korea, and Singapore.
 
 After the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
 
