@@ -44,7 +44,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Slack supports **SP** initiated SSO
 * Slack supports **Just In Time** user provisioning
 * Slack supports [**Automated** user provisioning](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/slack-provisioning-tutorial)
-* Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Slack from the gallery
 
