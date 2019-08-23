@@ -39,7 +39,7 @@ For more information on Windows Update errors and their mitigation, see [Windows
 ## BinSkim task
 
 > [!NOTE]
-> Before you can run the BinSkim task, your build must meet one of the these conditions:
+> Before you can run the BinSkim task, your build must meet one of these conditions:
 >    - Your build produces binary artifacts from managed code.
 >    - You have binary artifacts committed that you want to analyze with BinSkim.
 
@@ -83,7 +83,7 @@ Details of task configuration are shown in the following screenshot and list.
 
 Available options include:
 
-  - **Output Format**: Available values include **TSV**,  **CSV**, **SARIF**, and **PREfast**.
+  - **Output Format**: Available values include **TSV**, **CSV**, **SARIF**, and **PREfast**.
   - **Tool Version**: We recommend you select **Latest**.
   - **Scan Folder**: The repository folder to be scanned.
   - **Searchers File Type**: The options for locating the searchers file that is used for scanning.
@@ -105,7 +105,7 @@ Available options include:
 
 Details for configuring this task are shown in the following list. For any UI element, you can hover over that element to get help.
 
-   - **Azure DevOps Service Endpoint Name for MSRD**: A generic type of Azure DevOps Service Endpoint stores your onboarded MSRD instance URL and also stores your REST API access token. If you've created such an endpoint, you can specify it here. Otherwise, select the **Manage** link to create and configure a new service endpoint for this MSRD task.
+   - **Azure DevOps Service Endpoint Name for MSRD**: A generic type of Azure DevOps service endpoint stores your onboarded MSRD instance URL and your REST API access token. If you've created such an endpoint, you can specify it here. Otherwise, select the **Manage** link to create and configure a new service endpoint for this MSRD task.
    - **Account ID**: A GUID that can be retrieved from the MSRD account URL.
    - **URLs to Binaries**: A semicolon-delimited list of publicly available URLs. The fuzzing machine uses these URLs to download the binaries.
    - **URLs of the Seed Files**: A semicolon-delimited list of publicly available URLs. The fuzzing machine uses these URLs to download the seeds. Specifying this value is optional if the seed files are downloaded together with the binaries.
@@ -117,7 +117,7 @@ Details for configuring this task are shown in the following list. For any UI el
        - **Seed Extension**: The filename extension of the seeds.
        - **Test Driver Executable**: The path to the target executable file on the fuzzing machine.
        - **Test Driver Executable Architecture**: The target executable file's architecture. Available values are **x86** and **amd64**.
-       - **Test Driver Arguments**: The command-line arguments passed to the test executable file. Note that "%testfile%", including the quotation marks, is automatically replaced with the full path to the target file. This file is parsed by the test driver and is required.
+       - **Test Driver Arguments**: The command-line arguments passed to the test executable file. The argument "%testfile%", including the quotation marks, is automatically replaced with the full path to the target file. This file is parsed by the test driver and is required.
        - **Test Driver Process Exits Upon Test Completion**: Select this checkbox if the test driver is to be terminated upon completion. Clear it if the test driver needs to be forcibly closed.
        - **Maximum Duration (in seconds)**: An estimation of the longest reasonably expected time that the target program requires to parse an input file. The more accurate the estimation, the more efficiently the fuzzing app runs.
        - **Test Driver Can Be Run Repeatedly**: Select this checkbox if the test driver can run repeatedly without depending on a persistent or shared global state.

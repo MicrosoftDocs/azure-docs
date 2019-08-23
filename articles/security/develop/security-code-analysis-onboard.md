@@ -24,9 +24,6 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 - Permission to install extensions to the Azure DevOps organization.
 - Source code that can be synced to a cloud-hosted Azure DevOps pipeline.
 
-> [!NOTE]
-> Information the user should notice even if skimming.
-
 ## Onboarding the Microsoft Security Code Analysis extension
 
 - If you have one of the following support offerings, contact your Technical Account Manager to purchase or swap existing hours to get access to the extension.

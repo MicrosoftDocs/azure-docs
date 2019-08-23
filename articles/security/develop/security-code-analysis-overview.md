@@ -26,7 +26,7 @@ Teams can also use powerful postprocessing capabilities such as:
 - Generating actionable, developer-focused reports.
 - Configuring build breaks on regression tests.
 
-## Why use Microsoft Security Code Analysis
+## Why should I use Microsoft Security Code Analysis?
 
 ### Security simplified
 
