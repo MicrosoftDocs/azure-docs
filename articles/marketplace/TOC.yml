@@ -503,6 +503,10 @@
       href: ./partner-center-portal/test-drive.md
     - name: Co-sell option
       href: ./partner-center-portal/commercial-marketplace-co-sell.md
+      - name: Countries and regions
+        href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+      - name: States
+        href: ./partner-center-portal/commercial-marketplace-co-sell-states.md       
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
