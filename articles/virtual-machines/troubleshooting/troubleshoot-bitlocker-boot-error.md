@@ -227,7 +227,7 @@ For a Key Encryption Key scenario, follow these steps:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Set the parameters. The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM. If you receive errors when you run the script, see the [script troubleshooting](#Script-troubleshooting) section.
+3. Set the parameters. The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM. If you receive errors when you run the script, see the [script troubleshooting](#script-troubleshooting) section.
 
 4. You see the following output when the script begins:
 
@@ -250,22 +250,19 @@ For a Key Encryption Key scenario, follow these steps:
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
+6. After the disk was successfully unlocked by using the BEK key, we can consider the BitLocker problem to be resolved. Detach the disk from the recovery VM, and then recreate the VM by using this new OS disk. 
 
-    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - If you are going to rebuild the VM by using the disk, you must fully decrypt the drive. To do this, run the following command:
-
-        ```powershell
-        manage-bde -off F:
-        ```
-
-6. Detach the disk from the recovery VM, and then recreate the VM by using this new OS disk. 
     > [!NOTE]
     > Swapping OS Disk is not supported for VMs using disk encryption.
+
+If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
+
+- Suspend protection to temporarily turn BitLocker OFF by running the following 
+ 
+            manage-bde -protectors -disable F: -rc 0
+- Fully decrypt the drive. To do this, run the following command:
+    
+            manage-bde -off F:
 
 ## Script troubleshooting
 
@@ -286,5 +283,5 @@ If you are using the old AZ powershell module, you must change the two commands 
 |  $keyVaultName | myKeyVault2112852926  | The name of the key Vault that stores the key |
 |$kekName   |mykey   | The name of the key that you used to encrypt the VM|
 |$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | The name of the secret|
-|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D.BEK | The path for writing BEK file|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D.BEK | The path for writing BEK file. Must use the secretName as the file name, so Windows will load the file when booting.|
 |$adTenant  |contoso.onmicrosoft.com   | FQDN or GUID of your Azure Active Directory that hosts the key vault |
