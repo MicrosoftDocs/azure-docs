@@ -50,12 +50,12 @@ landingContent:
             url: active-directory-b2c-quickstarts-web-app.md
       - linkListType: tutorial
         links:
-          - text: Add external identity providers
-            url: tutorial-add-identity-providers.md
-          - text: Authenticate users
+          - text: Authenticate users a .NET web application
             url: active-directory-b2c-tutorials-web-app.md
-          - text: Grant API access
+          - text: Grant API access to a .NET web application
             url: active-directory-b2c-tutorials-web-api.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
 
   # Card
   - title: Add identity to single-page apps
@@ -66,12 +66,12 @@ landingContent:
             url: active-directory-b2c-quickstarts-desktop-app.md
       - linkListType: tutorial
         links:
-          - text: Add external identity providers
-            url: tutorial-add-identity-providers.md
-          - text: Authenticate users
+          - text: Authenticate users in a single-page app (SPA)
             url: active-directory-b2c-tutorials-spa.md
-          - text: Grant API access
+          - text: Grant API access to a single-page app (SPA)
             url: active-directory-b2c-tutorials-spa-webapi.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
 
   # Card
   - title: Enable common identity scenarios
@@ -114,12 +114,12 @@ landingContent:
             url: active-directory-b2c-quickstarts-desktop-app.md
       - linkListType: tutorial
         links:
-          - text: Add external identity providers
-            url: tutorial-add-identity-providers.md
-          - text: Authenticate users
+          - text: Authenticate users in native clients
             url: active-directory-b2c-tutorials-desktop-app.md
-          - text: Grant API access
+          - text: Grant API access to native clients
             url: active-directory-b2c-tutorials-desktop-app-webapi.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
 
 #  # Card
 #  - title: cardtitle2
