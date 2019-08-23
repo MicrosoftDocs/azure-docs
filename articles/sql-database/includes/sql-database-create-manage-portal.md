@@ -3,13 +3,13 @@ author: stevestein
 ms.service: sql-database
 ms.subservice: operations  
 ms.topic: include
-ms.date: 08/09/2019
+ms.date: 08/23/2019
 ms.author: sstein
 ---
 
 ## Create and manage Azure SQL resources with the Azure portal
 
-The Azure portal provides a single page where you can manage [all of your Azure SQL resources](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) including your SQL virtual machines.
+The Azure portal provides a single page where you can manage [all of your Azure SQL resources](https://go.microsoft.com/fwlink/?linkid=2100641) including your SQL virtual machines.
 
 To access the **Azure SQL resources** page, select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
 
