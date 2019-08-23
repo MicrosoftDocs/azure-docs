@@ -129,13 +129,14 @@ If this method does not the resolve the problem, follow these steps to restore t
 
 9. If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
 
-    - Suspend protection to temporarily turn BitLocker OFF by running the following 
-            ```
-            manage-bde -protectors -disable F: -rc 0
-            ```
+    - Suspend protection to temporarily turn BitLocker OFF by running the following：
+
+                    manage-bde -protectors -disable F: -rc 0
+           
     - Fully decrypt the drive. To do this, run the following command:
-            ```
-            manage-bde -off F:
+
+                    manage-bde -off F:
+
 ### Key Encryption Key scenario
 
 For a Key Encryption Key scenario, follow these steps:
@@ -257,14 +258,13 @@ For a Key Encryption Key scenario, follow these steps:
 
 7. If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
 
-    - Suspend protection to temporarily turn BitLocker OFF by running the following 
-            ```
-            manage-bde -protectors -disable F: -rc 0
-            ```
+    - Suspend protection to temporarily turn BitLocker OFF by running the following：
+
+                    manage-bde -protectors -disable F: -rc 0
+           
     - Fully decrypt the drive. To do this, run the following command:
-            ```
-            manage-bde -off F:
-            ```
+
+                    manage-bde -off F:
 ## Script troubleshooting
 
 **Error: Could not load file or assembly**
