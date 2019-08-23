@@ -63,7 +63,7 @@ After enabling *scheduledEventsProfile* on the scale set model and setting the *
 >Terminate notifications on scale set instances can only be enabled with API version 2019-03-01 and above
 
 ### Azure PowerShell
-When creating a new scale set, you can enable termination notifications on the scale set by using the [New-AzVmssVM](/powershell/module/az.compute/new-azvmssvm) cmdlet.
+When creating a new scale set, you can enable termination notifications on the scale set by using the [New-AzVmssVM](/powershell/module/az.compute/new-azvmss) cmdlet.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -80,7 +80,7 @@ New-AzVmss `
 
 The above example creates a new scale set with terminate notifications enabled with a 5-minute default timeout. When creating a new scale set, the parameter *TerminateScheduledEvents* does not require a value. To change the timeout value, specify the desired timeout through the *TerminateScheduledEventNotBeforeTimeoutInMinutes* parameter.
 
-Use the [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet to enable termination notifications on an existing scale set.
+Use the [Update-AzVmssVM](/powershell/module/az.compute/update-azvmss) cmdlet to enable termination notifications on an existing scale set.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -128,7 +128,7 @@ In the case where there are scheduled events, the response contains an array of 
 ```
 The DocumentIncarnation is an ETag and provides an easy way to inspect if the Events payload has changed since the last query.
 
-For more details on each of the fields above, see the Scheduled Events documentation for [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) and [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
+For more information on each of the fields above, see the Scheduled Events documentation for [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) and [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
 
 ### Respond to events
 Once you've learnt of an upcoming event and completed your logic for graceful shutdown, you may approve the outstanding event by making a POST call to the metadata service with the EventId. The POST call indicates to Azure that it can continue with the VM delete.
@@ -149,7 +149,7 @@ Ensure that every VM in the scale set is only approving the EventID relevant for
 You can also refer to samples scripts for querying and responding to events using [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) and [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## Tips and best practices
--	Terminate notifications only on ‘delete’ operations – All delete operations (manual delete or Autoscale-initiated scale-in) will generate Terminate events if your scale set has *scheduledEventsProfile* enabled. Other operations such as reboot, reimage, redeploy and stop/deallocate do not generate Terminate events. Terminate notifications can't be enabled for low-priority VMs.
+-	Terminate notifications only on ‘delete’ operations – All delete operations (manual delete or Autoscale-initiated scale-in) will generate Terminate events if your scale set has *scheduledEventsProfile* enabled. Other operations such as reboot, reimage, redeploy, and stop/deallocate do not generate Terminate events. Terminate notifications can't be enabled for low-priority VMs.
 -	No mandatory wait for timeout – You can start the terminate operation at any time after the event has been received and before the event's *NotBefore* time expires.
 -	Mandatory delete at timeout – The preview doesn't provide any capability of extending the timeout value after an event has been generated. Once the timeout expires, the pending terminate event will be processed and the VM will be deleted.
 -	Modifiable timeout value – You can modify the timeout value at any time before an instance is deleted, by modifying the *notBeforeTimeout* property on the scale set model and updating the VM instances to the latest model.
