@@ -21,7 +21,7 @@ ms.date: 07/11/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable),  and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://docs.microsoft.com/en-us/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Create a Java console application that creates, loads, and queries an Azure search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable),  and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://docs.microsoft.com/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -505,9 +505,9 @@ The hotels index definition contains simple fields and one complex field. Exampl
     }
     ```
 
-    The index name will be "hotels-quickstart". Attributes on the index fields determine how the indexed data can be searched in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. To learn more about attributes, see [Fields collection and field attributes](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index#fields-collection).
+    The index name will be "hotels-quickstart". Attributes on the index fields determine how the indexed data can be searched in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. To learn more about attributes, see [Fields collection and field attributes](https://docs.microsoft.com/azure/search/search-what-is-an-index#fields-collection).
     
-    The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-analyzers).
+    The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
 1. Add the following code to the `SearchServiceClient` class. These methods build Azure Search REST service URLs that create and delete an index, and that determine if an index exists. The methods also make the HTTP request.
 
@@ -691,7 +691,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
 
 1. Add the following code to the `SearchServiceClient` class. This code builds Azure Search REST service URLs to search the indexed data and prints the search results.
 
-    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
     The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
 
@@ -824,8 +824,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for deeper learning.
 
-+ [Index operations](https://docs.microsoft.com/en-us/rest/api/searchservice/index-operations)
++ [Index operations](https://docs.microsoft.com/rest/api/searchservice/index-operations)
 
-+ [Document operations](https://docs.microsoft.com/en-us/rest/api/searchservice/document-operations)
++ [Document operations](https://docs.microsoft.com/rest/api/searchservice/document-operations)
 
-+ [Indexer operations](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
++ [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
