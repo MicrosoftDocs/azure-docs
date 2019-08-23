@@ -5,8 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/22/2019
 ms.author: victorh
 ---
 
@@ -356,6 +355,13 @@ You can also use a Resource Manager template that installs and runs the popular 
 ### What could cause backend health to return an unknown status?
 
 Usually, you see an unknown status when access to the backend is blocked by a network security group (NSG), custom DNS, or user-defined routing (UDR) on the application gateway subnet. For more information, see [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md).
+
+### Is there any case where NSG flow logs won't show allowed traffic?
+
+Yes. If your configuration matches following scenario, you won't see allowed traffic in your NSG flow logs:
+- You've deployed Application Gateway v2
+- You have an NSG on the application gateway subnet
+- You've enabled NSG flow logs on that NSG
 
 ## Next steps
 

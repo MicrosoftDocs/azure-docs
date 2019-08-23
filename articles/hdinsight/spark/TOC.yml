@@ -311,8 +311,6 @@
       href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
     - name: Apache Spark job fails - InvalidClassException
       href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
-    - name: Slow Apache Spark jobs - listStatus
-      href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
     - name: Slow Apache Spark jobs - storage container
       href: ./apache-spark-troubleshoot-job-slowness-container.md
     - name: IllegalArgumentException exception
@@ -325,8 +323,10 @@
       href: ./apache-spark-troubleshoot-blocking-cross-origin.md
     - name: Kryo serialization failed
       href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
-    - name:  Apache Spark event log - RequestBodyTooLarge
+    - name: Apache Spark event log - RequestBodyTooLarge
       href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
+    - name: Apache ZooKeeper fails to quorum
+      href: ./zookeeper-troubleshoot-quorum-fails.md
 - name: Reference
   items:
   - name: Code samples
