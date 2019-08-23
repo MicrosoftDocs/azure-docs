@@ -11,7 +11,7 @@ ms.date: 05/30/2019
 
 # Use Spark & Hive Tools for Visual Studio Code
 
-Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install the Spark & Hive tools in Visual Studio Code, and then we'll walk through how to submit jobs to Spark & Hive.  
+Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install Spark & Hive Tools in Visual Studio Code, and then we'll walk through how to submit jobs to Spark & Hive.  
 
 Spark & Hive Tools can be installed on platforms that are supported by Visual Studio Code, which include Windows, Linux, and macOS. Note the following prerequisites for different platforms.
 
@@ -20,7 +20,7 @@ Spark & Hive Tools can be installed on platforms that are supported by Visual St
 
 The following items are required for completing the steps in this article:
 
-- An HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md). Or a Spark / Hive cluster supporting an Apache Livy endpoint.
+- An Azure HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md). Or use a Spark and Hive cluster that supports an Apache Livy endpoint.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is required only for Linux and macOS.
 - [A PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
@@ -57,11 +57,11 @@ To open a work folder and to create a file in Visual Studio Code, follow these s
 
 ## Set the Azure environment
 
-For a national cloud user, follow these steps to set the Azure environment first, and then use the **Azure: Sign In** command to sign into Azure:
+For a national cloud user, follow these steps to set the Azure environment first, and then use the **Azure: Sign In** command to sign in to Azure:
    
 1. Select **File\Preferences\Settings**.
 2. Search on the following string: **Azure: Cloud**
-3. Select the national cloud from the list.
+3. Select the national cloud from the list:
 
    ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
@@ -160,7 +160,7 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
-5. Right-click the script editor, select **Hive: Interactive** to submit the query, or use the Ctrl+Alt+I keyboard shortcut.  Select **Hive: Batch** to submit the script, or use the Ctrl+Alt+H keyboard shortcut.  
+5. Right-click the script editor and select **Hive: Interactive** to submit the query, or use the Ctrl+Alt+I keyboard shortcut.  Select **Hive: Batch** to submit the script, or use the Ctrl+Alt+H keyboard shortcut.  
 
 6. If you haven't specified a default cluster, select a cluster. The tools also let you submit a block of code instead of the whole script file by using the context menu. After a few moments, the query results appear in a new tab:
 
@@ -283,37 +283,37 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
 + Supported Livy configurations:   
 
     **POST /batches**   
-    Request Body
+    Request body
 
     | name | description | type | 
     | :- | :- | :- | 
-    | file | File containing the application to execute | path (required) | 
-    | proxyUser | User to impersonate when running the job | string | 
-    | className | Application Java/Spark main class | string |
-    | args | Command-line arguments for the application | list of strings | 
-    | jars | Jars to be used in this session | List of string | 
-    | pyFiles | Python files to be used in this session | List of string |
-    | files | Files to be used in this session | List of string |
-    | driverMemory | Amount of memory to use for the driver process | string |
-    | driverCores | Number of cores to use for the driver process | int |
-    | executorMemory | Amount of memory to use per executor process | string |
-    | executorCores | Number of cores to use for each executor | int |
-    | numExecutors | Number of executors to launch for this session | int |
-    | archives | Archives to be used in this session | List of string |
-    | queue | Name of the YARN queue to be submitted to| string |
-    | name | Name of this session | string |
+    | file | File containing the application to execute | Path (required) |
+    | proxyUser | User to impersonate when running the job | String |
+    | className | Application Java/Spark main class | String |
+    | args | Command-line arguments for the application | List of strings |
+    | jars | Jars to be used in this session | List of strings | 
+    | pyFiles | Python files to be used in this session | List of strings |
+    | files | Files to be used in this session | List of strings |
+    | driverMemory | Amount of memory to use for the driver process | String |
+    | driverCores | Number of cores to use for the driver process | Int |
+    | executorMemory | Amount of memory to use per executor process | String |
+    | executorCores | Number of cores to use for each executor | Int |
+    | numExecutors | Number of executors to launch for this session | Int |
+    | archives | Archives to be used in this session | List of strings |
+    | queue | Name of the YARN queue to be submitted to| String |
+    | name | Name of this session | String |
     | conf | Spark configuration properties | Map of key=val |
 
-    Response Body   
+    Response body   
     The created Batch object.
 
-    | name | description | type | 
+    | name | description | type |
     | :- | :- | :- | 
-    | id | Session id | int | 
-    | appId | Application id of this session | 	String |
+    | id | Session id | Int | 
+    | appId | Application id of this session | String |
     | appInfo | Detailed application info | Map of key=val |
-    | log | Log lines | list of strings |
-    | state |Batch state | string |
+    | log | Log lines | List of strings |
+    | state |Batch state | String |
 
 >[!NOTE]
 >The assigned Livy config is displayed in the output pane when you submit the script.
@@ -347,7 +347,7 @@ You can preview Hive Table in your clusters directly through the **Azure HDInsig
 
 5. Right-click the Hive table. For example: **hivesampletable**. Select **Preview**. 
 
-   ![Spark & Hive for visual studio code preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
+   ![Spark & Hive for Visual Studio Code preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
 6. The **Preview Results** window opens:
 
@@ -366,16 +366,16 @@ You can preview Hive Table in your clusters directly through the **Azure HDInsig
 >
 >In Linux, install xclip to enable copy-table data.
 >
->![Spark & Hive for Visual Studio code in linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+>![Spark & Hive for Visual Studio code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 ## Additional features
 
 Spark & Hive for Visual Studio Code also supports the following features:
 
-- **IntelliSense autocomplete**. Suggestions pop up for keywords, methods, variables, and so on. Different icons represent different types of objects:
+- **IntelliSense autocomplete**. Suggestions pop up for keywords, methods, variables, and other programming elements. Different icons represent different types of objects:
 
     ![Spark & Hive Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 - **IntelliSense error marker**. The language service underlines editing errors in the Hive script.     
-- **Syntax highlights**. The language service uses different colors to differentiate variables, keywords, data type, functions, and so on:
+- **Syntax highlights**. The language service uses different colors to differentiate variables, keywords, data type, functions, and other programming elements:
 
     ![Spark & Hive Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
@@ -383,15 +383,15 @@ Spark & Hive for Visual Studio Code also supports the following features:
 
 Users who are assigned the reader-only role for the cluster can no longer submit jobs to the HDInsight cluster, nor can they view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://ms.portal.azure.com/). If you have valid Ambari credentials, you can manually link the cluster by using the following guidance.
 
-### Browse HDInsight Cluster  
+### Browse the HDInsight cluster  
 
 When you select the Azure HDInsight explorer to expand an HDInsight cluster, you're prompted to link the cluster if you have the reader-only role for the cluster. Use the following method to link to the cluster by using your Ambari credentials. 
 
-### Submit job to HDInsight cluster
+### Submit the job to the HDInsight cluster
 
 When submitting job to an HDInsight cluster, you're prompted to link the cluster if you're in the reader-only role for the cluster. Use the following steps to link to the cluster by using Ambari credentials.
 
-### Link to cluster
+### Link to the cluster
 
 1.	Enter a valid Ambari username.
 2.	Enter a valid password.
@@ -406,15 +406,15 @@ When submitting job to an HDInsight cluster, you're prompted to link the cluster
 >
 >![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result.png)
 
-## Azure Data Lake Storage Gen2 (ADLS Gen2)
+## Azure Data Lake Storage Gen2
 
-### Browse an ADLS Gen2 account
+### Browse a Data Lake Storage Gen2 account
 
-When you select the Azure HDInsight explorer to expand an ADLS Gen2 account, you're prompted to enter the storage access key if your Azure account has no access to Gen2 storage. After the access key is validated, the ADLS Gen2 account is auto-expanded.
+When you select the Azure HDInsight explorer to expand a Data Lake Storage Gen2 account, you're prompted to enter the storage access key if your Azure account has no access to Gen2 storage. After the access key is validated, the Data Lake Storage Gen2 account is auto-expanded.
 
-### Submit jobs to HDInsight cluster with ADLS Gen2
+### Submit jobs to an HDInsight cluster with Data Lake Storage Gen2
 
-When you submit a job to an HDInsight cluster by using ADLS Gen2, you're prompted to enter the storage access key if your Azure account has no write access to Gen2 storage. After the access key is validated, the job will be successfully submitted.
+When you submit a job to an HDInsight cluster by using Data Lake Storage Gen2, you're prompted to enter the storage access key if your Azure account has no write access to Gen2 storage. After the access key is validated, the job will be successfully submitted.
 
 ![Spark & Hive Tools for Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
 
