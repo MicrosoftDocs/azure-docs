@@ -41,7 +41,7 @@ landingContent:
             url: data-box-gateway-1905-release-notes.md
 
   # Card
-  - title: "Review"
+  - title: "Requirements and limits"
     linkLists:
       - linkListType: concept
         links:
