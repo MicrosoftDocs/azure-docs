@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
 
 ---
@@ -195,7 +195,7 @@ This section provides a list of properties supported by the Oracle source and si
 ### Oracle as source
 
 >[!TIP]
->To load data from Oracle efficiently by using data partitioning, see [Parallel copy from Oracle](#parallel-copy-from-oracle).
+>To load data from Oracle efficiently by using data partitioning, learn more from [Parallel copy from Oracle](#parallel-copy-from-oracle).
 
 To copy data from Oracle, set the source type in the copy activity to `OracleSource`. The following properties are supported in the copy activity **source** section.
 
@@ -290,9 +290,9 @@ The Data Factory Oracle connector provides built-in data partitioning to copy da
 
 ![Screenshot of partition options](./media/connector-oracle/connector-oracle-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings. Each query retrieves a portion of data from your Oracle database.
+When you enable partitioned copy, Data Factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Oracle database.
 
-It's a good idea to enable parallel copy with data partitioning, especially when you load large amount of data from your Oracle database. The following are suggested configurations for different scenarios:
+It's a good idea to enable parallel copy with data partitioning, especially when you load large amount of data from your Oracle database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

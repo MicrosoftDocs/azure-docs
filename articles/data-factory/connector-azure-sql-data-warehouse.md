@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
 
 ---
@@ -427,13 +427,15 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
-   1. Folder path don't contain wildcard filter.
-   2. File name points to a single file or is `*` or `*.*`.
-   3. `rowDelimiter` must be **\n**.
-   4. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
-   5. `encodingName` is set to **utf-8**, which is the default value.
+   1. Folder path doesn't contain wildcard filter.
+   2. File name is empty, or points to a single file. If you specify wildcard file name in copy activity, it can only be `*` or `*.*`.
+   3. `rowDelimiter` is **default**, **\n**, **\r\n**, or **\r**.
+   4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
+   5. `encodingName` is left as default or set to **utf-8**.
    6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    7. `compression` can be **no compression**, **GZip**, or **Deflate**.
+
+3. If your source is a folder, `recursive` in copy activity must be set to true.
 
 ```json
 "activities":[
@@ -442,7 +444,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -454,7 +456,11 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",

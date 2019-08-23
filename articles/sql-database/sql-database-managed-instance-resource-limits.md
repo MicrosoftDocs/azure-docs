@@ -36,7 +36,8 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 | Max instance reserved storage |  General Purpose:8 TB<br/>Business Critical: 1TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
+> - Gen4 hardware is being phased out. It is recommended to deploy new managed instances on Gen5 hardware.
+> - Gen4 hardware at this time is available in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
 
 ### Service tier characteristics
 
@@ -100,7 +101,7 @@ The following table shows the default regional limits for supported subscription
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional and MSDN Platforms|2|32|
 
-\* When you plan your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
+\* In planning deployments, please take into consideration that Business Critical (BC) service tier requires four (4) times more vCore capacity than General Purpose (GP) service tier. For example: 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
 
 \*\* Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 

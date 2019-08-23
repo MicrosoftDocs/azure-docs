@@ -1,5 +1,5 @@
 ---
-title: Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+title: Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus)
 description: Tables and shards distributed in the server group.
 author: jonels-msft
 ms.author: jonels
@@ -9,64 +9,61 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ---
 
-# Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-This article outlines the three table types in Hyperscale (Citus).
-It shows how distributed tables are stored as shards, and the way
-shards are placed on nodes.
+This article outlines the three table types in Azure Database for PostgreSQL – Hyperscale (Citus) Preview.
+It shows how distributed tables are stored as shards, and the way that shards are placed on nodes.
 
 ## Table types
 
-There are three types of tables in a Hyperscale server group, each
+There are three types of tables in a Hyperscale (Citus) server group, each
 used for different purposes.
 
-### Type 1: distributed tables
+### Type 1: Distributed tables
 
-The first type, and most common, is *distributed* tables. They
-appear to be normal tables to SQL statements, but are horizontally
-*partitioned* across worker nodes. What this means is that the rows
+The first type, and most common, is distributed tables. They
+appear to be normal tables to SQL statements, but they're horizontally
+partitioned across worker nodes. What this means is that the rows
 of the table are stored on different nodes, in fragment tables called
-*shards*.
+shards.
 
-Hyperscale runs not only SQL but DDL statements throughout a cluster,
-so changing the schema of a distributed table cascades to update
+Hyperscale (Citus) runs not only SQL but DDL statements throughout a cluster.
+Changing the schema of a distributed table cascades to update
 all the table's shards across workers.
 
 #### Distribution column
 
-Hyperscale uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
-of a table column called the *distribution column.* The cluster
+Hyperscale (Citus) uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
+of a table column called the distribution column. The cluster
 administrator must designate this column when distributing a table.
 Making the right choice is important for performance and functionality.
 
-### Type 2: reference tables
+### Type 2: Reference tables
 
 A reference table is a type of distributed table whose entire
-contents are concentrated into a single shard. The shard is replicated on every worker, so queries on any worker can access the reference
-information locally, without the network overhead of requesting
+contents are concentrated into a single shard. The shard is replicated on every worker. Queries on any worker can access the reference information locally, without the network overhead of requesting
 rows from another node. Reference tables have no distribution column
-because there is no need to distinguish separate shards per row.
+because there's no need to distinguish separate shards per row.
 
-Reference tables are typically small, and are used to store data that is
-relevant to queries running on any worker node. For example, enumerated
-values like order statuses, or product categories.
+Reference tables are typically small and are used to store data that's
+relevant to queries running on any worker node. An example is enumerated
+values like order statuses or product categories.
 
-### Type 3: local tables
+### Type 3: Local tables
 
-When you use Hyperscale, the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose
-not to shard them.
+When you use Hyperscale (Citus), the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose not to shard them.
 
-A good candidate for local tables would be small administrative tables that don't participate in join queries. For example, a users table for application login and authentication.
+A good candidate for local tables would be small administrative tables that don't participate in join queries. An example is a users table for application sign-in and authentication.
 
 ## Shards
 
 The previous section described how distributed tables are stored as shards on
-worker nodes. This section gets more into the technical details.
+worker nodes. This section discusses more technical details.
 
 The `pg_dist_shard` metadata table on the coordinator contains a
 row for each shard of each distributed table in the system. The row
 matches a shard ID with a range of integers in a hash space
-(shardminvalue, shardmaxvalue):
+(shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -81,21 +78,21 @@ SELECT * from pg_dist_shard;
 
 If the coordinator node wants to determine which shard holds a row of
 `github_events`, it hashes the value of the distribution column in the
-row, and checks which shard\'s range contains the hashed value. (The
+row. Then the node checks which shard\'s range contains the hashed value. The
 ranges are defined so that the image of the hash function is their
-disjoint union.)
+disjoint union.
 
 ### Shard placements
 
 Suppose that shard 102027 is associated with the row in question. The row
-will be read or written in a table called `github_events_102027` in one of
-the workers. Which worker? That is determined entirely by the metadata
-tables, and the mapping of shard to worker is known as the shard *placement*.
+is read or written in a table called `github_events_102027` in one of
+the workers. Which worker? That's determined entirely by the metadata
+tables. The mapping of shard to worker is known as the shard placement.
 
 The coordinator node
 rewrites queries into fragments that refer to the specific tables
-like `github_events_102027`, and runs those fragments on the
-appropriate workers. Here is an example of a query run behind the scenes to find the node holding shard ID 102027.
+like `github_events_102027` and runs those fragments on the
+appropriate workers. Here's an example of a query run behind the scenes to find the node holding shard ID 102027.
 
 ```sql
 SELECT
@@ -116,4 +113,4 @@ WHERE shardid = 102027;
     └─────────┴───────────┴──────────┘
 
 ## Next steps
-- Learn to [choose a distribution column](concepts-hyperscale-choose-distribution-column.md) for distributed tables
+- Learn how to [choose a distribution column](concepts-hyperscale-choose-distribution-column.md) for distributed tables.
