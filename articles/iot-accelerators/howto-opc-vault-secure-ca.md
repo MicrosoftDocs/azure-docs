@@ -85,7 +85,7 @@ basis and any unneeded or expired assignments must be removed.
 Multi-factor authentication (Two-Factor Authentication, MFA, or TFA) must be used for 
 interactive logons of Approvers and Administrators to the service.
 
-## Certificate Service operation guidelines
+## Certificate service operation guidelines
 
 ### Operational contacts
 

@@ -12,7 +12,7 @@ manager: philmea
 
 # OPC Vault architecture
 
-This article gives an overview about the **OPC Vault Microservice** and the **OPC Vault IoT Edge Module**.
+This article gives an overview about the **OPC Vault microservice** and the **OPC Vault IoT Edge module**.
 
 ## Overview
 

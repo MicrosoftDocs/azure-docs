@@ -10,7 +10,7 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# Build and deploy the OPC Vault certificate management Service
+# Build and deploy the OPC Vault certificate management service
 
 This article explains how to deploy the OPC Vault certificate management service in Azure.
 
