@@ -43,6 +43,9 @@ To start the Azure storage emulator:
 
 When the storage emulator starts, a Command Prompt window will appear. You can use this console window to start and stop the storage emulator, clear data, get status, and initialize the emulator. For more information, see the [Storage emulator command-line tool reference](#storage-emulator-command-line-tool-reference) section later in this article.
 
+> [!NOTE]
+> The Azure storage emulator may not start correctly if another storage emulator, such as Azurite, is running on the system.
+
 When the emulator is running, you'll see an icon in the Windows taskbar notification area.
 
 When you close the storage emulator Command Prompt window, the storage emulator will continue to run. To bring up the Storage Emulator console window again, follow the preceding steps as if starting the storage emulator.
