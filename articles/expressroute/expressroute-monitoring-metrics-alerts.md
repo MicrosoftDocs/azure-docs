@@ -27,11 +27,11 @@ To navigate to **Metrics**, click the ExpressRoute page for the circuit that you
 * **Availability** 
     * Arp Availability
       * Dimensions Available:
-        * Peer (Primary/Secondary Microsoft Enterprise Edge)
+        * Peer (Primary/Secondary ExpressRoute router)
         * Peering Type (Private/Public/Microsoft)
     * Bgp Availability
       * Dimensions Available:
-        * Peer (Primary/Secondary Microsoft Enterprise Edge)
+        * Peer (Primary/Secondary ExpressRoute router)
         * Peering Type (Private/Public/Microsoft)
 * **Traffic**
     * BitsInPerSecond
@@ -65,13 +65,13 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 ## BGP Availability - Split by Peer  
 
-You can view near to real time availability of BGP across peerings and peers (i.e. Primary and Secondary ExpressRoute routers). This dashboard shows the Primary BGP session up for private peering and the Second BGP session down for private peering. 
+You can view near to real-time availability of BGP across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Primary BGP session up for private peering and the Second BGP session down for private peering. 
 
 ![BGP availability per peer](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
 
 ## ARP Availability - Split by Peering  
 
-You can view near to real time availability of [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) across peerings and peers (i.e. Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
+You can view near to real-time availability of [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
 
 ![ARP availability per peer](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
