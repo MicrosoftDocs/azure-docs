@@ -37,7 +37,7 @@ The following steps show how to connect to SQL Database or SQL Data Warehouse by
 3. If you are connecting as a guest user, you no longer need to complete the AD domain name or tenant ID field for guest users because 18.x or later automatically recognizes it. For more information, see [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).
    ![mfa-no-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
 
-   However, If you are connecting as a guest user using SSMS 17.x or older, you must click **Options**, and on the **Connection Property** dialog box, complete the **AD domain name or tenant ID** box.
+   However, If you are connecting as a guest user using SSMS 17.x or older, you must click **Options**, and on the **Connection Property** dialog box, and complete the **AD domain name or tenant ID** box.
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
 
 4. As usual for SQL Database and SQL Data Warehouse, you must click **Options** and specify the database on the **Options** dialog box. (If the connected user is a guest user ( i.e. joe@outlook.com), you must check the box and add the current AD domain name or tenant ID as part of Options. See [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md). Then click **Connect**.  
