@@ -268,9 +268,29 @@ Replace the placeholder values for `scope_id`, `identity_cert`, `identity_pk`, a
 
 ### Windows device
 
-Follow the instructions to install the IoT Edge runtime on the device for which you generated the identity certificate and identity key. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
+Install the IoT Edge runtime on the device for which you generated the identity certificate and identity key. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-[Install and automatically provision IoT Edge on Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+See [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md) for more detailed information, including prerequisites and instructions for tasks like managing containers and updating IoT Edge.
+
+1. Run PowerShell as an administrator.
+
+1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+
+1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers unless you use the `-Dps` flag to use automatic provisioning.
+
+   Replace the placeholder values for `{scope_id}`, `{identity cert URI}`, and `{identity key URI}` with the data you collected earlier. If you want to specify the registration ID, include `-RegistrationId {registration_id}` as well, replacing the placeholder as appropriate.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert URI} -X509IdentityPrivateKey {identity key URI}
+   ```
 
 ## Verify successful installation
 

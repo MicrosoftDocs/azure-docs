@@ -137,25 +137,9 @@ The following example demonstrates an automatic installation with Windows contai
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the Device Provisioning Service instead of manual provisioning. Replace `{scope ID}` with the scope ID from your Device Provisioning Service and `{registration ID}` with the registration ID from your device, both of which you should have retrieved in step 1.
 
-   Using the **Initialize-IoTEdge** command to use DPS with TPM attestation:
-
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
-   ```
-
-   Using the **Initialize-IoTEdge** command to use DPS with symmetric key attestation. Replace `{symmetric key}` with a device key.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
-   ```
-
-   Using the **Initialize-IoTEdge** command to use DPS with X.509 attestation. Replace `{identity cert URI}` with a URI to the device identity certificate and `{identity key URI}` with a URI to the device identity private key.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert URI} -X509IdentityPrivateKey {identity key URI}
    ```
 
 1. Use the steps in [Verify successful installation](#verify-successful-installation) to check the status of IoT Edge on your device.
