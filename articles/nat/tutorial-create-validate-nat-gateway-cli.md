@@ -70,10 +70,10 @@ You can use one or more public IP address resources or one or more public IP pre
 ### Create a NAT gateway resource
 
 This section details how you can create and configure the following components of the NAT service using the NAT gateway resource:
-  - a public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
-  - change the idle timeout from the default of 4 minutes to 10 minutes.
+  - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
+  - Change the idle timeout from the default of 4 minutes to 10 minutes.
 
-Create a public Azure NAT Gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway** that uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix* and changes the idle timeout to 10 minutes.
+Create a global Azure NAT Gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway** that uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix* and changes the idle timeout to 10 minutes.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -342,7 +342,7 @@ go get -u github.com/rakyll/hey
 
 ```
 
-This will update your virtual machine, install go, install [hey](https://github.com/rakyll/hey) from github, and update your shell environment.
+This will update your virtual machine, install go, install [hey](https://github.com/rakyll/hey) from GitHub, and update your shell environment.
 
 You are now ready to test NAT service.
 
