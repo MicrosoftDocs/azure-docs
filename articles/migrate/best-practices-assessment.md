@@ -29,7 +29,7 @@ As an example, if you have an on-premises VM with four cores at 20% utilization,
 - **Performance-based assessment**:
     - Identifies effective cores and memory based on core (4 x 0.20 = 0.8), and memory (8 GB x 0.10 = 0.8) utilization.
     - Applies the comfort factor specified in assessment properties (le'ts say 1.3x) to get the values to be used for sizing. 
-    - Recommends the nearest VM size in Azure that can support ~1.4 cores (0.8 x 1.3) and ~1.4 GB (0.8 x 1.3) memory.
+    - Recommends the nearest VM size in Azure that can support ~1.04 cores (0.8 x 1.3) and ~1.04 GB (0.8 x 1.3) memory.
 
 - **As-is (as on-premises) assessment**:
     -  Recommends a VM with four cores; 8 GB of memory.
