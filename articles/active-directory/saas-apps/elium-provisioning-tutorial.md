@@ -56,7 +56,7 @@ Before configuring Elium  for automatic user provisioning with Azure AD, you wil
 
 	![Elium](media/Elium-provisioning-tutorial/setting.png)
 
-2. On the Bottom left corner Under ADVANCED Select **Security**.
+2. On the Bottom-left corner Under ADVANCED Select **Security**.
 
 	![Elium](media/Elium-provisioning-tutorial/security.png)
 
@@ -133,7 +133,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. To enable the Azure AD provisioning service for Elium , change the **Provisioning Status** to **On** in the **Settings** section.
+12. To enable the Azure AD provisioning service for Elium, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status toggled On](common/provisioning-toggle-on.png)
 
