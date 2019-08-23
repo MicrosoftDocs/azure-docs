@@ -28,7 +28,7 @@ The basic flow for using secrets is:
 
 ## Set secrets
 
-In Azure Machine Learning Python SDK, the [Keyvault](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) class contains methods for setting secrets. In your local Python session, first obtain a reference to Workspace Key Vault, and then use [set_secret](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) method to set a secret by name and value.
+In Azure Machine Learning Python SDK, the [Keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) class contains methods for setting secrets. In your local Python session, first obtain a reference to Workspace Key Vault, and then use [set_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) method to set a secret by name and value.
 
 ```python
 from azureml.core import Workspace
@@ -42,7 +42,7 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 
 Do not put the secret value in Python code as it is insecure to store it in file as cleartext. Instead, obtain the secret value from environment variable, for example Azure DevOps build secret, or from interactive user input.
 
-You can list secret names using [list_secrets](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) method. The __set_secret__ method updates the secret value if the name already exists.
+You can list secret names using [list_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) method. The __set_secret__ method updates the secret value if the name already exists.
 
 ## Get secrets
 
