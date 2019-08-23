@@ -49,7 +49,7 @@ For application users, push notification:
 
     **References**
     - [App Center Portal](https://appcenter.ms) 
-    - [Getting started with App Center Push](https://docs.microsoft.com/en-us/appcenter/push/)
+    - [Get started with App Center Push](https://docs.microsoft.com/en-us/appcenter/push/)
 
 
 2. ### **Azure Notification Hubs**
@@ -65,4 +65,4 @@ For application users, push notification:
     - **Platform Support** - iOS, Android, Windows, Kindle, Baidu.
             
     **References**
-    - [Getting started with Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/)   
+    - [Get started with Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/)   

@@ -43,7 +43,7 @@ Cloud hosting is much easier than on-premise options as it requires less hardwar
     - **Connect your favourite development environment** to access repos and manage work. 
 
     **References**
-    - [Get Started with Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) 
+    - [Get started with Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) 
     - [Azure Repos Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/?view=azure-devops)
 
 2. ### **GitHub**

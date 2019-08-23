@@ -41,4 +41,4 @@ Below are the services you can leverage to monitor your application for crashes,
     
    **References**
     - [App Center Portal](https://appcenter.ms) 
-    - [Getting started with App Center Diagnostics](https://docs.microsoft.com/en-us/appcenter/diagnostics/)
+    - [Get started with App Center Diagnostics](https://docs.microsoft.com/en-us/appcenter/diagnostics/)

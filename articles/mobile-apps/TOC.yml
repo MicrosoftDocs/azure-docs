@@ -27,13 +27,16 @@
       - name: Secure and Manage apps 
         href: 
   - name: Code Hosting Services
-    href: 
-  - name: Continuous Integration
-    href: 
-  - name: Test on real devices
-    href: test.md
-  - name: Continuous Delivery
-    href: 
+    href: code-hosting-services.md
+  - name: DevOps
+    - name: What is DevOps?
+      href: devops.md
+    - name: Continuous Integration
+      href: continuous-integration.md
+    - name: Test on real devices
+      href: test.md
+    - name: Continuous Delivery
+      href: continuous-delivery.md
   - name: Analyze usage and user behavior 
     href: analytics.md
   - name: Monitor the health of your application 

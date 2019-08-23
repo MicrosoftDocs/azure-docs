@@ -39,4 +39,4 @@ These challenges can be efficiently tackled by testing mobile applications acros
     
    **References**
     - [App Center Portal](https://appcenter.ms) 
-    - [Getting started with App Center Test](https://docs.microsoft.com/en-us/appcenter/test-cloud/)
+    - [Get started with App Center Test](https://docs.microsoft.com/en-us/appcenter/test-cloud/)
