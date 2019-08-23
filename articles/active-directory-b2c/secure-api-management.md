@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/28/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -98,9 +98,20 @@ You're now ready to add the inbound policy in Azure API Management that validate
     </policies>
     ```
 
-## Validate secure API access
+## Validate secure API access Postman
 
-To ensure only authenticated callers can access your API, you can validate the configuration in Azure API Management by calling the API with Postman.
+To ensure only authenticated callers can access your API, you can validate the configuration in Azure API Management by calling the API with [Postman](https://www.getpostman.com/).
+
+### Get API subscription key
+
+A client application (in this case, Postman) that calls a published API must include a valid subscription key in HTTP requests when it makes those calls. To get a subscription key for your API to include in your Postman HTTP request:
+
+1. Browse to your Azure API Management service instance in the [Azure portal](https://portal.azure.com)
+1. Select **Subscriptions**
+1. Select the ellipsis for **Product: Unlimited**, then select **Show/hide keys**
+1. Record the **PRIMARY KEY** for the product. You use this for the `Ocp-Apim-Subscription-Key` header in your HTTP request in Postman.
+
+![Subscription key page with Show/hide keys selected in Azure portal](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
 ### Get an access token
 
@@ -120,103 +131,77 @@ You first need a token issued by Azure AD B2C to use in the Authorization header
 
     ![Encoded token value displayed on jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
 
-### Get API subscription key
+### Test a secure API call
 
-A client application (in this case, Postman) that calls a published API must include a valid subscription key in HTTP requests when it makes those calls. To get a subscription key for your API to include in your Postman HTTP request:
+With the access token and APIM subscription key recorded, you're now ready to test whether you've correctly configured secure access to the API.
 
-1. Browse to your Azure API Management service instance in the [Azure portal](https://portal.azure.com)
-1. Select **Subscriptions**
-1. Select the ellipsis for **Product: Unlimited**, then select **Show/hide keys**
-1. Record the **PRIMARY KEY** for the product. You use this for the `Ocp-Apim-Subscription-Key` header in your HTTP request in Postman.
-
-![Subscription key page with Show/hide keys selected in Azure portal](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
-
-### Call the API with Postman
-
-Create a new GET request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published in the prerequisites. For example:
+1. Create a new GET request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published in the prerequisites. For example:
 
 ```
 https://contosoapim.azure-api.net/conference/speakers
 ```
 
-Next, add the following headers:
+1. Next, add the following headers:
 
-| Key | Value |
-| --- | ----- |
-| `Authorization` | Encoded token value you recorded earlier, prefixed with `Bearer ` (include the space) |
-| `Ocp-Apim-Subscription-Key` | APIM subscription key you recorded earlier |
+    | Key | Value |
+    | --- | ----- |
+    | `Authorization` | Encoded token value you recorded earlier, prefixed with `Bearer ` (include the space after "Bearer") |
+    | `Ocp-Apim-Subscription-Key` | APIM subscription key you recorded earlier |
 
-Your **GET** request URL and **Headers** should appear similar to:
+    Your **GET** request URL and **Headers** should appear similar to:
 
-![Postman UI showing the GET request URL and headers](media/secure-apim-with-b2c-token/postman-01-headers.png)
+    ![Postman UI showing the GET request URL and headers](media/secure-apim-with-b2c-token/postman-01-headers.png)
 
-Select the **Send** button to execute the request.
+1. Select the **Send** button to execute the request. If you've configured everything correctly, you should be presented with a JSON response containing a list of conference speakers (shown here truncated):
 
-**[TODO: show successful output, also how they can test failure (mangle the token)]**
+    ```JSON
+    {
+      "collection": {
+        "version": "1.0",
+        "href": "https://conferenceapi.azurewebsites.net:443/speakers",
+        "links": [],
+        "items": [
+          {
+            "href": "https://conferenceapi.azurewebsites.net/speaker/1",
+            "data": [
+              {
+                "name": "Name",
+                "value": "Scott Guthrie"
+              }
+            ],
+            "links": [
+              {
+                "rel": "http://tavis.net/rels/sessions",
+                "href": "https://conferenceapi.azurewebsites.net/speaker/1/sessions"
+              }
+            ]
+          },
+    [...]
+    ```
 
-## Migrate an existing API to b2clogin.com
+### Test an insecure API call
 
-**[TODO: This should probably go in its own doc that talks about migrating APIM-fronted APIs protected by B2C to b2clogin.com]**
+Finally, test the failure case to ensure that calls to your API with an *invalid* token are rejected as expected. The easiest way to test is to add or change a few characters in the token value, then execute the same `GET` request as before.
 
-If you previously protected an API in Azure API Management with Azure AD B2C using the `login.microsoftonline.com` issuer endpoint, you should migrate the API to support tokens issued by [b2clogin.com](b2clogin.md). During the migration, you might wish to support both endpoints to continue supporting clients with tokens issued by the legacy `login.microsoftonline.com` endpoint.
+1. Add several characters to the token value to simulate an invalid token. For example, add "INVALID" to the token value:
 
-To enable support for multiple token issuer domains, use the `<choose>` element in your API Management policy to enable a branching flow within the policy. To inform the API which condition to validate, modify the `Authorization` header.
+    ![Headers section of Postman UI showing INVALID added to token](media/secure-apim-with-b2c-token/postman-02-invalid-token.png)
 
-For example, this policy enables support for **TODO**
+1. Select the **Send** button to execute the request. With an invalid token, the expected result is a `401` unauthorized status code:
 
-```xml
-<policies>
-    <inbound>
-        <choose>
-            <when condition="@(context.Request.Headers.GetValueOrDefault("Domain", "") == "b2clogin.com")">
-                <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                    <openid-config url="https://testapimanagement.b2clogin.com/testapimanagement.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_signup_signin" />
-                    <required-claims>
-                        <claim name="aud">
-                            <value>40000000-0000-0000-0000-000000000000</value>
-                        </claim>
-                        <claim name="iss">
-                            <value>https://testapimanagement.b2clogin.com/80000000-0000-0000-0000-000000000000/v2.0/</value>
-                        </claim>
-                    </required-claims>
-                </validate-jwt>
-            </when>
-            <when condition="@(context.Request.Headers.GetValueOrDefault("Domain", "") == "microsoftonline.com")">
-                <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                    <openid-config url="https://login.microsoftonline.com/testapimanagement.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_signup_signin" />
-                    <required-claims>
-                        <claim name="aud">
-                            <value>40000000-0000-0000-0000-000000000000</value>
-                        </claim>
-                        <claim name="iss">
-                            <value>https://login.microsoftonline.com/80000000-0000-0000-0000-000000000000/v2.0/</value>
-                        </claim>
-                    </required-claims>
-                </validate-jwt>
-            </when>
-            <otherwise>
-                <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                    <openid-config url="https://login.microsoftonline.com/tfp/testapimanagement.onmicrosoft.com/B2C_1A_signup_signin/v2.0/.well-known/openid-configuration" />
-                    <required-claims>
-                        <claim name="aud">
-                            <value>40000000-0000-0000-0000-000000000000</value>
-                        </claim>
-                    </required-claims>
-                </validate-jwt>
-            </otherwise>
-        </choose>
-        <base />
-    </inbound>
-    <backend> <base /> </backend>
-    <outbound> <base /> </outbound>
-    <on-error> <base /> </on-error>
-</policies>
-```
+    ```JSON
+    {
+        "statusCode": 401,
+        "message": "Unauthorized. Access token is missing or invalid."
+    }
+    ```
 
-### Validate Azure API Management in multiple config URLs case
+Congratulations! You've just verified that only callers with a valid access token issued by Azure AD B2C can make successful requests to your Azure API Management API.
 
-**[TODO: EXPLANATION HERE]**
+## Next steps
 
-Example request:
+### Migrate APIM APIs to b2clogin.com
 
-![Example request header in Postman showing the chosen Domain key](media/secure-apim-with-b2c-token/postman-02.png)
+If you have a currently deployed API in Azure API Management that's configured with a secure access policy accepting tokens from the legacy `login.microsoftonline.com` issuer endpoint, you should migrate the API and its client applications to use the recommended `b2clogin.com` issuer. During such a migration, you might need to support tokens issued by both endpoints to allow for a staged migration of your client applications to `b2clogin.com`.
+
+[Migrate an Azure API Management API to b2clogin.com](multiple-token-endpoints-apim.md)
