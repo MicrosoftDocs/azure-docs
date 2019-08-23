@@ -169,6 +169,8 @@ After the function app is created in Azure, you can use the [`func azure functio
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
+The `--build remote` option builds your Python project remotely in Azure from the files in the deployment package. 
+
 You'll see output similar to the following, which has been truncated for readability:
 
 ```output
