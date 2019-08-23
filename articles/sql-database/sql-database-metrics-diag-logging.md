@@ -341,7 +341,7 @@ If you're using elastic pools or managed instances, you also need to configure d
 
 ### Use the SQL Analytics solution
 
-You can use SQL Analytics as a hierarchical dashboard to view your SQL Database resources. To learn how to use the SQL Analytics solution, see [Monitor SQL Database by using the SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md).
+You can use SQL Analytics as a hierarchical dashboard to view your SQL Database resources. To learn how to use the SQL Analytics solution, see [Monitor SQL Database by using the SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md). To learn how to setup alerts for SQL Database and managed instance based on SQL Analytics, see [Creating alerts for SQL Database and managed instance](../azure-monitor/insights/azure-sql#analyze-data-and-create-alerts).
 
 ## Stream into Event Hubs
 
@@ -710,3 +710,7 @@ To learn about Event Hubs, read:
 
 - [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+To learn how to setup alerts based on telemetry from log analytics see:
+
+- [Creating alerts for SQL Database and managed instance](../azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)
