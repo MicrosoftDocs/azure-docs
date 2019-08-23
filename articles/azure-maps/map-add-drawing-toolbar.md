@@ -14,34 +14,9 @@ manager: philmea
 
 This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) control adds the drawing toolbar on the map. You will learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
 
+## Add drawing toolbar
 
-## Add a polygon drawing tool
-
-The following code creates an instance of the drawing manager and displays the toolbar with just a polygon drawing tool on the map.
-
-```Javascript
-//Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
-drawingManager = new atlas.drawing.DrawingManager(map, {
-        toolbar: new atlas.control.DrawingToolbar({
-            position: 'top-right',
-            style: 'light',
-            buttons: ["draw-polygon"]
-        })
-    });
-```
-
-Below is the complete running code sample of the functionality above:
-
-<br/>
-
-<iframe height="500" style="width: 100%;" scrolling="no" title="Add a polygon drawing  tool" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Add a polygon drawing  tool</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-## Add drawing tools
-
-The following code creates an instance of the drawing manager and displays the toolbar with all of the drawing tools on the map.
+The following code creates an instance of the drawing manager and displays the toolbar on the map.
 
 ```Javascript
 //Create an instance of the drawing manager and display the drawing toolbar.
@@ -63,9 +38,34 @@ Below is the complete running code sample of the functionality above:
 </iframe>
 
 
+## Limit displayed toolbar options
+
+The following code creates an instance of the drawing manager and displays the toolbar with just a polygon drawing tool on the map. 
+
+```Javascript
+//Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
+drawingManager = new atlas.drawing.DrawingManager(map, {
+        toolbar: new atlas.control.DrawingToolbar({
+            position: 'top-right',
+            style: 'light',
+            buttons: ["draw-polygon"]
+        })
+    });
+```
+
+Below is the complete running code sample of the functionality above:
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Add a polygon drawing  tool" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Add a polygon drawing  tool</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+
 ## Change drawing rendering style
 
-The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing.
+The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon, lines will be red and 4 pixels wide, polygons will be have a green fill color and an orange outline.
 
 ```Javascript
 var layers = drawingManager.getLayers();
