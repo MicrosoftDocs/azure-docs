@@ -258,9 +258,9 @@ For a Key Encryption Key scenario, follow these steps:
 
 7. If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
 
-    - Suspend protection to temporarily turn BitLocker OFF by running the following：
+    - Suspend protection to temporarily turn BitLocker OFF by running the following command：
 
-                    manage-bde -protectors -disable F: -rc 0
+             manage-bde -protectors -disable F: -rc 0
            
     - Fully decrypt the drive. To do this, run the following command:
 
@@ -269,20 +269,20 @@ For a Key Encryption Key scenario, follow these steps:
 
 **Error: Could not load file or assembly**
 
-This error occurs because the path  ADAL Assemblies are wrong. If the AZ module is only installed for current user, the ADAL Assemblies will be located in `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+This error occurs because the paths of the ADAL Assemblies are wrong. If the AZ module is only installed for the current user, the ADAL Assemblies will be located in `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
 
 You can also search for `Az.Accounts` folder to find the correct path.
 
 **Error: Get-AzKeyVaultSecret or Get-AzKeyVaultSecret is not recognized as the name of a cmdlet**
 
-If you are using the old AZ powershell module, you must change the two commands to `Get-AzureKeyVaultSecret` and `Get-AzureKeyVaultSecret`.
+If you are using the old AZ PowerShell module, you must change the two commands to `Get-AzureKeyVaultSecret` and `Get-AzureKeyVaultSecret`.
 
 **Parameters samples**
 
 | Parameters  | value sample  |comments   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | The name of the key Vault that stores the key |
-|$kekName   |mykey   | The name of the key that you used to encrypt the VM|
-|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | The name of the secret|
-|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D.BEK | The path for writing BEK file. Must use the secretName as the file name, so Windows will load the file when booting.|
+|$kekName   |mykey   | The name of the key that is used to encrypt the VM|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | The name of the secret of the VM key|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D.BEK |The path for writing BEK file.|
 |$adTenant  |contoso.onmicrosoft.com   | FQDN or GUID of your Azure Active Directory that hosts the key vault |
