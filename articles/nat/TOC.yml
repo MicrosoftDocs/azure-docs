@@ -1,0 +1,44 @@
+- name: NAT Gateway Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is NAT Gateway?
+    href: nat-overview.md
+- name: Quickstart
+  items:
+  - name: Create a NAT Gateway - Azure CLI
+    href: quickstart-create-nat-gateway-cli.md
+
+- name: Tutorials
+  items:
+  - name: Create and test a NAT Gateway - Azure CLI
+    href: tutorial-create-validate-nat-gateway-cli.md
+
+- name: Related
+  items:
+  - name: Load Balancer
+    href: /azure/load-balancer
+    name: Application Gateway
+    href: /azure/application-gateway/
+  - name: Express Route
+    href: /azure/expressroute/
+  - name: Virtual Network
+    href: /azure/virtual-network/
+  - name: VPN Gateway
+    href: /azure/vpn-gateway/
+  - name: Virtual Machine
+    href: /azure/virtual-machines/
+  - name: Traffic Manager
+    href: /azure/traffic-manager/
+  - name: DNS
+    href: /azure/dns/
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=load-balancer
