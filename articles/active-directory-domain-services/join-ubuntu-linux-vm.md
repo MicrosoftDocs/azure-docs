@@ -85,7 +85,7 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
 
 For domain communication to work correctly, the date and time of your Ubuntu VM must synchronize with the Azure AD DS managed domain. Add your Azure AD DS managed domain's NTP hostname to the */etc/ntp.conf* file.
 
-1. Open the *sssd.conf* file with an editor:
+1. Open the *ntp.conf* file with an editor:
 
     ```console
     sudo vi /etc/ntp.conf
@@ -123,7 +123,7 @@ Now that the required packages are installed on the VM and NTP is configured, jo
     sudo realm discover CONTOSO.COM
     ```
 
-   If *realm discover* can't find your Azure AD DS managed domain, review the following troubleshooting steps:
+   If the `realm discover` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
 
     * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
