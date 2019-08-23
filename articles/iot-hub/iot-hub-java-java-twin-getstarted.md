@@ -295,18 +295,18 @@ In this section, you create a Java console app that sets a reported property val
 
     * Create a **Device** object to store the device twin properties.
 
-      ```java
-      DeviceClient client = new DeviceClient(connString, protocol);
+    ```java
+    DeviceClient client = new DeviceClient(connString, protocol);
 
-      // Create a Device object to store the device twin properties
-      Device dataCollector = new Device() {
-      // Print details when a property value changes
-      @Override
-      public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
-        System.out.println(propertyKey + " changed to " + propertyValue);
-      }
-      };
-      ```
+    // Create a Device object to store the device twin properties
+    Device dataCollector = new Device() {
+    // Print details when a property value changes
+    @Override
+    public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
+      System.out.println(propertyKey + " changed to " + propertyValue);
+    }
+    };
+    ```
 
 11. Add the following code to the **main** method to create a **connectivityType** reported property and send it to IoT Hub:
 
