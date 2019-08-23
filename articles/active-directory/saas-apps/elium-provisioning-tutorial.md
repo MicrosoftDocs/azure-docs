@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Elium  for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Elium.
 
-1. Login into Elium. Under **profile** > **Settings**.
+1. Login into Elium. Navigate to **My Profile** > **Settings**.
 
 	![Elium](media/Elium-provisioning-tutorial/setting.png)
 
@@ -112,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, input  `<tenantURL>/scim/v2` where **{TeanantURL}** is the  value retrieved earlier from the Elium Admin Console. Input the **Secret token** value in **Secret Token** Click **Test connection** to ensure Azure AD can connect to Elium. If the connection fails, ensure your elium has admin permissions and try again.
+5. Under the Admin Credentials section, input  `<tenantURL>/scim/v2` where **{TeanantURL}** is the  value retrieved earlier from the Elium Admin Console. Input the **Secret token** value in **Secret Token** Click **Test connection** to ensure Azure AD can connect to Elium. If the connection fails, ensure your Elium has admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
