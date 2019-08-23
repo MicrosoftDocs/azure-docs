@@ -98,13 +98,33 @@ You're now ready to add the inbound policy in Azure API Management that validate
     </policies>
     ```
 
-## Validate secure API access Postman
+## Validate secure API access
 
 To ensure only authenticated callers can access your API, you can validate the configuration in Azure API Management by calling the API with [Postman](https://www.getpostman.com/).
 
+To call the API, you need an access token issued by Azure AD B2C and an APIM subscription key.
+
+### Get an access token
+
+You first need a token issued by Azure AD B2C to use in the `Authorization` header in Postman. You can get one by using the **Run now** feature of your sign-up/sign-in user flow you should have created as one of the prerequisites.
+
+1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com)
+1. Under **Policies**, select **User flows (policies)**
+1. Select an existing sign-up/sign-in user flow, for example *B2C_1_signupsignin1*
+1. For **Application**, select *webapp1*
+1. For **Reply URL**, choose `https://jwt.ms`
+1. Select **Run user flow**
+
+    ![Run user flow page for sign up sign in user flow in Azure portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
+
+1. Complete the sign-in process. You should be redirected to `https://jwt.ms`.
+1. Record encoded token value displayed in your browser. You use this token value for the Authorization header in Postman.
+
+    ![Encoded token value displayed on jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
+
 ### Get API subscription key
 
-A client application (in this case, Postman) that calls a published API must include a valid subscription key in HTTP requests when it makes those calls. To get a subscription key for your API to include in your Postman HTTP request:
+A client application (in this case, Postman) that calls a published API must include a valid API Management subscription key in its HTTP requests. To get a subscription key to include in your Postman HTTP request:
 
 1. Browse to your Azure API Management service instance in the [Azure portal](https://portal.azure.com)
 1. Select **Subscriptions**
@@ -113,33 +133,15 @@ A client application (in this case, Postman) that calls a published API must inc
 
 ![Subscription key page with Show/hide keys selected in Azure portal](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
-### Get an access token
-
-You first need a token issued by Azure AD B2C to use in the Authorization header in Postman. You can get one by using the **Run now** feature of your sign-up/sign-in user flow you should have created in the prerequisites.
-
-1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com)
-1. Under **Policies**, select **User flows (policies)**
-1. Select an existing sign-up/sign-in user flow, for example *B2C_1_signupsignin1*
-1. For **Application**, select *webapp1*
-1. For **Reply URL**, choose *https://jwt.ms*
-1. Select **Run user flow**
-
-    ![Run user flow page for sign up sign in user flow in Azure portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
-
-1. Complete the sign-in process. You should be redirected to *https://jwt.ms*.
-1. Record encoded token value displayed in your browser. You use this token value for the Authorization header in Postman.
-
-    ![Encoded token value displayed on jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
-
 ### Test a secure API call
 
 With the access token and APIM subscription key recorded, you're now ready to test whether you've correctly configured secure access to the API.
 
-1. Create a new GET request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published in the prerequisites. For example:
+1. Create a new `GET` request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published as one of the prerequisites. For example:
 
-```
-https://contosoapim.azure-api.net/conference/speakers
-```
+    ```
+    https://contosoapim.azure-api.net/conference/speakers
+    ```
 
 1. Next, add the following headers:
 
@@ -152,7 +154,7 @@ https://contosoapim.azure-api.net/conference/speakers
 
     ![Postman UI showing the GET request URL and headers](media/secure-apim-with-b2c-token/postman-01-headers.png)
 
-1. Select the **Send** button to execute the request. If you've configured everything correctly, you should be presented with a JSON response containing a list of conference speakers (shown here truncated):
+1. Select the **Send** button in Postman to execute the request. If you've configured everything correctly, you should be presented with a JSON response with a collection of conference speakers (shown here truncated):
 
     ```JSON
     {
@@ -181,7 +183,7 @@ https://contosoapim.azure-api.net/conference/speakers
 
 ### Test an insecure API call
 
-Finally, test the failure case to ensure that calls to your API with an *invalid* token are rejected as expected. The easiest way to test is to add or change a few characters in the token value, then execute the same `GET` request as before.
+Now that you've made a successful request, test the failure case to ensure that calls to your API with an *invalid* token are rejected as expected. One way to perform the test is to add or change a few characters in the token value, then execute the same `GET` request as before.
 
 1. Add several characters to the token value to simulate an invalid token. For example, add "INVALID" to the token value:
 
