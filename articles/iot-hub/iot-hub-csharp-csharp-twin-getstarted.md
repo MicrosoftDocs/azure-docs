@@ -12,6 +12,7 @@ ms.author: robinsh
 ---
 
 # Get started with device twins (.NET)
+
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 At the end of this tutorial, you will have these .NET console apps:
@@ -24,9 +25,11 @@ At the end of this tutorial, you will have these .NET console apps:
 
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
-> 
+>
 
-To complete this tutorial you need the following:
+## Prerequisites
+
+To complete this tutorial you need:
 
 * Visual Studio.
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
@@ -50,13 +53,13 @@ To complete this tutorial you need the following:
 In this section, you create a .NET console app (using C#) that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reported a cellular connection.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **AddTagsAndQuery**.
-   
+
     ![New Visual C# Windows Classic Desktop project](./media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png)
 
 2. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then click **Manage NuGet Packages...**.
 
 3. In the **NuGet Package Manager** window, select **Browse** and search for **Microsoft.Azure.Devices**. Select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package and its dependencies.
-   
+
     ![NuGet Package Manager window](./media/iot-hub-csharp-csharp-twin-getstarted/servicesdknuget.png)
 
 4. Add the following `using` statements at the top of the **Program.cs** file:
@@ -65,7 +68,7 @@ In this section, you create a .NET console app (using C#) that adds location met
     using Microsoft.Azure.Devices;
     ```
 
-5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+5. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT Hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
     ```csharp  
     static RegistryManager registryManager;
@@ -88,24 +91,24 @@ In this section, you create a .NET console app (using C#) that adds location met
                 }
             }";
         await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
-   
+
         var query = registryManager.CreateQuery(
           "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
         var twinsInRedmond43 = await query.GetNextAsTwinAsync();
         Console.WriteLine("Devices in Redmond43: {0}", 
           string.Join(", ", twinsInRedmond43.Select(t => t.DeviceId)));
-   
+
         query = registryManager.CreateQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
         var twinsInRedmond43UsingCellular = await query.GetNextAsTwinAsync();
         Console.WriteLine("Devices in Redmond43 using cellular network: {0}", 
           string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
     }
     ```
-   
+
     The **RegistryManager** class exposes all the methods required to interact with device twins from the service. The previous code first initializes the **registryManager** object, then retrieves the device twin for **myDeviceId**, and finally updates its tags with the desired location information.
-   
+
     After updating, it executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
-   
+
     Note that the previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **HasMoreResults** boolean property that you can use to invoke the **GetNextAsTwinAsync** methods multiple times to retrieve all results. A method called **GetNextAsJson** is available for results that are not device twins, for example, results of aggregation queries.
 
 7. Finally, add the following lines to the **Main** method:
@@ -120,7 +123,7 @@ In this section, you create a .NET console app (using C#) that adds location met
 8. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **AddTagsAndQuery** project is **Start**. Build the solution.
 
 9. Run this application by right-clicking on the **AddTagsAndQuery** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
-   
+
     ![Query results in window](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
 
 In the next section, you create a device app that reports the connectivity information and changes the result of the query in the previous section.
@@ -130,13 +133,13 @@ In the next section, you create a device app that reports the connectivity infor
 In this section, you create a .NET console app that connects to your hub as **myDeviceId**, and then updates its reported properties to contain the information that it is connected using a cellular network.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **ReportConnectivity**.
-   
+
     ![New Visual C# Windows Classic device app](./media/iot-hub-csharp-csharp-twin-getstarted/createdeviceapp.png)
-    
+
 2. In Solution Explorer, right-click the **ReportConnectivity** project, and then click **Manage NuGet Packages...**.
 
 3. In the **NuGet Package Manager** window, select **Browse** and search for **Microsoft.Azure.Devices.Client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
-   
+
     ![NuGet Package Manager window Client app](./media/iot-hub-csharp-csharp-twin-getstarted/clientsdknuget.png)
 
 4. Add the following `using` statements at the top of the **Program.cs** file:
@@ -147,11 +150,10 @@ In this section, you create a .NET console app that connects to your hub as **my
     using Newtonsoft.Json;
     ```
 
-5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
+5. Add the following fields to the **Program** class. Replace the `{device connection string}` placeholder value with the device connection string that you noted previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp  
-    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;
-      DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -186,7 +188,7 @@ In this section, you create a .NET console app that connects to your hub as **my
         try
         {
             Console.WriteLine("Sending connectivity data as reported property");
-            
+
             TwinCollection reportedProperties, connectivity;
             reportedProperties = new TwinCollection();
             connectivity = new TwinCollection();
@@ -224,11 +226,11 @@ In this section, you create a .NET console app that connects to your hub as **my
 9. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **ReportConnectivity** project is **Start**. Build the solution.
 
 10. Run this application by right-clicking on the **ReportConnectivity** project and selecting **Debug**, followed by **Start new instance**. You should see it getting the twin information, and then sending connectivity as a *reported property*.
-   
+
     ![Run device app to report connectivity](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
-       
+
 11. Now that the device reported its connectivity information, it should appear in both queries. Run the .NET **AddTagsAndQuery** app to run the queries again. This time **myDeviceId** should appear in both query results.
-   
+
     ![Device connectivity reported successfully](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
 ## Next steps
