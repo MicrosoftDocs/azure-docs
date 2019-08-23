@@ -1,21 +1,12 @@
-﻿---
-title: Change feed for HL7 FHIR resources - Azure Cosmos DB | Microsoft Docs
+---
+title: Change feed for HL7 FHIR resources - Azure Cosmos DB
 description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, Azure Cosmos DB, and Service Bus.
-keywords: hl7 fhir
-services: cosmos-db
-author: hedidin
-manager: jhubbard
-editor: mimig
-documentationcenter: ''
-
-ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
+author: SnehaGunda
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/08/2017
-ms.author: b-hoedid
+ms.subservice: cosmosdb-sql
+ms.topic: conceptual
+ms.date: 05/28/2019
+ms.author: sngun
 
 ---
 
@@ -27,7 +18,7 @@ This article walks through the change feed notification solution created for thi
 
 ## Project requirements
 - Providers send HL7 Consolidated-Clinical Document Architecture (C-CDA) documents in XML format. C-CDA documents encompass just about every type of clinical document, including clinical documents such as family histories and immunization records, as well as administrative, workflow, and financial documents. 
-- C-CDA documents are converted to [HL7 FHIR Resources](http://hl7.org/fhir/2017Jan/resourcelist.html) in JSON format.
+- C-CDA documents are converted to [HL7 FHIR Resources](https://hl7.org/fhir/2017Jan/resourcelist.html) in JSON format.
 - Modified FHIR resource documents are sent by email in JSON format.
 
 ## Solution workflow 
@@ -36,7 +27,7 @@ At a high level, the project required the following workflow steps:
 1. Convert C-CDA documents to FHIR resources.
 2. Perform recurring trigger polling for modified FHIR resources. 
 2. Call a custom app, FhirNotificationApi, to connect to Azure Cosmos DB and query for new or modified documents.
-3. Save the response to to the Service Bus queue.
+3. Save the response to the Service Bus queue.
 4. Poll for new messages in the Service Bus queue.
 5. Send email notifications to patients.
 
@@ -52,7 +43,7 @@ This solution requires three Logic Apps to meet the above requirements and compl
 
 ### Azure services used in the solution
 
-#### Azure Cosmos DB DocumentDB API
+#### Azure Cosmos DB SQL API
 Azure Cosmos DB is the repository for the FHIR resources as shown in the following figure.
 
 ![The Azure Cosmos DB account used in this HL7 FHIR healthcare tutorial](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -87,7 +78,7 @@ An API app connects to Azure Cosmos DB and queries for new or modified FHIR
 documents By resource type. This app has one controller, **FhirNotificationApi** with a one
 operation **GetNewOrModifiedFhirDocuments**, see [source for API app](#api-app-source).
 
-We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the Azure Cosmos DB DocumentDB .NET API. For more information, see the [change feed article](change-feed.md). 
+We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the Azure Cosmos DB SQL .NET API. For more information, see the [change feed article](change-feed.md). 
 
 ##### GetNewOrModifiedFhirDocuments operation
 
@@ -106,7 +97,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 **Source for the API app**
 
-```C#
+```csharp
 
 	using System.Collections.Generic;
 	using System.Linq;
@@ -138,11 +129,11 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 	        /// <param name="maximumItemCount">-1 returns all (default)</param>
 	        /// <returns></returns>
 	        [Metadata("Get New or Modified FHIR Documents",
-	            "Query for new or modifed FHIR Documents By Resource Type " +
-	            "from Last Run Date or Begining of Collection creation"
+	            "Query for new or modified FHIR Documents By Resource Type " +
+	            "from Last Run Date or Beginning of Collection creation"
 	        )]
 	        [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
-	        [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]
+	        [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modified Documents found")]
 	        [SwaggerOperation("GetNewOrModifiedFHIRDocuments")]
 	        public async Task<dynamic> GetNewOrModifiedFhirDocuments(
 	            [Metadata("Database Id", "Database Id")] string databaseId,
@@ -211,7 +202,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 ### Testing the FhirNotificationApi 
 
-The following image demonstrates how swagger was used to to test the [FhirNotificationApi](#api-app-source).
+The following image demonstrates how swagger was used to test the [FhirNotificationApi](#api-app-source).
 
 ![The Swagger file used to test the API app](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
 
@@ -225,11 +216,11 @@ The following image shows all of the Azure services for this solution running in
 
 ## Summary
 
-- You have learned that Azure Cosmos DB has native suppport for notifications for new or modifed documents and how easy it is to use. 
+- You have learned that Azure Cosmos DB has native support for notifications for new or modified documents and how easy it is to use. 
 - By leveraging Logic Apps, you can create workflows without writing any code.
 - Using Azure Service Bus Queues to handle the distribution for the HL7 FHIR documents.
 
 ## Next steps
-For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/cosmos-db/). For more informaiton about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/cosmos-db/). For more information about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

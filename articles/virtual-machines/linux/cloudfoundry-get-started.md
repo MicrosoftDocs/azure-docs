@@ -1,10 +1,10 @@
-﻿---
+---
 title: Getting Started with Cloud Foundry on Microsoft Azure | Microsoft Docs
 description: Run OSS or Pivotal Cloud Foundry on Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: timlt
+manager: gwallace
 editor: ''
 tags:
 keywords: ''
@@ -44,7 +44,7 @@ Microsoft provides best-effort support for OSS CF through the following communit
 
 Pivotal Cloud Foundry includes the same core platform as the OSS distribution, along with a set of proprietary management tools and enterprise support. To run PCF on Azure, you must acquire a license from Pivotal. The PCF offer from the Azure marketplace includes a 90-day trial license.
 
-The tools include [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), a web application that simplifies deployment and management of a Cloud Foundry foundation, and [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), a web application for managing users and applications.
+The tools include [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), a web application that simplifies deployment and management of a Cloud Foundry foundation, and [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), a web application for managing users and applications.
 
 In addition to the support channels listed for OSS CF above, a PCF license entitles you to contact Pivotal for support. Microsoft and Pivotal have also enabled support workflows that allow you to contact either party for assistance and have your inquiry routed appropriately depending on where the issue lies.
 
@@ -56,11 +56,11 @@ If you are using Pivotal Cloud Foundry, the service broker is also [available as
 
 ## Related resources
 
-### Visual Studio Team Services plugin
+### Azure DevOps Services plugin
 
-Cloud Foundry is well suited to agile software development, including the use of continuous integration (CI) and continuous delivery (CD). If you use Visual Studio Team Services (VSTS) to manage your projects and would like to set up a CI/CD pipeline targeting Cloud Foundry, you can use the [VSTS Cloud Foundry build extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). The plugin makes it simple to configure and automate deployments to Cloud Foundry, whether running in Azure or another environment.
+Cloud Foundry is well suited to agile software development, including the use of continuous integration (CI) and continuous delivery (CD). If you use Azure DevOps Services to manage your projects and would like to set up a CI/CD pipeline targeting Cloud Foundry, you can use the [Azure DevOps Services Cloud Foundry build extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). The plugin makes it simple to configure and automate deployments to Cloud Foundry, whether running in Azure or another environment.
 
 ## Next steps
 
-- [Deploy Pivotal Cloud Foundry from the Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Deploy Pivotal Cloud Foundry from the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
 - [Deploy an app to Cloud Foundry in Azure](./cloudfoundry-deploy-your-first-app.md)

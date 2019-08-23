@@ -1,0 +1,105 @@
+- name: RBAC for Azure resources documentation
+  href: index.yml
+  items:
+- name: Overview
+  items:
+  - name: What is RBAC?
+    href: overview.md
+  - name: Understand the different roles
+    href: rbac-and-directory-admin-roles.md
+- name: Quickstarts
+  items:
+  - name: View access for a user
+    href: check-access.md
+- name: Tutorials
+  items:
+  - name: Grant a user access - Portal
+    href: quickstart-assign-role-user-portal.md
+  - name: Grant a user access - PowerShell
+    href: tutorial-role-assignments-user-powershell.md
+  - name: Grant a user access - Resource Manager Template
+    displayName: ARM, resource manager template
+    href: tutorial-role-assignments-user-template.md
+  - name: Grant a group access - PowerShell
+    href: tutorial-role-assignments-group-powershell.md
+  - name: Create a custom role - PowerShell
+    href: tutorial-custom-role-powershell.md
+  - name: Create a custom role - CLI
+    href: tutorial-custom-role-cli.md
+- name: Concepts
+  items:
+  - name: Understand role definitions
+    href: role-definitions.md
+  - name: PIM for Azure resources
+    href: pim-azure-resource.md
+  - name: Conditional Access for Azure management
+    href: conditional-access-azure-management.md
+- name: How-to guides
+  items:
+  - name: Manage access
+    items:
+    - name: Portal
+      href: role-assignments-portal.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: Azure CLI
+      href: role-assignments-cli.md
+    - name: REST API
+      href: role-assignments-rest.md
+    - name: Template
+      href: role-assignments-template.md
+  - name: Deny access
+    items:
+    - name: Deny assignments
+      href: deny-assignments.md
+    - name: Portal
+      href: deny-assignments-portal.md
+    - name: PowerShell
+      href: deny-assignments-powershell.md
+    - name: REST API
+      href: deny-assignments-rest.md
+  - name: Custom roles
+    items:
+    - name: Overview
+      href: custom-roles.md
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: Azure CLI
+      href: custom-roles-cli.md
+    - name: REST API
+      href: custom-roles-rest.md
+  - name: View activity logs
+    href: change-history-report.md
+  - name: Elevate access to manage all subscriptions
+    href: elevate-access-global-admin.md
+  - name: Manage access for external users
+    href: role-assignments-external-users.md
+  - name: Classic administrators
+    href: classic-administrators.md
+  - name: Troubleshoot
+    href: troubleshooting.md
+- name: Reference
+  items:
+  - name: Built-in roles
+    href: built-in-roles.md
+  - name: Resource provider operations
+    href: resource-provider-operations.md
+  - name: RBAC limits
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure PowerShell
+    href: /powershell/module/az.resources
+  - name: Azure CLI
+    href: /cli/azure/role?view=azure-cli-latest
+  - name: REST API
+    href: /rest/api/authorization/
+  - name: Resource Manager templates
+    displayName: ARM
+    items:
+    - name: Role Assignments
+      href: /azure/templates/microsoft.authorization/roleassignments
+    - name: Role Definitions
+      href: /azure/templates/microsoft.authorization/roledefinitions
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-active-directory

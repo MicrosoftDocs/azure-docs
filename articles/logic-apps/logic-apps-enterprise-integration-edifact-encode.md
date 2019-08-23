@@ -1,23 +1,18 @@
 ---
 title: Encode EDIFACT messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate XML with EDIFACT message encoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate XML with EDIFACT message encoder for Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: ''
-
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
+ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-
 ---
-# Encode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
+
+# Encode EDIFACT messages for Azure Logic Apps with Enterprise Integration Pack
 
 With the Encode EDIFACT message connector, you can validate EDI and partner-specific properties, 
 generate an XML document for each transaction set, 
@@ -39,7 +34,7 @@ that's already defined in your integration account
 
 ## Encode EDIFACT messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Encode EDIFACT message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 

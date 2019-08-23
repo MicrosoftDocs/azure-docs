@@ -1,23 +1,21 @@
 ---
-title: Add the Informix connector in your Logic Apps | Microsoft Docs
-description: Overview of Informix connector with REST API parameters
-services: ''
-documentationcenter: ''
+# required metadata
+title: Connect to IBM Informix database - Azure Logic Apps | Microsoft Docs
+description: Manage resources with IBM Informix REST APIs and Azure Logic Apps 
 author: gplarsen
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Informix connector
 Microsoft connector for Informix connects Logic Apps to resources stored in an IBM Informix database. The Informix connector includes a Microsoft client to communicate to remote Informix server computers across a TCP/IP network. This includes cloud databases, such as IBM Informix for Windows running in Azure virtualization, and on-premises databases using the on-premises data gateway. See the [supported list](connectors-create-api-informix.md#supported-informix-platforms-and-versions) of IBM Informix platforms and versions (in this topic).
 
@@ -32,7 +30,7 @@ The connector supports the following database operations:
 
 This topic shows you how to use the connector in a logic app to process database operations.
 
-To learn more about Logic Apps, see [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To learn more about Logic Apps, see [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Available actions
 This connector supports the following logic app actions:
@@ -47,7 +45,7 @@ This connector supports the following logic app actions:
 ## List tables
 Creating a logic app for any operation is comprised of many steps performed through the Microsoft Azure portal.
 
-Within the logic app, you can add an action to list tables in a Informix database. This action instructs the connector to process a Informix schema statement, such as `CALL SYSIBM.SQLTABLES`.
+Within the logic app, you can add an action to list tables in an Informix database. This action instructs the connector to process an Informix schema statement, such as `CALL SYSIBM.SQLTABLES`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -154,7 +152,7 @@ You can create a logic app action to fetch all rows in the Informix table. This 
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## Add one row using INSERT
-You can create a logic app action to add one row in a Informix table. This action instructs the connector to process a Informix INSERT statement, such as `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+You can create a logic app action to add one row in an Informix table. This action instructs the connector to process an Informix INSERT statement, such as `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -181,7 +179,7 @@ You can create a logic app action to add one row in a Informix table. This actio
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## Fetch one row using SELECT
-You can create a logic app action to fetch one row in a Informix table. This action instructs the connector to process a Informix SELECT WHERE statement, such as `SELECT FROM AREA WHERE AREAID = '99999'`.
+You can create a logic app action to fetch one row in an Informix table. This action instructs the connector to process an Informix SELECT WHERE statement, such as `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -209,7 +207,7 @@ You can create a logic app action to fetch one row in a Informix table. This act
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## Change one row using UPDATE
-You can create a logic app action to change one row in a Informix table. This action instructs the connector to process a Informix UPDATE statement, such as `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
+You can create a logic app action to change one row in an Informix table. This action instructs the connector to process an Informix UPDATE statement, such as `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -236,7 +234,7 @@ You can create a logic app action to change one row in a Informix table. This ac
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## Remove one row using DELETE
-You can create a logic app action to remove one row in a Informix table. This action instructs the connector to process a Informix DELETE statement, such as `DELETE FROM AREA WHERE AREAID = '99999'`.
+You can create a logic app action to remove one row in an Informix table. This action instructs the connector to process an Informix DELETE statement, such as `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -273,5 +271,5 @@ This connector supports the following IBM Informix versions, when configured to 
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/informix/). 
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 

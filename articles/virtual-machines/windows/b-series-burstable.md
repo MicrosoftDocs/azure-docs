@@ -3,8 +3,8 @@ title: B-series Azure Windows VM sizes| Microsoft Docs
 description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines-windows
 documentationcenter: ''
-author: jonbeck7
-manager: timlt
+author: ayshakeen
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
-ms.author: jonbeck
+ms.author: ayshak
 
 ---
 
-# B-series burstable virtual machine sizes (preview)
+# B-series burstable virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-b-series-burstable](../../../includes/virtual-machines-common-b-series-burstable.md)]
 

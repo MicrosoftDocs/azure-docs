@@ -4,7 +4,7 @@ description: Frequently asked questions about Classic to Azure Resource Manager 
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

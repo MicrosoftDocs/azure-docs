@@ -2,21 +2,14 @@
 title: Azure SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
 description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: ''
-
-ms.assetid: 812CA525-3BF3-49DF-8DF3-FB4342464F4F
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 3/1/2017
-ms.author: elbutter;barbkess
-
+ms.topic: conceptual
+ms.subservice: design
+ms.date: 04/17/2018
+ms.author: martinle
+ms.reviewer: igorstan
 ---
 
 # SQL Data Warehouse Frequently asked questions
@@ -110,7 +103,7 @@ For more information on SQL Data Warehouse as a whole, see our [Overview] page.
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Connection Strings]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Security]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
@@ -120,5 +113,5 @@ For more information on SQL Data Warehouse as a whole, see our [Overview] page.
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
-[MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Overview]: ./sql-data-warehouse-overview-faq.md

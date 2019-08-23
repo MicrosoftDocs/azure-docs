@@ -3,18 +3,18 @@ title: Reliable Collection object serialization in Azure Service Fabric | Micros
 description: Azure Service Fabric Reliable Collections object serialization
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: masnider,rajak
 
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: mcoskun
+ms.author: atsenthi
 
 ---
 # Reliable Collection object serialization in Azure Service Fabric
@@ -53,10 +53,10 @@ Reliable State Manager has built-in serializer for following types:
 Custom serializers are commonly used to increase performance or to encrypt the data over the wire and on disk. 
 Among other reasons, custom serializers are commonly more efficient than generic serializer since they don't need to serialize information about the type. 
 
-[IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) is used to register a custom serializer for the given type T.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) is used to register a custom serializer for the given type T.
 This registration should happen in the construction of the StatefulServiceBase to ensure that before recovery starts, all Reliable Collections have access to the relevant serializer to read their persisted data.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -73,17 +73,17 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### How to implement a custom serializer
 
-A custom serializer needs to implement the [IStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interface.
+A custom serializer needs to implement the [IStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interface.
 
 > [!NOTE]
-> IStateSerializer<T> includes an overload for Write and Read that takes in an additional T called base value. 
+> IStateSerializer\<T> includes an overload for Write and Read that takes in an additional T called base value. 
 > This API is for differential serialization. 
 > Currently differential serialization feature is not exposed. 
 > Hence, these two overloads are not called until differential serialization is exposed and enabled.
 
 Following is an example custom type called OrderKey that contains four properties
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -99,10 +99,10 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Following is an example implementation of IStateSerializer<OrderKey>.
+Following is an example implementation of IStateSerializer\<OrderKey>.
 Note that Read and Write overloads that take in baseValue, call their respective overload for forwards compatibility.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)

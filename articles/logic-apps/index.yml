@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Logic Apps Documentation
+metadata:
+  title: Azure Logic Apps Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Azure Logic Apps simplifies how you build automated scalable workflows that integrate apps and data across cloud services and on-premises systems. Learn how to create, design, and deploy logic apps that automate business processes with our quickstarts, tutorials, templates, and APIs.
+  services: logic-apps
+  author: ecfan
+  manager: carmonm
+  ms.service: logic-apps
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: logic-apps
+  ms.date: 01/09/2018
+  ms.author: estfan
+abstract:
+  description: Azure Logic Apps simplifies how you build automated scalable workflows that integrate apps and data across cloud services and on-premises systems. Learn how to create, design, and deploy logic apps that automate business processes with our quickstarts, tutorials, templates, and APIs.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to create a logic app that runs in Azure.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure portal
+      href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: /azure/logic-apps/quickstart-create-logic-apps-with-visual-studio
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text: Visual Studio Code
+      href: /azure/logic-apps/quickstart-create-logic-apps-visual-studio-code
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to build logic apps that run on a schedule and integrate data across Azure services, Microsoft services, and other software-as-a-service (SaaS) apps. 
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">Check traffic with a schedule-based logic app</a>
+    - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">Manage mailing list requests with a logic app</a>
+    - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">Process emails and attachments with a logic app</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/az.logicapp">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/logic/">REST API Reference</a></p>

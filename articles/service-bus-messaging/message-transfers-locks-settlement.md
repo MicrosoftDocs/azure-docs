@@ -3,27 +3,27 @@ title: Azure Service Bus message transfers, locks, and settlement | Microsoft Do
 description: Overview of Service Bus message transfers and settlement operations
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
-ms.author: sethm
+ms.date: 09/25/2018
+ms.author: aschhab
 
 ---
 
 # Message transfers, locks, and settlement
 
-The most central capability of a message broker such as Service Bus is to accept messages into a queue or topic and hold them available for later retrieval. *Send* is the term that is commonly used for the transfer of a message into the message broker. *Receive* is the term commonly used for the transfer of a message to a retrieving client.
+The central capability of a message broker such as Service Bus is to accept messages into a queue or topic and hold them available for later retrieval. *Send* is the term that is commonly used for the transfer of a message into the message broker. *Receive* is the term commonly used for the transfer of a message to a retrieving client.
 
 When a client sends a message, it usually wants to know whether the message has been properly transferred to and accepted by the broker or whether some sort of error occurred. This positive or negative acknowledgment settles the client and the broker understanding about the transfer state of the message and is thus referred to as *settlement*.
 
-Likewise, when the broker transfers a message a client, the broker and client want to establish an understanding of whether the message has been successfully processed and can therefore be removed, or whether the message delivery or processing failed, and thus the message might have to be delivered again.
+Likewise, when the broker transfers a message to a client, the broker and client want to establish an understanding of whether the message has been successfully processed and can therefore be removed, or whether the message delivery or processing failed, and thus the message might have to be delivered again.
 
 ## Settling send operations
 
@@ -42,7 +42,7 @@ If the application produces bursts of messages, illustrated here with a plain lo
 With an assumed 70 millisecond TCP roundtrip latency distance from an on-premises site to Service Bus and giving just 10 ms for Service Bus to accept and store each message, the following loop takes up at least 8 seconds, not counting payload transfer time or potential route congestion effects:
 
 ```csharp
-for (int i = 0; i \< 100; i++)
+for (int i = 0; i < 100; i++)
 {
   // creating the message omitted for brevity
   await client.SendAsync(…);
@@ -54,12 +54,12 @@ If the application starts the 10 asynchronous send operations in immediate succe
 Making the same assumptions as for the prior loop, the total overlapped execution time for the following loop might stay well under one second:
 
 ```csharp
-var tasks = new List\<Task\>();
-for (int i = 0; i \< 100; i++)
+var tasks = new List<Task>();
+for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 It is important to note that all asynchronous programming models use some form of memory-based, hidden work queue that holds pending operations. When [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) or **Send** (Java) return, the send task is queued up in that work queue but the protocol gesture only commences once it is the task's turn to run. For code that tends to push bursts of messages and where reliability is a concern, care should be taken that not too many messages are put "in flight" at once, because all sent messages take up memory until they have factually been put onto the wire.
@@ -69,23 +69,23 @@ Semaphores, as shown in the following code snippet in C#, are synchronization ob
 ```csharp
 var semaphore = new SemaphoreSlim(10);
 
-var tasks = new List\<Task\>();
-for (int i = 0; i \< 100; i++)
+var tasks = new List<Task>();
+for (int i = 0; i < 100; i++)
 {
   await semaphore.WaitAsync();
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Applications should **never** initiate an asynchronous send operation in a "fire and forget" manner without retrieving the outcome of the operation. Doing so can load the internal and invisible task queue up to memory exhaustion, and prevent the application from detecting send errors:
 
 ```csharp
-for (int i = 0; i \< 100; i++)
+for (int i = 0; i < 100; i++)
 {
 
-  client.SendAsync(message); DON’T DO THIS
+  client.SendAsync(message); // DON’T DO THIS
 }
 ```
 
@@ -123,7 +123,6 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 
 To learn more about Service Bus messaging, see the following topics:
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

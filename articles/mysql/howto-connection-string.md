@@ -1,21 +1,18 @@
 ---
-title: Connect applications to Azure Database for MySQL | Microsoft Docs
+title: Connect applications to Azure Database for MySQL
 description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python, and Ruby.
-services: mysql
-author: mswutao 
-ms.author: wuta
-editor: jasonwhowell
-manager: jhubbard
-ms.service: mysql-database
-ms.topic: article
-ms.date: 09/15/2017
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 02/28/2018
 ---
 
 # How to connect applications to Azure Database for MySQL
 This topic lists the connection string types that are supported by Azure Database for MySQL, together with templates and examples. You might have different parameters and settings in your connection string.
 
 - To obtain the certificate, see [How to configure SSL](./howto-configure-ssl.md).
-- {your_host} = <servername>.mysql.database.azure.com
+- {your_host} = \<servername>.mysql.database.azure.com
 - {your_user}@{servername} = userID format for authentication correctly.  If you only use the userID, the authentication will fail.
 
 ## ADO.NET
@@ -23,10 +20,10 @@ This topic lists the connection string types that are supported by Azure Databas
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-In this example, the server name is `myserver4demo`, the database name is `wpdb`, the user name is `WPAdmin`, and the password is `mypassword!2`. As a result, the connection string should be:
+In this example, the server name is `mydemoserver`, the database name is `wpdb`, the user name is `WPAdmin`, and the password is `mypassword!2`. As a result, the connection string should be:
 
 ```ado.net
-Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
+Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## JDBC

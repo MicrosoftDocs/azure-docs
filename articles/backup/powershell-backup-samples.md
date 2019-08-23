@@ -1,21 +1,13 @@
 ---
-title: Azure Backup PowerShell Samples | Microsoft Docs
+title: Azure Backup PowerShell Samples
 description: Azure Backup PowerShell Samples
-services: backup
-documentationcenter:
-author: markgalioto
-manager: carmonm
-editor:
-tags:
 
-ms.assetid:
+author: dcurwin
+manager: carmonm
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/07/2017
-ms.author: markgal
+ms.topic: sample
+ms.date: 01/31/2019
+ms.author: dacurwin
 ms.custom: mvc
 ---
 # Azure Backup PowerShell samples

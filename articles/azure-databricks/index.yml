@@ -1,0 +1,67 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Databricks Documentation
+metadata:
+  title: Azure Databricks Documentation
+  description: Learn how to use Azure Databricks using the quickstart and other links provided here. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
+  services: azure-databricks
+  author: mamccrea
+  
+  ms.service: azure-databricks
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: mamccrea
+abstract:
+  description: Learn how to use Azure Databricks, an Apache Spark-based analytics platform with one-click setup, streamlined workflows, and interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Quickstarts and tutorials show you how to get started with Azure Databricks and integrate with other Azure services.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250  
+    title: Introduction to Azure Databricks (3:38)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    width: 250 
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create an Azure Databricks workspace, a Spark cluster, and then to run jobs using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/azure-databricks/media/index/portal.svg
+      text: Azure portal
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+    - image: 
+        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
+      text: Resource Manager template
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template  
+    - image: 
+        src: /azure/azure-databricks/media/index/virtualnetwork.svg
+      text: Virtual network
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-vnet-injection 
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to work with Azure Databricks:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-databricks/vnet-injection-sql-server">Query SQL Server running in a Docker container</a>
+    - html: <a href="/azure/azure-databricks/service-endpoint-cosmosdb">Use a Cosmos DB service endpoint</a>   
+    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extract, transform, and load data</a>
+    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Stream data from Event Hubs</a>
+    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Sentiment analysis using Cognitive Services</a>    
+    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Stream data from HDInsight Kafka</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/databricks">REST API</a></p>
+    - title: Resource Manager
+      html: <p><a href="/azure/templates/microsoft.databricks/workspaces">Template</a></p>

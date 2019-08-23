@@ -1,93 +1,223 @@
 ---
-title: Build a serverless app in Visual Studio | Microsoft Docs
-description: Get started with your first serverless app with this guide on creating, deploying, and managing the app in Visual Studio.
-keywords: ''
+title: Build serverless apps by using Azure Logic Apps and Azure Functions in Visual Studio
+description: Build, deploy, and manage your first serverless app by using Azure Logic Apps and Azure Functions in Visual Studio
 services: logic-apps
-author: jeffhollan
-manager: anneta
-editor: ''
-documentationcenter: ''
-
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.custom: vs-azure
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: LADocs; jehollan
+ms.date: 06/20/2019
 ---
-# Build a serverless app in Visual Studio with Logic Apps and Functions
 
-Serverless tools and capabilities in Azure allow for rapid development and deployment of cloud applications.  This document focuses on how to get started in Visual Studio building a serverless application.  An overview of serverless in Azure [can be found in this article](logic-apps-serverless-overview.md).
+# Build your first serverless app by using Azure Logic Apps and Azure Functions in Visual Studio
 
-## Getting everything ready
+You can quickly develop and deploy cloud apps by using the 
+serverless tools and capabilities in Azure, such as 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Azure Functions](../azure-functions/functions-overview.md). 
+This article shows how to start building a serverless app, 
+which uses a logic app that calls an Azure function, in Visual Studio. 
+To learn more about serverless solutions in Azure, see 
+[Azure Serverless with Functions and Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
-Here are the prerequisites needed to build a serverless application from Visual Studio:
+## Prerequisites
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) or Visual Studio 2015 - Community, Professional, or Enterprise
-* [Logic Apps Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
-* [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
-* [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) to debug Functions locally
-* Access to the web when using the embedded Logic App designer
+To build a serverless app in Visual Studio, you need:
 
-## Getting started with a deployment template
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-Managing resources in Azure are done within a resource group.  A resource group is a logical grouping of resources.  Resource groups allow deployment and management of a collection of resources.  For a Serverless application in Azure, our resource group contains both Azure Logic Apps, and Azure Functions.  By using the Resource Group project within Visual Studio, we are able to develop, manage, and deploy the entire application as a single asset.
+* The following tools. If you don't have them already, download and install them.
 
-### Create a Resource Group project in Visual Studio
+  * [Visual Studio 2019, 2017, or 2015 (Community or other edition)](https://aka.ms/download-visual-studio). 
+  This quickstart uses Visual Studio Community 2017, which is free.
 
-1. In Visual Studio, click to add a **New Project**
-1. In the **Cloud** category, select to create an Azure **Resource Group** project  
- * If you do not see the category or project listed, be sure you have the Azure SDK installed for Visual Studio
-1. Give the project a name and location, and select **Ok** to create
-    Visual Studio prompts to select a template.  You could select to start from Blank, start with a Logic App or other resource.  However, in this case we use an Azure Quickstart Template to get us started with a serverless app.
-1. Select to show templates from **Azure Quickstart**
-    ![Selecting Azure Quickstart templates][1]
-1. Select the serverless quickstart template: **101-logic-app-and-function-app** and click **Ok**
+    > [!IMPORTANT]
+    > When you install Visual Studio 2019 or 2017, make sure 
+    > that you select the **Azure development** workload.
 
-The quickstart template creates a deployment template in your resource group project.  The template contains a simple Logic App that calls an Azure Functions, and returns the result.  If you open the `azuredeploy.json` file in the Solution Explorer, you can see the resources for the serverless app.
+  * [Microsoft Azure SDK for .NET (version 2.9.1 or later)](https://azure.microsoft.com/downloads/). 
+  Learn more about [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
-## Deploying the serverless application
+  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
-Before you can open the Logic App visual designer in Visual Studio, there needs to be a pre-deployed Azure Resource Group.  This allows the designer to create and use connections to resources and services in the logic app.  To get started, we simply need to deploy the solution created.
+  * Azure Logic Apps Tools for the Visual Studio version you want:
 
-1. Right-click the project in Visual Studio, select **Deploy**, and create a **New** deployment
-    ![Selecting new resource deployment][2]
-1. Select a valid Azure subscription and Resource group
-1. Select to **Deploy** the solution
-1. Enter in the name for the Logic App and the Azure Function App.  The Azure Function name does need to be globally unique
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-The serverless solution deploys into the specified resource group.  If you look at the **Output** in Visual Studio you can see the status of the deployment.
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-## Editing the logic app in Visual Studio
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
+  
+    You can either download and install Azure Logic Apps Tools 
+    directly from the Visual Studio Marketplace, or learn 
+    [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+    Make sure that you restart Visual Studio after you finish installing.
 
-Once the solution has been deployed into any resource group, the visual designer can be used to edit and make changes to the logic app.
+  * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 
+  for locally debugging Functions.
 
-1. Right-click the `azuredeploy.json` file in the Solution Explorer and select **Open With Logic Apps Designer**
-1. Select the **Resource Group** and **Location** the solution has been deployed to and select **OK**
+* Access to the web while using the embedded Logic App Designer.
 
-The Logic App visual designer should now be visible with Visual Studio.  You can continue to add steps, modify the workflow, and save changes.  You can also create logic apps from Visual Studio.  If you right-click the **Resources** in the template navigator, you can choose to add a **Logic App** to the project.  Empty logic apps load in the visual designer without a pre-deploy into a resource group.
+  The designer requires an internet connection to create resources in Azure 
+  and to read the properties and data from connectors in your logic app. 
+  For example, if you use the Dynamics CRM Online connector, 
+  the designer checks your CRM instance for available 
+  default and custom properties.
 
-### Managing and viewing run history for a deployed logic app
+## Create a resource group project
 
-You can also manage and view the run history for logic apps deployed in Azure.  If you open the **Cloud Explorer** tool in Visual Studio, you can right-click any Logic App and choose to edit, disable, view properties, or view run history.  Clicking edit also allows you to download a published logic app into a Visual Studio Resource Group project.  This means that even if you started building your logic app in the Azure portal, you can still import it and manage it from Visual Studio.
+To get started, create an 
+[Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 
+for your serverless app. In Azure, you create resources within a *resource group*, 
+which is a logical collection you use for organizing, managing, and deploying 
+resources for an entire app as a single asset. For a serverless app in Azure, 
+your resource group includes resources for both Azure Logic Apps and Azure Functions. 
+Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
 
-## Developing an Azure Function in Visual Studio
+1. Start Visual Studio and sign in by using your Azure account.
 
-The deployment template deploys any Azure Functions that are contained in the solution for the git repository specified in the `azuredeploy.json` variables.  If you author a function project within the solution, check it into source control (GitHub, Visual Studio Team Services, etc.), and update the `repo` variable, the template will deploy the Azure Function.
+1. On the **File** menu, select **New** > **Project**.
 
-### Creating an Azure Function project
+   ![Create new project in Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-If using JavaScript, Python, F#, Bash, Batch, or PowerShell, follow the [steps in the Functions CLI](../azure-functions/functions-run-local.md) to create a project.  If developing a function in C#, you can use a [C# class library](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) in the current solution for the Azure Function.
+1. Under **Installed**, select **Visual C#** or **Visual Basic**. 
+Then, select **Cloud** > **Azure Resource Group**.
+
+   > [!NOTE]
+   > If the **Cloud** category or **Azure Resource Group** project doesn't exist, 
+   > make sure that you installed the Azure SDK for Visual Studio.
+
+   If you're using Visual Studio 2019, follow these steps:
+
+   1. In the **Create a new project** box, select the 
+   **Azure Resource Group** project template for either 
+   Visual C# or Visual Basic, and then select **Next**.
+
+   1. Provide the name and other project information that you want to use for the Azure resource group. When you're done, select **Create**.
+
+1. Give your project a name and a location, and then select **OK**.
+
+   Visual Studio prompts you to select a template from the templates list. 
+   This example uses an Azure QuickStart template so that you can build a serverless 
+   app that includes a logic app and a call to an Azure function.
+
+   > [!TIP]
+   > In scenarios where you don't want to predeploy your solution 
+   > into an Azure resource group, you can use the blank **Logic App** 
+   > template, which just creates an empty logic app.
+
+1. From the **Show templates from this location** list, 
+select **Azure QuickStart (github.com/Azure/azure-quickstart-templates)**.
+
+1. In the search box, enter "logic-app" as your filter. 
+From the results, select the **101-logic-app-and-function-app** template.
+
+   ![Select Azure QuickStart template](./media/logic-apps-serverless-get-started-vs/select-template.png)
+
+   Visual Studio creates and opens a solution for your resource group project. 
+   The Azure QuickStart template that you selected creates a deployment template 
+   named azuredeploy.json inside your resource group project. This deployment 
+   template includes the definition for a simple logic app that is triggered by an 
+   HTTP request, calls an Azure function, and returns the result as an HTTP response.
+
+   ![New serverless solution](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
+
+1. Next, deploy your solution to Azure. You must do this before you can open 
+the deployment template and review the resources for your serverless app.
+
+## Deploy your solution
+
+Before you can open your logic app in the Logic App Designer in Visual Studio, 
+you must have an Azure resource group that's already deployed in Azure. The designer 
+can then create connections to resources and services in your logic app. For this task, 
+follow these steps to deploy your solution from Visual Studio to the Azure portal:
+
+1. In Solution Explorer, from your resource project's shortcut menu, 
+select **Deploy** > **New**.
+
+   ![Create new deployment for resource group](./media/logic-apps-serverless-get-started-vs/deploy.png)
+
+1. If they're not already selected, select your Azure subscription and the
+resource group to which you want to deploy. Then, select **Deploy**.
+
+   ![Deployment settings](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+
+1. If the **Edit Parameters** box appears, provide the resource names 
+to use for your logic app and your Azure function app at deployment, 
+and then save your settings. Make sure you use a globally unique name 
+for your function app.
+
+   ![Provide names for your logic app and function app](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
+
+   When Visual Studio starts deployment to your specified resource group, 
+   your solution's deployment status appears in the Visual Studio **Output** window. 
+   After deployment finishes, your logic app is live in the Azure portal.
+
+## Edit your logic app in Visual Studio
+
+To edit your logic app after deployment, open your logic app by using the Logic App Designer in Visual Studio.
+
+1. In Solution Explorer, from the shortcut menu of the azuredeploy.json file, 
+select **Open With Logic App Designer**.
+
+   ![Open azuredeploy.json in Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
+1. After the **Logic App Properties** box appears, 
+under **Subscription**, select your Azure subscription if it's not already selected. Under **Resource Group**, 
+select the resource group and location where you deployed your solution, 
+and then select **OK**.
+
+   ![Logic app properties](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
+
+   After the Logic App Designer opens, you can continue adding steps or change the workflow, and save your updates.
+
+   ![Opened logic app in Logic App Designer](./media/logic-apps-serverless-get-started-vs/opened-logic-app.png)
+
+## Create your Azure Functions project
+
+To create your Functions project and function by using JavaScript, 
+Python, F#, PowerShell, Batch, or Bash, follow the steps in 
+[Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). 
+To develop your Azure function by using C# inside your solution, 
+use a C# class library by following the steps in 
+[Publish a .NET class library as a Function App](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+
+## Deploy functions from Visual Studio
+
+Your deployment template deploys any Azure functions that you have in your solution 
+from the Git repo that's specified by variables in the azuredeploy.json file. 
+If you create and author your Functions project in your solution, you can check 
+that project into Git source control (for example, GitHub or Azure DevOps) 
+and then update the `repo` variable so that the template deploys your Azure function.
+
+## Manage logic apps and view run history
+
+For logic apps already deployed in Azure, you can still edit, 
+manage, view run history for, and disable those apps from Visual Studio.
+
+1. From the **View** menu in Visual Studio, open **Cloud Explorer**.
+
+1. Under **All subscriptions**, select the Azure subscription 
+associated with the logic apps that you want to manage, and then select **Apply**.
+
+1. Under **Logic Apps**, select your logic app. From that app's shortcut menu, 
+select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
+You can now download the already published logic app into your resource group project. 
+So, although you might have started a logic app in the Azure portal, you can still import 
+and manage that app in Visual Studio. For more information, see 
+[Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
 ## Next steps
 
-* [Learn how to build a serverless social dashboard](logic-apps-scenario-social-serverless.md)
-* [Manage a logic app from Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
-* [Logic App workflow definition language](logic-apps-workflow-definition-language.md)
-
-<!-- Image references -->
-[1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
-[2]: ./media/logic-apps-serverless-get-started-vs/deploy.png
+* [Manage logic apps with Visual Studio](manage-logic-apps-with-visual-studio.md)

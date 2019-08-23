@@ -3,17 +3,17 @@ title: The structure of Azure Dashboards | Microsoft Docs
 description: This article explains the JSON structure of an Azure Dashboard
 services: azure-portal
 documentationcenter: ''
-author: adamab
-manager: timlt
+author: adamabmsft
+manager: dougeby
 editor: tysonn
 
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
+ms.author: kfollis
 
 ---
 # The structure of Azure Dashboards
@@ -21,7 +21,7 @@ This document walks through the structure of an Azure dashboard, using the follo
 
 ![sample dashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Since shared [Azure dashboards are resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
+Since shared [Azure dashboards are resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
 
 ```json
 
@@ -291,7 +291,7 @@ Let’s break down the relevant sections of the JSON.  The top-level properties,
 
 ### The id property
 
-The Azure resource id, subject to the [naming conventions of Azure resources](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). When the portal creates a dashboard it generally chooses an id in the form of a guid, but you are free to use any valid name when you create them programmatically. 
+The Azure resource id, subject to the [naming conventions of Azure resources](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). When the portal creates a dashboard it generally chooses an id in the form of a guid, but you are free to use any valid name when you create them programmatically. 
 
 ### The name property
 The name is the segment of the resource Id that does not include the subscription, resource type, or resource group information. Essentially, it is the last segment of the resource id.
@@ -300,7 +300,7 @@ The name is the segment of the resource Id that does not include the subscriptio
 All dashboards are of type __Microsoft.Portal/dashboards__.
 
 ### The location property
-Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### The tags property
 Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated, then it is used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.
@@ -322,7 +322,7 @@ The __parts__ object contains a property for each part, where the name of the pr
 Each individual part object has a __position__, and __metadata__.
 
 ### The position object
-The __position__ property contains the size and location information for the part expressed as __x__, __y__, __rowSpan__, and __colSpan__. The values are in terms of grid units. These grid units are visible when the dashboard is in the customize mode as shown here. If you want a tile to have a width of two grid units, a height of one grid unit, and a location in the top left corner of the dashboard then the position obejct looks like this:
+The __position__ property contains the size and location information for the part expressed as __x__, __y__, __rowSpan__, and __colSpan__. The values are in terms of grid units. These grid units are visible when the dashboard is in the customize mode as shown here. If you want a tile to have a width of two grid units, a height of one grid unit, and a location in the top left corner of the dashboard then the position object looks like this:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -334,7 +334,7 @@ Each part has a metadata property, an object has only one required property call
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Used to show monitoring metrics
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Used to show with text or images with basic formatting for lists, links, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel9, and any other type of video that works in an html video tag.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel9, and any other type of video that works in an HTML video tag.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Used to show the name and status of an Azure virtual machine.
 
 Each type of part has its own configuration. The possible configuration properties are called __inputs__, __settings__, and __asset__. 

@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service Hybrid Connections | Microsoft Docs" 
+title: "Hybrid connections - Azure App Service | Microsoft Docs" 
 description: "How to create and use Hybrid Connections to access resources in disparate networks" 
 services: app-service
 documentationcenter: ''
@@ -13,169 +13,225 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2017
+ms.date: 06/06/2019
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 
 # Azure App Service Hybrid Connections #
 
-## Overview ##
+Hybrid Connections is both a service in Azure and a feature in Azure App Service. As a service, it has uses and capabilities beyond those that are used in App Service. To learn more about Hybrid Connections and their usage outside App Service, see [Azure Relay Hybrid Connections][HCService].
 
-Hybrid Connections is both a service in Azure as well as a feature in the Azure App Service.  As a service it has use and capabilities beyond those that are leveraged in the Azure App Service.  To learn more about Hybrid Connections and their usage outside of the Azure App Service you can start here, [Azure Relay Hybrid Connections][HCService]
-
-Within the Azure App Service, hybrid connections can be used to access application resources in other networks. It provides access FROM your app TO an application endpoint.  It does not enable an alternative capability to access your application.  As used in the App Service, each hybrid connection correlates to a single TCP host and port combination.  This means that the hybrid connection endpoint can be on any operating system and any application provided you are hitting a TCP listening port. Hybrid connections does not know or care what the application protocol is or what you are accessing.  It is simply providing network access.  
+Within App Service, Hybrid Connections can be used to access application resources in other networks. It provides access from your app to an application endpoint. It does not enable an alternate capability to access your application. As used in App Service, each Hybrid Connection correlates to a single TCP host and port combination. This means that the Hybrid Connection endpoint can be on any operating system and any application, provided you are accessing a TCP listening port. The Hybrid Connections feature does not know or care what the application protocol is, or what you are accessing. It is simply providing network access.  
 
 
 ## How it works ##
-The hybrid connections feature consists of two outbound calls to Service Bus Relay.  There is a connection from a library on the host where your app is running in the app service and then there is a connection from the Hybrid Connection Manager(HCM) to Service Bus relay.  The HCM is a relay service that you deploy within the network hosting 
+The Hybrid Connections feature consists of two outbound calls to Azure Service Bus Relay. There is a connection from a library on the host where your app is running in App Service. There is also a connection from the Hybrid Connection Manager (HCM) to Service Bus Relay. The HCM is a relay service that you deploy within the network hosting the resource you are trying to access. 
 
-Through the two joined connections your app has a TCP tunnel to a fixed host:port combination on the other side of the HCM.  The connection uses TLS 1.2 for security and SAS keys for authentication/authorization.    
+Through the two joined connections, your app has a TCP tunnel to a fixed host:port combination on the other side of the HCM. The connection uses TLS 1.2 for security and shared access signature (SAS) keys for authentication and authorization.    
 
-![][1]
+![Diagram of Hybrid Connection high-level flow][1]
 
-When your app makes a DNS request that matches a configure Hybrid Connection endpoint, then the outbound TCP traffic will be redirected down the hybrid connection.  
+When your app makes a DNS request that matches a configured Hybrid Connection endpoint, the outbound TCP traffic will be redirected through the Hybrid Connection.  
 
 > [!NOTE]
-> This means that you should try to always use a DNS name for your Hybrid Connection.  Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
+> This means that you should try to always use a DNS name for your Hybrid Connection. Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
 >
->
 
-There are two types of hybrid connections, the new hybrid connections that are offered as a service under Azure Relay and the older BizTalk Hybrid Connections.  The older BizTalk Hybrid Connections are referred to as Classic Hybrid Connections in the portal.  There is more information later in this document about them.
+### App Service Hybrid Connection benefits ###
 
-### App Service hybrid connection benefits ###
+There are a number of benefits to the Hybrid Connections capability, including:
 
-There are a number of benefits to the hybrid connections capability including
-
-- Apps can securely access on premises systems and services securely
-- the feature does not require an internet accessible endpoint
-- it is quick and easy to set up  
-- each hybrid connection matches to a single host:port combination which is an excellent security aspect
-- it normally does not require firewall holes as the connections are all outbound over standard web ports
-- because the feature is network level that also means that it is agnostic to the language used by your app and the technology used by the endpoint
-- it can be used to provide access in multiple networks from a single app 
+- Apps can access on-premises systems and services securely.
+- The feature does not require an internet-accessible endpoint.
+- It is quick and easy to set up. 
+- Each Hybrid Connection matches to a single host:port combination, helpful for security.
+- It normally does not require firewall holes. The connections are all outbound over standard web ports.
+- Because the feature is network level, it is agnostic to the language used by your app and the technology used by the endpoint.
+- It can be used to provide access in multiple networks from a single app. 
 
 ### Things you cannot do with Hybrid Connections ###
 
-There are a few things you cannot do with hybrid connections and they include:
+Things you cannot do with Hybrid Connections include:
 
-- mounting a drive
-- using UDP
-- accessing TCP based services that use dynamic ports such as FTP Passive Mode or Extended Passive Mode
-- LDAP support, as it sometimes requires UDP
-- Active Directory support
+- Mount a drive.
+- Use UDP.
+- Access TCP-based services that use dynamic ports, such as FTP Passive Mode or Extended Passive Mode.
+- Support LDAP, because it can require UDP.
+- Support Active Directory, because you cannot domain join an App Service worker.
 
-## Adding and Creating a Hybrid Connection in your App ##
+## Add and Create Hybrid Connections in your app ##
 
-Hybrid Connections can be created through the app portal or from the Hybrid Connection service portal.  It is highly recommended that you use the app portal to create the Hybrid Connections you wish to use with your app.  To create a Hybrid Connection go to the [Azure portal][portal] and go into the UI for your app.  Select **Networking > Configure your hybrid connection endpoints**.  From here you can see the Hybrid Connections that are configured with your app  
+To create a Hybrid Connection, go to the [Azure portal][portal] and select your app. Select **Networking** > **Configure your Hybrid Connection endpoints**. Here you can see the Hybrid Connections that are configured for your app.  
 
-![][2]
+![Screenshot of Hybrid Connection list][2]
 
-To add a new Hybrid Connection, click Add Hybrid Connection.  The UI that opens up lists the Hybrid Connections that you have already created.  To add one or more of them to your app, click on the ones you want and hit **Add selected hybrid connection**.  
+To add a new Hybrid Connection, select **[+] Add hybrid connection**.  You'll see a list of the Hybrid Connections that you already created. To add one or more of them to your app, select the ones you want, and then select **Add selected Hybrid Connection**.  
 
-![][3]
+![Screenshot of Hybrid Connection portal][3]
 
-If you want to create a new Hybrid Connection, click **Create new hybrid connection**.  From here you specify the: 
+If you want to create a new Hybrid Connection, select **Create new hybrid connection**. Specify the: 
 
-- endpoint name
-- endpoint hostname
-- endpoint port
-- servicebus namespace you wish to use
+- Hybrid Connection name.
+- Endpoint hostname.
+- Endpoint port.
+- Service Bus namespace you want to use.
 
-![][4]
+![Screenshot of Create new hybrid connection dialog box][4]
 
-Every hybrid connection is tied to a service bus namespace and each service bus namespace is in an Azure region.  It is important to try and use a service bus namespace in the same region as your app so as to avoid network induced latency.
+Every Hybrid Connection is tied to a Service Bus namespace, and each Service Bus namespace is in an Azure region. It's important to try to use a Service Bus namespace in the same region as your app, to avoid network induced latency.
 
-If you want to remove your hybrid connection from your app, right click on it and select **Disconnect**.  
+If you want to remove your Hybrid Connection from your app, right-click it and select **Disconnect**.  
 
-Once a hybrid connection is added to your web app, you can see details on it by simply clicking on it.  
+When a Hybrid Connection is added to your app, you can see details on it simply by selecting it. 
 
-![][5]
+![Screenshot of Hybrid connections details][5]
 
-## Hybrid Connections and App Service Plans ##
+### Create a Hybrid Connection in the Azure Relay portal ###
 
-The only hybrid connections you can now make are the new hybrid connections.  They are only available in Basic, Standard, Premium and Isolated pricing SKUs.  There are limits tied to the pricing plan.  
+In addition to the portal experience from within your app, you can create Hybrid Connections from within the Azure Relay portal. For a Hybrid Connection to be used by App Service, it must:
 
-| Pricing Plan | Number of hybrid connections usable in the plan |
+* Require client authorization.
+* Have a metadata item, named endpoint, that contains a host:port combination as the value.
+
+## Hybrid Connections and App Service plans ##
+
+App Service Hybrid Connections are only available in Basic, Standard, Premium, and Isolated pricing SKUs. There are limits tied to the pricing plan.  
+
+| Pricing plan | Number of Hybrid Connections usable in the plan |
 |----|----|
 | Basic | 5 |
 | Standard | 25 |
 | Premium | 200 |
 | Isolated | 200 |
 
-Since there are App Service Plan restrictions there is also UI in the App Service Plan that shows you how many hybrid connections are being used and by what apps.  
+The App Service plan UI shows you how many Hybrid Connections are being used and by what apps.  
 
-![][6]
+![Screenshot of App Service plan properties][6]
 
-Just as with the app view, you can see details on your hybrid connection by clicking on it.  In the properties shown here you can see all the information you had at the app view but can also see how many other apps in the same App Service Plan are using that hybrid connection.
+Select the Hybrid Connection to see details. You can see all the information that you saw at the app view. You can also see how many other apps in the same plan are using that Hybrid Connection.
 
-![][7]
+There is a limit on the number of Hybrid Connection endpoints that can be used in an App Service plan. Each Hybrid Connection used, however, can be used across any number of apps in that plan. For example, a single Hybrid Connection that is used in five separate apps in an App Service plan counts as one Hybrid Connection.
 
-While there is a limit on the number of hybrid connection endpoints that can be used in an App Service Plan, each hybrid connection used can be used across any number of apps in that App Service Plan.  That is to say that if I had 1 hybrid connection that I used in 5 separate apps in my App Service Plan, that is still just 1 hybrid connection.
+### Pricing ###
 
-There is an additional cost to hybrid connections beyond being only usable in a Basic, Standard, Premium or Isolated SKU.  For details on hybrid connection pricing please go here: [Service Bus pricing][sbpricing].
+In addition to there being an App Service plan SKU requirement, there is an additional cost to using Hybrid Connections. There is a charge for each listener used by a Hybrid Connection. The listener is the Hybrid Connection Manager. If you had five Hybrid Connections supported by two Hybrid Connection Managers, that would be 10 listeners. For more information, see [Service Bus pricing][sbpricing].
 
 ## Hybrid Connection Manager ##
 
-In order for hybrid connections to work you need a relay agent in the network that hosts your hybrid connection endpoint.  That relay agent is called the Hybrid Connection Manager (HCM).  This tool can be downloaded from the **Networking > Configure your hybrid connection endpoints** UI available from your app in the [Azure portal][portal].  
+The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download HCM, from your app in the [Azure portal][portal], select **Networking** > **Configure your Hybrid Connection endpoints**.  
 
-This tool runs on Windows server 2008 R2 and later versions of Windows.  Once installed the HCM runs as a service.  This service connects to Azure servicebus relay based on the configured endpoints.  The connections from the HCM are outbound to ports 80 and 443.    
+This tool runs on Windows Server 2012 and later. The HCM runs as a service and connects outbound to Azure Relay on port 443.  
 
-The HCM has a UI to configure it.  After the HCM is installed you can bring up the UI by running the HybridConnectionManagerUi.exe that sits in the Hybrid Connection Manager installation directory.  It is also easily reached on Windows 10 by typing *Hybrid Connection Manager UI* in your search box.  
+After installing HCM, you can run HybridConnectionManagerUi.exe to use the UI for the tool. This file is in the Hybrid Connection Manager installation directory. In Windows 10, you can also just search for *Hybrid Connection Manager UI* in your search box.  
 
-When the HCM UI is started, the first thing you see is a table that lists all of the hybrid connections that are configured with this instance of the HCM.  If you wish to make any changes you will need to authenticate with Azure. 
+![Screenshot of Hybrid Connection Manager][7]
+
+When you start the HCM UI, the first thing you see is a table that lists all the Hybrid Connections that are configured with this instance of the HCM. If you want to make any changes, first authenticate with Azure. 
 
 To add one or more Hybrid Connections to your HCM:
 
-1. Start the HCM UI
-1. Click Configure another hybrid connection
-![][8]
+1. Start the HCM UI.
+2. Select **Configure another Hybrid Connection**.
+![Screenshot of Configure New Hybrid Connections][8]
 
-1. Sign in with your Azure account
-1. Choose a subscription
-1. Click on the hybrid connections you want this HCM to relay
-![][9]
+1. Sign in with your Azure account to get your Hybrid Connections available with your subscriptions. The HCM does not continue to use your Azure account beyond that. 
+1. Choose a subscription.
+1. Select the Hybrid Connections that you want the HCM to relay.
+![Screenshot of Hybrid Connections][9]
 
-1. Click Save
+1. Select **Save**.
 
-At this point you will see the hybrid connections you added.  You can also click on the configured hybrid connection and see details about the connection.
+You can now see the Hybrid Connections you added. You can also select the configured Hybrid Connection to see details.
 
-![][10]
+![Screenshot of Hybrid Connection Details][10]
 
-For your HCM to be able to support the hybrid connections it is configured with, it needs:
+To support the Hybrid Connections it is configured with, HCM requires:
 
-- TCP access to Azure over ports 80 and 443
-- TCP access to the hybrid connection endpoint
-- ability to do DNS look ups on the endpoint host and the azure servicebus namespace
+- TCP access to Azure over port 443.
+- TCP access to the Hybrid Connection endpoint.
+- The ability to do DNS look-ups on the endpoint host and the Service Bus namespace.
 
-The HCM supports both new hybrid connections as well as the older BizTalk hybrid connections.
+> [!NOTE]
+> Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or later. Because of that, HCM is not supported on anything earlier than Windows Server 2012.
+>
 
 ### Redundancy ###
 
-Each HCM can support multiple hybrid connections.  Also, any given hybrid connection can be supported by multiple HCMs.  The default behavior is to round robin traffic across the configured HCMs for any given endpoint.  If you want high availability on your hybrid connections from your network, simply instantiate multiple HCMs on separate machines. 
+Each HCM can support multiple Hybrid Connections. Also, any given Hybrid Connection can be supported by multiple HCMs. The default behavior is to route traffic across the configured HCMs for any given endpoint. If you want high availability on your Hybrid Connections from your network, run multiple HCMs on separate machines. The load distribution algorithm used by the Relay service to distribute traffic to the HCMs is random assignment. 
 
-### Manually adding a hybrid connection ###
+### Manually add a Hybrid Connection ###
 
-If you wish somebody outside of your subscription to host an HCM instance for a given hybrid connection, you can share with them the gateway connection string for the hybrid connection.  You can see this in the properties for a hybrid connection in the [Azure portal][portal]. To use that string, click the **Configure manually** button in the HCM and paste in the gateway connection string.
+To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal][portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
 
+![Manually add a Hybrid Connection][11]
+
+### Upgrade ###
+
+There are periodic updates to the Hybrid Connection Manager to fix issues or provide improvements. When upgrades are released, a popup will show up in the HCM UI. Applying the upgrade will apply the changes and restart the HCM. 
+
+## Adding a Hybrid Connection to your app programmatically ##
+
+The APIs noted below can be used directly to manage the Hybrid Connections connected to your apps. 
+
+    /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
+
+The JSON object associated with a Hybrid Connection looks like:
+
+    {
+      "name": "[hybrid connection name]",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "[location]",
+      "properties": {
+        "serviceBusNamespace": "[namespace name]",
+        "relayName": "[hybrid connection name]",
+        "relayArmUri": "/subscriptions/[subscription id]/resourceGroups/[resource group name]/providers/Microsoft.Relay/namespaces/[namespace name]/hybridconnections/[hybrid connection name]",
+        "hostName": "[endpoint host name]",
+        "port": [port],
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "[send key]"
+      }
+    }
+
+One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] GitHub project. Here is an example on attaching a pre-existing Hybrid Connection to your app. 
+Create a JSON file per the above schema like:
+
+    {
+      "name": "relay-demo-hc",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "North Central US",
+      "properties": {
+        "serviceBusNamespace": "demo-relay",
+        "relayName": "relay-demo-hc",
+        "relayArmUri": "/subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myrelay-rg/providers/Microsoft.Relay/namespaces/demo-relay/hybridconnections/relay-demo-hc",
+        "hostName": "my-wkstn.home",
+        "port": 1433,
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "Th9is3is8a82lot93of3774stu887ff122235="
+      }
+    }
+
+To use this API, you need the send key and relay resource ID. If you saved your information with the filename hctest.json, issue this command to attach your Hybrid Connection to your app: 
+
+    armclient login
+    armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
 ## Troubleshooting ##
 
-When your hybrid connection is set up with a running application and there is at least one HCM that has that hybrid connection configured, then the status will say **Connected** in the portal.  If it does not say **Connected** then it means that either your app is down or your HCM cannot connect out to Azure on ports 80 or 443.  
+The status of "Connected" means that at least one HCM is configured with that Hybrid Connection, and is able to reach Azure. If the status for your Hybrid Connection does not say **Connected**, your Hybrid Connection is not configured on any HCM that has access to Azure.
 
-The primary reason that clients cannot connect to their endpoint is because the endpoint was specified using an IP address instead of a DNS name.  If your app cannot reach the desired endpoint and you used an IP address, switch to using a DNS name that is valid on the host where the HCM is running.  Other things to check are that the DNS name resolves properly on the host where the HCM is running and that there is connectivity from the host where the HCM is running to the hybrid connection endpoint.  
+The primary reason that clients cannot connect to their endpoint is because the endpoint was specified by using an IP address instead of a DNS name. If your app cannot reach the desired endpoint and you used an IP address, switch to using a DNS name that is valid on the host where the HCM is running. Also check that the DNS name resolves properly on the host where the HCM is running. Confirm that there is connectivity from the host where the HCM is running to the Hybrid Connection endpoint.  
 
-There is a tool in the App Service that can be invoked from the console called tcpping.  This tool can tell you if you have access to a TCP endpoint but does not tell you if you have access to a hybrid connection endpoint.  When used in the console against a hybrid connection endpoint, a successful ping will only tell you that you have a hybrid connection configured for your app that uses that host:port combination.  
+In App Service, the **tcpping** command line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
+
+If you have a command line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
 
 ## BizTalk Hybrid Connections ##
 
-The older BizTalk Hybrid Connections capability has been closed off to further BizTalk Hybrid Connection creations.  You can continue using your preexisting BizTalk Hybrid Connections with your apps but should migrate to the new service.  Among the benefits in the new service over the BizTalk version are:
+The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager, then you will see a status of Discontinued and display an End of Life statement at the bottom.
 
-- no additional BizTalk account is required
-- TLS is 1.2 instead of 1.0 as in BizTalk Hybrid Connections
-- Communication is over ports 80 and 443 using a DNS name to reach Azure instead of IP addresses and a range of additional other ports.  
-
-To add a BizTalk hybrid connection to your app, go to your app in the [Azure portal][portal] and click **Networking > Configure your hybrid connection endpoints**.  In the Classic hybrid connections table click **Add classic hybrid connection**.  From here you will see a list of your BizTalk hybrid connections.  
+![BizTalk Hybrid Connections in the HCM][12]
 
 
 <!--Image references-->
@@ -189,10 +245,12 @@ To add a BizTalk hybrid connection to your app, go to your app in the [Azure por
 [8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
 [9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
 [10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
+[11]: ./media/app-service-hybrid-connections/hybridconn-manual.png
+[12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
-[portal]: http://portal.azure.com/
-[oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
-[sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
-
+[HCService]: https://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[portal]: https://portal.azure.com/
+[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
+[armclient]: https://github.com/projectkudu/ARMClient/

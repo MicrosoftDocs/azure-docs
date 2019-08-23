@@ -1,177 +1,199 @@
 ---
-title: Create a Node.js web app in a Linux container in Azure | Microsoft Docs
-description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: syntaxc4
-editor: ''
-
-ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Create a Node.js web app
+description: Node.js deployment to Azure App Services
+author: KarlErickson
+ms.author: karler
+ms.date: 07/18/2019
 ms.topic: quickstart
-ms.date: 05/05/2017
-ms.author: cephalin
-ms.custom: mvc
+ms.service: app-service
+ms.devlang: javascript
 ---
-# Create a Node.js web app in a Linux container in Azure
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to Azure Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
+# Create a Node.js app in Azure
 
-![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
-
-You can follow the steps below using a Mac, Windows, or Linux machine.
+Azure App Service provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Node.js app to Azure App Service.
 
 ## Prerequisites
 
-To complete this quickstart:
+If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) for a free account with $200 in Azure credits to try out any combination of services.
 
-* [Install Git](https://git-scm.com/)
-* [Install Node.js and NPM](https://nodejs.org/)
+You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+You will also need to install the [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice), which you can use to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
 
-## Download the sample
+### Sign in
 
-In a terminal window on your machine, run the following command to clone the sample app repository to your local machine.
+Once the extension is installed, log into your Azure account. In the Activity Bar, click on the Azure logo to show the **AZURE APP SERVICE** explorer. Click **Sign in to Azure...** and follow the instructions.
 
-```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
+![sign in to Azure](./media/quickstart-nodejs/sign-in.png)
+
+### Troubleshooting
+
+If you see the error **"Cannot find subscription with name [subscription ID]"**, it might be because you're behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal using `export`.
+
+```sh
+export HTTPS_PROXY=https://username:password@proxy:8080
+export HTTP_PROXY=http://username:password@proxy:8080
 ```
 
-You use this terminal window to run all the commands in this quickstart.
+If setting the environment variables doesn't correct the issue, contact us by clicking the **I ran into an issue** button below.
 
-Change to the directory that contains the sample code.
+### Prerequisite check
+
+Before you continue, ensure that you have all the prerequisites installed and configured.
+
+In VS Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE APP SERVICE** explorer.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
+
+## Create your Node.js application
+
+Next, create a Node.js application that can be deployed to the Cloud. This quickstart uses an application generator to quickly scaffold out the application from a terminal.
+
+> [!TIP]
+> If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy the website](#deploy-the-website).
+
+### Install the Express generator
+
+[Express](https://www.expressjs.com) is a popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command-line tool `npm`.
 
 ```bash
-cd nodejs-docs-hello-world
+npm install -g express-generator
 ```
 
-## Run the app locally
+The `-g` switch installs the Express Generator globally on your machine so you can run it from anywhere.
 
-Run the application locally by opening a terminal window and using the `npm start` script to launch the built in Node.js HTTP server.
+### Scaffold a new application
+
+Next, scaffold a new Express application called `myExpressApp` by running:
+
+```bash
+express myExpressApp --view pug --git
+```
+
+The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`) and to create a `.gitignore` file.
+
+To install all of the application's dependencies, go to the new folder and run `npm install`.
+
+```bash
+cd myExpressApp
+npm install
+```
+
+### Run the application
+
+Next, ensure that the application runs. From the terminal, start the application using the `npm start` command to start the server.
 
 ```bash
 npm start
 ```
 
-Open a web browser, and navigate to the sample app at `http://localhost:1337`.
+Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
-You see the **Hello World** message from the sample app displayed in the page.
+![Running Express Application](./media/quickstart-nodejs/express.png)
 
-![Sample app running locally](media/quickstart-nodejs/localhost-hello-world-in-browser.png)
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-In your terminal window, press **Ctrl+C** to exit the web server.
+## Deploy the website
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+In this section, you deploy your Node.js website using VS Code and the Azure App Service extension. This quickstart uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+### Deploy using Azure App Service
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
-
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
-
-## Create a web app
-
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
-
-Browse to the site to see your newly created web app. Replace _&lt;app name>_ with a unique app name.
+First, open your application folder in VS Code.
 
 ```bash
-http://<app name>.azurewebsites.net
+code .
 ```
 
-![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
+In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy your app to Azure.
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
+![Deploy to Web App](./media/quickstart-nodejs/deploy.png)
+
+> [!TIP]
+> You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
+
+1. Choose the directory that you currently have open, `myExpressApp`.
+
+2. Choose **Create new Web App**.
+
+3. Type a globally unique name for your Web App and press ENTER. Valid characters for an app name are 'a-z', '0-9', and '-'.
+
+4. Choose your **Node.js version**, LTS is recommended.
+
+    The notification channel shows the Azure resources that are being created for your app.
+
+Click **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
+
+![Configured deployment](./media/quickstart-nodejs/server-build.png)
+
+When the deployment starts, you're prompted to update your workspace so that later deployments will automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
+
+![Configured deployment](./media/quickstart-nodejs/save-configuration.png)
+
+> [!TIP]
+> Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
+
+### Browse the website
+
+Once the deployment completes, click **Browse Website** in the prompt to view your freshly deployed website.
+
+### Troubleshooting
+
+If you see the error **"You do not have permission to view this directory or page."**, then the application probably failed to start correctly. Head to the next section and view the log output to find and fix the error. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
+
+### Updating the website
+
+You can deploy changes to this app by using the same process and choosing the existing app rather than creating a new one.
+
+## Viewing Logs
+
+In this section, you learn how to view (or "tail") the logs from the running website. Any calls to `console.log` in the site are displayed in the output window in Visual Studio Code.
+
+Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
+
+When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
+
+![View Streaming Logs](./media/quickstart-nodejs/view-logs.png)
+
+![Enable Logging and Restart](./media/quickstart-nodejs/enable-restart.png)
+
+After a few seconds, you'll see a message indicating that you're connected to the log-streaming service.
 
 ```bash
-Counting objects: 23, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
-remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling node.js deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
- * [new branch]      master -> master
+Connecting to log-streaming service...
+2017-12-21 17:33:51.428 INFO  - Container practical-mustache_2 for site practical-mustache initialized successfully.
+2017-12-21 17:33:56.500 INFO  - Container logs
 ```
 
-## Browse to the app
-
-Browse to the deployed application using your web browser.
+Refresh the page a few times in the browser to see log output.
 
 ```bash
-http://<app_name>.azurewebsites.net
+2017-12-21 17:35:17.774 INFO  - Container logs
+2017-12-21T17:35:14.955412230Z GET / 304 141.798 ms - -
+2017-12-21T17:35:15.248930479Z GET /stylesheets/style.css 304 3.180 ms - -
+2017-12-21T17:35:15.378623115Z GET /favicon.ico 404 53.839 ms - 995
 ```
 
-The Node.js sample code is running in an Azure App Service web app.
-
-![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
-
-**Congratulations!** You've deployed your first Node.js app to App Service.
-
-## Update and redeploy the code
-
-Using a text editor, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
-
-```nodejs
-response.end("Hello Azure!");
-```
-
-Commit your changes in Git, and then push the code changes to Azure.
-
-```bash
-git commit -am "updated output"
-git push azure master
-```
-
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
-
-![Updated sample app running in Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
-
-## Manage your new Azure web app
-
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
-
-From the left menu, click **App Services**, and then click the name of your Azure web app.
-
-![Portal navigation to Azure web app](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
-
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
-
-![App Service page in Azure portal](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
-
-The left menu provides different pages for configuring your app. 
-
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Node.js with MongoDB](tutorial-nodejs-mongodb-app.md)
+Congratulations, you've successfully completed this quickstart!
+
+Next, check out the other Azure extensions.
+
+* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+* [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+* [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+
+Or get them all by installing the
+[Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.

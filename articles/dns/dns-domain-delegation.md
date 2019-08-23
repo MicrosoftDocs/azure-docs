@@ -1,19 +1,12 @@
 ---
-title: Azure DNS delegation overview | Microsoft Docs
+title: Azure DNS delegation overview
 description: Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting.
 services: dns
-documentationcenter: na
-author: georgewallace
-manager: timlt
-
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
+author: vhorne
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/12/2017
-ms.author: gwallace
+ms.date: 2/19/2019
+ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Delegation of DNS zones with Azure DNS
@@ -30,7 +23,7 @@ The Domain Name System is a hierarchy of domains. The hierarchy starts from the 
 
 **Domain registrar** - A domain registrar is a company who can provide Internet domain names. They verify if the Internet domain you want to use is available and allow you to purchase it. Once the domain name is registered, you are the legal owner for the domain name. If you already have an Internet domain, you will use the current domain registrar to delegate to Azure DNS.
 
-To find out more information on who owns a given domain name, or for information on how to buy a domain, see [Internet domain management in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+For more information about accredited domain registrars, see [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ### Resolution and delegation
 
@@ -39,7 +32,7 @@ There are two types of DNS servers:
 * An *authoritative* DNS server hosts DNS zones. It answers DNS queries for records in those zones only.
 * A *recursive* DNS server does not host DNS zones. It answers all DNS queries by calling authoritative DNS servers to gather the data it needs.
 
-Azure DNS provides an authoritative DNS service.  It does not provide a recursive DNS service. Cloud Services and VMs in Azure are automatically configured to use a recursive DNS service that is provided separately as part of Azure's infrastructure. For information on how to change these DNS settings, see [Name Resolution in Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Azure DNS provides an authoritative DNS service.  It does not provide a recursive DNS service. Cloud Services and VMs in Azure are automatically configured to use a recursive DNS service that is provided separately as part of Azure's infrastructure. For information on how to change these DNS settings, see [Name Resolution in Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 DNS clients in PCs or mobile devices typically call a recursive DNS server to perform any DNS queries the client applications need.
 
@@ -54,13 +47,16 @@ The following image shows an example DNS query. The contoso.net and partners.con
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 1. The client requests `www.partners.contoso.net` from their local DNS server.
-1. The local DNS server does not have the record so it makes a request to their root name server.
-1. The root name server does not have the record, but knows the address of the `.net` name server, it provides that address to the DNS server
-1. The DNS sends the request to the `.net` name server, it does not have the record but does know the address of the contoso.net name server. In this case it is a DNS zone hosted in Azure DNS.
-1. The zone `contoso.net` does not have the record but knows the name server for `partners.contoso.net` and responds with that. In this case it is a DNS zone hosted in Azure DNS.
-1. The DNS server requests the IP address of `partners.contoso.net` from the `partners.contoso.net` zone. It contains the A record and responds with the IP address.
-1. The DNS server provides the IP address to the client
-1. The client connects to the website `www.partners.contoso.net`.
+2. The local DNS server does not have the record so it makes a request to their root name server.
+3. The root name server does not have the record, but knows the address of the `.net` name server, it provides that address to the DNS server
+4. The local DNS server sends the request to the `.net` name server.
+5. The `.net` name server does not have the record but does know the address of the `contoso.net` name server. In this case, it responds with the address of the name server for the DNS zone hosted in Azure DNS.
+6. The local DNS server sends the request to the name server for the `contoso.net` zone hosted in Azure DNS.
+7. The zone `contoso.net` does not have the record but knows the name server for `partners.contoso.net` and responds with the address. In this case, it is a DNS zone hosted in Azure DNS.
+8. The local DNS server sends the request to the name server for the `partners.contoso.net` zone.
+9. The `partners.contoso.net` zone has the A record and responds with the IP address.
+10. The local DNS server provides the IP address to the client
+11. The client connects to the website `www.partners.contoso.net`.
 
 Each delegation actually has two copies of the NS records; one in the parent zone pointing to the child, and another in the child zone itself. The 'contoso.net' zone contains the NS records for 'contoso.net' (in addition to the NS records in 'net'). These records are called authoritative NS records and they sit at the apex of the child zone.
 

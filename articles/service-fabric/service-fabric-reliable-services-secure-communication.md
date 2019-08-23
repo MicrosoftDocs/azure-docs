@@ -1,33 +1,32 @@
 ---
-title: Help secure communication for services in Azure Service Fabric | Microsoft Docs
-description: Overview of how to help secure communication for reliable services that are running in an Azure Service Fabric cluster.
+title: Secure service remoting communications with C# in Azure Service Fabric | Microsoft Docs
+description: Learn how to secure service remoting based communication for C# reliable services that are running in an Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
-ms.author: suchiagicha
+ms.author: chackdan
 
 ---
-# Help secure communication for services in Azure Service Fabric
+# Secure service remoting communications in a C# service
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java on Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article talks about how to improve security when you're using service remoting and the Windows Communication Foundation (WCF) communication stack.
+Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article discusses how to improve security when you're using service remoting in a C# service. It builds on an existing [example](service-fabric-reliable-services-communication-remoting.md) that explains how to set up remoting for reliable services written in C#. 
 
-## Help secure a service when you're using service remoting
-We are using an existing [example](service-fabric-reliable-services-communication-remoting.md) that explains how to set up remoting for reliable services. To help secure a service when you're using service remoting, follow these steps:
+To help secure a service when you're using service remoting with C# services, follow these steps:
 
 1. Create an interface, `IHelloWorldStateful`, that defines the methods that will be available for a remote procedure call on your service. Your service will use `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
@@ -54,7 +53,12 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
     ```
 2. Add listener settings and security credentials.
 
-    Make sure that the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. There are two ways that you can provide listener settings and security credentials:
+    Make sure the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. 
+    
+    > [!NOTE]
+    > On Linux nodes, the certificate must be present as PEM-formatted files in the */var/lib/sfcerts* directory. To learn more, see [Location and format of X.509 certificates on Linux nodes](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    There are two ways that you can provide listener settings and security credentials:
 
    1. Provide them directly in the service code:
 
@@ -89,9 +93,9 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
            return x509Credentials;
        }
        ```
-   2. Provide them by using a [config package](service-fabric-application-model.md):
+   2. Provide them by using a [config package](service-fabric-application-and-service-manifests.md):
 
-       Add a `TransportSettings` section in the settings.xml file.
+       Add a named `TransportSettings` section in the settings.xml file.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -121,7 +125,7 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
        }
        ```
 
-        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportRemotingListenerSettings ` will load all the settings from this section by default.
+        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportRemotingListenerSettings` will load all the settings from this section by default.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -200,111 +204,5 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
 
     ```
 
-## Help secure a service when you're using a WCF-based communication stack
-We are using an existing [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for reliable services. To help secure a service when you're using a WCF-based communication stack, follow these steps:
 
-1. For the service, you need to help secure the WCF communication listener (`WcfCommunicationListener`) that you create. To do this, modify the `CreateServiceReplicaListeners` method.
-
-    ```csharp
-    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-    {
-        return new[]
-        {
-            new ServiceReplicaListener(
-                this.CreateWcfCommunicationListener)
-        };
-    }
-
-    private WcfCommunicationListener<ICalculator> CreateWcfCommunicationListener(StatefulServiceContext context)
-    {
-       var wcfCommunicationListener = new WcfCommunicationListener<ICalculator>(
-            serviceContext:context,
-            wcfServiceObject:this,
-            // For this example, we will be using NetTcpBinding.
-            listenerBinding: GetNetTcpBinding(),
-            endpointResourceName:"WcfServiceEndpoint");
-
-        // Add certificate details in the ServiceHost credentials.
-        wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
-            StoreLocation.LocalMachine,
-            StoreName.My,
-            X509FindType.FindByThumbprint,
-            "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-        return wcfCommunicationListener;
-    }
-
-    private static NetTcpBinding GetNetTcpBinding()
-    {
-        NetTcpBinding b = new NetTcpBinding(SecurityMode.TransportWithMessageCredential);
-        b.Security.Message.ClientCredentialType = MessageCredentialType.Certificate;
-        return b;
-    }
-    ```
-2. In the client, the `WcfCommunicationClient` class that was created in the previous [example](service-fabric-reliable-services-communication-wcf.md) remains unchanged. But you need to override the `CreateClientAsync` method of `WcfCommunicationClientFactory`:
-
-    ```csharp
-    public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
-    {
-        private readonly Binding clientBinding;
-        private readonly object callbackObject;
-        public SecureWcfCommunicationClientFactory(
-            Binding clientBinding,
-            IEnumerable<IExceptionHandler> exceptionHandlers = null,
-            IServicePartitionResolver servicePartitionResolver = null,
-            string traceId = null,
-            object callback = null)
-            : base(clientBinding, exceptionHandlers, servicePartitionResolver,traceId,callback)
-        {
-            this.clientBinding = clientBinding;
-            this.callbackObject = callback;
-        }
-
-        protected override Task<WcfCommunicationClient<TServiceContract>> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
-        {
-            var endpointAddress = new EndpointAddress(new Uri(endpoint));
-            ChannelFactory<TServiceContract> channelFactory;
-            if (this.callbackObject != null)
-            {
-                channelFactory = new DuplexChannelFactory<TServiceContract>(
-                this.callbackObject,
-                this.clientBinding,
-                endpointAddress);
-            }
-            else
-            {
-                channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
-            }
-            // Add certificate details to the ChannelFactory credentials.
-            // These credentials will be used by the clients created by
-            // SecureWcfCommunicationClientFactory.  
-            channelFactory.Credentials.ClientCertificate.SetCertificate(
-                StoreLocation.LocalMachine,
-                StoreName.My,
-                X509FindType.FindByThumbprint,
-                "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-            var channel = channelFactory.CreateChannel();
-            var clientChannel = ((IClientChannel)channel);
-            clientChannel.OperationTimeout = this.clientBinding.ReceiveTimeout;
-            return Task.FromResult(this.CreateWcfCommunicationClient(channel));
-        }
-    }
-    ```
-
-    Use `SecureWcfCommunicationClientFactory` to create a WCF communication client (`WcfCommunicationClient`). Use the client to invoke service methods.
-
-    ```csharp
-    IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
-
-    var wcfClientFactory = new SecureWcfCommunicationClientFactory<ICalculator>(clientBinding: GetNetTcpBinding(), servicePartitionResolver: partitionResolver);
-
-    var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
-        wcfClientFactory,
-        ServiceUri,
-        ServicePartitionKey.Singleton);
-
-    var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
-        client => client.Channel.Add(2, 3)).Result;
-    ```
-
-## Next steps
-* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+As a next step, read [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).

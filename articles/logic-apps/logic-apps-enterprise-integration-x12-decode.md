@@ -1,23 +1,18 @@
 ---
 title: Decode X12 messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate acknowledgements with the X12 message decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate acknowledgements with X12 message decoder in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: ''
-
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
+ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-
 ---
-# Decode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
+
+# Decode X12 messages in Azure Logic Apps with Enterprise Integration Pack
 
 With the Decode X12 message connector, you can validate the envelope against a trading partner agreement, validate EDI and partner-specific properties, split interchanges into transactions sets or preserve entire interchanges, and generate acknowledgments for processed transactions. 
 To use this connector, you must add the connector to an existing trigger in your logic app.
@@ -37,7 +32,7 @@ that's already defined in your integration account
 
 ## Decode X12 messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Decode X12 message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 
@@ -74,6 +69,19 @@ select the X12 flat file message to decode.
 	For example:
 
 	![Select X12 flat file message for decoding](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+
+   > [!NOTE]
+   > The actual message content or payload for the message array, good or bad, 
+   > is base64 encoded. So, you must specify an expression that processes this content.
+   > Here is an example that processes the content as XML that you can 
+   > enter in code view 
+   > or by using expression builder in the designer.
+   > ``` json
+   > "content": "@xml(base64ToBinary(item()?['Payload']))"
+   > ```
+   > ![Content example](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   >
+
 
 ## X12 Decode details
 

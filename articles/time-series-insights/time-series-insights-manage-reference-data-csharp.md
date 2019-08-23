@@ -1,31 +1,43 @@
 ---
-title: Manage reference data for an Azure Time Series Insights environment by using C# | Microsoft Docs
-description: This tutorial covers how to manage reference data for an Azure Time Series Insights environment by using C#
-keywords:
+title: 'Manage reference data in Azure Time Series Insights environment using C# | Microsoft Docs'
+description: This article describes how to manage reference data for an Azure Time Series Insights environment by creating a custom application written in the C# (c-sharp) .NET language.
+ms.service: time-series-insights
 services: time-series-insights
-documentationcenter:
-author: venkatgct
-manager: almineev
-editor: cgronlun
-
-ms.assetid:
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
+author: ashannon7
+ms.author: dpalled
+manager: cshankar
+ms.reviewer: jasonh, kfile
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 06/29/2017
-ms.author: venkatja
+ms.topic: conceptual
+ms.date: 08/08/2019
+ms.custom: seodec18
 ---
-# Manage reference data for an Azure Time Series Insights environment by using C#
 
-This C# sample demonstrates how to manage reference data for an Azure Time Series Insights environment.
-Before running the sample, ensure the following steps are completed.
-1. A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).
-2. The access token used when running the application is acquired through the Azure Active Directory API. This token should be passed in the `Authorization` header of every Query API request. For setting up non-interactive applications, see the [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.
-3. All the constants defined at the beginning of the sample are correctly set.
+# Manage GA reference data for an Azure Time Series Insights environment by using C#
 
-## C# sample
+This article describes an example C# project you can compile to manage reference data for an Azure Time Series Insights environment.
+
+## Prerequisites
+
+Complete the following steps before you compile and run the sample code:
+
+1. [Create a reference data set](time-series-insights-add-reference-data-set.md).
+
+1. Configure the authorization access token for the application. Be sure the token is acquired through the Azure Active Directory API. You should pass this token in the `Authorization` header of every query API request.
+
+   For information about how to set up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+
+1. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code.
+
+> [!NOTE]
+> View the GA sample code at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+
+## Project Dependencies
+
+Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newtonsoft.Json` for this example.
+
+## C# sample code
 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -51,7 +63,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
         // For automated execution under application identity,
         // use application created in Active Directory.
         // To create the application in AAD, follow the steps provided here:
-        // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
+        // https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
         // SET the application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
@@ -122,7 +134,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-		},
+    },
         ""properties"": [""BladeCount""]
     }]
 }";
@@ -138,7 +150,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 {
     ""delete"": [{
         ""DeviceId"": ""Fan1""
-	}]
+    }]
 }";
                 await SendRequestAsync(request, input);
                 string output = await GetResponseAsync(request);
@@ -151,7 +163,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
@@ -230,4 +242,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## Next steps
 
-For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.
+- Read the [reference data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

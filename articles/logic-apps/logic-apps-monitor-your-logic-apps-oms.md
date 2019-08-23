@@ -1,172 +1,161 @@
 ---
-title: Monitor and get insights about your logic app runs using OMS - Azure Logic Apps | Microsoft Docs
-description: Monitor your logic app runs with Log Analytics and Operations Management Suite (OMS) to get insights and richer debugging details for troubleshooting and diagnostics
-author: divyaswarnkar
-manager: anneta
-editor: ''
+title: Monitor logic apps with Azure Monitor - Azure Logic Apps
+description: Get insights and debugging data to troubleshoot and diagnose logic app runs with Azure Monitor logs
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 08/9/2017
-ms.author: LADocs; divswa
+ms.date: 08/16/2019
 ---
 
-# Monitor and get insights about logic app runs with Operations Management Suite (OMS) and Log Analytics
+# Get insights and debugging data for logic apps by using Azure Monitor logs
 
-For monitoring and richer debugging information, 
-you can turn on Log Analytics at the same time 
-when you create a logic app. Log Analytics provides 
-diagnostics logging and monitoring for your 
-logic app runs through the Operations Management Suite (OMS) portal. 
-When you add the Logic Apps Management solution to OMS, 
-you get aggregated status for your logic app runs and 
-specific details like status, execution time, 
-resubmission status, and correlation IDs.
+To monitor and get richer debugging details about your logic apps, turn on [Azure Monitor logs](../log-analytics/log-analytics-overview.md) when you create your logic app. Azure Monitor logs provide diagnostics logging and monitoring for your logic apps when you install the Logic Apps Management solution in the Azure portal. This solution also provides aggregated information for your logic app runs with specific details such as status, execution time, resubmission status, and correlation IDs. This article shows how to turn on Azure Monitor logs so you can view runtime events and data for your logic app runs.
 
-This topic shows how to turn on Log Analytics or install 
-the Logic Apps Management solution in OMS so you can 
-view runtime events and data for your logic app run.
+This topic shows how to set up Azure Monitor logs when you create your logic app. To turn on Azure Monitor logs for existing logic apps, follow these steps to [turn on diagnostic logging and send logic app runtime data to Azure Monitor logs](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > To monitor your existing logic apps, follow these steps to 
- > [turn on diagnostic logging and send logic app runtime data to OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> This page previously described steps for how to perform these 
+> tasks with the Microsoft Operations Management Suite (OMS), 
+> which [retired in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
+> and replaces those steps with [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), 
+> which replaced the term Log Analytics. Log data is still stored in a Log Analytics workspace 
+> and is still collected and analyzed by the same Log Analytics service. For more information, see 
+> [Azure Monitor terminology changes](../azure-monitor/terminology.md).
 
-## Requirements
+## Prerequisites
 
-Before you start, you need to have an OMS workspace. 
-Learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md). 
+Before you start, you need a Log Analytics workspace. Learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
-## Turn on diagnostics logging when creating logic apps
+## Turn on logging for new logic apps
 
-1. In [Azure portal](https://portal.azure.com), create a logic app. 
-Choose **New** > **Enterprise Integration** > **Logic App** > **Create**.
+1. In [Azure portal](https://portal.azure.com), create your logic app. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
-   ![Create a logic app](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
+   ![Create new logic app](media/logic-apps-monitor-your-logic-apps-oms/create-new-logic-app.png)
 
-2. In the **Create logic app** page, perform these tasks as shown:
+1. Under **Logic App**, follow these steps:
 
-   1. Provide a name for your logic app and select your Azure subscription. 
-   2. Create or select an Azure resource group.
-   3. Set **Log Analytics** to **On**. 
-   Select the OMS workspace where you want to 
-   send data for your logic app runs. 
-   4. When you're ready, choose **Pin to dashboard** > **Create**.
+   1. Provide a name for your logic app and select your Azure subscription.
 
-      ![Create logic app](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
+   1. Create or select an Azure resource group. Select the location for your logic app.
 
-      After you finish this step, Azure creates your logic app, 
-      which is now associated with your OMS workspace. 
-      Also, this step also automatically installs the 
-      Logic Apps Management solution in your OMS workspace.
+   1. Under **Log Analytics**, select **On**.
 
-3. To view your logic app runs in OMS, 
-[continue with these steps](#view-logic-app-runs-oms).
+   1. From the **Log Analytics workspace** list, select the workspace where you want to send the data from your logic app runs.
 
-## Install the Logic Apps Management solution in OMS
+      ![Provide logic app information](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app-details.png)
 
-If you already turned on Log Analytics when you created your logic app, 
-skip this step. You already have the Logic Apps Management 
-solution installed in OMS.
+      After you finish this step, Azure creates your logic app, which is now associated with your Log Analytics workspace. Also, this step automatically installs the Logic Apps Management solution in your workspace.
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
-Search for "log analytics" as your filter, 
-and choose **Log Analytics** as shown:
+   1. When you're done, select **Create**.
 
-   ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
+1. To view your logic app runs, [continue with these steps](#view-logic-app-runs-oms).
 
-2. Under **Log Analytics**, find and select your OMS workspace. 
+## Install Logic Apps Management solution
 
-   ![Select your OMS workspace](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+If you already turned on Azure Monitor logs when you created your logic app, 
+skip this step. You already have the Logic Apps Management solution installed.
 
-3. Under **Management**, choose **OMS Portal**.
+1. In the [Azure portal](https://portal.azure.com), select **All services**. In the search box, find "log analytics workspaces", and select **Log Analytics workspaces**.
 
-   ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![Select "Log Analytics workspaces"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-4. On your OMS homepage, if the upgrade banner appears, choose the banner so that you 
-upgrade your OMS workspace first. Then choose **Solutions Gallery**.
+1. Under **Log Analytics workspaces**, select your workspace.
 
-   ![Choose "Solutions Gallery"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
+   ![Select your Log Analytics workspace](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-5. Under **All solutions**, find and choose the tile 
-for the **Logic Apps Management** solution.
+1. On the Overview pane, under **Get started with Log Analytics** > **Configure monitoring solutions**, select **View solutions**.
 
-   ![Choose "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![Select "View solutions"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
-6. To install the solution in your OMS workspace, choose **Add**.
+1. Under **Overview**, select **Add**.
 
-   ![Choose "Add" for "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Select "Add"](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+
+1. After the **Marketplace** opens, in the search box, enter "logic apps management", and select **Logic Apps Management**.
+
+   ![Select "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/select-logic-apps-management.png)
+
+1. On the solution description pane, select **Create**.
+
+   ![Select "Create" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+1. Review and confirm the Log Analytics workspace where you want to install the solution, and select **Create** again.
+
+   ![Select "Create" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/confirm-log-analytics-workspace.png)
+
+   After Azure deploys the solution to the Azure resource group that contains your Log Analytics workspace, the solution appears on your workspace's summary pane.
+
+   ![Workspace summary pane](./media/logic-apps-monitor-your-logic-apps-oms/workspace-summary-pane-logic-apps-management.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## View your logic app runs in your OMS workspace
+## View logic app run information
 
-1. To view the count and status for your logic app runs, 
-go to the overview page for your OMS workspace. 
-Review the details on the **Logic Apps Management** tile.
+After your logic app runs, you can view the status and count for those runs on the **Logic Apps Management** tile.
 
-   ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+1. Go to your Log Analytics workspace, and select **Workspace summary** > **Logic Apps Management**.
 
-   > [!Note]
-   > If this upgrade banner appears instead of the Logic Apps Management tile, choose the banner so that you upgrade your OMS workspace first.
-  
-   > ![Upgrade "OMS Workspace"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
+   ![Logic app run status and count](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary.png)
 
-2. To view a summary with more details about your logic app runs, 
-choose the **Logic Apps Management** tile.
+   Here, your logic app runs are grouped by name or by execution status. This page also shows details about failures in actions or triggers for the logic app runs.
 
-   Here, your logic app runs are grouped by name or by execution status.
+   ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary-details.png)
 
-   ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
-   
-3. To view all the runs for a specific logic app or status, 
-select the row for a logic app or a status.
+1. To view all the runs for a specific logic app or status, select the row for a logic app or a status.
 
-   Here is an example that shows all 
-   the runs for a specific logic app:
+   Here is an example that shows all the runs for a specific logic app:
 
    ![View runs for a logic app or a status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   > [!NOTE]
-   > The **Resubmission** column shows "Yes" for 
-   > runs that result from a resubmitted run.
+   This page has these advanced options:
 
-4. To filter these results, you can perform 
-both client-side and server-side filtering.
+   * **Tracked properties:**
 
-   * Client-side filter: For each column, 
-   choose the filters that you want. 
-   Here are some examples:
+     This column shows tracked properties, which are grouped by actions, for the logic app. To view the tracked properties, select **View**. To search the tracked properties, use the column filter.
+
+     ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+
+     Any newly added tracked properties might take 10-15 minutes before they appear first time. Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
+
+   * **Resubmit:** You can resubmit one or more logic app runs that failed, succeeded, or are still running. Select the check boxes for the runs that you want to resubmit, and select **Resubmit**.
+
+     ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
+
+1. To filter these results, you can perform both client-side and server-side filtering.
+
+   * **Client-side filter**: For each column, select the filters that you want, for example:
 
      ![Example column filters](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * Server-side filter: To choose a specific time window 
-   or to limit the number of runs that appear, 
-   use the scope control at the top of the page. 
-   By default, only 1,000 records appear at a time. 
-   
-     ![Change the time window](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
- 
-5. To view all the actions and their details for a specific run, 
-select a row, which opens the Log Search page. 
+   * **Server-side filter**: To select a specific time window or to limit the number of runs that appear, use the scope control at the top of the page. By default, only 1,000 records appear at a time.
 
-   * To view this information in a table, choose **Table**.
-   * To change the query, you can edit the query string in the search bar. 
-   For a better experience, choose **Advanced Analytics**.
+     ![Change the time window](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
+
+1. To view all the actions and their details for a specific run, select a row for a logic app run.
+
+   Here is an example that shows all the actions for a specific logic app run:
+
+   ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
+
+1. On any results page, to view the query behind the results or to see all results, select **See All**, which opens the Log Search page.
+
+   ![See All on Results pages](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+
+   On the Log Search page, you can choose these options:
+
+   * To view the query results in a table, select **Table**.
+
+   * To change the query, you can edit the query string in the search bar. For a better experience, select **Advanced Analytics**.
 
      ![View actions and details for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
 
-     Here on the Azure Log Analytics page, 
-     you can update queries and view the results from the table. 
-     This query uses [Kusto query language](https://docs.loganalytics.io/docs/Language-Reference), 
-     which you can edit if you want to view different results. 
+     On the log analytics page, you can update queries and view the results from the table. This query uses [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results.
 
-     ![Azure Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## Next steps
 

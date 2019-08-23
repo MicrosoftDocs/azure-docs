@@ -3,18 +3,18 @@ title: Respond to security incidents with Azure Security Center | Microsoft Docs
 description: This document explains how to use Azure Security Center for an incident response scenario.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: yurid
+ms.date: 11/28/2018
+ms.author: rkarlin
 
 ---
 # Using Azure Security Center for an incident response
@@ -47,12 +47,12 @@ For the purpose of this scenario, we're going to focus on the roles of the follo
 
 ![Incident response lifecycle](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-Judy is in security operations. Her responsibilities include:
+Judy is in security operations. Their responsibilities include:
 
 * Monitoring and responding to security threats around the clock.
 * Escalating to the cloud workload owner or security analyst as needed.
 
-Sam is a security analyst and his responsibilities include:
+Sam is a security analyst and their responsibilities include:
 
 * Investigating attacks.
 * Remediating alerts.
@@ -61,17 +61,17 @@ Sam is a security analyst and his responsibilities include:
 As you can see, Judy and Sam have different responsibilities, and they must work together to share Security Center information.
 
 ## Recommended solution
-Since Judy and Sam have different roles, they'll be using different areas of Security Center to obtain relevant information for their daily activities. Judy will use **Security alerts** as part of her daily monitoring.
+Since Judy and Sam have different roles, they'll be using different areas of Security Center to obtain relevant information for their daily activities. Judy will use **Security alerts** as part of their daily monitoring.
 
 ![Security alerts](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Judy will use Security alerts during the Detect and Assess stages. After Judy finishes the initial assessment, she might escalate the issue to Sam if additional investigation is required. At this point, Sam will use the information that was provided by Security Center, sometimes in conjunction with other data sources, to move to the Diagnose stage.
+Judy will use Security alerts during the Detect and Assess stages. After Judy finishes the initial assessment, they might escalate the issue to Sam if additional investigation is required. At this point, Sam will use the information that was provided by Security Center, sometimes in conjunction with other data sources, to move to the Diagnose stage.
 
 ## How to implement this solution
 To see how you would use Azure Security Center in an incident response scenario, we’ll follow Judy’s steps in the Detect and Assess stages, and then see what Sam does to diagnose the issue.
 
 ### Detect and Assess incident response stages
-Judy signed in to the Azure portal and is working in the Security Center console. As part of her daily monitoring activities, she started reviewing high-priority security alerts by performing the following steps:
+Judy signed in to the Azure portal and is working in the Security Center console. As part of her daily monitoring activities, they started reviewing high-priority security alerts by performing the following steps:
 
 1. Click the **Security alerts** tile and access the **Security alerts** blade.
     ![Security alert blade](./media/security-center-incident-response/security-center-incident-response-fig4.png)
@@ -86,7 +86,7 @@ Judy signed in to the Azure portal and is working in the Security Center console
     In this blade, Judy can take notes regarding the attacked resources, how many times this attack happened, and when it was detected.
 3. Click the **attacked resource** to obtain more information about this attack.
 
-After reading the description, Judy is convinced that this is not a false positive and that she should escalate this case to Sam.
+After reading the description, Judy is convinced that this is not a false positive and that they should escalate this case to Sam.
 
 ### Diagnose incident response stage
 Sam receives the case from Judy and starts reviewing the remediation steps that Security Center suggested.
@@ -94,7 +94,7 @@ Sam receives the case from Judy and starts reviewing the remediation steps that 
 ![Incident response lifecycle](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### Additional resources
-The incident response team can also take advantage of the [Security Center Power BI](security-center-powerbi.md) capability to see different types of reports. These reports can help them during further investigation to visualize, analyze, and filter recommendations and security alerts. For companies that use their security information and event management (SIEM) solution during the investigation process, they can also [integrate Security Center with their solution](security-center-integrating-alerts-with-log-integration.md). You can also integrate Azure audit logs and virtual machine (VM) security events by using the [Azure log integration tool](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). To investigate an attack, you can use this information in conjunction with the information that Security Center provides.
+For companies that use their security information and event management (SIEM) solution during the investigation process, they can also [integrate Security Center with their solution](security-center-integrating-alerts-with-log-integration.md). You can also integrate Azure audit logs and virtual machine (VM) security events by using the [Azure log integration tool](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/). To investigate an attack, you can use this information in conjunction with the information that Security Center provides. You can also use the [investigation](https://docs.microsoft.com/azure/security-center/security-center-investigation) feature in Security Center, to help you determine the root cause of an incident.
 
 ## Conclusion
 Assembling a team before an incident occurs is very important to your organization and will positively influence how incidents are handled. Having the right tools to monitor resources can help this team to take accurate steps to remediate a security incident. Security Center [detection capabilities](security-center-detection-capabilities.md) can assist IT to quickly respond to security incidents and remediate security issues.

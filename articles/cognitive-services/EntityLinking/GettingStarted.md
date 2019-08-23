@@ -1,18 +1,20 @@
 ---
-title: Get started with the Entity Linking API | Microsoft Docs
-description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API in Cognition Services.
+title: "Tutorial: Build an Entity Linking app - C#"
+titlesuffix: Azure Cognitive Services
+description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: entitylinking
-ms.topic: article
+ms.subservice: entity-linking-intelligence
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
+ROBOTS: NOINDEX
 ---
 
-# Get Started with Entity Linking API in C&#35;
+# Tutorial: Build an Entity Linking app with C#
 
 Microsoft's Entity Linking is a natural language processing tool to analyze text and link named-entities to relevant entries in a knowledge base. 
 
@@ -36,7 +38,7 @@ Let’s start by creating a new project in Visual Studio. First, launch Visual S
 
  ![Createa universal app](./Images/CreateUWP.png)
 
-### <a name+"step-3-add-the-entity-linking-nuget-package-to-your-project">Step 3: Add the Entity Linking NuGet Package to your project</a>
+### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Step 3: Add the Entity Linking NuGet Package to your project</a>
 
 Entity Linking of Cognitive Services is released as a NuGet.org package and needs to be installed before you can use it.
 To add it to your project, go to the **Solution Explorer** tab, right click your project, and select **Manage Nuget Packages**.
@@ -50,7 +52,7 @@ Entity Linking is now installed as part of your application. You can confirm thi
  ![Included nuget library in project](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Step 4: Add an input and output text block to your app’s XAML</a>
-Navigate to ** MainPage.xaml ** in **Solution Explorer**, then double click the file which will open it in a new window. For convenience, you can double click on the **XAML** button in the **Designer** tab, this will hide the **Visual Designer** and reserve all of the space for the code view.
+Navigate to **MainPage.xaml** in **Solution Explorer**, then double click the file which will open it in a new window. For convenience, you can double click on the **XAML** button in the **Designer** tab, this will hide the **Visual Designer** and reserve all of the space for the code view.
 
  ![Included nuget library in project](./Images/UWPMainPage.png)
  
@@ -85,7 +87,7 @@ Below is example code, which adds the "wikipediaId" to the response by using Ent
  private async void button_Click(object sender, RoutedEventArgs e)
 {
     var text = this.inputBox.Text;
-    var client = new EntityLinkingServiceClient("Your subscription key");
+    var client = new EntityLinkingServiceClient("Your subscription key","https://api.labs.cognitive.microsoft.com");
     var linkResponse = await client.LinkAsync(text);
     var result = string.Join(", ", linkResponse.Select(i => i.WikipediaID).ToList());
     this.outputBlock.Text = result;

@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 07/19/2017-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To create a volume
 1. From the tabular listing of the devices in the **Devices** blade, select your device. Click **+ Add volume**.
@@ -11,7 +17,7 @@
 
    2. From the drop-down list, select the volume container where you need to add a volume. 
 
-   3.  Type a **Name** for your volume. You cannot rename a volume once the volume is created.
+   3. Type a **Name** for your volume. You cannot rename a volume once the volume is created.
 
    4. On the drop-down list, select the **Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**.
       
@@ -25,19 +31,19 @@
       
        If you provision a locally pinned volume of 8.5 TB (maximum allowable size) on your 8100 device, then you have exhausted all the local space available on the device. You can't create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of roughly 106 TB, only 4 TB of space is available for locally pinned volumes.
 
-    6. In the **Connected hosts** field, click the arrow. 
+      1. In the **Connected hosts** field, click the arrow. 
 
-        ![Connected hosts](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Connected hosts](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. In the **Connected hosts** blade, choose an existing ACR or add a new ACR by performing the following steps:
+      1. In the **Connected hosts** blade, choose an existing ACR or add a new ACR by performing the following steps:
 
-       1. Supply a **Name** for your ACR.
-       2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
+         1. Supply a **Name** for your ACR.
+         2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
 
-    9. Click **Create**. A volume is created with the specified settings.
+      1. Click **Create**. A volume is created with the specified settings.
 
-        ![Click Create](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Click Create](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > Be aware that the volume you have created here is not protected. You will need to create and associate backup policies with this volume to take scheduled backups. 
+         > [!NOTE]
+         > Be aware that the volume you have created here is not protected. You will need to create and associate backup policies with this volume to take scheduled backups. 
 

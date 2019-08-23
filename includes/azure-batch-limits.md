@@ -1,19 +1,24 @@
-| **Resource** | **Default Limit** | **Maximum Limit** |
+---
+ title: include file
+ description: include file
+ services: batch
+ author: laurenhughes
+ ms.service: batch
+ ms.topic: include
+ ms.date: 05/28/2019
+ ms.author: lahugh
+ ms.custom: include file
+---
+
+| **Resource** | **Default limit** | **Maximum limit** |
 | --- | --- | --- |
-| Batch accounts per region per subscription | 3 |50 |
-| Dedicated cores per Batch account (Batch service mode)<sup>1</sup> | 20 | N/A<sup>2</sup> |
-| Low-priority cores per Batch account (Batch service mode)<sup>3</sup> | 50 | N/A<sup>4</sup> |
-| Active jobs and job schedules<sup>5</sup> per Batch account | 20 | 5000<sup>6</sup> |
-| Pools per Batch account | 20 | 2500 |
+| Azure Batch accounts per region per subscription | 1-3 |50 |
+| Dedicated cores per Batch account | 90-900 | Contact support |
+| Low-priority cores per Batch account | 10-100 | Contact support |
+| **[Active](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>1</sup> |
+| Pools per Batch account | 20-100 | 500<sup>1</sup> |
 
-<sup>1</sup> Dedicated core quotas shown are only for accounts with pool allocation mode set to **Batch service**. For accounts with the mode set to **user subscription**, core quotas are based on the VM cores quota at a regional level or per VM family in your subscription.
+> [!NOTE]
+> Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>2</sup> The number of dedicated cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
-
-<sup>3</sup> Low-priority core quotas shown are only for accounts with pool allocation mode set to **Batch service**. Low-priority cores are not available for accounts with pool allocation mode set to **user subscription**.
-
-<sup>4</sup> The number of low-priority cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
-
-<sup>5</sup> Completed jobs and job schedules are not limited.
-
-<sup>6</sup> Contact Azure support if you want to request an increase beyond this limit.
+<sup>1</sup>To request an increase beyond this limit, contact Azure Support.

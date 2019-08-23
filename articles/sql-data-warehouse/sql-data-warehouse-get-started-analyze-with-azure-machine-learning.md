@@ -2,22 +2,16 @@
 title: Analyze data with Azure Machine Learning | Microsoft Docs
 description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-
-ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
+author: mlee3gsd 
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 03/02/2017
-ms.author: kevin;barbkess
-
+ms.topic: conceptual
+ms.subservice: integration
+ms.date: 03/22/2019
+ms.author: martinle
+ms.reviewer: igorstan
 ---
+
 # Analyze data with Azure Machine Learning
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
@@ -43,9 +37,9 @@ To step through this tutorial, you need:
 The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
 
 1. Sign into [Azure Machine Learning studio][Azure Machine Learning studio] and click on my experiments.
-2. Click **+NEW** and select **Blank Experiment**.
+2. Click **+NEW** on the bottom left of the screen and select **Blank Experiment**.
 3. Enter a name for your experiment: Targeted Marketing.
-4. Drag the **Reader** module from the modules pane into the canvas.
+4. Drag the **Import data** module under **Data Input and output** from the modules pane into the canvas.
 5. Specify the details of your SQL Data Warehouse database in the Properties pane.
 6. Specify the database **query** to read the data of interest.
 
@@ -78,7 +72,7 @@ After the experiment finishes running successfully, click the output port at the
 ## 2. Clean the data
 To clean the data, drop some columns that are not relevant for the model. To do this:
 
-1. Drag the **Project Columns** module into the canvas.
+1. Drag the **Select Columns in Dataset** module under **Data Transformation < Manipulation** into the canvas. Connect this module to the **Import Data** module.
 2. Click **Launch column selector** in the Properties pane to specify which columns you wish to drop.
    ![Project Columns][4]
 3. Exclude two columns: CustomerAlternateKey and GeographyKey.
@@ -88,22 +82,18 @@ To clean the data, drop some columns that are not relevant for the model. To do 
 We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the “Two-Class” algorithms for this binary classification problem.
 
 1. Drag the **Split** module into the canvas.
-2. Enter 0.8 for Fraction of rows in the first output dataset in the Properties pane.
+2. In the properties pane, enter 0.8 for Fraction of rows in the first output dataset.
    ![Split data into training and test set][6]
 3. Drag the **Two-Class Boosted Decision Tree** module into the canvas.
-4. Drag the **Train Model** module into the canvas and specify the inputs. Then, click **Launch column selector** in the Properties pane.
-   * First input: ML algorithm.
-   * Second input: Data to train the algorithm on.
+4. Drag the **Train Model** module into the canvas and specify inputs by connecting it to the **Two-Class Boosted Decision Tree** (ML algorithm) and **Split** (data to train the algorithm on) modules. 
      ![Connect the Train Model module][7]
-5. Select the **BikeBuyer** column as the column to predict.
+5. Then, click **Launch column selector** in the Properties pane. Select the **BikeBuyer** column as the column to predict.
    ![Select Column to predict][8]
 
 ## 4. Score the model
 Now, we will test how the model performs on test data. We will compare the algorithm of our choice with a different algorithm to see which performs better.
 
-1. Drag **Score Model** module into the canvas.
-    First input: Trained model
-    Second input: Test data
+1. Drag **Score Model** module into the canvas and connect it to **Train Model** and **Split Data** modules.
    ![Score the model][9]
 2. Drag the **Two-Class Bayes Point Machine** into the experiment canvas. We will compare how this algorithm performs in comparison to the Two-Class Boosted Decision Tree.
 3. Copy and Paste the modules Train Model and Score Model in the canvas.
@@ -127,18 +117,18 @@ Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
 
 
 <!--Article references-->

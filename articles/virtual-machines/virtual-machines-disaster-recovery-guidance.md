@@ -4,7 +4,7 @@ description: Learn what to do in the event that an Azure service disruption impa
 services: virtual-machines
 documentationcenter: ''
 author: kmouss
-manager: timlt
+manager: gwallace
 editor: ''
 
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: kmouss;aglick
+ms.author: gwallace
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -40,7 +40,7 @@ This is the best option if you have not set up Azure Site Recovery, read-access 
 
 
 > [!NOTE]
-> Be aware that you do not have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery).
+> Be aware that you do not have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 

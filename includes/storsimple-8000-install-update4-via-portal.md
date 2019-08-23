@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 07/07/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To install an update from the Azure portal
 
@@ -24,7 +30,7 @@
    * **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
    * **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you must enable it and then retry.
 
-    The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+     The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
 
 7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
    
@@ -42,5 +48,5 @@
 
 10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
 
-    ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update9.png)
+   ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

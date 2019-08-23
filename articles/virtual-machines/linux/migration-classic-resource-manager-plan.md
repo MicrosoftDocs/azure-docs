@@ -4,7 +4,7 @@ description: Planning for migration of IaaS resources from classic to Azure Reso
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -22,7 +22,7 @@ ms.author: kasing
 While Azure Resource Manager offers a lot of amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities. 
 
 > [!NOTE] 
-> The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large enviornments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
+> The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large environments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
 
 There are four general phases of the migration journey:
 
@@ -48,7 +48,7 @@ Depending on your technical requirements size, geographies and operational pract
 
 ### Patterns of success
 
-Successful customers have detailed plans where the above questions are discussed, documented and governed.  Ensure the migration plans are broadly communicated to sponsors and stakeholders.  Equip yourself with knowledge about your migration options; reading through this migration document set below is highly recommended.
+Successful customers have detailed plans where the preceding questions are discussed, documented and governed.  Ensure the migration plans are broadly communicated to sponsors and stakeholders.  Equip yourself with knowledge about your migration options; reading through this migration document set below is highly recommended.
 
 * [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -68,15 +68,15 @@ Successful customers have detailed plans where the above questions are discussed
 
 ## Lab Test 
 
-**Replicate your enviornment and do a test migration**
+**Replicate your environment and do a test migration**
   > [!NOTE]
   > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Microsoft Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
   >
   
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
 
-  - A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
-  - It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidently deleted.
+- A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
+- It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidentally deleted.
 
   This can be accomplished by using the AsmMetadataParser tool. [Read more about this tool here](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -93,7 +93,7 @@ The following were issues discovered in many of the larger migrations. This is n
 - **VM Extensions** - Virtual Machine extensions are potentially one of the biggest roadblocks to migrating running VMs. Remediation of VM Extensions could take upwards of 1-2 days, so plan accordingly.  A working Azure agent is needed to report back VM Extension status of running VMs. If the status comes back as bad for a running VM, this will halt migration. The agent itself does not need to be in working order to enable migration, but if extensions exist on the VM, then both a working agent AND outbound internet connectivity (with DNS) will be needed for migration to move forward.
   - If connectivity to a DNS server is lost during migration, all VM Extensions except BGInfo v1.\* need to first be removed from every VM before migration prepare, and subsequently re-added back to the VM after Azure Resource Manager migration.  **This is only for VMs that are running.**  If the VMs are stopped deallocated, VM Extensions do not need to be removed. **Note:** Many extensions like Azure diagnostics and security center monitoring will reinstall themselves after migration, so removing them is not a problem.
   - In addition, make sure Network Security Groups are not restricting outbound internet access. This can happen with some Network Security Groups configurations. Outbound internet access (and DNS) is needed for VM Extensions to be migrated to Azure Resource Manager. 
-  - There are two versions of the BGInfo extension: v1 and v2.  If the VM was created using the classic portal or PowerShell, the VM will likely have the v1 extension on it. This extension does not need to be removed and will be skipped (not migrated) by the migration API. However, if the Classic VM was created with the new Azure portal, it will likely have the JSON-based v2 version of BGInfo, which can be migrated to Azure Resource Manager provided the agent is working and has outbound internet access (and DNS). 
+  - There are two versions of the BGInfo extension: v1 and v2.  If the VM was created using the Azure portal or PowerShell, the VM will likely have the v1 extension on it. This extension does not need to be removed and will be skipped (not migrated) by the migration API. However, if the Classic VM was created with the new Azure portal, it will likely have the JSON-based v2 version of BGInfo, which can be migrated to Azure Resource Manager provided the agent is working and has outbound internet access (and DNS). 
   - **Remediation Option 1**. If you know your VMs will not have outbound internet access, a working DNS service, and working Azure agents on the VMs, then uninstall all VM extensions as part of the migration before Prepare, then reinstall the VM Extensions after migration. 
   - **Remediation Option 2**. If VM extensions are too big of a hurdle, another option is to shutdown/deallocate all VMs before migration. Migrate the deallocated VMs, then restart them on the Azure Resource Manager side. The benefit here is that VM extensions will migrate. The downside is that all public facing Virtual IPs will be lost (this may be a non-starter), and obviously the VMs will shut down causing a much greater impact on working applications.
 
@@ -107,20 +107,20 @@ The following were issues discovered in many of the larger migrations. This is n
 - **Azure Resource Manager Quotas** - Azure regions have separate quotas/limits for both Classic and Azure Resource Manager. Even though in a migration scenario new hardware isn't being consumed *(we're swapping existing VMs from Classic to Azure Resource Manager)*, Azure Resource Manager quotas still need to be in place with enough capacity before migration can start. Listed below are the major limits we've seen cause problems.  Open a quota support ticket to raise the limits. 
 
     > [!NOTE]
-    > These limits need to be raised in the same region as your current enviornment to be migrated.
+    > These limits need to be raised in the same region as your current environment to be migrated.
     >
 
-    - Network Interfaces
-    - Load Balancers
-    - Public IPs
-    - Static Public IPs
-    - Cores
-    - Network Security Groups
-    - Route Tables
+  - Network Interfaces
+  - Load Balancers
+  - Public IPs
+  - Static Public IPs
+  - Cores
+  - Network Security Groups
+  - Route Tables
 
-    You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure CLI 2.0.
+    You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure CLI.
 
-    **Compute** *(Cores, Avaiability Sets)*
+    **Compute** *(Cores, Availability Sets)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
@@ -188,11 +188,11 @@ Things to consider:
 
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
-- [Role Based Access Control](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Role Based Access Control](../../role-based-access-control/overview.md).
 - [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activity Control](../../azure-resource-manager/resource-group-audit.md)
-- [Resource Policies](../../azure-resource-manager/resource-manager-policy.md)
+- [Azure Policies](../../governance/policy/overview.md)
 
 ### Pitfalls to avoid
 

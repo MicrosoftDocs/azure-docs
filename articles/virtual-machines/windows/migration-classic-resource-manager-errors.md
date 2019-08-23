@@ -4,7 +4,7 @@ description: This article catalogs the most common errors and mitigations during
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

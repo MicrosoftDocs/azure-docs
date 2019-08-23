@@ -1,21 +1,15 @@
 ---
 title: Decode EDIFACT messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate acknowledgements with the EDIFACT message decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate acknowledgements with the EDIFACT message decoder for Azure Logic Apps with Enterprise Integration Pack 
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
+ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-
 ---
 
 # Decode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
@@ -38,7 +32,7 @@ that's already defined in your integration account
 
 ## Decode EDIFACT messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Decode EDIFACT message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 

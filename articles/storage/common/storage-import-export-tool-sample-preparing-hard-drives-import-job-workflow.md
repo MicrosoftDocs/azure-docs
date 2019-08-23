@@ -2,20 +2,12 @@
 title: Sample workflow to prep hard drives for an Azure Import/Export import job | Microsoft Docs
 description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid:
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-
+ms.subservice: common
 ---
 
 # Sample workflow to prepare hard drives for an import job
@@ -115,7 +107,7 @@ Now you are ready to run the Azure Import/Export Tool to prepare the two hard dr
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-If any more data needs to be added, create another dataset file (same format as Initialdataset).
+If any more data needs to be added, create another dataset file (same format as Initial dataset).
 
 **For the second session:**
 

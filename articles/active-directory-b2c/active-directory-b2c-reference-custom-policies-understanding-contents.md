@@ -1,28 +1,23 @@
 ---
-title: 'Azure Active Directory B2C: Understanding custom policies of the starter pack | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies
+title: Understanding custom policies of the starter pack in Azure Active Directory B2C | Microsoft Docs
+description: A topic on Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-documentationcenter: ''
-author: rojasja
-manager: krassk
-editor: rojasja
+author: mmacy
+manager: celestedg
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: joroja
-
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Understanding the custom policies of the Azure AD B2C Custom Policy starter pack
 
 This section lists all the core elements of the B2C_1A_base policy that comes with the **Starter Pack** and that is leveraged for authoring your own policies through the inheritance of the *B2C_1A_base_extensions policy*.
 
-As such, it more particularly focusses on the already defined claim types, claims transformations, content definitions, claims providers with their technical profile(s), and the core user journeys.
+As such, it more particularly focuses on the already defined claim types, claims transformations, content definitions, claims providers with their technical profile(s), and the core user journeys.
 
 > [!IMPORTANT]
 > Microsoft makes no warranties, express or implied, with respect to the information provided hereafter. Changes may be introduced at any time, before GA time, at GA time, or after.
@@ -40,7 +35,7 @@ This claims schemas is divided into three sections:
 3.	And eventually a third section that lists any additional, optional claims that can be collected from the user, stored in the directory and sent in tokens during sign in. New claims type to be collected from the user and/or sent in the token can be added in this section.
 
 > [!IMPORTANT]
-> The claims schema contains restrictions on certain claims such as passwords and usernames. The Trust Framework (TF) policy treats Azure AD as any other claims provider and all its restrictions are modelled in the premium policy. A policy could be modified to add more restrictions, or use another claims provider for credential storage which will have its own restrictions.
+> The claims schema contains restrictions on certain claims such as passwords and usernames. The Trust Framework (TF) policy treats Azure AD as any other claims provider and all its restrictions are modelled in the custom policy. A policy could be modified to add more restrictions, or use another claims provider for credential storage which will have its own restrictions.
 
 The available claim types are listed below.
 
@@ -52,12 +47,12 @@ The following claims are required for user journeys to work properly:
 |-------------|-------------|
 | *UserId* | Username |
 | *signInName* | Sign in name |
-| *tenantId* | Tenant identifier (ID) of the user object in Azure AD B2C Premium |
-| *objectId* | Object identifier (ID) of the user object in Azure AD B2C Premium |
+| *tenantId* | Tenant identifier (ID) of the user object in Azure AD B2C |
+| *objectId* | Object identifier (ID) of the user object in Azure AD B2C |
 | *password* | Password |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Password policies used by Azure AD B2C Premium to determine password strength, expiry, etc. |
+| *passwordPolicies* | Password policies used by Azure AD B2C to determine password strength, expiry, etc. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -67,9 +62,9 @@ The following claims are required for user journeys to work properly:
 | *email* | Email address that can be used to contact the user |
 | *signInNamesInfo.emailAddress* | Email address that the user can use to sign in |
 | *otherMails* | Email addresses that can be used to contact the user |
-| *userPrincipalName* | Username as stored in the Azure AD B2C Premium |
+| *userPrincipalName* | Username as stored in the Azure AD B2C |
 | *upnUserName* | Username for creating user principal name |
-| *mailNickName* | User's mail nick name as stored in the Azure AD B2C Premium |
+| *mailNickName* | User's mail nick name as stored in the Azure AD B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Claim that specifies whether attributes were collected from the user |
 | *executed-PhoneFactor-Input* | Claim that specifies whether a new phone number was collected from the user |
@@ -89,7 +84,7 @@ The following claims are required to pass on special parameters (including some 
 | *grant_type* | Special parameter passed for local account authentication to login.microsoftonline.com |
 | *scope* | Special parameter passed for local account authentication to login.microsoftonline.com |
 | *client_id* | Special parameter passed for local account authentication to login.microsoftonline.com |
-| *objectIdFromSession* | Parameter provided by the default session management provider to indicate that the object id has been retrieved from an SSO session |
+| *objectIdFromSession* | Parameter provided by the default session management provider to indicate that the object ID has been retrieved from an SSO session |
 | *isActiveMFASession* | Parameter provided by the MFA session management to indicate that the user has an active MFA session |
 
 ### Additional (optional) claims that can be collected
@@ -194,7 +189,7 @@ This section depicts the technical profiles already declared per claim provider 
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### Technical profiles for Trustframework Policy Engine TechnicalProfiles
+### Technical profiles for the trust framework policy engine
 
 Currently, no technical profiles are defined for the **Trustframework Policy Engine TechnicalProfiles** claims provider.
 
