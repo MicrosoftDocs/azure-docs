@@ -1,5 +1,5 @@
 ﻿---
-title: Azure security fundamentals documentation
+title: Azure Security Fundamentals documentation
 description: Learn about Azure security.
 services: security
 author: arob98
@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 08/23/2019
 ms.author: angrobe
 ---
-# Azure security fundamentals documentation
+# Azure Security Fundamentals documentation
 
 Learn about Azure security.
 

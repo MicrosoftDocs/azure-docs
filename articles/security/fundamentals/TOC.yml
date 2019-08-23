@@ -1,4 +1,4 @@
-- name: Azure Security Documentation
+- name: Fundamentals Documentation
   href: index.md
 - name: Architecture and design
   href: overview.md
