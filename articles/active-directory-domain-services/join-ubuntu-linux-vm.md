@@ -125,9 +125,9 @@ Now that the required packages are installed on the VM and NTP is configured, jo
 
    If *realm discover* can't find your Azure AD DS managed domain, review the following troubleshooting steps:
 
-       * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
-       * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
-       * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
+    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+    * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
+    * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
 1. Now initialize Kerberos using the `kinit` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
