@@ -906,7 +906,7 @@
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
-        href: paloaltoglobalprotect-tutorial.md
+        href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
         href: pandadoc-tutorial.md
       - name: Panopto
