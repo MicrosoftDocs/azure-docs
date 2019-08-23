@@ -21,7 +21,7 @@ ms.author: vijetaj
 ---
 
 # Machine learning and data science tools
-Azure Data Science Virtual Machines (DSVMs) has a rich set of tools and libraries for machine learning available in popular languages, such as Python, R, and Julia.
+Azure Data Science Virtual Machines (DSVMs) have a rich set of tools and libraries for machine learning available in popular languages, such as Python, R, and Julia.
 
 Here are some of the machine-learning tools and libraries on DSVMs.
 
@@ -32,7 +32,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | Supported editions     | Windows (conda environment: AzureML), Linux (conda environment: py36)    |
 | Typical uses      | General machine-learning platform      |
 | How is it configured or installed?      |  Installed with GPU support   |
-| How to use or run it      | As Python SDK and Azure CLI. Activate to the conda environment `AzureML` on Windows edition *or* to `py36` on Linux edition.      |
+| How to use or run it      | As a Python SDK and in Azure CLI. Activate to the conda environment `AzureML` on Windows edition *or* to `py36` on Linux edition.      |
 | Link to samples      | Sample Jupyter notebooks are included in the `AzureML` directory under notebooks.  |
 | Related tools      | Visual Studio Code, Jupyter   |
 
@@ -43,7 +43,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning library      |
 | How is it configured or installed?      |  Installed with GPU support   |
-| How to use or run it      | As Python library (2.7 and 3.5), R package, and on path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows, `/dsvm/tools/xgboost/xgboost` for Linux)    |
+| How to use or run it      | As a Python library (2.7 and 3.5), R package, and on path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows, `/dsvm/tools/xgboost/xgboost` for Linux)    |
 | Links to samples      | Samples are included on the VM, in `/dsvm/tools/xgboost/demo` on Linux, and `C:\dsvm\tools\xgboost\demo` on Windows.   |
 | Related tools      | LightGBM, MXNet   |
 
@@ -52,10 +52,10 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| What is it?   |   Vowpal Wabbit (also known as "VW") is an open-source, fast, out-of-core learning system library.    |
+| What is it?   |   A fast, open-source, out-of-core learning system library    |
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning library      |
-| How is it configured or installed?      |  Windows--msi installer, Linux--apt-get |
+| How is it configured or installed?      |  Windows: msi installer<br/>Linux: apt-get |
 | How to use or run it      | As an on-path command-line tool (`C:\Program Files\VowpalWabbit\vw.exe` on Windows, `/usr/bin/vw` on Linux)    |
 | Link to samples      | [VowPal Wabbit samples](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
 | Related tools      |LightGBM, MXNet, XGBoost   |
@@ -64,7 +64,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## Weka
 |    |           |
 | ------------- | ------------- |
-| What is it?   |  Weka is a collection of machine-learning algorithms for data mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
+| What is it?   |  Weka is a collection of machine-learning algorithms for data-mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning tool     |
 | How to use or run it      | On Windows, search for Weka on the Start menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
@@ -74,17 +74,17 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## Rattle
 |    |           |
 | ------------- | ------------- |
-| What is it?   |   Rattle is a graphical user interface for data mining by using R.   |
+| What is it?   |   A graphical user interface for data mining by using Machine Learning Server   |
 | Supported editions     | Windows, Linux     |
-| Typical uses      | General UI data mining tool for R    |
-| How to use or run it      | UI tool. On Windows, start a command prompt, run R, and then inside R run `rattle()`. On Linux, connect with X2Go, start a terminal, run R, and then inside R run `rattle()`. |
+| Typical uses      | General UI data-mining tool for Machine Learning Server    |
+| How to use or run it      | As a UI tool. On Windows, start a command prompt, run Machine Learning Server, and then inside Machine Learning Server, run `rattle()`. On Linux, connect with X2Go, start a terminal, run Machine Learning Server, and then inside Machine Learning Server run `rattle()`. |
 | Link to samples      | [Rattle](https://togaware.com/onepager/) |
 | Related tools      |LightGBM, Weka, XGBoost   |
 
 ## LightGBM
 |    |           |
 | ------------- | ------------- |
-| What is it?   | LightGBM is a fast, distributed, high-performance gradient boosting (GBDT, GBRT, GBM, or MART) framework based on decision tree algorithms. It's used for ranking, classification, and many other machine-learning tasks.    |
+| What is it?   | A fast, distributed, high-performance gradient-boosting (GBDT, GBRT, GBM, or MART) framework based on decision tree algorithms. It's used for ranking, classification, and many other machine-learning tasks.    |
 | Supported versions      | Windows, Linux    |
 | Typical uses      | General-purpose gradient boosting framework      |
 | How is it configured or installed?      | On Windows, LightGBM is installed as a Python package. On Linux, the command-line executable is in `/opt/LightGBM/lightgbm`, the R package is installed, and Python packages are installed.     |
@@ -94,7 +94,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## H2O
 |    |           |
 | ------------- | ------------- |
-| What is it?   | H2O is an open-source AI platform that supports in-memory, distributed, fast, and scalable ML.  |
+| What is it?   | H2O is an open-source AI platform that supports in-memory, distributed, fast, and scalable machine learning.  |
 | Supported versions      | Linux   |
 | Typical uses      | General-purpose distributed, scalable machine learning   |
 | How is it configured or installed?      | H2O is installed in `/dsvm/tools/h2o`.      |
@@ -102,4 +102,4 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | Link to samples      | Samples are available on the VM in Jupyter under the `h2o` directory.      |
 | Related tools      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
-There are several other machine-learning libraries on Data Science Virtual Machines, such as the popular `scikit-learn` package that comes as part of the Anaconda Python distribution that's installed on Data Science Virtual Machines. To check out the list of packages available in Python, R, and Julia, run the respective package managers.
+There are several other machine-learning libraries on DSVMs, such as the popular `scikit-learn` package that's part of the Anaconda Python distribution that's installed on DSVMs. To check out the list of packages available in Python, R, and Julia, run the respective package managers.
