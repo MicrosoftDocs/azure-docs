@@ -17,6 +17,8 @@
       href: tutorial-create-management-vm.md
     - name: Configure secure LDAP
       href: tutorial-configure-ldaps.md
+    - name: Configure password hash sync
+      href: tutorial-configure-password-hash-sync.md
 - name: Samples
   items:
     - name: Create an Azure AD DS instance using Azure PowerShell
@@ -39,8 +41,6 @@
   items:
     - name: Configure common settings
       items:
-        - name: Enable password hash synchronization
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Configure scoped synchronization from Azure AD
           href: scoped-synchronization.md
         - name: Create an organizational unit (OU)
