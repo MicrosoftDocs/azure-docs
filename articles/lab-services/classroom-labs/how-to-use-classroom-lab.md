@@ -53,8 +53,8 @@ This article describes how to register to a classroom lab, view all the labs tha
     3. For **Linux** virtual machines, you can use **SSH** or **RDP** (if it's enabled) to connect to them. For more information, see [Enable remote desktop connection for Linux machines](how-to-enable-remote-desktop-linux.md). 
     1. If you are using a **Mac** to connect to the lab VM, follow instructions in the next section. 
 
-## Connect to a VM's user interface (UI) using RDP on a Mac
-This section shows how a student can connect to a classroom lab's VM from a Mac by using RDP. Here are the quick steps followed by details: 
+## Connect to a VM's UI using RDP on a Mac
+This section shows how a student can connect to a VM's user interface (UI) from a Mac by using RDP. Here are the quick steps followed by details: 
 
 1. Install Microsoft Remote Desktop on your Mac.
 2. Connect to a VM UI from your Mac using RDP. 
