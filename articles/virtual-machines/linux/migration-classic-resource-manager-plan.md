@@ -4,7 +4,7 @@ description: Planning for migration of IaaS resources from classic to Azure Reso
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

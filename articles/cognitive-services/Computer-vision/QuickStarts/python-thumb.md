@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Generate a thumbnail using the REST API and Python in Computer Vision
+# Quickstart: Generate a thumbnail using the Computer Vision REST API and Python
 
 In this quickstart, you will generate a thumbnail from an image using Computer Vision's REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can specify the desired height and width, and Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
 
@@ -31,7 +31,7 @@ To create and run the sample, copy the following code into the code editor.
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -44,7 +44,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the "westus" region.
+# Free trial subscription keys are generated in the "westcentralus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
@@ -55,9 +55,10 @@ thumbnail_url = vision_base_url + "generateThumbnail"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'width': '50', 'height': '50', 'smartCropping': 'true'}
-data    = {'url': image_url}
-response = requests.post(thumbnail_url, headers=headers, params=params, json=data)
+params = {'width': '50', 'height': '50', 'smartCropping': 'true'}
+data = {'url': image_url}
+response = requests.post(thumbnail_url, headers=headers,
+                         params=params, json=data)
 response.raise_for_status()
 
 thumbnail = Image.open(BytesIO(response.content))

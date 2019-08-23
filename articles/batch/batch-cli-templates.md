@@ -3,7 +3,7 @@ title: Run jobs end-to-end using templates - Azure Batch | Microsoft Docs
 description: Create Batch pools, jobs, and tasks with template files and the Azure CLI. 
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch

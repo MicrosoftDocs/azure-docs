@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: List text-to-speech voices, Python - Speech Services"
+title: "Quickstart: List text-to-speech voices, Python - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region.
 services: cognitive-services
@@ -7,8 +7,8 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 03/22/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -93,7 +93,8 @@ def get_voices(self):
     if response.status_code == 200:
         with open('voices.json', 'wb') as voices:
             voices.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nvoices.json is ready to view.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nvoices.json is ready to view.\n")
     else:
         print("\nStatus code: " + str(
             response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")

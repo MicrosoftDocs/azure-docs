@@ -85,7 +85,7 @@ Then, choose **Save** > **Yes**.
 
 When you want to automate creating and deploying 
 Azure resources such as logic apps, you can use 
-[Azure Resource Manager templates](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). 
+[Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). 
 To create a system-assigned managed identity for 
 your logic app through a template, add the `"identity"` 
 element and `"type"` property to your logic app workflow 
@@ -160,8 +160,8 @@ app's system-assigned managed identity, follow these steps:
 1. In the Azure portal, go to the Azure resource where 
 you want to assign access for your managed identity. 
 
-1. From the resource's menu, select **Access control (IAM)**, 
-and choose **Add role assignment**. 
+1. From the resource's menu, select **Access control (IAM)**. 
+On the toolbar, choose **Add** > **Add role assignment**.
 
    ![Add role assignment](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

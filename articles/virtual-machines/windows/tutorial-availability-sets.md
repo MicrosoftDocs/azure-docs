@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure PowerShell to deploy h
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

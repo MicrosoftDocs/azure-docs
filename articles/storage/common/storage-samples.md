@@ -1,14 +1,15 @@
 ---
 title: Azure Storage code samples | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries.
-services: storage
-author: tamram
-ms.service: storage
-ms.topic: article
+author: mhopkins-msft
+
+ms.author: mhopkins
 ms.date: 06/03/2017
-ms.author: tamram
+ms.service: storage
 ms.subservice: common
+ms.topic: sample
 ---
+
 # Azure Storage samples
 
 Use the links below to view and download Azure Storage sample code and applications.

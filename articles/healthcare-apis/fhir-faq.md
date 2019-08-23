@@ -4,6 +4,7 @@ description: This FAQ article answers frequently asked questions about Azure API
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -21,7 +22,11 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 ## Supported FHIR version
 
-Currently we support version 3.0.1. See [Supported Features](fhir-features-supported.md) for details.
+Azure API for FHIR (PaaS): We support version 3.0.1
+
+FHIR Server for Azure (OSS): We support version 4.0.0, the most recent version of the FHIR specification, in addition to version 3.0.1.
+
+See [Supported Features](fhir-features-supported.md) for details. Read about what has changed between versions in [HL7 FHIR's Version History](http://hl7.org/fhir/R4/history.html)
 
 ## OSS and Azure API for FHIR
 

@@ -79,7 +79,7 @@ This information can be seen in the
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-For the Node Configuration name, make sure you are using the name of the *Node Configuration* and not the Configuration.
+For the Node Configuration name, make sure the node configuration exists in Azure State Configuration.  If it does not, the extension deployment will return a failure.  Also make sure you are using the name of the *Node Configuration* and not the Configuration.
 A Configuration is defined in a script that is used
 [to compile the Node Configuration (MOF file)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.
@@ -135,7 +135,6 @@ The following commands place the IisInstall.ps1 script on the specified VM. The 
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
-$location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage

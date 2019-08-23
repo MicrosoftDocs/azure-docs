@@ -1,6 +1,6 @@
 ---
-title: Overview and comparison of Azure on demand media encoders | Microsoft Docs
-description: This topic gives an overview and comparison of Azure on demand media encoders.
+title: Overview of Azure on-demand media encoders | Microsoft Docs
+description: This topic gives an overview of Azure on-demand media encoders.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/25/2019
 ms.author: juliako
 
 ---
-# Overview and comparison of Azure on demand media encoders 
+# Overview of Azure on-demand media encoders 
 
 ## Encoding overview
 
@@ -31,7 +31,10 @@ Codecs are the software that implements the compression/decompression algorithms
 
 Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) without you having to re-package into these streaming formats.
 
-When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
+
+> [!Note]
+> Billing for streaming endpoints occurs whenever the endpoint is in a **Running** state.
 
 Media Services supports the following on demand encoders that are described in this article:
 
@@ -80,7 +83,6 @@ Media Encoder Premium Workflow is configured using complex workflows. Workflow f
 
 ### Known issues
 If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file.
-
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

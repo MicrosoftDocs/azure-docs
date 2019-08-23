@@ -6,6 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
+ms.topic: conceptual
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
@@ -230,10 +231,10 @@ Now, test the firewall to confirm that it works as expected.
 1. Run the following commands:
 
    ```
-   Invoke-WebRequest -Uri http://www.google.com
+   Invoke-WebRequest -Uri https://www.google.com
    Invoke-WebRequest -Uri https://www.google.com
 
-   Invoke-WebRequest -Uri http://www.microsoft.com
+   Invoke-WebRequest -Uri https://www.microsoft.com
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 

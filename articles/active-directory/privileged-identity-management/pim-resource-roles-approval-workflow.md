@@ -33,15 +33,15 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Click **Approve requests**.
 
-    ![Azure resources - Approve requests](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Approve requests - Azure resources page showing request to review](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
 ## Approve requests
 
-1. Find and click the request that you want to approve. An approval pane appears.
+1. Find and click the request that you want to approve. An approve or deny pane appears.
 
-    ![Approve requests pane](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. In the **Justification** box, type a reason.
 
@@ -49,13 +49,13 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
     A notification appears with your approval.
 
-    ![Approve notification](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## Deny requests
 
-1. Find and click the request that you want to deny. An approval pane appears.
+1. Find and click the request that you want to deny. An approve or deny pane appears.
 
-    ![Approve requests pane](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. In the **Justification** box, type a reason.
 

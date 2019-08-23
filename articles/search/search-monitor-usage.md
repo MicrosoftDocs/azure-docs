@@ -2,15 +2,13 @@
 title: Monitor resource usage and query metrics for an search service - Azure Search
 description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Search service.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Monitor resource consumption and query activity in Azure Search
 
@@ -71,13 +69,15 @@ In this section, you'll learn how to use Blob storage to store logged events and
 
 1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. You can place it in the same resource group as Azure Search to simplify clean up later if you want to delete all resources used in this exercise.
 
+   Your storage account must exist in the same region as Azure Search.
+
 2. Open your search service Overview page. In the left-navigation pane, scroll down to **Monitoring** and click **Enable Monitoring**.
 
    ![Enable monitoring](./media/search-monitor-usage/enable-monitoring.png "Enable monitoring")
 
 3. Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Azure Monitor logs.
 
-   For archival to Blob storage, only the storage account must exist. Containers and blobs will be created when log data is exported.
+   For archival to Blob storage, only the storage account must exist. Containers and blobs will be created as-needed when log data is exported.
 
    ![Configure blob storage archive](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure blob storage archive")
 
@@ -108,7 +108,7 @@ Blobs containing your search service traffic logs are structured as described in
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp of the operation |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
 | operationName |string |"Query.Search" |The name of the operation |
-| operationVersion |string |"2017-11-11" |The api-version used |
+| operationVersion |string |"2019-05-06" |The api-version used |
 | category |string |"OperationLogs" |constant |
 | resultType |string |"Success" |Possible values: Success or Failure |
 | resultSignature |int |200 |HTTP result code |
@@ -120,7 +120,7 @@ Blobs containing your search service traffic logs are structured as described in
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
-| Query |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |The query parameters |
+| Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
 | Documents |int |42 |Number of documents processed |
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 
@@ -167,7 +167,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 * [Count Documents](/rest/api/searchservice/count-documents)
 * [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## Next steps
 

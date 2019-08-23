@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
@@ -59,7 +60,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
         |---|---|
         |id|The video ID|
         |state|The video state|  
-    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person identified in video:
   - Properties
     
@@ -70,7 +71,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
       |knownPersonId|The person ID that is unique within a face model|
       |personName|The name of the person|
         
-    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### Notes
 

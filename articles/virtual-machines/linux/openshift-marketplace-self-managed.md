@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
 ---
 
@@ -35,8 +35,8 @@ This option is the simplest, but it also has limited customization capabilities.
 - **Disk Type**: Managed Disks are used.
 - **Networking**: Support for new or existing Network and custom CIDR range.
 - **CNS**: CNS can be enabled.
-- **Metrics**: Metrics can be enabled.
-- **Logging**: Logging can be enabled.
+- **Metrics**: Hawkular Metrics can be enabled.
+- **Logging**: EFK Logging can be enabled.
 - **Azure Cloud Provider**: Enabled by default, can be disabled.
 
 In the upper left of the Azure portal, click **Create a resource**, enter 'openshift container platform' into the search box and hit Enter.
@@ -77,7 +77,7 @@ Enter values for the input parameters and click **OK**.
 
 | Input Parameter | Parameter Description |
 |-----------------------|-----------------|
-| OCP Cluster Name Prefix | The administrator user to be created on all VM instances |
+| OCP Cluster Name Prefix | Cluster Prefix used to configure hostnames for all nodes. Between 1 and 20 characters |
 | Master Node Size | Accept the default VM size or click **Change size** to select a different VM size.  Select appropriate VM size for your work load |
 | Infrastructure Node Size | Accept the default VM size or click **Change size** to select a different VM size.  Select appropriate VM size for your work load |
 | Number of Application Nodes | Accept the default VM size or click **Change size** to select a different VM size.  Select appropriate VM size for your work load |

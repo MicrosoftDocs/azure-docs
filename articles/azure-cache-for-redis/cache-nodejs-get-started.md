@@ -18,28 +18,16 @@ ms.author: yegu
 ms.custom: mvc
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
-# Quickstart: How to use Azure Cache for Redis with Node.js
+# Quickstart: Use Azure Cache for Redis with Node.js
 
-
-
-Azure Cache for Redis gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
-
-This topic shows you how to get started with Azure Cache for Redis using Node.js. 
-
-You can use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
-
-![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Prerequisites
-Install [node_redis](https://github.com/mranney/node_redis):
 
-    npm install redis
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis), which you can install with the command `npm install redis`. 
 
-This tutorial uses [node_redis](https://github.com/mranney/node_redis). For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](https://redis.io/clients#nodejs).
-
+For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](https://redis.io/clients#nodejs).
 
 ## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -53,7 +41,6 @@ Add environment variables for your **HOST NAME** and **Primary** access key. You
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
 
 ## Connect to the cache
 
@@ -124,7 +111,6 @@ In the example below, you can see the `Message` key previously had a cached valu
 
 ![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
 
-
 ## Clean up resources
 
 If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
@@ -135,17 +121,15 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
 >
 
-Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name** text box, enter the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
 ![Delete](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+You will be asked to confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
-
-
 
 ## Next steps
 
@@ -153,6 +137,3 @@ In this quickstart, you learned how to use Azure Cache for Redis from a Node.js 
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-
-

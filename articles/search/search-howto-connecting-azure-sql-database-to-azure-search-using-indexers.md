@@ -2,9 +2,9 @@
 title: Connect and index Azure SQL Database content using indexers - Azure Search
 description: Learn how to crawl data in Azure SQL Database using indexers for full text search in Azure Search. This article covers connections, indexer configuration, and data ingestion.
 
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
@@ -59,7 +59,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 1. Create the data source:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -78,7 +78,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 3. Create the indexer by giving it a name and referencing the data source and target index:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -91,7 +91,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -100,7 +100,7 @@ You may need to allow Azure services to connect to your database. See [Connectin
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 The response should look similar to the following:
@@ -142,7 +142,7 @@ Additional information about the response can be found in [Get Indexer Status](h
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -154,23 +154,7 @@ You can also arrange the indexer to run periodically on a schedule. To do this, 
 
 The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
 
-The optional **startTime** indicates when the scheduled executions should commence. If it is omitted, the current UTC time is used. This time can be in the past – in which case the first execution is scheduled as if the indexer has been running continuously since the startTime.  
-
-Only one execution of an indexer can run at a time. If an indexer is running when its execution is scheduled, the execution is postponed until the next scheduled time.
-
-Let’s consider an example to make this more concrete. Suppose we the following hourly schedule configured:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Here’s what happens:
-
-1. The first indexer execution starts at or around March 1, 2015 12:00 a.m. UTC.
-2. Assume this execution takes 20 minutes (or any time less than 1 hour).
-3. The second execution starts at or around March 1, 2015 1:00 a.m.
-4. Now suppose that this execution takes more than an hour – for example, 70 minutes – so that it completes around 2:10 a.m.
-5. It’s now 2:00 a.m., time for the third execution to start. However, because the second execution from 1 a.m. is still running, the third execution is skipped. The third execution starts at 3 a.m.
-
-You can add, change, or delete a schedule for an existing indexer by using a **PUT indexer** request.
+For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

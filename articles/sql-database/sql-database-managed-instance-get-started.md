@@ -10,8 +10,7 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ---
 # Quickstart: Create an Azure SQL Database managed instance
 
@@ -22,17 +21,19 @@ This quickstart walks you through how to create an Azure SQL Database [managed i
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/). 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a managed instance
 
 The following steps show you how to create a managed instance.
 
-1. Select **Create a resource** in the upper-left corner of the Azure portal.
-2. Locate **managed instance**, and then select **Azure SQL Managed Instance**.
-3. Select **Create**.
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If Azure SQL is not in the list, select **All services**, then type *Azure SQL* in the search box.
+2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about Azure SQL Database managed instance by selecting **Show details** on the **Managed instances** tile.
+3. Select **Create**:
 
-   ![Create a managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![Create a managed instance](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. Fill out the **SQL managed instance** form with the requested information by using the information in the following table.
 
@@ -65,7 +66,7 @@ The following steps show you how to create a managed instance.
 11. Select **Deployment in progress** to open the managed instance window to further monitor the deployment progress. 
 
 > [!IMPORTANT]
-> For the first instance in a subnet, deployment time is typically much longer than in subsequent instances. Don't cancel the deployment operation because it lasts longer than you expected. Creating the second managed instance in the subnet takes only a couple of minutes.
+> For the first instance in a subnet, deployment time is typically much longer than in subsequent instances. Don't cancel the deployment operation because it lasts longer than you expected.
 
 ## Review resources and retrieve your fully qualified server name
 
@@ -87,7 +88,7 @@ After the deployment is successful, review the resources that were created and r
 
    ![Network security group](./media/sql-database-managed-instance-get-started/network-security-group.png)
 
-5. Review the inbound and outbound security rules. 
+5. Review the inbound and outbound security rules. If you have configured public endpoints for your managed instance, see the article [Configure public endpoint](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) for more information.
 
    ![Security rules](./media/sql-database-managed-instance-get-started/security-rules.png)
 

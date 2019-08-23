@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Manage your organizations from the My Profile (preview) portal
+
 You can manage your organizations from the **Organizations** page of the **My Profile** portal.
 
 There are two types of organizations shown on the **Organizations** page:
@@ -27,6 +28,7 @@ There are two types of organizations shown on the **Organizations** page:
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## View your organizations
+
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
 2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
@@ -37,9 +39,10 @@ There are two types of organizations shown on the **Organizations** page:
 
     ![Organizations page](media/myprofile-portal/myprofile-portal-organization-page.png)
 
-3. Review your other associated organizations, making sure you recognize all of the organizations connected to your account.
+4. Review your other associated organizations, making sure you recognize all of the organizations connected to your account.
 
 ## Leave an organization
+
 You can leave any organization that isn't your Home organization.
 
 >[!Important]

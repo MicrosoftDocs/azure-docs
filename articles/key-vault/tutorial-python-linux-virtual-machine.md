@@ -2,13 +2,13 @@
 title: Tutorial - Use a Linux virtual machine and a Python application to store secrets in Azure Key Vault | Microsoft Docs
 description: In this tutorial, you learn how to configure a Python application to read a secret from Azure Key Vault.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app so that they are kept secure.
 ---

@@ -196,7 +196,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     display(df)
     ```
 
-1. When reading large amounts of data, transient blob storage must be provided. Provide storage container SAS key, or storage account name, account key, and container name. 
+1. When reading large amounts of data, transient blob storage must be provided. Provide storage container SAS key, or storage account name, account key, and container name. This step is only required for the current preview release of the Spark connector.
 
     ```scala
     // Use either container/account-key/account name, or container SaS

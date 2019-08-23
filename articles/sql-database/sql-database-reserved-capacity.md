@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 04/26/2019
+ms.date: 08/02/2019
 ---
 # Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
 
@@ -22,7 +21,7 @@ You do not need to assign the reservation to specific SQL Database instances (si
 
 You can buy Azure SQL Database reserved capacity in the [Azure portal](https://portal.azure.com). To buy SQL Database reserved capacity:
 
-- You must be in the owner role for at least one Enterprise or Pay-As-You-Go subscription.
+- You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase SQL Database reserved capacity.
 
@@ -38,38 +37,41 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
-3. Select **Add** and then in the Select Product Type pane, select **SQL Database** to purchase a new reservation for SQL Database.
-4. Fill in the required fields. Existing or new single databases, elastic pools, or managed instances that match the attributes you select qualify to get the reserved capacity discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
+3. Select **Add** and then in the Purchase reservations pane, select **SQL Database** to purchase a new reservation for SQL Database.
+4. Fill-in the required fields. Existing or new single databases, elastic pools, or managed instances that match the attributes you select qualify to get the reserved capacity discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
+    ![Screenshot before submitting the SQL Database reserved capacity purchase](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-   ![Screenshot before submitting the SQL Database reserved capacity purchase](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+The following table describes required fields.
 
-    | Field      | Description|
-    |:------------|:--------------|
-    |Name        |The name of this reservation.|
-    |Subscription|The subscription used to pay for the SQL Database reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the SQL Database reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.|
-    |Scope       |The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <br/><br/>**Single subscription** - The vCore reservation discount is applied to SQL Database instances in this subscription. <br/><br/>**Shared subscription** - The vCore reservation discount is applied to SQL Database instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.|
-    |Region      |The Azure region that’s covered by the SQL Database reserved capacity reservation.|
-    |Deployment Type|The SQL resource type that you want to buy the reservation for.|
-    |Performance Tier|The service tier for the SQL Database instances.
-    |Term        |One year or three years.|
-    |Quantity    |The number of instances being purchased within the SQL Database reserved capacity reservation. The quantity is the number of running SQL Database instances that can get the billing discount. For example, if you are running 10 SQL Database instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
-    |||
+| Field      | Description|
+|------------|--------------|
+|Subscription|The subscription used to pay for the SQL Database reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the SQL Database reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.|
+|Scope       |The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <br/><br/>**Shared**, the vCore reservation discount is applied to SQL Database instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.<br/><br/>**Single subscription**, the vCore reservation discount is applied to SQL Database instances in this subscription. <br/><br/>**Single resource group**, the reservation discount is applied to SQL Database instances in the selected subscription and the selected resource group within that subscription.|
+|Region      |The Azure region that’s covered by the SQL Database reserved capacity reservation.|
+|Deployment Type|The SQL resource type that you want to buy the reservation for.|
+|Performance Tier|The service tier for the SQL Database instances.
+|Term        |One year or three years.|
+|Quantity    |The amount of compute resources being purchased within the SQL Database reserved capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you are running or planning to run SQL Database instances with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify quantity as 16 to maximize the benefit for all instances. |
 
-5. Review the cost of the SQL Database reserved capacity reservation in the **Costs** section.
-6. Select **Purchase**.
-7. Select **View this Reservation** to see the status of your purchase.
+1. Review the cost of the SQL Database reserved capacity reservation in the **Costs** section.
+1. Select **Purchase**.
+1. Select **View this Reservation** to see the status of your purchase.
 
-## Cancellations and exchanges
+## Cancel, exchange, or refund reservations
 
-If you need to cancel your SQL Database reserved capacity reservation, there may be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To request a cancellation, go to the reservation in the Azure portal and select **Refund** to create a support request.
-
-If you need to change your SQL Database reserved capacity reservation to another region, deployment type, performance tier, or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3 year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
-
-For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## vCore size flexibility
 
 vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. SQL Database reserved capacity also provides you with the flexibility to temporarily move your hot databases between pools and single databases as part of your normal operations (within the same region and performance tier) without losing the reserved capacity benefit. By keeping an un-applied buffer in your reservation, you can effectively manage the performance spikes without exceeding your budget.
+
+## Limitation
+
+You cannot reserve DTU-based (basic, standard, or premium) SQL databases.
+
+## Need help? Contact us
+
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 
@@ -85,7 +87,3 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## Need help? Contact us
-
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

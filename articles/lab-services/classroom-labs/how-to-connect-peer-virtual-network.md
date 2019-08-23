@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/07/2019
 ms.author: spelluru
 
 ---
@@ -30,7 +30,6 @@ You may need to connect your lab's network with a peer virtual network in some s
 
 Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview])(../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, and the lab account must all be in the same region.
 
-
 ## Configure at the time of lab account creation
 During the new lab account creation, you can pick an existing virtual network that shows in the **Peer virtual network** dropdown list. The selected virtual network is connected(peered) to labs created under the lab account. All the virtual machines in labs that are created after the making this change would have access to the resources on the peered virtual network. 
 
@@ -41,15 +40,14 @@ During the new lab account creation, you can pick an existing virtual network th
 
 
 ## Configure after the lab is created
-The same property can be enabled from the **Labs configuration** tab of the **Lab Account** page if you didn't set up a peer network at the time of lab account creation. Change made to this setting applies only to the labs that are created after the change.
+The same property can be enabled from the **Labs configuration** tab of the **Lab Account** page if you didn't set up a peer network at the time of lab account creation. Change made to this setting applies only to the labs that are created after the change. As you can see in the image, you can enable or disable **Peer virtual network** for labs in the lab account. 
 
 ![Enable or disable VNet peering after the lab is created](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-As you can see in the image, you can enable or disable **Peer virtual network** for labs in the lab account. 
+When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to connect with resources in the peer virtual network. 
 
 > [!IMPORTANT]
 > This setting change applies only to labs that are created after the change is made, not to the existing labs. 
-
 
 
 ## Next steps

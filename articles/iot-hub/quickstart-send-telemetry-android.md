@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* Android studio from https://developer.android.com/studio/. For more information regarding Android Studio installation, see [android-installation](https://developer.android.com/studio/install). 
+* Android studio from https://developer.android.com/studio/. For more information regarding Android Studio installation, see [android-installation](https://developer.android.com/studio/install).
 
 * Android SDK 27 is used by the sample in this article.
 
@@ -109,11 +109,10 @@ In this section, you will use the Azure Cloud Shell with the [IoT extension](htt
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     The following screenshot shows the output as the IoT hub receives telemetry sent by the Android device:
 
       ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
-
-
 ## Clean up resources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
@@ -126,4 +125,3 @@ To learn how to control your simulated device from a back-end application, conti
 
 > [!div class="nextstepaction"]
 > [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-android.md)
-

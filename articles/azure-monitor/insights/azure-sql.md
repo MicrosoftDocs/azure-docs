@@ -188,7 +188,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
 #### High CPU on Azure SQL Database elastic pools
@@ -203,7 +203,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
 #### Azure SQL Database storage in average above 95% in the last 1 hr
@@ -220,7 +220,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to the solution.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
 > - The output is a list of database resources that are above the storage_threshold within the time_range defined.
 

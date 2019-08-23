@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 06/03/2019
 ms.author: spelluru
 
 ---
@@ -26,6 +26,9 @@ As a lab owner, you can configure your lab virtual machines to be created in a s
 - Consolidate all your lab resources within a single resource group to simplify tracking those resources and applying [policies](../governance/policy/overview.md) to manage resources at the resource group level.
 
 With this feature, you can use a script to specify a new or existing resource group within your Azure subscription for all your lab VMs. Currently, Azure DevTest Labs supports this feature through an API.
+
+> [!NOTE]
+> All subscription limits apply when you create labs in DevTest Labs. Think of a lab as any other resource in your subscription. In case of resource groups, the limit is [980 resource groups per subscription](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
 
 ## Use Azure portal
 Follow these steps to specify a resource group for all VMs created in the lab. 

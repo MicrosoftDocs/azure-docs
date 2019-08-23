@@ -5,9 +5,9 @@ author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
 # How to create and locate anchors using Azure Spatial Anchors in Swift
@@ -155,7 +155,7 @@ Learn more about the [ASACloudSpatialAnchor](https://docs.microsoft.com/objectiv
     var localAnchor : ARAnchor? = nil
     let hits = self.sceneView.session.currentFrame?.hitTest(CGPoint(x:0.5, y:0.5), types: ARHitTestResult.ResultType.estimatedHorizontalPlane)
     if (hits!.count == 0) return
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     localAnchor = ARAnchor(transform:hits![0].worldTransform)
     self.sceneView.session.add(anchor: _localAnchor!)

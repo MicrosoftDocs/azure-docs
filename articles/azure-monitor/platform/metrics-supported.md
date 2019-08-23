@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 04/26/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -72,22 +72,23 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TotalRequests|Total Gateway Requests|Count|Total|Number of gateway requests|Location, Hostname|
-|SuccessfulRequests|Successful Gateway Requests|Count|Total|Number of successful gateway requests|Location, Hostname|
-|UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total|Number of unauthorized gateway requests|Location, Hostname|
-|FailedRequests|Failed Gateway Requests|Count|Total|Number of failures in gateway requests|Location, Hostname|
-|OtherRequests|Other Gateway Requests|Count|Total|Number of other gateway requests|Location, Hostname|
-|Duration|Overall Duration of Gateway Requests|Milliseconds|Average|Overall Duration of Gateway Requests in milliseconds|Location, Hostname|
-|Capacity|Capacity|Percent|Average|Utilization metric for ApiManagement service|Location|
-|EventHubTotalEvents|Total EventHub Events|Count|Total|Number of events sent to EventHub|Location|
-|EventHubSuccessfulEvents|Successful EventHub Events|Count|Total|Number of successful EventHub events|Location|
-|EventHubTotalFailedEvents|Failed EventHub Events|Count|Total|Number of failed EventHub events|Location|
-|EventHubRejectedEvents|Rejected EventHub Events|Count|Total|Number of rejected EventHub events (wrong configuration or unauthorized)|Location|
-|EventHubThrottledEvents|Throttled EventHub Events|Count|Total|Number of throttled EventHub events|Location|
-|EventHubTimedoutEvents|Timed Out EventHub Events|Count|Total|Number of timed out EventHub events|Location|
-|EventHubDroppedEvents|Dropped EventHub Events|Count|Total|Number of events skipped because of queue size limit reached|Location|
-|EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|Total size of EventHub events in bytes|Location|
-|Requests|Requests|Count|Total|Gateway requests|Location, BackendResponseCode, LastErrorReason, GatewayResponseCode|
+|Requests|Requests|Count|Total|The total number of gateway requests in a given period. It can be sliced by various dimensions to help you diagnose issues. |Location, BackendResponseCode, LastErrorReason, GatewayResponseCode|
+|TotalRequests|Total Gateway Requests|Count|Total|The total number of gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric. |Location, Hostname|
+|SuccessfulRequests|Successful Gateway Requests|Count|Total|The total number of successful gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total| The total number of unauthorized gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|FailedRequests|Failed Gateway Requests|Count|Total|The total number of failed gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|OtherRequests|Other Gateway Requests|Count|Total|The total number of gateway requests in a given period that do not fall into the successful, unauthorized, or failed categories. This metric has been deprecated, we recommend using the new `Requests` metric. |Location, Hostname|
+|Duration|Overall Duration of Gateway Requests|Milliseconds|Average|The time between when API Management receives a request from a client and when it returns a response to the client.|Location, Hostname|
+|Capacity|Capacity|Percent|Average|Indicator of load on an API Management instance for making informed decisions whether to scale the instance to accommodate more load.|Location|
+|EventHubTotalEvents|Total EventHub Events|Count|Total|The total number of events sent to EventHub from API Management in a given period.|Location|
+|EventHubSuccessfulEvents|Successful EventHub Events|Count|Total|The total number of successful EventHub events in a given period.|Location|
+|EventHubTotalFailedEvents|Failed EventHub Events|Count|Total|The total number of failed EventHub events in a given period.|Location|
+|EventHubRejectedEvents|Rejected EventHub Events|Count|Total|The total number of rejected EventHub events (wrong configuration or unauthorized) in a given period.|Location|
+|EventHubThrottledEvents|Throttled EventHub Events|Count|Total|The total number of throttled EventHub events in a given period.|Location|
+|EventHubTimedoutEvents|Timed Out EventHub Events|Count|Total|The total number of timed out EventHub events in a given period.|Location|
+|EventHubDroppedEvents|Dropped EventHub Events|Count|Total|The total number of events skipped because of queue size limit reached in a given period.|Location|
+|EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|The total size of EventHub events in bytes in a given period.|Location|
+
 
 ## Microsoft.Automation/automationAccounts
 
@@ -670,12 +671,14 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |d2c.endpoints.latency.serviceBusQueues|Routing: message latency for Service Bus Queue|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus queue endpoint.|No Dimensions|
 |d2c.endpoints.egress.serviceBusTopics|Routing: messages delivered to Service Bus Topic|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|No Dimensions|
 |d2c.endpoints.latency.serviceBusTopics|Routing: message latency for Service Bus Topic|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus topic endpoint.|No Dimensions|
-|d2c.endpoints.egress.builtIn.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events).|No Dimensions|
-|d2c.endpoints.latency.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events).|No Dimensions|
+|d2c.endpoints.egress.builtIn.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
+|d2c.endpoints.latency.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
 |d2c.endpoints.egress.storage|Routing: messages delivered to storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|No Dimensions|
 |d2c.endpoints.latency.storage|Routing: message latency for storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a storage endpoint.|No Dimensions|
 |d2c.endpoints.egress.storage.bytes|Routing: data delivered to storage|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|No Dimensions|
 |d2c.endpoints.egress.storage.blobs|Routing: blobs delivered to storage|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|No Dimensions|
+|EventGridDeliveries|Event Grid deliveries (preview)|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result, EventType|
+|EventGridLatency|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType|
 |d2c.twin.read.success|Successful twin reads from devices|Count|Total|The count of all successful device-initiated twin reads.|No Dimensions|
 |d2c.twin.read.failure|Failed twin reads from devices|Count|Total|The count of all failed device-initiated twin reads.|No Dimensions|
 |d2c.twin.read.size|Response size of twin reads from devices|Bytes|Average|The average, min, and max of all successful device-initiated twin reads.|No Dimensions|
@@ -709,8 +712,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |jobs.failed|Failed jobs|Count|Total|The count of all failed jobs.|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
 |dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
-|deviceDataUsage|Total device data usage (deprecated)|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
-|deviceDataUsageV2|Total device data usage (preview)|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
+|deviceDataUsage|Total device data usage|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
 |totalDeviceCount|Total devices (preview)|Count|Average|Number of devices registered to your IoT hub|No Dimensions|
 |connectedDeviceCount|Connected devices (preview)|Count|Average|Number of devices connected to your IoT hub|No Dimensions|
 |configurations|Configuration Metrics|Count|Total|Metrics for Configuration Operations|No Dimensions|
@@ -841,12 +843,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |GatewayRequests|Gateway Requests|Count|Total|Number of gateway requests|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Categorized Gateway Requests|Count|Total|Number of gateway requests by categories (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Autoscale|Autoscale Metrics|Count|Maximum|Autoscale Metrics|ClusterDnsName, MetricName|
-|AllocatedMB|Allocated MB|Count|Maximum|Allocated MB|ClusterDnsName, MetricName|
-|AvailableMB|Available MB|Count|Maximum|Available MB|ClusterDnsName, MetricName|
-|AppsPending|Apps Pending|Count|Maximum|Apps Pending|ClusterDnsName, MetricName|
-|AppsRunning|Apps Running|Count|Maximum|Apps Running|ClusterDnsName, MetricName|
-|AppsSubmitted|Apps Submitted|Count|Maximum|Apps Submitted|ClusterDnsName, MetricName|
 |NumActiveWorkers|Number of Active Workers|Count|Maximum|Number of Active Workers|ClusterDnsName, MetricName|
 
 ## Microsoft.Insights/AutoscaleSettings
@@ -907,15 +903,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Cache Utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
-|QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
-|IngestionsLoadFactor|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|No Dimensions|
-|IsEngineAnsweringQuery|Keep Alive|Count|Average|Sanity check indicates the cluster responds to queries|No Dimensions|
-|IngestCommandOriginalSizeInMb|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|No Dimensions|
-|IngestedEventAgeSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|No Dimensions|
-|EventRecievedFromEventHub|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|No Dimensions|
-|IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|IngestionResultDetails|
-|EngineCPU|CPU|Percent|Average|CPU utilization level|No Dimensions|
+|CacheUtilization|Cache Utilization|Percent|Average|Utilization level in the cluster scope|None|
+|QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|Query Status|
+|IngestionUtilization|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|None|
+|KeepAlive|Keep Alive|Count|Average|Sanity check indicates the cluster responds to queries|None|
+|IngestionVolumeInMB|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|Database|
+|IngestionLatencyInSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|None|
+|EventProcessedForEventHubs|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|None|
+|IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|Status|
+|CPU|CPU|Percent|Average|CPU utilization level|None|
+| ContinuousExportNumOfRecordsExported | Number of records exported in continuous export | Count | Total | Number of records exported for every storage artifact written during the export operation  | None |
+| ExportUtilization | Export Utilization | Percent | Maximum | Export utilization | None |
+| ContinuousExportPendingCount | Continuous Export Pending Count | Count | Maximum | The number of pending continuous export jobs ready for execution | None |
+| ContinuousExportMaxLatenessMinutes | Continuous Export Max Lateness Minutes | Count | Maximum | The max time in minutes of all continuous exports which are pending and ready for execution | None |
 
 ## Microsoft.LocationBasedServices/accounts
 
@@ -1237,9 +1237,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |outgoing.wns.authenticationerror|WNS Authentication Errors|Count|Total|Notification not delivered because of errors communicating with Windows Live invalid credentials or wrong token.|No Dimensions|
 |outgoing.apns.success|APNS Successful Notifications|Count|Total|The count of all successful notifications.|No Dimensions|
 |outgoing.apns.invalidcredentials|APNS Authorization Errors|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|No Dimensions|
-|outgoing.apns.badchannel|APNS Bad Channel Error|Count|Total|The count of pushes that failed because the token is invalid (APNS status code: 8).|No Dimensions|
+|outgoing.apns.badchannel|APNS Bad Channel Error|Count|Total|The count of pushes that failed because the token is invalid (APNS binary protocol status code: 8. APNS HTTP protocol status code: 400 with "BadDeviceToken").|No Dimensions|
 |outgoing.apns.expiredchannel|APNS Expired Channel Error|Count|Total|The count of token that were invalidated by the APNS feedback channel.|No Dimensions|
-|outgoing.apns.invalidnotificationsize|APNS Invalid Notification Size Error|Count|Total|The count of pushes that failed because the payload was too large (APNS status code: 7).|No Dimensions|
+|outgoing.apns.invalidnotificationsize|APNS Invalid Notification Size Error|Count|Total|The count of pushes that failed because the payload was too large (APNS binary protocol status code: 7).|No Dimensions|
 |outgoing.apns.pnserror|APNS Errors|Count|Total|The count of pushes that failed because of errors communicating with APNS.|No Dimensions|
 |outgoing.gcm.success|GCM Successful Notifications|Count|Total|The count of all successful notifications.|No Dimensions|
 |outgoing.gcm.invalidcredentials|GCM Authorization Errors (Invalid Credentials)|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|No Dimensions|

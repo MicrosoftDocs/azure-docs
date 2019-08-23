@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a cURL developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Write the command
  
-You will use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
+You'll use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
@@ -36,7 +36,7 @@ Replace `<Subscription Key>` with your valid Face subscription key.
 
 ### Face endpoint URL
 
-The URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indicates the Azure Face endpoint to query. You may need to change the first part of this URL to match the region that corresponds to your subscription key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
+The URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indicates the Azure Face endpoint to query. You may need to change the first part of this URL to match the region that corresponds to your subscription key. See the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints.
 
 ### URL query string
 
@@ -47,7 +47,7 @@ The query string of the Face endpoint URL specifies which face attributes to ret
 ```
 
 ### Image source URL
-The source URL indicates the image to use as input. You can change this to point to any image you wish to analyze.
+The source URL indicates the image to use as input. You can change this to point to any image you want to analyze.
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg

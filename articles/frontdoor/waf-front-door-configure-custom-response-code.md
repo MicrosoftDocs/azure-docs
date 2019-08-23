@@ -8,9 +8,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
-ms.author: tyao;kumud
-
+ms.date: 05/21/2019
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Configure a custom response for Azure web application firewall
@@ -48,11 +48,11 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## Create a new WAF policy with custom response 
 
-Below is an example of creating a new WAF policy with custom response status code set to 405 and message to **You are blocked.** using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy).
+Below is an example of creating a new WAF policy with custom response status code set to 405 and message to **You are blocked.** using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
 # WAF policy setting
-New-AzFrontDoorFireWallPolicy `
+New-AzFrontDoorWafPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -EnabledState enabled `
@@ -61,11 +61,11 @@ New-AzFrontDoorFireWallPolicy `
 -CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
 ```
 
-Modify custom response code or response body settings of an existing WAF policy, using [Set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
+Modify custom response code or response body settings of an existing WAF policy, using [Update-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
 
 ```azurepowershell
 # modify WAF response code
-Set-AzFrontDoorFireWallPolicy `
+Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -EnabledState enabled `
@@ -75,7 +75,7 @@ Set-AzFrontDoorFireWallPolicy `
 
 ```azurepowershell
 # modify WAF response body
-Set-AzFrontDoorFireWallPolicy `
+Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -CustomBlockResponseBody "<html><head><title> Forbidden</title></head><body></body></html>"

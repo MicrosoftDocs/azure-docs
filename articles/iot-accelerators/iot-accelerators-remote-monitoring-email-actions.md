@@ -99,11 +99,11 @@ The following steps show you how to set up and verify the email actions manually
 
 1. Click the **office365-connector**:
 
-    ![API Connection](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API Connection](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Click the banner to begin the authorization process:
 
-    ![authorize](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![authorize](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Click **Authorize**. You're prompted to sign in. The account you use to sign in should be the email address the application uses to send email notifications:
 
@@ -113,7 +113,7 @@ The following steps show you how to set up and verify the email actions manually
 
 1. To change the email address from which the notifications are sent from, click **Edit API connection**.
 
-    ![change email](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![change email](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### Owner role Outlook setup
 
@@ -139,7 +139,7 @@ The following steps help you to sign in and set up email actions:
 
 Out-of-the-box, the Remote Monitoring solution accelerator provides a basic HTML template for action emails. The email template uses values from the email action settings. Here's an example email:
 
-![email example](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![email example](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 The following steps show you how to edit the HTML email template. For example, you can include more information or add custom images:
 

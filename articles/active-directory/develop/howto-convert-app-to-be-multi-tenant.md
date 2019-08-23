@@ -3,8 +3,8 @@ title: How to build an app that can sign in any Azure AD user
 description: Shows how to build a multi-tenant application that can sign in a user from any Azure Active Directory tenant.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ Let’s look at each step in detail. You can also jump straight to [this list of
 
 ## Update registration to be multi-tenant
 
-By default, web app/API registrations in Azure AD are single tenant. You can make your registration multi-tenant by finding the **Multi-Tenanted** switch on the **Properties** pane of your application registration in the [Azure portal][AZURE-portal] and setting it to **Yes**.
+By default, web app/API registrations in Azure AD are single tenant. You can make your registration multi-tenant by finding the **Supported account types** switch on the **Authentication** pane of your application registration in the [Azure portal][AZURE-portal] and setting it to **Accounts in any organizational directory**.
 
 Before an application can be made multi-tenant, Azure AD requires the App ID URI of the application to be globally unique. The App ID URI is one of the ways an application is identified in protocol messages. For a single tenant application, it is sufficient for the App ID URI to be unique within that tenant. For a multi-tenant application, it must be globally unique so Azure AD can find the application across all tenants. Global uniqueness is enforced by requiring the App ID URI to have a host name that matches a verified domain of the Azure AD tenant.
 
@@ -102,7 +102,7 @@ For a user to sign in to an application in Azure AD, the application must be rep
 
 For a multi-tenant application, the initial registration for the application lives in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
 
-![Consent to single-tier app][Consent-Single-Tier]
+![Illustrates consent to single-tier app][Consent-Single-Tier]
 
 This consent experience is affected by the permissions requested by the application. Microsoft identity platform supports two kinds of permissions, app-only and delegated.
 
@@ -140,7 +140,7 @@ This can be a problem if your logical application consists of two or more applic
 
 This is demonstrated in a multi-tier native client calling web API sample in the [Related content](#related-content) section at the end of this article. The following diagram provides an overview of consent for a multi-tier app registered in a single tenant.
 
-![Consent to multi-tier known client app][Consent-Multi-Tier-Known-Client]
+![Illustrates consent to multi-tier known client app][Consent-Multi-Tier-Known-Client]
 
 #### Multiple tiers in multiple tenants
 
@@ -155,7 +155,7 @@ If it's an API built by an organization other than Microsoft, the developer of t
 
 The following diagram provides an overview of consent for a multi-tier app registered in different tenants.
 
-![Consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party]
+![Illustrates consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party]
 
 ### Revoking consent
 

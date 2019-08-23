@@ -48,7 +48,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
 In addition, HDInsight allows you to access data that is stored in Azure Storage. The syntax is:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Here are some considerations when using Azure Storage account with HDInsight clusters.
 
@@ -91,7 +91,7 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
 ```config
-wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 ```
 
 The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Table API with Java - Azure Cosmos DB'
+title: Use the Table API and Java to build an app - Azure Cosmos DB
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,9 +8,10 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
+ms.custom: seo-java-august2019
 
 ---
-# Quickstart: Build a Table API app with Java and Azure Cosmos DB
+# Quickstart: Build a Java app to manage Azure Cosmos DB Table API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -30,8 +31,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 In addition: 
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
+* [Java Development Kit (JDK) 8](https://aka.ms/azure-jdks)
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
@@ -80,7 +80,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
    ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
 
@@ -90,7 +90,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Comment out line one and uncomment line two. The first two lines should now look like this.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```

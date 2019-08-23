@@ -1,6 +1,6 @@
 ---
 title: Stream video files with Azure Media Services and the Azure CLI | Microsoft Docs
-description: Follow the steps of this quickstart to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
+description: Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ keywords: azure media services, stream
 
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: 
-ms.date: 02/19/2019
+ms.date: 08/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
-# Quickstart: Stream video files - CLI
+# Tutorial: Encode a remote file based on URL and stream the video - CLI
 
-This quickstart shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
+This tutorial shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 
 The example in this article encodes content that you make accessible via an HTTPS URL. Media Services v3 doesn't currently support chunked transfer encoding over HTTPS URLs.
 
-By the end of this quickstart, you'll be able to stream a video.  
+By the end of this tutorial, you'll be able to stream a video.  
 
 ![Play the video](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -80,7 +80,7 @@ You get a response like this:
 
 ## Start the streaming endpoint
 
-The following Azure CLI command starts the default **Sstreaming Endpoint**.
+The following Azure CLI command starts the default **Streaming Endpoint**.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -339,7 +339,7 @@ Here's an example:
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this quickstart, delete the resource group.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this tutorial, delete the resource group.
 
 Run this CLI command:
 
@@ -347,10 +347,7 @@ Run this CLI command:
 az group delete --name amsResourceGroup
 ```
 
-## See also
-
-See [Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## Next steps
 
-> [CLI samples](cli-samples.md)
+[Media Services overview](media-services-overview.md)
+

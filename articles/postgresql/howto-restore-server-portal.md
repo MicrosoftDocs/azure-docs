@@ -1,14 +1,14 @@
 ---
-title: How To Restore a Server in Azure Database for PostgreSQL
-description: This article describes how to restore a server in Azure Database for PostgreSQL using the Azure portal.
+title: How To Restore a Server in Azure Database for PostgreSQL - Single Server
+description: This article describes how to restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 5/6/2019
 ---
 
-# How to backup and restore a server in Azure Database for PostgreSQL using the Azure portal
+# How to backup and restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal
 
 ## Backup happens automatically
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.

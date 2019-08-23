@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
+ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 
@@ -38,7 +38,7 @@ Authorization: Bearer
 
 The `{subscriptionID}` parameter is required and identifies the target subscription.
 
-The `{billingPeriod}` parameter is required and specifies a current [billing period](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
+The `{billingPeriod}` parameter is required and specifies a current [billing period](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 The `${startDate}` and `${endDate}` parameters are required for this example, but optional for the endpoint. They specify the date range as strings in the form of YYYY-MM-DD (examples: `'20180501'` and `'20180615'`).
 

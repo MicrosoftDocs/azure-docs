@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD 
+author: asudbring 
 manager: twooley
 Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
 ---
 
@@ -39,7 +39,7 @@ In this section, you create a Standard Load Balancer that helps load balance vir
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **Create new** and type *myResourceGroupSLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
-    | Region         | Select **East US**.                                        |
+    | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
     | SKU           | Select **Standard**.                          |
     | Public IP address | Select **Create new**. |
@@ -149,10 +149,10 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  *myVM1* |*myVM3*|
+    | Name |  *myVM2* |*myVM3*|
     | Availability zone | 2 |3|
     |Public IP| **Standard** SKU|**Standard** SKU|
-    | Public IP - Availability zone| Zone redundant |
+    | Public IP - Availability zone| **Zone redundant** |**Zone redundant**|
     | Network security group | Select the existing *myNetworkSecurity Group*| Select the existing *myNetworkSecurity Group*|
 
  ### Create NSG rule

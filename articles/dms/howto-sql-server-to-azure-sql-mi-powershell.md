@@ -81,7 +81,7 @@ The following example creates a service named *MyDMS* in the resource group *MyD
 > The code snippet below is for an offline migration, which does not require an instance of Azure Database Migration Service based on a Premium SKU. For an online migration, the value of the -Sku parameter must include a Premium SKU.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 
