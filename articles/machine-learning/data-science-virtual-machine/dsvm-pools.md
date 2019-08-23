@@ -36,17 +36,17 @@ The user logs in to the main pool's IP or DNS address. The scale set automatical
 
 You can find a sample Azure Resource Manager template that creates a scale set with Ubuntu DSVM instances on [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). You'll find a sample of the [parameter file](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) for the Azure Resource Manager template in the same location.
 
-You can create the scale set from the Azure Resource Manager template by specifying values for the parameter file in Azure CLI:
+You can create the scale set from the Azure Resource Manager template by specifying values for the parameter file in the Azure CLI:
 
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
 az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
 The preceding commands assume you have:
-* A copy of the parameter file with the values specified for your instance of the scale set
-* The number of VM instances
-* Pointers to the Azure Files share
-* Credentials for the storage account that will be mounted on each VM
+* A copy of the parameter file with the values specified for your instance of the scale set.
+* The number of VM instances.
+* Pointers to the Azure Files share.
+* Credentials for the storage account that will be mounted on each VM.
 
 The parameter file is referenced locally in the commands. You can also pass parameters inline or prompt for them in your script.  
 
