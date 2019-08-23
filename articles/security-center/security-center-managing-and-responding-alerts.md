@@ -37,7 +37,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 > [!NOTE]
 > For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
 
-## Managing security alerts
+## Manage your security alerts
 
 You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
 
@@ -53,24 +53,36 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
 <!---moved these sections out of here-->
 <!--filter is just a step, not a whole section-->
-1. To filter the alerts shown, click **Filter**, and from the **Filter** blade that opens, select the filter options that you want to apply. The list updates according to the selected filter.
-For example, you might you want to address security alerts that occurred in the last 24 hours because you are investigating a potential breach in the system.
-![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
+1. To filter the alerts shown, click **Filter**, and from the **Filter** blade that opens, select the filter options that you want to apply. The list updates according to the selected filter. Filtering can be very helpful. For example, you might you want to address security alerts that occurred in the last 24 hours because you are investigating a potential breach in the system.
+
+    ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
 
 ## Respond to security alerts
-Click a security alert to learn which resources are involved and the steps you need to take to remediate an attack. 
 
-<!-- I take out the words "if any", should I put them back.-->
+1. Click a security alert. The resources involved and the steps you need to take to remediate an attack is shown.
 
-![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
+    <!-- I take out the words "if any", should I put them back.-->
 
-After reviewing the information, click the resource that was attacked.
+    ![Respond to security alerts](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
 
-![Suggestions for what to do about security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
+1. After reviewing the information, click a resource that was attacked.
 
-In the **Description** field, you find more details about this event. These additional details offer insight into what triggered the security alert, the target resource, when applicable the source IP address, and recommendations about how to remediate.  In some instances, the source IP address is empty (not available) because not all Windows security events logs include the IP address.
+    ![Suggestions for what to do about security alerts](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-The remediation suggested by Security Center vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to not allow the IP address that is generating this attack by using a [network ACL](../virtual-network/virtual-networks-acl.md) or a [network security group](../virtual-network/security-overview.md#security-rules) rule. For more information on the different types of alerts, read [Security alerts types](security-center-alerts-overview.md#security-alert-types).
+    In the **Description** field, see additional details which can offer an insight into what triggered the security alert. You can see the target resource, when applicable the source IP address, and recommendations about how to remediate.  
+
+    <!-- Is this information in the note needed?-->
+    > [!NOTE]
+    >In some instances, the source IP address is empty (not available) because not all Windows security events logs include the IP address.
+
+1. The remediation suggested by Security Center vary according to the security alert. Follow the remediation steps given for each alert. 
+
+<!-- I don't understand this sentence-->
+In some cases, you may have to use other Azure capabilities to implement the recommended remediation. 
+
+For more information on the different types of alerts, read [Security alerts types](security-center-alerts-overview.md#security-alert-types).
+
+<!--Is this note outdated-->
 
 > [!NOTE]
 > Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 

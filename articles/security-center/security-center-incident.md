@@ -32,14 +32,9 @@ You can review your current security incidents by looking at the security alerts
 
 2. Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph. Notice that the security incident description has a different icon compared to other alerts.
 
-
     ![View security incidents](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-
-
-
 3. Click on an incident to view details.
-
 
   ![Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
