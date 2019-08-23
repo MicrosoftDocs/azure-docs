@@ -284,7 +284,7 @@ For the full reference about each function, see the
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs for the specified action. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from all the actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -3309,7 +3309,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 ### result
 
-Return the inputs and outputs from all the actions that are inside the specified scoped action, such as a `For_each`, `Until`, or `Scope` action.
+Return the inputs and outputs from all the actions that are inside the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. This function is useful returning the results from a failed action so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
