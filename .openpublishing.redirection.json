@@ -13836,6 +13836,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-messaging/service-bus-role-based-access-control.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-managed-service-identity",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/service-bus-messaging/service-bus-amqp-apache.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
       "redirect_document_id": false
