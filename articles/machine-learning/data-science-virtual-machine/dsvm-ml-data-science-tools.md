@@ -39,7 +39,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## XGBoost 
 |    |           |
 | ------------- | ------------- |
-| What is it?   |    XGBoost is a fast, portable, and distributed gradient-boosting (GBDT, GBRT, or GBM) library for Python, R, Java, Scala, C++, and more. It runs on a single machine, and on Apache Hadoop and Spark.    |
+| What is it?   |   A fast, portable, and distributed gradient-boosting (GBDT, GBRT, or GBM) library for Python, R, Java, Scala, C++, and more. It runs on a single machine, and on Apache Hadoop and Spark.    |
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning library      |
 | How is it configured or installed?      |  Installed with GPU support   |
@@ -88,7 +88,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | Supported versions      | Windows, Linux    |
 | Typical uses      | General-purpose gradient-boosting framework      |
 | How is it configured or installed?      | On Windows, LightGBM is installed as a Python package. On Linux, the command-line executable is in `/opt/LightGBM/lightgbm`, the R package is installed, and Python packages are installed.     |
-| Link to samples      | [LightGBM Guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
+| Link to samples      | [LightGBM guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | Related tools      | MXNet, XgBoost  |
 
 ## H2O
