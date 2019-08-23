@@ -24,18 +24,31 @@ Conditional Access policies at their simplest are if-then statements, if a user 
 
 Conditional Access policies are enforced after the first-factor authentication has been completed. Conditional Access is not intended as an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access.
 
-![Control](./media/overview/81.png)
+![Conceptual Conditional Access process flow](./media/overview/conditional-access-overview-how-it-works.png)
 
 This article provides a conceptual overview of Conditional Access in Azure AD.
 
 ## Common scenarios
 
-Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the continued growth of scenarios like bring your own device (BYOD), working off corporate networks, and the exponential adoption of SaaS apps, organizations are faced with opposing goals:
+Administrators are faced with two primary goals:
 
-- Allow users to be productive wherever and whenever
+- Empower users to be productive wherever and whenever
 - Protect the organization's assets
 
-Conditional Access provides organizations with added security when needed and stays out of your user’s way when it isn’t.
+By using Conditional Access policies, you can apply the right access controls when needed and stay out of your user’s way when not.
+
+Common signals that Conditional Access can take in to account when making a policy decision include the following:
+
+- User or group membership
+   - Policies can be targeted to specific users and groups giving administrators fine-grained control over access.
+- IP Location information
+   - Organizations can create trusted IP address ranges that can be used when making policy decisions. Additionally administrators can specify entire countries IP ranges to block or allow traffic from.
+- Device
+   - Users with devices of specific platforms or marked with a specific state can be used when enforcing Conditional Access policies.
+- Application
+   - Users attempting to access specific applications can trigger different Conditional Access policies. For Example, you may not care who accesses the lunch menu or from where, but you want to ensure anyone accessing your HR or Payroll systems has performed MFA and is using a compliant device inside the corporate network.
+- Real-time and calculated risk events
+   - Signals integration with Azure AD Identity Protection allow Conditional Access policies to identify risky sign-in behavior. Policies can then force users to perform password changes or multi-factor authentication to reset their risk level or be blocked from access until an administrator takes manual action.
 
 Common access concerns that Conditional Access policies can help organizations with:
 
