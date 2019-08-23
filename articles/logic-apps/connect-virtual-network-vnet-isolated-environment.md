@@ -77,7 +77,7 @@ If you created a new virtual network and subnets without any constraints, you do
 This table describe the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 > [!NOTE]
-> Source Port(s) are ephemeral and should be set to `*` for all rules
+> Source Port(s) are ephemeral, so set them to `*` for all rules.
 
 | Purpose | Direction | Destination Port(s) | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
