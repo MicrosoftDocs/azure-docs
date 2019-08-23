@@ -148,7 +148,7 @@ For an example, see [Tutorial: Train an image classification model with Azure Ma
 
 ### Runs
 
-A run is a record that contains the following information:
+A run is a single execution of a training script. Azure Machine Learning records all runs and stores the following information:
 
 * Metadata about the run (timestamp, duration, and so on)
 * Metrics that are logged by your script
