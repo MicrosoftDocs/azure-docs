@@ -824,8 +824,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for deeper learning.
 
-+ [Index operations](/rest/api/searchservice/index-operations)
++ [Index operations](/rest/api/searchservice/index-operations.md)
 
-+ [Document operations](/rest/api/searchservice/document-operations)
++ [Document operations](/rest/api/searchservice/document-operations.md)
 
-+ [Indexer operations](/rest/api/searchservice/indexer-operations)
++ [Indexer operations](/rest/api/searchservice/indexer-operations.md)
