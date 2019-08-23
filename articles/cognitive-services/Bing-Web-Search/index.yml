@@ -1,0 +1,112 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Bing Web Search API Documentation
+metadata:
+  document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
+  title: Bing Web Search API Documentation - Tutorials, quickstarts, API references
+  titleSuffix: Azure Cognitive Services
+  description: Learn how to use the Bing Web Search API to search the web for webpages, images, videos, news and more. 
+  services: cognitive-services
+  author: nitinme
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: bing-web-search
+  ms.topic: landing-page
+  ms.date: 7/25/2019
+  ms.author: nitinme
+abstract:
+  description: The Bing Web Search API enables you to integrate Bing's search capabilities in your applications. By sending search queries with the API, you can get relevant webpages, images, videos, news and more.
+sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/bing-web-search/overview
+          html: <p>Learn about the Bing Web Search API</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Bing Web Search?
+        - href: /azure/cognitive-services/bing-web-search/search-responses
+          html: <p>Understand the response body of a Bing Web Search API</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Web Search responses
+        - href: /azure/cognitive-services/bing-web-search/autosuggest-bing-search-terms
+          html: <p>Learn how auto suggest works for your search query</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Autosuggest for Bing queries
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Search the web using:'
+  - type: list
+    style: icon48
+    items:
+      - image:
+          src: media/index/logo_csharp.svg
+        href: web-search-sdk-quickstart
+        text: "C&#35;"
+      - image:
+          src: https://docs.microsoft.com/media/logos/logo_gopher.svg
+        href: quickstarts/go
+        text: "Go"
+      - image:
+          src: media/index/logo_java.svg
+        href: web-sdk-java-quickstart
+        text: "Java"
+      - image:
+          src: media/index/logo_nodejs.svg
+        href: web-search-sdk-node-quickstart
+        text: "Node.js"
+      - image:
+          src: media/index/logo_php.svg
+        href: quickstarts/php
+        text: "PHP"
+      - image:
+          src: media/index/logo_python.svg
+        href:  web-sdk-python-quickstart
+        text: "Python"
+      - image:
+          src: media/index/logo_ruby.svg
+        href: quickstarts/ruby
+        text: "Ruby"  
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Bing Web Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-bing-web-search-single-page-app">Single-page web app</a>
+#    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples for Bing Web Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples">REST Samples</a>
+    - html: <a href="sdk-samples.md">SDK Samples</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference">Bing Web Search API v7</a></p>
+            <p><a href="https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference">Bing Web Search API v5</a></p>
+    - title: SDKs
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet">.NET</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python">Python</a></p>
+            <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch">Go</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable">Java</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

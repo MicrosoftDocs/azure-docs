@@ -3,7 +3,7 @@ title: Application templates in Azure API Management | Microsoft Docs
 description: Learn how to customize the content of the Application pages in the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -27,6 +27,8 @@ Azure API Management provides you the ability to customize the content of develo
   
 > [!NOTE]
 >  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a> Application list  
  The **Application list** template allows you to customize the body of the application list page in the developer portal.  
@@ -74,9 +76,9 @@ Azure API Management provides you the ability to customize the content of develo
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|Paging|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
-|Applications|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications visible to the current user.|  
-|CategoryName|string|The category of application.|  
+|`Paging`|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
+|`Applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications visible to the current user.|  
+|`CategoryName`|string|The category of application.|  
   
 ### Sample template data  
   

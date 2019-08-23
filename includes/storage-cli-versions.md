@@ -1,6 +1,13 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 ## Versions of the Azure CLI
 
 There are two versions of the Azure Command-Line Interface (CLI) currently available:
 
-* [Azure CLI 2.0](../articles/storage/storage-azure-cli.md): Our next-generation CLI written in Python, for use with the Resource Manager deployment model.
-* [Azure CLI 1.0](../articles/storage/storage-azure-cli-nodejs.md): Our CLI written in Node.js, for use with both the classic and Resource Manager deployment models.
+* [Azure CLI](../articles/storage/common/storage-azure-cli.md): The current version of the Azure CLI, for use with the Resource Manager deployment model.
+* [Azure classic CLI](../articles/storage/common/storage-azure-cli-nodejs.md): An older version of the Azure CLI, intended for use only with the classic deployment model.

@@ -1,0 +1,58 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 'Azure SQL Database: Monitoring and tuning'
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database - Monitoring and tuning
+  meta.description: Learn how to monitor and tune your Azure SQL database.
+  services: sql-database
+  ms.subservice: performance
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang:
+  ms.topic: overview
+  ms.date: 02/08/2019
+  ms.author: jovanpop
+sections:
+
+- items:
+  - type: paragraph
+    text: Azure SQL Database enables you to easily monitor and tune your database workload.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - title: Query Performance Insights
+        href: /azure/sql-database/sql-database-query-performance
+        html: <p>Easily monitor resource usage in your Azure SQL database (single or pooled database) by using built-in monitoring capabilities in the Azure portal.</p>
+      - title: Azure SQL Analytics
+        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
+        html: <p>Azure SQL Analytics monitoring enables you to easily monitor a large fleet of databases, elastic pools, and instances in a single pane of glass.</p>
+      - title: Automatic tuning
+        href: /azure/sql-database/sql-database-automatic-tuning
+        html: <p>Automatic tuning automatically recommends and fixes query plan issues, and creates and drops indexes, to improve performance.</p>
+      - title: Intelligent Performance Insight
+        href: /azure/sql-database/sql-database-intelligent-insights
+        html: <p>Built-in intelligence in Azure SQL Database detects disruptive events that cause poor performance in your databases and provides mitigation recommendations when possible.</p>
+      - title: Performance recommendations
+        href: /azure/sql-database/sql-database-advisor
+        html: <p>Azure SQL Database provides recommendations that can help you optimize your database in the Azure portal.</p>
+      - title: Metrics and logging
+        href: /azure/sql-database/sql-database-metrics-diag-logging
+        html: <p>Stream your database diagnostics telemetry to Azure SQL Analytics, Azure Event Hubs, or Azure Blob storage for custom integrations.</p>
+- title: More resources
+  items:
+  - type: paragraph
+    text: Learn about additional features that can help you optimize the performance of your database. 
+  - type: list
+    style: unordered
+    items:
+    - html: Learn more about <a href="sql-database-monitor-tune-overview.md">monitoring and tuning</a> in Azure SQL Database.
+    - html: Learn how <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">intelligent query processing</a> can improve the performance of your database.
+    - html: Set up and operate <a href="sql-database-operate-query-store.md">Query Store</a>, the core SQL Server technology that enables you to get real-time insights into query performance.
+    - html: Learn how to use <a href="sql-database-operate-query-store.md">Dynamic Management Views</a> to analyze the performance of your workload.
+    - html: Learn how to monitor database activities with <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
+    - html: Learn how to <a href="sql-database-performance-guidance.md">manually tune your database</a>.

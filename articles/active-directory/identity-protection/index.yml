@@ -1,0 +1,61 @@
+### YamlMime:Landing
+
+title: Azure AD Identity Protection documentation
+summary: Learn how to use Identity Protection to identify and address identity risks in your organization
+
+metadata:
+  title: Azure AD Identity Protection documentation
+  description: Learn how to use Identity Protection to identify and address identity risks in your organization
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: identity-protection
+  ms.topic: landing-page
+  author: MicrosoftGuyJFlo
+  ms.author: joflore
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Identity Protection
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Identity Protection?
+            url: overview-v2.md
+          - text: Introducing the security overview
+            url: security-overview.md
+
+  # Card
+  - title: Investigate risk events
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure risk polciies
+            url: howto-configure-risk-policies.md
+          - text: Investigate risky users and sign-ins
+            url: howto-investigate-risky-users-signins.md
+      - linkListType: reference
+        links:
+          - text: Types of events
+            url: risk-events-reference.md
+
+  # Card
+  - title: Identity Protection experience
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Sign-in experience
+            url: flows.md
+      - linkListType: how-to-guide
+        links:
+          - text: Simulate Risk Events
+            url: playbook.md
+      - linkListType: quickstart
+        links:
+          - text: Block access when a session risk is detected
+            url: quickstart-sign-in-risk-policy.md

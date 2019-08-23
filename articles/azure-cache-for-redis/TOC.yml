@@ -1,0 +1,137 @@
+- name: Azure Cache for Redis Documentation
+  href: index.md
+- name: Overview
+  items:
+  - name: About Azure Cache for Redis
+    href: cache-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an ASP.NET app
+    href: cache-web-app-howto.md
+  - name: Create a .NET app
+    href: cache-dotnet-how-to-use-azure-redis-cache.md
+  - name: Create a .NET Core app
+    href: cache-dotnet-core-quickstart.md
+  - name: Create a Node.js app
+    href: cache-nodejs-get-started.md
+  - name: Create a Java app
+    href: cache-java-get-started.md
+  - name: Create a Python app
+    href: cache-python-get-started.md
+- name: Tutorials
+  items:
+  - name: Use caching with leaderboards
+    href: cache-web-app-cache-aside-leaderboard.md  
+- name: Samples
+  items:
+    - name: Azure Cache for Redis samples
+      href: cache-redis-samples.md
+    - name: Azure PowerShell
+      href: cache-howto-manage-redis-cache-powershell.md
+    - name: Azure CLI
+      href: cli-samples.md
+- name: Concepts
+  items:
+    - name: Best Practices
+      items:
+        - name: Best Practices for Azure Cache for Redis
+          href: cache-best-practices.md
+        - name: Azure Architecture Best Practices for Caching
+          href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
+- name: How-to guides
+  items:
+  - name: Plan
+    items:
+    - name: Choose a cache tier
+      href: cache-faq.md#what-redis-cache-offering-and-size-should-i-use
+    - name: Persist your cache with Redis data persistence
+      href: cache-how-to-premium-persistence.md
+    - name: Secure your cache with a virtual network
+      href: cache-how-to-premium-vnet.md
+    - name: Distribute your cache with clustering
+      href: cache-how-to-premium-clustering.md
+    - name: Migrate from Managed Cache Service
+      href: cache-migrate-to-redis.md
+  - name: Automate
+    items:
+    - name: Deploy and manage using Azure Powershell
+      href: cache-howto-manage-redis-cache-powershell.md
+    - name: Deploy and Manage using Azure CLI
+      href: cli-samples.md
+    - name: Provision an Azure Cache for Redis
+      href: cache-redis-cache-arm-provision.md
+    - name: Provision a Web App with Azure Cache for Redis
+      href: cache-web-app-arm-with-redis-cache-provision.md
+  - name: Integrate with ASP.NET
+    items:
+    - name: Session state provider
+      href: cache-aspnet-session-state-provider.md
+    - name: Output cache provider
+      href: cache-aspnet-output-cache-provider.md
+  - name: Manage
+    items:
+    - name: Configure in Azure portal
+      href: cache-configure.md
+    - name: Configure Geo-replication
+      href: cache-how-to-geo-replication.md
+    - name: Import/Export data
+      href: cache-how-to-import-export-data.md
+    - name: Reboot
+      href: cache-administration.md#reboot
+    - name: Schedule updates
+      href: cache-administration.md#schedule-updates
+    - name: Configure redis-cli.exe access
+      href: cache-how-to-redis-cli-tool.md
+  - name: Monitor and troubleshoot
+    items:
+    - name: Monitor in Azure portal
+      href: cache-how-to-monitor.md
+    - name: Troubleshoot cache issues
+      href: cache-how-to-troubleshoot.md
+    - name: Set alerts for exceptions
+      href: cache-how-to-monitor.md#operations-and-alerts
+  - name: Scale
+    items:
+    - name: Update to a different size and tier
+      href: cache-how-to-scale.md
+    - name: Use Redis cluster to scale in/out
+      href: cache-how-to-premium-clustering.md
+  - name: Integrate with Spring Boot
+    items:
+    - name: Use a Spring Boot Initializer app with Azure Cache for Redis
+      href: cache-java-spring-boot-initializer-with-redis-cache.md
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=redis-cache
+  - name: Azure PowerShell
+    href: /powershell/module/az.rediscache
+  - name: Azure CLI
+    href: /cli/azure/redis
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.redis
+  - name: Java
+    href: /java/api/com.microsoft.azure.management.redis._redis_cache
+  - name: Redis clients
+    href: https://redis.io/clients
+  - name: Redis commands
+    href: https://redis.io/commands#
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/redis/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.cache/allversions
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-redis-cache
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cache/
+  - name: Azure Cache for Redis FAQ
+    href: cache-faq.md
+  - name: Videos
+    href: https://www.youtube.com/results?search_query=azure+redis+cache
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc

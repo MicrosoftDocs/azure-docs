@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Machine Learning Studio Documentation
+metadata:
+  title: Azure Machine Learning Studio Documentation - Tutorials, Reference | Microsoft Docs 
+  description: Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: studio
+  ms.topic: landing-page
+  
+  author: j-martens
+  ms.author: jmartens
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.date: 02/24/2019
+  
+abstract:
+  description: Azure Machine Learning Studio is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
+
+sections:
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Follow extended tutorials that walk you through creating and deploying models:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="create-experiment">Create your first Studio experiment</a>
+    - html: <a href="tutorial-part1-credit-risk">Create and deploy a predictive solution for credit risk</a>
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="powershell-module">PowerShell modules</a></p>
+    - title: Modules
+      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm & Module reference</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>
+
+- title: More Azure Machine Learning technologies
+  items:
+  - type: paragraph
+    text: 'Other technologies available in Azure Machine Learning:'
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Machine Learning service
+      href: /azure/machine-learning/service/
+      image: 
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/service/
+    - title: Data Science Virtual Machine
+      href: /azure/machine-learning/data-science-virtual-machine/
+      image: 
+        src: media/index/virtual-machines.svg
+        href: /azure/machine-learning/data-science-virtual-machine/

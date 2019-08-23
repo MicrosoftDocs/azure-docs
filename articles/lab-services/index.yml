@@ -1,0 +1,56 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Lab Services and Azure DevTest Labs Documentation
+metadata:
+  title: Azure Lab Services Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
+  services: lab-services
+  author: spelluru
+  manager:
+  ms.service: lab-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/06/2018
+  ms.author: spelluru
+abstract:
+  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
+sections:
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create and use a <b>classroom lab</b> by using Azure Lab Services.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-lab-account">Set up a lab account</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab">Set up a classroom lab</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab">Access a classroom lab</a>
+  - type: paragraph
+    text: Learn how to create and use a <b>lab</b> by using Azure DevTest Labs.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">Set up a lab</a>
+    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">Access a lab</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Use the following samples to work with Lab Services.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates">Resource Manager templates</a>
+    - html: <a href="/azure/lab-services/samples-cli">Azure CLI</a>
+    - html: <a href="/azure/lab-services/samples-powershell">Azure PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/lab">Azure CLI</a></p><p><a href="/powershell/module/az.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/dtl">REST API</a></p>

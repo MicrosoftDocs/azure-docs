@@ -1,22 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Acquiring a token using an iOS application | Microsoft Docs'
-description: This article will show you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
+title: Using AppAuth in an iOS application in Azure Active Directory B2C | Microsoft Docs
+description: This article shows you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
-documentationcenter: ios
-author: saeeda
-manager: krassk
-editor: ''
+author: mmacy
+manager: celestedg
 
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: mobile-ios
-ms.devlang: objectivec
-ms.topic: article
-ms.date: 03/07/2017
-ms.author: saeeda
-
+ms.topic: conceptual
+ms.date: 11/30/2018
+ms.author: marsma
+ms.subservice: B2C
 ---
+
 # Azure AD B2C: Sign-in using an iOS application
 
 The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Using an open standard protocol offers more developer choice when selecting a library to integrate with our services. We've provided this walkthrough and others like it to aid developers with writing applications that connect to the Microsoft Identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) are able to connect to the Microsoft Identity platform.
@@ -28,10 +24,8 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 
 If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
-Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
-
 ## Get an Azure AD B2C directory
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue.
 
 ## Create an application
 Next, you need to create an app in your B2C directory. The app registration gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
@@ -40,19 +34,14 @@ Next, you need to create an app in your B2C directory. The app registration give
 * Copy the **Application ID** that is assigned to your app. You need this GUID later.
 * Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You need this URI later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
-## Create your policies
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. Create this policy as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the policy, be sure to:
+## Create your user flows
+In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This application contains one identity experience: a combined sign-in and sign-up. When you create the user flow, be sure to:
 
 * Under **Sign-up attributes**, select the attribute **Display name**.  You can select other attributes as well.
 * Under **Application claims**, select the claims **Display name** and **User's Object ID**. You can select other claims as well.
-* Copy the **Name** of each policy after you create it. Your policy name is prefixed with `b2c_1_` when you save the policy.  You need the policy name later.
+* Copy the **Name** of each user flow after you create it. Your user flow name is prefixed with `b2c_1_` when you save the user flow.  You need the user flow name later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-After you have created your policies, you're ready to build your app.
+After you have created your user flows, you're ready to build your app.
 
 ## Download the sample code
 We have provided a working sample that uses AppAuth with Azure AD B2C [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). You can download the code and run it. To use your own Azure AD B2C tenant, follow the instructions in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
@@ -69,18 +58,18 @@ This sample was created by following the README instructions by the [iOS AppAuth
 
 You can configure communication with Azure AD B2C by specifying both the authorization endpoint and token endpoint URIs.  To generate these URIs, you need the following information:
 * Tenant ID (for example, contoso.onmicrosoft.com)
-* Policy name (for example, B2C\_1\_SignUpIn)
+* User flow name (for example, B2C\_1\_SignUpIn)
 
 The token endpoint URI can be generated by replacing the Tenant\_ID and the Policy\_Name in the following URL:
 
 ```objc
-static NSString *const tokenEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
+static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
 The authorization endpoint URI can be generated by replacing the Tenant\_ID and the Policy\_Name in the following URL:
 
 ```objc
-static NSString *const authorizationEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
+static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
 ```
 
 Run the following code to create your AuthorizationServiceConfiguration object:
@@ -131,8 +120,8 @@ To set up your application to handle the redirect to the URI with the custom sch
 * Click the arrow to the left of 'Item 0' to open the tree.
 * Rename first item underneath Item 0 to 'URL Schemes'.
 * Click the arrow to the left of 'URL Schemes' to open the tree.
-* In the 'Value' column, there is a blank field to the left of 'Item 0' underneath 'URL Schemes'.  Set the value to your application's unique scheme.  The value must match the scheme used in redirectURL when creating the OIDAuthorizationRequest object.  In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp'.
+* In the 'Value' column, there is a blank field to the left of 'Item 0' underneath 'URL Schemes'.  Set the value to your application's unique scheme.  The value must match the scheme used in redirectURL when creating the OIDAuthorizationRequest object.  In the sample,  the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp' is used.
 
-Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
+Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [the sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
 
-We are always open to feedback and suggestions! If you have any difficulties with this topic, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+We are always open to feedback and suggestions! If you have any difficulties with this article, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

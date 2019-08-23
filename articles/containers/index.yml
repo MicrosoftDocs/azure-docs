@@ -1,0 +1,83 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure for Containers
+metadata:
+  document_id:
+  title: Azure for Containers - Quickstarts, Tutorials, API Reference
+  description: Get started managing and deploying container apps with Azure using quickstarts, tutorials, and tools for containers.
+  keywords: Azure, Containers, Docker, API, Kubernetes
+  author: dlepow
+  ms.author: danlep
+  manager: jeconnoc
+  ms.date: 01/08/2019
+  ms.topic: article
+  ms.prod: azure
+  featureFlags:
+  - clicktale
+  ms.technology: azure
+  ms.devlang: multiple
+  ms.service: multiple
+sections:
+- items:
+  - type: markdown
+    text: |
+      Get started deploying and managing container apps with Azure tools and services for containers. 
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to use containers with Azure services.'
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: ../aks/kubernetes-walkthrough.md
+      title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS)
+      image:
+        src: /azure/media/index/ContainerService.svg
+    - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
+      title: Deploy a Windows container application with Service Fabric
+      image:
+        src: /azure/media/index/Fabric.svg
+    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go
+      title: Create a containerized app with Azure Web App for Containers
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+    - href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
+      title: Create a private Docker registry in Azure Container Registry
+      image:
+        src: /azure/media/index/container-registry.svg
+    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+      title: Run a container app on-demand in Azure Container Instances
+      image:
+        src: /azure/media/index/containerinstances.svg
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to deploy, manage, and update container apps using Azure services
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Build and deploy a container to Azure Kubernetes Service</a>
+    - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">Build and deploy a .NET container app to Azure Service Fabric</a>
+    - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Create a multi-container app in Web App for Containers</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Build and deploy container images with Azure Container Registry Tasks</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Build and deploy a container to Azure Container Instances</a>
+    - html: <a href="/azure/openshift/tutorial-create-cluster">Create an Azure Red Hat OpenShift cluster</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Run Docker containers with Azure Container Instances
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image: 
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+        href: /learn/modules/run-docker-with-azure-container-instances/
+    - title: Build and store container images with Azure Container Registry
+      href: /learn/modules/build-and-store-container-images/
+      image: 
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/
+

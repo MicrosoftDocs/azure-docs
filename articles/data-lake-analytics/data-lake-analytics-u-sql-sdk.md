@@ -1,26 +1,19 @@
 ---
-title: Scale U-SQL local run and test with Azure Data Lake U-SQL SDK | Microsoft Docs
-description: 'Learn how to use Azure Data Lake U-SQL SDK to scale U-SQL jobs local run and test with command line and programming interfaces on your local workstation.'
+title: Run and test U-SQL jobs locally using the Azure Data Lake U-SQL SDK
+description: Learn how to run and test U-SQL jobs locally using the command line and programming interfaces on your local workstation.
 services: data-lake-analytics
-documentationcenter: ''
-author: 
-manager: 
-editor: 
-
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
 
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
 ---
 
-# Scale U-SQL local run and test with Azure Data Lake U-SQL SDK
+# Run and test U-SQL with Azure Data Lake U-SQL SDK
 
-When developing U-SQL script, it is common to run and test U-SQL script locally before submit it to cloud. Azure Data Lake provides a Nuget package called Azure Data Lake U-SQL SDK for this scenario, through which you can easily scale U-SQL local run and test. It is also possible to integrate this U-SQL test with CI (Continuous Integration) system to automate the compile and test.
+When developing U-SQL script, it is common to run and test U-SQL script locally before submit it to cloud. Azure Data Lake provides a Nuget package called Azure Data Lake U-SQL SDK for this scenario, through which you can easily scale U-SQL run and test. It is also possible to integrate this U-SQL test with CI (Continuous Integration) system to automate the compile and test.
 
 If you care about how to manually local run and debug U-SQL script with GUI tooling, then you can use Azure Data Lake Tools for Visual Studio for that. You can learn more from [here](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -35,11 +28,11 @@ The Data Lake U-SQL SDK requires the following dependencies:
 - [Microsoft .NET Framework 4.6 or newer](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer (which is called CppSDK in this article). There are two ways to get CppSDK:
 
-    - Install [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you have this installed with Visual Studio, the U-SQL local compiler will find it automatically.
+  - Install [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you have this installed with Visual Studio, the U-SQL local compiler will find it automatically.
 
     ![Data Lake Tools for Visual Studio local-run Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Install [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). You can find the prepackaged Visual C++ and Windows SDK files at
+  - Install [Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs). You can find the prepackaged Visual C++ and Windows SDK files at
 	C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In this case, the U-SQL local compiler cannot find the dependencies automatically. You need to specify the CppSDK path for it. You can either copy the files to another location or use it as is.
 
 ## Understand basic concepts
@@ -141,21 +134,21 @@ The **run** command is used to compile the script and then execute compiled resu
 The following are optional arguments for **run**:
 
 
-|Argument|Description|
-|--------|-----------|
-|-CodeBehind [default value 'False']|The script has .cs code behind|
-|-CppSDK [default value '']|CppSDK Directory|
-|-DataRoot [default value 'DataRoot environment variable']|DataRoot for local run, default to 'LOCALRUN_DATAROOT' environment variable|
-|-MessageOut [default value '']|Dump messages on console to a file|
-|-Parallel [default value '1']|Run the plan with the specified parallelism|
-|-References [default value '']|List of paths to extra reference assemblies or data files of code behind, separated by ';'|
-|-UdoRedirect [default value 'False']|Generate Udo assembly redirect config|
-|-UseDatabase [default value 'master']|Database to use for code behind temporary assembly registration|
-|-Verbose [default value 'False']|Show detailed outputs from runtime|
-|-WorkDir [default value 'Current Directory']|Directory for compiler usage and outputs|
-|-RunScopeCEP [default value '0']|ScopeCEP mode to use|
-|-ScopeCEPTempPath [default value 'temp']|Temp path to use for streaming data|
-|-OptFlags [default value '']|Comma-separated list of optimizer flags|
+|Argument|Default value|Description|
+|--------|-------------|-----------|
+|-CodeBehind|False|The script has .cs code behind|
+|-CppSDK| |CppSDK Directory|
+|-DataRoot| DataRoot environment variable|DataRoot for local run, default to 'LOCALRUN_DATAROOT' environment variable|
+|-MessageOut| |Dump messages on console to a file|
+|-Parallel|1|Run the plan with the specified parallelism|
+|-References| |List of paths to extra reference assemblies or data files of code behind, separated by ';'|
+|-UdoRedirect|False|Generate Udo assembly redirect config|
+|-UseDatabase|master|Database to use for code behind temporary assembly registration|
+|-Verbose|False|Show detailed outputs from runtime|
+|-WorkDir|Current Directory|Directory for compiler usage and outputs|
+|-RunScopeCEP|0|ScopeCEP mode to use|
+|-ScopeCEPTempPath|temp|Temp path to use for streaming data|
+|-OptFlags| |Comma-separated list of optimizer flags|
 
 
 Here's an example:
@@ -211,12 +204,12 @@ The **execute** command is used to execute compiled results.
 
 The following are optional arguments for **execute**:
 
-|Argument|Description|
-|--------|-----------|
-|-DataRoot [default value '']|Data root for metadata execution. It defaults to the **LOCALRUN_DATAROOT** environment variable.|
-|-MessageOut [default value '']|Dump messages on the console to a file.|
-|-Parallel [default value '1']|Indicator to run the generated local-run steps with the specified parallelism level.|
-|-Verbose [default value 'False']|Indicator to show detailed outputs from runtime.|
+|Argument|Default value|Description|
+|--------|-------------|-----------|
+|-DataRoot | '' |Data root for metadata execution. It defaults to the **LOCALRUN_DATAROOT** environment variable.|
+|-MessageOut | '' |Dump messages on the console to a file.|
+|-Parallel | '1' |Indicator to run the generated local-run steps with the specified parallelism level.|
+|-Verbose | 'False' |Indicator to show detailed outputs from runtime.|
 
 Here's a usage example:
 
@@ -389,10 +382,7 @@ Please check the following:
 
 ## Next steps
 
-* To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-* To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-* For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 * To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * To see a more complex query, see [Analyze website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * To view job details, see [Use Job Browser and Job View for Azure Data Lake Analytics jobs](data-lake-analytics-data-lake-tools-view-jobs.md).

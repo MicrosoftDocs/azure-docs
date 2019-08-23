@@ -3,8 +3,8 @@ title: Azure DNS troubleshooting guide | Microsoft Docs
 description: How to troubleshoot common issues with Azure DNS
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: ''
 
 ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
-ms.author: jonatul
+ms.author: genli
 ---
 
 # Azure DNS troubleshooting guide
@@ -65,11 +65,11 @@ DNS name resolution is a multi-step process, which can fail for many reasons. Th
 
 1.	Confirm that the DNS records have been configured correctly in Azure DNS. Review the DNS records in the Azure portal, checking that the zone name, record name, and record type are correct.
 2.	Confirm that the DNS records resolve correctly on the Azure DNS name servers.
-    - If you make DNS queries from your local PC, you may see cached results that don’t reflect the current state of the name servers.  Also, corporate networks often use DNS proxy servers, which prevent DNS queries from being directed to specific name servers.  To avoid these problems, use a web-based name resolution service such as [digwebinterface](http://digwebinterface.com).
+    - If you make DNS queries from your local PC, you may see cached results that don’t reflect the current state of the name servers.  Also, corporate networks often use DNS proxy servers, which prevent DNS queries from being directed to specific name servers.  To avoid these problems, use a web-based name resolution service such as [digwebinterface](https://digwebinterface.com).
     - Be sure to specify the correct name servers for your DNS zone, as shown in the Azure portal.
     - Check that the DNS name is correct (you have to specify the fully qualified name, including the zone name) and the record type is correct
 3.	Confirm that the DNS domain name has been correctly [delegated to the Azure DNS name servers](dns-domain-delegation.md). There are a [many 3rd-party web sites that offer DNS delegation validation](https://www.bing.com/search?q=dns+check+tool). This test is a *zone* delegation test, so you should only enter the DNS zone name and not the fully qualified record name.
-4.	Having completed the above, your DNS record should now resolve correctly. To verify, you can again use [digwebinterface](http://digwebinterface.com), this time using the default name server settings.
+4.	Having completed the above, your DNS record should now resolve correctly. To verify, you can again use [digwebinterface](https://digwebinterface.com), this time using the default name server settings.
 
 
 ### **Recommended documents**

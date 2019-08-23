@@ -2,8 +2,8 @@
 title: Enable offline sync for your Azure Mobile App (Cordova) | Microsoft Docs
 description: Learn how to use App Service Mobile App to cache and sync offline data in your Cordova application
 documentationcenter: cordova
-author: adrianhall
-manager: adrianha
+author: elamalani
+manager: crdun
 editor: ''
 services: app-service\mobile
 
@@ -13,13 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: adrianha
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Enable offline sync for your Cordova mobile app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-offline-data) today.
+>
+
+## Overview
 This tutorial introduces the offline sync feature of Azure Mobile Apps for Cordova. Offline sync allows
 end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there
 is no network connection. Changes are stored in a local database.  Once the device is back online, these
@@ -74,7 +78,7 @@ project includes both of these plugins.
     used in your Azure back end. (You don't need to include all column values in this code.)  The `version` field
     is maintained by the mobile backend and is used for conflict resolution.
 
-    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table 
+    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table
     relationships by tracking and pushing changes in all tables a client app has modified when `.push()` is called.
 
 3. Update the application URL to your Mobile App application URL.
@@ -230,11 +234,11 @@ an online state. When you log in, data is synced to your mobile backend.
 [Apache Cordova quick start]: app-service-mobile-cordova-get-started.md
 [offline sync sample]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Offline Sync in Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

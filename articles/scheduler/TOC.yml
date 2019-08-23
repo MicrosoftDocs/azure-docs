@@ -1,0 +1,62 @@
+- name: Scheduler Documentation
+  href: index.md
+- name: Overview
+  items:
+  - name: What is Azure Scheduler?
+    href: scheduler-intro.md
+- name: Get started
+  items:
+  - name: Create and manage jobs - portal
+    href: scheduler-get-started-portal.md
+  - name: Migrate from Scheduler to Logic Apps
+    href: migrate-from-scheduler-to-logic-apps.md
+- name: Concepts
+  items:
+  - name: Concepts, terms, and entities
+    href: scheduler-concepts-terms.md
+- name: How-to guides
+  items:
+  - name: Plan and design
+    items:
+    - name: Plans and billing
+      href: scheduler-plans-billing.md
+    - name: Limits, quotas, and default values
+      href: scheduler-limits-defaults-errors.md
+    - name: High availability and reliability
+      href: scheduler-high-availability-reliability.md
+  - name: Develop
+    items:
+    - name: Build complex schedules and advanced recurrences
+      href: scheduler-advanced-complexity.md
+    - name: Create and manage schedules - Azure PowerShell
+      href: scheduler-powershell-reference.md
+  - name: Secure
+    items:
+    - name: Authenticate outbound calls
+      href: scheduler-outbound-authentication.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.scheduler
+  - name: REST API
+    href: /rest/api/scheduler
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.scheduler/allversions
+- name: Resources
+  items:
+  - name: Azure Scheduler roadmap
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-scheduler
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/scheduler/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=scheduler

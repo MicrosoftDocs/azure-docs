@@ -1,41 +1,23 @@
 ---
-title: Azure Resource Manager core quota increase requests | Microsoft Docs
-description: Azure Resource Manager core quota increase requests
-author: ganganarayanan
-ms.author: gangan
-ms.date: 1/18/2017
+title: Azure Resource Manager vCPU quota increase requests | Microsoft Docs
+description: Azure Resource Manager vCPU quota increase requests
+author: sowmyavenkat86
+ms.author: svenkat
+ms.date: 06/07/2019
 ms.topic: article
-ms.service: microsoft-docs
+ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 ---
 
-# Resource Manager core quota increase requests
+# Quota increase requests
 
-Resource Manager core quotas are enforced at the region level and SKU family level.
-Learn more about how quotas are enforced on the [Azure subscription and service limits](http://aka.ms/quotalimits) page.
-To learn more about SKU Families, you may compare cost and performance on the [Virtual Machines Pricing](http://aka.ms/pricingcompute) page.
+Resource Manager vCPU quotas for virtual machines and virtual machine scale sets are enforced at two tiers for each subscription, in each region. 
 
-To request an increase, create a Quota support case for Cores in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
+The first tier is the Total Regional vCPUs limit (across all VM Series), and the second tier is the per VM Series vCPUs limit (such as the D-series vCPUs). Any time a new VM is to be deployed, the sum of new and existing vCPUs usage for that VM Series must not exceed the vCPU quota approved for that particular VM Series. Further, the total new and existing vCPU count deployed across all VM Series should not exceed the Total Regional vCPUs quota approved for the subscription. If either of those quotas are exceeded, the VM deployment will not be allowed.
+You can request an increase of the vCPUs quota limit for the VM series from Azure portal. An increase in the VM Series quota automatically increases the Total Regional vCPUs limit by the same amount. 
 
-> [!NOTE]
-> Learn how to [create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) in the Azure portal
+When a new subscription is created, the default Total Regional vCPUs may not be equal to the sum of default vCPU quotas for all individual VM Series. This can result in a subscription with enough quota for each individual VM Series that you want to deploy, but not enough quota for Total Regional vCPUs for all deployments. In this case, you will need to submit a request to increase the Total Regional vCPUs limit explicitly. Total Regional vCPUs limit cannot exceed the sum of approved quota across all VM series for the region.
 
-1. On the new support request page, select Issue type as "Quota" and Quota type as "Cores".
+Learn more about quotas on the [Virtual machine vCPU quotas page](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits](https://aka.ms/quotalimits) page. 
 
-    ![Quota Basics blade](./media/resource-manager-core-quotas-request/Basics-blade.png)
-
-2. Select Deployment model as "Resource Manager" and select a location.
-
-    ![Quota Problem blade](./media/resource-manager-core-quotas-request/Problem-step.png)
-
-3. Select the SKU Families that require an increase.
-
-    ![SKU series selected](./media/resource-manager-core-quotas-request/SKU-selected.png)
-
-4. Enter the new limits you would like on the subscription.
-
-    ![SKU new quota request](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
-
-- To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon.
-After entering the desired quota for each SKU family, click "Next" on the Problem step page to continue with the support request creation.

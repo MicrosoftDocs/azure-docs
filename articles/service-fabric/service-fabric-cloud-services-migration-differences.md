@@ -4,16 +4,16 @@ description: A conceptual overview for migrating applications from Cloud Service
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---
@@ -84,6 +84,24 @@ A common communication mechanism between tiers in stateless environments such as
 The same communication model can be used in Service Fabric. This can be useful when migrating an existing Cloud Services application to Service Fabric. 
 
 ![Service Fabric direct communication][8]
+
+## Parity
+[Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development](https://docs.microsoft.com/azure/app-service/overview-compare); the following is an API comparison:
+
+
+| **Cloud Service API** | **Service Fabric API** | **Notes** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId or .NodeName | ID is a property of the NodeName |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName and use FD Property |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName, and use Upgrade property |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext or Naming (ResolveService) | CodePackageActivationContext which is provided both by FabricRuntime.GetActivationContext and within the replicas via ServiceInitializationParameters.CodePackageActivationContext provided during .Initialize |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | If you want to do the same sort of filtering by type you can get the list of node types from the cluster manifest via FabricClient.ClusterManager.GetClusterManifest and grab the role/node types from there. |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster or create a FabricRuntime pointed to a particular node | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList or ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext or Naming (ResolveService) | * |
 
 ## Next Steps
 The simplest migration path from Cloud Services to Service Fabric is to replace only the Cloud Services deployment with a Service Fabric application, keeping the overall architecture of your application roughly the same. The following article provides a guide to help convert a Web or Worker Role to a Service Fabric stateless service.

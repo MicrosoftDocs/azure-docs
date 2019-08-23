@@ -4,7 +4,7 @@ description: Describes how to make payment if your Azure subscription has a past
 services: ''
 documentationcenter: ''
 author: genlin
-manager: narmstr
+manager: jureid
 editor: ''
 tags: billing
 
@@ -13,37 +13,42 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/03/2017
-ms.author: genli
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.author: banders
 
 ---
-# Why have you received a notification that your Azure subscription has a past due balance?
-If you are the Account Administrator for your Azure subscription, and have not made your payment on time, you will receive an email notification about your past due balance or you will see an alert either on the [Azure Account Center](https://account.windowsazure.com) or the [Azure portal](https://portal.azure.com).
+# Resolve past due balance for your Azure subscription
 
-If we are unable to process your payment for some reason, you might receive an email with a message similar to:
+If your payment isn't received or if we can't process your payment, you might get an email or see an alert in the Azure portal or Account Center.
+If you are the [Account Administrator](billing-subscription-transfer.md#whoisaa), you can settle the outstanding charges in the [Azure portal](https://portal.azure.com). If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice.
 
-**We have been unable to charge your credit card for your subscription. To prevent any service interruptions, please update your payment information.**
+> [!IMPORTANT]
+> * If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.
+> * The payment instrument you use to settle the outstanding charges will become the new active payment method for all subscriptions that were using the failed payment method.
 
-Make sure you are getting notification emails. If you are not getting notification emails, you may be using different email addresses for login and Account Admin. The email address in the Account Administrator’s profile is used by Microsoft to notify you about important billing-related updates about the subscription. We recommend that you specify a contact email address that you check regularly.
+## Resolve past due balance in the Azure portal
 
-## What will happen if you forget to pay
-The service will be canceled and your resources will no longer be available. Any data will be deleted 90 days after the service is terminated.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Admin.
+1. Search for **Cost Management + Billing**.
+1. In the Overview page, you'll see a list of your subscriptions. If your subscription status is past due, click the **Settle balance** link.
+    ![Screenshot that shows settle balance link](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.
+1. Select a payment method to pay the balance. This payment method will become the active payment method for all subscriptions currently using the failed payment method.
+    ![Screenshot that shows select payment method link](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. If the selected payment method also has outstanding charges for Microsoft services, this will be reflected in the total outstanding balance. You must pay those outstanding charges, too.
+1. Click **Pay**.
 
-## What can you do to resolve the issue
-Pay your outstanding balance in full.
+## Not getting billing email notifications?
 
-**Scenario 1**: If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice. If you need help, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+If you're the Account Administrator, [check what email address is used for notifications](billing-how-to-change-azure-account-profile.md). We recommend that you use an email address that you check regularly. If the email is right, check your spam folder.
 
-**Scenario 2**: If the bill is not paid because the credit card on file was declined, or has expired, use another credit card or payment method for the subscriptions, or contact your bank to resolve the issue. If you update the payment method, all outstanding charges against that payment method will automatically be settled immediately. This includes outstanding charges for Azure as well as any other Microsoft services for which that card was used.
+## If I forget to pay, what happens?
 
-For instructions about how to change the payment method in Azure, see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md). You must log on as an Account Administrator to make this change.
+The service is canceled and your resources are no longer available. Your Azure data is deleted 90 days after the service is terminated. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-**Scenario 3**:  If the bill notice was not received because the Account Administrator has left the company or changed roles, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
+If you know your payment has been processed but your subscription is still disabled, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-> [!NOTE]
-> If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it: [What do I do if my Azure subscription is disabled?](billing-subscription-become-disable.md)
->
+## Need help? Contact us.
 
-## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

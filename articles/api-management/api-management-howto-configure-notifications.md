@@ -3,64 +3,53 @@ title: Configure notifications and email templates in Azure API Management | Mic
 description: Learn how to configure notifications and email templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: vladvino
+manager: cfowler
 editor: ''
 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
 ---
 # How to configure notifications and email templates in Azure API Management
-API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
+API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This article shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
 
-## <a name="publisher-notifications"> </a>Configure publisher notifications
-To configure notifications, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+## Prerequisites
 
-![Publisher portal][api-management-management-console]
+If you do not have an API Management service instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-> [!NOTE] 
-> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Click **Notifications** from the **API Management** menu on the left to view the available notifications.
+## <a name="publisher-notifications"> </a>Configure notifications
 
-![Publisher notifications][api-management-publisher-notifications]
+1. Select your **API MANAGEMENT** instance.
+2. Click **Notifications** to view the available notifications.
 
-The following list of events can be configured for notifications.
+    ![Publisher notifications][api-management-publisher-notifications]
 
-* **Subscription requests (requiring approval)** - The specified email recipients and users will receive email notifications about subscription requests for API products requiring approval.
-* **New subscriptions** - The specified email recipients and users will receive email notifications about new API product subscriptions.
-* **Application gallery requests** - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery.
-* **BCC** - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.
-* **New issue or comment** - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the developer portal.
-* **Close account message** - The specified email recipients and users will receive email notifications when an account is closed.
-* **Approaching subscription quota limit** - The following email recipients and users will receive email notifications when subscription usage gets close to usage quota.
+    The following list of events can be configured for notifications.
 
-For each event, you can specify email recipients using the email address text box or you can select users from a list.
+   * **Subscription requests (requiring approval)** - The specified email recipients and users will receive email notifications about subscription requests for API products requiring approval.
+   * **New subscriptions** - The specified email recipients and users will receive email notifications about new API product subscriptions.
+   * **Application gallery requests** - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery.
+   * **BCC** - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.
+   * **New issue or comment** - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the developer portal.
+   * **Close account message** - The specified email recipients and users will receive email notifications when an account is closed.
+   * **Approaching subscription quota limit** - The following email recipients and users will receive email notifications when subscription usage gets close to usage quota.
 
-To specify the email addresses to be notified, enter them in the email address text box. If you have multiple email addresses, separate them using commas.
+     For each event, you can specify email recipients using the email address text box or you can select users from a list.
 
-![Notification recipients][api-management-email-addresses]
+3. To specify the email addresses to be notified, enter them in the email address text box. If you have multiple email addresses, separate them using commas.
 
-To specify the users to be notified, click **add recipient**, check the box beside the users to be notified, and click **OK**.
+    ![Notification recipients][api-management-email-addresses]
+4. Press **Add**.
 
-> [!NOTE] 
-> Only administrators are displayed in the list.
-
-
-After configuring the notification recipients, click **Save** to apply the updated notification recipients.
-
-> [!NOTE] 
-> If you navigate away from the **Publisher Notifications** tab the publisher portal alerts you if there are unsaved changes.
-
-
-## <a name="email-templates"> </a>Configure email templates
-API Management provides email templates for the email messages that are sent in the course of administering and using the service. The following email templates are provided.
+## <a name="email-templates"> </a>Configure notification templates
+API Management provides notification templates for the email messages that are sent in the course of administering and using the service. The following email templates are provided.
 
 * Application gallery submission approved
 * Developer farewell letter
@@ -75,13 +64,9 @@ API Management provides email templates for the email messages that are sent in 
 
 These templates can be modified as desired.
 
-To view and configure the email templates for your API Management instance, click **Notifications** from the **API Management** menu on the left, and select the **Email Templates** tab.
+To view and configure the email templates for your API Management instance, click **Notifications templates**.
 
 ![Email templates][api-management-email-templates]
-
-To view or modify a specific template, select it from the **Templates** drop-down list.
-
-![Email templates list][api-management-email-templates-list]
 
 Each email template has a subject in plain text, and a body definition in HTML format. Each item can be customized as desired.
 
@@ -89,12 +74,10 @@ Each email template has a subject in plain text, and a body definition in HTML f
 
 The **Parameters** list contains a list of parameters, which when inserted into the subject or body, will be replaced the designated value when the email is sent. To insert a parameter, place the cursor where you wish the parameter to go, and click the arrow to the left of the parameter name.
 
-Click **Preview** or **Send a test** to see how the email will look or send a test email.
-
 > [!NOTE] 
 > The parameters are not replaced with actual values when previewing or sending a test.
 
-To save the changes to the email template, click **Save**, or to cancel the changes click **Cancel**.
+To save the changes to the email template, click **Save**, or to cancel the changes click **Discard**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
@@ -113,5 +96,5 @@ To save the changes to the email template, click **Save**, or to cancel the chan
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md

@@ -2,219 +2,486 @@
 title: Deploy multiple instances of Azure resources | Microsoft Docs
 description: Use copy operation and arrays in an Azure Resource Manager template to iterate multiple times when deploying resources.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: ''
-
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/24/2017
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: tomfitz
 
 ---
-# Deploy multiple instances of resources in Azure Resource Manager templates
-This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
+# Resource, property, or variable iteration in Azure Resource Manager templates
 
-## copy, copyIndex, and length
-Within the resource to create multiple times, you can define a **copy** object that specifies the number of times to iterate. The copy takes the following format:
+This article shows you how to create more than one instance of a resource, variable, or property in your Azure Resource Manager template. To create multiple instances, add the `copy` object to your template.
 
-```json
-"copy": { 
-    "name": "websitescopy", 
-    "count": "[parameters('count')]" 
-} 
-```
-
-You can access the current iteration value with the **copyIndex()** function. The following example uses copyIndex with the concat function to construct a name.
-
-```json
-[concat('examplecopy-', copyIndex())]
-```
-
-When creating multiple resources from an array of values, you can use the **length** function to specify the count. You provide the array as the parameter to the length function.
+When used with a resource, the copy object has the following format:
 
 ```json
 "copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
 }
 ```
 
-You can only apply the copy object to a top-level resource. You cannot apply it to a property on a resource type, or to a child resource. However, this topic shows how to specify multiple items for a property, and create multiple instances of a child resource. The following pseudo-code example shows where copy can be applied:
+When used with a variable or property, the copy object has the following format:
 
 ```json
-"resources": [
+"copy": [
   {
-    "type": "{provider-namespace-and-type}",
-    "name": "parentResource",
-    "copy": {  
-      /* yes, copy can be applied here */
-    },
-    "properties": {
-      "exampleProperty": {
-        /* no, copy cannot be applied here */
-      }
-    },
-    "resources": [
-      {
-        "type": "{provider-type}",
-        "name": "childResource",
-        /* copy can be applied if resource is promoted to top level */ 
-      }
-    ]
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
   }
-] 
-```
-
-Although you cannot apply **copy** to a property, that property is still part of the iterations of the resource that contains the property. Therefore, you can use **copyIndex()** within the property to specify values.
-
-There are several scenarios where you might want to iterate on a property in a resource. For example, you may want to specify multiple data disks for a virtual machine. To see how to iterate on a property, see [Create multiple instances when copy won't work](#create-multiple-instances-when-copy-wont-work). 
-
-To work with child resources, see [Create multiple instances of a child resource](#create-multiple-instances-of-a-child-resource).
-
-## Use index value in name
-You can use the copy operation create multiple instances of a resource that are uniquely named based on the incrementing index. For example, you might want to add a unique number to the end of each resource name that is deployed. To deploy three web sites named:
-
-* examplecopy-0
-* examplecopy-1
-* examplecopy-2.
-
-Use the following template:
-
-```json
-"parameters": { 
-  "count": { 
-    "type": "int", 
-    "defaultValue": 3 
-  } 
-}, 
-"resources": [ 
-  { 
-      "name": "[concat('examplecopy-', copyIndex())]", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
-      "copy": { 
-         "name": "websitescopy", 
-         "count": "[parameters('count')]" 
-      }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      }
-  } 
 ]
 ```
 
-## Offset index value
-In the preceding example, the index value goes from zero to 2. To offset the index value, you can pass a value in the **copyIndex()** function, such as **copyIndex(1)**. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, using the same template as the previous example, but specifying **copyIndex(1)** would deploy three web sites named:
+Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
-* examplecopy-1
-* examplecopy-2
-* examplecopy-3
+If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
 
-## Use copy with array
-The copy operation is helpful when working with arrays because you can iterate through each element in the array. To deploy three web sites named:
+## Copy limits
 
-* examplecopy-Contoso
-* examplecopy-Fabrikam
-* examplecopy-Coho
+To specify the number of iterations, you provide a value for the count property. The count can't exceed 800.
 
-Use the following template:
+The count can't be a negative number. If you deploy a template with REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of the REST API don't support zero for count. Currently, Azure CLI or PowerShell don't support zero for count, but that support will be added in a future release.
+
+Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
+
+The limits for the count are the same whether used with a resource, variable, or property.
+
+## Resource iteration
+
+When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, specify the number of iterations and a name for this loop.
+
+The resource to create several times takes the following format:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+Notice that the name of each resource includes the `copyIndex()` function, which returns the current iteration in the loop. `copyIndex()` is zero-based. So, the following example:
+
+```json
+"name": "[concat('storage', copyIndex())]",
+```
+
+Creates these names:
+
+* storage0
+* storage1
+* storage2.
+
+To offset the index value, you can pass a value in the copyIndex() function. The number of iterations is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, the following example:
+
+```json
+"name": "[concat('storage', copyIndex(1))]",
+```
+
+Creates these names:
+
+* storage1
+* storage2
+* storage3
+
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array. So, the following example:
 
 ```json
 "parameters": { 
   "org": { 
-     "type": "array", 
-     "defaultValue": [ 
-         "Contoso", 
-         "Fabrikam", 
-         "Coho" 
-      ] 
+    "type": "array", 
+    "defaultValue": [ 
+      "contoso", 
+      "fabrikam", 
+      "coho" 
+    ] 
   }
 }, 
 "resources": [ 
   { 
-      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
-      "copy": { 
-         "name": "websitescopy", 
-         "count": "[length(parameters('org'))]" 
-      }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
+    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
+    "copy": { 
+      "name": "storagecopy", 
+      "count": "[length(parameters('org'))]" 
+    }, 
+    ...
   } 
 ]
 ```
 
-Of course, you can set the copy count to a value other than the length of the array. For example, you could create an array with many values, and then pass in a parameter value that specifies how many of the array elements to deploy. In that case, you set the copy count as shown in the first example. 
+Creates these names:
 
-## Depend on resources in a loop
-You can specify that a resource is deployed after another resource by using the **dependsOn** element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the **dependsOn** element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the 
-copy element has **name** set to **storagecopy** and the **dependsOn** element for the Virtual Machines is also set to **storagecopy**.
+* storagecontoso
+* storagefabrikam
+* storagecoho
+
+By default, Resource Manager creates the resources in parallel. It applies no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the template. The order in which they're created isn't guaranteed.
+
+However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+
+For example, to serially deploy storage accounts two at a time, use:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "resources": [
-        {
-            "apiVersion": "2015-06-15",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            },
-            "copy": { 
-                "name": "storagecopy", 
-                "count": 3 
-            }
-        },
-        {
-            "apiVersion": "2015-06-15", 
-            "type": "Microsoft.Compute/virtualMachines", 
-            "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-            "dependsOn": ["storagecopy"],
-            ...
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 4,
+        "mode": "serial",
+        "batchSize": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
-## Create multiple instances of a child resource
-You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the **type** and **name** properties.
+The mode property also accepts **parallel**, which is the default value.
+
+For information about using copy with nested templates, see [Using copy](resource-group-linked-templates.md#using-copy).
+
+## Property iteration
+
+To create more than one value for a property on a resource, add a `copy` array in the properties element. This array contains objects, and each object has the following properties:
+
+* name - the name of the property to create several values for
+* count - the number of values to create.
+* input - an object that contains the values to assign to the property  
+
+The following example shows how to apply `copy` to the dataDisks property on a virtual machine:
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "copy": [{
+        "name": "dataDisks",
+        "count": 3,
+        "input": {
+          "lun": "[copyIndex('dataDisks')]",
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        }
+      }],
+      ...
+```
+
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You don't have to provide the name when used with resource iteration.
+
+Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "dataDisks": [
+        {
+          "lun": 0,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        },
+        {
+          "lun": 1,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        },
+        {
+          "lun": 2,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        }
+      ],
+      ...
+```
+
+The copy element is an array so you can specify more than one property for the resource. Add an object for each property to create.
+
+```json
+{
+  "name": "string",
+  "type": "Microsoft.Network/loadBalancers",
+  "apiVersion": "2017-10-01",
+  "properties": {
+    "copy": [
+      {
+        "name": "loadBalancingRules",
+        "count": "[length(parameters('loadBalancingRules'))]",
+        "input": {
+          ...
+        }
+      },
+      {
+        "name": "probes",
+        "count": "[length(parameters('loadBalancingRules'))]",
+        "input": {
+          ...
+        }
+      }
+    ]
+  }
+}
+```
+
+You can use resource and property iteration together. Reference the property iteration by name.
+
+```json
+{
+  "type": "Microsoft.Network/virtualNetworks",
+  "name": "[concat(parameters('vnetname'), copyIndex())]",
+  "apiVersion": "2018-04-01",
+  "copy":{
+    "count": 2,
+    "name": "vnetloop"
+  },
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "[parameters('addressPrefix')]"
+      ]
+    },
+    "copy": [
+      {
+        "name": "subnets",
+        "count": 2,
+        "input": {
+          "name": "[concat('subnet-', copyIndex('subnets'))]",
+          "properties": {
+            "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+## Variable iteration
+
+To create multiple instances of a variable, use the `copy` property in the variables section. You create an array of elements constructed from the value in the `input` property. You can use the `copy` property within a variable, or at the top level of the variables section. When using `copyIndex` inside a variable iteration, you must provide the name of the iteration.
+
+For a simple example of creating an array of string values, see [copy array template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
+The following example shows several different ways to create array variables with dynamically constructed elements. It shows how to use copy inside a variable to create arrays of objects and strings. It also shows how to use copy at the top level to create arrays of objects, strings, and integers.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        },
+        {
+          "name": "diskNames",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('diskNames', 1))]"
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "top-level-object-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('top-level-object-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('top-level-object-array')]"
+        }
+      },
+      {
+        "name": "top-level-string-array",
+        "count": 5,
+        "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+      },
+      {
+        "name": "top-level-integer-array",
+        "count": 5,
+        "input": "[copyIndex('top-level-integer-array')]"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleObjectArray": {
+      "value": "[variables('top-level-object-array')]",
+      "type" : "array"
+    },
+    "exampleStringArray": {
+      "value": "[variables('top-level-string-array')]",
+      "type" : "array"
+    },
+    "exampleIntegerArray": {
+      "value": "[variables('top-level-integer-array')]",
+      "type" : "array"
+    }
+  }
+}
+```
+
+The type of variable that gets created depends on the input object. For example, the variable named **top-level-object-array** in the preceding example returns:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+And, the variable named **top-level-string-array** returns:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
+```
+
+## Depend on resources in a loop
+
+You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition isn't shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      }
+    },
+    {
+      "apiVersion": "2015-06-15", 
+      "type": "Microsoft.Compute/virtualMachines", 
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
+}
+```
+
+<a id="looping-on-a-nested-resource" />
+
+## Iteration for a child resource
+You can't use a copy loop for a child resource. To create more than one instance of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
 
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
 ```json
 "resources": [
 {
-    "type": "Microsoft.DataFactory/datafactories",
-    "name": "exampleDataFactory",
-    ...
-    "resources": [
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
+  "resources": [
     {
-        "type": "datasets",
-        "name": "exampleDataSet",
-        "dependsOn": [
-            "exampleDataFactory"
-        ],
-        ...
+      "type": "datasets",
+      "name": "exampleDataSet",
+      "dependsOn": [
+        "exampleDataFactory"
+      ],
+      ...
     }
-}]
+  ]
 ```
 
-To create multiple instances of data sets, move it outside of the data factory. The dataset must be at the same level as the data factory, but it is still a child resource of the data factory. You preserve the relationship between data set and data factory through the **type** and **name** properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.  
 
@@ -223,345 +490,41 @@ The following example shows the implementation:
 ```json
 "resources": [
 {
-    "type": "Microsoft.DataFactory/datafactories",
-    "name": "exampleDataFactory",
-    ...
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
 },
 {
-    "type": "Microsoft.DataFactory/datafactories/datasets",
-    "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
-    "dependsOn": [
-        "exampleDataFactory"
-    ],
-    "copy": { 
-        "name": "datasetcopy", 
-        "count": "3" 
-    } 
-    ...
+  "type": "Microsoft.DataFactory/datafactories/datasets",
+  "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+  "dependsOn": [
+    "exampleDataFactory"
+  ],
+  "copy": {
+    "name": "datasetcopy",
+    "count": "3"
+  },
+  ...
 }]
 ```
 
-## Create multiple instances when copy won't work
-You can only use **copy** on resource types, not on properties within a resource type. This requirement may create problems for you when you want to create multiple instances of something that is part of a resource. A common scenario is to create multiple data disks for a Virtual Machine. You cannot use **copy** with the data disks because **dataDisks** is a property on the Virtual Machine, not its own resource type. Instead, you create an array with as many data disks as you need, and pass in the actual number of data disks to create. In the virtual machine definition, you use the **take** function to get only the number of elements that you actually want from the array.
+## Example templates
 
-A full example of this pattern is show in the [Create a VM with a dynamic selection of data disks](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/) template.
+The following examples show common scenarios for creating more than one instance of a resource or property.
 
-The relevant sections of the deployment template are shown in the following example. Much of the template has been removed to highlight the sections involved in dynamically creating a number of data disks. Notice the parameter **numDataDisks** that enables you to pass in the number of disks to create. 
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    ...
-    "numDataDisks": {
-      "type": "int",
-      "maxValue": 64,
-      "metadata": {
-        "description": "This parameter allows you to select the number of disks you want"
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
-    "sizeOfDataDisksInGB": 100,
-    "diskCaching": "ReadWrite",
-    "diskArray": [
-      {
-        "name": "datadisk1",
-        "lun": 0,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk2",
-        "lun": 1,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk3",
-        "lun": 2,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk4",
-        "lun": 3,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk4.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      ...
-      {
-        "name": "datadisk63",
-        "lun": 62,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk63.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk64",
-        "lun": 63,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk64.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      }
-    ]
-  },
-  "resources": [
-    ...
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "properties": {
-        ...
-        "storageProfile": {
-          ...
-          "dataDisks": "[take(variables('diskArray'),parameters('numDataDisks'))]"
-        },
-        ...
-      }
-      ...
-    }
-  ]
-}
-```
-
-You can use the **take** function and the **copy** element together when you need to create multiple instances of a resource with a variable number of items for a property. For example, suppose you need to create multiple virtual machines, but each virtual machine has a different number of data disks. To give each data disk a name that identifies the associated virtual machine, put your array of data disks into a separate template. Include parameters for the virtual machine name, and the number of data disks to return. In the outputs section, return the number of specified items.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    },
-    "numDataDisks": {
-      "type": "int",
-      "maxValue": 16,
-      "metadata": {
-        "description": "This parameter allows the user to select the number of disks they want"
-      }
-    }
-  },
-  "variables": {
-    "diskArray": [
-      {
-        "name": "[concat(parameters('vmName'), '-datadisk1')]",
-        "vhd": {
-          "uri": "[concat('http://', parameters('storageAccountName'),'.blob.core.windows.net/vhds/', parameters('vmName'), '-datadisk1.vhd')]"
-        },
-        ...
-      },
-      ...
-    ],
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "result": {
-      "type": "array",
-      "value": "[take(variables('diskArray'),parameters('numDataDisks'))]"
-    }
-  }
-}
-``` 
-
-In the parent template, you include parameters for the number of virtual machines, and an array for the number of data disks for each virtual machine.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    ...
-    "numberOfInstances": {
-      "type": "int",
-      "defaultValue": 2,
-      "metadata": {
-        "description": "Number of VMs to deploy"
-      }
-    },
-    "numberOfDataDisksPerVM": {
-      "type": "array",
-      "defaultValue": [1,2]
-    }
-  },
-```
-
-In the resources section, deploy multiple instances of the template that defines the data disks. 
-
-```json
-{
-  "apiVersion": "2016-09-01",
-  "name": "[concat('nested-', copyIndex())]",
-  "type": "Microsoft.Resources/deployments",
-  "copy": {
-    "name": "deploycopy",
-    "count": "[parameters('numberOfInstances')]"
-  },
-  "properties": {
-    "mode": "incremental",
-    "templateLink": {
-      "uri": "{data-disk-template-uri}",
-      "contentVersion": "1.0.0.0"
-    },
-    "parameters": {
-      "vmName": { "value": "[concat('myvm', copyIndex())]" },
-      "storageAccountName": { "value": "[variables('storageAccountName')]" },
-      "numDataDisks": { "value": "[parameters('numberOfDataDisksPerVM')[copyIndex()]]" }
-    }
-  }
-},
-```
-
-In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number of data disks and the correct names for data disks.
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines",
-  "name": "[concat('myvm', copyIndex())]",
-  "copy": {
-    "name": "virtualMachineLoop",
-      "count": "[parameters('numberOfInstances')]"
-  },
-  "properties": {
-    "storageProfile": {
-      ...
-      "dataDisks": "[reference(concat('nested-', copyIndex())).outputs.result.value]"
-    },
-    ...
-  },
-  ...
-}
-```
-
-## Return values from a loop
-While creating multiple instances of a resource type is convenient, returning values from that loop can be difficult. One way to retain and return values is to use **copy** with a nested template and round trip an array that contains all the values to return. For example, suppose you want to create multiple storage accounts, and return the primary endpoint for each one. 
-
-First, create the nested template that creates the storage account. Notice that it accepts an array parameter for the blob URIs. You use this parameter to round trip all the values from previous deployments. The output of the template is an array that concatenates the new blob URI to the previous URIs.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "indexValue": {
-      "type":"int"
-    },
-    "blobURIs": {
-        "type": "array",
-      "defaultValue": []
-    }
-  },
-    "variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id), parameters('indexValue'))]"
-  },
-    "resources": [
-    {
-        "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-          "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {  
-      }
-    }
-    ],
-    "outputs": {
-      "result": {
-        "type": "array",
-      "value": "[concat(parameters('blobURIs'),split(reference(variables('storageName')).primaryEndpoints.blob, ','))]"
-    }
-  }
-}
-```
-
-Now, create the parent template that has one static instance of the nested template, and loops over the remaining instances of the nested template. For each instance of the looped deployment, pass an array that is the output of the previous deployment.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberofStorage": { "type": "int", "minValue": 2 }
-  },
-  "resources": [
-    {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate0",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "{storage-template-uri}",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "indexValue": {"value": 0}
-        }
-      }
-    },
-    {
-      "apiVersion": "2016-09-01",
-      "name": "[concat('nestedTemplate', copyIndex(1))]",
-      "type": "Microsoft.Resources/deployments",
-      "copy": {
-        "name": "storagecopy",
-        "count": "[sub(parameters('numberofStorage'), 1)]"
-      },
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "{storage-template-uri}",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "indexValue": {"value": "[copyIndex(1)]"},
-          "blobURIs": {"value": "[reference(concat('nestedTemplate', copyIndex())).outputs.result.value]"}
-        }
-      }
-    }
-  ],
-  "outputs": {
-    "result": {
-      "type": "object",
-      "value": "[reference(concat('nestedTemplate', sub(parameters('numberofStorage'), 1))).outputs.result]"
-    }
-  }
-}
-```
+|Template  |Description  |
+|---------|---------|
+|[Copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Deploys more than one storage account with an index number in the name. |
+|[Serial copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Deploys several storage accounts one at time. The name includes the index number. |
+|[Copy storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Deploys several storage accounts. The name includes a value from an array. |
+|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
+|[Copy variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstrates the different ways of iterating on variables. |
+|[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## Next steps
+
+* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
-* For all the functions you can use in a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
 

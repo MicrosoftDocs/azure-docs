@@ -1,20 +1,18 @@
 ---
-title: Create an Internal load balancer for Azure Cloud Services | Microsoft Docs
+title: Create an internal Load Balancer for Azure Cloud Services - classic deployment
+titlesuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
-tags: azure-service-management
-
-ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
+author: genlin
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: kumud
+ms.author: genli
 ---
 
 # Get started creating an internal load balancer (classic) for cloud services
@@ -50,7 +48,7 @@ Open the service configuration file (.cscfg) for your cloud deployment in Visual
 </NetworkConfiguration>
 ```
 
-Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
+Let's add the values for the network configuration file to show how it will look. In the example, assume you created a VNet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
 
 ```xml
 <NetworkConfiguration>

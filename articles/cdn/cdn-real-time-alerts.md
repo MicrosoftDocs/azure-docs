@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -29,12 +29,12 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
 * Connections
 
 ## Creating a real-time alert
-1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
+1. In the [Azure portal](https://portal.azure.com), browse to your CDN profile.
    
-    ![CDN profile blade](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-2. From the CDN profile blade, click the **Manage** button.
+    ![CDN profile](./media/cdn-real-time-alerts/cdn-profile-blade.png)
+1. From the CDN profile blade, click the **Manage** button.
    
-    ![CDN profile blade manage button](./media/cdn-real-time-alerts/cdn-manage-btn.png)
+    ![CDN profile manage button](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
     The CDN management portal opens.
 3. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **Real-Time Alerts**.
@@ -56,26 +56,26 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
     ![Media Type with HTTP Large Object selected](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > You must select **HTTP Large Object** as the **Media Type**.  The other choices are not used by **Azure CDN from Verizon**.  Failure to select **HTTP Large Object** will cause your alert to never be triggered.
+   > You must select **HTTP Large Object** as the **Media Type**.  The other choices are not used by **Azure CDN from Verizon**.  Failure to select **HTTP Large Object** causes your alert to never be triggered.
    > 
    > 
 8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
    
-   * For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) and [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)
+   * For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)) and [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100))
    * **Operator** is the mathematical operator that establishes the relationship between the metric and the trigger value.
-   * **Trigger Value** is the threshold value that must be met before a notification will be sent out.
+   * **Trigger Value** is the threshold value that must be met before a notification is sent.
      
-     In the below example, the expression I have created indicates that I would like to be notified when the number of 404 status codes is greater than 25.
+     In the following example, the created expression indicates that a notification is sent when the number of 404 status codes is greater than 25.
      
      ![Real-time alert sample expression](./media/cdn-real-time-alerts/cdn-expression.png)
 9. For **Interval**, enter how frequently you would like the expression evaluated.
 10. In the **Notify on** dropdown, select when you would like to be notified when the expression is true.
     
-    * **Condition Start** indicates that a notification will be sent when the specified condition is first detected.
-    * **Condition End** indicates that a notification will be sent when the specified condition is no longer detected. This notification can only be triggered after our network monitoring system detected that the specified condition occurred.
-    * **Continuous** indicates that a notification will be sent each time that the network monitoring system detects the specified condition. Keep in mind that the network monitoring system will only check once per interval for the specified condition.
-    * **Condition Start and End** indicates that a notification will be sent the first time that the specified condition is detected and once again when the condition is no longer detected.
-11. If you want to receive notifications by email, check the **Notify by Email** checkbox.  
+    * **Condition Start** indicates that a notification is sent when the specified condition is first detected.
+    * **Condition End** indicates that a notification is sent when the specified condition is no longer detected. This notification can only be triggered after our network monitoring system detected that the specified condition occurred.
+    * **Continuous** indicates that a notification is sent each time that the network monitoring system detects the specified condition. Keep in mind that the network monitoring system checks only once per interval for the specified condition.
+    * **Condition Start and End** indicates that a notification is sent the first time that the specified condition is detected and once again when the condition is no longer detected.
+1. If you want to receive notifications by email, check the **Notify by Email** checkbox.  
     
     ![Notify by Email form](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
@@ -89,7 +89,7 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
     
     ![Notify by HTTP Post form](./media/cdn-real-time-alerts/cdn-notify-http.png)
     
-    In the **Url** field, enter the URL you where you want the HTTP message posted. In the **Headers** textbox, enter the HTTP headers to be sent in the request.  For **Body** you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.  **Headers** and **Body** default to an XML payload similar to the below example.
+    In the **Url** field, enter the URL you where you want the HTTP message posted. In the **Headers** textbox, enter the HTTP headers to be sent in the request.  For **Body**, you may customize the message by using the **Available keywords** list to dynamically insert alert data when the message is sent.  **Headers** and **Body** default to an XML payload similar to the following example:
     
     ```
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
