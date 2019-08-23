@@ -3,25 +3,26 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database  
 ms.topic: include
-ms.date: 06/19/2019
+ms.date: 07/31/2019
 ms.author: mathoma
 ---
 
-In this step, you will create your resource group and an Azure SQL Database single database.
+In this step, you will create an Azure SQL Database single database. 
 
 > [!IMPORTANT]
-> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this article. 
+> Be sure to set up firewall rules to use the public IP address of the computer you're using to complete this article.
 >
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md).  
+> For information, see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md).  
 
 # [Portal](#tab/azure-portal)
 
 Create your resource group and single database using the Azure portal.
 
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Select **Databases** and then select **SQL Database** to open the **Create SQL Database** page.
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
+2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting **Show details** on the **Databases** tile.
+3. Select **Create**:
 
-   ![Create single database](../media/sql-database-get-started-portal/create-database-1.png)
+   ![Create single database](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. On the **Basics** tab, in the **Project Details** section, type or select the following values:
 

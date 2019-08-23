@@ -44,6 +44,7 @@ To view all Batch account metrics:
 1. In the portal, click **All services** > **Batch accounts**, and then click the name of your Batch account.
 2. Under **Monitoring**, click **Metrics**.
 3. Select one or more of the metrics. If you want, select additional resource metrics by using the **Subscriptions**, **Resource group**, **Resource type**, and **Resource** dropdowns.
+    * For count-based metrics (like "Dedicated Core Count" or "Low-Priority Node Count"), use the "Average" aggregation. For event-based metrics (like "Pool Resize Complete Events"), use the "Count" aggregation.
 
     ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 

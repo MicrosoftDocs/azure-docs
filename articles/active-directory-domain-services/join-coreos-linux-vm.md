@@ -75,9 +75,9 @@ Next, update your SSSD configuration file in ('/etc/sssd/sssd.conf') to match th
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = contoso.COM
+domains = CONTOSO.COM
 
-[domain/contoso.COM]
+[domain/CONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
@@ -95,17 +95,17 @@ ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
 krb5_server = contoso.com
-krb5_realm = contoso.COM
+krb5_realm = CONTOSO.COM
 ```
 
-Replace 'contoso.COM' with the DNS domain name of your managed domain. Make sure you specify the domain name in capital case in the conf file.
+Replace 'CONTOSO.COM' with the DNS domain name of your managed domain. Make sure you specify the domain name in capital case in the conf file.
 
 
 ## Join the Linux virtual machine to the managed domain
 Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
 
 ```console
-sudo adcli join -D contoso.COM -U bob@contoso.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
+sudo adcli join -D CONTOSO.COM -U bob@CONTOSO.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
 ```
 
 
@@ -126,10 +126,10 @@ sudo systemctl start sssd.service
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CoreOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the domain joined CoreOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@contoso.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined CoreOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO.COM' in this case.)
     
     ```console
-    ssh -l bob@contoso.COM contoso-coreos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-coreos.contoso.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
