@@ -32,12 +32,12 @@ In this document, you will:
 
 - Make sure that you remove and delete the disaster recovery configuration before you try to move the Azure VMs to a different region. 
 
-> [!NOTE]
-> If your new target region for the Azure VM is the same as the disaster recovery target region, you can use your existing replication configuration and move it. Follow the steps in [Move Azure IaaS VMs to another Azure region](azure-to-azure-tutorial-migrate.md).
+  > [!NOTE]
+  > If your new target region for the Azure VM is the same as the disaster recovery target region, you can use your existing replication configuration and move it. Follow the steps in [Move Azure IaaS VMs to another Azure region](azure-to-azure-tutorial-migrate.md).
 
 - Ensure that you're making an informed decision and that stakeholders are informed. Your VM won't be protected against disasters until the move of the VM is complete.
 
-## Identify the resources that were used by Azure Site Recovery
+## Identify the resources that Azure Site Recovery used
 We recommend that you do this step before you proceed to the next one. It's easier to identify the relevant resources while the VMs are being replicated.
 
 For each Azure VM that's being replicated, go to **Protected Items** > **Replicated Items** > **Properties** and identify the following resources:
@@ -50,7 +50,7 @@ For each Azure VM that's being replicated, go to **Protected Items** > **Replica
 
 ## Disable the existing disaster recovery configuration
 
-1. Go to the **Recovery Services vault**.
+1. Go to the Recovery Services vault.
 2. In **Protected Items** > **Replicated Items**, right-click the machine and select **Disable replication**.
 3. Repeat this step for all the VMs that you want to move.
 
@@ -59,7 +59,7 @@ For each Azure VM that's being replicated, go to **Protected Items** > **Replica
 
 ## Delete the resources
 
-1. Go to the **Recovery Services vault**.
+1. Go to the Recovery Services vault.
 2. Select **Delete**.
 3. Delete all the other resources you [previously identified](#identify-the-resources-that-were-used-by-azure-site-recovery).
  
