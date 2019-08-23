@@ -227,7 +227,7 @@ For a Key Encryption Key scenario, follow these steps:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Set the parameters.  The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM. If you receive errors when you run the script, see the [script troubleshooting](#Script-troubleshooting) section.
+3. Set the parameters. The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM. If you receive errors when you run the script, see the [script troubleshooting](#Script-troubleshooting) section.
 
 4. You see the following output when the script begins:
 
