@@ -41221,7 +41221,11 @@
       "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
       "redirect_document_id": false
     },
-
+		{
+			"source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
+			"redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
+			"redirect_document_id": true
+		},
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
