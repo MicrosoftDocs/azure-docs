@@ -1,6 +1,6 @@
 ---
-title: How to deploy the OPC Vault Certificate Management Service - Azure | Microsoft Docs
-description: How to deploy the OPC Vault Certificate Management Service from scratch.
+title: How to deploy the OPC Vault certificate management service - Azure | Microsoft Docs
+description: How to deploy the OPC Vault certificate management service from scratch.
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019
@@ -10,9 +10,9 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# Build and Deploy the OPC UA Certificate Management Service
+# Build and deploy the OPC Vault certificate management service
 
-This article explains how to deploy the OPC UA Certificate Management Service in Azure.
+This article explains how to deploy the OPC Vault certificate management service in Azure.
 
 > [!NOTE]
 > For more information on deployment details and instructions, see the GitHub [OPC Vault repository](https://github.com/Azure/azure-iiot-opc-vault-service).
@@ -41,7 +41,7 @@ cd azure-iiot-opc-vault-service
 
 or clone the repo directly in Visual Studio 2017.
 
-### Build and Deploy the Azure service on Windows
+### Build and deploy the Azure service on Windows
 
 A Powershell script provides an easy way to deploy the OPC Vault microservice and the application.<br>
 
@@ -54,20 +54,20 @@ or enter a full command line:
 7. If you plan to develop with this deployment, add `-development 1` to enable the Swagger UI and to deploy debug builds.
 6. Follow the instructions in the script to sign in to your subscription and to provide additional information.
 9. After a successful build and deploy operation, you should see the following message:
+   ```
+   To access the web client go to:
+   https://myResourceGroup.azurewebsites.net
 
-```
-To access the web client go to:
-https://myResourceGroup.azurewebsites.net
+   To access the web service go to:
+   https://myResourceGroup-service.azurewebsites.net
 
-To access the web service go to:
-https://myResourceGroup-service.azurewebsites.net
+   To start the local docker GDS server:
+   .\myResourceGroup-dockergds.cmd
 
-To start the local docker GDS server:
-.\myResourceGroup-dockergds.cmd
+   To start the local dotnet GDS server:
+   .\myResourceGroup-gds.cmd
+   ```
 
-To start the local dotnet GDS server:
-.\myResourceGroup-gds.cmd
-```
 In case you run into issues follow the steps [below](#troubleshooting-deployment-failures).
 
 8. Open your favorite browser and open the application page: `https://myResourceGroup.azurewebsites.net`
@@ -81,7 +81,7 @@ It is also possible to redeploy just the web app binaries. With the parameter `-
 
 After successful deployment, feel free to start using the services: [How to manage the OPC Vault Certificate Management Service](howto-opc-vault-manage.md)
 
-## Delete the Certificate management services from the subscription
+## Delete the services from the subscription
 
 1. Sign in to the Azure portal: `https://portal.azure.com`.
 2. Go to the resource group in which the service was deployed.
@@ -104,7 +104,7 @@ Ensure you use a short and simple resource group name.  The name is used also to
 It is possible that the name of the website is already in use.  If you run into this error, you need to use a different resource group name. The hostnames in use by the deployment script are: https://resourcegroupname.azurewebsites.net and https://resourgroupname-service.azurewebsites.net.
 Other names of services are built by the combination of short name hashes and are unlikely to conflict with other services.
 
-### Azure Active Directory (Azure AD) Registration 
+### Azure Active Directory (Azure AD) registration 
 
 The deployment script tries to register three Azure AD applications in Azure Active Directory.  
 Depending on your permissions in the selected Azure AD tenant, this operation might fail.   There are two options:

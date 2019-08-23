@@ -284,7 +284,7 @@ In this tutorial, you learned how to:
 > * Bind and test secure LDAP for an Azure AD DS managed domain
 
 > [!div class="nextstepaction"]
-> [Learn how synchronization works in an Azure AD Domain Services managed domain](synchronization.md)
+> [Configure password hash synchronization for a hybrid Azure AD environment](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
