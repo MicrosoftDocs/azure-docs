@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/123/2019
+ms.date: 08/26/2019
 ms.author: diberry
 ---
 
@@ -26,7 +26,7 @@ For example, the questions in the following table are about service limits, but 
 |Questions|Answer|Metadata|
 |--|--|--|
 |`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker, link_in_answer=true`|
-|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Search service?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Search tier supports.`|`service=search, link_in_answer=false`|
+|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Search tier supports.`|`service=search, link_in_answer=false`|
 
 Once metadata is added to a question-and-answer set, the client application can:
 
@@ -48,7 +48,7 @@ Both were created in the [first quickstart](../how-to/create-knowledge-base.md).
 
 1. Select your existing knowledge base. If you don't have a knowledge base, return to the [previous quickstart](../how-to/create-knowledge-base.md) and finish the steps to create your knowledge base.
 
-## Add additional alternatively-phrased questions 
+## Add additional alternatively phrased questions 
 
 The current knowledge base has the QnA Maker troubleshooting question and answer sets. When this URL was imported into the knowledge base, additional questions weren't created for you. In this procedure, add additional questions.
 
@@ -101,7 +101,7 @@ Adding metadata to a question and answer set allows your client application to r
 1. Select **Publish** in the top menu to go to the publish page. 
 1. Select the **Publish** button to publish the current knowledge base to a queryable endpoint. 
 1. After the knowledge base is published, select the **Curl** tab to see an example cURL command to generate an answer from the knowledge base.
-1. Copy the command to a note pad or other editable environment so you can change the command. Or copy the following command and edit for your own resource name, knowledge base id and endpoint key:
+1. Copy the command to a note pad or other editable environment so you can change the command. Or copy the following command and edit for your own resource name, knowledge base ID and endpoint key:
 
     |Replace|
     |--|
@@ -110,22 +110,26 @@ Adding metadata to a question and answer set allows your client application to r
     |`your-endpoint-key`|
 
     ```curl
-    curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'question':'What GB size can a knowledge base be?','strictFilters': [{'name':'service','value':'qna_maker'}]}"
+    curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    The preceding command uses Windows line continuation. If you use a different operating system or terminal, change to your own line continuation character. A common line continuation character is the back slash, `\`.
+    Notice the question is just a single word, `size`, which can return either question and answer set. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers. 
 
-1. The following cURL response has been formatted for readability:
+1. The response includes only the answer that meets the filter criteria. 
+
+    The following cURL response has been formatted for readability:
 
     ```JSON
     {
         "answers": [
             {
                 "questions": [
-                    "What GB size can a knowledge base be?"
+                    "How large a knowledge base can I create?",
+                    "What is the max size of a knowledge base?",
+                    "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.",
-                "score": 70.13,
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.",
+                "score": 68.76,
                 "id": 3,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
                 "metadata": [
@@ -147,3 +151,17 @@ Adding metadata to a question and answer set allows your client application to r
         "debugInfo": null
     }
     ```
+
+    If there had been a question and answer set that didn't meet the search term but did meet the filter, it would not be returned. Instead, the general answer `No good match found in KB.` is returned.
+
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get answer with Postman](get-answer-from-kb-using-postman.md)
