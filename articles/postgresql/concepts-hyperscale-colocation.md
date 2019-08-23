@@ -150,4 +150,4 @@ In some cases, queries and table schemas must be changed to include the tenant I
 
 ## Next steps
 
-- See how tenant data is colocated in the [multi-tenant tutorial](tutorial-design-database-hyperscale-multi-tenant.md)
+- See how tenant data is colocated in the [multi-tenant tutorial](tutorial-design-database-hyperscale-multi-tenant.md).
