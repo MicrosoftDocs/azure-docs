@@ -42,4 +42,38 @@ Both were created in the [first quickstart](../how-to/create-knowledge-base.md).
 ## Sign in to the QnA Maker portal
 
 1. Sign in to the [QnA Maker portal](https://www.qnamaker.ai).
+
 1. Select your existing knowledge base. If you don't have a knowledge base, return to the [previous quickstart](../how-to/create-knowledge-base.md) and finish the steps to create your knowledge base.
+
+## Add additional alternatively-phrased questions 
+
+The current knowledge base has the QnA Maker troubleshooting question and answer sets. When this URL was imported into the knowledge base, additional questions weren't created for you. In this procedure, add additional questions.
+
+1. From the **Edit** page, use the search textbox above the question and answer sets, to find the question `How large a knowledge base can I create?`
+
+1. In the **Question** column, select **+ Add alternative phrasing** then add each new phrasing, provided in the following table.
+
+    |Alternative phrasing|
+    |--|
+    |`What is the max size of a knowledge base?`|
+    |`How many GB of data can a knowledge base hold?`| 
+
+1. Select **Save and train** to retry the knowledge base. 
+
+1. Select **Test**, then enter a question that is close to one of the new alternative phrasings but isn't exactly the same wording:
+
+    `What GB size can a knowledge base be?`
+
+    The correct answer is returned. 
+
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+
+    If you select **Inspect** under the returned answer, you can see more answers met the question but not with the same high level of confidence. 
+
+    Do not add every possible combination of alternative phrasing. Turn on QnA Maker's [active learning](../how-to/improve-knowledge-base.md), this finds the alternative phrasings that will best help your knowledge base meet your users' needs.
+
+## Add metadata to filter the answers
+
+Adding metadata to a question and answer set allows your client application to request filtered answers. 
+
+Add the second question and answer set, without the metadata, from the first table in the quickstart, then continue with the following steps. 
