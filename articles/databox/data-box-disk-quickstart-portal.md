@@ -7,6 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
+ms.localizationpriority: high 
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
