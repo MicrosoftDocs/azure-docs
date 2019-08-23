@@ -85,11 +85,11 @@ You can specify the following metadata types in the Get Metadata activity field 
 >When you want to validate if a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
 
 >[!NOTE]
->When you get metadata from file stores and configure `modifiedDatetimeStart` and/or `modifiedDatetimeEnd`, the `childItems` in output only returns files under the given path with last modified time between the range, but no sub-folders.
+>When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in output will include only files in the given path that have a last modified time within the specified range. In won’t include items in subfolders.
 
 ## Syntax
 
-**GetMetadata activity:**
+**Get Metadata activity**
 
 ```json
 {
@@ -105,7 +105,7 @@ You can specify the following metadata types in the Get Metadata activity field 
 }
 ```
 
-**Dataset:**
+**Dataset**
 
 ```json
 {
@@ -129,18 +129,18 @@ You can specify the following metadata types in the Get Metadata activity field 
 
 ## Type properties
 
-Currently GetMetadata activity can fetch the following types of metadata information.
+Currently, the Get Metadata activity can return the following types of metadata information:
 
 Property | Description | Required
 -------- | ----------- | --------
-fieldList | Lists the types of metadata information required. See details in [Metadata options](#metadata-options) section on supported metadata. | Yes 
-dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. See [Supported capabilities](#supported-capabilities) section on supported connectors, and refer to connector topic on dataset syntax details. | Yes
+fieldList | The types of metadata information required. For details on supported metadata, see the [Metadata options](#metadata-options) section of this article. | Yes 
+dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Supported capabilities](#supported-capabilities) section for information on supported connectors. Refer to the the specific connector topics for dataset syntax details. | Yes
 formatSettings | Apply when using format type dataset. | No
 storeSettings | Apply when using format type dataset. | No
 
 ## Sample output
 
-The GetMetadata result is shown in activity output. Below are two samples with exhaustive metadata options selected in field list as reference. To use the result in subsequent activity, use the pattern of `@{activity('MyGetMetadataActivity').output.itemName}`.
+The Get Metadata result is shown in the activity output. Following are two samples showing extensive metadata options. To use the result in a subsequent activity, use this pattern: `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### Get a file's metadata
 
@@ -190,9 +190,9 @@ The GetMetadata result is shown in activity output. Below are two samples with e
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+Learn about other control flow activities supported by Data Factory:
 
-- [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
-- [For Each Activity](control-flow-for-each-activity.md)
-- [Lookup Activity](control-flow-lookup-activity.md)
-- [Web Activity](control-flow-web-activity.md)
+- [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
+- [ForEach activity](control-flow-for-each-activity.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [Web activity](control-flow-web-activity.md)
