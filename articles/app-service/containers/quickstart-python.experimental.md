@@ -164,7 +164,7 @@ The left menu provides different pages for configuring your app.
 
 ## Next steps
 
-The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
+The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app. You can also create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
