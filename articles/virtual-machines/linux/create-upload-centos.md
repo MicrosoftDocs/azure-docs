@@ -170,11 +170,14 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
     Alternatively, you can follow the manual installation instructions on the [LIS download page](https://go.microsoft.com/fwlink/?linkid=403033) to install the RPM onto your VM.
 
-12. Install the Azure Linux Agent and dependencies:
+12. Install the Azure Linux Agent and dependencies. Start and enable waagent service:
 
 	```bash
 	sudo yum install python-pyasn1 WALinuxAgent
+	sudo service waagent start
+	sudo chkconfig waagent on
 	```
+
 
     The WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 3.
 
