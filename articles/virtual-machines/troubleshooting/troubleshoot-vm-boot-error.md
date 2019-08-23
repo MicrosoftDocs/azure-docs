@@ -19,20 +19,20 @@ ms.author: summertgu
 
 # VM boot error
 
-We have investigated and identified that your Virtual Machine (VM) entered a rescue console. The issue occurs when your Linux VM had kernel changes applied recently such as a kernel upgrade, and is no longer starting up properly due to kernel errors during the boot process. During the boot process, when the boot loader attempts to locate the Linux kernel and hand off control of boot to it, and the VM enters a rescue console when the handoff fails.
+We have identified that your Virtual Machine (VM) entered a rescue console. The issue occurs when your Linux VM had kernel changes applied recently such as a kernel upgrade, and is no longer starting up properly because of kernel errors during the boot process. During the boot process, when the boot loader attempts to locate the Linux kernel and hand off boot control to it, the VM enters a rescue console when the handoff fails.
 
-If you find that you cannot connect to a VM in the future, you can view a screenshot of your VM using the boot diagnostics blade in the Azure Portal. This may help you diagnose the issue and determine if a similar boot error is the cause.
+If you find that you can't connect to a VM in the future, you can view a screenshot of your VM using the boot diagnostics blade in the Azure portal. This may help you diagnose the issue and determine if a similar boot error is the cause.
 
 ## **Recommended Steps**
 
 Follow the mitigation steps below depending on the error you receive:
 
-1. If you are getting the error **Unknown filesystem**, this can result from a file system corruption on the boot partition, or an incorrect kernel configuration.
+1. If you're getting the error **Unknown filesystem**, this error can result from a file system corruption on the boot partition, or an incorrect kernel configuration.
 
    * For file system issues, follow the steps in the article [Linux Recovery: Cannot SSH to Linux VM due to file system errors (fsck, inodes)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/).
    * For kernel issues, follow the steps in the article [Linux Recovery: Manually fixing non-boot issues related to Kernel problems](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/), or [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
 
-2. If you are getting the error **Error 15: File not found or initial RAM disk** or **initrd/initramfs file not found**, follow the steps below.
+2. If you're getting the error **Error 15: File not found or initial RAM disk** or **initrd/initramfs file not found**, follow the steps below.
 
    * For the missing file `/boot/grub2/grub.cfg` or `initrd/initramfs` proceed with the following process:
 
@@ -40,11 +40,11 @@ Follow the mitigation steps below depending on the error you receive:
 
     2. Next, run the following command to regenerate its configuration: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * If the missing file is `/boot/grub/menu.lst`, this is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could defer. You will have to spin up an old server and test to ensure the correct commands are provided.
+   * If the missing file is `/boot/grub/menu.lst`, this error is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could defer. You will have to spin up an old server and test to ensure the correct commands are provided.
 
-3. If you are getting the error **No such partition**, refer to [Case Scenario : "no such partition" error while trying to start the VM after attempting to extend the OS drive](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/).
+3. If you're getting the error **No such partition**, refer to [Case Scenario : "no such partition" error while trying to start the VM after attempting to extend the OS drive](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/).
 
-4. If you are getting the error **/boot/grub2/grub.cfg file not found**, follow the steps below.
+4. If you're getting the error **/boot/grub2/grub.cfg file not found**, follow the steps below.
 
    * For the missing file `/boot/grub2/grub.cfg` or `initrd/initramfs` proceed with the following process:
 
@@ -52,4 +52,4 @@ Follow the mitigation steps below depending on the error you receive:
 
     2. Next, run the following command to regenerate its configuration: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
 
-   * If the missing file is `/boot/grub/menu.lst`, this is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could defer. You must spin up an old server and test it to ensure the correct commands are provided.
+   * If the missing file is `/boot/grub/menu.lst`, this error is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could defer. Spin up an old server and test it to ensure the correct commands are provided.
