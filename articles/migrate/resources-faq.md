@@ -14,9 +14,9 @@ This article answers frequently asked questions about Azure Migrate. If you have
 
 ## General
 
-### Which Azure geographies are supported by Azure Migrate?
+### Which Azure geographies does Azure Migrate support?
 
-You can find the list for [VMware here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+See the [list for VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and the [list for Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### What's the difference between Azure Migrate and Azure Site Recovery?
 
