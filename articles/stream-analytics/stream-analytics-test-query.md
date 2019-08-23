@@ -49,11 +49,11 @@ Azure Stream Analytics automatically fetches events from your streaming input. Y
    
    ![Azure Stream Analytics time range for incoming sample events](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-7.	Set the time range of the events you want to use to test your query and select **Sample**. Within that time frame, you can retrieve up to 1000 events or 1 MB, whichever comes first.
+7. Set the time range of the events you want to use to test your query and select **Sample**. Within that time frame, you can retrieve up to 1000 events or 1 MB, whichever comes first.
 
    ![Azure Stream Analytics set time range for incoming sample events](./media/stream-analytics-test-query/asa-set-time-range.png)
 
-8.	Once the events are sampled for selected time range, they appear in the **Input preview** tab.
+8. Once the events are sampled for selected time range, they appear in the **Input preview** tab.
 
    ![Azure Stream Analytics view test results](./media/stream-analytics-test-query/asa-view-test-results.png)
 
@@ -64,6 +64,8 @@ Azure Stream Analytics automatically fetches events from your streaming input. Y
 11.	After you verify the results shown in the browser, you're ready to **Start** the job.
 
 ## Upload sample data from a local file
+
+Instead of using live data, you can use sample data from a local file to test your Azure Stream Analytics query.
 
 1. Sign in to the Azure portal.
    
@@ -92,5 +94,11 @@ Azure Stream Analytics automatically fetches events from your streaming input. Y
 10. After you verify the results shown in the browser, you can **Start** the job.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
+
+* [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)
+
+* [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
