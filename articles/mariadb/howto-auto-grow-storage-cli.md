@@ -10,7 +10,7 @@ ms.date: 8/7/2019
 # Auto-grow Azure Database for MariaDB storage using the Azure CLI
 This article describes how you can configure an Azure Database for MariaDB server storage to grow without impacting the workload.
 
-The server [reaching the storage limit](https://docs.microsoft.com/en-us/azure/mariadb/concepts-pricing-tiers#reaching-the-storage-limit), is set to read-only. If storage auto grow is enabled then for servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified [here](https://docs.microsoft.com/en-us/azure/mariadb/concepts-pricing-tiers#storage) apply.
+The server [reaching the storage limit](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#reaching-the-storage-limit), is set to read-only. If storage auto grow is enabled then for servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified [here](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#storage) apply.
 
 ## Prerequisites
 To complete this how-to guide, you need:
@@ -32,7 +32,7 @@ az mariadb server update --name mydemoserver --resource-group myresourcegroup --
 Enable server auto-grow storage while creating a new server with the following command:
 
 ```azurecli-interactive
-az mariadb server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az mariadb server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 10.3
 ```
 
 ## Next steps

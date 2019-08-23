@@ -127,7 +127,7 @@
       href: concepts-read-replicas.md  
 - name: How-to guides
   items:
-  - name: Manage a Server
+  - name: Manage a server
     items:
     - name: Azure portal
       href: howto-create-manage-server-portal.md

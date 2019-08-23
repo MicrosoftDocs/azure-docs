@@ -37,7 +37,7 @@ Follow these steps to create an Azure Database for MariaDB server named “mydem
     | *Password* | set admin account password |
     | *Confirm password* | confirm admin account password |
     | *Location* | Southeast Asia (select between North Europe and West US) |
-    | *Version* | 5.7 (choose Azure Database for MariaDB server version) |
+    | *Version* | 10.3 (choose Azure Database for MariaDB server version) |
 
    ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
 
