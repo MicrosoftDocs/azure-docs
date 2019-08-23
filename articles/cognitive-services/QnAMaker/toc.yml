@@ -9,7 +9,7 @@
   - name: Create a new knowledge base
     href: How-To/create-knowledge-base.md
   - name: Add questions with metadata
-    href: How-To/add-question-answer-metadata-portal.md
+    href: quickstarts/add-question-metadata-portal.md
   - name: Get answer
     items:
     - name: Using Postman
