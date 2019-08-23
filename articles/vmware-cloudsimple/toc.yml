@@ -54,7 +54,7 @@
       href: cloudsimple-faq.md
   - name: Tutorials
     items:
-    - name: Create the CloudSimple Service
+    - name: Create the CloudSimple service
       href: create-cloudsimple-service.md 
     - name: Access the CloudSimple portal
       href: access-cloudsimple-portal.md
@@ -87,7 +87,7 @@
     - name: Set up Private Cloud networking
       items: 
       - name: Create and manage VLANs and subnets
-        href:  create-vlan-subnet.md
+        href: create-vlan-subnet.md
       - name: Set up firewall tables and rules
         href: firewall.md
       - name: Allocate public IP addresses
@@ -106,8 +106,6 @@
         href: users.md
       - name: Set up a virtual network connection to the Private Cloud
         href: virtual-network-connection.md
-      - name: Edit your user profile
-        href: https://docs.azure.cloudsimple.com/editprofile/
     - name: Set up VMware virtual machines for the Private Cloud
       items:
       - name: Create a VM in Azure
@@ -147,7 +145,7 @@
       - name: Migrating workload VMs to a Private Cloud
         href: migrate-workloads.md
       - name: Ensuring Application high availability in VMware on Azure
-        href: https://docs.azure.cloudsimple.com/ensuring-high-availability/
+        href: ensuring-high-availability.md
       - name: Choose a load balancing solution
         href: load-balancers.md
     - name: VMware ecosystem
@@ -156,8 +154,10 @@
         href: backup-workloads-veeam.md
       - name: Configure Private Cloud as disaster recovery site using Zerto
         href: disaster-recovery-zerto.md
+      - name: Configure Private Cloud as disaster recovery site using VMware SRM
+        href: disaster-recovery-site-recovery-manager.md
       - name: VMware Horizon solution guide
-        href: https://docs.azure.cloudsimple.com/horizon-guide/
+        href: horizon-guide.md
       - name: Configure vSAN encryption for your Private Cloud
         href: vsan-encryption.md
       - name: Optimize your Private Cloud for Oracle RAC
