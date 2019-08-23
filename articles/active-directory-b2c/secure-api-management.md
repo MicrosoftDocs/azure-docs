@@ -100,7 +100,7 @@ You're now ready to add the inbound policy in Azure API Management that validate
 
 ## Validate secure API access
 
-To ensure only authenticated callers can access your API, you can validate the configuration in Azure API Management by calling the API with [Postman](https://www.getpostman.com/).
+To ensure only authenticated callers can access your API, you can validate your Azure API Management configuration by calling the API with [Postman](https://www.getpostman.com/).
 
 To call the API, you need an access token issued by Azure AD B2C and an APIM subscription key.
 
