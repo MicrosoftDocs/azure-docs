@@ -83,7 +83,7 @@ From SQL Server to Azure storage.
 
     For an example, see the [Connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
 
-    For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
+    For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
 
 * SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](https://msdn.microsoft.com/ms144284.aspx) document.
 

@@ -54,7 +54,7 @@ As soon as you create an Azure subscription and start adding resources such as v
 
 Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](platform/diagnostic-logs-overview.md) and [adding an agent](platform/agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
-[Add an instrumentation package to your application](app/azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](app/monitor-web-app-availability.md) to simulate user traffic.
+Enable monitoring for your [App Services application](app/azure-web-apps.md) or [VM and virtual machine scale set application](app/azure-vm-vmss-apps.md), to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](app/monitor-web-app-availability.md) to simulate user traffic.
 
 ### Custom sources
 Azure Monitor can collect log data from any REST client using the [Data Collector API](platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
@@ -141,3 +141,4 @@ Learn more about:
 * [Metrics and logs](platform/data-platform.md) for the data collected by Azure Monitor.
 * [Data sources](platform/data-sources.md) for how the different components of your application send telemetry.
 * [Log queries](log-query/log-query-overview.md) for analyzing collected data.
+* [Best practices](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.

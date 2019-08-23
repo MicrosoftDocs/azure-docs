@@ -51,7 +51,7 @@ If you want to create a self signed certificate quickly for testing, you can use
 
 	$fileName = "exportedcert.pfx"
 	Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+When creating a self signed cert, you will need to ensure the subject name has the format of CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
 
 ## Application certificates 
 

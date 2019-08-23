@@ -76,7 +76,7 @@ namespace CosmosDBSamplesV2
             collectionName: "Items",
             ConnectionStringSetting = "CosmosDBConnection",
             LeaseCollectionName = "leases",
-            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents, 
+            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents,
             ILogger log)
         {
             if (documents != null && documents.Count > 0)
@@ -192,7 +192,7 @@ Here's the Java code:
 ```
 
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
 
 
 Skip trigger examples
@@ -661,7 +661,7 @@ Here's the binding data in the *function.json* file:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
     "partitionKey": "{partition key value}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",
     "direction": "in"
 }
 ```
@@ -674,7 +674,7 @@ Here's the C# script code:
 
     // Change input document contents using Azure Cosmos DB input binding
     public static void Run(string myQueueItem, dynamic inputDocument)
-    {   
+    {
       inputDocument.text = "This has changed.";
     }
 ```
@@ -707,11 +707,11 @@ Here's the C# script code:
 
 ```csharp
     public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
-    {   
+    {
         foreach (var doc in documents)
         {
             // operate on each document
-        }    
+        }
     }
 
     public class QueuePayload
@@ -1009,7 +1009,7 @@ Here's the binding data in the *function.json* file:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger_payload_property}",
     "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",
     "direction": "in"
 },
 {
@@ -1029,7 +1029,7 @@ Here's the JavaScript code:
 
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
-    module.exports = function (context) {   
+    module.exports = function (context) {
     context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
     context.bindings.inputDocumentOut.text = "This was updated!";
     context.done();
@@ -1180,12 +1180,12 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, input) {    
+    module.exports = function (context, input) {
         var documents = context.bindings.documents;
         for (var i = 0; i < documents.length; i++) {
             var document = documents[i];
             // operate on each document
-        }	    
+        }
         context.done();
     };
 ```
@@ -1217,7 +1217,7 @@ Here's the binding data in the *function.json* file:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger_payload_property}",
     "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",
     "direction": "in"
 },
 {
@@ -1415,7 +1415,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",
     "direction": "in"
 }
 ```
@@ -1465,7 +1465,7 @@ The examples refer to a simple `ToDoItem` type:
 public class ToDoItem {
 
   private String id;
-  private String description;  
+  private String description;
 
   public String getId() {
     return id;
@@ -1474,7 +1474,7 @@ public class ToDoItem {
   public String getDescription() {
     return description;
   }
-  
+
   @Override
   public String toString() {
     return "ToDoItem={id=" + id + ",description=" + description + "}";
@@ -1491,19 +1491,19 @@ public class DocByIdFromQueryString {
 
     @FunctionName("DocByIdFromQueryString")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET, HttpMethod.POST}, 
-              authLevel = AuthorizationLevel.ANONYMOUS) 
-            HttpRequestMessage<Optional<String>> request,        
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
               partitionKey = "{Query.id}",
-              connectionStringSetting = "Cosmos_DB_Connection_String") 
+              connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
         context.getLogger().info("String from the database is " + (item.isPresent() ? item.get() : null));
@@ -1513,9 +1513,9 @@ public class DocByIdFromQueryString {
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
-            // return JSON from Cosmos. Alternatively, we can parse the JSON string 
+            // return JSON from Cosmos. Alternatively, we can parse the JSON string
             // and return an enriched JSON object.
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -1526,7 +1526,7 @@ public class DocByIdFromQueryString {
 }
  ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
 
 #### HTTP trigger, look up ID from query string - POJO parameter (Java)
 
@@ -1537,19 +1537,19 @@ public class DocByIdFromQueryStringPojo {
 
     @FunctionName("DocByIdFromQueryStringPojo")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET, HttpMethod.POST}, 
-              authLevel = AuthorizationLevel.ANONYMOUS) 
-            HttpRequestMessage<Optional<String>> request,        
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
               partitionKey = "{Query.id}",
-              connectionStringSetting = "Cosmos_DB_Connection_String") 
+              connectionStringSetting = "Cosmos_DB_Connection_String")
             ToDoItem item,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
         context.getLogger().info("Item from the database is " + item);
@@ -1559,7 +1559,7 @@ public class DocByIdFromQueryStringPojo {
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -1579,20 +1579,20 @@ public class DocByIdFromRoute {
 
     @FunctionName("DocByIdFromRoute")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET, HttpMethod.POST}, 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
               authLevel = AuthorizationLevel.ANONYMOUS,
               route = "todoitems/{id}")
-            HttpRequestMessage<Optional<String>> request,        
+            HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{id}",
               partitionKey = "{id}",
-              connectionStringSetting = "Cosmos_DB_Connection_String") 
+              connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
         context.getLogger().info("String from the database is " + (item.isPresent() ? item.get() : null));
@@ -1602,9 +1602,9 @@ public class DocByIdFromRoute {
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
-            // return JSON from Cosmos. Alternatively, we can parse the JSON string 
+            // return JSON from Cosmos. Alternatively, we can parse the JSON string
             // and return an enriched JSON object.
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -1624,19 +1624,19 @@ public class DocByIdFromRouteSqlQuery {
 
     @FunctionName("DocByIdFromRouteSqlQuery")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET, HttpMethod.POST}, 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
               authLevel = AuthorizationLevel.ANONYMOUS,
-              route = "todoitems2/{id}") 
-            HttpRequestMessage<Optional<String>> request,        
+              route = "todoitems2/{id}")
+            HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               sqlQuery = "select * from Items r where r.id = {id}",
-              connectionStringSetting = "Cosmos_DB_Connection_String") 
+              connectionStringSetting = "Cosmos_DB_Connection_String")
             ToDoItem[] item,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
         context.getLogger().info("Items from the database are " + item);
@@ -1646,7 +1646,7 @@ public class DocByIdFromRouteSqlQuery {
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -1666,19 +1666,19 @@ public class DocsFromRouteSqlQuery {
 
     @FunctionName("DocsFromRouteSqlQuery")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET}, 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET},
               authLevel = AuthorizationLevel.ANONYMOUS,
               route = "todoitems3/{desc}")
-            HttpRequestMessage<Optional<String>> request,        
+            HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               sqlQuery = "select * from Items r where contains(r.description, {desc})",
-              connectionStringSetting = "Cosmos_DB_Connection_String") 
+              connectionStringSetting = "Cosmos_DB_Connection_String")
             ToDoItem[] items,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
         context.getLogger().info("Number of items from the database is " + (items == null ? 0 : items.length));
@@ -1688,7 +1688,7 @@ public class DocsFromRouteSqlQuery {
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("No documents found.")
                           .build();
-        } 
+        }
         else {
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -1742,6 +1742,7 @@ See the language-specific examples:
 * [F#](#output---f-examples)
 * [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
+* [Python](#output---python-examples)
 
 See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
@@ -1882,7 +1883,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -2007,7 +2008,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -2064,7 +2065,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -2126,14 +2127,14 @@ The following example shows a Java function that adds a document to a database w
 
 ```java
 @FunctionName("getItem")
-@CosmosDBOutput(name = "database", 
-  databaseName = "ToDoList", 
-  collectionName = "Items", 
+@CosmosDBOutput(name = "database",
+  databaseName = "ToDoList",
+  collectionName = "Items",
   connectionStringSetting = "AzureCosmosDBConnection")
 public String cosmosDbQueryById(
-    @QueueTrigger(name = "msg", 
-      queueName = "myqueue-items", 
-      connection = "AzureWebJobsStorage") 
+    @QueueTrigger(name = "msg",
+      queueName = "myqueue-items",
+      connection = "AzureWebJobsStorage")
     String message,
     final ExecutionContext context)  {
      return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
@@ -2146,21 +2147,21 @@ The following example shows a Java function whose signature is annotated with ``
 
 ```java
     @FunctionName("WriteOneDoc")
-    @CosmosDBOutput(name = "database", 
+    @CosmosDBOutput(name = "database",
       databaseName = "ToDoList",
-      collectionName = "Items", 
+      collectionName = "Items",
       connectionStringSetting = "Cosmos_DB_Connection_String")
     public String run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET, HttpMethod.POST}, 
-              authLevel = AuthorizationLevel.ANONYMOUS) 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
 
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
 
-        // Parse query parameter        
+        // Parse query parameter
         String query = request.getQueryParameters().get("desc");
         String name = request.getBody().orElse(query);
 
@@ -2168,7 +2169,7 @@ The following example shows a Java function whose signature is annotated with ``
         final int id = Math.abs(new Random().nextInt());
 
         // Generate document
-        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
                                     "\"description\": \"" + name + "\"}";
 
         context.getLogger().info("Document to be saved: " + jsonDocument);
@@ -2184,29 +2185,29 @@ The following example shows a Java function that writes a document to CosmosDB v
 ```java
     @FunctionName("WriteOneDocOutputBinding")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET, HttpMethod.POST}, 
-              authLevel = AuthorizationLevel.ANONYMOUS) 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
-            @CosmosDBOutput(name = "database", 
-              databaseName = "ToDoList", 
-              collectionName = "Items", 
-              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
             OutputBinding<String> outputItem,
             final ExecutionContext context) {
-  
+
         // Parse query parameter
         String query = request.getQueryParameters().get("desc");
         String name = request.getBody().orElse(query);
 
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
-      
+
         // Generate random ID
         final int id = Math.abs(new Random().nextInt());
 
         // Generate document
-        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
                                     "\"description\": \"" + name + "\"}";
 
         context.getLogger().info("Document to be saved: " + jsonDocument);
@@ -2228,24 +2229,24 @@ The following example shows a Java function that writes multiple documents to Co
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET, HttpMethod.POST}, 
-              authLevel = AuthorizationLevel.ANONYMOUS) 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
-            @CosmosDBOutput(name = "database", 
-              databaseName = "ToDoList", 
-              collectionName = "Items", 
-              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
             OutputBinding<List<ToDoItem>> outputItem,
             final ExecutionContext context) {
-  
+
         // Parse query parameter
         String query = request.getQueryParameters().get("desc");
         String name = request.getBody().orElse(query);
 
         // Item list
         context.getLogger().info("Parameters are: " + request.getQueryParameters());
-      
+
         // Generate documents
         List<ToDoItem> items = new ArrayList<>();
 
@@ -2255,7 +2256,7 @@ The following example shows a Java function that writes multiple documents to Co
 
           // Create ToDoItem
           ToDoItem item = new ToDoItem(String.valueOf(id), name);
-          
+
           items.add(item);
         }
 
@@ -2272,6 +2273,57 @@ The following example shows a Java function that writes multiple documents to Co
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be ```OutputBinding<T>```, where T is either a native Java type or a POJO.
 
+### Output - Python examples
+
+The following example demonstrates how to write a document to an Azure CosmosDB database as the output of a function.
+
+The binding definition is defined in *function.json* where *type* is set to `cosmosDB`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "doc",
+      "databaseName": "demodb",
+      "collectionName": "data",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+To write to the database, pass a document object to the `set` method of the database parameter.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpResponse:
+
+    request_body = req.get_body()
+
+    doc.set(func.Document.from_json(request_body))
+
+    return 'OK'
+```
 
 ## Output - attributes
 
@@ -2280,7 +2332,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](h
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `CosmosDB` attribute example in a method signature:
 
 ```csharp
-    [FunctionName("QueueToDocDB")]        
+    [FunctionName("QueueToDocDB")]
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
         [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
@@ -2313,7 +2365,7 @@ The following table explains the binding configuration properties that you set i
 
 By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
 
-> [!Note]  
+> [!Note]
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
 
 ## Exceptions and return codes
@@ -2322,7 +2374,7 @@ By default, when you write to the output parameter in your function, a document 
 |---|---|
 | CosmosDB | [CosmosDB Error Codes](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
-<a name="host-json"></a>  
+<a name="host-json"></a>
 
 ## host.json settings
 
@@ -2341,13 +2393,13 @@ This section describes the global configuration settings available for this bind
         }
     }
 }
-```  
+```
 
 |Property  |Default | Description |
-|---------|---------|---------| 
+|---------|---------|---------|
 |GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)| 
-|leasePrefix|n/a|Lease prefix to use across all functions in an app.| 
+|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/a|Lease prefix to use across all functions in an app.|
 
 ## Next steps
 

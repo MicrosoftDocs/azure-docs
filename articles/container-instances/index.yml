@@ -5,14 +5,12 @@ metadata:
   title: Azure Container Instances Documentation - Tutorials | Microsoft Docs
   description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
   services: container-instances
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service. Learn how to create and manage container instances with our quickstarts, tutorials, and samples.<p>If you require a complete container orchestration solution, see the <a href="/azure/aks/">Azure Kubernetes Service (AKS) documentation</a>.</p>
 sections:

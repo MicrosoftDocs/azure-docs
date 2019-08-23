@@ -211,12 +211,11 @@ To download it using Linux, type:
 
 ### Apply custom configuration changes
 
-To apply custom configuration changes, use the following steps:
-
+To apply custom configuration changes, use the following steps as a ROOT user:
 
 1. Run the following command to untar the binary.
 
-	`tar -zxvf latestlinuxmobsvc.tar.gz`
+	`tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Screenshot of the command to run](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -242,7 +241,7 @@ Use the following steps to create a retention disk:
 
     ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
+3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>**.
 	
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

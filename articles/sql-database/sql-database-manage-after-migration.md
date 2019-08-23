@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/13/2019
 ---
 # New DBA in the cloud – Managing your single and pooled databases in Azure SQL Database

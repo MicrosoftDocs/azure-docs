@@ -10,13 +10,13 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 07/15/2019
 ms.author: kumud
 ---
 
 # What is IPv6 for Azure Virtual Network? (Preview)
 
-IPv6 for Azure Virtual Network (VNET) enables you to host applications in Azure with IPv6 and IPv4 connectivity both within a virtual network and to and from the Internet. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Even long established ISP and mobile networks are being transformed to IPv6. IPv4-only services can find themselves at a real disadvantage in both existing and emerging markets. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
+IPv6 for Azure Virtual Network (VNet) enables you to host applications in Azure with IPv6 and IPv4 connectivity both within a virtual network and to and from the Internet. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Even long established ISP and mobile networks are being transformed to IPv6. IPv4-only services can find themselves at a real disadvantage in both existing and emerging markets. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
 
 Azure's original IPv6 connectivity makes it easy to provide dual stack (IPv4/IPv6) Internet connectivity for applications hosted in Azure. It allows for simple deployment of VMs with load balanced IPv6 connectivity for both inbound and outbound initiated connections. This feature is still available and more information is available [here](../load-balancer/load-balancer-ipv6-overview.md).
 IPv6 for Azure virtual network is much more full featured- enabling full IPv6 solution architectures to be deployed in Azure.
@@ -39,24 +39,34 @@ Azure Virtual Network IPv6 benefits:
 
 ## Capabilities
 
-IPv6 support for virtual machines includes the following capabilities:
+IPv6 for VNet includes the following capabilities:
 
 - Azure customers can define their own IPv6 virtual network address space to meet the needs of their applications, customers, or seamlessly integrate into their on-premises IP space.
 - Dual stack (IPv4 and IPv6) virtual networks with dual stack subnets enable applications to connect with both IPv4 and IPv6 resources in their virtual network or - the Internet.
-- Protect your resources with IPv6 rules for Network Security Groups
+    > [!IMPORTANT]
+    > The subnets for IPv6 must be exactly /64 in size.  This ensures compatibility if you decide to enable routing of the subnet to an on-premises network since some routers can only accept /64 IPv6 routes.  
+- Protect your resources with IPv6 rules for Network Security Groups.
 - Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes- especially when leveraging Network Virtual Appliances to augment your application.
-- IPv6 Load Balancer support to create resilient, scalable applications that includes Azure DNS support for AAAA records for IPv6 public IPs.
-- Easily add IPv6 connectivity to existing IPv4-only deployments with Upgrade-in-Place.
+- Let Internet clients seamlessly access your dual stack application using their protocol of choice with Azure DNS support for IPv6 (AAAA) records. 
+- Standard IPv6 Public Load Balancer support to create resilient, scalable applications which includes:
+    - Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows. .  
+    - Optional outbound rules which provide full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
+    - Optional multiple front-end configurations which enable a single load balancer to use multiple IPv6 public IP addresses- the same frontend protocol and port can be reused across frontend addresses.
+- Instance-level public IP provides IPv6 Internet connectivity directly to individual VMs.
+- Easily add IPv6 connectivity to existing IPv4-only deployments with upgrade-in-place.
 - Create dual stack applications that automatically scale to your load with virtual machine scale sets.
+- Portal support for the preview includes interactive create/edit/delete of dual stack (IPv4+IPv6) virtual networks and subnets, IPv6 network security group rules, IPv6 User defined routes, and IPv6 public IPs.  
 
 ## Limitations
 The preview release of IPv6 for Azure virtual network has the following limitations:
-- IPv6 for Azure virtual network (Preview) is available in all global Azure regions, but only in Global Azure- not the government clouds.   
-- Portal support for the preview is limited to view only for much but not all IPv6 configuration, however IPv6 for virtual network has full support and documentation (with samples) for IPv6 deployment using Azure Powershell and Command Line Interface (CLI).
+- IPv6 for Azure virtual network (Preview) is available in all global Azure regions, but only in Global Azure- not the government clouds.
+- Portal support for Standard Load Balancer components is view-only.  However full support and documentation (with samples) is available for Standard Load Balancer deployments using Azure Powershell and Command Line Interface (CLI).   
 - Network Watcher support for the preview is limited to NSG flow logs and network packet captures.
-- Load Balancing support for the preview is initially limited to Basic Load Balancer.
-- Instance-level public IPs (public IPs directly on a VM) is not supported in preview.  
-- Virtual network peering (regionally or globally) is not supported in preview. 
+- Virtual network peering (regionally or globally) is not supported in preview.
+- When using Standard IPv6 External Load Balancer, the following limits apply: 
+  - Outbound rules can reference multiple front-end public IPs but may **not** reference an IPv6 public prefix. IP public prefix supports only IPv4 prefixes.
+  - IPv6 load-balancing rules may **not** use the *Floating IP* feature. Port reuse on backend instances is supported only with IPv4.
+- Reserving a block of Internet-facing IPv6 addresses is not supported by the Azure Public IP Address Prefix feature.
 
 ## Pricing
 

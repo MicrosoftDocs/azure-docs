@@ -11,7 +11,6 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
@@ -33,7 +32,7 @@ To complete this tutorial, you need:
   |||
 
 > [!NOTE]
-> Make sure that the **Allow access to Azure Services** option is set to **ON** in your SQL server firewall settings. This option gives the SQL query editor access to your databases and data warehouses.
+> The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
 
 ## Sign in the Azure portal
 
@@ -157,8 +156,6 @@ There are a few things to know when working with the query editor.
 * The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
 
 * Pressing F5 refreshes the query editor page and any query being worked on is lost.
-
-* In order to use the query editor, you must select "Allow Azure services to access this server" in your firewall settings.
 
 * Query editor doesn't support connecting to the `master` database.
 

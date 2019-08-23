@@ -2,12 +2,12 @@
 title: Limitations for Windows Server node pools in Azure Kubernetes Service (AKS)
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
-author: tylermsft
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: twhitney
+ms.author: mlearned
 
 #Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
 ---
@@ -19,7 +19,7 @@ In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows 
 This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS. Node pools for Windows Server are currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]

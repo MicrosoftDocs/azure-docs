@@ -20,14 +20,11 @@ It replaces [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/
 The module provides codeless instrumentation of .NET web apps hosted with IIS.
 Telemetry is sent to the Azure portal, where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your app.
 
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## PowerShell Gallery
 
-The PowerShell Gallery is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Status Monitor v2 is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+
+![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## Instructions
@@ -42,6 +39,7 @@ The PowerShell Gallery is located here: https://www.powershellgallery.com/packag
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## Troubleshooting
 - [Troubleshooting](status-monitor-v2-troubleshoot.md)
@@ -59,13 +57,13 @@ Each of these options is described in the [detailed instructions](status-monitor
   
 - How do I verify that the enablement succeeded?
 
-   There's no cmdlet to verify enablement succeeded.
-We recommend you use [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly determine if your app is sending telemetry.
+  - The [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet can be used to verify that enablement succeeded.
+  - We recommend you use [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly determine if your app is sending telemetry.
 
-   You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Translation Customization - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Microsoft Translator Hub to build your own machine translation system using your preferred terminology and style.
 services: cognitive-services
 author: swmachan

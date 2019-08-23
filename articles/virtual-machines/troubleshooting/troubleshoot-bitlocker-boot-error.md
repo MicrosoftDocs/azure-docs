@@ -79,7 +79,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```powershell
     $vmName = "myVM"
     $vault = "myKeyVault"
-    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.ContentType -match 'BEK')} `
+    Get-AzKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.ContentType -match 'BEK')} `
             | Sort-Object -Property Created `
             | ft  Created, `
                 @{Label="Content Type";Expression={$_.ContentType}}, `
@@ -108,8 +108,8 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     ```powershell
     $vault = "myKeyVault"
-    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK"
-    $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $bek
+    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C"
+    $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $vault -Name $bek
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
     $path = "C:\BEK\DiskEncryptionKeyFileName.BEK"

@@ -123,7 +123,7 @@ The following chart shows the list of roles and the supported actions on managem
 |Reader                      |        |        |        |        |               |               | X     |
 |MG Reader*                  |        |        |        |        |               |               | X     |
 |Resource Policy Contributor |        |        |        |        |               | X             |       |
-|User Access Administrator   |        |        |        |        | X             |               |       |
+|User Access Administrator   |        |        |        |        | X             | X             |       |
 
 *: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 **: Role Assignments on the Root management group aren't required to move a subscription or management group to and from it.  See [Manage your resources with management groups](manage.md) for details on moving items within the hierarchy.

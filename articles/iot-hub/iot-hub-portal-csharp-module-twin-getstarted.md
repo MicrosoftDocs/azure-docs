@@ -12,6 +12,8 @@ ms.date: 04/26/2018
 ---
 # Get started with IoT Hub module identity and module twin using the portal and .NET device
 
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
+
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
 >
@@ -34,10 +36,6 @@ To complete this tutorial, you need the following:
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### Retrieve connection string for IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## Register a new device in the IoT hub
 
@@ -71,7 +69,7 @@ Module identity and module twin is in public preview. It's only available in the
 
 ## Get your module connection string
 
-Login to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
+Sign in to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
   ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 

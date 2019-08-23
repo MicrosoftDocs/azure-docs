@@ -2,12 +2,12 @@
 title: Static IP address for egress traffic in Azure Kubernetes Service (AKS)
 description: Learn how to create and use a static public IP address for egress traffic in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As an cluster operator, I want to define the egress IP address to control the flow of traffic from a known, defined address.
 ---
@@ -32,7 +32,7 @@ Once a Kubernetes service of type `LoadBalancer` is created, agent nodes are add
 
 ## Create a static public IP
 
-When you create a static public IP address for use with AKS, the IP address resource must be created in the **node** resource group. Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
+Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

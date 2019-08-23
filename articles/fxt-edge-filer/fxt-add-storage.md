@@ -54,7 +54,7 @@ Define a core filer by clicking the **Create** button on the **Core Filer** > **
 
 ![Clicking the create button above the list of core filers on the Manage Core Filers page](media/fxt-cluster-config/create-core-filer-button.png)
 
-The **Add New Core Filer** wizard walks you through the process of creating a core filer that links to your backend storage. The Cluster Configuration Guide has step-by-step descriptions of the process, which is different for NFS/NAS storage and for cloud storage (links are above). 
+The **Add New Core Filer** wizard walks you through the process of creating a core filer that links to your back-end storage. The Cluster Configuration Guide has step-by-step descriptions of the process, which is different for NFS/NAS storage and for cloud storage (links are above). 
 
 Subtasks include:
 
@@ -72,7 +72,7 @@ Subtasks include:
 
 * For cloud storage, you must specify the cloud service and access credentials, among other parameters. For details, read [Cloud service and protocol](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) in the Cluster Configuration Guide.
 
-  ![Cloud core filer information in the New Core Filer wizard](media/fxt-cluster-config/new-core-filer-cloud3.png) <!-- xxx get an Azure version of this screenshot xxx -->
+  ![Cloud core filer information in the New Core Filer wizard](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
   If you already have added cloud access credentials for this cluster, they appear in the list. Update and add credentials in the **Cluster** > **Cloud Credentials** settings page. 
 
@@ -100,7 +100,7 @@ The cluster's vservers maintain the namespace and serving content to clients. Th
 VServers are virtual file servers that control how data flows between the client and the cluster’s core filers:
 
 * VServers host client-facing IP addresses
-* VServers create the namespace and define junctions that map the client-facing virtual directory structure to exports on backend storage
+* VServers create the namespace and define junctions that map the client-facing virtual directory structure to exports on back-end storage
 * VServers enforce file access controls, including core filer export policies and user authentication systems
 * VServers provide SMB infrastructure
 
@@ -130,7 +130,7 @@ Use the **VServer** > **Manage VServers** settings page to create a new vserver.
 
 ### Create a junction
 
-A *junction* maps a backend storage path to the client-visible namespace.
+A *junction* maps a back-end storage path to the client-visible namespace.
 
 You can use this system to simplify the path used in client mount points, and to scale capacity seamlessly because one virtual path can accommodate storage from multiple core filers.
 

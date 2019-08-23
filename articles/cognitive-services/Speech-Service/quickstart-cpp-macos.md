@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (macOS) - Speech Services'
+title: 'Quickstart: Recognize speech, C++ (macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on macOS by using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: wolfma
 ---
 
@@ -110,4 +110,3 @@ Download and install the SDK as follows:
 
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)
-

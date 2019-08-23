@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to set up Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Cable and connect to your Azure Data Box Heavy (preview)
+# Tutorial: Cable and connect to your Azure Data Box Heavy
 
 
 This tutorial describes how to cable, connect, and turn on your Azure Data Box Heavy.

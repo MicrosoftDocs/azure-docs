@@ -3,6 +3,7 @@ title: Azure Container Registry SKUs
 description: Compare the different service tiers available in Azure Container Registry.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article

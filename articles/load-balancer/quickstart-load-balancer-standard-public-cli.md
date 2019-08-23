@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
 ---
 # Quickstart: Create a Standard Load Balancer to load balance VMS using Azure CLI
@@ -146,16 +146,34 @@ Create a network security group rule to allow inbound connections through port 8
 Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
 
 ```azurecli-interactive
-for i in `seq 1 2`; do
+
   az network nic create \
     --resource-group myResourceGroupSLB \
-    --name myNic$i \
+    --name myNicVM1 \
     --vnet-name myVnet \
     --subnet mySubnet \
     --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
-done
+
+  az network nic create \
+    --resource-group myResourceGroupSLB \
+    --name myNicVM2 \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+  
+  az network nic create \
+    --resource-group myResourceGroupSLB \
+    --name myNicVM3 \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+
 ```
 
 
@@ -173,7 +191,7 @@ Create an availability set with [az vm availabilityset create](/cli/azure/networ
     --name myAvailabilitySet
 ```
 
-### Create two virtual machines
+### Create three virtual machines
 
 You can use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the shell. Make sure that you copy the whole cloud-init file correctly, especially the first line:
 
@@ -222,17 +240,37 @@ runcmd:
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
-for i in `seq 1 2`; do
+
   az vm create \
     --resource-group myResourceGroupSLB \
-    --name myVM$i \
+    --name myVM1 \
     --availability-set myAvailabilitySet \
-    --nics myNic$i \
+    --nics myNicVM1 \
     --image UbuntuLTS \
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
     --no-wait
-done
+   
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM2 \
+    --availability-set myAvailabilitySet \
+    --nics myNicVM2 \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --no-wait
+
+   az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM3 \
+    --availability-set myAvailabilitySet \
+    --nics myNicVM3 \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --no-wait
+
 ```
 It may take a few minutes for the VMs to get deployed.
 

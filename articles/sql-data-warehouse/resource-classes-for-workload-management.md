@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick

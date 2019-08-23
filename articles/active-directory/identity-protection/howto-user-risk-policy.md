@@ -1,33 +1,25 @@
 ---
 title: How to configure the user risk policy in Azure Active Directory Identity Protection| Microsoft Docs
 description: Learn how to configure the Azure AD Identity Protection user risk policy.
-services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
 
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
+services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
-
-
 # How To: Configure the user risk policy
 
 With the user risk, Azure AD detects the probability that a user account has been compromised. As an administrator, you can configure a user risk Conditional Access policy, to automatically respond to a specific user risk level.
  
 This article provides you with the information you need to configure a user risk policy.
-
 
 ## What is a user risk policy?
 
@@ -39,14 +31,11 @@ All risk events that have been detected for a user and didn't get resolved are k
 
 The user risk policy is an automated response you can configure for a specific user risk level. With a user risk policy, you can block access to your resources or require a password change to get a user account back into a clean state.
 
-
 ## How do I access the user risk policy?
    
 The sign-in risk policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![User risk policy](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## Policy settings
 
@@ -78,7 +67,6 @@ You can set a user risk security policy to block users upon sign-in depending on
 
 ![Blocking](./media/howto-user-risk-policy/16.png)
 
-
 Blocking a sign-in:
 
 * Prevents the generation of new user risk events for the affected user
@@ -108,9 +96,6 @@ For an overview of the related user experience, see:
 - On the **Azure AD Identity Protection** blade, in the **Configure** section, click **User risk policy**.
 
     ![User risk policy](./media/howto-user-risk-policy/1009.png "User risk policy")
-
-
-
 
 ## Next steps
 

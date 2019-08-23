@@ -10,7 +10,6 @@ ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to monitor and scale a single SQL database

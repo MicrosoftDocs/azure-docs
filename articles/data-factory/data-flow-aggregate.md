@@ -3,7 +3,6 @@ title: Aggregate transformation in Mapping Data Flow - Azure Data Factory | Micr
 description: Learn how to aggregate data at scale in Azure Data Factory with the Mapping Data Flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
@@ -34,6 +33,12 @@ Choose the 'Aggregates' tab to build aggregation expressions. You can either cho
 > [!NOTE]
 > In Debug mode, the expression builder cannot produce data previews with aggregate functions. To view data previews for aggregate transformations, close the expression builder and view the data via the 'Data Preview' tab.
 
+## Reconnect rows and columns
+Aggregate transformations are closely equivalent to SQL aggregate select queries. Columns that are not included in your Group By clause or Aggregate functions will not flow through to the output of your Aggregate transformation. If there are other columns that you wish to include with your aggregated rows output, you must either:
+
+* Use an aggregate function to include that additional column, such as Last() or First()
+* Re-join the columns before your Aggregate using the [Self Join pattern](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+
 ## Next steps
 
--Define window-based aggregation using the [Window transformation](data-flow-window.md)
+* Define window-based aggregation using the [Window transformation](data-flow-window.md)

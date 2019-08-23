@@ -41,7 +41,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     ```
     https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
-    
+
 8. Click **Create**. Copy the **Application ID** to be used later.
 9. Select the application, and then select **Settings**.
 10. Select **Keys**, enter the key description, select a duration, and then click **Save**. Copy the value of the key that is displayed to be used later.
@@ -53,7 +53,7 @@ You need to store the application key that you created in your Azure AD B2C tena
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-3. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+3. On the Overview page, select **Identity Experience Framework**.
 4. Select **Policy Keys** and then select **Add**.
 5. For **Options**, choose `Manual`.
 6. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key.
@@ -63,7 +63,7 @@ You need to store the application key that you created in your Azure AD B2C tena
 
 ## Add a claims provider
 
-If you want users to sign in by using Azure AD, you need to define Azure AD as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
+If you want users to sign in by using Azure AD, you need to define Azure AD as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
 
@@ -89,7 +89,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
-        
+
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
             <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
@@ -103,11 +103,11 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="unique_name" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
@@ -174,7 +174,7 @@ Now that you have a button in place, you need to link it to an action. The actio
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
-    
+
     Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `Common-AAD`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.

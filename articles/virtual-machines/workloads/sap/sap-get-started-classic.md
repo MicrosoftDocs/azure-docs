@@ -4,7 +4,7 @@ description: Learn about using SAP on Linux virtual machines (VMs) in Microsoft 
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management
 keywords: ''

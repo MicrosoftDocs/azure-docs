@@ -170,14 +170,10 @@ Azure Maps uses a key-based authentication scheme. Your account comes with two k
 
 The Azure Maps APIs are currently available in all countries/regions except these:
 
-* Argentina
 * China
-* India
-* Morocco
-* Pakistan
 * South Korea
 
-Verify that the location of your current IP address isn't in one of the unsupported countries/regions.
+Verify that the location of your current IP address is not in one of the unsupported countries above.
 
 ## Next steps
 

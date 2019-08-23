@@ -445,7 +445,7 @@ At minimum, the `id` attribute must be set when making deletes.
 
 ## <a name="customapi"></a>How to: Call Custom API
 
-With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format. To learn how to create a custom API on the backend, read [Custom APIs](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format.
 
 To call a custom API, call `MSClient.invokeAPI`. The request and response content are treated as JSON. To use
 other media types, [use the other overload of `invokeAPI`][5].  To make a `GET` request instead of a `POST`

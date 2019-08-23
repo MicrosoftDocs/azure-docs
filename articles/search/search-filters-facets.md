@@ -2,7 +2,7 @@
 title: Facet filters for search navigation in apps - Azure Search
 description: Filter criteria by user security identity, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -77,7 +77,7 @@ Index attributes that control how a field is used are added to individual field 
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Add facet filters to a query
 

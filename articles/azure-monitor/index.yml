@@ -74,10 +74,6 @@ sections:
         src: https://docs.microsoft.com/media/common/nodejs.svg
       text: Node.js
       href: /azure/application-insights/app-insights-nodejs-quick-start
-    - image: 
-        src: https://docs.microsoft.com/media/common/java.svg
-      text: Java
-      href: /azure/application-insights/app-insights-java-quick-start
     - image:
         src: /azure/application-insights/media/index/mobile-center.png
       text: Mobile

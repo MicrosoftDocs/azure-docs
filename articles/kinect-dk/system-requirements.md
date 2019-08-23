@@ -31,6 +31,7 @@ The PC host hardware requirement is dependent on application/algorithm/sensor fr
 - Seventh Gen Intel® CoreTM i3 Processor (Dual Core 2.4 GHz with HD620 GPU or faster)
 - 4 GB Memory
 - Dedicated USB3 port
+- Graphics driver support for OpenGL 4.4 or DirectX 11.0
 
 Lower end or older CPUs may also work depending on your use-case.
 
@@ -42,7 +43,7 @@ The body tracking PC host requirement is more stringent than the general PC host
 
 - Seventh Gen Intel® CoreTM i5 Processor (Quad Core 2.4 GHz or faster)
 - 4 GB Memory
-- NVIDIA GEFORCE GTX 1070 / RTX 2070 or better
+- NVIDIA GEFORCE GTX 1070 or better
 - Dedicated USB3 port
 
 Lower end or older CPUs and NVIDIA GPUs may also work depending on your use-case.

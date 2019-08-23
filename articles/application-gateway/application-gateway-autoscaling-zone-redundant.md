@@ -30,7 +30,7 @@ The new v2 SKU includes the following enhancements:
 
 ## Supported regions
 
-The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West. Additional regions will be added in the future.
+The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Canada Central, Canada East, East Asia, Korea Central, Korea South, South India, UK South, Central India, West India, South India.
 
 ## Pricing
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), C# (UWP) - Speech Services'
+title: 'Quickstart: Custom voice-first virtual assistant (Preview), C# (UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech Software Development Kit (SDK). You connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2017.
 services: cognitive-services
@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: 
 ---
 
 # Quickstart: Create a voice-first virtual assistant with the Speech SDK, UWP
 
 Quickstarts are also available for [speech-to-text](quickstart-csharp-uwp.md), [text-to-speech](quickstart-text-to-speech-csharp-uwp.md) and [speech-translation](quickstart-translate-speech-uwp.md).
 
-In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later (any edition).
 
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
@@ -26,7 +25,7 @@ In this article, you'll develop a C# Universal Windows Platform (UWP) applicatio
 
 This quickstart requires:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
 * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
@@ -76,7 +75,7 @@ This quickstart will describe, step by step, how to make a simple client applica
     </Page>
     ```
 
-1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
+1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers:
 
     * Using statements for the Speech and Speech.Dialog namespaces
     * A simple implementation to ensure microphone access, wired to a button handler

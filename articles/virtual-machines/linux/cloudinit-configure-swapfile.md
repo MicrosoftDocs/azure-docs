@@ -1,10 +1,10 @@
 ---
 title: Use cloud-init to configure a swap partition on a Linux VM | Microsoft Docs
-description: How to use cloud-init to configure a swapfile in a Linux VM during creation with the Azure CLI
+description: How to use cloud-init to configure a swap partition in a Linux VM during creation with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -18,10 +18,10 @@ ms.author: rclaus
 
 ---
 # Use cloud-init to configure a swap partition on a Linux VM
-This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure the swapfile on various Linux distributions. The swapfile was traditionally configured by the Linux Agent (WALA) based on which distributions required one.  This document will outline the process for building the swapfile on demand during provisioning time using cloud-init.  For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
+This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure the swap partition on various Linux distributions. The swap partition was traditionally configured by the Linux Agent (WALA) based on which distributions required one.  This document will outline the process for building the swap partition on demand during provisioning time using cloud-init.  For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
 ## Create swap partition for Ubuntu based images
-By default on Azure, Ubuntu gallery images do not create swap files. To enable swap file configuration during VM provisioning time using cloud-init - please see the [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) on the Ubuntu wiki.
+By default on Azure, Ubuntu gallery images do not create swap partitions. To enable swap partition configuration during VM provisioning time using cloud-init - please see the [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) on the Ubuntu wiki.
 
 ## Create swap partition for Red Hat and CentOS based images
 
@@ -61,14 +61,14 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-## Verify swapfile was created
+## Verify swap partition was created
 SSH to the public IP address of your VM shown in the output from the preceding command. Enter your own **publicIpAddress** as follows:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Once you have SSH'ed into the vm, check if the swapfile was created
+Once you have SSH'ed into the vm, check if the swap partition was created
 
 ```bash
 swapon -s
@@ -82,7 +82,7 @@ Filename                Type        Size    Used    Priority
 ```
 
 > [!NOTE] 
-> If you have an existing Azure image that has a swap partition configured and you want to change the swap file configuration for new images, you should remove the existing swap file. Please see 'Customize Images to provision by cloud-init' document for more details.
+> If you have an existing Azure image that has a swap partition configured and you want to change the swap partition configuration for new images, you should remove the existing swap partition. Please see 'Customize Images to provision by cloud-init' document for more details.
 
 ## Next steps
 For additional cloud-init examples of configuration changes, see the following:
