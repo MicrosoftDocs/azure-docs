@@ -25275,6 +25275,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-factory/how-to-read-write-partitioned-data.md",
+      "redirect_url": "/azure/data-factory/tutorial-incremental-copy-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-factory/data-factory-amazon-simple-storage-service-connector.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-amazon-simple-storage-service-connector",
       "redirect_document_id": true

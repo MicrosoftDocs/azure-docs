@@ -130,7 +130,7 @@ Azure Data Factory provides the following performance optimization features:
 
 A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-You will be charged **# of used DIUs \* copy duration \* unit price/DIU-hour** (local currency and separate discounting may apply per subscription type). See the current prices [here](https://azure.microsoft.com/en-us/pricing/details/data-factory/data-pipeline/)https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units).
+You will be charged **# of used DIUs \* copy duration \* unit price/DIU-hour**. See the current prices [here](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). Local currency and separate discounting may apply per subscription type.
 
 The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose “Auto” on the UI, Data Factory dynamically apply the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the default DIUs used in different copy scenarios:
 
