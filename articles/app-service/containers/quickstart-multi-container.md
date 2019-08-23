@@ -41,7 +41,7 @@ In the Cloud Shell, create a quickstart directory and then change to it.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Next, run the following command to clone the sample app repository to your quickstart directory. Then change to the `multicontainerwordpress` directory.
