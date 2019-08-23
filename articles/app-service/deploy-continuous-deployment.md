@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
@@ -146,7 +146,7 @@ To disable continuous deployment, select **Disconnect** at the top of your app's
 
 ## Use unsupported repos
 
-For Windows apps, you can manually configure continuous deployment from a cloud repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/). You do it by choosing the External  see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+For Windows apps, you can manually configure continuous deployment from a cloud Git or Mecurial repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/). You do it by choosing the External box in the **Deployment Center** page. For more information, see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## Additional resources
 
