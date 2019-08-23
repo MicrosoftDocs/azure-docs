@@ -4,7 +4,6 @@ description: Authenticate apps to Service Bus with Shared Access Signature (SAS)
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 08/22/2019
 ms.author: aschhab
 
 ---
@@ -33,6 +32,10 @@ For more information about authenticating with Azure AD, see the following artic
 
 - [Authenticate with managed identities](service-bus-managed-service-identity.md)
 - [Authenticate from an application](authenticate-application.md)
+
+> [!IMPORTANT]
+> Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use using Azure AD with your Azure Service Bus applications when possible. 
+
 
 ## Shared access signature
 [SAS authentication](service-bus-sas.md) enables you to grant a user access to Service Bus resources, with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.

@@ -4,12 +4,11 @@ description: A checklist of security attributes for evaluating Azure Service Bus
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: axisc
 
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
+ms.author: aschhab
 
 ---
 # Security attributes for Azure Service Bus Messaging

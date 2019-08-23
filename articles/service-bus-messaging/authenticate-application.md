@@ -2,13 +2,13 @@
 title: Authenticate an application to access Azure Service Bus entities
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Service Bus  entities (queues, topics, etc.)
 services: service-bus-messaging
-ms.service: service-bus-messaging
+ms.service: event-hubs
 documentationcenter: ''
-author: spelluru
+author: axisc
 
 ms.topic: conceptual
-ms.date: 08/13/2019
-ms.author: spelluru
+ms.date: 08/22/2019
+ms.author: aschhab
 
 ---
 
