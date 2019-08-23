@@ -98,7 +98,7 @@ Dynamic Packaging supports the following video codecs:
 > [!NOTE]
 > Resolutions of up to 4K, and frame rates of up to 60 frames/second have been tested with Dynamic Packaging. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
 
-## Audio codecs supported by Dynamic Packaging
+## <a id="audio-codecs"/>Audio codecs supported by Dynamic Packaging
 
 Dynamic Packaging supports the following audio protocols described below:
 
