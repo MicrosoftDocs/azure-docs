@@ -72,7 +72,7 @@
       - name: Update Media Services after rolling storage access keys
         href: media-services-roll-storage-access-keys.md
       - name: Manage assets across multiple storage accounts
-        href: meda-services-managing-multiple-storage-accounts.md
+        href: media-services-managing-multiple-storage-accounts.md
     - name: Quotas and limitations
       href: media-services-quotas-and-limitations.md
   - name: Configure Postman
@@ -92,10 +92,10 @@
         href: media-services-portal-upload-files.md
       - name: .NET
         href: media-services-dotnet-upload-files.md
+        displayName: invalid character
       - name: REST
         href: media-services-rest-upload-files.md
-    - name: Upload large files with Aspera
-      href: media-services-upload-files-with-aspera.md
+        displayName: invalid character
     - name: Upload files with StorSimple
       href: media-services-upload-files-from-storsimple.md
     - name: Copy existing blobs

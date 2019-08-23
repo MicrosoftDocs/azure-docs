@@ -76,7 +76,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
 * [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
-* Running one of the following [supported OS images](#supported-virtual-machine-os-image).
+* Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
@@ -96,7 +96,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## Supported virtual machine OS image
+## Supported virtual machine OS images
 
 Windows Virtual Desktop supports the following OS images:
 

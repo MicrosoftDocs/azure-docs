@@ -311,7 +311,7 @@ To see the compute targets for your workspace, use the following steps:
 1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. 
 1. Under __Applications__, select __Compute__.
 
-    ![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Create a compute target
 
@@ -330,8 +330,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form. Provide values for the required properties, especially **VM Family**, and the **maximum nodes** to use to spin up the compute.  
 
-    ![Fill out form](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. Select __Create__.
 
 
@@ -342,8 +340,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 1. You then see the details for the compute target: 
 
     ![View the computer target details](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>Attach compute targets
 
@@ -432,7 +428,9 @@ Or you can:
 * Submit an experiment [using the CLI extension](reference-azure-machine-learning-cli.md#experiments).
 * Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
 
-## GitHub tracking and integration
+<a id="gitintegration"></a>
+
+## Git tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 
