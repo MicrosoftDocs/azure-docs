@@ -209,4 +209,4 @@ When you click the Zoom tile in the Access Panel, you should be automatically si
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Kronos with Azure AD](https://aad.portal.azure.com/)
+- [Try Zoom with Azure AD](https://aad.portal.azure.com/)
