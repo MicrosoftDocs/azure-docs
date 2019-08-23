@@ -39,11 +39,11 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## XGBoost 
 |    |           |
 | ------------- | ------------- |
-| What is it?   |    XGBoost is a fast, portable, and distributed gradient boosting (GBDT, GBRT, or GBM) library for Python, R, Java, Scala, C++, and more. It runs on a single machine, Hadoop, and Spark.    |
+| What is it?   |    XGBoost is a fast, portable, and distributed gradient-boosting (GBDT, GBRT, or GBM) library for Python, R, Java, Scala, C++, and more. It runs on a single machine, and on Apache Hadoop and Spark.    |
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning library      |
 | How is it configured or installed?      |  Installed with GPU support   |
-| How to use or run it      | As a Python library (2.7 and 3.5), R package, and on path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows, `/dsvm/tools/xgboost/xgboost` for Linux)    |
+| How to use or run it      | As a Python library (2.7 and 3.5), R package, and as an on-path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows, `/dsvm/tools/xgboost/xgboost` for Linux)    |
 | Links to samples      | Samples are included on the VM, in `/dsvm/tools/xgboost/demo` on Linux, and `C:\dsvm\tools\xgboost\demo` on Windows.   |
 | Related tools      | LightGBM, MXNet   |
 
@@ -64,7 +64,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## Weka
 |    |           |
 | ------------- | ------------- |
-| What is it?   |  Weka is a collection of machine-learning algorithms for data-mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
+| What is it?   |  A collection of machine-learning algorithms for data-mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning tool     |
 | How to use or run it      | On Windows, search for Weka on the Start menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
@@ -86,7 +86,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | ------------- | ------------- |
 | What is it?   | A fast, distributed, high-performance gradient-boosting (GBDT, GBRT, GBM, or MART) framework based on decision tree algorithms. It's used for ranking, classification, and many other machine-learning tasks.    |
 | Supported versions      | Windows, Linux    |
-| Typical uses      | General-purpose gradient boosting framework      |
+| Typical uses      | General-purpose gradient-boosting framework      |
 | How is it configured or installed?      | On Windows, LightGBM is installed as a Python package. On Linux, the command-line executable is in `/opt/LightGBM/lightgbm`, the R package is installed, and Python packages are installed.     |
 | Link to samples      | [LightGBM Guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | Related tools      | MXNet, XgBoost  |
@@ -94,7 +94,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## H2O
 |    |           |
 | ------------- | ------------- |
-| What is it?   | H2O is an open-source AI platform that supports in-memory, distributed, fast, and scalable machine learning.  |
+| What is it?   | An open-source AI platform that supports in-memory, distributed, fast, and scalable machine learning.  |
 | Supported versions      | Linux   |
 | Typical uses      | General-purpose distributed, scalable machine learning   |
 | How is it configured or installed?      | H2O is installed in `/dsvm/tools/h2o`.      |
@@ -102,4 +102,4 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | Link to samples      | Samples are available on the VM in Jupyter under the `h2o` directory.      |
 | Related tools      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
-There are several other machine-learning libraries on DSVMs, such as the popular `scikit-learn` package that's part of the Anaconda Python distribution that's installed on DSVMs. To check out the list of packages available in Python, R, and Julia, run the respective package managers.
+There are several other machine-learning libraries on DSVMs, such as the popular `scikit-learn` package that's part of the Anaconda Python distribution for DSVMs. To check out the list of packages available in Python, R, and Julia, run the respective package managers.
