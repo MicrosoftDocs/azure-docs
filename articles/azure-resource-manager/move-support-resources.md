@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 08/22/2019
+ms.date: 08/23/2019
 ms.author: tomfitz
 ---
 
@@ -153,7 +153,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domainservices | No | No |
-> | domainservices/replicasets | No | No |
+> | domainservices / replicasets | No | No |
 
 ## microsoft.aadiam
 
@@ -215,8 +215,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | Yes | Yes |
-> | automationaccounts/configurations | Yes | Yes |
-> | automationaccounts/runbooks | Yes | Yes |
+> | automationaccounts / configurations | Yes | Yes |
+> | automationaccounts / runbooks | Yes | Yes |
 
 > [!IMPORTANT]
 > Runbooks must exist in the same resource group as the Automation Account.
@@ -319,7 +319,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | cdnwebapplicationfirewallpolicies | No | No |
 > | profiles | Yes | Yes |
-> | profiles/endpoints | Yes | Yes |
+> | profiles / endpoints | Yes | Yes |
 
 ## Microsoft.CertificateRegistration
 
@@ -380,18 +380,18 @@ Jump to a resource provider namespace:
 > | diskencryptionsets | No | No |
 > | disks | Yes | Yes |
 > | galleries | No | No |
-> | galleries/images | No | No |
-> | galleries/images/versions | No | No |
+> | galleries / images | No | No |
+> | galleries / images / versions | No | No |
 > | hostgroups | No | No |
-> | hostgroups/hosts | No | No |
+> | hostgroups / hosts | No | No |
 > | images | Yes | Yes |
 > | proximityplacementgroups | No | No |
 > | restorepointcollections | No | No |
 > | sharedvmimages | No | No |
-> | sharedvmimages/versions | No | No |
+> | sharedvmimages / versions | No | No |
 > | snapshots | Yes | Yes |
 > | virtualmachines | Yes | Yes |
-> | virtualmachines/extensions | Yes | Yes |
+> | virtualmachines / extensions | Yes | Yes |
 > | virtualmachinescalesets | Yes | Yes |
 
 > [!IMPORTANT]
@@ -417,10 +417,10 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registries | Yes | Yes |
-> | registries/buildtasks | Yes | Yes |
-> | registries/replications | Yes | Yes |
-> | registries/tasks | Yes | Yes |
-> | registries/webhooks | Yes | Yes |
+> | registries / buildtasks | Yes | Yes |
+> | registries / replications | Yes | Yes |
+> | registries / tasks | Yes | Yes |
+> | registries / webhooks | Yes | Yes |
 
 ## Microsoft.ContainerService
 
@@ -538,7 +538,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | services | No | No |
-> | services/projects | No | No |
+> | services / projects | No | No |
 > | slots | No | No |
 
 ## Microsoft.DBforMariaDB
@@ -572,8 +572,8 @@ Jump to a resource provider namespace:
 > | artifactsources | Yes | Yes |
 > | rollouts | Yes | Yes |
 > | servicetopologies | Yes | Yes |
-> | servicetopologies/services | Yes | Yes |
-> | servicetopologies/services/serviceunits | Yes | Yes |
+> | servicetopologies / services | Yes | Yes |
+> | servicetopologies / services / serviceunits | Yes | Yes |
 > | steps | Yes | Yes |
 
 ## Microsoft.Devices
@@ -582,7 +582,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | elasticpools | No | No |
-> | elasticpools/iothubtenants | No | No |
+> | elasticpools / iothubtenants | No | No |
 > | iothubs | Yes | Yes |
 > | provisioningservices | Yes | Yes |
 
@@ -600,9 +600,9 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | labcenters | No | No |
 > | labs | Yes | No |
-> | labs/environments | Yes | Yes |
-> | labs/servicerunners | Yes | Yes |
-> | labs/virtualmachines | Yes | No |
+> | labs / environments | Yes | Yes |
+> | labs / servicerunners | Yes | Yes |
+> | labs / virtualmachines | Yes | No |
 > | schedules | Yes | Yes |
 
 ## microsoft.dns
@@ -611,13 +611,13 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | dnszones | No | No |
-> | dnszones/a | No | No |
-> | dnszones/aaaa | No | No |
-> | dnszones/cname | No | No |
-> | dnszones/mx | No | No |
-> | dnszones/ptr | No | No |
-> | dnszones/srv | No | No |
-> | dnszones/txt | No | No |
+> | dnszones / a | No | No |
+> | dnszones / aaaa | No | No |
+> | dnszones / cname | No | No |
+> | dnszones / mx | No | No |
+> | dnszones / ptr | No | No |
+> | dnszones / srv | No | No |
+> | dnszones / txt | No | No |
 > | trafficmanagerprofiles | No | No |
 
 ## Microsoft.DocumentDB
@@ -821,11 +821,11 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | No | No |
-> | accounts/workspaces | No | No |
-> | accounts/workspaces/projects | No | No |
+> | accounts / workspaces | No | No |
+> | accounts / workspaces / projects | No | No |
 > | teamaccounts | No | No |
-> | teamaccounts/workspaces | No | No |
-> | teamaccounts/workspaces/projects | No | No |
+> | teamaccounts / workspaces | No | No |
+> | teamaccounts / workspaces / projects | No | No |
 
 ## Microsoft.MachineLearningModelManagement
 
@@ -875,8 +875,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | mediaservices | Yes | Yes |
-> | mediaservices/liveevents | Yes | Yes |
-> | mediaservices/streamingendpoints | Yes | Yes |
+> | mediaservices / liveevents | Yes | Yes |
+> | mediaservices / streamingendpoints | Yes | Yes |
 
 ## Microsoft.Microservices4Spring
 
@@ -900,10 +900,10 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | netappaccounts | No | No |
-> | netappaccounts/capacitypools | No | No |
-> | netappaccounts/capacitypools/volumes | No | No |
-> | netappaccounts/capacitypools/volumes/mounttargets | No | No |
-> | netappaccounts/capacitypools/volumes/snapshots | No | No |
+> | netappaccounts / capacitypools | No | No |
+> | netappaccounts / capacitypools / volumes | No | No |
+> | netappaccounts / capacitypools / volumes / mounttargets | No | No |
+> | netappaccounts / capacitypools / volumes / snapshots | No | No |
 
 ## Microsoft.Network
 
@@ -933,12 +933,12 @@ Jump to a resource provider namespace:
 > | networkprofiles | No | No |
 > | networksecuritygroups | Yes | Yes |
 > | networkwatchers | Yes | Yes |
-> | networkwatchers/connectionmonitors | Yes | Yes |
-> | networkwatchers/lenses | Yes | Yes |
-> | networkwatchers/pingmeshes | Yes | Yes |
+> | networkwatchers / connectionmonitors | Yes | Yes |
+> | networkwatchers / lenses | Yes | Yes |
+> | networkwatchers / pingmeshes | Yes | Yes |
 > | p2svpngateways | No | No |
 > | privatednszones | Yes | Yes |
-> | privatednszones/virtualnetworklinks | Yes | Yes |
+> | privatednszones / virtualnetworklinks | Yes | Yes |
 > | privateendpoints | No | No |
 > | privatelinkservices | No | No |
 > | publicipaddresses | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
@@ -966,7 +966,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | namespaces | Yes | Yes |
-> | namespaces/notificationhubs | Yes | Yes |
+> | namespaces / notificationhubs | Yes | Yes |
 
 ## Microsoft.OperationalInsights
 
@@ -1108,7 +1108,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | applications | No | No |
 > | clusters | Yes | Yes |
-> | clusters/applications | No | No |
+> | clusters / applications | No | No |
 > | containergroups | No | No |
 > | containergroupsets | No | No |
 > | edgeclusters | No | No |
@@ -1163,10 +1163,10 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | instancepools | No | No |
 > | managedinstances | No | No |
-> | managedinstances/databases | No | No |
+> | managedinstances / databases | No | No |
 > | servers | Yes | Yes |
-> | servers/databases | Yes | Yes |
-> | servers/elasticpools | Yes | Yes |
+> | servers / databases | Yes | Yes |
+> | servers / elasticpools | Yes | Yes |
 > | virtualclusters | Yes | Yes |
 
 > [!IMPORTANT]
@@ -1245,10 +1245,10 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | environments | No | No |
-> | environments/eventsources | No | No |
+> | environments / eventsources | No | No |
 > | instances | No | No |
-> | instances/environments | No | No |
-> | instances/environments/eventsources | No | No |
+> | instances / environments | No | No |
+> | instances / environments / eventsources | No | No |
 
 ## Microsoft.TerraformOSS
 
@@ -1264,8 +1264,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | environments | Yes | Yes |
-> | environments/eventsources | Yes | Yes |
-> | environments/referencedatasets | Yes | Yes |
+> | environments / eventsources | Yes | Yes |
+> | environments / referencedatasets | Yes | Yes |
 
 ## Microsoft.Token
 
@@ -1287,8 +1287,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | account | Yes | Yes |
-> | account/extension | Yes | Yes |
-> | account/project | Yes | Yes |
+> | account / extension | Yes | Yes |
+> | account / project | Yes | Yes |
 
 > [!IMPORTANT]
 > To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
@@ -1314,8 +1314,8 @@ Jump to a resource provider namespace:
 > | hostingenvironments | No | No |
 > | serverfarms | Yes | Yes |
 > | sites | Yes | Yes |
-> | sites/premieraddons | Yes | Yes |
-> | sites/slots | Yes | Yes |
+> | sites / premieraddons | Yes | Yes |
+> | sites / slots | Yes | Yes |
 
 > [!IMPORTANT]
 > See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
