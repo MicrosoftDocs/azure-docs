@@ -45,7 +45,7 @@ In a terminal window, run the following commands to clone the sample application
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
-cd $HOME/php-docs-hello-world
+cd php-docs-hello-world
 ```
 
 ## Run the app locally
