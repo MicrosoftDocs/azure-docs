@@ -5,7 +5,7 @@ ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 08/01/2019
 ---
 # Azure Cosmos DB: Implement a lambda architecture on the Azure platform 
 
@@ -36,7 +36,7 @@ The basic principles of a lambda architecture are described in the preceding dia
 
 Upon further reading, we will be able to implement this architecture using only the following:
 
-* Azure Cosmos DB collection(s)
+* Azure Cosmos container(s)
 * HDInsight (Apache Spark 2.1) cluster
 * Spark Connector [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
 
@@ -108,7 +108,7 @@ What's important in these layers:
 
  1. All **data** is pushed only into Azure Cosmos DB (to avoid multi-cast issues).
  2. The **batch layer** has a master dataset (immutable, append-only set of raw data) stored in Azure Cosmos DB. Using HDI Spark, you can pre-compute your aggregations to be stored in your computed batch views.
- 3. The **serving layer** is an Azure Cosmos DB database with collections for the master dataset and computed batch view.
+ 3. The **serving layer** is an Azure Cosmos database with collections for the master dataset and computed batch view.
  4. The **speed layer** is discussed later in this article.
  5. All queries can be answered by merging results from the batch views and real-time views, or pinging them individually.
 
@@ -155,7 +155,7 @@ limit 10
 
 ![Chart showing the number of tweets per hashtag](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
 
-Now that you have your query, let's save it back to a collection by using the Spark Connector to save the output data into a different collection.  In this example, use Scala to showcase the connection. Similar to the previous example, create the configuration connection to save the Apache Spark DataFrame to a different Azure Cosmos DB collection.
+Now that you have your query, let's save it back to a collection by using the Spark Connector to save the output data into a different collection.  In this example, use Scala to showcase the connection. Similar to the previous example, create the configuration connection to save the Apache Spark DataFrame to a different Azure Cosmos container.
 
 ```
 val writeConfigMap = Map(
@@ -186,7 +186,7 @@ val tweets_bytags = spark.sql("select hashtags.text as hashtags, count(distinct 
 tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-This last statement now has saved your Spark DataFrame into a new Azure Cosmos DB collection; from a lambda architecture perspective, this is your **batch view** within the **serving layer**.
+This last statement now has saved your Spark DataFrame into a new Azure Cosmos container; from a lambda architecture perspective, this is your **batch view** within the **serving layer**.
  
 #### Resources
 
@@ -199,7 +199,7 @@ As previously noted, using the Azure Cosmos DB Change Feed Library allows you to
 
 ![Diagram highlighting the speed layer of the lambda architecture](./media/lambda-architecture/lambda-architecture-speed.png)
 
-To do this, create a separate Azure Cosmos DB collection to save the results of your structured streaming queries.  This allows you to have other systems access this information not just Apache Spark. As well with the Cosmos DB Time-to-Live (TTL) feature, you can configure your documents to be automatically deleted after a set duration.  For more information on the Azure Cosmos DB TTL feature, see [Expire data in Azure Cosmos DB collections automatically with time to live](time-to-live.md)
+To do this, create a separate Azure Cosmos container to save the results of your structured streaming queries.  This allows you to have other systems access this information not just Apache Spark. As well with the Cosmos DB Time-to-Live (TTL) feature, you can configure your documents to be automatically deleted after a set duration.  For more information on the Azure Cosmos DB TTL feature, see [Expire data in Azure Cosmos containers automatically with time to live](time-to-live.md)
 
 ```
 // Import Libraries

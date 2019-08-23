@@ -193,6 +193,8 @@
               href: api-management-howto-create-groups.md
             - name: Deploy to multiple Azure regions
               href: api-management-howto-deploy-multi-region.md
+            - name: Retrieve IP addresses
+              href: api-management-howto-ip-addresses.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
             - name: Log requests with Azure Application Insights
@@ -245,3 +247,5 @@
         href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance
         href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: Troubleshoot failed to update hostnames error
+        href: api-management-troubleshoot-cannot-add-custom-domain.md

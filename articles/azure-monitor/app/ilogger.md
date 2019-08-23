@@ -283,7 +283,7 @@ Install this additional package:
 <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.9.1" />
 ```
 
-The following section shows how to override the default TelemetryConfiguration by using the **services.Configure<TelemetryConfiguration>()** method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom ITelemetryInitializer to the TelemetryConfiguration.
+The following section shows how to override the default TelemetryConfiguration by using the **services.Configure\<TelemetryConfiguration>()** method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom ITelemetryInitializer to the TelemetryConfiguration.
 
 ```csharp
     // Create the DI container.

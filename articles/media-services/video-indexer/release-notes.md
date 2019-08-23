@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: juliako
 ---
 
@@ -23,6 +23,16 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## July 2019
+
+### Editor as a widget
+
+The Video Indexer AI-editor is now available as a widget to be embedded in customer applications.
+
+### Update custom language model from closed caption file from the portal
+
+Customers can provide VTT, SRT, and TTML file formats as input for language models in the customization page of the portal.
 
 ## June 2019
 

@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/25/2019
 ---
 # Overview of business continuity with Azure SQL Database
@@ -52,7 +51,23 @@ You can use automatic database backups to restore a database to a point in time 
 
 If the maximum supported backup retention period for point-in-time restore (PITR) is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
-## Recover a database to another Azure region
+## Compare geo-replication with failover groups
+
+[Auto-failover groups](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) simplify the deployment and usage of [geo-replication](sql-database-active-geo-replication.md) and add the additional capabilities as described in the following table:
+
+|                                              | Geo-replication | Failover groups  |
+|:---------------------------------------------| :-------------- | :----------------|
+| Automatic failover                           |     No          |      Yes         |
+| Fail over multiple databases simultaneously  |     No          |      Yes         |
+| Update connection string after failover      |     Yes         |      No          |
+| Managed instance supported                   |     No          |      Yes         |
+| Can be in same region as primary             |     Yes         |      No          |
+| Multiple replicas                            |     Yes         |      No          |
+| Supports read-scale                          |     Yes         |      Yes         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
+## Recover a database to the existing server
 
 Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
 
@@ -62,7 +77,8 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 
 As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as Recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering from an unplanned disruptive event. The potential data loss is known as Recovery point objective (RPO).
 
-Different recovery methods offer different levels of RPO and RTO. You can choose a specific recovery method, or use a combination of methods to achicethe the full application recovery. The following table compares RPO and RTO of each recovery option.
+Different recovery methods offer different levels of RPO and RTO. You can choose a specific recovery method, or use a combination of methods to achieve full application recovery. The following table compares RPO and RTO of each recovery option. Auto-failover groups 
+simplify the deployment and usage of geo-replication and adds the additional capabilities as described in the following table.
 
 | Recovery method | RTO | RPO |
 | --- | --- | --- | 

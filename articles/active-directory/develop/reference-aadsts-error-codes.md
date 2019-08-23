@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: ryanwi
-ms.reviewer: hirsin, justhu
+ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -211,6 +211,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |
+| AADSTS901002 | AADSTS901002: The 'resource' request parameter is not supported. |
 | AADSTS90101 | InvalidEmailAddress - The supplied data isn't a valid email address. The email address must be in the format `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - The value must be a valid absolute URI. |
 | AADSTS90107 | InvalidXml - The request is not valid. Make sure your data doesn't have invalid characters.|
@@ -260,6 +261,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
 
 ## Next steps
 

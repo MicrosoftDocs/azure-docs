@@ -31,7 +31,6 @@ of Kubernetes follows this numbering scheme:
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 Each number in the version indicates general compatibility with the previous version:
@@ -41,8 +40,8 @@ Each number in the version indicates general compatibility with the previous ver
 * Patch versions change when backwards-compatible bug fixes are made.
 
 In general, users should endeavor to run the latest patch release of the minor version they are running, for example if
-your production cluster is on *1.13.6* and *1.13.7* is the latest available patch version available for the *1.13*
-series, you should upgrade to *1.13.7* as soon as you are able to ensure your cluster is fully patched and supported.
+your production cluster is on *1.12.14* and *1.12.15* is the latest available patch version available for the *1.12*
+series, you should upgrade to *1.12.15* as soon as you are able to ensure your cluster is fully patched and supported.
 
 ## Kubernetes version support policy
 
@@ -66,9 +65,16 @@ For details on communications regarding version changes and expectations, see "C
 When a new minor version is introduced, the oldest minor version and patch releases supported are deprecated and
 removed. For example if the current supported version list is:
 
-Supported Version List
-----------------------
-1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b, 1.9.a, 1.9.b
+```
+1.12.a
+1.12.b
+1.11.a
+1.11.b
+1.10.a
+1.10.b
+1.9.a
+1.9.b
+```
 
 And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) will be removed and out of support.
 
@@ -81,16 +87,20 @@ And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) w
 In addition to the above on minor versions, AKS supports the two latest *patch** releases of a given minor version. For
 example, given the following supported versions:
 
-Supported Version List
-----------------------
+```
+Current Supported Version List
+------------------------------
 1.12.1, 1.12.2, 1.11.4, 1.11.5
+```
 
 If upstream Kubernetes released 1.12.3 and 1.11.6 and AKS releases those patch versions, the oldest patch versions
 are deprecated and removed, and the supported version list becomes:
 
-Supported Version List
+```
+New Supported Version List
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
+```
 
 > [!NOTE]
 > Customers should not pin cluster creation, CI or other automated jobs to specific patch releases. 
@@ -145,19 +155,22 @@ the *EastUS* region:
 az aks get-versions --location eastus --output table
 ```
 
-The output is similar to the following example, which shows that Kubernetes version *1.13.5* is the most recent version
+The output is similar to the following example, which shows that Kubernetes version *1.14.6* is the most recent version
 available:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.13.5               None available
-1.12.7               1.13.5
-1.12.6               1.12.7, 1.13.5
-1.11.9               1.12.6, 1.12.7
-1.11.8               1.11.9, 1.12.6, 1.12.7
-1.10.13              1.11.8, 1.11.9
-1.10.12              1.10.13, 1.11.8, 1.11.9
+1.14.6               None available
+1.14.5               1.14.6
+1.13.10              1.14.5, 1.14.6
+1.13.9               1.13.10, 1.14.5, 1.14.6
+1.12.8               1.13.9, 1.13.10
+1.12.7               1.12.8, 1.13.9, 1.13.10
+1.11.10              1.12.7, 1.12.8
+1.11.9               1.11.10, 1.12.7, 1.12.8
+1.10.13              1.11.9, 1.11.10
+1.10.12              1.10.13, 1.11.9, 1.11.10
 ```
 
 ## FAQ

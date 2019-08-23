@@ -9,7 +9,7 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
 ---
 
@@ -39,14 +39,20 @@ When you query the web, Bing returns all the relevant content it finds for the s
     }
 }    
 ```
-You can filter the types of content you'll receive (for example images, videos, and news) by using the [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) query parameter. If Bing finds relevant content for the specified answers, it will be returned. The response filter is a comma-delimited list of answers. 
 
-To exclude specific types of content, such as images, from the response, you can add a `-` character to the beginning of the `responseFilter` value. You can separate excluded types with a comma (`,`). For example:
+## Query parameters
+
+To filter the answers returned by Bing, use the below query parameters when calling the API.  
+
+### ResponseFilter
+
+You can filter the types of answers that Bing includes in the response (for example images, videos, and news) by using the [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) query parameter, which is a comma-delimited list of answers. An answer will be included in the response if Bing finds relevant content for it. 
+
+To exclude specific answers from the response such as images, prepend a `-` character to the answer type. For example:
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 The following shows how to use `responseFilter` to request images, videos, and news of sailing dinghies. When you encode the query string, the commas change to %2C.  
 
@@ -89,7 +95,9 @@ Although Bing did not return video and news results in the previous response, it
 
 You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, send a request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` or one of the other [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) endpoints. Calling the single API is important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can use filters that are not available to the Web Search API to filter the results.  
 
-To get search results from a specific domain, include the `site:` query operator in the query string.  
+### Site
+
+To get search results from a specific domain, include the `site:` query parameter in the query string.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -98,9 +106,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > Depending on the query, if you use the `site:` query operator, there is the chance that the response may contain adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.
 
+### Freshness
+
+To limit the web answer results to webpages that Bing discovered during a specific period, set the [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) query parameter to one of the following case-insensitive values:
+
+* `Day` — Return webpages that Bing discovered within the last 24 hours
+* `Week` — Return webpages that Bing discovered within the last 7 days
+* `Month` — Return webpages that discovered within the last 30 days
+
+You may also set this parameter to a custom date range in the form, `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+To limit the results to a single date, set the freshness parameter to a specific date:
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+The results may include webpages that fall outside the specified period if the number of webpages that Bing matches to your filter criteria is less than the number of webpages you requested (or the default number that Bing returns).
+
 ## Limiting the number of answers in the response
 
-Bing includes answers in the response based on ranking. For example, if you query *sailing+dinghies*, Bing returns `webpages`, `images`, `videos`, and `relatedSearches`.
+Bing can return multiple answer types in the JSON response. For example, if you query *sailing+dinghies*, Bing might return `webpages`, `images`, `videos`, and `relatedSearches`.
 
 ```json
 {

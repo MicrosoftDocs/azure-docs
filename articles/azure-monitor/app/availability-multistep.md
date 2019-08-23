@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ---
@@ -19,7 +19,7 @@ ms.author: mbullwin
 You can monitor a recorded sequence of URLs and interactions with a website via multi-step web tests. This article will walk you through the process of creating a multi-step web test with Visual Studio Enterprise.
 
 > [!NOTE]
-> Multi-step web tests have additional costs associated with them. To learn more consult the [official pricing guide](https://azure.microsoft.com/pricing/details/application-insights/).
+> Multi-step web tests depend on Visual Studio webtest files. It was [announced](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) that Visual Studio 2019 will be the last version with webtest functionality. It is important to understand that while no new features will be added, webtest functionality in Visual Studio 2019 is still currently supported and will continue to be supported during the support lifecycle of the product. The Azure Monitor product team has addressed questions regarding the future of multi-step availability tests [here](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 
 ## Pre-requisites
 
@@ -29,6 +29,9 @@ You can monitor a recorded sequence of URLs and interactions with a website via 
 To locate the testing tools pre-requisite. Launch the **Visual Studio Installer** > **Individual components** > **Debugging and testing** > **Web performance and load testing tools**.
 
 ![Screenshot of the Visual Studio installer UI with Individual components selected with a checkbox next to the item for Web performance and load testing tools](./media/availability-multistep/web-performance-load-testing.png)
+
+> [!NOTE]
+> Multi-step web tests have additional costs associated with them. To learn more consult the [official pricing guide](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## Record a multi-step web test
 
@@ -130,7 +133,17 @@ In all cases, you should create an account in your application just for the purp
 Record a web test in the usual way. Delete cookies first.
 
 **SAML authentication**
-Use the SAML plugin that is available for web tests. Access the plugin by...
+
+|Property name| Description|
+|----|-----|
+| Audience Uri | The audience URI for the SAML token.  This is the URI for the Access Control Service (ACS) – including ACS namespace and host name. |
+| Certificate Password | The password for the client certificate which will grant access to the embedded private key. |
+| Client Certificate  | The client certificate value with private key in Base64 encoded format. |
+| Name Identifier | The name identifier for the token |
+| Not After | The timespan for which the token will be valid.  The default is 5 minutes. |
+| Not Before | The timespan for which a token created in the past will be valid (to address time skews).  The default is (negative) 5 minutes. |
+| Target Context Parameter Name | The context parameter that will receive the generated assertion. |
+
 
 **Client secret**
 If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that provides a client secret sign-in. In AAD, the client secret is the App Key.

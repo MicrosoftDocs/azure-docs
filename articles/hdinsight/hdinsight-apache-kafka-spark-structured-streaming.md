@@ -41,7 +41,7 @@ When you are done with the steps in this document, remember to delete the cluste
 > 
 > For your convenience, this document links to a template that can create all the required Azure resources. 
 >
-> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](hdinsight-extend-hadoop-virtual-network.md) document.
+> For more information on using HDInsight in a virtual network, see the [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md) document.
 
 ## Structured Streaming with Apache Kafka
 

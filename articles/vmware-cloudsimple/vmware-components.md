@@ -3,15 +3,15 @@ title: Azure VMware Solution by CloudSimple - Private cloud VMware components
 description: Describes how VMware components are installed on private cloud 
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath 
 ---
-# Private cloud VMware components
+# Private Cloud VMware components
 
-A private cloud is an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX) environment managed by a vCenter server in a management domain.  The CloudSimple service allows you to deploy VMware natively on Azure bare metal infrastructure in Azure locations.  Private clouds are integrated with the rest of the Azure Cloud.  A private cloud is deployed with the following VMware stack components:
+A Private Cloud is an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX) environment managed by a vCenter server in a management domain.  The CloudSimple service allows you to deploy VMware natively on Azure bare metal infrastructure in Azure locations.  Private Clouds are integrated with the rest of the Azure Cloud.  A private cloud is deployed with the following VMware stack components:
 
 * **VMware ESXi -** Hypervisor on Azure dedicated nodes
 * **VMware vCenter -** Appliance for centralized management of private cloud vSphere environment
@@ -20,7 +20,7 @@ A private cloud is an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX)
 
 ## VMware component versions
 
-A private cloud VMware stack is deployed with the following software version.
+A Private Cloud VMware stack is deployed with the following software version.
 
 | Component | Version | Licensed version |
 |-----------|---------|------------------|
@@ -41,11 +41,11 @@ vCenter server appliance (VCSA) provides the authentication, management, and orc
 
 ### vCenter single sign-on
 
-Embedded Platform Services Controller on VCSA is associated with a **vCenter Single Sign-On domain**.  The domain name is **cloudsimple.local**.  A default user **CloudOwner@cloudsimple.com** is created for you to access vCenter.  You can add your on-premises/Azure active directory [identity sources for vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/).
+Embedded Platform Services Controller on VCSA is associated with a **vCenter Single Sign-On domain**.  The domain name is **cloudsimple.local**.  A default user **CloudOwner@cloudsimple.com** is created for you to access vCenter.  You can add your on-premises/Azure active directory [identity sources for vCenter](set-vcenter-identity.md).
 
 ## vSAN storage
 
-Private clouds are created with fully configured all-flash vSAN storage, local to the cluster.  Minimum three nodes of the same SKU are required to create a vSphere cluster with vSAN datastore.  Deduplication and compression are enabled on the vSAN datastore by default.  Two disk groups are created on each node of the vSphere cluster. Each disk group contains one cache disk and three capacity disks.
+Private clouds are created with fully configured all-flash vSAN storage, local to the cluster.  Minimum three nodes of the same SKU are required to create a vSphere cluster with vSAN datastore.  De-duplication and compression are enabled on the vSAN datastore by default.  Two disk groups are created on each node of the vSphere cluster. Each disk group contains one cache disk and three capacity disks.
 
 A default vSAN storage policy is created on the vSphere cluster and applied to the vSAN datastore.  This policy determines how the VM storage objects are provisioned and allocated within the datastore to guarantee the required level of service.  The storage policy defines the **Failures to tolerate (FTT)** and the **Failure tolerance method**.  You can create new storage policies and apply them to the VMs. To maintain SLA, 25% spare capacity must be maintained on the vSAN datastore.  
 
@@ -96,7 +96,7 @@ Occasionally it's necessary to make changes to the configuration of the VMware i
 * All networking and storage
 * All Azure traffic
 
-## Updates and Upgrades
+## Updates and upgrades
 
 CloudSimple is responsible for lifecycle management of VMware software (ESXi, vCenter, PSC, and NSX) in the private cloud.
 

@@ -4,7 +4,7 @@ description: How to redeploy Linux virtual machines in Azure to mitigate SSH con
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-manager,top-support-issue
 
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7

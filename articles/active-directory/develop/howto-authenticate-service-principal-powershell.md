@@ -9,11 +9,12 @@ manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev 
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 08/19/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
@@ -44,6 +45,9 @@ The easiest way to check whether your account has adequate permissions is throug
 ## Create service principal with self-signed certificate
 
 The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-​Azure​Rm​Role​Assignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+
+> [!NOTE]
+> The New-SelfSignedCertificate cmdlet and the PKI module are currently not supported in PowerShell Core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

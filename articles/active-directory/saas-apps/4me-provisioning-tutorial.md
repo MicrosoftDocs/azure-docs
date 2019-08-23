@@ -9,13 +9,13 @@ manager: beatrizd
 
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: zchia
+ms.author: jeedes
 ---
 
 # Tutorial: Configure 4me for automatic user provisioning

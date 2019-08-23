@@ -2,8 +2,8 @@
 title: Understand the Linux agent check results in Azure Update Management
 description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation

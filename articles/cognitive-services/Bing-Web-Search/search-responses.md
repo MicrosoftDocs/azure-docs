@@ -35,6 +35,8 @@ When you send Bing Web Search a search request, it returns a [`SearchResponse`](
 
 Typically, Bing Web Search returns a subset of the answers. For example, if the query term was *sailing dinghies*, the response might include `webPages`, `images`, and `rankingResponse`. Unless you've used [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) to filter out webpages, the response always includes the `webpages` and `rankingResponse` answers.
 
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
+
 ## Webpages answer
 
 The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) answer contains a list of links to webpages that Bing Web Search determined were relevant to the query. Each [web page](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) in the list will include: the page's name, url, display URL, a short description of the content, and the date Bing found the content.
@@ -116,7 +118,7 @@ The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bing
 
 Use the `displayText` query string and the `webSearchUrl` URL to create a hyperlink that takes the user to the Bing search results page for the related query. You could also use the `text` query string in your own Web Search API query and display the results yourself.
 
-For information about how to handle the highlighting markers in `displayText`, see [Hit Highlighting](./hit-highlighting.md).
+For information about how to handle the highlighting markers in `displayText`, see [Hit Highlighting](../bing-web-search/hit-highlighting.md).
 
 The following shows an example of the related queries usage in Bing.com.
 

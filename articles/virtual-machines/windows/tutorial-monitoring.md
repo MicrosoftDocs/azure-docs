@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to monitor boot diagnostics and per
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -298,4 +298,4 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 Advance to the next tutorial to learn about Azure security center.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](./tutorial-azure-security.md)
+> [Manage VM security](../../security/fundamentals/overview.md)

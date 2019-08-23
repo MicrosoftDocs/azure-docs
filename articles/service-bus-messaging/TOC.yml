@@ -79,10 +79,6 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Managed identities for Azure resources
-    href: service-bus-managed-service-identity.md
-  - name: Role-Based Access Control (preview)
-    href: service-bus-role-based-access-control.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
@@ -95,8 +91,25 @@
     href: service-bus-async-messaging.md
   - name: Handling outages and disasters
     href: service-bus-outages-disasters.md
-  - name: Azure common security attributes
-    href: service-bus-messaging-security-attributes.md
+  - name: Security  
+    items:
+    - name: Authentication and authorization
+      href: service-bus-authentication-and-authorization.md
+      items:
+      - name: Use Shared Access Signatures
+        items:
+        - name: Migrate from ACS to SAS
+          href: service-bus-migrate-acs-sas.md
+        - name: Authentication with Shared Access Signatures
+          href: service-bus-sas.md
+      - name: Use Azure Active Directory
+        items: 
+        - name: Authenticate with managed identities for Azure resources 
+          href: service-bus-managed-service-identity.md
+        - name: Authenticate from an application 
+          href: authenticate-application.md
+    - name: Azure common security attributes
+      href: service-bus-messaging-security-attributes.md
 - name: How-to guides
   items:
   - name: Create a namespace
@@ -119,13 +132,6 @@
         href: service-bus-to-event-grid-integration-concept.md
       - name: Azure Event Grid examples
         href: service-bus-to-event-grid-integration-example.md
-    - name: Authentication and authorization
-      href: service-bus-authentication-and-authorization.md
-      items:
-      - name: Migrate from ACS to SAS
-        href: service-bus-migrate-acs-sas.md
-      - name: Authentication with Shared Access Signatures
-        href: service-bus-sas.md
     - name: Topic filters and actions
       href: topic-filters.md
     - name: Migrate from Standard to Premium namespaces
@@ -140,7 +146,7 @@
         href: service-bus-amqp-overview.md
       - name: .NET
         href: service-bus-amqp-dotnet.md
-      - name: Java Message Service and AMQP
+      - name: Java Message Service (JMS) and AMQP
         href: service-bus-java-how-to-use-jms-api-amqp.md
       - name: AMQP protocol guide
         href: service-bus-amqp-protocol-guide.md

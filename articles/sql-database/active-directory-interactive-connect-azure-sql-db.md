@@ -11,7 +11,6 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 03/12/2019
-manager: craigg
 ---
 # Connect to Azure SQL Database with Azure Multi-Factor Authentication
 

@@ -64,6 +64,10 @@ You can upgrade and downgrade to and from any tier. Note that upgrading or downg
     If you choose the **Premium** tier, you first need to select a region.
 5. Press **Save**.
 
+## Downtime during scaling up and down
+If you are scaling from or to the Developer tier, there will be downtime. Otherwise, there is no downtime. 
+
+
 ## Next steps
 
 - [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)

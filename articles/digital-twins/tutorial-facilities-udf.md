@@ -2,12 +2,12 @@
 title: 'Tutorial: Monitor a space with Azure Digital Twins | Microsoft Docs'
 description: Learn how to provision your spatial resources and monitor the working conditions with Azure Digital Twins by using the steps in this tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 06/26/2019
-ms.author: dkshir
+ms.date: 08/16/2019
+ms.author: alinast
 ---
 
 # Tutorial: Provision your building and monitor working conditions with Azure Digital Twins Preview

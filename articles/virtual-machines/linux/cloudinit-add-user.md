@@ -4,7 +4,7 @@ description: How to use cloud-init to add a user to a Linux VM during creation w
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

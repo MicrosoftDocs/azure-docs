@@ -11,6 +11,7 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Query for facts

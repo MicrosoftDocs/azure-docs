@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
-ms.author: alkohli;
+ms.author: alkohli
 
 ---
 # Contact Microsoft Support

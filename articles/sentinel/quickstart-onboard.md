@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -54,7 +55,6 @@ After you connect your data sources, choose from a gallery of expertly created d
    ![search](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
-   > - **Workspace location**  It's important to understand that all the data you stream to Azure Sentinel is stored in the geographic location of the workspace you selected.  
    > - Default workspaces created by Azure Security Center will not appear in the list; you can't install Azure Sentinel on them.
    > - Azure Sentinel can run on workspaces that are deployed in any of the following regions:  Australia Southeast, Canada Central, Central India, East US, East US 2 EUAP (Canary), Japan East, Southeast Asia, UK South, West Europe, West US 2.
 

@@ -9,7 +9,7 @@ manager: tracsman
 ms.service: expressroute
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/25/2019
+ms.date: 06/28/2019
 ms.author: rambala
 
 ---

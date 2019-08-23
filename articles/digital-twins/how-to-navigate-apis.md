@@ -6,7 +6,7 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 07/09/2019
 ms.author: v-adgera
 ---
 
@@ -112,4 +112,4 @@ The following list shows some examples of queries using OData’s system query o
 
 To learn some common API query patterns, read [How to query Azure Digital Twins APIs for common tasks](how-to-query-common-apis.md).
 
-
+To learn more about your API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).

@@ -1,6 +1,6 @@
 ﻿---
-title: Common security attributes for Azure Service Fabric
-description: A checklist of common security attributes for evaluating Azure Service Fabric
+title: Security attributes for Azure Service Fabric
+description: A checklist of security attributes for evaluating Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
@@ -23,8 +23,8 @@ This article documents the security attributes built into Azure Service Fabric.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes |  |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes |  |
 | Encryption key handling (CMK, BYOK, etc.)| Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Service Fabric API calls are made through Azure Resource Manager. A valid JSON web token (JWT) is required. |

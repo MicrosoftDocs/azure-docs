@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 06/24/2019
+ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -50,17 +50,17 @@ The following table provides a brief description of each built-in role. Click th
 | [Automation Runbook Operator](#automation-runbook-operator) | Read Runbook properties - to be able to create Jobs of the runbook. |
 | [Avere Contributor](#avere-contributor) | Can create and manage an Avere vFXT cluster. |
 | [Avere Operator](#avere-operator) | Used by the Avere vFXT cluster to manage the cluster |
-| [Azure Event Hubs Data Owner (Preview)](#azure-event-hubs-data-owner-preview) | Allows for full access to Azure Event Hubs resources. |
-| [Azure Event Hubs Data Receiver (Preview)](#azure-event-hubs-data-receiver-preview) | Allows receive access to Azure Event Hubs resources. |
-| [Azure Event Hubs Data Sender (Preview)](#azure-event-hubs-data-sender-preview) | Allows send access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Owner](#azure-event-hubs-data-owner) | Allows for full access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Receiver](#azure-event-hubs-data-receiver) | Allows receive access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Sender](#azure-event-hubs-data-sender) | Allows send access to Azure Event Hubs resources. |
 | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. |
 | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. |
 | [Azure Maps Data Reader (Preview)](#azure-maps-data-reader-preview) | Grants access to read map related data from an Azure maps account. |
-| [Azure Service Bus Data Owner (Preview)](#azure-service-bus-data-owner-preview) | Allows for full access to Azure Service Bus resources. |
-| [Azure Service Bus Data Receiver (Preview)](#azure-service-bus-data-receiver-preview) | Allows for receive access to Azure Service Bus resources. |
-| [Azure Service Bus Data Sender (Preview)](#azure-service-bus-data-sender-preview) | Allows for send access to Azure Service Bus resources. |
+| [Azure Service Bus Data Owner](#azure-service-bus-data-owner) | Allows for full access to Azure Service Bus resources. |
+| [Azure Service Bus Data Receiver](#azure-service-bus-data-receiver) | Allows for receive access to Azure Service Bus resources. |
+| [Azure Service Bus Data Sender](#azure-service-bus-data-sender) | Allows for send access to Azure Service Bus resources. |
 | [Azure Stack Registration Owner](#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. |
-| [Backup Contributor](#backup-contributor) | Lets you manage backup service but can't create vaults and give access to others |
+| [Backup Contributor](#backup-contributor) | Lets you manage backup service, but can't create vaults and give access to others |
 | [Backup Operator](#backup-operator) | Lets you manage backup services, except removal of backup, vault creation and giving access to others |
 | [Backup Reader](#backup-reader) | Can view backup services, but can't make changes |
 | [Billing Reader](#billing-reader) | Allows read access to billing data |
@@ -130,11 +130,15 @@ The following table provides a brief description of each built-in role. Click th
 | [SQL Managed Instance Contributor](#sql-managed-instance-contributor) | Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others. |
 | [SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. |
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
-| [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Does not provide access to data in the storage account. |
+| [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Permits listing and regenerating storage account access keys. |
 | [Storage Blob Data Contributor](#storage-blob-data-contributor) | Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage Blob Data Owner](#storage-blob-data-owner) | Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage Blob Data Reader](#storage-blob-data-reader) | Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Storage Blob Delegator](#storage-blob-delegator) | Get the user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
+| [Storage File Data SMB Share Contributor](#storage-file-data-smb-share-contributor) | Allows for read, write, and delete access in Azure Storage file shares over SMB |
+| [Storage File Data SMB Share Elevated Contributor](#storage-file-data-smb-share-elevated-contributor) | Allows for read, write, delete and modify NTFS permission access in Azure Storage file shares over SMB |
+| [Storage File Data SMB Share Reader](#storage-file-data-smb-share-reader) | Allows for read access to Azure File Share over SMB |
 | [Storage Queue Data Contributor](#storage-queue-data-contributor) | Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage Queue Data Message Processor](#storage-queue-data-message-processor) | Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage Queue Data Message Sender](#storage-queue-data-message-sender) | Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
@@ -548,7 +552,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Event Hubs Data Owner (Preview)
+## Azure Event Hubs Data Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -563,7 +567,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Event Hubs Data Receiver (Preview)
+## Azure Event Hubs Data Receiver
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -578,7 +582,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Event Hubs Data Sender (Preview)
+## Azure Event Hubs Data Sender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -638,7 +642,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Service Bus Data Owner (Preview)
+## Azure Service Bus Data Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -653,7 +657,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Service Bus Data Receiver (Preview)
+## Azure Service Bus Data Receiver
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -670,7 +674,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Service Bus Data Sender (Preview)
+## Azure Service Bus Data Sender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -694,7 +698,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | Lets you manage Azure Stack registrations. |
 > | **Id** | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | **Actions** |  |
-> | Microsoft.AzureStack/registrations/products/listDetails/action | Retrieves extended details for an Azure Stack Marketplace product |
+> | Microsoft.AzureStack/registrations/products/*/action |  |
 > | Microsoft.AzureStack/registrations/products/read | Gets the properties of an Azure Stack Marketplace product |
 > | Microsoft.AzureStack/registrations/read | Gets the properties of an Azure Stack registration |
 > | **NotActions** |  |
@@ -708,7 +712,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage backup service,but can't create vaults and give access to others |
+> | **Description** | Lets you manage backup service, but can't create vaults and give access to others |
 > | **Id** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -1266,6 +1270,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Advisor/configurations/read | Get configurations |
 > | Microsoft.Advisor/recommendations/read | Reads recommendations |
+> | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1288,6 +1293,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Advisor/configurations/read | Get configurations |
 > | Microsoft.Advisor/recommendations/read | Reads recommendations |
+> | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1897,6 +1903,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2579,8 +2586,8 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | Permits listing and regenerating storage account access keys. |
 > | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/listkeys/action | Return the access keys for the specified storage account. |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerate the access keys for the specified storage account. |
+> | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
+> | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2598,6 +2605,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Delete a container. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Return a container or a list of containers. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Modify a container's metadata or properties. |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the Blob service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2615,6 +2623,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | Full permissions on containers. |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the Blob service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2630,10 +2639,76 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Return a container or a list of containers. |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the Blob service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Return a blob or a list of blobs. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Storage Blob Delegator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
+> | **Id** | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the Blob service. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Storage File Data SMB Share Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read, write, and delete access in Azure Storage file shares over SMB |
+> | **Id** | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Storage File Data SMB Share Elevated Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read, write, delete and modify NTFS permission access in Azure Storage file shares over SMB |
+> | **Id** | a7264617-510b-434b-a828-9731dc254ea7 |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Storage File Data SMB Share Reader
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read access to Azure File Share over SMB |
+> | **Id** | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2660,7 +2735,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Peek, retrieve, and delete a messages from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Description** | Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Actions** |  |
 > | *none* |  |

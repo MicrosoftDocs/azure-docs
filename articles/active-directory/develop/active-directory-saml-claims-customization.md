@@ -1,5 +1,5 @@
 ---
-title: Customize claims issued in the SAML token for enterprise applications in Azure AD | Microsoft Docs
+title: Customize SAML token claims for enterprise apps in Azure AD | Microsoft Docs
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
@@ -31,7 +31,7 @@ By default, Azure AD issues a SAML token to your application that contains a `Na
 
 To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **User Attributes & Claims** section.
 
-![User Attributes & Claims section](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
+![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
 There are two possible reasons why you might need to edit the claims issued in the SAML token:
 

@@ -38,7 +38,7 @@ To learn about round-robin DNS load balancing for the cluster, read [Configure D
 
 A simpler method for small installations is to use a script to assign IP addresses throughout the range at client mount time. 
 
-Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a support request for help. (Azure Load Balancer is currently *not supported* with Azure FXT Edge Filer.)
+Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a [support request](fxt-support-ticket.md) for help. (Azure Load Balancer is currently *not supported* with Azure FXT Edge Filer.)
 
 ## Create the mount command 
 
@@ -56,11 +56,9 @@ There are three elements to the mount command:
 
 The cluster path is a combination of the vserver *IP address* plus the path to a *namespace junction*. The namespace junction is a virtual path that you defined when you [added the storage system](fxt-add-storage.md#create-a-junction).
 
-For example, if you used ``/avere/files`` as your namespace path, your clients would mount *IP_address*:/avere/files to their local mount point. 
+For example, if you used ``/fxt/files`` as your namespace path, your clients would mount *IP_address*:/fxt/files to their local mount point. 
 
-<!-- to do: update screenshot to use fxt/files instead of avere/files -->
-
-!["Add new junction" dialog with /avere/files in the namespace path field](media/fxt-mount/fxt-create-junction-example.png)
+!["Add new junction" dialog with /avere/files in the namespace path field](media/fxt-mount/fxt-junction-example.png)
 
 The IP address is one of the client-facing IP addresses defined for the vserver. You can find the range of client-facing IPs in two places in the cluster Control Panel:
 

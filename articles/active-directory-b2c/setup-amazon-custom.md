@@ -43,7 +43,7 @@ You need to store the client secret that you previously recorded in your Azure A
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Manual`.
 7. Enter a **Name** for the policy key. For example, `AmazonSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
@@ -53,14 +53,14 @@ You need to store the client secret that you previously recorded in your Azure A
 
 ## Add a claims provider
 
-If you want users to sign in by using an Amazon account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
+If you want users to sign in by using an Amazon account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define an Amazon account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
 
 1. Open the *TrustFrameworkExtensions.xml*.
 2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
-3. Add a new **ClaimsProvider** as follows:  
+3. Add a new **ClaimsProvider** as follows:
 
     ```xml
     <ClaimsProvider>
@@ -143,7 +143,7 @@ Now that you have a button in place, you need to link it to an action. The actio
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
-    
+
     Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Amazon-OAuth`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.

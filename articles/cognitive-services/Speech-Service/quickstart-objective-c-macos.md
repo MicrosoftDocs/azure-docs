@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Objective-C - Speech Services'
+title: 'Quickstart: Recognize speech, Objective-C - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Objective-C on macOS using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
@@ -29,7 +29,7 @@ Before you get started, here's a list of prerequisites:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.5.1`.
+The current version of the Cognitive Services Speech SDK is `1.6.0`.
 
 The Cognitive Services Speech SDK for Mac is distributed as a framework bundle.
 It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This guide uses a CocoaPod.
@@ -62,7 +62,7 @@ In the dialogs that follow, make the following selections:
 ## Install the SDK as a CocoaPod
 
 1. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
-1. Navigate to the directory of your sample app (`helloworld`). Place a text file with the name `Podfile` and the following content in that directory:
+1. Navigate to the directory of your sample app (`helloworld`). Place a text file with the name `Podfile` and the following content in that directory:  
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. Navigate to the `helloworld` directory in a terminal and run the command `pod install`. This will generate a `helloworld.xcworkspace` Xcode workspace containing both the sample app and the Speech SDK as a dependency. This workspace will be used in the following.
 
@@ -84,4 +84,3 @@ In the dialogs that follow, make the following selections:
 
 > [!div class="nextstepaction"]
 > [Explore Objective-C samples on GitHub](https://aka.ms/csspeech/samples)
-

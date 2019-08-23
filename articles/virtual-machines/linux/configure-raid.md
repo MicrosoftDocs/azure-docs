@@ -4,7 +4,7 @@ description: Learn how to use mdadm to configure RAID on Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 
@@ -117,19 +117,19 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
 1. Create the file system on the new RAID device
    
-    a. **CentOS, Oracle Linux, SLES 12, openSUSE, and Ubuntu**
+    **CentOS, Oracle Linux, SLES 12, openSUSE, and Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11** - enable boot.md and create mdadm.conf
+    **SLES 11** - enable boot.md and create mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -139,7 +139,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
    > [!NOTE]
    > A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
    > 
-   > 
+   
 
 ## Add the new file system to /etc/fstab
 > [!IMPORTANT]

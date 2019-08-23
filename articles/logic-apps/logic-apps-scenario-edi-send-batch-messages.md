@@ -168,7 +168,7 @@ Otherwise, you can't select the batch receiver when you create the batch sender.
 To make sure your batch receiver works as expected, 
 you can add an HTTP action for testing purposes, 
 and send a batched message to the 
-[Request Bin service](https://requestbin.fullcontact.com/). 
+[Request Bin service](https://requestbin.com/). 
 
 1. Under the X12 encode action, choose **New step**. 
 

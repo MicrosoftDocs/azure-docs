@@ -1,11 +1,8 @@
 ---
 title: Configure Azure Function App Settings | Microsoft Docs
 description: Learn how to configure Azure function app settings.
-services: ''
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-
+manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
@@ -14,7 +11,7 @@ ms.author: glenga
 ms.custom: cc996988-fb4f-47
 
 ---
-# How to manage a function app in the Azure portal 
+# How to manage a function app
 
 In Azure Functions, a function app provides the execution context for your individual functions. Function app behaviors apply to all functions hosted by a given function app. This topic describes how to configure and manage your function apps in the Azure portal.
 
