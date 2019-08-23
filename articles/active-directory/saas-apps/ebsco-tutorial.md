@@ -146,10 +146,10 @@ In the case of EBSCO, user provisioning is automatic.
 
 **To provision a user account, perform the following steps:**
 
-Azure AD passes the required data to EBSCO application. EBSCO’s user provisioning can be automatic OR require a one-time form. It depends on whether the client has a lot of pre-existing EBSCOhost accounts with personal settings saved. The same can be discussed with the [EBSCO support team](mailto:sso@ebsco.com) during the implementation. Either way, the client doesn’t have to create any EBSCOhost accounts prior to testing.
+Azure AD passes the required data to EBSCO application. EBSCO’s user provisioning can be automatic OR require a one-time form. It depends on whether the client has a lot of pre-existing EBSCOhost accounts with personal settings saved. The same can be discussed with the [EBSCO support team](mailto:support@ebsco.com) during the implementation. Either way, the client doesn’t have to create any EBSCOhost accounts prior to testing.
 
    >[!Note]
-   >You can automate EBSCOhost user provisioning/personalization. Contact [EBSCO support team](mailto:sso@ebsco.com) about Just-In-Time user provisioning.
+   >You can automate EBSCOhost user provisioning/personalization. Contact [EBSCO support team](mailto:support@ebsco.com) about Just-In-Time user provisioning.
 
 ## Test SSO
 
