@@ -1,6 +1,6 @@
 ---
 title: OPC Vault architecture - Azure | Microsoft Docs
-description: OPC Vault Certificate Management Service architecture
+description: OPC Vault certificate management service architecture
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019
@@ -12,7 +12,7 @@ manager: philmea
 
 # OPC Vault architecture
 
-This article gives an overview about the **OPC Vault Microservice** and the **OPC Vault IoT Edge Module**.
+This article gives an overview about the **OPC Vault microservice** and the **OPC Vault IoT Edge module**.
 
 ## Overview
 
@@ -68,7 +68,7 @@ IoT Edge module for the factory network and a web sample UX to control the workf
 
 ![OPCVault Architecture](media/overview-opc-vault-architecture/opc-vault.png)
 
-## OPC Vault Microservice
+## OPC Vault microservice
 
 The OPC Vault microservice consists of the following interfaces to implement 
 the workflow to distribute and manage a company-specific CA for OPC UA Applications:
@@ -85,7 +85,7 @@ with all OPC UA-specific extensions.
 - The application service is either backed by a CosmosDB 
 database or the [OpcTwin device registry (*)](#yet-unsupported-features), depending on the customer configuration.
 
-### Certificate Group
+### Certificate group
 - A certificate group is an entity, which stores a root CA or a sub CA certificate 
 including the private key to sign certificates. 
 - The RSA key length, the SHA-2 hash length, 
@@ -101,7 +101,7 @@ remain still in safe storage due to Key Vault history.
 Once an application is unregistered, the application certificate is also revoked in the CRL by an administrator.
 - Batched and single certificate revocation is supported.
 
-### Certificate Request
+### Certificate request
 A certificate request implements the workflow to generate a new key pair or a signed certificate using a “Certificate Signing Request” (CSR) for an OPC UA Application. 
 - The request is stored in a database with accompanying information like the Subject or a CSR and a reference to the OPC UA Application. 
 - The business logic in the service validates the request against the information stored in the application database. 
@@ -120,7 +120,7 @@ Over the lifetime of a signed certificate an application might be deleted or a k
 
 For more information about the OPC Vault microservice API, see swagger documentation of the microservice.
 
-## OPC Vault IoT Edge Module
+## OPC Vault IoT Edge module
 To support a factory network Global Discovery Server the OPC Vault module can be deployed on the edge, 
 execute as a local .Net Core application or can be started in a docker container. 
 Due to a lack of Auth2 authentication support in the current OPC UA .Net Standard stack, 
@@ -128,6 +128,13 @@ the functionality of the OPC Vault edge module is limited to a Reader role, beca
 impersonated from the edge module to the micro service using the OPC UA GDS standard interface. 
 Only operations, which do not require the Writer, Administrator, or Approver role are permitted at this point[(*)](#yet-unsupported-features). 
 
-## Yet Unsupported features
+## Yet unsupported features
 
 **(*)** not supported yet.
+
+## Next steps
+
+Now that you have learned about the OPC Vault architecture, here is the suggested next step:
+
+> [!div class="nextstepaction"]
+> [Build and deploy OPC Vault](howto-opc-vault-deploy.md)
