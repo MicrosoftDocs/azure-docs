@@ -1,30 +1,30 @@
 ---
-title: Manage Azure Data Box via Azure portal | Microsoft Docs 
-description: Describes how to use the Azure portal to administer your Azure Data Box.
+title: Manage Azure Data Box, Azure Data Box Heavy via Azure portal | Microsoft Docs 
+description: Describes how to use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/07/2019
 ms.author: alkohli
 ---
 
-# Use the Azure portal to administer your Azure Data Box
+# Use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy
 
-This article describes some of the complex workflows and management tasks that can be performed on the Azure Data Box. You can manage the Data Box via the Azure portal or via the local web UI.
+This article applies to both Azure Data Box and Azure Data Box Heavy. This article describes some of the complex workflows and management tasks that can be performed on the Azure Data Box device. You can manage the Data Box device via the Azure portal or via the local web UI.
 
-This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage Data Box, and track the status of the order as it proceeds to completion.
+This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage Data Box device, and track the status of the order as it proceeds to completion.
 
 
 ## Cancel an order
 
-You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the order is processed. Once the order is processed and Data Box is prepared, it is not possible to cancel the order. 
+You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the order is processed. Once the order is processed and Data Box device is prepared, it is not possible to cancel the order.
 
 Perform the following steps to cancel an order.
 
-1.	Go to **Overview > Cancel**. 
+1.	Go to **Overview > Cancel**.
 
     ![Cancel order 1](media/data-box-portal-admin/cancel-order1.png)
 
@@ -32,11 +32,11 @@ Perform the following steps to cancel an order.
 
     ![Cancel order 2](media/data-box-portal-admin/cancel-order2.png)
 
-3.	Once the order is canceled, the portal updates the status of the order and displays it as **Canceled**. 
+3.	Once the order is canceled, the portal updates the status of the order and displays it as **Canceled**.
 
 ## Clone an order
 
-Cloning is useful in certain situations. For example, a user has used Data Box to transfer some data. As more data is generated, there is a need for another Data Box to transfer that data into Azure. In this case, the same order can be just cloned over.
+Cloning is useful in certain situations. For example, a user has used Data Box to transfer some data. As more data is generated, there is a need for another Data Box device to transfer that data into Azure. In this case, the same order can be just cloned over.
 
 Perform the following steps to clone an order.
 
@@ -65,7 +65,7 @@ You can only delete orders that are completed or canceled. Perform the following
 
 ## Download shipping label
 
-You may need to download the shipping label if the E-ink display of your Data Box is not working and does not display the return shipping label. 
+You may need to download the shipping label if the E-ink display of your Data Box is not working and does not display the return shipping label. There is no E-ink display on the Data Box Heavy and hence this workflow does not apply to Data Box Heavy.
 
 Perform the following steps to download a shipping label.
 
@@ -93,7 +93,7 @@ Perform the following steps to edit the order.
 
 ## Edit notification details
 
-You may need to change the users whom you want to receive the order status emails. For instance, a user needs to be informed when the device is delivered or picked up. Another user may need to be informed when the data copy is complete so he can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
+You may need to change the users whom you want to receive the order status emails. For instance, a user needs to be informed when the device is delivered or picked up. Another user may need to be informed when the data copy is complete so they can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
 
 Perform the following steps to edit notification details.
 
@@ -116,10 +116,10 @@ Perform the following steps to download the order history.
 
     ![Download order history](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Click **Download order history**. In the downloaded history, you will see a record of carrier tracking logs. If you scroll down to the bottom of this log, you can see the links to:
+2. Click **Download order history**. In the downloaded history, you will see a record of carrier tracking logs. There will be two sets of log corresponding to the two nodes on a Data Box Heavy. If you scroll down to the bottom of this log, you can see the links to:
     
    - **Copy logs** - have the list of files that errored out during the data copy from Data Box to your Azure storage account.
-   - **Audit logs** - contain information on power on and share access on the Data Box when it is outside of Azure datacenter.
+   - **Audit logs** - contain information on how to power on and access shares on the Data Box when it is outside of Azure datacenter.
    - **BOM files** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
 
        ```
@@ -203,7 +203,8 @@ When the device status changes in portal, you are notified via an email.
 |Received     | Your device is received and scanned at the Azure datacenter. <br> Once the shipment is inspected, device upload will start.      |
 |Data copy     | Data copy is in progress. Track the copy progress for your order in Azure portal. <br> Wait until the data copy is complete. |
 |Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
-|Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal.   |
+|Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal. See [examples of copy logs when upload completed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Completed with warnings| Data copy was completed but your data was modified. The data had non-critical blob or file name errors that were fixed by changing the file or blob names. <br> Review the copy logs using the path provided in the Azure portal. Make a note to the modifications in your data. See [examples of copy logs when upload completed with warnings](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order. If the order cannot be fulfilled in 90 days, the order is also canceled and you are notified.     |
 |Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order history is available for download in the Azure portal.|
 
@@ -211,4 +212,4 @@ When the device status changes in portal, you are notified via an email.
 
 ## Next steps
 
-- Learn how to [Troubleshoot Data Box issues](data-box-faq.md).
+- Learn how to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md).

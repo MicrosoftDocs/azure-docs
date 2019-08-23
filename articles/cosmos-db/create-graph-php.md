@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 01/05/2018
+ms.date: 01/05/2019
 ms.author: lbosq
 
 ---
@@ -108,7 +108,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -118,9 +118,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-3. If your graph database account was created on or after December 20, 2017, change `graphs.azure.com` in the host name to `gremlin.cosmosdb.azure.com`.
-
-4. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like the following code:
+3. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like the following code:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -128,7 +126,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -138,7 +136,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-5. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
+4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
 
     The Connection object initialization should now look like the following code:
 
@@ -154,7 +152,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-6. Save the `connect.php` file.
+5. Save the `connect.php` file.
 
 ## Run the console app
 
@@ -191,7 +189,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that he's connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
+2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that they're connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
    ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 
@@ -201,13 +199,13 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 4. Enter a label of *person*.
 
-5. Click **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
+5. Click **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the **id** key is required.
 
-    key|value|Notes
+    Key | Value | Notes
     ----|----|----
-    id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
-    gender|female| 
-    tech | java | 
+    **id** | ashley | The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+    **gender** | female | 
+    **tech** | java | 
 
     > [!NOTE]
     > In this quickstart you create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
@@ -219,12 +217,12 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 8. Enter a label of *person*.
 
 9. Click **Add property** to add each of the following properties:
-
-    key|value|Notes
+    
+    Key | Value | Notes
     ----|----|----
-    id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
-    gender|male| 
-    school|MIT| 
+    **id** | rakesh | The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+    **gender** | male | 
+    **school** | MIT | 
 
 10. Click **OK**. 
 

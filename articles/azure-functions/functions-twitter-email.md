@@ -4,7 +4,7 @@ description: Create a function that integrates with Azure Logic Apps and Azure C
 services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions

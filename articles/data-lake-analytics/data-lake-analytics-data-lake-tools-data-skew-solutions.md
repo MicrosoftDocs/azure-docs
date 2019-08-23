@@ -31,7 +31,7 @@ If it does not affect your business logic, you can filter the higher-frequency v
 
 ### Option 2: Pick a different partition or distribution key
 
-In the preceding example, if you want only to check the tax-audit workload all over the country, you can improve the data distribution by selecting the ID number as your key. Picking a different partition or distribution key can sometimes distribute the data more evenly, but you need to make sure that this choice doesn’t affect your business logic. For instance, to calculate the tax sum for each state, you might want to designate _State_ as the partition key. If you continue to experience this problem, try using Option 3.
+In the preceding example, if you want only to check the tax-audit workload all over the country/region, you can improve the data distribution by selecting the ID number as your key. Picking a different partition or distribution key can sometimes distribute the data more evenly, but you need to make sure that this choice doesn’t affect your business logic. For instance, to calculate the tax sum for each state, you might want to designate _State_ as the partition key. If you continue to experience this problem, try using Option 3.
 
 ### Option 3: Add more partition or distribution keys
 

@@ -11,13 +11,15 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
 
 ---
 
 # Developing with Media Services v3 APIs
+
+As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
 This article discusses rules that apply to entities and APIs when developing with Media Services v3.
 
@@ -82,20 +84,51 @@ For details about how to track asynchronous Azure operations, see [Async operati
 
 Media Services has the following long-running operations:
 
-* Create LiveEvent
-* Update LiveEvent
-* Delete LiveEvent
-* Start LiveEvent
-* Stop LiveEvent
-* Reset LiveEvent
-* Create LiveOutput
-* Delete LiveOutput
-* Create StreamingEndpoint
-* Update StreamingEndpoint
-* Delete StreamingEndpoint
-* Start StreamingEndpoint
-* Stop StreamingEndpoint
-* Scale StreamingEndpoint
+* [Create Live Events](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Update Live Events](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [Delete Live Event](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Start Live Event](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [Stop LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+
+  Use the `removeOutputsOnStop` parameter to delete all associated Live Outputs when stopping the event.  
+* [Reset LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [Create LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Delete LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Create StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [Update StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [Delete StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [Start StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [Stop StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [Scale StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+
+On successful submission of a long operation you receive a '202 Accepted' and must poll for operation completion using the returned operation ID.
+
+Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output. 
+
+## SDKs
+
+> [!NOTE]
+> The Azure Media Services v3 SDKs are not guaranteed to be thread-safe. When developing a multi-threaded application, you should add your own thread synchronization logic to protect the client or use a new AzureMediaServicesClient object per thread. You should also be careful of multi-threading issues introduced by optional objects provided by your code to the client (like an HttpClient instance in .NET).
+
+|SDK|Reference|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java ref](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python ref](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go ref](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### See also
+
+- [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## Azure Media Services Explorer
+
+[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) is a tool available to Windows customers who want to learn about Media Services. AMSE is a Winforms/C# application that does upload, download, encode, stream VOD and live content with Media Services. The AMSE tool is for clients who want to test Media Services without writing any code. The AMSE code is provided as a resource for customers who want to develop with Media Services.
+
+AMSE is an Open Source project, support is provided by the community (issues can be reported to https://github.com/Azure/Azure-Media-Services-Explorer/issues). This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments.
 
 ## Filtering, ordering, paging of Media Services entities
 
@@ -105,6 +138,13 @@ See [Filtering, ordering, paging of Azure Media Services entities](entities-over
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
+## See also
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+
 ## Next steps
 
-[Start developing with Media Services v3 API using SDKs/tools](developers-guide.md)
+* [Connect to Media Services with Java](configure-connect-java-howto.md)
+* [Connect to Media Services with .NET](configure-connect-dotnet-howto.md)
+* [Connect to Media Services with Node.js](configure-connect-nodejs-howto.md)
+* [Connect to Media Services with Python](configure-connect-python-howto.md)

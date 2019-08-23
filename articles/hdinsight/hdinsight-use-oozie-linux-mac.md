@@ -121,7 +121,7 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
    * `${hiveDataFolder}`: Contains the location to store the data files for the table.
 
-     The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
+     The workflow definition file, workflow.xml in this article, passes these values to this HiveQL script at runtime.
 
 4. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.  
 
@@ -219,7 +219,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 ## Create a table
 
 > [!NOTE]  
-> There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+> There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](https://www.freetds.org/) from the HDInsight cluster.
 
 1. Use the following command to install FreeTDS on the HDInsight cluster:
 
@@ -702,7 +702,7 @@ For example, for the job in this document, you would use the following steps:
 
 ## Next steps
 
-In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
+In this article, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
 
 * [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data]
 * [Use Apache Sqoop with Apache Hadoop in HDInsight][hdinsight-use-sqoop]

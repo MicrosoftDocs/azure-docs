@@ -1,14 +1,15 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API in C# | Microsoft Docs
+title: Quickstart - Send a query to the Bing Local Business Search API in C#
 titleSuffix: Azure Cognitive Services
 description: Use this article to start using the Bing Local Business Search API in C#.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.subservice: bing-local-business
+ms.topic: quickstart
+ms.date: 04/26/2019
+ms.author: rosh
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API in C#
@@ -19,7 +20,7 @@ This example application gets local response data from the API for the search qu
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).

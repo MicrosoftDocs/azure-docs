@@ -3,7 +3,7 @@ title: Add push notifications to your Universal Windows Platform (UWP) app | Mic
 description: Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Universal Windows Platform (UWP) app.
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun 
 editor: ''
 
@@ -13,12 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun 
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Add push notifications to your Windows app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) today.
+>
 
 ## Overview
 
@@ -110,7 +114,7 @@ Use the procedure below that matches your backend project type&mdash;either [.NE
 4. Republish the server project.
 
 ### <a name="nodejs"></a>Node.js backend project
-1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Set up your backend project.
 2. Replace the existing code in the todoitem.js file with the following:
 
     ```javascript

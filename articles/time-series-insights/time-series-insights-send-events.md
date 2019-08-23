@@ -4,7 +4,7 @@ description: Learn how to configure an event hub and run a sample application to
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
@@ -23,31 +23,31 @@ This article explains how to create and configure an event hub in Azure Event Hu
 1. To learn how to create an event hub, see the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
 1. In the search box, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 1. Select your event hub.
-1. When you create an event hub, you are really creating an event hub namespace. If you haven't yet created an event hub within the namespace, in the menu, under **Entities**, create an event hub.  
+1. When you create an event hub, you're creating an event hub namespace. If you haven't yet created an event hub within the namespace, on the menu, under **Entities**, create an event hub.  
 
     [![List of event hubs](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. After you create an event hub, select it in the list of event hubs.
-1. In the menu, under **Entities**, select **Event Hubs**.
+1. On the menu, under **Entities**, select **Event Hubs**.
 1. Select the name of the event hub to configure it.
 1. Under **Entities**, select **Consumer groups**, and then select **Consumer Group**.
 
     [![Create a consumer group](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
+1. Make sure you create a consumer group that's used exclusively by your Time Series Insights event source.
 
     > [!IMPORTANT]
-    > Make sure this consumer group isn't used by any other service (such as an Azure Stream Analytics job or another Time Series Insights environment). If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
+    > Make sure this consumer group isn't used by any other service, such as an Azure Stream Analytics job or another Time Series Insights environment. If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
 
-1. In the menu, under **Settings**, select **Shared access policies**, and then select **Add**.
+1. On the menu, under **Settings**, select **Shared access policies**, and then select **Add**.
 
     [![Select Shared access policies, and then select the Add button](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. In the **Add new shared access policy** pane, create a shared access named **MySendPolicy**. You'll use this shared access policy to send events in the C# examples later in this article.
+1. In the **Add new shared access policy** pane, create a shared access named **MySendPolicy**. You use this shared access policy to send events in the C# examples later in this article.
 
     [![In the Policy name box, enter MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
-1. Under **Claim**, select the **Send** checkbox.
+1. Under **Claim**, select the **Send** check box.
 
 ## Add a Time Series Insights instance
 
@@ -65,7 +65,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. Select your event hub.
 
-1. Go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection sting-primary key**.
+1. Go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection string-primary key**.
 
     [![Copy the value for the primary key connection string](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
@@ -76,7 +76,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
 
-1. Go back to your event hub in the Azure portal. On the **Overview** page, you should see the new events being received by the event hub.
+1. Go back to your event hub in the Azure portal. On the **Overview** page, you see the new events that are received by the event hub.
 
     [![An event hub Overview page that shows metrics for the event hub](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

@@ -2,18 +2,18 @@
 title: 'Tutorial: Deploy Azure Digital Twins | Microsoft Docs'
 description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources by using the steps in this tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 12/17/2018
-ms.author: dkshir
+ms.date: 08/16/2019
+ms.author: alinast
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to use the features of Digital Twins to create a spatially aware intelligent IoT solution. 
 ---
 
-# Tutorial: Deploy Azure Digital Twins and configure a spatial graph
+# Tutorial: Deploy Azure Digital Twins Preview and configure a spatial graph
 
-You can use the Azure Digital Twins service to bring together people, places, and devices in a coherent spatial system. This series of tutorials demonstrates how to use Azure Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. 
+You can use the Azure Digital Twins Preview service to bring together people, places, and devices in a coherent spatial system. This series of tutorials demonstrates how to use Azure Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. 
 
 These tutorials will walk you through a .NET console application to build a scenario of an office building. The building has multiple floors and rooms within each floor. The rooms contain devices with attached sensors that detect motion, ambient temperature, and air quality. 
 

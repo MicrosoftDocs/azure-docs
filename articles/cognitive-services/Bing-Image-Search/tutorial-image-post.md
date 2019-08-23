@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 9/14/2018
+ms.date: 05/15/2019
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* Any edition of [Visual studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Any edition of [Visual studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

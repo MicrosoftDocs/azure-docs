@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/19/2019
 ms.author: juliako
 ---
 
@@ -74,11 +74,19 @@ The following diagram shows the **Transform** object and the objects it referenc
 
 A **Job** is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or [Assets](https://docs.microsoft.com/rest/api/media/assets).  
 
+### Job input from HTTPS
+
 Use [job input from HTTPS](job-input-from-http-how-to.md) if your content is already accessible via a URL and you don't need to store the source file in Azure (for example, import from S3). This method is also suitable if you have the content in Azure Blob storage but have no need for the file to be in an Asset. Currently, this method only supports a single file for input.
- 
+
+### Asset as Job input
+
 Use [Asset as job input](job-input-from-local-file-how-to.md) if the input content is already in an Asset or the content is stored in local file. It is also a good option if you plan to publish the input asset for streaming or download (say you want to publish the mp4 for download but also want to do speech to text or face detection). This method supports multi-file assets (for example, MBR streaming sets that were encoded locally).
- 
+
+### Checking Job progress
+
 The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
+
+### Updating Jobs
 
 The Update operation on the [Job](https://docs.microsoft.com/rest/api/media/jobs) entity can be used to modify the *description*, and the *priority* properties after the job has been submitted. A change to the *priority* property is effective only if the job is still in a queued state. If the job has begun processing, or has finished, changing priority has no effect.
 
@@ -108,5 +116,6 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 - Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
 - Check out these tutorials:
 
-    - [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
-    - [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)
+    - [Tutorial: Encode a remote file based on URL and stream the video](stream-files-tutorial-with-rest.md)
+    - [Tutorial: Upload, encode, and stream videos](stream-files-tutorial-with-api.md)
+    - [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)

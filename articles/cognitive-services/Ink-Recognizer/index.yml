@@ -8,8 +8,7 @@ metadata:
   author: erhopf
   manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: ink-recognizer 
   ms.topic: landing-page
   ms.date: 05/02/2019
   ms.author: erhopf
@@ -62,9 +61,9 @@ sections:
   - type: paragraph
     text: "Use these example programs to see how the Ink Recognizer API can integrate into your applications:"
   - type: paragraph
-    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089503">C# and Universal Windows Platform(UWP)</a>
+    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089803">C# and Universal Windows Platform (UWP)</a>
   - type: paragraph
-    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# and Windows Presentation Foundation(WPF)</a>
+    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# and Windows Presentation Foundation (WPF)</a>
   - type: paragraph
     text: <a href="https://go.microsoft.com/fwlink/?linkid=2089908">Javascript web-browser app</a>
   - type: paragraph

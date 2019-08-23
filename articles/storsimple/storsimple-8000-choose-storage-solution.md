@@ -11,6 +11,8 @@ ms.author: alkohli
 ---
 
 # Compare StorSimple with Azure File Sync and Data Box Edge data transfer options 
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
 This document provides an overview of options for on-premises data transfer to Azure, comparing: Data Box Edge vs. Azure File Sync vs. StorSimple 8000 series.
 

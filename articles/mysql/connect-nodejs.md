@@ -27,7 +27,7 @@ Depending on your platform, follow the instructions in the appropriate section t
 ### **Windows**
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.
 2. Make a local project folder such as `nodejsmysql`. 
-3. Launch the command prompt, and then change directory into the project folder, such as `cd c:\nodejsmysql\`
+3. Open the command prompt, and then change directory into the project folder, such as `cd c:\nodejsmysql\`
 4. Run the NPM tool to install the mysql library into the project folder.
 
    ```cmd
@@ -77,15 +77,15 @@ Depending on your platform, follow the instructions in the appropriate section t
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Click the server name.
+2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  ![Azure Database for MySQL server name](./media/connect-nodejs/1_server-overview-name-login.png)
 
 ## Running the JavaScript code in Node.js
 1. Paste the JavaScript code into text files, and then save it into a project folder with file extension .js (such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js).
-2. Launch the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
-3. To run the application, type the node command followed by the file name, such as `node createtable.js`.
+2. Open the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
+3. To run the application, enter the node command followed by the file name, such as `node createtable.js`.
 4. On Windows, if the node application is not in your environment variable path, you may need to use the full path to launch the node application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## Connect, create table, and insert data

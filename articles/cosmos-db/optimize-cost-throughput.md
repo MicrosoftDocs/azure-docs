@@ -4,7 +4,7 @@ description: This article explains how to optimize throughput costs for the data
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ---
 
@@ -24,7 +24,7 @@ You can provision throughput on databases or containers and each strategy can he
 
 The following are some guidelines to decide on a provisioned throughput strategy:
 
-**Consider provisioning throughput on an Azure Cosmos DB database (containing a set of containers) if**:
+**Consider provisioning throughput on an Azure Cosmos database (containing a set of containers) if**:
 
 1. You have a few dozen Azure Cosmos containers and want to share throughput across some or all of them. 
 

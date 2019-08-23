@@ -3,19 +3,17 @@ title: Azure VMware Solution by CloudSimple Quickstart - Create service
 description: Learn how to create the CloudSimple service, purchase nodes, and reserve nodes  
 author: sharaths-cs 
 ms.author: dikamath 
-ms.date: 04/10/2019 
+ms.date: 08/16/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Quickstart - Create service
+# Quickstart - Create CloudSimple service
 
 To get started, create the Azure VMware Solution by CloudSimple in the Azure portal.
 
-## VMware Solution by CloudSimple - Service overview
-
-The CloudSimple service allows you to consume Azure VMware Solution by CloudSimple.  Creating the service allows you to purchase nodes, reserve nodes, and create private clouds.  You add the CloudSimple service in each Azure region where the CloudSimple service is available.  The service defines the edge network of Azure VMware Solution by CloudSimple.  This edge network is used for services that include VPN, ExpressRoute, and Internet connectivity to your private clouds.
+The CloudSimple service allows you to consume Azure VMware Solution by CloudSimple.  Creating the service allows you to purchase nodes, reserve nodes, and create Private Clouds.  You add the CloudSimple service in each Azure region where the CloudSimple service is available.  The service defines the edge network of Azure VMware Solution by CloudSimple.  This edge network is used for services that include VPN, ExpressRoute, and Internet connectivity to your Private Clouds.
 
 To add the CloudSimple service, you must create a gateway subnet. The gateway subnet is used when creating the edge network and requires a /28 CIDR block. The gateway subnet address space must be unique. It can't overlap with any of your on-premises network address spaces or Azure virtual network address space.
 
@@ -32,17 +30,14 @@ Follow the steps below to enable the resource provider for CloudSimple service.
 
     ![Select subscriptions](media/cloudsimple-service-select-subscriptions.png)
 
-3. Select the subscription on which you want to enable CloudSimple service
-4. Click on **Resource providers** for the subscription
-5. Use **Microsoft.VMwareCloudSimple** to filter the resource provider
-6. Select the **Microsoft.VMwareCloudSimple** resource provider and click on **Register**
+3. Select the subscription on which you want to enable CloudSimple service.
+4. Click **Resource providers** for the subscription.
+5. Use **Microsoft.VMwareCloudSimple** to filter the resource provider.
+6. Select the **Microsoft.VMwareCloudSimple** resource provider and click **Register**.
 
     ![Register resource provider](media/cloudsimple-service-enable-resource-provider.png)
 
 ## Create the service
-
->[!NOTE]
-> CloudSimple service must be enabled on your subscription. If your subscription not enabled, you'll receive an error when you try to create the service.  Follow the steps in [Enable CloudSimple service](https://docs.azure.cloudsimple.com/enable-cloudsimple-service) article to enable the service.
 
 1. Select **All services**.
 2. Search for **CloudSimple Service**.
@@ -93,4 +88,4 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 ## Next steps
 
 * [Create Private Cloud and configure environment](quickstart-create-private-cloud.md)
-* Learn more about [CloudSimple service](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Learn more about [CloudSimple service](cloudsimple-service.md)

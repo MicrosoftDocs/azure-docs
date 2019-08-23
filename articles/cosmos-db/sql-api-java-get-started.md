@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/22/2017
+ms.date: 12/22/2018
 ms.author: sngun
 
 ---
@@ -14,9 +14,6 @@ ms.author: sngun
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -72,9 +69,9 @@ The directory contains a `pom.xml` for the project and a `src` folder containing
     </dependency>
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
-Next, head back to the [Azure Portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
+Next, head back to the [Azure portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
 
-In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `https://FILLME.documents.azure.com` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `FILLME`.
+In the Azure portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `https://FILLME.documents.azure.com` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `FILLME`.
 
     this.client = new DocumentClient(
         "https://FILLME.documents.azure.com",
@@ -82,7 +79,7 @@ In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Screenshot of the Azure Portal used by the NoSQL tutorial to create a Java console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screenshot of the Azure portal used by the NoSQL tutorial to create a Java console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
 ## Step 4: Create a database
 Your Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) can be created by using the [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
@@ -103,7 +100,7 @@ A collection can be created by using the [createCollection](/java/api/com.micros
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId("familycoll");
 
-    // Azure Cosmos DB collections can be reserved with throughput specified in request units/second. 
+    // Azure Cosmos containers can be reserved with throughput specified in request units/second. 
     // Here we create a collection with 400 RU/s.
     RequestOptions requestOptions = new RequestOptions();
     requestOptions.setOfferThroughput(400);

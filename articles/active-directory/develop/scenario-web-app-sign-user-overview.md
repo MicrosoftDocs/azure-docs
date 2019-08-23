@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a web app that signs-in users using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -37,7 +37,7 @@ If you want to create your first portable (ASP.NET Core) web apps that sign in u
 If you prefer to stay with ASP.NET, try out the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Quickstart: ASP.NET Core web app that signs-in users](quickstart-v2-aspnet-webapp.md)
+> [Quickstart: ASP.NET web app that signs-in users](quickstart-v2-aspnet-webapp.md)
 
 ## Overview
 

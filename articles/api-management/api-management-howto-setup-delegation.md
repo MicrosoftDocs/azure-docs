@@ -34,7 +34,7 @@ The final workflow will be as follows:
 3. Delegation endpoint in return redirects to or presents UI asking user to sign in or sign up
 4. On success, the user is redirected back to the API Management developer portal page they started from
 
-To begin, let's first set-up API Management to route requests via your delegation endpoint. In the API Management publisher portal, click on **Security** and then click the **Delegation** tab. Click the checkbox to enable 'Delegate sign in & sign up'.
+To begin, let's first set-up API Management to route requests via your delegation endpoint. In the Azure portal, search for **Security** in your API Management resource and then click the **Delegation** item. Click the checkbox to enable 'Delegate sign in & sign up'.
 
 ![Delegation page][api-management-delegation-signin-up]
 
@@ -180,9 +180,9 @@ For more information on delegation, see the following video:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[create a user]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[calling the REST API for subscriptions]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
+[request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
+[create a user]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
+[calling the REST API for subscriptions]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 

@@ -4,7 +4,7 @@ description: This article introduces the concepts such as stored procedures, tri
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -33,7 +33,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 * **Encapsulation:** Stored procedures can be used to group logic in one place. Encapsulation adds an abstraction layer on top of the data, which enables you to evolve your applications independently from the data. This layer of abstraction is helpful when the data is schema-less and you don't have to manage adding additional logic directly into your application. The abstraction lets your keep the data secure by streamlining the access from the scripts.
 
 > [!TIP]
-> Stored procedures are best suited for operations that are write heavy. When deciding where to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read operations so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit.
+> Stored procedures are best suited for operations that are write-heavy and require a transaction across a partition key value. When deciding whether to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read or query operations, so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit. For best performance, these read-heavy operations should be done on the client-side, using the Cosmos SDK. 
 
 ## Transactions
 
@@ -71,15 +71,18 @@ JavaScript functions are also subject to [provisioned throughput capacity](reque
 
 ## Triggers
 
-This section describes the two types of triggers:
+Azure Cosmos DB supports two types of triggers:
 
 ### Pre-triggers
 
-Azure Cosmos DB provides triggers that can be invoked by performing an operation on an Azure Cosmos DB item. For example, you can specify a pre-trigger when you are creating an item. In this case, the pre-trigger will run before the item is created. Pre-triggers cannot have any input parameters. If necessary, the request object can be used to update the document body from original request. When triggers are registered, users can specify the operations that it can run with. If a trigger was created with `TriggerOperation.Create`, this means using the trigger in a replace operation will not be permitted. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
+Azure Cosmos DB provides triggers that can be invoked by performing an operation on an Azure Cosmos item. For example, you can specify a pre-trigger when you are creating an item. In this case, the pre-trigger will run before the item is created. Pre-triggers cannot have any input parameters. If necessary, the request object can be used to update the document body from original request. When triggers are registered, users can specify the operations that it can run with. If a trigger was created with `TriggerOperation.Create`, this means using the trigger in a replace operation will not be permitted. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
 
 ### Post-triggers
 
-Similar to pre-triggers, post-triggers, are also associated with an operation on an Azure Cosmos DB item and they don’t require any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
+Similar to pre-triggers, post-triggers, are also associated with an operation on an Azure Cosmos item and they don’t require any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
+
+> [!NOTE]
+> Registered triggers don't run automatically when their corresponding operations (create / delete / replace / update) happen. They have to be explicitly called when executing these operations. To learn more, see [how to run triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.
 
 ## <a id="udfs"></a>User-defined functions
 

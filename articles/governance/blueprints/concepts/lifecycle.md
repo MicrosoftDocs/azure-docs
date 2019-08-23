@@ -3,11 +3,10 @@ title: Understand the lifecycle of a blueprint
 description: Learn about the lifecycle that a blueprint goes through and details about each stage.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand the lifecycle of an Azure Blueprint
 
@@ -125,6 +124,19 @@ an existing assignment, including:
 - Upgrade the assignment to a newer **Published** version of the blueprint
 
 To learn how, see [update existing assignments](../how-to/update-existing-assignments.md).
+
+### Unassigning assignments
+
+If the blueprint is no longer needed, it can be unassigned from the management group or
+subscription. During blueprint unassignment, the following occurs:
+
+- Removal of [blueprint resource locking](resource-locking.md)
+- Deletion of the blueprint assignment object
+- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
+
+> [!NOTE]
+> All resources deployed by the blueprint assignment remain in place, but are no longer protected by
+> Azure Blueprints.
 
 ## Next steps
 

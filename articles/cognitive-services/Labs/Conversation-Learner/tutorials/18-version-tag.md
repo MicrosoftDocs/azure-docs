@@ -1,15 +1,16 @@
 ---
-title: How to use Version Tagging with a Conversation Learner Model - Microsoft Cognitive Services | Microsoft Docs
+title: How to use Version Tagging with a Conversation Learner Model - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use versioning and tagging with a Conversation Learner model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 
 # How to use Version Tagging
@@ -104,4 +105,4 @@ You have now seen how versioning works, and how you can interact with the Bot us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Demo - password reset](./demo-password-reset.md)
+> [Enum entities and Set entity actions](./tutorial-enum-set-entity.md)

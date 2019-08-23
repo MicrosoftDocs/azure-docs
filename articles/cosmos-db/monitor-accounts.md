@@ -4,7 +4,7 @@ description: Learn how to monitor your Azure Cosmos DB account for performance m
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 
@@ -43,6 +43,10 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
 4. The **Metric** page shows you details about the total requests. 
 
 ## Set up alerts in the portal
+
+> [!NOTE]
+> The classic alerts in Azure Monitor will be retired soon. Azure portal offers a [migration tool](../azure-monitor/platform/alerts-using-migration-tool.md) to migrate classic alert rules. However, not all classic alerts on the Azure Cosmos DB metrics can be migrated, there are some exceptions, see the [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) article for a list of classic alerts that can't be migrated. 
+
 1. In the [Azure portal](https://portal.azure.com/), click **All services**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to set up performance metric alerts.
 2. In the resource menu, click **Alert Rules** to open the Alert rules page.  
    ![Screenshot of the Alert rules part selected](./media/monitor-accounts/madocdb10.5.png)

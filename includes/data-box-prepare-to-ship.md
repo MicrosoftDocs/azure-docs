@@ -31,7 +31,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
     If there are errors in this step, you will need to download the error log and resolve the errors. Once the errors are resolved, run **Prepare to ship**.
 
-4. After the prepare to ship is successfully complete (with no errors), download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure.
+4. After the prepare to ship is successfully complete (with no errors), download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure. For more information, see [Inspect BOM files during Prepare to ship](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Prepare to ship 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

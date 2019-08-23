@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
 
 ---
@@ -127,8 +127,8 @@ Declare the variables that you want to use. Use the following sample, substituti
 Configure and create the virtual network gateway for your VNet.
 
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
-* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The two tunnel options are **SSTP** and **IKEv2**. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP.
-* The virtual network gateway 'Basic' SKU does not support IKEv2 or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
+* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP** and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP cannot be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
+* The virtual network gateway 'Basic' SKU does not support IKEv2, OpenVPN or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
 * A VPN gateway can take up to 45 minutes to complete, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select. This example uses IKEv2.
 
 ```azurepowershell-interactive

@@ -16,7 +16,9 @@ ms.custom: seodec18
 
 # Manage and request quotas for Azure resources
 
-As with other Azure services, there are limits on certain resources associated with the Azure Machine Learning service. These limits range from a cap on the number of workspaces you can create to limits on the actual underlying compute that gets used for training or inferencing your models. This article gives more details on the pre-configured limits on various Azure resources for your subscription and also contains handy links to request quota enhancements for each type of resource. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints.
+As with other Azure services, there are limits on certain resources associated with the Azure Machine Learning service. These limits range from a cap on the number of workspaces you can create to limits on the actual underlying compute that gets used for model training or inference/scoring. 
+
+This article gives more details on the pre-configured limits on various Azure resources for your subscription and also contains handy links to request quota enhancements for each type of resource. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints.
 
 Keep these quotas in mind as you design and scale up your Azure Machine Learning service resources for production workloads. For example, if your cluster doesn't reach the target number of nodes you specified, then you might have reached an Azure Machine Learning Compute cores limit for your subscription. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables due to Azure Capacity constraints. If there is no Maximum Limit column, then the resource doesn't have adjustable limits.
 
@@ -68,6 +70,14 @@ Available resources:
 
 <sup>1</sup> The maximum lifetime refers to the time that a run start and when it finishes. Completed runs persist indefinitely; data for runs not completed within the maximum lifetime is not accessible.
 <sup>2</sup> Jobs on a Low Priority node could be pre-empted any time there is a capacity constraint. It is recommended to implement checkpointing in your job.
+
+### Azure Machine Learning Pipelines
+For Azure Machine Learning Pipelines, there is a quota limit on the number of steps in a pipeline and on the number of schedule-based runs of published pipelines per region in a subscription.
+- Maximum number of steps allowed in a pipeline is 30,000
+- Maximum number of schedule-based runs of published pipelines per subscription per month is 100,000
+
+> [!NOTE]
+> If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ### Container instances
 

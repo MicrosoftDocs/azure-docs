@@ -2,14 +2,14 @@
 title: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
 description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

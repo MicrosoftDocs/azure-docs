@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
 
 ---
@@ -22,8 +22,8 @@ ms.author: moderakh
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynchronous operations with support of the [Netty library](https://netty.io/). The pre-existing [SQL API Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
 
@@ -38,6 +38,16 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 | **Minimum supported runtime**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## Release notes
+
+### <a name="2.5.0"/>2.5.0
+* TCP mode now on by default
+* Query metrics in cross partition now returns all partitions
+* Global Strong now works properly
+* Failover for queries not properly retries for multi-master
+* Dependency bumps for security hotfixes
+
+### <a name="2.4.5"/>2.4.5
+* Bugfix for Hash V2 support
 
 ### <a name="2.4.3"/>2.4.3
 * Bugfix for resource leak on client#close()  ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).

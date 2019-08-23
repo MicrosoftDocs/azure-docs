@@ -95,7 +95,7 @@ Follow these instructions to install the extension on Windows virtual machines:
 4. Select **Azure Performance Diagnostics**, review the terms and conditions, and select **Create**.
 
     ![Screenshot of New resource screen, with Azure Performance Diagnostics highlighted](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Provide the parameter values for the installation, and select **OK** to install the extension. For more information about supported scenarios, see [How to use PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+5. Provide the parameter values for the installation, and select **OK** to install the extension. For more information about supported scenarios, see [How to use PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
     ![Screenshot of Install extension dialog box](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. When the installation is successful, you see a message indicating this status.

@@ -1,16 +1,9 @@
 ---
 title: Azure Resource Manager template functions - logical | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to determine logical values.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 

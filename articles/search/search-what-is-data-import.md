@@ -2,7 +2,7 @@
 title: Data import for data ingestion to a search index - Azure Search
 description: Populate and upload data to an index in Azure Search from external data sources.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -30,7 +30,7 @@ You can use the following APIs to load single or multiple documents into an inde
 
 There is currently no tool support for pushing data via the portal.
 
-For an introduction to each methodology, see [Quickstart: Create an Azure Search index using PowerShell and the REST API](search-create-index-rest-api.md) or [Quickstart: Create an Azure Search index in C#](search-import-data-dotnet.md).
+For an introduction to each methodology, see [Quickstart: Create an Azure Search index using PowerShell](search-create-index-rest-api.md) or [C# Quickstart: Create an Azure Search index using .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -38,9 +38,9 @@ For an introduction to each methodology, see [Quickstart: Create an Azure Search
 
 You can control the type of indexing action on a per-document basis, specifying whether the document should be uploaded in full, merged with existing document content, or deleted.
 
-In the REST API, issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. Each JSON object in the "value" array contains the document's key and specifies an indexing action adds, updates, or deletes document content. For a code example, see [Load documents](search-create-index-rest-api.md#load-documents).
+In the REST API, issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. Each JSON object in the "value" array contains the document's key and specifies whether an indexing action adds, updates, or deletes document content. For a code example, see [Load documents](search-get-started-dotnet.md#load-documents).
 
-In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see [Construct IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see the [C# Quickstart](search-get-started-dotnet.md).
 
 
 | @search.action | Description | Necessary fields for each document | Notes |

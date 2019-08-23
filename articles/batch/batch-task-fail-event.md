@@ -3,7 +3,7 @@ title: "Azure Batch task fail event | Microsoft Docs"
 description: Reference for Batch task fail event.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 04/20/2017
+ms.date: 08/15/2019
 ms.author: lahugh
 ---
 

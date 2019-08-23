@@ -61,7 +61,7 @@
       href: container-instances-restart-policy.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
-    - name: Override container entrypoint
+    - name: Set container startup command (entrypoint)
       href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
@@ -97,7 +97,7 @@
       href: container-instances-monitor.md
     - name: Get container logs and events
       href: container-instances-get-logs.md
-    - name: Logging with Azure Log Analytics
+    - name: Logging with Azure Monitor logs
       href: container-instances-log-analytics.md
   - name: Troubleshoot
     items:
@@ -121,6 +121,8 @@
     href: /javascript/api/overview/azure/containerinstances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
+  - name: Connector
+    href: /connectors/aci
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

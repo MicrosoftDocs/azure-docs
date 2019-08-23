@@ -17,7 +17,7 @@ ms.author: jmprieur
 ms.custom: include file
 ---
 
-This article assumes that you're familiar with the following concepts or have read the following articles:
+Before reading this article, you should be familiar with the following concepts or read the following articles:
 
 - [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
 - [Authentication basics](../articles/active-directory/develop/authentication-scenarios.md)

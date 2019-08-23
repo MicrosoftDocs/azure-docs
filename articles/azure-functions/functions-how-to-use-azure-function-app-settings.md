@@ -1,11 +1,8 @@
 ---
 title: Configure Azure Function App Settings | Microsoft Docs
 description: Learn how to configure Azure function app settings.
-services: ''
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-
+manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
@@ -14,7 +11,7 @@ ms.author: glenga
 ms.custom: cc996988-fb4f-47
 
 ---
-# How to manage a function app in the Azure portal 
+# How to manage a function app
 
 In Azure Functions, a function app provides the execution context for your individual functions. Function app behaviors apply to all functions hosted by a given function app. This topic describes how to configure and manage your function apps in the Azure portal.
 
@@ -57,7 +54,7 @@ The rest of this topic focuses on the following App Service features in the Azur
 + [Authentication](#auth)
 + [API definition](#swagger)
 
-For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/web-sites-configure.md).
+For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/configure-common.md).
 
 ### <a name="editor"></a>App Service Editor
 
@@ -120,7 +117,7 @@ For more information about how to work with App Service settings, see [Configure
 
 ## Next steps
 
-+ [Configure Azure App Service Settings](../app-service/web-sites-configure.md)
++ [Configure Azure App Service Settings](../app-service/configure-common.md)
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
 

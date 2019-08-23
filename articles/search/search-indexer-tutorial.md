@@ -1,15 +1,13 @@
 ---
-title: 'Tutorial: Index data from Azure SQL databases in a C# example code - Azure Search'
+title: 'C# Tutorial: Index data from Azure SQL databases - Azure Search'
 description: A C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 
@@ -54,7 +52,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 

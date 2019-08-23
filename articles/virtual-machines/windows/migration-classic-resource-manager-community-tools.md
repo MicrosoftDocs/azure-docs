@@ -4,7 +4,7 @@ description: This article catalogs the tools that have been provided by the comm
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

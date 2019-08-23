@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -25,7 +25,7 @@ analyzing live statistics, which is just one of the various methods you can use 
 ## Prerequisites
 To complete this quickstart:
 
-- Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Enable Application Insights
 
-1. Open your project in Visual Studio 2017.
+1. Open your project in Visual Studio 2019.
 2. Select **Configure Application Insights** from the Project menu. Visual Studio adds the Application Insights SDK to your application.
 
     > [!IMPORTANT]
@@ -63,13 +63,13 @@ You can now open Application Insights in the Azure portal to view various detail
 
 1. Expand the **Connected Services** folder (cloud and plug icon) in the Solution Explorer then right-click on the **Application Insights** folder and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
 
-	![Application Map](media/quick-monitor-portal/4overview.png)
+	![Application Map](media/quick-monitor-portal/04-overview.png)
 
 2. Click on **Application map** to get a visual layout of the dependency relationships between your application components.  Each component shows KPIs such as load, performance, failures, and alerts.
 
-	![Application Map](media/quick-monitor-portal/5appmap.png)
+	![Application Map](media/quick-monitor-portal/05-appmap.png)
 
-3. Click on the **App Analytics** icon ![Application Map](media/quick-monitor-portal/app-analytics-icon.png) **View in Analytics** on one of the application components. This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights.  In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
+3. Click on the **App Analytics** icon ![Application Map](media/quick-monitor-portal/app-viewinlogs-icon.png) **View in Logs (Analytics)** on one of the application components. This opens **Logs (Analytics)**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
 	![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
