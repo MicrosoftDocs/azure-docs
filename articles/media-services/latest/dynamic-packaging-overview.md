@@ -37,7 +37,7 @@ In Media Services, Dynamic Packaging is used whether you are streaming live or o
 The following is a common Media Services streaming workflow where Dynamic Packaging is used along with the Standard Encoder in Azure Media Services.
 
 1. Upload an input file such as a QuickTime/MOV or MXF file (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md). This is also referred to as the mezzanine or source file.
-1. [Encode](dynamic-packaging-overview.md#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set. 
+1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set. 
 1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a streaming locator.
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
 
@@ -45,7 +45,7 @@ The following diagram shows the on-demand streaming with Dynamic Packaging workf
 
 ![Diagram of a workflow for on-demand streaming with Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-### Encoding to adaptive bitrate MP4s
+### Encode to adaptive bitrate MP4s
 
 The following articles show examples of [how to encode a video with Media Services](encoding-concept.md):
 
