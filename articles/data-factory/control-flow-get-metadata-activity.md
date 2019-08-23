@@ -27,11 +27,11 @@ You can use the Get Metadata activity to retrieve the metadata of any data in Az
 The following functionality is available in the control flow:
 
 - You can use the output from the Get Metadata activity in conditional expressions to perform validation.
-- You can trigger a pipeline when a condition is satisfied via Do-Until looping.
+- You can trigger a pipeline when a condition is satisfied via Do Until looping.
 
 ## Capabilities
 
-The Get Metadata activity takes a dataset as an input and returns metadata information available as activity output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 1 MB.
+The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 1 MB.
 
 >[!NOTE]
 >If you run the Get Metadata activity on a self-hosted integration runtime, the latest capabilities are supported on version 3.6 or later.
@@ -77,12 +77,12 @@ You can specify the following metadata types in the Get Metadata activity field 
 | lastModified | Last modified datetime of the file or folder. |
 | childItems | List of subfolders and files in the given folder. Applicable only to folders. Returned value is a list of the name and type of each child item. |
 | contentMD5 | MD5 of the file. Applicable only to files. |
-| structure | Data structure in the file or relational database table. Returned value is a list of column names and column types. |
+| structure | Data structure of the file or relational database table. Returned value is a list of column names and column types. |
 | columnCount | Number of columns in the file or relational table. |
 | exists| Whether a file, folder, or table exists. Note that if `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
 
 >[!TIP]
->When you want to validate if a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
+>When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
 
 >[!NOTE]
 >When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in output will include only files in the given path that have a last modified time within the specified range. In won’t include items in subfolders.
@@ -134,13 +134,13 @@ Currently, the Get Metadata activity can return the following types of metadata 
 Property | Description | Required
 -------- | ----------- | --------
 fieldList | The types of metadata information required. For details on supported metadata, see the [Metadata options](#metadata-options) section of this article. | Yes 
-dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Supported capabilities](#supported-capabilities) section for information on supported connectors. Refer to the the specific connector topics for dataset syntax details. | Yes
+dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#capabilities) section for information on supported connectors. Refer to the specific connector topics for dataset syntax details. | Yes
 formatSettings | Apply when using format type dataset. | No
 storeSettings | Apply when using format type dataset. | No
 
 ## Sample output
 
-The Get Metadata result is shown in the activity output. Following are two samples showing extensive metadata options. To use the result in a subsequent activity, use this pattern: `@{activity('MyGetMetadataActivity').output.itemName}`.
+The Get Metadata results are shown in the activity output. Following are two samples showing extensive metadata options. To use the results in a subsequent activity, use this pattern: `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### Get a file's metadata
 

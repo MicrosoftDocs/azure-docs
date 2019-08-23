@@ -18,8 +18,6 @@ ms.author: jingwang
 ---
 # Copy activity in Azure Data Factory
 
-## Overview
-
 > [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Current version](copy-activity-overview.md)
@@ -38,7 +36,7 @@ An integration runtime needs to be associated with each source and sink data sto
 To copy data from a source to a sink, the service that runs the Copy activity performs these steps:
 
 1. Reads data from a source data store.
-2. Performs serialization/deserialization, compression/decompression, column mapping, and so on. It performs these operations based on the configurations of the input dataset, output dataset, and Copy activity.
+2. Performs serialization/deserialization, compression/decompression, column mapping, and so on. It performs these operations based on the configuration of the input dataset, output dataset, and Copy activity.
 3. Writes data to the sink/destination data store.
 
 ![Copy activity overview](media/copy-activity-overview/copy-activity-overview.png)
@@ -202,7 +200,7 @@ Copy activity execution details and performance characteristics are also returne
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](#fault-tolerance) later in this article. | Text (string) |
-| executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change.<br/><br/>Data Factory also reports the detailed durations (in seconds) spent on various stages under `detailedDurations`. The durations of these steps are exclusive. Only those that apply to the given Copy activity run appear:<br/>**Queuing duration** (`queuingDuration`): The amount of time before the Copy activity actually starts on the integration runtime. If you use a self-hosted IR and this value is large, check the IR capacity and usage, and scale up or out according to your workload. <br/>**Pre-copy script duration** (`preCopyScriptDuration`): The time elapsed between when the Copy activity starts on the IR and when the Copy activity finishes running the pre-copy script in the sink data store. Applies when you configure the pre-copy script. <br/>**Time-to-first-byte** (`timeToFirstByte`): The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources. If this value is large, check and optimize the query or server.<br/>**Transfer duration** (`transferDuration`): The time elapsed between the end of the previous step and the time when the IR transfers all the data from source to sink. | Array |
+| executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change.<br/><br/>Data Factory also reports the detailed durations (in seconds) spent on various stages under `detailedDurations`. The durations of these steps are exclusive. Only durations that apply to the given Copy activity run appear:<br/>**Queuing duration** (`queuingDuration`): The amount of time before the Copy activity actually starts on the integration runtime. If you use a self-hosted IR and this value is large, check the IR capacity and usage, and scale up or out according to your workload. <br/>**Pre-copy script duration** (`preCopyScriptDuration`): The time elapsed between when the Copy activity starts on the IR and when the Copy activity finishes running the pre-copy script in the sink data store. Applies when you configure the pre-copy script. <br/>**Time-to-first-byte** (`timeToFirstByte`): The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources. If this value is large, check and optimize the query or server.<br/>**Transfer duration** (`transferDuration`): The time elapsed between the end of the previous step and the time when the IR transfers all the data from source to sink. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance and tuning](#performance-and-tuning) for details. | Array |
 
 ```json
@@ -262,7 +260,7 @@ By default, the Copy activity stops copying data and returns a failure when sour
 
 The [Copy activity performance and scalability guide](copy-activity-performance.md) describes key factors that affect the performance of data movement via the Copy activity in Azure Data Factory. It also lists the performance values observed during testing and discusses how to optimize the performance of the Copy activity.
 
-In some scenarios, when you run a Copy activity in Data Factory, you'll see "**Performance tuning tips**" at the top of the [Copy activity monitoring page](#monitor-visually), as shown in the following example. The tips tell you the bottleneck identified for the given copy run. They also provide information on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like using PolyBase when copying data into Azure SQL Data Warehouse, increasing Azure Cosmos DB RUs or Azure SQL Database DTUs when the resource on data store side is the bottleneck, and removing unnecessary staged copies.
+In some scenarios, when you run a Copy activity in Data Factory, you'll see **Performance tuning tips** at the top of the [Copy activity monitoring page](#monitor-visually), as shown in the following example. The tips tell you the bottleneck identified for the given copy run. They also provide information on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like using PolyBase when copying data into Azure SQL Data Warehouse, increasing Azure Cosmos DB RUs or Azure SQL Database DTUs when the resource on the data store side is the bottleneck, and removing unnecessary staged copies.
 
 **Example: Copy into Azure SQL Database with performance tuning tips**
 
