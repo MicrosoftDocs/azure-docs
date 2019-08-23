@@ -41,9 +41,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Set data sources](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
     - Give your service a **name.** Duplicate names and special characters are supported.
-    - Add URLs for data you want extracted. See more information on the types of sources supported [here](../Concepts/data-sources-supported.md).
-    - Upload files for data you want extracted. See the [pricing information](https://aka.ms/qnamaker-pricing) to see how many documents you can add.
-    - If you want to manually add QnAs, you can skip **Step 4** shown in the preceding image.
+    - For this quickstart, add the QnA Maker troubleshooting page as a URL: `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`. See more information on the types of sources supported [here](../Concepts/data-sources-supported.md). 
+    - For this quickstart, **don't upload files** for data you want extracted. See the [pricing information](https://aka.ms/qnamaker-pricing) to see how many documents you can add.
+    - For this quickstart, don't manually add QnAs.
 
 1. Add **Chit-chat** to your KB. Choose to add chit-chat support for your bot, by choosing from one of the  personalities. 
 
