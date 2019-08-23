@@ -6,11 +6,17 @@ ms.date: 07/26/2019
 ms.author: larryfr
 ---
 
-When you create a new model, you must manually update each service that you want to use the new model. To update the web service, use the `update` method. The following code demonstrates how to use the SDK to update the model for a web service:
+To update the web service, use the `update` method. You can update the web service to use a new model, entry script, or dependencies that can be specified using an inference configuration. For more information, see the reference for [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+
+> [!IMPORTANT]
+> When you create a new version of a model, you must manually update each service that you want to use it.
+
+The following code demonstrates how to use the SDK to update the model, environment, and entry script for a web service:
 
 ```python
+from azureml.core import Environment
 from azureml.core.webservice import Webservice
-from azureml.core.model import Model
+from azureml.core.model import Model, InferenceConfig
 
 # register new model
 new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
@@ -19,12 +25,19 @@ new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
                            description="test",
                            workspace=ws)
 
+# Use version 3 of the environment
+deploy_env = Environment.get(workspace=ws,name="myenv",version="3")
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=deploy_env)
+
 service_name = 'myservice'
 # Retrieve existing service
 service = Webservice(name=service_name, workspace=ws)
 
+
+
 # Update to new model(s)
-service.update(models=[new_model])
+service.update(models=[new_model], inference_config=inference_config)
 print(service.state)
 print(service.get_logs())
 ```
