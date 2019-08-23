@@ -35,7 +35,7 @@ Warehouse.
 
 3. Clone your Azure Repo repository from your project to your local machine
 
-   ![Clone repo](media/sql-data-warehouse-source-control-integration/4_clone_repo "Clone repo")
+   ![Clone repo](media/sql-data-warehouse-source-control-integration/4_clone_repo.png "Clone repo")
 
 ## Create and connect your SSDT database project
 
