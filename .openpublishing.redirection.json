@@ -11406,6 +11406,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-role-based-access-control.md",
+      "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
       "redirect_document_id": false
@@ -11599,7 +11604,12 @@
       "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
       "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
       "redirect_document_id": false
-    },
+	},
+	{
+		"source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus.md",
+		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+		"redirect_document_id": false
+	},
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-analyze-twitter-sentiment.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
@@ -25982,6 +25992,11 @@
     {
       "source_path": "articles/security-center/security-center-enable-transparent-data-encryption.md",
       "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-incident-response.md",
+      "redirect_url": "/azure/security-center/tutorial-security-incident",
       "redirect_document_id": false
     },  
     {
