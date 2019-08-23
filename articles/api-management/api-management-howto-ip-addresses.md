@@ -50,7 +50,17 @@ Public IP addresses will be part of the response:
 }
 ```
 
-If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private. You will see addresses of both types in the Azure portal and in the response of the API call:
+In [multi-regional deployments](api-management-howto-deploy-multi-region.md), each regional deployment has one public IP address.
+
+## IP addresses of API Management service in a virtual network
+
+If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private.
+
+Public IP addresses are used for internal communication on port `3443` - for managing configuration. Additionally, when a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request.
+
+Private virtual IP (VIP) addresses are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane. You can use them for setting up DNS records within the network.
+
+You will see addresses of both types in the Azure portal and in the response of the API call:
 
 ![API Management in VNET IP address](media/api-management-howto-ip-addresses/vnet-ip.png)
 
@@ -73,8 +83,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
   ...
 }
 ```
-
-In [multi-regional deployments](api-management-howto-deploy-multi-region.md), each regional deployment has one public IP address.
 
 ## IP addresses of Consumption tier API Management service
 
