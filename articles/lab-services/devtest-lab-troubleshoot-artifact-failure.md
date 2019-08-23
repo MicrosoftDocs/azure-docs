@@ -48,7 +48,7 @@ After you have created an artifact, you can check to see whether it succeeded or
 
 3. Open the **status** file.
 
-For instructions on finding the log files on a **Linux** VM, see the following aritcle: [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+For instructions on finding the log files on a **Linux** VM, see the following article: [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
 
 
 ## Related blog posts
