@@ -242,10 +242,12 @@ this CIS recommendation.
 
 ## Next steps
 
-Now that you've reviewed the control mapping of the CIS Microsoft Azure Foundations Benchmark 
-blueprint, visit the Azure Policy in the Azure portal to assign the initiative:
+Now that you've reviewed the control mapping of the CIS Microsoft Azure Foundations Benchmark
+blueprint, visit the following article to learn about the blueprint or visit Azure Policy in the
+Azure portal to assign the initiative:
 
 > [!div class="nextstepaction"]
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Overview](./index.md)
 > [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
 
 Addition articles about blueprints and how to use them:
