@@ -1,5 +1,5 @@
 ---
-title: How to manage the OPC Vault Certificate Management Service - Azure | Microsoft Docs
+title: How to manage the OPC Vault certificate service - Azure | Microsoft Docs
 description: Manage the OPC Vault root CA certificates and user permissions.
 author: mregen
 ms.author: mregen
@@ -10,9 +10,9 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# How to manage the OPC UA Certificate Service
+# How to manage the OPC Vault certificate service
 
-This article explains the administrative tasks for the OPC UA Certificate Management Service in Azure, how to renew Issuer CA certificates, how to renew the Certificate Revocation List (CRL) and how to grant and revoke user access.
+This article explains the administrative tasks for the OPC Vault certificate management service in Azure, how to renew Issuer CA certificates, how to renew the Certificate Revocation List (CRL) and how to grant and revoke user access.
 
 ## Create or renew the root CA certificate
 

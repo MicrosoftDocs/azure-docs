@@ -1,6 +1,6 @@
 ---
 title: OPC Vault architecture - Azure | Microsoft Docs
-description: OPC Vault Certificate Management Service architecture
+description: OPC Vault certificate management service architecture
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019
@@ -131,3 +131,10 @@ Only operations, which do not require the Writer, Administrator, or Approver rol
 ## Yet unsupported features
 
 **(*)** not supported yet.
+
+## Next steps
+
+Now that you have learned about the OPC Vault architecture, here is the suggested next step:
+
+> [!div class="nextstepaction"]
+> [Build and deploy OPC Vault](howto-opc-vault-deploy.md)

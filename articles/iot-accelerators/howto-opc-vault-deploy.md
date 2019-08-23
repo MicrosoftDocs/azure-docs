@@ -1,6 +1,6 @@
 ---
-title: How to deploy the OPC Vault Certificate Management Service - Azure | Microsoft Docs
-description: How to deploy the OPC Vault Certificate Management Service from scratch.
+title: How to deploy the OPC Vault certificate management service - Azure | Microsoft Docs
+description: How to deploy the OPC Vault certificate management service from scratch.
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019
@@ -10,9 +10,9 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# Build and deploy the OPC UA Certificate Management Service
+# Build and deploy the OPC Vault certificate management Service
 
-This article explains how to deploy the OPC UA Certificate Management Service in Azure.
+This article explains how to deploy the OPC Vault certificate management service in Azure.
 
 > [!NOTE]
 > For more information on deployment details and instructions, see the GitHub [OPC Vault repository](https://github.com/Azure/azure-iiot-opc-vault-service).
@@ -81,7 +81,7 @@ It is also possible to redeploy just the web app binaries. With the parameter `-
 
 After successful deployment, feel free to start using the services: [How to manage the OPC Vault Certificate Management Service](howto-opc-vault-manage.md)
 
-## Delete the Certificate Management Services from the subscription
+## Delete the certificate management service from the subscription
 
 1. Sign in to the Azure portal: `https://portal.azure.com`.
 2. Go to the resource group in which the service was deployed.
