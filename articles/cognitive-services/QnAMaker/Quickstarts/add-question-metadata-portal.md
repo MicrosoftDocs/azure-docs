@@ -25,8 +25,8 @@ For example, the questions in the following table are about service limits, but 
 
 |Questions|Answer|Metadata|
 |--|--|--|
-|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna-maker, link-in-answer=true`|
-|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Search service?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Search tier supports.`|`service=search, link-in-answer=false`|
+|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker, link_in_answer=true`|
+|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Search service?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Search tier supports.`|`service=search, link_in_answer=false`|
 
 Once metadata is added to a question-and-answer set, the client application can:
 
@@ -61,7 +61,7 @@ The current knowledge base has the QnA Maker troubleshooting question and answer
     |`What is the max size of a knowledge base?`|
     |`How many GB of data can a knowledge base hold?`| 
 
-1. Select **Save and train** to retry the knowledge base. 
+1. Select **Save and train** to retrain the knowledge base. 
 
 1. Select **Test**, then enter a question that is close to one of the new alternative phrasings but isn't exactly the same wording:
 
@@ -75,8 +75,75 @@ The current knowledge base has the QnA Maker troubleshooting question and answer
 
     Do not add every possible combination of alternative phrasing. Turn on QnA Maker's [active learning](../how-to/improve-knowledge-base.md), this finds the alternative phrasings that will best help your knowledge base meet your users' needs.
 
+1. Select **Test** again to close the test window.
+
 ## Add metadata to filter the answers
 
 Adding metadata to a question and answer set allows your client application to request filtered answers. 
 
-Add the second question and answer set, without the metadata, from the [first table in this quickstart](#qna-table), then continue with the following steps. 
+1. Add the second question and answer set, without the metadata, from the [first table in this quickstart](#qna-table), then continue with the following steps. 
+
+1. Select **View options**, then select **Show metadata**. 
+
+1. For the question and answer set you just added, select **Add metadata tags**, then add `service` and `search`. 
+1. Add another metadata tags of `link_in_answer` and `false`.
+
+1. Search for the first answer in the table, `How large a knowledge base can I create?`. 
+1. Add metadata pairs for the same two metadata tags:
+
+    `link_in_answer` : `true`
+    `server`: `qna_maker`
+
+    You now have two questions with the same metadata tags with different values. 
+
+1. Select **Save and train** to retrain the knowledge base. 
+
+1. Select **Publish** in the top menu to go to the publish page. 
+1. Select the **Publish** button to publish the current knowledge base to a queryable endpoint. 
+1. After the knowledge base is published, select the **Curl** tab to see an example cURL command to generate an answer from the knowledge base.
+1. Copy the command to a note pad or other editable environment so you can change the command. Or copy the following command and edit for your own resource name, knowledge base id and endpoint key:
+
+    |Replace|
+    |--|
+    |`your-resource-name`|
+    |`your-knowledge-base-id`|
+    |`your-endpoint-key`|
+
+    ```curl
+    curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'question':'What GB size can a knowledge base be?','strictFilters': [{'name':'service','value':'qna_maker'}]}"
+    ```
+
+    The preceding command uses Windows line continuation. If you use a different operating system or terminal, change to your own line continuation character. A common line continuation character is the back slash, `\`.
+
+1. The following cURL response has been formatted for readability:
+
+    ```JSON
+    {
+        "answers": [
+            {
+                "questions": [
+                    "What GB size can a knowledge base be?"
+                ],
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.",
+                "score": 70.13,
+                "id": 3,
+                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "metadata": [
+                    {
+                        "name": "link_in_answer",
+                        "value": "true"
+                    },
+                    {
+                        "name": "service",
+                        "value": "qna_maker"
+                    }
+                ],
+                "context": {
+                    "isContextOnly": false,
+                    "prompts": []
+                }
+            }
+        ],
+        "debugInfo": null
+    }
+    ```
