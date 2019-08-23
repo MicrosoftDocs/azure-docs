@@ -38,7 +38,7 @@ MSAL Keychain support in macOS is more limited than on iOS. The keychain is not 
 
 ### Conditional access authentication differences
 
-For conditional access scenarioes, there will be fewer user prompts when you use MSAL for iOS. This is because iOS uses the broker app (Microsoft Authenticator) which negates the need, in some cases, to prompt the user.
+For conditional access scenarios, there will be fewer user prompts when you use MSAL for iOS. This is because iOS uses the broker app (Microsoft Authenticator) which negates the need, in some cases, to prompt the user.
 
 ### Project setup differences
 
