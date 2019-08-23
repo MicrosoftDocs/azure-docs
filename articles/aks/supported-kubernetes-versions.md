@@ -31,7 +31,6 @@ of Kubernetes follows this numbering scheme:
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 Each number in the version indicates general compatibility with the previous version:
@@ -41,8 +40,8 @@ Each number in the version indicates general compatibility with the previous ver
 * Patch versions change when backwards-compatible bug fixes are made.
 
 In general, users should endeavor to run the latest patch release of the minor version they are running, for example if
-your production cluster is on *1.13.6* and *1.13.7* is the latest available patch version available for the *1.13*
-series, you should upgrade to *1.13.7* as soon as you are able to ensure your cluster is fully patched and supported.
+your production cluster is on *1.12.14* and *1.12.15* is the latest available patch version available for the *1.12*
+series, you should upgrade to *1.12.15* as soon as you are able to ensure your cluster is fully patched and supported.
 
 ## Kubernetes version support policy
 
@@ -156,16 +155,18 @@ the *EastUS* region:
 az aks get-versions --location eastus --output table
 ```
 
-The output is similar to the following example, which shows that Kubernetes version *1.13.5* is the most recent version
+The output is similar to the following example, which shows that Kubernetes version *1.14.6* is the most recent version
 available:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.14.5               None available
-1.13.9               1.14.5
-1.12.8               1.13.9
-1.12.7               1.12.8, 1.13.9
+1.14.6               None available
+1.14.5               1.14.6
+1.13.10              1.14.5, 1.14.6
+1.13.9               1.13.10, 1.14.5, 1.14.6
+1.12.8               1.13.9, 1.13.10
+1.12.7               1.12.8, 1.13.9, 1.13.10
 1.11.10              1.12.7, 1.12.8
 1.11.9               1.11.10, 1.12.7, 1.12.8
 1.10.13              1.11.9, 1.11.10

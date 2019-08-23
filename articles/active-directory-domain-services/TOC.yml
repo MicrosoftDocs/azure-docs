@@ -25,6 +25,8 @@
       href: powershell-create-instance.md
 - name: Concepts
   items:
+    - name: Common deployment scenarios
+      href: scenarios.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
@@ -39,8 +41,6 @@
   items:
     - name: Configure common settings
       items:
-        - name: Enable password hash synchronization
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Configure scoped synchronization from Azure AD
           href: scoped-synchronization.md
         - name: Create an organizational unit (OU)
@@ -49,8 +49,6 @@
           href: create-gmsa.md
     - name: Plan for Azure AD DS
       items: 
-        - name: Common scenarios
-          href: scenarios.md
         - name: Virtual network considerations
           href: network-considerations.md
     - name: Manage Azure AD DS
