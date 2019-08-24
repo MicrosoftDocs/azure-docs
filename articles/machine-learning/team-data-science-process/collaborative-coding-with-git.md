@@ -7,7 +7,7 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/01/2019
+ms.date: 08/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -15,7 +15,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Collaborative coding with Git
 
-This article describes how to do collaborative code development for data science projects in Azure Repos, using Git as the shared code development framework. The article covers how to link code in Azure Repos to [agile development](agile-development.md) work items in Azure Boards, and how to do code reviews.
+This article describes how to do collaborative code development for data science projects in Azure DevOps, using Git as the shared code development framework. The article covers how to link code in Azure Repos to [agile development](agile-development.md) work items in Azure Boards, and how to do code reviews.
 
 ## <a name='Linkaworkitemwithagitbranch-1'></a>Link a work item to a Git branch 
 
@@ -25,13 +25,13 @@ To connect a work item to a new branch, select the **Actions** ellipsis (**...**
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-In the **Create a branch** dialog, provide the new branch name and the base Azure Repos Git repository and branch. The base repository must be under the same project as the work item. The base branch can be the master branch or another existing branch. Select **Create branch**. 
+In the **Create a branch** dialog, provide the new branch name and the base Azure Repos Git repository and branch. The base repository must be in the same Azure DevOps project as the work item. The base branch can be the master branch or another existing branch. Select **Create branch**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
-It's a good practice to create a Git branch for each User Story work item. Then, for each Task work item, you can create a branch based on the User Story branch. Organizing the branches in a hierarchy that corresponds to the User Story-Task relationship helps when you have multiple people working on different User Stories of the same project, or on different Tasks for the same User Story. Conflicts can be minimized when each team member works on a different branch, or on different code or other artifacts when sharing a branch. 
+It's a good practice to create a Git branch for each User Story work item. Then, for each Task work item, you can create a branch based on the User Story branch. Organizing the branches in a hierarchy that corresponds to the User Story-Task relationship helps when you have multiple people working on different User Stories for the same project, or on different Tasks for the same User Story. You can minimize conflicts when each team member works on a different branch, or on different code or other artifacts when sharing a branch. 
 
-The following diagram shows the recommended branching strategy for TDSP. You might not need as many branches as shown here, especially when you only have one or two people working on a project, or only one person working on all Tasks of a User Story. But separating the development branch from the master branch is always a good practice that can help prevent the release branch from being interrupted by development activities. For a complete description of the Git branch model, see [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
+The following diagram shows the recommended branching strategy for TDSP. You might not need as many branches as shown here, especially when you only have one or two people working on a project, or only one person working on all Tasks of a User Story. But separating the development branch from the master branch is always a good practice, and can help prevent the release branch from being interrupted by development activities. For a complete description of the Git branch model, see [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
@@ -43,7 +43,7 @@ git checkout <working branch name>
 
 After you switch to the working branch, you can start developing code or documentation artifacts to complete the work item. Running `git checkout master` switches you back to the `master` branch.
 
-You can also link a work item to an existing branch. On the **Detail** page of a work item, select **Add link**. Then select the existing branch you want to link the work item to, and select **OK**. 
+You can also link a work item to an existing branch. On the **Detail** page of a work item, select **Add link**. Then select the existing branch to link the work item to, and select **OK**. 
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
@@ -72,13 +72,11 @@ git push origin script
 
 After one or more commits and pushes, when you are ready to merge your current working branch into its base branch, you can create and submit a *pull request* in Azure Repos. 
 
-From the main page of your Azure DevOps project, point to **Repos** > **Pull requests** in the left navigation. Then select either **New pull request** button, or the **Create a pull request** link.
+From the main page of your Azure DevOps project, point to **Repos** > **Pull requests** in the left navigation. Then select either of the **New pull request** buttons, or the **Create a pull request** link.
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your branch into, and change or add any other information. Under **Reviewers**, add the names of those you need to review your changes. Select **Create**. 
-
-Fill in some description about this pull request, add reviewers, and send it out.
+On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your branch into, and change or add any other information. Under **Reviewers**, add the names of those you need to review your changes, and then select **Create**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -88,9 +86,7 @@ When you create the pull request, your reviewers get an email notification to re
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-![9](./media/collaborative-coding-with-git/9-spring-approve-pullrequest.png)
-
-After the reviewers approve the changes, you or someone else with merge permissions can merge the working branch to its base branch by selecting **Complete**. You can delete the working branch after it has merged. 
+After the reviewers approve the changes, you or someone else with merge permissions can merge the working branch to its base branch by selecting **Complete**, and then selecting **Complete merge** in the **Complete pull request** dialog. You can choose to delete the working branch after it has merged. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
@@ -98,7 +94,7 @@ Confirm that the request is marked as **COMPLETED**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-When you go back to **Repos** in the left navigation, you see a notice that you've been switched to the master branch since the `script` branch was deleted.
+When you go back to **Repos** in the left navigation, you see that you've been switched to the master branch since the `script` branch was deleted.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
@@ -116,5 +112,5 @@ git branch -d script
 
 [Execute data science tasks](execute-data-science-tasks.md) shows how to use utilities to complete several common data science tasks, such as interactive data exploration, data analysis, reporting, and model creation.
 
-[Example walkthroughs](walkthroughs.md) lists and links to walkthroughs that demonstrate the process for **specific scenarios**, with thumbnail descriptions. The scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications. 
+[Example walkthroughs](walkthroughs.md) lists and links to walkthroughs of specific scenarios, with thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications. 
 
