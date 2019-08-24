@@ -141,6 +141,12 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
+## Entitlement Management
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Add resources to a catalog | Catalog owner | User administrator
+Add SharePoint Online sites to catalog | Global administrator
+
 ## Groups
 
 Task | Least privileged role | Additional roles
@@ -259,6 +265,7 @@ Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Manage role assignments | Privileged role administrator | 
 Read access review of an Azure AD role  | Security Reader | Security administrator, Privileged role administrator
+Read access review of an Azure AD resource | User administrator |
 Read all configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 
 ## Security - Authentication methods
