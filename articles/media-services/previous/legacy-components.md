@@ -20,5 +20,11 @@ ms.author: juliako
 
 Over time, there have been steady improvements and enhancements to Media Service components, as a result of which some of the legacy components have been retired. You can find the instructions on how to migrate your application from the legacy component to a current component in the following articles.
 
+## Legacy components and migration guidance
+
 * [Migrate from Windows Azure Media Encoder to Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [Migrate from Azure Media Encoder to Media Encoder Standard](migrate-azure-media-encoder.md)
+
+## Next steps
+
+[Migration guidance for moving from Media Services v2 to v3](../latest/migrate-from-v2-to-v3.md)
