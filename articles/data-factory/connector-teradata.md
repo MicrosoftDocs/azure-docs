@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
 
 ---
@@ -186,7 +186,7 @@ This section provides a list of properties supported by Teradata source. For a f
 ### Teradata as source
 
 >[!TIP]
->To load data from Teradata efficiently by using data partitioning, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section.
+>To load data from Teradata efficiently by using data partitioning, learn more from [Parallel copy from Teradata](#parallel-copy-from-teradata) section.
 
 To copy data from Teradata, the following properties are supported in the copy activity **source** section:
 
@@ -242,9 +242,9 @@ The Data Factory Teradata connector provides built-in data partitioning to copy 
 
 ![Screenshot of partition options](./media/connector-teradata/connector-teradata-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings. Each query retrieves a portion of data from your Teradata database.
+When you enable partitioned copy, Data Factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Teradata database.
 
-It's a good idea to enable parallel copy with data partitioning, especially when you load large amount of data from your Teradata database. The following are suggested configurations for different scenarios:
+It's a good idea to enable parallel copy with data partitioning, especially when you load large amount of data from your Teradata database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
