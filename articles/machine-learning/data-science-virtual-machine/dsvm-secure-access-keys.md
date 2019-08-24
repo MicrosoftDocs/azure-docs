@@ -1,6 +1,6 @@
 ---
 title: Store access credentials on the Data Science Virtual Machine securely - Azure | Microsoft Docs
-description:  Learn how to securely store access credentials on the Data Science Virtual Machine. You will learn how to use managed service identities and Azure Key Vault to store access credentials.
+description:  Learn how to securely store access credentials on the Data Science Virtual Machine. You'll learn how to use managed service identities and Azure Key Vault to store access credentials.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 documentationcenter: ''
@@ -20,13 +20,13 @@ ms.author: vijetaj
 
 ---
 
-# Store access credentials on the Data Science Virtual Machine securely
+# Store access credentials securely on a Data Science Virtual Machine
 
-A common challenge in building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked in to source control. 
+How to manage the credentials that need to be in your code for authenticating to cloud services is a well-known challenge in building cloud applications. It's obviously vital to keep these credentials secure. Ideally, they should never appear on developer workstations or get checked in to source control.
 
-[Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having any credentials in your code. 
+The [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) feature makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having any credentials in your code.
 
-One way to secure credentials is to use MSI in combination with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), a managed Azure service to store secrets and cryptographic keys securely. You can access a key vault by using the managed identity and retrieve the authorized secrets and cryptographic keys from the key vault. 
+One way to secure credentials is to use Windows Installer (MSI) in combination with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), a managed Azure service to store secrets and cryptographic keys securely. You can access a key vault by using the managed identity and retrieve the authorized secrets and cryptographic keys from the key vault. 
 
 The managed identities for Azure resources and Key Vault documentation is a comprehensive resource for in-depth information on these services. The rest of this article walks through the basic use of MSI and Key Vault on the Data Science Virtual Machine (DSVM) to access Azure resources. 
 
