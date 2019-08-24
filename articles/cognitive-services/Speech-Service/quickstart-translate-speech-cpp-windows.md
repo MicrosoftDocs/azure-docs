@@ -34,7 +34,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Replace all the code with the following snippet:
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp?range=2-#code)]
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
@@ -48,7 +48,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text. The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
 
    ![Console output after successful speech translation](media/sdk/qs-translate-cpp-windows-output.png)
 
