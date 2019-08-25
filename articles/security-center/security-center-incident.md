@@ -30,19 +30,22 @@ You can review your current security incidents by looking at the security alerts
 
 1. On the Security Center dashboard, you will see the **Security alerts** tile.
 
-2. Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph. Notice that the security incident description has a different icon compared to other alerts.
+1. Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph. Notice that the security incident description has a different icon compared to other alerts.
 
     ![View security incidents](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-3. Click on an incident to view details.
+1. Click on an incident to view the details. The **incident** blade displays details, if the incident is still active, and the remediation steps to take. In the bottom pane, the alerts included in this incident are listed.
 
-  ![Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
+    [Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-  ![Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident2.png)
+1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert. Follow the remediation steps given for each alert. 
 
-4. On the **incident** blade you will see more details about this security incident, which includes its full description, its severity (which in this case is high), its current state (in this case it is still *active*, which implies the user hasn't taken an action to it - this can be done by right clicking on the incident in the **Security alerts** blade), the attacked resource (in this case *VM1*), the remediation steps for the incident, and in the bottom pane you have the alerts that were included in this incident. If you want to obtain more information on each alert, click on an alert.
-![Alert details](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
-The information on this blade will vary according to the alert. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to manage these alerts. Some important considerations regarding this capability:
+    ![Alert details](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
+
+<!-- I don't understand this sentence-->
+In some cases, you may have to use other Azure capabilities to implement the recommended remediation. 
+
+For more information on the different types of alerts, read [Security alerts types](security-center-alerts-overview.md#security-alert-types).
 
 * A new filter enables you to customize your view to Incident only, Alerts only, or both.
 * The same alert can exist as part of an Incident (if applicable), as well as to be visible as a standalone alert.
