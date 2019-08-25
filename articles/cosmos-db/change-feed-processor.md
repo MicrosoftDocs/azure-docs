@@ -75,7 +75,7 @@ If these three conditions apply, then the change feed processor will, using an e
 
 The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly.
 
-Moreover, the change feed processor can dynamically adjust to container size changes. When your container grows and the cardinality of your logical partitions increases, [physical partitions](./partition-data.md#physical-partitions) can undergo a growing process known as *split* to accommodate more data. The change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among the existing instances.
+Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
 
 ## Change feed and provisioned throughput
 
