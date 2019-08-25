@@ -2,12 +2,12 @@
 title: Create a Windows Virtual Desktop preview host pool to validate service updates  - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Tutorial: Create a host pool to validate service updates
 
@@ -41,7 +41,7 @@ Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv
 Run the following PowerShell cmdlet to confirm that the validation property has been set. Replace the values in quotes by the values relevant to your session.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 ```
 
 The results from the cmdlet should look similar to this output:

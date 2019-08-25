@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Manage log data and workspaces in Azure Monitor
 
-Azure Monitor stores log data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
+Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
 
 This article explains how to manage access to logs and to administer the workspaces that contain them, including:
 
@@ -27,25 +27,35 @@ This article explains how to manage access to logs and to administer the workspa
 
 * How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
 
-## Define access control mode in Azure portal
+## Define access control mode
 
-You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu. 
+You can view the access control mode configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
+
+* Azure portal
+
+* Azure PowerShell
+
+* Azure Resource Manager template
+
+### Configure from the Azure portal
+
+You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu.
 
 ![View workspace access control mode](media/manage-access/view-access-control-mode.png)
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-1. In the Azure portal, select Log Analytics workspaces > your workspace.  
+1. In the Azure portal, select Log Analytics workspaces > your workspace.
 
 You can change this setting from the **Properties** page of the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
 
 ![Change workspace access mode](media/manage-access/change-access-control-mode.png)
 
-## Define access control mode using PowerShell
+### Configure using PowerShell
 
 Use the following command to examine the access control mode for all workspaces in the subscription:
 
 ```powershell
-Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions}
 ```
 
 The output should resemble the following:
@@ -55,10 +65,10 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-A value of `False` means the workspace is configured with the workspace-context access mode.  A value of `True` means the workspace is configured with the resource-context access mode. 
+A value of `False` means the workspace is configured with the workspace-context access mode.  A value of `True` means the workspace is configured with the resource-context access mode.
 
->[!NOTE]
->If a workspace is returned without a boolean value and is blank, this also matches the results of a `False` value.
+> [!NOTE]
+> If a workspace is returned without a boolean value and is blank, this also matches the results of a `False` value.
 >
 
 Use the following script to set the access control mode for a specific workspace to the resource-context permission:
@@ -66,9 +76,9 @@ Use the following script to set the access control mode for a specific workspace
 ```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
-if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
@@ -77,14 +87,14 @@ Use the following script to set the access control mode for all workspaces in th
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
-if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## Define access mode using Resource Manager template
+### Configure using a Resource Manager template
 
 To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
 
@@ -144,10 +154,10 @@ Members of the *Log Analytics Contributor* role can:
 * Adding and removing management solutions
 
     > [!NOTE]
-    > In order to successfully perform the last two actions, this permission needs to be granted at the resource group or subscription level.  
+    > In order to successfully perform the last two actions, this permission needs to be granted at the resource group or subscription level.
 
 * Reading storage account keys
-* Configure collection of logs from Azure Storage  
+* Configure collection of logs from Azure Storage
 * Edit monitoring settings for Azure resources, including
   * Adding the VM extension to VMs
   * Configuring Azure diagnostics on all Azure resources
@@ -187,7 +197,7 @@ When users query logs from a workspace using resource-context access, they'll ha
 | Permission | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Examples:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Ability to view all log data for the resource.  |
-| `Microsoft.Insights/diagnosticSettings/write ` | Ability to configure diagnostics setting to allow setting up logs for this resource. |
+| `Microsoft.Insights/diagnosticSettings/write` | Ability to configure diagnostics setting to allow setting up logs for this resource. |
 
 `/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that include specific actions or dedicated built-in roles might not include this permission.
 

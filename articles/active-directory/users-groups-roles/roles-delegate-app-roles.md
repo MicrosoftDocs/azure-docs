@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -27,7 +27,7 @@ This article describes how to use app permissions in custom roles in Azure Activ
 - [Restricting who can create applications](#restrict-who-can-create-applications) and manage the applications they create. By default in Azure AD, all users can register application registrations and manage all aspects of applications they create. This can be restricted to only allow selected people that permission.
 - [Assigning one or more owners to an application](#assign-application-owners). This is a simple way to grant someone the ability to manage all aspects of Azure AD configuration for a specific application.
 - [Assigning a built-in administrative role](#assign-built-in-application-admin-roles) that grants access to manage configuration in Azure AD for all applications. This is the recommended way to grant IT experts access to manage broad application configuration permissions without granting access to manage other parts of Azure AD not related to application configuration.
-- [Creating a custom role](#create-and-assign-a-custom-role) defining very specific permissions and assigning it to someone either to the scope of a single application as a limited owner, or at the directory scope (all applications) as a limited administrator.
+- [Creating a custom role](#create-and-assign-a-custom-role-preview) defining very specific permissions and assigning it to someone either to the scope of a single application as a limited owner, or at the directory scope (all applications) as a limited administrator.
 
 It's important to consider granting access using one of the above methods for two reasons. First, delegating the ability to perform administrative tasks reduces global administrator overhead. Second, using limited permissions improves your security posture and reduces the potential for unauthorized access. Delegation issues and general guidelines are discussed in [Delegate administration in Azure Active Directory](roles-concept-delegation.md).
 
@@ -89,7 +89,7 @@ Follow the instructions in the [Assign roles to users with Azure Active Director
 Creating custom roles and assigning custom roles are separate steps:
 
 - [Create a custom *role definition*](roles-create-custom.md) and [add permissions to it from a preset list](roles-custom-available-permissions.md). These are the same permissions used in the built-in roles.
-- [Create a *role assignment*](roles-assign-graph.md) to assign the custom role.
+- [Create a *role assignment*](roles-assign-powershell.md) to assign the custom role.
 
 This separation allows you to create a single role definition and then assign it many times at different *scopes*. A custom role can be assigned at organization-wide scope, or it can be assigned at the scope if a single Azure AD object. An example of an object scope is a single app registration. Using different scopes, the same role definition can be assigned to Sally over all app registrations in the organization and then to Naveen over only the Contoso Expense Reports app registration.
 

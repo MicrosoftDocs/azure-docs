@@ -12,12 +12,12 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: 
-ms.date: 02/19/2019
+ms.date: 08/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
-# Tutorial: Stream video files - CLI
+# Tutorial: Encode a remote file based on URL and stream the video - CLI
 
 This tutorial shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 

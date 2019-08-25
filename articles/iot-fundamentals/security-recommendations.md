@@ -37,7 +37,7 @@ This article contains security recommendations for the Azure IoT services. Imple
 | Recommendation | Comments |
 |-|-|
 | Secure device authentication | Ensure secure communication between your devices and your IoT hub, by using either [a unique identity key or security token](iot-security-deployment.md#iot-hub-security-tokens), or [an on-device X.509 certificate](iot-security-deployment.md#x509-certificate-based-device-authentication) for each device. Use the appropriate method to [use security tokens based on the chosen protocol (MQTT, AMQP, or HTTPS)](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security). |
-| Secure device communication | IoT Hub secures the connection to the devices using Transport Layer Security (TLS) standard, supporting versions 1.2, 1.2, and 1.0. Use [TLS 1.2](https://tools.ietf.org/html/rfc5246) to ensure maximum security. |
+| Secure device communication | IoT Hub secures the connection to the devices using Transport Layer Security (TLS) standard, supporting versions 1.2 and 1.0. Use [TLS 1.2](https://tools.ietf.org/html/rfc5246) to ensure maximum security. |
 | Secure service communication | IoT Hub provides endpoints to connect to backend services such as [Azure Storage](/azure/storage/) or [Event Hubs](/azure/event-hubs) using only the TLS protocol, and no endpoint is exposed on an unencrypted channel. Once this data reaches these backend services for storage or analysis, make sure to employ appropriate security and encryption methods for that service, and protect sensitive information at the backend. |
 
 

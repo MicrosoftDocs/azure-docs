@@ -15,6 +15,9 @@ IoT Hub metrics give you better data about the state of the Azure IoT resources 
 
 Metrics are enabled by default. You can view IoT Hub metrics from the Azure portal.
 
+> [!NOTE]
+> You can use IoT Hub metrics to view information about IoT Plug and Play devices connected to your IoT Hub. IoT Plug and Play devices are part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md).
+
 ## How to view IoT Hub metrics
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-dotnet.md) guide.

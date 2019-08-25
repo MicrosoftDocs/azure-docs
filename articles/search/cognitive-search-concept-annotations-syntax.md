@@ -6,12 +6,11 @@ manager: pablocas
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
 ---
 # How to reference annotations in a cognitive search skillset
 

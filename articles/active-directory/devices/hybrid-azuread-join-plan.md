@@ -84,11 +84,13 @@ If you are relying on the System Preparation Tool (Sysprep) and if you are using
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-If your Windows 10 domain joined devices are already [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
+If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
-- Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined.
+- Any existing Azure AD registered state would be automatically removed <i>after the device is Hybrid Azure AD joined</i>.
 - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
-- This change is now available for Windows 10 1803 release with KB4489894 applied. However, if you have Windows Hello for Business configured, the user is required to re-setup Windows Hello for Business after the dual state clean up.
+- In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
+
+
 
 ## Review controlled validation of hybrid Azure AD join
 
@@ -98,7 +100,7 @@ Organizations may want to do a controlled validation of hybrid Azure AD join bef
 
 ## Select your scenario based on your identity infrastructure
 
-Hybrid Azure AD join works with both, managed and federated environments.  
+Hybrid Azure AD join works with both, managed and federated environments depending on whether the UPN is routable or non-routable. See bottom of the page for table on supported scenarios.  
 
 ### Managed environment
 
@@ -121,7 +123,7 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints:
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust WIndows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
+> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
 > [!NOTE]
 > Azure AD does not support smartcards or certificates in managed domains.

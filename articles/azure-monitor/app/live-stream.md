@@ -102,7 +102,12 @@ If you want to monitor a particular server role instance, you can filter by serv
 ![Sampled live failures](./media/live-stream/live-stream-filter.png)
 
 ## SDK Requirements
+
+### .NET
 Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Remember to select "Include Prerelease" option from NuGet package manager.
+
+### Node.js
+Live Metrics Stream is available with version 1.3.0 or newer of the [Application Insights SDK for Node.JS](https://npmjs.com/package/applicationinsights). Remember to use `setSendLiveMetrics(true)` while configuring the SDK in your code.
 
 ## Secure the control channel
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.

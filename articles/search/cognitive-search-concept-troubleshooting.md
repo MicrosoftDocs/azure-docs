@@ -6,12 +6,11 @@ manager: pablocas
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
-ms.custom: seodec2018
 ---
 # Troubleshooting tips for cognitive search
 

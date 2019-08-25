@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/29/2019
+ms.date: 08/12/2019
 ms.author: roiyz
 
 ---
@@ -28,10 +28,7 @@ Azure Monitor logs provides monitoring capabilities across cloud and on-premises
 
 ### Operating system
 
-The Log Analytics agent extension for Windows supports following versions of the Windows operating system:
-
-- Windows Server 2019
-- Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
+For details about the supported Windows operating systems, refer to the [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) article.
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the Windows Azure Monitor VM extension and Log Analytics agent bundle for each release. 
@@ -165,7 +162,7 @@ The `Set-AzVMExtension` command can be used to deploy the Log Analytics agent vi
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
 $ProtectedSettings = @{"workspaceKey" = "myWorkspaceKey"}
 
-Set-AzVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
+Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.EnterpriseCloud.Monitoring" `

@@ -10,8 +10,6 @@ metadata:
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/29/2019
   ms.author: nitinme
@@ -29,7 +27,7 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is Text Analytics?
-        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+        - href: /azure/cognitive-services/cognitive-services-apis-create-account
           html: <p>Learn how to sign up for the Text Analytics API.</p>
           image:
             src: ../media/index/i_get-started.svg
