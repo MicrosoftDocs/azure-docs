@@ -36,8 +36,6 @@
     href: security-center-data-security.md
   - name: Use recommendations to enhance security
     href: security-center-using-recommendations.md
-  - name: Detect threats
-    href: security-center-detection-capabilities.md
   - name: Manage Security alerts
     href: security-center-managing-and-responding-alerts.md
   - name: Security incidents
