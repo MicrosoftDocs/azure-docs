@@ -38,17 +38,24 @@ You can review your current security incidents by looking at the security alerts
 
     [Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert. Follow the remediation steps given for each alert. 
+1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert. The remediation suggested by Security Center vary according to the security alert. Follow the remediation steps given for each alert.
+
+   > [!NOTE]
+   > The same alert can exist as part of an incident, as well as to be visible as a standalone alert.
 
     ![Alert details](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-<!-- I don't understand this sentence-->
-In some cases, you may have to use other Azure capabilities to implement the recommended remediation. 
+For more information about alerts, [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md).
+The following topics guide you through the different alerts, according to resource types:
 
-For more information on the different types of alerts, read [Security alerts types](security-center-alerts-overview.md#security-alert-types).
-
-* A new filter enables you to customize your view to Incident only, Alerts only, or both.
-* The same alert can exist as part of an Incident (if applicable), as well as to be visible as a standalone alert.
+    * [IaaS VMs and servers alerts](security-center-alerts-iaas.md)
+    * [Native compute alerts](security-center-alerts-compute.md)
+    * [Data services alerts](security-center-alerts-data-services.md)
+    
+    The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
+    
+    * [Service layer alerts](security-center-alerts-service-layer.md)
+    * [Integration with Azure security products](security-center-alerts-integration.md)
 
 ## See also
 In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
