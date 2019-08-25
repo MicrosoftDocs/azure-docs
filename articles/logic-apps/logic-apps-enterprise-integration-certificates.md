@@ -119,7 +119,7 @@ provide these details for your certificate. When you're done, choose **OK**.
    |----------|-------|-------------|
    | **Name** | <*certificate-name*> | Your certificate's name, which is "privateCert" in this example | 
    | **Certificate Type** | Private | Your certificate's type |
-   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. | 
+   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. When using a key vault for the private key, the uploaded file will be the public certificate. | 
    | **Resource Group** | <*integration-account-resource-group*> | Your integration account's resource group, which is "MyResourceGroup" in this example | 
    | **Key Vault** | <*key-vault-name*> | Your Azure key vault's name |
    | **Key name** | <*key-name*> | Your key's name |

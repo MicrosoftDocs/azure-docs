@@ -141,7 +141,7 @@ The following template of a copy activity contains an exhaustive list of support
 
 ## Monitoring
 
-You can monitor the copy activity run on Azure Data Factory "Author & Monitor" UI or programmatically. You can then compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
+You can monitor the copy activity run on Azure Data Factory "Author & Monitor" UI or programmatically.
 
 ### Monitor visually
 
@@ -260,9 +260,6 @@ In this sample, during copy run, ADF notices that the sink Azure SQL DB reaches 
 
 ## Incremental copy
 Data Factory supports scenarios for incrementally copying delta data from a source data store to a sink data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md).
-
-## Read and write partitioned data
-In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

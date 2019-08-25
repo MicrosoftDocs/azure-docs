@@ -8,8 +8,7 @@ metadata:
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: personalizer 
   ms.topic: landing-page
   ms.date: 05/07/2019
   ms.author: nitinme

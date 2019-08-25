@@ -10,7 +10,7 @@ ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: seo-java-august2019
 ---
-# Quickstart: Build a Java application using Azure Cosmos DB SQL API account
+# Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data
 
 
 > [!div class="op_single_selector"]
@@ -20,7 +20,7 @@ ms.custom: seo-java-august2019
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-This quickstart shows how to create and manage resources of an Azure Cosmos DB [SQL API](sql-api-introduction.md) account by using a Java application. First, you create an Azure Cosmos DB SQL API account using the Azure portal, create a Java app using the [SQL Java SDK](sql-api-sdk-async-java.md), add resources to your Cosmos DB account by using the Java application. The instructions in this quickstart can be followed on any operating system that is capable of running Java. After completing this quickstart you'll be familiar with creating and modifying Cosmos DB databases, containers in either the UI or programmatically, whichever is your preference.
+This quickstart shows how to create and manage resources of an Azure Cosmos DB [SQL API](sql-api-introduction.md) account by using a Java application. First, you create an Azure Cosmos DB SQL API account using the Azure portal, create a Java app using the [SQL Java SDK](sql-api-sdk-async-java.md), add resources to your Cosmos DB account by using the Java application. The instructions in this quickstart can be followed on any operating system that is capable of running Java. After completing this quickstart you'll be familiar with creating and modifying Cosmos databases, containers in either the UI or programmatically, whichever is your preference.
 
 ## Prerequisites
 
