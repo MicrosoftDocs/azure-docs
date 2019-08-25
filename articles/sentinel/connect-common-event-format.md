@@ -19,10 +19,7 @@ ms.author: rkarlin
 ---
 # Connect your external solution using Common Event Format
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 This article explains how to connect Azure Sentinel with your external security solutions that send Common Event Format (CEF) messages on top of Syslog. 
 
@@ -52,7 +49,7 @@ To use TLS communication between the security solution and the Syslog machine, y
 
 ## Step 1: Connect to security solution
 
-1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent, based on the Microsoft Monitoring Agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
+1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent, based on the Log Analytics agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
     - Protocol = TCP
     - Port = 514
     - Format = CEF
@@ -66,8 +63,8 @@ To use TLS communication between the security solution and the Syslog machine, y
 ## Deploy the agent
 
 In this step, you need to select a Linux machine that will act as a proxy between Azure Sentinel and your security solution. You will have to run a script on the proxy machine that:
-- Installs the Microsoft Monitoring Agent and configures it as needed to listen for Syslog messages on port 514 over TCP and send the CEF messages to your Azure Sentinel workspace
-- Configures the Syslog daemon to forward CEF messages to the Microsoft Monitoring Agent using port 25226
+- Installs the Log Analytics agent and configures it as needed to listen for Syslog messages on port 514 over TCP and send the CEF messages to your Azure Sentinel workspace
+- Configures the Syslog daemon to forward CEF messages to the Log Analytics agent using port 25226
 
 ### Prerequisites
 Make sure the Linux machine you use as a proxy is running one of the following operating systems:
@@ -99,7 +96,7 @@ Make sure the Linux machine you use as a proxy is running one of the following o
 
 1. Under **Install and configure the Syslog agent**, select your machine type, either Azure, other cloud, or on-premises. 
    > [!NOTE]
-   > Because the script in the next step installs the Microsoft Monitoring Agent and connects the machine to your Azure Sentinel workspace, make sure this machine is not connected to another workspace.
+   > Because the script in the next step installs the Log Analytics agent and connects the machine to your Azure Sentinel workspace, make sure this machine is not connected to another workspace.
 1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
 
 1. Run the following script on your proxy machine.
@@ -119,7 +116,7 @@ To use the relevant schema in Log Analytics for the CEF events, search for `Comm
 
 1. Before you run the script, we recommend that you send messages from your security solution to make sure they are being forwarded to the Syslog proxy machine you configured. 
 1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
-1. Run the following script to check connectivity between the agent, Azure Sentinel, and your security solution. It checks that the daemon forwarding is properly configured, listens on the correct ports, and that nothing is blocking communication between the daemon and the Microsoft Monitoring Agent. The script also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
+1. Run the following script to check connectivity between the agent, Azure Sentinel, and your security solution. It checks that the daemon forwarding is properly configured, listens on the correct ports, and that nothing is blocking communication between the daemon and the Log Analytics agent. The script also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
  `wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&& python cef_troubleshoot.py  [WorkspaceID]`
 
 

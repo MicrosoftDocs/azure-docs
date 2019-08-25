@@ -14,22 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
 # Connect data from Microsoft Cloud App Security 
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 You can stream logs from [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) into Azure Sentinel with a single click. This connection enables you to stream the alerts from Cloud App Security into Azure Sentinel. 
 
 ## Prerequisites
 
 - User with global administrator or security administrator permissions
+- To stream Cloud Discovery logs into Azure Sentinel, [enable Azure Sentinel as your SIEM in Microsoft Cloud App Security](aka.ms.https://aka.ms/AzureSentinelMCAS).
 
 ## Connect to Cloud App Security
 
@@ -39,9 +37,13 @@ If Cloud App Security is deployed and ingesting your data, the alert data can ea
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Cloud App Security** tile.
 
-2. Click **Connect**.
+1. Select which logs you want to stream into Azure Sentinel, you can choose **Alerts** and **Cloud Discovery logs**. 
 
-3. To use the relevant schema in Log Analytics for the Cloud App Security alerts, search for **SecurityAlert**.
+1. Click **Connect**.
+
+1. To use the relevant schema in Log Analytics for the Cloud App Security alerts, search for **SecurityAlert**.
+
+
 
 
 ## Next steps

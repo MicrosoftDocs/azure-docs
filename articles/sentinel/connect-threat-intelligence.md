@@ -18,10 +18,7 @@ ms.author: rkarlin
 ---
 # Connect data from threat intelligence providers 
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 After you stream your data into Azure Sentinel, you can enrich it with the threat intelligence feed that you use across your organization. 
 

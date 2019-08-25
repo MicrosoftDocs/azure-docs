@@ -19,10 +19,7 @@ ms.author: rkarlin
 ---
 # Tutorial: Create custom analytic rules to detect suspicious threats
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 After you [connected your data sources](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard) to Azure Sentinel, you can create custom rules that can search for specific
 criteria across your environment and generate incidents when the criteria are matched so that you can investigate them. This tutorial helps you create custom rules to detect threats with Azure Sentinel.

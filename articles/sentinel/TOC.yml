@@ -18,6 +18,8 @@
       href: tutorial-detect-threats-built-in.md
     - name: Using custom rules
       href: tutorial-detect-threats.md  
+  - name: Monitor your data
+    href: tutorial-monitor-your-data.md
   - name: Investigate incidents
     href: tutorial-investigate-cases.md 
   - name: Respond to threats
