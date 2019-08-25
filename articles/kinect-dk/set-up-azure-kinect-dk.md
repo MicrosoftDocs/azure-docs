@@ -42,6 +42,10 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 1. Select the link to [Download the SDK](sensor-sdk-download.md).
 2. Install the SDK on your PC.
 
+## Update Firmware
+
+New version of Sensor SDK 1.2 requires the firmware update that is included with the download. You can follow steps in [How to update firmware guide](update-device-firmware.md) to update the device firmware.
+
 ## Verify that the device streams data
 
 1. Launch the [Azure Kinect Viewer](azure-kinect-viewer.md), located under the installed tools directory as `k4aviewer.exe` (for example, `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4aviewer.exe`, where `X.Y.Z` is the installed version of the SDK). You can launch the viewer either from the command line or by double-clicking the executable. It is also available as a link in the start menu.
