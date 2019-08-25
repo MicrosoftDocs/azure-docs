@@ -101,7 +101,7 @@ The remediation suggested by Security Center vary according to the security aler
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
 * [Handling Security Incident in Azure Security Center](security-center-incident.md)
-* [Security alerts in Azure Security Center](security-center-overview.md)
+* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
