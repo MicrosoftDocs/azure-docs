@@ -101,7 +101,7 @@ Convolutional neural networks have been used in areas such as image recognition 
 
 ## Next steps
 
-The following articles show you how to use deep learning technology in the [Azure Machine Learning service](aka.ms/AzureMLservice):
+The following articles show you how to use deep learning technology in the [Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service):
 
 - [Classify handwritten digits by using a TensorFlow model](how-to-train-tensorflow.md)
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](how-to-train-keras.md)
