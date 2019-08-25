@@ -27,11 +27,11 @@ You'll need several services to complete this walkthrough, plus the [Postman des
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## 1- Download files
+## 1 - Download files
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
-1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll only use 8 for this exercise.
+1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll only use 7 for this exercise.
 
 ## 2 - Create services
 
@@ -43,17 +43,17 @@ This walkthrough uses Azure Search, Cognitive Services, and Azure Blob storage. 
 
 1. Search for *storage account* and select Microsoft's Storage Account offering.
 
-  ![Create Storage account](media/cognitive-search-tutorial-blob/storage-account.png "Create Storage account")
+   ![Create Storage account](media/cognitive-search-tutorial-blob/storage-account.png "Create Storage account")
 
 1. In the Basics tab, the following items are required. Accept the defaults for everything else.
 
-  + Resource group. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
+  + **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
 
-  + Storage account name. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
+  + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-  + Location. Choose a location that can be used for Azure Search and Cognitive Services as well. A single location voids bandwidth charges, and is also a requirement for Azure Search and Cognitive Services used together in a cognitive search pipeline.
+  + **Location**. Choose a location that can be used for Azure Search and Cognitive Services as well. A single location voids bandwidth charges, and is also a requirement for Azure Search and Cognitive Services used together in a cognitive search pipeline.
 
-  + Account Kind. Choose the default, *StorageV2 (general purpose v2)*.
+  + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
 1. Click **Review + Create** to create the service.
 
@@ -63,11 +63,13 @@ This walkthrough uses Azure Search, Cognitive Services, and Azure Blob storage. 
 
 1. Click **+ Container** to create a container and name it *cog-search-demo*.
 
-1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all of the non-image files. You should have 8 files. Click **OK** to upload.
+1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all of the non-image files. You should have 7 files. Click **OK** to upload.
 
-  ![Upload sample files](media/cognitive-search-tutorial-blob/sample-files.png "Upload sample files")
+   ![Upload sample files](media/cognitive-search-tutorial-blob/sample-files.png "Upload sample files")
 
-1. The last task in Azure Storage is to obtain an access key so that you can formulate a connection later on. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). In the left navigation pane, select **Access keys** and copy one of the connection strings. 
+1. Obtain an access key so that you can formulate a connection later on. 
+
+   Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). In the left navigation pane, select **Access keys** and copy one of the connection strings. 
 
    The connection string should be a URL similar to the following example:
 
@@ -81,7 +83,7 @@ This walkthrough uses Azure Search, Cognitive Services, and Azure Blob storage. 
 
 AI processing in cognitive search is backed by Cognitive Services, including Text Analytics and Computer Vision. For an actual prototype or project, you would provision Cognitive Services at this point so that you can attach it to indexing operations that leverage AI processing.
 
-For this exercise, you can skip resource provisioning because Azure Search can connect behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 8 transactions (8 documents), the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+For this exercise, you can skip resource provisioning because Azure Search can connect behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 7 transactions (7 documents), the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Search
 
@@ -107,294 +109,288 @@ All requests require an api-key in the header of every request sent to your serv
 
 Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-get-started-postman.md).
 
-The request methods used in this tutorial are **POST**, **PUT**, and **GET**. 
+The request methods used in this tutorial are **POST**, **PUT**, and **GET**. You'll use the methods to make four API calls to your search service: create a data source, a skillset, an index, and an indexer.
 
 In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure Search service. Once you set the headers, you can use them for every request in this exercise.
 
   ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
-We are using Postman to make four API calls to your search service in order to create a data source, a skillset, an index, and an indexer. The data source includes a pointer to your storage account, used when loading the data.
-
 ## 4 - Create the pipeline
 
-AI processing occurs during indexing (or data ingestion). This task creates the following objects: data source, index definition, skillset, indexer. You'll learn more about each object as you create it.
+AI processing occurs during indexing (or data ingestion). This task creates four objects: data source, index definition, skillset, indexer. 
 
-### Data source
+### Step 1: Create a data source
 
 A [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the files.
 
-Use **POST** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
+1. Use **POST** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
 
-```http
-https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2019-05-06
-```
-#### Request body
+   ```http
+   https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2019-05-06
+   ```
 
-Copy the following JSON definition into the **Body** tab, replacing the `connectionString` with the actual connection of your storage account. 
+1. In request **Body**, copy the following JSON definition, replacing the `connectionString` with the actual connection of your storage account. 
 
-Remember to edit the container name as well. We suggested "cog-search-demo" for the container name in an earlier step.
+   Remember to edit the container name as well. We suggested "cog-search-demo" for the container name in an earlier step.
 
-```json
-{
-  "name" : "cog-search-demo-ds",
-  "description" : "Demo files to demonstrate cognitive search capabilities.",
-  "type" : "azureblob",
-  "credentials" :
-  { "connectionString" :
-    "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-ACCOUNT-KEY>;"
-  },
-  "container" : { "name" : "<YOUR-BLOB-CONTAINER-NAME>" }
-}
-```
-Send the request. You should see a status code of 201 confirming success. 
+    ```json
+    {
+      "name" : "cog-search-demo-ds",
+      "description" : "Demo files to demonstrate cognitive search capabilities.",
+      "type" : "azureblob",
+      "credentials" :
+      { "connectionString" :
+        "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-ACCOUNT-KEY>;"
+      },
+      "container" : { "name" : "<YOUR-BLOB-CONTAINER-NAME>" }
+    }
+    ```
+1. Send the request. You should see a status code of 201 confirming success. 
 
 If you got a 403 or 404 error, check the request construction: `api-version=2019-05-06` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You might want to run the JSON document through an online JSON validator to make sure the syntax is correct. 
 
-### Skillset
+### Step 2: Create a skillset
 
 A [skillset object](https://docs.microsoft.com/rest/api/searchservice/create-skillset) is a set of enrichment steps applied to your content. 
 
-Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
+1. Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
 
-```http
-https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2019-05-06
-```
+    ```http
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2019-05-06
+    ```
 
-#### Request body
+1. In request **Body**, copy the following JSON definition.
 
-Copy the JSON definition below into the **Body** tab. This skillset consists of the following built-in skills.
+   This skillset consists of the following built-in skills.
 
-| Skill                 | Description    |
-|-----------------------|----------------|
-| [Entity Recognition](cognitive-search-skill-entity-recognition.md) | Extracts the names of organizations from content in the blob container. |
-| [Language Detection](cognitive-search-skill-language-detection.md) | Detects the content's language. |
-| [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
-| [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) | Pulls out the top key phrases. |
+   | Skill                 | Description    |
+   |-----------------------|----------------|
+   | [Entity Recognition](cognitive-search-skill-entity-recognition.md) | Extracts the names of organizations from content in the blob container. |
+   | [Language Detection](cognitive-search-skill-language-detection.md) | Detects the content's language. |
+   | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
+   | [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) | Pulls out the top key phrases. |
 
-Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, the input becomes ```"/document/content"```.
+   Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, the input becomes ```"/document/content"```.
 
-For key phrase extraction, because we use the text splitter skill to break larger files into pages, the context for the key phrase extraction skill is ```"document/pages/*"``` (for each page in the document) instead of ```"/document/content"```.
+   For key phrase extraction, because we use the text splitter skill to break larger files into pages, the context for the key phrase extraction skill is ```"document/pages/*"``` (for each page in the document) instead of ```"/document/content"```.
 
-```json
-{
-  "description":
-  "Extract entities, detect language and extract key-phrases",
-  "skills":
-  [
+    ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
+      "description":
+      "Extract entities, detect language and extract key-phrases",
+      "skills":
+      [
         {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations", "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "languageCode",
-          "targetName": "languageCode"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages",
-      "maximumPageLength": 4000,
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
+          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "categories": [ "Organization" ],
+          "defaultLanguageCode": "en",
+          "inputs": [
+            {
+              "name": "text", "source": "/document/content"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "organizations", "targetName": "organizations"
+            }
+          ]
         },
         {
-          "name": "languageCode",
-          "source": "/document/languageCode"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "textItems",
-          "targetName": "pages"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "context": "/document/pages/*",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/pages/*"
+          "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+          "inputs": [
+            {
+              "name": "text", "source": "/document/content"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "languageCode",
+              "targetName": "languageCode"
+            }
+          ]
         },
         {
-          "name":"languageCode", "source": "/document/languageCode"
-        }
-      ],
-      "outputs": [
+          "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+          "textSplitMode" : "pages",
+          "maximumPageLength": 4000,
+          "inputs": [
+            {
+              "name": "text",
+              "source": "/document/content"
+            },
+            {
+              "name": "languageCode",
+              "source": "/document/languageCode"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "textItems",
+              "targetName": "pages"
+            }
+          ]
+        },
         {
-          "name": "keyPhrases",
-          "targetName": "keyPhrases"
+          "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+          "context": "/document/pages/*",
+          "inputs": [
+            {
+              "name": "text", "source": "/document/pages/*"
+            },
+            {
+              "name":"languageCode", "source": "/document/languageCode"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "keyPhrases",
+              "targetName": "keyPhrases"
+            }
+          ]
         }
       ]
     }
-  ]
-}
-```
+    ```
 
-Send the request. Postman should return a status code of 201 confirming success. 
+1. Send the request. Postman should return a status code of 201 confirming success. 
 
-A graphical representation of the skillset is shown below. 
+    A graphical representation of the skillset is shown below. 
 
-![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
+    ![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
 
 > [!NOTE]
 > Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking. For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
-### Index
+### Step 3: Create an index
 
 An [index](https://docs.microsoft.com/rest/api/searchservice/create-index) provides the schema used to create the physical expression of your content in inverted indexes and other constructs in Azure Search. The largest component of an index is the fields collection, where data type and attributes determine contents and behaviors in Azure Search.
 
-Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your index.
+1. Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your index.
 
-```http
-https://[servicename].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
-```
+   ```http
+   https://[servicename].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
+   ```
 
-#### Request body
+1. In request **Body**, copy the following JSON definition. The `content` field stores the document itself. Additional fields for `languageCode`, `keyPhrases`, and `organizations` represent new information produced through enrichments.
 
-Copy the following JSON definition into the **Body** tab. The `content` field stores the document itself. Additional fields for `languageCode`, `keyPhrases`, and `organizations` represent new information produced through enrichments.
-
-```json
-{
-  "fields": [
+    ```json
     {
-      "name": "id",
-      "type": "Edm.String",
-      "key": true,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false,
-      "sortable": true
-    },
-    {
-      "name": "content",
-      "type": "Edm.String",
-      "sortable": false,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "languageCode",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "keyPhrases",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "organizations",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
+      "fields": [
+        {
+          "name": "id",
+          "type": "Edm.String",
+          "key": true,
+          "searchable": true,
+          "filterable": false,
+          "facetable": false,
+          "sortable": true
+        },
+        {
+          "name": "content",
+          "type": "Edm.String",
+          "sortable": false,
+          "searchable": true,
+          "filterable": false,
+          "facetable": false
+        },
+        {
+          "name": "languageCode",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "facetable": false
+        },
+        {
+          "name": "keyPhrases",
+          "type": "Collection(Edm.String)",
+          "searchable": true,
+          "filterable": false,
+          "facetable": false
+        },
+        {
+          "name": "organizations",
+          "type": "Collection(Edm.String)",
+          "searchable": true,
+          "sortable": false,
+          "filterable": false,
+          "facetable": false
+        }
+      ]
     }
-  ]
-}
-```
-Send the request. Postman should return a status code of 201 confirming success. 
+    ```
 
-### Indexer
+1. Send the request. Postman should return a status code of 201 confirming success. 
+
+### Step 4: Create an indexer
 
 An [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) drives the pipeline. The three components you have created thus far (data source, skillset, index) are inputs to an indexer. Creating the indexer on Azure Search is the event that puts the entire pipeline into motion. 
 
-Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your indexer.
+1. Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your indexer.
 
-```http
-PUT https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
-```
+   ```http
+   PUT https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+   ```
 
-#### Request body
+1. In request **Body**, copy the following JSON definition. Notice the field mapping elements; these mappings are important because they define where the data goes. 
 
-Copy the following JSON definition into the **Body** tab. Notice the field mapping elements; these mappings are important because they define where the data goes. 
+   The `fieldMappings` are processed before the skillset, sending content from the data source to target fields in an index. If field names and types are the same at both ends, no mapping is required.
 
-The `fieldMappings` are processed before the skillset, sending content from the data source to target fields in an index. If field names and types are the same at both ends, no mapping is required.
+   The `outputFieldMappings` are processed after the skillset, referencing `sourceFieldNames` that don't exist until document cracking or enrichment creates them. The `targetFieldName` is a field in an index, defined in the index schema.
 
-The `outputFieldMappings` are processed after the skillset, referencing `sourceFieldNames` that don't exist until document cracking or enrichment creates them. The `targetFieldName` is a field in an index, defined in the index schema.
-
-```json
-{
-  "name":"cog-search-demo-idxr",	
-  "dataSourceName" : "cog-search-demo-ds",
-  "targetIndexName" : "cog-search-demo-idx",
-  "skillsetName" : "cog-search-demo-ss",
-  "fieldMappings" : [
+    ```json
     {
-      "sourceFieldName" : "metadata_storage_path",
-      "targetFieldName" : "id",
-      "mappingFunction" :
-        { "name" : "base64Encode" }
-    },
-    {
-      "sourceFieldName" : "content",
-      "targetFieldName" : "content"
+      "name":"cog-search-demo-idxr",	
+      "dataSourceName" : "cog-search-demo-ds",
+      "targetIndexName" : "cog-search-demo-idx",
+      "skillsetName" : "cog-search-demo-ss",
+      "fieldMappings" : [
+        {
+          "sourceFieldName" : "metadata_storage_path",
+          "targetFieldName" : "id",
+          "mappingFunction" :
+            { "name" : "base64Encode" }
+        },
+        {
+          "sourceFieldName" : "content",
+          "targetFieldName" : "content"
+        }
+      ],
+      "outputFieldMappings" :
+      [
+        {
+          "sourceFieldName" : "/document/organizations",
+          "targetFieldName" : "organizations"
+        },
+        {
+          "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+          "targetFieldName" : "keyPhrases"
+        },
+        {
+          "sourceFieldName": "/document/languageCode",
+          "targetFieldName": "languageCode"
+        }
+      ],
+      "parameters":
+      {
+        "maxFailedItems":-1,
+        "maxFailedItemsPerBatch":-1,
+        "configuration":
+        {
+          "dataToExtract": "contentAndMetadata",
+          "imageAction": "generateNormalizedImages"
+        }
+      }
     }
-  ],
-  "outputFieldMappings" :
-  [
-    {
-      "sourceFieldName" : "/document/organizations",
-      "targetFieldName" : "organizations"
-    },
-    {
-      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
-      "targetFieldName" : "keyPhrases"
-    },
-    {
-      "sourceFieldName": "/document/languageCode",
-      "targetFieldName": "languageCode"
-    }
-  ],
-  "parameters":
-  {
-    "maxFailedItems":-1,
-    "maxFailedItemsPerBatch":-1,
-    "configuration":
-    {
-      "dataToExtract": "contentAndMetadata",
-      "imageAction": "generateNormalizedImages"
-    }
-  }
-}
-```
+    ```
 
-Send the request. Postman should return a status code of 201 confirming successful processing. 
+1. Send the request. Postman should return a status code of 201 confirming successful processing. 
 
-Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. 
+   Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. 
 
 > [!NOTE]
 > Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
 
-#### Parameters
+#### About indexer parameters
 
 The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engine to ignore errors during data import. This is acceptable because there are so few documents in the demo data source. For a larger data source, you would set the value to greater than 0.
 
@@ -406,16 +402,16 @@ When content is extracted, you can set ```imageAction``` to extract text from im
 
 Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on which cognitive skills you defined, indexing can take a while. To find out whether the indexer is still running, send the following request to check the indexer status.
 
-Use **GET** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your indexer.
+1. Use **GET** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your indexer.
 
-```http
-https://[servicename].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2019-05-06
-```
+   ```http
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2019-05-06
+   ```
 
-The response tells you whether the indexer is running and provides error and warning information.  
+1. Review the response to learn whether the indexer is running, or to view error and warning information.  
 
 > [!NOTE]
-> Warnings are common in some scenarios and do not always indicate a problem. For example, if a blob container includes image files, and the pipeline doesn't handle images, you'll et a warning that the images were not processed.
+> Warnings are common in some scenarios and do not always indicate a problem. For example, if a blob container includes image files, and the pipeline doesn't handle images, you'll get a warning stating that images were not processed.
 
 ## 6 - Search
 
@@ -423,21 +419,21 @@ After indexing is finished, run queries that return the contents of individual f
 
 1. Use **GET** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to return the index schema, with the name, type, and attributes of each field.
 
-  ```http
-  https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
-  ```
+   ```http
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
+   ```
 
-2. Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
+1. Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
 
-  ```http
-  https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$select=organizations&api-version=2019-05-06
-  ```
+   ```http
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$select=organizations&api-version=2019-05-06
+   ```
 
-3. Execute a free text query, passing words or phrases to the `search=` parameter as matching criteria. Add the `$select` parameter to limit the results to just the fields you want. This is helpful when you have large-body fields like `content` that are great for searching, but unwieldy in results.
+1. Execute a free text query, passing words or phrases to the `search=` parameter as matching criteria. Add the `$select` parameter to limit the results to just the fields you want. This is helpful when you have large-body fields like `content` that are great for searching, but unwieldy in results.
 
-  ```http
-  https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=microsoft AND uber&$select=organizations,keyPhrases,languageCode&api-version=2019-05-06
-  ```
+   ```http
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=microsoft AND uber&$select=organizations,keyPhrases,languageCode&api-version=2019-05-06
+   ```
 
 <a name="reset"></a>
 
