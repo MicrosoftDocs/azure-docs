@@ -175,7 +175,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
 
     // Set up a checkpoint and disable codeGen. Set up a checkpoint and disable codeGen as a workaround for an known issue 
     spark.conf.set("spark.sql.streaming.checkpointLocation", "/FileStore/temp/checkpoint")
-    spark.conf.set("spark.sql.codegen.wholeStage","false") // Might not be needed
+    spark.conf.set("spark.sql.codegen.wholeStage","false") // Use in case a NullPointerException is thrown inside codegen iterator
     
     // Write to a Kusto table from a streaming source
     val kustoQ = df
