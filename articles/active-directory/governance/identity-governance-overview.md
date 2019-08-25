@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/05/2019
+ms.date: 08/25/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -76,11 +76,7 @@ You can also check out the Getting started tab of **Identity Governance** in the
 
 ![Identity Governance getting started](./media/identity-governance-overview/getting-started.png)
 
-## Feedback
-
-If you have any feedback about Identity Governance features, click **Got feedback?** to submit your feedback. The team regularly reviews your feedback.
-
-![Identity Governance feedback pane](./media/identity-governance-overview/feedback.png)
+If you have any feedback about Identity Governance features, click **Got feedback?** in the Azure portal to submit your feedback. The team regularly reviews your feedback.
 
 ## Next steps
 
