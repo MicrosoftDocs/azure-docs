@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations for the Azur
 services: backup
 author: rayne-wiselman
 manager: carmonm
-ms.service: backup
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: raynew
