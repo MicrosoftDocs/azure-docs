@@ -23,13 +23,13 @@ In Azure Security Center, there are a variety of alerts for the many different r
 
 Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
 
-## How does Security Center detect threats?
+## How does Security Center detect threats? <a name="detect-threats"> </a>
 
 To detect real threats and reduce false positives, Security Center collects, analyzes, and integrates log data from your Azure resources and the network. It also works with connected partner solutions, like firewall and endpoint protection solutions. Security Center analyzes this information, often correlating information from multiple sources, to identify threats.
 
 Security Center monitors the resources in whatever environment they might be. To learn more about detecting and responding to threats, see [How Security Center detects and responds to threats](security-center-detection-capabilities.md#asc-detects).
 
-## Security alert types
+## Security alert types <a name="security-alert-types"> </a>
 
 The following topics guide you through the different alerts, according to resource types:
 

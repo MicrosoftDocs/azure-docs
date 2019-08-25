@@ -22,7 +22,7 @@ ms.author: v-mohabe
 This topic shows you how to view and process the alerts that you have received in order to protect your resources. 
 
 * To learn about the different types of alerts, see [Security alert types](security-alerts-overview#security-alert-types).
-* For an overview of how Security Center generates alerts, see [How Azure Security Center detects and responds to threats](security-alert-types#asc-detects)
+* For an overview of how Security Center generates alerts, see [How Azure Security Center detects and responds to threats](security-alerts-overview#detect-threats).
 
 > [!NOTE]
 > To enable advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select Pricing Tier in the [Security Policy](tutorial-security-policy.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
