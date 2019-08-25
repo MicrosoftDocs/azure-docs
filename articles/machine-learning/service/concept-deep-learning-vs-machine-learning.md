@@ -1,7 +1,7 @@
 ---
-title: 'Intro to deep learning and machine learning'
+title: 'Deep learning vs. machine learning'
 titleSuffix: Azure Machine Learning service
-description: Learn how deep learning relates to machine learning and how both concepts relate to artificial intelligence. Deep learning can be applied in scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
+description: Learn about the relationship between deep learning and machine learning and how both concepts relate to artificial intelligence. Deep learning can be applied in scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,32 +11,32 @@ author: FrancescaLazzeri
 ms.date: 08/07/2019
 ---
 
-# Introduction to deep learning and machine learning
+# Deep learning vs. machine learning
 
 This article helps you understand the relationship between deep learning and machine learning. You'll learn how the two concepts compare and how they fit into the broader category of artificial intelligence. The article also describes how deep learning can be applied to real-world scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
 
 ## Deep learning, machine learning, and AI
 
-![Diagram showing that deep learning is a subset of machine learning, which in turn is a subset of AI](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
+![Relationship diagram: AI vs. machine learning vs. deep learning](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
 Deep learning, machine learning, and AI are related fields of study:
 
-- **Deep learning** is a subset of machine learning that's based on artificial neural networks. Neural networks allow a machine to train itself. The _learning process_ is _deep_ because the structure of artificial neural networks consists of multiple input, output, and hidden layers. Each layer contains units that transform the input data into information that the next layer can use for a certain predictive task. Thanks to this structure, a machine can learn through its own data processing.
+- **Deep learning** is a subset of machine learning that's based on artificial neural networks. The _learning process_ is _deep_ because the structure of artificial neural networks consists of multiple input, output, and hidden layers. Each layer contains units that transform the input data into information that the next layer can use for a certain predictive task. Thanks to this structure, a machine can learn through its own data processing.
 
 - **Machine learning** is a subset of artificial intelligence that uses techniques (such as deep learning) that enable machines to use experience to improve at tasks. The _learning process_ is based on the following steps:
 
-   1. Feed data into an algorithm by providing it with more information (for example, by performing feature extraction).
+   1. Feed data into an algorithm. (In this step you can provide additional information to the model, for example, by performing feature extraction.)
    1. Use this data to train a model.
    1. Test and deploy the model.
-   1. Consume the deployed model to do an automated predictive task.
+   1. Consume the deployed model to do an automated predictive task. (In other words, call and use the deployed model to receive the predictions returned by the model.)
 
 - **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning. 
  
 It's important to understand the relationship among AI, machine learning, and deep learning. Machine learning is a way to achieve artificial intelligence. By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include visual perception, speech recognition, decision-making, and language translation.
 
-## Deep learning vs. machine learning
+## Techniques of deep learning vs. machine learning 
 
-Now that you have the overview of machine learning and deep learning, compare the two techniques. In machine learning, the algorithm needs to be told how to make an accurate prediction by consuming more information. By contrast, in deep learning, the algorithm can learn how to make an accurate prediction through its own data processing, thanks to the artificial neural network structure.
+Now that you have the overview of machine learning vs. deep learning, let's compare the two techniques. In machine learning, the algorithm needs to be told how to make an accurate prediction by consuming more information (for example, by performing feature extraction). In deep learning, the algorithm can learn how to make an accurate prediction through its own data processing, thanks to the artificial neural network structure.
 
 The following table compares the two techniques in more detail:
 
@@ -101,7 +101,7 @@ Convolutional neural networks have been used in areas such as image recognition 
 
 ## Next steps
 
-The following articles show you how to use deep learning technology in the [Azure Machine Learning service](/azure/machine-learning/service/):
+The following articles show you how to use deep learning technology in the [Azure Machine Learning service](aka.ms/AzureMLservice):
 
 - [Classify handwritten digits by using a TensorFlow model](how-to-train-tensorflow.md)
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](how-to-train-keras.md)

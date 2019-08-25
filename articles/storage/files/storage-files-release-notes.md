@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 7/24/2019
+ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,7 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported - [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported |
 | July 2019 update rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | July 12, 2019 | Supported |
 | V7 Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | June 19, 2019 | Supported |
 | June 2019 update rollup - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | June 27, 2019 | Supported |
@@ -34,9 +34,9 @@ The following versions are supported for the Azure File Sync agent:
 | December 2018 update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported |
 | December 2018 update rollup | 4.1.0.0 | December 4, 2018 | Supported |
 | V4 Release | 4.0.1.0 | November 13, 2018 | Supported |
-| September 2018 update rollup | 3.3.0.0 | September 24, 2018 | Supported - Agent version will expire on July 19, 2019 |
-| August 2018 update rollup | 3.2.0.0 | August 15, 2018 | Supported - Agent version will expire on July 19, 2019 |
-| General availability | 3.1.0.0 | July 19, 2018 | Supported - Agent version will expire on July 19, 2019 |
+| September 2018 update rollup | 3.3.0.0 | September 24, 2018 | Supported - Agent version will expire on August 19, 2019 |
+| August 2018 update rollup | 3.2.0.0 | August 15, 2018 | Supported - Agent version will expire on August 19, 2019 |
+| General availability | 3.1.0.0 | July 19, 2018 | Supported - Agent version will expire on August 19, 2019 |
 | Expired agents | 1.1.0.0 - 3.0.13.0 | N/A | Not Supported - Agent versions expired on October 1, 2018 |
 
 ### Azure File Sync agent update policy
@@ -66,6 +66,12 @@ The following release notes are for version 7.0.0.0 of the Azure File Sync agent
 
 - Support for larger file share sizes
 	- With the preview of larger Azure file shares, we are increasing our support limits for file sync as well. In this first step, Azure File Sync now supports up to 25TB and 50million files in a single, syncing namespace. To apply for the large file share preview, fill in this form https://aka.ms/azurefilesatscalesurvey. 
+- Support for firewall and virtual network setting on storage accounts
+	- Azure File Sync now supports the firewall and virtual network setting on storage accounts. To configure your deployment to work with the firewall and virtual network setting, see [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+- PowerShell cmdlet to immediately sync files changed in the Azure file share
+	- To immediately sync files that are changed in the Azure file share, the Invoke-AzStorageSyncChangeDetection PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. This cmdlet is intended for scenarios where some type of automated process is making changes in the Azure file share or the changes are done by an administrator (like moving files and directories into the share). For end user changes, the recommendation is to install the Azure File Sync agent in an IaaS VM and have end users access the file share through the IaaS VM. This way all changes will quickly sync to other agents without the need to use the Invoke-AzStorageSyncChangeDetection cmdlet. To learn more, see the [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) documentation.
+- Improved portal experience if you encounter files that are not syncing
+	- If you have files that are failing to sync, we now differentiate between transient and persistent errors in the portal. Transient errors usually resolve themselves without the need for admin action. For example, a file that is currently in use will not sync until the file handle is closed. For persistent errors, we now show the number of files impacted by each error. The persistent error count is also displayed in the files not syncing column of all server endpoints in a sync group.
 - Improved Azure Backup file-level restore
 	- Individual files restored using Azure Backup are now detected and synced to the server endpoint faster.
 - Improved cloud tiering recall cmdlet reliability 

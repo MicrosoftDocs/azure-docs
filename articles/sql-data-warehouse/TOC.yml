@@ -22,20 +22,6 @@
       href: release-notes-10-0-10106-0.md  
     - name: Gen2 region upgrade schedule
       href: gen2-migration-schedule.md
-    - name: Archived Release Notes
-      items:   
-      - name: September 2018 
-        href: release-notes-september-2018.md
-      - name: August 2018 
-        href: release-notes-august-2018.md
-      - name: July 2018 
-        href: release-notes-july-2018.md
-      - name: June 2018 
-        href: release-notes-june-2018.md
-      - name: May 2018
-        href: release-notes-may-2018.md
-      - name: April 2018
-        href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:
@@ -267,14 +253,20 @@
       href: sql-data-warehouse-connect-overview.md
     - name: Connection strings
       href: sql-data-warehouse-connection-strings.md
-    - name: sqlcmd
-      href: sql-data-warehouse-get-started-connect-sqlcmd.md
-    - name: Query with SSMS
-      href: sql-data-warehouse-query-ssms.md
-    - name: Query with Visual Studio
-      href: sql-data-warehouse-query-visual-studio.md
-    - name: Install Visual studio
-      href: sql-data-warehouse-install-visual-studio.md
+    - name: Change management and deployment
+      items:
+      - name: Install Visual Studio SSDT
+        href: sql-data-warehouse-install-visual-studio.md
+      - name: Source control integration
+        href: sql-data-warehouse-source-control-integration.md
+    - name: Connect and query
+      items:
+      - name: Visual Studio SSDT
+        href: sql-data-warehouse-query-visual-studio.md
+      - name: SSMS
+        href: sql-data-warehouse-query-ssms.md
+      - name: sqlcmd
+        href: sql-data-warehouse-get-started-connect-sqlcmd.md
   - name: Workload management
     items:
     - name: Analyze your workload
@@ -287,6 +279,8 @@
     items:
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
+    - name: Manage Compute
+      href: manage-compute-with-azure-functions.md
     - name: Monitor your workload - Portal 
       href: sql-data-warehouse-monitor-workload-portal.md
     - name: Monitor your workload - DMVs 

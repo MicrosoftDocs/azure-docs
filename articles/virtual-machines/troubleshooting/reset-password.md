@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 08/20/2019
 ms.author: delhan
 
 ---
@@ -27,11 +27,14 @@ You can't log in to the VM, and you receive a message that indicates that the pa
 
 ## Manual password reset procedure
 
-1.	Delete the VM and keep the attached disks.
+> [!NOTE]
+> The following steps does not apply to the VM with unmanaged disk.
 
-2.	Attach the OS Drive as a data disk to another temporal VM in the same location.
+1. Take a snapshot for the OS disk of the affected VM, create a disk from the snapshot, and then attach the disk to a troubleshoot VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal](troubleshoot-recovery-disks-portal-linux.md).
 
-3.	Run the following SSH command on the temporal VM to become a super-user.
+2. Connect to the troubleshooting VM using Remote Desktop.
+
+3.	Run the following SSH command on the troubleshooting VM to become a super-user.
 
     ```bash
     sudo su
@@ -95,9 +98,9 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     umount /tempmount
     ```
 
-11.	Detach the disk from the management portal.
+11. In Azure portal, detach the disk from the troubleshooting VM.
 
-12.	Recreate the VM.
+12. [Change the OS disk for the affected VM](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## Next steps
 
