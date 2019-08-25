@@ -79,7 +79,7 @@ For free editions (Developer, Web, or Express):
   ```
 ---
 
-If the SQL IaaS Extension is already installed on the VM, then registering with SQL VM resource provider is simply creating a metadata resource of type Microsoft.SqlVirtualMachine/SqlVirtualMachines. Below is the code snippet to register with SQL VM resource provider if the SQL IaaS Extension is already installed on the VM. You need to provide the type of SQL Server license desired when registering with SQL VM resource provider as either 'PAYG 'or 'AHUB'.
+If the SQL IaaS Extension is already installed on the VM manually, then you can register with SQL VM resource provider in Full mode by simply creating a metadata resource of type Microsoft.SqlVirtualMachine/SqlVirtualMachines. Below is the code snippet to register with SQL VM resource provider if the SQL IaaS Extension is already installed on the VM. You need to provide the type of SQL Server license desired as either 'PAYG 'or 'AHUB' but you do not need to set the SQL Managebility mode if the exstension is  already insatlle on the VM. To register in the full mode:
 
   ```powershell-interactive
   # Get the existing  Compute VM
@@ -162,6 +162,57 @@ Verify current SQL Server VM registration status using either Az CLI or PowerShe
 ---
 
 An error indicates that the SQL Server VM has not been registered with the resource provider. 
+
+## Change management modes
+
+You can view the current mode of your SQL Server IaaS agent by using PowerShell: 
+
+  ```powershell-interactive
+     #Get the SqlVirtualMachine
+     $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
+     $sqlvm.Properties.sqlManagement
+  ```
+
+SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal. SQL Server VMs in _No-Agent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to completely uninstall the SQL IaaS extension and install it again. 
+
+To upgrade the agent mode to full: 
+
+
+# [Azure portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your [SQL virtual machines](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) resource. 
+1. Select your SQL Server virtual machine, and select **Overview**. 
+1. For SQL Server VMs with the NoAgent or lightweight IaaS mode, select the **Only license type and edition updates are available with the SQL IaaS extension** message.
+
+   ![Selections for changing the mode from the portal](media/virtual-machines-windows-sql-server-agent-extension/change-sql-iaas-mode-portal.png)
+
+1. Select the **I agree to restart the SQL Server service on the virtual machine** check box, and then select **Confirm** to upgrade your IaaS mode to full. 
+
+    ![Check box for agreeing to restart the SQL Server service on the virtual machine](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
+
+# [AZ CLI](#tab/bash)
+
+Run the following Az CLI code snippet:
+
+  ```azurecli-interactive
+  # Update to full mode
+
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# [PowerShell](#tab/powershell)
+
+Run the following PowerShell code snippet:
+
+  ```powershell-interactive
+  # Update to full mode
+
+  $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+  $SqlVm.Properties.sqlManagement="Full"
+  $SqlVm | Set-AzResource -Force
+  ```
+
 
 ## Register the SQL VM resource provider with a subscription 
 
