@@ -76,8 +76,8 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | ------------- | ------------- |
 | What is it?   |   A graphical user interface for data mining by using R.   |
 | Supported editions     | Windows, Linux     |
-| Typical uses      | General UI data-mining tool for Machine Learning Server    |
-| How to use or run it      | As a UI tool. On Windows, start a command prompt, run Machine Learning Server, and then inside Machine Learning Server, run `rattle()`. On Linux, connect with X2Go, start a terminal, run Machine Learning Server, and then inside Machine Learning Server run `rattle()`. |
+| Typical uses      | General UI data-mining tool for R    |
+| How to use or run it      | As a UI tool. On Windows, start a command prompt, run R, and then inside R, run `rattle()`. On Linux, connect with X2Go, start a terminal, run R, and then inside R run `rattle()`. |
 | Link to samples      | [Rattle](https://togaware.com/onepager/) |
 | Related tools      |LightGBM, Weka, XGBoost   |
 
