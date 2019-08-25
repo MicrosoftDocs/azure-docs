@@ -29,7 +29,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 
 > [!NOTE]
-> For more information about how Security Center detection capabilities work, see [How Azure Security Center detects and responds to threats](security-center-overview.md#detect-threats).
+> For more information about how Security Center detection capabilities work, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 ## Managing security alerts
 You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
