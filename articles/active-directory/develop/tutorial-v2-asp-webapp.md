@@ -81,7 +81,7 @@ The following steps are used to create an OWIN middleware Startup class to confi
 > 1. Right-click the project's root folder, and then select **Add** > **New Item** > **OWIN Startup class**.<br/>
 > 2. Name it **Startup.cs**.
 >
->> Make sure the class selected is an OWIN Startup class and not a standard C# class. Confirm this by verifying that you see **[assembly: OwinStartup(typeof({NameSpace}.Startup))]** above the namespace.
+>> Make sure the class selected is an OWIN Startup class and not a standard C# class. Confirm this by verifying that you see [assembly: OwinStartup(typeof({NameSpace}.Startup))] above the namespace.
 
 1. Add *OWIN* and *Microsoft.IdentityModel* references to Startup.cs:
 
@@ -181,7 +181,7 @@ To create a new controller to expose sign-in and sign-out methods, follow these 
 2.	Select **MVC (.NET version) Controller – Empty**.
 3.	Select **Add**.
 4.	Name it **HomeController** and then select **Add**.
-5.	Add **OWIN** references to the class:
+5.	Add OWIN references to the class:
 
     ```csharp
     using Microsoft.Owin.Security;
