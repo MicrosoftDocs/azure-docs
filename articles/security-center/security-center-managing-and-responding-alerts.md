@@ -24,12 +24,9 @@ This topic shows you how to view and process the alerts that you have received i
 * To learn about the different types of alerts, see [Security alert types](security-alerts-overview#security-alert-types).
 * For an overview of how Security Center generates alerts, see [How Azure Security Center detects and responds to threats](security-alert-types#asc-detects)
 
-<!-- Anything else need to be said in this intro-->
-
 > [!NOTE]
 > To enable advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select Pricing Tier in the [Security Policy](tutorial-security-policy.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
 
-<!-- Can I take out the note-->
 
 ## What are security alerts?
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
@@ -51,8 +48,6 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
     The alerts and their details are listed at the bottom of the page. To sort, click the column that you want to sort by. For more about the alert columns and alert severities, see [Alert severities](security-center-alerts-overview.md#alert-severities) and [Understand alert details](security-center-alerts-overview.md#alert-details).
 
-<!---moved these sections out of here-->
-<!--filter is just a step, not a whole section-->
 1. To filter the alerts shown, click **Filter**, and from the **Filter** blade that opens, select the filter options that you want to apply. The list updates according to the selected filter. Filtering can be very helpful. For example, you might you want to address security alerts that occurred in the last 24 hours because you are investigating a potential breach in the system.
 
     ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
@@ -60,8 +55,6 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 ## Respond to security alerts
 
 1. Click a security alert. The resources involved and the steps you need to take to remediate an attack is shown.
-
-    <!-- I take out the words "if any", should I put them back.-->
 
     ![Respond to security alerts](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
 
@@ -71,29 +64,26 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
     In the **Description** field, see additional details which can offer an insight into what triggered the security alert. You can see the target resource, when applicable the source IP address, and recommendations about how to remediate.  
 
-    <!-- Is this information in the note needed?-->
     > [!NOTE]
     >In some instances, the source IP address is empty (not available) because not all Windows security events logs include the IP address.
 
 1. The remediation suggested by Security Center vary according to the security alert. Follow the remediation steps given for each alert. 
+In some cases, in order to mitigate a threat detection alert, you may have to use other Azure controls or services to implement the recommended remediation. 
 
-<!-- I don't understand this sentence-->
-In some cases, you may have to use other Azure capabilities to implement the recommended remediation. 
-
-For more information on the different types of alerts, read [Security alerts types](security-center-alerts-overview.md#security-alert-types).
-
-<!--Is this note outdated-->
-
-> [!NOTE]
-> Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 
-> with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
-
-
+    The following topics guide you through the different alerts, according to resource types:
+    
+    * [IaaS VMs and servers alerts](security-center-alerts-iaas.md)
+    * [Native compute alerts](security-center-alerts-compute.md)
+    * [Data services alerts](security-center-alerts-data-services.md)
+    
+    The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
+    
+    * [Service layer alerts](security-center-alerts-service-layer.md)
+    * [Integration with Azure security products](security-center-alerts-integration.md)
+    
 ## See also
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
+* [Security alerts in Azure Security Center](security-center-alerts-overview.md).
 * [Handling Security Incident in Azure Security Center](security-center-incident.md)
-* [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
-* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
