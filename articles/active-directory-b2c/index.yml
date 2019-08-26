@@ -34,7 +34,7 @@ landingContent:
             url: tutorial-create-tenant.md
           - text: Register an application
             url: tutorial-register-applications.md
-          - text: Set up user journeys
+          - text: Set up user flows
             url: tutorial-create-user-flows.md
       - linkListType: learn
         links:
