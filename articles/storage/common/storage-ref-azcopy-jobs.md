@@ -12,15 +12,11 @@ ms.reviewer: zezha-msft
 
 # azcopy jobs
 
-Sub-commands related to managing jobs
-
-## Synopsis
-
 Sub-commands related to managing jobs.
 
 ## Examples
 
-```
+```azcopy
 azcopy jobs show [jobID]
 ```
 
@@ -28,14 +24,14 @@ azcopy jobs show [jobID]
 
 |Option|Description|
 |--|--|
-|-h, --help|help for jobs|
+|-h, --help|Show help content for the jobs command.|
 
 ## Options inherited from parent commands
 
 |Option|Description|
-|--|--|
-|--cap-mbps uint32|caps the transfer rate, in Mega bits per second. Moment-by-moment throughput may vary slightly from the cap. If zero or omitted, throughput is not capped.|
-|--output-type string|format of the command's output, the choices include: text, json. (default "text")|
+|---|---|
+|--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
+|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
 
 ## See also
 

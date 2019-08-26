@@ -12,11 +12,11 @@ ms.reviewer: zezha-msft
 
 # azcopy list
 
-List the entities in a given resource
+Lists the entities in a given resource.
 
 ## Synopsis
 
-List the entities in a given resource. Only Blob containers are supported at the moment.
+Only Blob containers are supported in the current release.
 
 ```azcopy
 azcopy list [containerURL] [flags]
@@ -32,17 +32,17 @@ azcopy list [containerURL]
 
 |Option|Description|
 |--|--|
-|-h, --help|help for list|
-|--machine-readable|Lists file sizes in bytes|
-|--mega-units|Displays units in orders of 1000, not 1024|
-|--running-tally|Counts the total number of files & their sizes|
+|-h, --help|Show help content for the list command.|
+|--machine-readable|Lists file sizes in bytes.|
+|--mega-units|Displays units in orders of 1000, not 1024.|
+|--running-tally|Counts the total number of files & their sizes.|
 
 ## Options inherited from parent commands
 
 |Option|Description|
-|--|--|
-|--cap-mbps uint32|caps the transfer rate, in Mega bits per second. Moment-by-moment throughput may vary slightly from the cap. If zero or omitted, throughput is not capped.|
-|--output-type string|format of the command's output, the choices include: text, json. (default "text")|
+|---|---|
+|--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
+|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
 
 ## See also
 

@@ -12,26 +12,23 @@ ms.reviewer: zezha-msft
 
 # azcopy
 
-AzCopy is a command line tool that moves data into/out of Azure Storage.
+AzCopy is a command line tool that moves data into and out of Azure Storage.
 
 ## Synopsis
 
 AzCopy 10.2.1.
 
-Project URL: github.com/Azure/azure-storage-azcopy.
+To report issues or to learn more about the tool, see [github.com/Azure/azure-storage-azcopy](github.com/Azure/azure-storage-azcopy).
 
-AzCopy is a command line tool that moves data into/out of Azure Storage.
-
-To report issues or to learn more about the tool, go to github.com/Azure/azure-storage-azcopy.
-The general format of the commands is: 'azcopy [command] [arguments] --[flag-name]=[flag-value]'.
+The general format of the commands is: `azcopy [command] [arguments] --[flag-name]=[flag-value]`.
 
 ## Options
 
 |Option|Description|
 |---|---|
-|--cap-mbps uint32|Caps the transfer rate, in Mega bits per second. Moment-by-moment throughput may vary slightly from the cap. If zero or omitted, throughput is not capped.|
-|-h, --help|Help for azcopy.|
-|--output-type string|Format of the command's output, the choices include: text, json. (default "text").|
+|--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
+|-h, --help|Shows the help content for azcopy.|
+|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
 
 ## See also
 

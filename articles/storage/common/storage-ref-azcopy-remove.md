@@ -12,11 +12,9 @@ ms.reviewer: zezha-msft
 
 # azcopy remove
 
-Delete entities from Azure Storage Blob/File/Azure Data Lake Storage Gen2
+Deletes entities from Azure Storage Blob, File, and Azure Data Lake Storage Gen2.
 
 ## Synopsis
-
-Delete entities from Azure Storage Blob/File/Azure Data Lake Storage Gen2.
 
 ```azcopy
 azcopy remove [resourceURL] [flags]
@@ -42,25 +40,25 @@ Remove only the top blobs inside a virtual directory but not its sub-directories
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Remove a subset of blobs in a virtual directory (ex: only jpg and pdf files, or if the blob name is "exactName"):
+Remove a subset of blobs in a virtual directory (For example: only jpg and pdf files, or if the blob name is "exactName"):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include="*.jpg;*.pdf;exactName"
 ```
 
-Remove an entire virtual directory but exclude certain blobs from the scope (ex: every blob that starts with foo or ends with bar):
+Remove an entire virtual directory, but exclude certain blobs from the scope (For example: every blob that starts with foo or ends with bar):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Remove a single file from ADLS Gen2 (include/exclude not supported):
+Remove a single file from Data Lake Storage Gen2 (include and exclude not supported):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Remove a single directory from ADLS Gen2 (include/exclude not supported):
+Remove a single directory from Data Lake Storage Gen2 (include and exclude not supported):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -70,18 +68,18 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 |Option|Description|
 |--|--|
-|--exclude string|exclude files whose name matches the pattern list. Example: *.jpg;*.pdf;exactName|
-|-h, --help|help for remove|
-|--include string|only include files whose name matches the pattern list. Example: *.jpg;*.pdf;exactName|
-|--log-level string|define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default "INFO")|
-|--recursive|look into sub-directories recursively when syncing between directories.|
+|--exclude string|exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName|
+|-h, --help|Show help content for the remove command.|
+|--include string|Only include files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName|
+|--log-level string|Define the log verbosity for the log file. Available levels include: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default "INFO")|
+|--recursive|Look into sub-directories recursively when syncing between directories.|
 
 ## Options inherited from parent commands
 
 |Option|Description|
-|--|--|
-|--cap-mbps uint32|caps the transfer rate, in Mega bits per second. Moment-by-moment throughput may vary slightly from the cap. If zero or omitted, throughput is not capped.|
-|--output-type string|format of the command's output, the choices include: text, json. (default "text")|
+|---|---|
+|--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
+|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
 
 ## See also
 

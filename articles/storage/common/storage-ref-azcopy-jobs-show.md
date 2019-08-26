@@ -12,13 +12,13 @@ ms.reviewer: zezha-msft
 
 # azcopy jobs show
 
-Show detailed information for the given job ID
+Shows detailed information for the given job ID.
 
 ## Synopsis
 
-Show detailed information for the given job ID: if only the job ID is supplied without a flag, then the progress summary of the job is returned.
+If only the job ID is supplied without a flag, then the progress summary of the job is returned.
 
-If the with-status flag is set, then the list of transfers in the job with the given value will be shown.
+If the `with-status` flag is set, then the list of transfers in the job with the given value will be shown.
 
 ```azcopy
 azcopy jobs show [jobID] [flags]
@@ -28,15 +28,15 @@ azcopy jobs show [jobID] [flags]
 
 |Option|Description|
 |--|--|
-|-h, --help|help for show|
-|--with-status string|only list the transfers of job with this status, available values: Started, Success, Failed|
+|-h, --help|Shows help content for the show command.|
+|--with-status string|Only list the transfers of job with this status, available values: Started, Success, Failed|
 
 ## Options inherited from parent commands
 
 |Option|Description|
-|--|--|
-|--cap-mbps uint32|caps the transfer rate, in Mega bits per second. Moment-by-moment throughput may vary slightly from the cap. If zero or omitted, throughput is not capped.|
-|--output-type string|format of the command's output, the choices include: text, json. (default "text")|
+|---|---|
+|--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
+|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
 
 ## See also
 
