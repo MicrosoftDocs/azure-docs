@@ -85,4 +85,4 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

@@ -46,4 +46,4 @@ azcopy list [containerURL]
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

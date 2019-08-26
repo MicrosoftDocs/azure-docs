@@ -17,6 +17,7 @@ Log out to terminate access to Azure Storage resources.
 ## Synopsis
 
 Log out to terminate access to Azure Storage resources.
+
 This command will remove all the cached login information for the current user.
 
 ```azcopy
@@ -38,4 +39,4 @@ azcopy logout [flags]
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

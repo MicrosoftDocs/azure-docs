@@ -37,4 +37,4 @@ azcopy jobs list [flags]
 
 ## See also
 
-- [azcopy jobs](azcopy_jobs.md)
+- [azcopy jobs](storage-ref-azcopy-jobs.md)

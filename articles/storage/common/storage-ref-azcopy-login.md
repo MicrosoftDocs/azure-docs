@@ -107,4 +107,4 @@ Please treat /path/to/my/cert as a path to a PEM or PKCS12 file-- AzCopy does no
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

@@ -17,6 +17,7 @@ Copies source data to a destination location
 ## Synopsis
 
 Copies source data to a destination location. The supported directions are:
+
   - local <-> Azure Blob (SAS or OAuth authentication)
   - local <-> Azure File (Share/directory SAS authentication)
   - local <-> ADLS Gen 2 (SAS, OAuth, or SharedKey authentication)

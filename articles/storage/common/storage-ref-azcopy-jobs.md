@@ -39,7 +39,7 @@ azcopy jobs show [jobID]
 
 ## See also
 
-- [azcopy](azcopy.md)
-- [azcopy jobs list](azcopy_jobs_list.md)
-- [azcopy jobs resume](azcopy_jobs_resume.md)
-- [azcopy jobs show](azcopy_jobs_show.md)
+- [azcopy](storage-ref-azcopy.md)
+- [azcopy jobs list](storage-ref-azcopy-jobs-list.md)
+- [azcopy jobs resume](storage-ref-azcopy-jobs-resume.md)
+- [azcopy jobs show](storage-ref-azcopy-jobs-show.md)

@@ -17,6 +17,7 @@ Show detailed information for the given job ID
 ## Synopsis
 
 Show detailed information for the given job ID: if only the job ID is supplied without a flag, then the progress summary of the job is returned.
+
 If the with-status flag is set, then the list of transfers in the job with the given value will be shown.
 
 ```azcopy
@@ -39,4 +40,4 @@ azcopy jobs show [jobID] [flags]
 
 ## See also
 
-- [azcopy jobs](azcopy_jobs.md)
+- [azcopy jobs](storage-ref-azcopy-jobs.md)

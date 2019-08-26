@@ -19,7 +19,9 @@ AzCopy is a command line tool that moves data into/out of Azure Storage.
 AzCopy 10.2.1.
 
 Project URL: github.com/Azure/azure-storage-azcopy.
+
 AzCopy is a command line tool that moves data into/out of Azure Storage.
+
 To report issues or to learn more about the tool, go to github.com/Azure/azure-storage-azcopy.
 The general format of the commands is: 'azcopy [command] [arguments] --[flag-name]=[flag-value]'.
 
@@ -33,13 +35,13 @@ The general format of the commands is: 'azcopy [command] [arguments] --[flag-nam
 
 ## See also
 
-- [azcopy copy](azcopy_copy.md)
-- [azcopy doc](azcopy_doc.md)
-- [azcopy env](azcopy_env.md)
-- [azcopy jobs](azcopy_jobs.md)
-- [azcopy list](azcopy_list.md)
-- [azcopy login](azcopy_login.md)
-- [azcopy logout](azcopy_logout.md)
-- [azcopy make](azcopy_make.md)
-- [azcopy remove](azcopy_remove.md)
-- [azcopy sync](azcopy_sync.md)
+- [azcopy copy](storage-ref-azcopy-copy.md)
+- [azcopy doc](storage-ref-azcopy-doc.md)
+- [azcopy env](storage-ref-azcopy-env.md)
+- [azcopy jobs](storage-ref-azcopy-jobs.md)
+- [azcopy list](storage-ref-azcopy-list.md)
+- [azcopy login](storage-ref-azcopy-login.md)
+- [azcopy logout](storage-ref-azcopy-logout.md)
+- [azcopy make](storage-ref-azcopy-make.md)
+- [azcopy remove](storage-ref-azcopy-remove.md)
+- [azcopy sync](storage-ref-azcopy-sync.md)

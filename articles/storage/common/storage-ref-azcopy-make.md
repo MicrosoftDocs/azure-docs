@@ -44,4 +44,4 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

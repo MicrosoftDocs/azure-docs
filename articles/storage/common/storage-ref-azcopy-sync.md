@@ -20,12 +20,14 @@ Replicate a source to a destination location. The last modified times are used f
   - local <-> Azure Blob (either SAS or OAuth authentication can be used)
 
 Please note that the sync command differs from the copy command in several ways:
-  0. The recursive flag is on by default.
-  1. The source and destination should not contain patterns(such as * or ?).
-  2. The include/exclude flags can be a list of patterns matching to the file names. Please refer to the example section for illustration.
-  3. If there are files/blobs at the destination that are not present at the source, the user will be prompted to delete them. This prompt can be silenced by using the corresponding flags to automatically answer the deletion question.
+
+  1. The recursive flag is on by default.
+  2. The source and destination should not contain patterns(such as * or ?).
+  3. The include/exclude flags can be a list of patterns matching to the file names. Please refer to the example section for illustration.
+  4. If there are files/blobs at the destination that are not present at the source, the user will be prompted to delete them. This prompt can be silenced by using the corresponding flags to automatically answer the deletion question.
 
 Advanced:
+
 Please note that AzCopy automatically detects the Content Type of the files when uploading from the local disk, based on the file extension or content (if no extension is specified).
 
 The built-in lookup table is small but on Unix it is augmented by the local system's mime.types file(s) if available under one or more of these names:
@@ -110,4 +112,4 @@ azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)
