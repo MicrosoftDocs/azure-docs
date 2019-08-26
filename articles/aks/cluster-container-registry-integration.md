@@ -47,7 +47,9 @@ You can set up AKS and ACR integration during the initial creation of your AKS c
 az login
 az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-or-resource-id>]
 ```
-An ACR resource id has the following format:/subscriptions/<subscription-d>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name> 
+**An ACR resource id has the following format: 
+
+/subscriptions/<subscription-d>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name> 
   
 This step may take several minutes to complete.
 
