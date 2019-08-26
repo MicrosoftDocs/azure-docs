@@ -11,6 +11,9 @@
   - name: Create a blueprint - Portal
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-portal.md
+  - name: Create a blueprint - PowerShell
+    displayName: publish, assign, track, unassign, delete
+    href: create-blueprint-powershell.md
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
@@ -27,6 +30,12 @@
   - name: Index
     displayName: list, examples
     href: ./samples/index.md
+  - name: CIS Microsoft Azure Foundations Benchmark
+    items:
+    - name: Overview
+      href: ./samples/cis-azure-1.1.0/index.md
+    - name: Recommendation mapping
+      href: ./samples/cis-azure-1.1.0/control-mapping.md
   - name: IRS 1075
     items:
     - name: Overview
