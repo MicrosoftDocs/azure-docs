@@ -51,7 +51,7 @@ The following sections describe the limitations and capabilities of each role.
 |Add or remove Notification Contacts<sup>2</sup> |✔|✘|✘|✘|✘|
 |Create and manage Departments |✔|✘|✘|✘|✘|
 |View Department Administrators|✔|✔|✔|✔|✘|
-|Add or remove Department Administrators|✔|✔|✔|✘|✘|
+|Add or remove Department Administrators|✔|✘|✔|✘|✘|
 |View Accounts in the enrollment |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✔<sup>3</sup>|✘|✘|
 |Create and manage subscriptions and subscription permissions|✘|✘|✘|✘|✔|
