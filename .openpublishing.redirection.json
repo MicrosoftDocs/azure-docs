@@ -26013,6 +26013,11 @@
       "source_path": "articles/security-center/security-center-incident-response.md",
       "redirect_url": "/azure/security-center/tutorial-security-incident",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/security-center/security-center-detection-capabilities.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
     },  
     {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
