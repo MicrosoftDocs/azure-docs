@@ -99,7 +99,7 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| security.ubuntu.com , azure.archive.ubuntu.com , changelogs.ubuntu.com                           | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
 | packages.microsoft.com                  | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations. |
 | dc.services.visualstudio.com            | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
 | *.opinsights.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
