@@ -72,8 +72,8 @@ Because ACR Tasks dynamically discovers base image dependencies when it builds a
 Learn about OS and framework patching in the third ACR Tasks tutorial, [Automate image builds on base image update with Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> * Currently, base image updates trigger builds only when both the base and application images reside in the same Azure container registry, or the base resides in a public Docker Hub or Microsoft Container Registry repository.
-> * Currently, ACR Tasks only tracks base image updates for application (*runtime*) images. ACR Tasks doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
+> * Currently, an ACR task detects dependencies on base images in an Azure container registry, a public Docker Hub repo, or a public repo in Microsoft Container Registry.
+> * Currently, an ACR task only tracks base image updates for application (*runtime*) images. It doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
 
 ## Multi-step tasks
 

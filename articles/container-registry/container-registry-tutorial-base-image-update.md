@@ -71,9 +71,9 @@ When a base image is updated, you're presented with the need to rebuild any cont
 
 ### Tasks triggered by a base image update
 
-* Currently, for image builds from a Dockerfile, an ACR task detects dependencies on base images in the same Azure container registry, a public Docker Hub repo, or a public repo in Microsoft Container Registry. If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
+* Currently, for image builds from a Dockerfile, an ACR task detects dependencies on base images in an Azure container registry, a public Docker Hub repo, or a public repo in Microsoft Container Registry. If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
 
-* Currently, ACR Tasks only tracks base image updates for application (*runtime*) images. ACR Tasks doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
+* Currently, an ACR tasks only tracks base image updates for application (*runtime*) images. It doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
 
 * When you create an ACR task with the [az acr task create][az-acr-task-create] command, by default the task is *enabled* for trigger by a base image update. That is, the `base-image-trigger-enabled` property is set to True. If you want to disable this behavior in a task, update the property to False. For example, run the following [az acr task update][az-acr-task-update] command:
 
