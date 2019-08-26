@@ -28,13 +28,11 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 ## Managing security incidents
 You can review your current security incidents by looking at the security alerts tile. Access the Azure Portal and follow the steps below to see more details about each security incident:
 
-1. On the Security Center dashboard, you will see the **Security alerts** tile.
-
-1. Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph. Notice that the security incident description has a different icon compared to other alerts.
+1. On the Security Center dashboard, click the **Security alerts** tile. The incidents and alerts are listed. Notice that the security incident description has a different icon compared to other alerts.
 
     ![View security incidents](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-1. Click on an incident to view the details. The **incident** blade displays details, if the incident is still active, and the remediation steps to take. In the bottom pane, the alerts included in this incident are listed.
+1. To view details, click on an incident. The **incident** blade displays if the incident is still active, other details, and the remediation steps to take. In the bottom pane, the alerts included in this incident are listed.
 
     [Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
@@ -46,16 +44,17 @@ You can review your current security incidents by looking at the security alerts
     ![Alert details](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
 For more information about alerts, [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md).
+
 The following topics guide you through the different alerts, according to resource types:
 
-    * [IaaS VMs and servers alerts](security-center-alerts-iaas.md)
-    * [Native compute alerts](security-center-alerts-compute.md)
-    * [Data services alerts](security-center-alerts-data-services.md)
-    
-    The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
-    
-    * [Service layer alerts](security-center-alerts-service-layer.md)
-    * [Integration with Azure security products](security-center-alerts-integration.md)
+* [IaaS VMs and servers alerts](security-center-alerts-iaas.md)
+* [Native compute alerts](security-center-alerts-compute.md)
+* [Data services alerts](security-center-alerts-data-services.md)
+
+The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
+
+* [Service layer alerts](security-center-alerts-service-layer.md)
+* [Integration with Azure security products](security-center-alerts-integration.md)
 
 ## See also
 In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
