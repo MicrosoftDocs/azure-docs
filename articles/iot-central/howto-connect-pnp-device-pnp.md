@@ -19,7 +19,7 @@ This how-to guide shows you how:
 
 * As an operator, to add and configure a real device in your Azure IoT Central application.
 
-* As a device developer, to use Visual Studio Code to create an [IoT Plug and Play](https://aka.ms/iot-pnp-docs) device that connects to your IoT Central application.
+* As a device developer, to use Visual Studio Code to create an [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) device that connects to your IoT Central application.
 
 You use a [device capability model](./concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) to define the device that connects to IoT Central. In this guide, you use a model that defines an environmental sensor device.
 

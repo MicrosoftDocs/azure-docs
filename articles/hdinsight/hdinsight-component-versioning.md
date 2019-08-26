@@ -174,6 +174,9 @@ The section provides links to release notes for the Hortonworks Data Platform di
 
 The following tables list the default virtual machine (VM) sizes for HDInsight clusters.  This chart is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters.
 
+> [!NOTE]
+> The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios.
+
 > [!IMPORTANT]  
 > If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
 
