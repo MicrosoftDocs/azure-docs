@@ -50,7 +50,7 @@ Follow these steps to create an Azure Database for MySQL server named “mydemos
     > Select the **Pin to dashboard** option to allow easy tracking of your deployments.
 
 ## Update an Azure Database for MySQL server
-After the new server has been provisioned, the user has several options for configuring the existing server, including resetting the administrator password, changing the pricing tier and scaling the server up or down by changing vCore or storage.
+After the new server has been provisioned, the user has several options for configuring the existing server, including resetting the administrator password, changing the pricing tier and scaling the server up or down by changing vCore or storage
 
 ### Change the administrator user password
 1. From the server **Overview**, click **Reset password** to show the password reset window.
