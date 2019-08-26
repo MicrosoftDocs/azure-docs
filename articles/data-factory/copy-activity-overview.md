@@ -61,6 +61,7 @@ The Copy activity can compress and decompress files with these codecs:
 - Deflate
 - Bzip2
 - ZipDeflate
+
 For more information, see [Supported file and compression formats](supported-file-formats-and-compression-codecs.md).
 
 For example, you can perform the following copy activities:
@@ -140,11 +141,11 @@ The following template of a Copy activity contains a complete list of supported 
 | type | For a Copy activity, set to `Copy` | Yes |
 | inputs | Specify the dataset that you created that points to the source data. The Copy activity supports only a single input. | Yes |
 | outputs | Specify the dataset that you created that points to the sink data. The Copy activity supports only a single output. | Yes |
-| typeProperties | Specify properties to configure the copy activity. | Yes |
+| typeProperties | Specify properties to configure the Copy activity. | Yes |
 | source | Specify the copy source type and the corresponding properties for retrieving data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | sink | Specify the copy sink type and the corresponding properties for writing data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | translator | Specify explicit column mappings from source to sink. This property applies when the default copy behavior doesn't meet your needs.<br/><br/>For more information, see [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md). | No |
-| dataIntegrationUnits | Specify a measure that represents the amount of power that [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/><br/>For more information, see [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
+| dataIntegrationUnits | Specify a measure that represents the amount of power that the [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/><br/>For more information, see [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
 | parallelCopies | Specify the parallelism that you want the Copy activity to use when reading data from the source and writing data to the sink.<br/><br/>For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
 | enableStaging<br/>stagingSettings | Specify whether to stage the interim data in Blob storage instead of directly copying data from source to sink.<br/><br/>For information about useful scenarios and configuration details, see [Staged copy](copy-activity-performance.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when you copy data from source to sink.<br/><br/>For more information, see [Fault tolerance](copy-activity-fault-tolerance.md). | No |
@@ -155,11 +156,11 @@ You can monitor the Copy activity run in the Azure Data Factory **Author & Monit
 
 ### Monitor visually
 
-To visually monitor the Copy activity run, go to your data factory and then go to **Author & Monitor**. On the **Monitor** tab, you see a list of pipeline runs with a **View Activity Run** button in the **Actions** column.
+To visually monitor the Copy activity run, go to your data factory and then go to **Author & Monitor**. On the **Monitor** tab, you see a list of pipeline runs with a **View Activity Run** button in the **Actions** column:
 
 ![Monitor pipeline runs](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
-Select **View Activity Runs** to see the list of activities in this pipeline run. In the **Actions** column, you see links to the Copy activity input, output, errors (if the Copy activity run fails), and details.
+Select **View Activity Runs** to see the list of activities in the pipeline run. In the **Actions** column, you see links to the Copy activity input, output, errors (if the Copy activity run fails), and details:
 
 ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
@@ -200,7 +201,7 @@ Copy activity execution details and performance characteristics are also returne
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](#fault-tolerance) later in this article. | Text (string) |
-| executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change.<br/><br/>Data Factory also reports the detailed durations (in seconds) spent on various stages under `detailedDurations`. The durations of these steps are exclusive. Only durations that apply to the given Copy activity run appear:<br/>**Queuing duration** (`queuingDuration`): The amount of time before the Copy activity actually starts on the integration runtime. If you use a self-hosted IR and this value is large, check the IR capacity and usage, and scale up or out according to your workload. <br/>**Pre-copy script duration** (`preCopyScriptDuration`): The time elapsed between when the Copy activity starts on the IR and when the Copy activity finishes running the pre-copy script in the sink data store. Applies when you configure the pre-copy script. <br/>**Time-to-first-byte** (`timeToFirstByte`): The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources. If this value is large, check and optimize the query or server.<br/>**Transfer duration** (`transferDuration`): The time elapsed between the end of the previous step and the time when the IR transfers all the data from source to sink. | Array |
+| executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change.<br/><br/>Data Factory also reports the detailed durations (in seconds) spent on various stages under `detailedDurations`. The durations of these steps are exclusive. Only durations that apply to the given Copy activity run appear:<br/>**Queuing duration** (`queuingDuration`): The amount of time before the Copy activity actually starts on the integration runtime. If you use a self-hosted IR and this value is large, check the IR capacity and usage, and scale up or out according to your workload. <br/>**Pre-copy script duration** (`preCopyScriptDuration`): The time elapsed between when the Copy activity starts on the IR and when the Copy activity finishes running the pre-copy script in the sink data store. Applies when you configure the pre-copy script. <br/>**Time to first byte** (`timeToFirstByte`): The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources. If this value is large, check and optimize the query or server.<br/>**Transfer duration** (`transferDuration`): The time elapsed between the end of the previous step and the time when the IR transfers all the data from source to sink. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance and tuning](#performance-and-tuning) for details. | Array |
 
 ```json
@@ -250,11 +251,11 @@ Copy activity execution details and performance characteristics are also returne
 
 ## Schema and data type mapping
 
-See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the Copy activity maps your source data to your sink.
+See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the Copy activity maps your source data to your sink.
 
 ## Fault tolerance
 
-By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. You can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data to make the copy succeed. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
+By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. To make the copy succeed, you can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
 
 ## Performance and tuning
 
@@ -262,7 +263,7 @@ The [Copy activity performance and scalability guide](copy-activity-performance.
 
 In some scenarios, when you run a Copy activity in Data Factory, you'll see **Performance tuning tips** at the top of the [Copy activity monitoring page](#monitor-visually), as shown in the following example. The tips tell you the bottleneck identified for the given copy run. They also provide information on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like using PolyBase when copying data into Azure SQL Data Warehouse, increasing Azure Cosmos DB RUs or Azure SQL Database DTUs when the resource on the data store side is the bottleneck, and removing unnecessary staged copies.
 
-**Example: Copy into Azure SQL Database with performance tuning tips**
+**Example: Copy into Azure SQL Database, with a performance tuning tip**
 
 In this sample, during a copy run, Data Factory tracks a high DTU utilization in the sink Azure SQL Database. This condition slows down write operations. The suggestion is to increase the DTUs on the Azure SQL Database tier:
 
