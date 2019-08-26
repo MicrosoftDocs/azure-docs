@@ -64,7 +64,7 @@ After the migration process, [add collaborator access](luis-migration-authoring-
 
 ## Migration for the app collaborator
 
-You need to be added to the app's Azure authoring resource by the app owner. Make sure that your account's main or primary email is used. If your account has more than one email associated with it, make sure that only the primary account is connected to the app. 
+After the migration process, you need to be added to the app's Azure authoring resource by the app owner. Make sure that your account's main or primary email is used. If your account has more than one email associated with it, make sure that only the primary account is connected to the app. 
 
 ## Next steps
 

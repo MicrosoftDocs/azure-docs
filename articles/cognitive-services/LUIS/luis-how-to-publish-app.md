@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
@@ -78,7 +78,7 @@ Corrections to spelling are made before the LUIS user utterance prediction. You 
 
 ## Speech priming
 
-Speech priming is the process of using sending the LUIS model to Speech services prior to conversion of text to speech. This allows the speech service to provide speech conversion more accurately for your model.
+Speech priming is the process of using sending the LUIS model to Speech services prior to conversion of text to speech. This allows the speech service to provide speech conversion more accurately for your model. This allows bot Speech and LUIS requests and responses in one call by making one speech call and getting back a LUIS response. It provides less latency overall.
 
 ## Next steps
 

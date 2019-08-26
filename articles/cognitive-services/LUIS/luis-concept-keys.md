@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
@@ -37,7 +37,7 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 
 ## Authoring key
 
-An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The authoring key is provided to author your LUIS app or to test endpoint queries, up to 1,000 transaction a month. 
+An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The authoring key is provided to author your LUIS app or to test endpoint queries. To test endpoint queries with the authoring key, you can use up to 1,000 transactions a month. 
 
 To find the authoring Key, sign in to [LUIS](luis-reference-regions.md#luis-website) and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
@@ -99,7 +99,9 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 
 ## Collaborating with other authors
 
-All collaborators must be added to the app after the app is [migrated](luis-migration-authoring.md) to the Azure authoring resource. The ROLENAME role is used for collaborators.
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: collaboration in managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role. 
+
+**For apps that have not migrated yet**: all collaborators are managed in the LUIS portal from the **Manage -> Collaborators** page.
 
 ### Collaborator roles vs entity roles
 
@@ -115,6 +117,7 @@ An app is defined by its Azure resources, which is determined by the owner's sub
 
 You can move your LUIS app. Use the following documentation resources in the Azure portal or Azure CLI:
 
+* [Move app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
 * [Move resource to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md)
 * [Move resource within same subscription or across subscriptions](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
 * [Transfer ownership](../../billing/billing-subscription-transfer.md) of your subscription 
