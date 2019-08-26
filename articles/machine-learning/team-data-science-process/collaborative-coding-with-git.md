@@ -15,7 +15,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Collaborative coding with Git
 
-This article describes how to do collaborative code development for data science projects using Git as the shared code development framework. The article covers how to link code in Azure Repos to [agile development](agile-development.md) work items in Azure Boards, how to do code reviews, and how to create and merge pull requests for changes.
+This article describes how to use Git as the collaborative code development framework for data science projects. The article covers how to link code in Azure Repos to [agile development](agile-development.md) work items in Azure Boards, how to do code reviews, and how to create and merge pull requests for changes.
 
 ## <a name='Linkaworkitemwithagitbranch-1'></a>Link a work item to an Azure Repos branch 
 
@@ -45,9 +45,9 @@ git checkout <working branch name>
 
 After you switch to the working branch, you can start developing code or documentation artifacts to complete the work item. Running `git checkout master` switches you back to the `master` branch.
 
-It's a good practice to create a Git branch for each User Story work item. Then, for each Task work item, you can create a branch based on the User Story branch. Organizing the branches in a hierarchy that corresponds to the User Story-Task relationship helps when you have multiple people working on different User Stories for the same project, or on different Tasks for the same User Story. You can minimize conflicts by having each team member work on a different branch, or on different code or other artifacts when sharing a branch. 
+It's a good practice to create a Git branch for each User Story work item. Then, for each Task work item, you can create a branch based on the User Story branch. Organize the branches in a hierarchy that corresponds to the User Story-Task relationship when you have multiple people working on different User Stories for the same project, or on different Tasks for the same User Story. You can minimize conflicts by having each team member work on a different branch, or on different code or other artifacts when sharing a branch. 
 
-The following diagram shows the recommended branching strategy for TDSP. You might not need as many branches as shown here, especially when you only have one or two people working on a project, or only one person working on all Tasks of a User Story. But separating the development branch from the master branch is always a good practice, and can help prevent the release branch from being interrupted by development activities. For a complete description of the Git branch model, see [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
+The following diagram shows the recommended branching strategy for TDSP. You might not need as many branches as shown here, especially when only one or two people work on a project, or only one person works on all Tasks of a User Story. But separating the development branch from the master branch is always a good practice, and can help prevent the release branch from being interrupted by development activities. For a complete description of the Git branch model, see [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
@@ -70,13 +70,13 @@ git push origin script
 
 ## <a name='CreateapullrequestonVSTS-3'></a>Create a pull request
 
-After one or more commits and pushes, when you are ready to merge your current working branch into its base branch, you can create and submit a *pull request* in Azure Repos. 
+After one or more commits and pushes, when you're ready to merge your current working branch into its base branch, you can create and submit a *pull request* in Azure Repos. 
 
 From the main page of your Azure DevOps project, point to **Repos** > **Pull requests** in the left navigation. Then select either of the **New pull request** buttons, or the **Create a pull request** link.
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your changes into, and add or change any other information you want. Under **Reviewers**, add the names of those you need to review your changes, and then select **Create**. 
+On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your changes into. Add or change any other information you want. Under **Reviewers**, add the names of those you need to review your changes, and then select **Create**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -86,7 +86,7 @@ Once you create the pull request, your reviewers get an email notification to re
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-After the reviewers approve the changes, you or someone else with merge permissions can merge the working branch to its base branch by selecting **Complete**, and then selecting **Complete merge** in the **Complete pull request** dialog. You can choose to delete the working branch after it has merged. 
+After the reviewers approve the changes, you or someone else with merge permissions can merge the working branch to its base branch. Select **Complete**, and then select **Complete merge** in the **Complete pull request** dialog. You can choose to delete the working branch after it has merged. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
