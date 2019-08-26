@@ -101,7 +101,53 @@ Get details about your private link service with [New-AzPrivateLinkService](/pow
 ```azurepowershell
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
+## Create a Private Endpoint
 
+  
+### Create a virtual network
+ 
+```azurepowershell
+# Create VNet for private endpoint
+$peSubnet = New-AzVirtualNetworkSubnetConfig `
+-Name peSubnet `
+-AddressPrefix "11.0.1.0/24" `
+-PrivateEndpointNetworkPolicies "Disabled" 
+
+$vnetPE = New-AzVirtualNetwork `
+-Name $virtualNetworkNamePE `
+-ResourceGroupName $rgName `
+-Location $location `
+-AddressPrefix "11.0.0.0/16" `
+-Subnet $peSubnet 
+```
+### Create a Private Endpoint
+ 
+```azurepowershell  
+$plsConnection= New-AzPrivateLinkServiceConnection `
+-Name plsConnection `
+-PrivateLinkServiceId  $privateLinkService.Id  
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
+ ```
+### Get Private Endpoint
+
+```azurepowershell  
+# Get Private Endpoint and its Ip Address 
+$pe =  Get-AzPrivateEndpoint `
+-Name $peName `
+-ResourceGroupName $rgName  `
+-ExpandResource networkinterfaces $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
+ ```
+  
+### Approve the Private Endpoint connection
+
+```azurepowershell   
+# For Private Link Service to approve the Private Endpoint Connection 
+$pls = Get-AzPrivateLinkService `
+-Name $plsName `
+-ResourceGroupName $rgName 
+
+Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[0].Id -Description "Approved" 
+ ``` 
 ## Next steps
 - Learn more about [Azure Private Link](privatelink-overview.md)
  
