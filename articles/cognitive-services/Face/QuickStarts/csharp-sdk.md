@@ -127,25 +127,151 @@ Call this method in the `Main` method.
 
 ## Detect faces in an image
 
+At the root of your class, define the following URL string. This points to a set of sample images.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
+
+Optionally, you can choose which model to use to extract data from the detected face(s). See [Specify a recognition model](../Face-API-How-to-Topics/specify-recognition-model.md) for information on these.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
+
+The final detect operation will take a [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) object, an image URL, and a recognition model.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
+
+In this case, the `DetectFaceExtract` method detects faces in three of the images at the given URL and creates a list of [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) objects in program memory. The list of [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) values specifies which features to detect.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect)]
+
+See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs) for helper code that can print the various detected face data in an intuitive way.
+
 Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
 
-```csharp
-
-```
 
 ## Find similar faces
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+The following code takes a single detected face (source) and searches a set of other faces (target) to find matches. When it finds a match, it prints the ID of the matched face to the console.
 
-```csharp
+### Detect faces for comparison
 
-```
+First, define a second face detection method. You need to detect faces in images before you can compare them, and this detection method is optimized for comparison operations. It doesn't present detailed face attributes like in the section above, and it uses a different recognition model.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_face_detect_recognize)]
+
+### Find matches
+
+The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images which are similar to the source image.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar)]
+
+### Print matches
+
+The following code prints the match details to the console.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar_print)]
 
 ## Create and train a person group
 
+The following code creates a **PersonGroup** with six different **Person** objects. It associates each **Person** with a set of example images, and then it trains to be able to recognize each person. **Person** and **PersonGroup** objects are used in the Verify, Identify, and Group operations.
+
+First, at the root of your class, define the following URL string. This points to a set of sample images.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
+
+The code in this section will specify a recognition model to extract data from faces; the following snippet creates references to the available models. See [Specify a recognition model](../Face-API-How-to-Topics/specify-recognition-model.md) for information on these.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
+
+### Create PersonGroup
+
+Declare a string variable at the root of your class to represent the ID of the **PersonGroup** you'll create.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_declare)]
+
+In a new method, add the following code. This code associates person names with their example images.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_files)]
+
+Next, add the following code to create a **Person** object for each person in the Dictionary and then add the face data from the appropriate images. Each **Person** object is associated with the same **PersonGroup** through its unique ID string. Remember to pass the variables `client`, `url`, and `RECOGNITION_MODEL1` into your method.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_create)]
+
+### Train PersonGroup
+
+Once you've extracted face data from your images and sorted it into different **Person** objects, you must train the **PersonGroup** so that it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_train)]
+
+This **Person** group and its associated **Person**s are now ready to be used in the Verify, Identify, or Group operations.
+
 ## Identify a face
 
+The Identify operation takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
+
+> [!IMPORTANT]
+> In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group). The variables used in that section&mdash;`client`, `url`, and `RECOGNITION_MODEL1`&mdash;must be available here as well.
+
+### Get a test image
+
+Notice that the code for [Create and train a person group](#create-and-train-a-person-group) defines a variable `sourceImageFileName`. This corresponds to the source image&mdash;the image that contains people to identify.
+
+### Identify faces
+
+The following code takes the source image and creates a list of all the faced detected in the image. These are the faces that will be identified against the **PersonGroup**.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify_sources)]
+
+The next code snippet calls the Identify operation and prints the results to the console. Here, the service attempts to match each face from the source image to a **Person** in the given **PersonGroup**.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify)]
+
 ## Take a snapshot for data migration
+
+The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to use this feature if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
+
+In this example, you will migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
+
+### Set up target subscription
+
+First, you must have a second Azure subscription with a Face resource; you can do this by following the steps in the [Setting up](#setting-up) section. 
+
+Then, define the following variables in the `Main` method of your program. You'll need to create new environment variables for the subscription ID of your Azure account, as well as the key and subscription ID of your new (target) account.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_vars)]
+
+For this example, declare a variable for the ID of the target **PersonGroup**&mdash;the object on the new subscription that you will copy your data to.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_vars)]
+
+### Authenticate target client
+
+Next, add code to authenticate your secondary Face subscription.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_client)]
+
+### Use a snapshot
+
+The rest of the snapshot operations take place within an asynchronous method. 
+
+1. The first step is to **take** the snapshot, which saves your original subscription's face data to a temporary cloud location. This method returns an ID that you use to query the status of the operation.
+
+    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_take)]
+
+1. Next, query the ID until the operation has completed.
+
+    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_take_wait)]
+
+1. Use the **apply** operation to write your face data to your target subscription. This method also returns an ID.
+
+    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_apply)]
+
+1. Again, query the ID until the operation has completed.
+
+    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_apply)]
+
+1. Finally, complete the try/catch block and finish the method definition.
+
+    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_trycatch)]
 
 ## Run the application
 
@@ -162,18 +288,20 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## Troubleshooting
+If you created a **PersonGroup** in this quickstart and you want to delete it, run the following code in your program:
 
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_delete)]
+
+If you migrated data using the Snapshot feature in this quickstart, you'll also need to delete the **PersonGroup** saved to the target subscription.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_target_persongroup_delete)]
 
 ## Next steps
 
+In this quickstart, you learned how to use the Face library for .NET to do basis tasks. Next, explore the reference documentation to learn more about the library.
+
 > [!div class="nextstepaction"]
->[Next article]()
+>[Face API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
 
 * [What is the Face API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs).
