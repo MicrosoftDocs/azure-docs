@@ -52,7 +52,7 @@ Within one device identity, you can create up to 20 module identities. To add an
 
     ![Add module identity](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
-Your new module identity appears at the bottom of the screen. Select it to see module identity details.
+    Your new module identity appears at the bottom of the screen. Select it to see module identity details.
 
     ![See module identity details](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
