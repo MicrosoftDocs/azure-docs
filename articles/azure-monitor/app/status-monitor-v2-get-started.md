@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Get started with Azure Monitor Application Insights Agent for On-Premises Servers
+# Get started with Azure Monitor Application Insights Agent for on-premises servers
 
 This article contains the quickstart commands expected to work for most environments.
 The instructions depend on the PowerShell Gallery to distribute updates.
