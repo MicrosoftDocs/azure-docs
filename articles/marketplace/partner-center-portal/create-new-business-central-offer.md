@@ -6,7 +6,7 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/26/2019
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -357,7 +357,7 @@ Indicate which release of Microsoft Dynamics Business Central your solution targ
 
 ### Supported editions
 
-Indicate whether your solution supports the Essentials and/or Premium edition of Microsoft Dynamics 365 Business Central. At least one value must be selected.
+If your offer requires the Premium edition of Microsoft Dynamics 365 Business Central, select **Premium** only. Otherwise, select both **Essentials** and **Premium**.
 
 ### Key usage scenario
 

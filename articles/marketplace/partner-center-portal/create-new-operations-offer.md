@@ -6,7 +6,7 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/26/2019
 ---
 
 # Create a new Dynamics 365 for Operations offer
