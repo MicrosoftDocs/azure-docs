@@ -46,9 +46,9 @@ If you've [secured your API with Azure AD B2C](secure-api-management.md), you ha
 
 ### Add branching to inbound policy
 
-To enable support for multiple token issuer endpoints, add the `<choose>` element to your inbound policy to enable a branching flow within the policy. To inform the API which condition to brnach on, evaluate the `Domain` header in the request, and then verify the claims appropriate for each endpoint.
+To enable support for multiple token issuer endpoints, add the [`<choose>`](../api-management/api-management-advanced-policies.md#choose) element to your inbound policy in Azure API Management to enable a branching flow within the policy. To inform the API which condition to branch on, evaluate the `Domain` header in the request, and then verify the claims appropriate for each endpoint.
 
-For example, this policy enables branching support for tokens issued by two issuer endpoints, `login.microsoftonline.com` and `b2clogin.com`, with a fall-through that accepts `login.microsoftonline.com`-issued tokens.
+This example XML snippet shows a policy that enables branching to support tokens issued by two issuer endpoints, `login.microsoftonline.com` and `b2clogin.com`. Also included is a fall-through condition that accepts `login.microsoftonline.com`-issued tokens.
 
 ```xml
 <!-- AFTER: Validate claims in tokens issued by b2clogin.com AND login.microsoftonline.com -->
@@ -102,4 +102,4 @@ For example, this policy enables branching support for tokens issued by two issu
 
 ## Next steps
 
-**[TODO: NEXT LOGICAL DESTINATION HERE]**
+For details on editing your Azure API Management policies to add the branching support shown in the previous sections, see [How to set or edit Azure API Management policies](../api-management/set-edit-policies.md).
