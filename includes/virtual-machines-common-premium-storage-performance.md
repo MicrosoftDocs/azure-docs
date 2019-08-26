@@ -382,4 +382,3 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 ## Next steps
 
-Learn more about the available disk types:
