@@ -46,8 +46,6 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
    ![The Security alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-    The alerts and their details are listed at the bottom of the page. To sort, click the column that you want to sort by. For more about the alert columns and alert severities, see [Alert severities](security-center-alerts-overview.md#alert-severities) and [Understand alert details](security-center-alerts-overview.md#alert-details).
-
 1. To filter the alerts shown, click **Filter**, and from the **Filter** blade that opens, select the filter options that you want to apply. The list updates according to the selected filter. Filtering can be very helpful. For example, you might you want to address security alerts that occurred in the last 24 hours because you are investigating a potential breach in the system.
 
     ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
