@@ -2,7 +2,7 @@
 title: Move data to an Azure HPC Cache cloud container 
 description: How to
 author: ekpgh
-ms.service: conceptual
+ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: v-erkell

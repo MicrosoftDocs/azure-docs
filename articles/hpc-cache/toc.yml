@@ -1,5 +1,5 @@
 - name: Azure HPC Cache documentation
-  href: index.yml 
+  href: index.yml
 
 - name: Overview
   items:
@@ -29,8 +29,8 @@
   - name: Connect to the cache 
     href: hpc-cache-mount.md
   - name: Monitor the Azure HPC Cache
-    href: hpc-cache-monitor.md
-    
+    href: hpc-cache-monitor.md    
+
 - name: Resources
   items: 
   - name: Open a support ticket
@@ -43,4 +43,3 @@
       href: hpc-cache-ingest-msrsync.md
     - name: Populate the cache by manual file copy 
       href: hpc-cache-ingest-manual.md
-

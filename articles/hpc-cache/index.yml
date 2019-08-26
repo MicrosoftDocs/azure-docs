@@ -7,10 +7,10 @@ metadata:
   author: ekpgh
   ms.service: hpc-cache
   ms.topic: landing-page
-  ms.date: 08/22/2019
+  ms.date: 08/26/2019
   ms.author: v-erkell
 abstract:
-  description: The Azure HPC Cache is a high performance cache for file-based workloads. It solves the latency problem between compute and storage for read-heavy workloads. Customers can use show a single virtual filesystem that includes data located in an on-premises datacenter, in Azure, or from both locations. The Azure HPC Cache provides scale into tens of thousands of cores. Azure HPC Cache is in *Public Preview*. Additional product changes might be made during this phase and before the general availability release.
+  description: The Azure HPC Cache is a high performance cache for file-based workloads. It solves the latency problem between compute and storage for read-heavy workloads. Customers can use show a single virtual filesystem that includes data located in an on-premises datacenter, in Azure, or from both locations. The Azure HPC Cache provides scale into tens of thousands of cores. <p>Azure HPC Cache is in <em>Public Preview</em>. Additional product changes might be made during this phase and before the general availability release.
 sections:
 - title: Step-by-step tutorials
   items:
