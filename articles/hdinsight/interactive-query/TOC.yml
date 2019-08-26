@@ -16,7 +16,7 @@
 - name: Concepts
   items:
   - name: Compare storage options
-    href: ../hdinsight/hdinsight-hadoop-compare-storage-options.md
+    href: ../hdinsight-hadoop-compare-storage-options.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Capacity planning

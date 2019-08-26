@@ -39,7 +39,7 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
   - name: Compare storage options
-    href: ../hdinsight/hdinsight-hadoop-compare-storage-options.md
+    href: ../hdinsight-hadoop-compare-storage-options.md
 - name: How to
   items:
   - name: Enable auto topic creation
