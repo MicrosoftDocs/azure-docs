@@ -23,11 +23,6 @@ In this tutorial, you will learn how to:
 > * Ship Data Box Disk to Microsoft
 > * Pick up Data Box Disk in different regions
 
-
-## Prerequisites
-
-Before you begin, make sure that you have completed the [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md).
-
 ::: zone end
 
 ::: zone target="chromeless"
@@ -37,6 +32,11 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 ::: zone end
 
 ::: zone target="docs"
+
+## Prerequisites
+
+Before you begin, make sure that you have completed the [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md).
+
 
 ## Ship Data Box Disk back
 
