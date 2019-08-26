@@ -24,7 +24,7 @@ Before you begin, if you are new to Premium Storage, first read the [Select an A
 
 If you are looking to benchmark your disk, see our article on [Benchmarking a disk](disks-benchmarks.md).
 
-* [Select a disk type](../articles/virtual-machines/windows/disks-types.md)  
+* [Select a disk type](disks-types.md)  
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
