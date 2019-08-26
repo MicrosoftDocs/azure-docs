@@ -22,13 +22,13 @@ ms.author: vijetaj
 
 # Store access credentials securely on a Data Science Virtual Machine
 
-How to manage the credentials that need to be in your code for authenticating to cloud services is a well-known challenge in building cloud applications. It's obviously vital to keep these credentials secure. Ideally, they should never appear on developer workstations or get checked in to source control.
+It's common for the code in cloud applications to contain credentials for authenticating to cloud services. How to manage and secure these credentials is a well-known challenge in building cloud applications. Ideally, credentials should never appear on developer workstations or get checked in to source control.
 
 The [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) feature makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having any credentials in your code.
 
-One way to secure credentials is to use Windows Installer (MSI) in combination with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), a managed Azure service to store secrets and cryptographic keys securely. You can access a key vault by using the managed identity and retrieve the authorized secrets and cryptographic keys from the key vault. 
+One way to secure credentials is to use Windows Installer (MSI) in combination with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), a managed Azure service to store secrets and cryptographic keys securely. You can access a key vault by using the managed identity and then retrieve the authorized secrets and cryptographic keys from the key vault.
 
-The managed identities for Azure resources and Key Vault documentation is a comprehensive resource for in-depth information on these services. The rest of this article walks through the basic use of MSI and Key Vault on the Data Science Virtual Machine (DSVM) to access Azure resources. 
+The managed identities for Azure resources and Key Vault documentation comprise a comprehensive resource for in-depth information on these services. The rest of this article walks through the basic use of MSI and Key Vault on the Data Science Virtual Machine (DSVM) to access Azure resources. 
 
 ## Create a managed identity on the DSVM 
 
@@ -45,9 +45,9 @@ az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 
 ## Assign Key Vault access permission to a VM principal
 ```
-# Prerequisite: You have already created an empty Key Vault resource on Azure by using the Azure portal or Azure CLI. 
+# Prerequisite: You have already created an empty Key Vault resource on Azure by using the Azure portal or Azure CLI.
 
-# Assign only get and set permission but not the capability to list the keys.
+# Assign only get and set permissions but not the capability to list the keys.
 az keyvault set-policy --object-id <Principal ID of the DSVM from previous step> --name <Key Vault Name> -g <Resource Group of Key Vault>  --secret-permissions get set
 ```
 
@@ -58,14 +58,14 @@ az keyvault set-policy --object-id <Principal ID of the DSVM from previous step>
 x=`curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true`
 token=`echo $x | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
 
-# Access the key vault by using the access token. 
+# Access the key vault by using the access token.
 curl https://<Vault Name>.vault.azure.net/secrets/SQLPasswd?api-version=2016-10-01 -H "Authorization: Bearer $token"
 ```
 
 ## Access storage keys from the DSVM
 
 ```
-# Prerequisite: You have granted your VM's MSI access to use storage account access keys based on instructions from the article at https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage. This article describes the process in more detail.
+# Prerequisite: You have granted your VMs MSI access to use storage account access keys based on instructions from the article at https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage. This article describes the process in more detail.
 
 y=`curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true`
 ytoken=`echo $y | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
@@ -105,8 +105,8 @@ print("My secret value is {}".format(secret.value))
 ## Access the key vault from Azure CLI
 
 ```
-# With managed identities for Azure resources set up on the DSVM, users on the DSVM can use Azure CLI to perform the authorized functions. Here are commands to access the key vault from Azure CLI without having to log in to an Azure account. 
-# Prerequisites: MSI is already set up on the DSVM as indicated earlier. Specific permission, like accessing storage account keys, reading specific secrets, and writing new secrets, is provided to the MSI. 
+# With managed identities for Azure resources set up on the DSVM, users on the DSVM can use Azure CLI to perform the authorized functions. Here are commands to access the key vault from Azure CLI without having to log in to an Azure account.
+# Prerequisites: MSI is already set up on the DSVM as indicated earlier. Specific permission, like accessing storage account keys, reading specific secrets, and writing new secrets, is provided to the MSI.
 
 # Authenticate to Azure CLI without requiring an Azure account. 
 az login --msi
