@@ -1,6 +1,6 @@
 ---
 title: Latency in Blob storage - Azure Storage
-description: 
+description: Understand and measure latency for Blob storage operations, and learn how to design your Blob storage applications for low latency.
 services: storage
 author: tamram
 
@@ -27,7 +27,7 @@ Azure Storage bandwidth, also referred to as throughput, is related to the reque
 
 ## Latency metrics for block blobs
 
-Azure Storage provides two latency metrics for block blobs. These metrics can be viewed in the Azure Portal:
+Azure Storage provides two latency metrics for block blobs. These metrics can be viewed in the Azure portal:
 
 - **End-to-end (E2E) latency** measures the interval from when Azure Storage receives the first packet of the request until Azure Storage receives a client acknowledgement on the last packet of the response.
 
@@ -41,26 +41,27 @@ Under normal conditions, there is little gap between end-to-end latency and serv
 
 ## Factors influencing latency
 
-To assess latency, first establish baseline metrics for your scenario. Baseline metrics provide you with the expected end-to-end and server latency in the context of your application environment, depending on your workload profile, application configuration settings, client resources, network pipe, and other factors. When you have baseline metrics, you can more easily identify abnormal versus normal conditions. Baseline metrics also enable you to observe the effects of changed parameters, such as application configuration or VM sizes.
-
 The main factor influencing latency is operation size. It takes longer to complete larger operations, due to the amount of data being transferred over the network and processed by Azure Storage.
 
-The following diagram shows the total time for operations of various sizes. For small amounts of data, the latency interval is predominantly spent handling the request, rather than transferring data. The total latency interval increases only slightly as the operation size increases (marked 1 in the diagram below). As the operation size further increases, more time is spent on transferring data, and the total operation time is roughly 50/50 (marked 2 in the diagram below). With larger operation sizes, the total time is almost exclusively spent on transferring data and the request handling is largely insignificant (marked 3 in the diagram below).
+The following diagram shows the total time for operations of various sizes. For small amounts of data, the latency interval is predominantly spent handling the request, rather than transferring data. The latency interval increases only slightly as the operation size increases (marked 1 in the diagram below). As the operation size further increases, more time is spent on transferring data, so that the total latency interval is split between request handling and data transfer (marked 2 in the diagram below). With larger operation sizes, the latency interval is almost exclusively spent on transferring data and the request handling is largely insignificant (marked 3 in the diagram below).
 
 ![Screenshot showing total operation time by operation size](media/storage-blobs-latency/operation-time-size-chart.png)
 
-Another factor is client configuration such as concurrency and threading, which affects how many storage requests can be in flight at any given point in time and how your application uses threads and combined with the latency of each request determines the overall throughput. Client resources, which includes CPU, memory, local storage and network interface can also affect latency. Processing storage requests takes CPU and memory resources. If the client is under pressure due to underpowered VM or some runaway process in the system, there will be less resource to process storage requests. If the storage requests involve local storage, it too can be a resource constraint, either because it is not fast enough or contention from other processes. Any contention or lack of client resources will result in an increase in E2E latency without an increase in server latency, so essentially increasing the gap between the two.
+Client configuration factors such as concurrency and threading also affect latency. Overall throughput depends on how many storage requests are in flight at any given point in time and on how your application handles threading. Client resources including CPU, memory, local storage, and network interfaces can also affect latency.
 
-Equally important is the network interface and network pipe between the client and Azure storage. The physical distance alone can be a significant factor, like is the client VM in the same Azure region, in another Azure region, or on-premises somewhere else? Other factors such as network hops, ISP routing, Internet state can influence overall storage latency.
+Processing Azure Storage requests requires client CPU and memory resources. If the client is under pressure due to an underpowered virtual machine or some runaway process in the system, there are fewer resources available to process Azure Storage requests. Any contention or lack of client resources will result in an increase in end-to-end latency without an increase in server latency, increasing the gap between the two metrics.
+
+Equally important is the network interface and network pipe between the client and Azure Storage. Physical distance alone can be a significant factor, for example if a client VM is in a different Azure region or on-premises. Other factors such as network hops, ISP routing, and internet state can influence overall storage latency.
+
+To assess latency, first establish baseline metrics for your scenario. Baseline metrics provide you with the expected end-to-end and server latency in the context of your application environment, depending on your workload profile, application configuration settings, client resources, network pipe, and other factors. When you have baseline metrics, you can more easily identify abnormal versus normal conditions. Baseline metrics also enable you to observe the effects of changed parameters, such as application configuration or VM sizes.
 
 ## Block blob latency
 
-Azure Blob Storage offers two different performance options: premium and standard. Azure Premium Blob Storage offers significantly lower and more consistent latency than Standard Blob Storage. If you look at your E2E and Server latency in Azure Storage Metrics, and:
+Azure Blob Storage offers two different performance options: premium and standard. Premium Blob storage offers significantly lower and more consistent latency than standard Blob storage. If you review your end-to-end and server latency metrics, and find that end-to-end latency is significantly higher than server latency, then investigate and address the source of the additional latency.
 
-- E2E is significantly higher than Server latency, you will want to investigate, determine and fix the source of latency.
-- E2E and Server latency are close, and you need overall lower latency, you will want to look at Azure Premium Blob Storage.
+If your end-to-end and server latency are similar, but you want lower latency, then consider migrating to premium Blob storage.
 
-For more performance details on Premium Blob Storage see this [blog post](https://aka.ms/premblobperf).
+## Next steps
 
-I hope this blog post helped you get some insights into what storage latency is, why it matters, and the performance metrics available in Azure portal to determine the source of storage latency. Look to Premium Blob Storage as the solution to reduce storage latency, and [possibly overall storage costs](https://azure.microsoft.com/en-us/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage), for your critical or transaction-heavy applications.
-
+- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md)
+- [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md)
