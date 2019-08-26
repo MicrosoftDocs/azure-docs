@@ -87,6 +87,9 @@ In this section, you create the certificate and key files that you'll use later 
    * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
+   > [!NOTE]
+   > These certificates and keys are used only for DPS enrollments, and shouldn't be confused with the CA certificates that the IoT Edge device presents to modules or leaf devices for verification. For more information, see [Azure IoT Edge certificate usage detail](iot-edge-certs.md).
+
 ## Generate certificates with Windows
 
 Use the steps in this section to generate test certificates on Windows. You can use a Windows machine to generate the certificates, and then use them when creating a deployment for any IoT Edge device running on any supported operating system.
@@ -273,7 +276,7 @@ Replace the placeholder values for `scope_id`, `identity_cert`, `identity_pk`, a
 
 Install the IoT Edge runtime on the device for which you generated the identity certificate and identity key. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-See [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md) for more detailed information, including prerequisites and instructions for tasks like managing containers and updating IoT Edge.
+For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
 1. Run PowerShell as an administrator.
 
