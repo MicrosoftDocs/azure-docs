@@ -18,3 +18,12 @@ ms.author: aschhab
 
 ---
 
+# Service Bus Resource Manager exceptions
+
+This article lists exceptions generated when interacting with Azure Service Bus using Azure Resource Manager (ARM) - via templates or direct calls.
+
+## Exception Categories
+
+### Bad Request
+
+"Bad Request" implies that the request received by the Resource Manager failed validation.
