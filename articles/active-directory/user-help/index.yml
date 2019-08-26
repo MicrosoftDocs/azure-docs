@@ -20,7 +20,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
+  # Card
   - title: Set up and use the Microsoft Authenticator app
     linkLists:
       - linkListType: overview
@@ -35,9 +35,10 @@ landingContent:
         links:
           - text: Backup and recover account info
             url: user-help-auth-app-backup-recovery.md
-		  - text: Sign in using the app
+          - text: Sign in using the app
             url: user-help-auth-app-sign-in.md
-  # Card (optional)
+  
+  # Card
   - title: Set up and use two-step verification
     linkLists:
       - linkListType: overview
@@ -52,6 +53,7 @@ landingContent:
             url: multi-factor-authentication-end-user-manage-settings.md
 		  - text: Get help
             url: multi-factor-authentication-end-user-troubleshoot.md
+ 
   # Card
   - title: Set up and use security info (preview)
     linkLists:
@@ -65,6 +67,7 @@ landingContent:
             url: security-info-add-update-methods-overview.md
           - text: Add info during sign-in prompt
             url: security-info-setup-signin.md
+  
   # Card
   - title: Set up and use My Profile (preview)
     linkLists:
@@ -78,6 +81,7 @@ landingContent:
             url: myprofile-portal-organizations-page.md
           - text: Manage your connected devices
             url: myprofile-portal-devices-page.md
+  
   # Card
   - title: Set up and use My Apps portal
     linkLists:
@@ -91,6 +95,7 @@ landingContent:
             url: my-apps-portal-end-user-update-profile.md
           - text: Get help
             url: my-apps-portal-end-user-troubleshoot.md
+  
   # Card
   - title: Reset your own password
     linkLists:
@@ -104,6 +109,7 @@ landingContent:
             url: active-directory-passwords-reset-register.md
           - text: Reset your password
             url: user-help-reset-password.md
+  
   # Card
   - title: Manage your devices
     linkLists:
