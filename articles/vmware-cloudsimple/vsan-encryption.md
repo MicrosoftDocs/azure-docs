@@ -13,7 +13,7 @@ manager: dikamath
 
 You can configure the vSAN software encryption feature so your CloudSimple Private Cloud can work with a key management server running in your Azure virtual network.
 
-VMware requires use of an external KMIP 1.1 compliant third-party key management server (KMS) tool when using vSAN encryption. You can leverage any supported KMS that is certified by VMware and is available for Azure. 
+VMware requires use of an external KMIP 1.1 compliant third-party key management server (KMS) tool when using vSAN encryption. You can leverage any supported KMS that is certified by VMware and is available for Azure.
 
 This guide describes how to use HyTrust KeyControl KMS running in an Azure virtual network. A similar approach can be used for any other certified third-party KMS solution for vSAN.
 
@@ -23,7 +23,7 @@ This KMS solution requires you to:
 * Provide your own licenses for the KMS tool.
 * Configure and manage vSAN encryption in your Private Cloud using the third-party KMS tool running in your Azure virtual network.
 
-## KMS Deployment scenario
+## KMS deployment scenario
 
 The KMS server cluster runs in your Azure virtual network and is IP reachable from the Private Cloud vCenter over the configured Azure ExpressRoute connection.
 

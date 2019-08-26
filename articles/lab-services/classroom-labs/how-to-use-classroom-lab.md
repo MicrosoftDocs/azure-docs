@@ -51,11 +51,35 @@ This article describes how to register to a classroom lab, view all the labs tha
 2. Do one of the following steps: 
     1. For **Windows** virtual machines, save the **RDP** file to the hard disk. Open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator/professor to sign in to the machine. 
     3. For **Linux** virtual machines, you can use **SSH** or **RDP** (if it's enabled) to connect to them. For more information, see [Enable remote desktop connection for Linux machines](how-to-enable-remote-desktop-linux.md). 
+    1. If you are using a **Mac** to connect to the lab VM, follow instructions in the next section. 
+
+## Connect to a VM using RDP on a Mac
+This section shows how a student can connect to a VM from a Mac by using RDP.
+
+### Step 1: Install Microsoft Remote Desktop on a Mac
+1. Open the App Store on your Mac, and search for **Microsoft Remote Desktop**.
+
+    ![Microsoft Remote Desktop](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
+1. Install the latest version of Microsoft Remote Desktop. 
+
+### Step 2: Access the VM from your Mac using RDP
+1. Open the **RDP** file that's downloaded on your computer with **Microsoft Remote Desktop** installed. It should start connecting to the VM. 
+
+    ![Connect to VM](../media/how-to-use-classroom-lab/connect-linux-vm.png)
+1. Select **Continue** if you receive the following warning. 
+
+    ![Certificate warning](../media/how-to-use-classroom-lab/certificate-error.png)
+1. You should see the VM. 
+
+    > [!NOTE]
+    > The following example is for a CentOS Linux VM. 
+
+    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
 
 ## Progress bar 
 The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the additional time allotted to you in addition to the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies as per the following scenarios:
 
-- If a class is in progress (within the schedule of the class), progress bar is greyed out to represent quota hours aren't being used. 
+- If a class is in progress (within the schedule of the class), progress bar is grayed out to represent quota hours aren't being used. 
 
     ![Progress bar in gray color](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
 - If a quota isn't assigned (zero hours), the text **Available during classes only** is shown in place of the progress bar. 

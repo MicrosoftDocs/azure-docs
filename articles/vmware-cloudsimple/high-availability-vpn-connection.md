@@ -313,11 +313,11 @@ Configuring Cisco Adaptive Security Appliance virtual (ASAv) on Azure:
 
 Configuring Site-to-Site VPN with Proxy IDs on Palo Alto:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#" target="_blank">Set Up Site-to-Site VPN</a>
+[Set Up Site-to-Site VPN](https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#)
 
 Setting up up tunnel monitor:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/vpns/set-up-tunnel-monitoring.html" target="_blank">Set Up Tunnel Monitoring</a>
+[Set Up Tunnel Monitoring](https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/vpns/set-up-tunnel-monitoring.html)
 
 IKE gateway or IPsec tunnel operations:
 

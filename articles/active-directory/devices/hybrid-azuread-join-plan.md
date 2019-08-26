@@ -84,11 +84,13 @@ If you are relying on the System Preparation Tool (Sysprep) and if you are using
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-If your Windows 10 domain joined devices are already [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
+If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
-- Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined.
+- Any existing Azure AD registered state would be automatically removed <i>after the device is Hybrid Azure AD joined</i>.
 - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
-- This change is now available for Windows 10 1803 release with KB4489894 applied. However, if you have Windows Hello for Business configured, the user is required to re-setup Windows Hello for Business after the dual state clean up.
+- In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
+
+
 
 ## Review controlled validation of hybrid Azure AD join
 

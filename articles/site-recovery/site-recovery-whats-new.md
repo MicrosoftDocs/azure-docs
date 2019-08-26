@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -18,6 +18,27 @@ If you have suggestions for Site Recovery features, we'd love to [hear your feed
 ## Installing updates
 
 [Review this article](service-updates-how-to.md) for Site Recovery update support and instructions.
+
+## Updates (August 2019)
+
+### Update rollup 39
+
+[Update rollup 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+### Azure VM disaster recovery
+
+New features for Azure VM disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Encryption without Azure AD** | Encryption without an Azure AD app is now supported for Azure VM replication to managed disks running Windows.
+**Network resources for failover** | When failing over to another region, you can now attach network resource settings (NSGs, load balancing, public IP address) to a VM. 
 
 ## Updates (July 2019)
 

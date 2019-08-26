@@ -105,11 +105,11 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From the __Overview__ section, use the __Registry__ link to access the Azure Container Registry for the workspace.
 
-    ![Screenshot of the overview for the workspace](media/how-to-deploy-app-service/workspace-overview.png)
+    [![Screenshot of the overview for the workspace](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
 
 2. From the Azure Container Registry, select __Repositories__, and then select the __image name__ that you want to deploy. For the version that you want to deploy, select the __...__ entry, and then __Deploy to web app__.
 
-    ![Screenshot of deploying from ACR to a web app](media/how-to-deploy-app-service/deploy-to-web-app.png)
+    [![Screenshot of deploying from ACR to a web app](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
 
 3. To create the Web App, provide a site name, subscription, resource group, and select the App service plan/location. Finally, select __Create__.
 
@@ -119,7 +119,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 From the [Azure portal](https://portal.azure.com), select the Web App created in the previous step. From the __Overview__ section, copy the __URL__. This value is the __base URL__ of the service.
 
-![Screenshot of the overview for the web app](media/how-to-deploy-app-service/web-app-overview.png)
+[![Screenshot of the overview for the web app](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
 
 The web service that passes requests to the model is located at `{baseurl}/score`. For example, `https://mywebapp.azurewebsites.net/score`. The following Python code demonstrates how to submit data to the URL and display the response:
 
