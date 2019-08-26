@@ -211,7 +211,7 @@ You can use [Adaptive Application Controls](https://docs.microsoft.com/azure/sec
 
 
 ## Incident response
-Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat detection works, read [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
+Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat detection works, read [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 While this article doesn’t have the intent to assist you creating your own Incident Response plan, we are going to use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages are shown in the following diagram:
 
