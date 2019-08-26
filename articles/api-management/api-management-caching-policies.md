@@ -117,7 +117,7 @@ For more information, see [Policy expressions](api-management-policy-expressions
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** inbound
-- **Policy scopes:** API, operation, product
+- **Policy scopes:** all scopes
 
 ## <a name="StoreToCache"></a> Store to cache
 The `cache-store` policy caches responses according to the specified cache settings. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
@@ -189,7 +189,7 @@ For more information, see [Policy expressions](api-management-policy-expressions
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** outbound
-- **Policy scopes:** API, operation, product
+- **Policy scopes:** all scopes
 
 ## <a name="GetFromCacheByKey"></a> Get value from cache
 Use the `cache-lookup-value` policy to perform cache lookup by key and return a cached value. The key can have an arbitrary string value and is typically provided using a policy expression.
@@ -235,7 +235,7 @@ For more information and examples of this policy, see [Custom caching in Azure A
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** inbound, outbound, backend, on-error
-- **Policy scopes:** global, API, operation, product
+- **Policy scopes:** all scopes
 
 ## <a name="StoreToCacheByKey"></a> Store value in cache
 The `cache-store-value` performs cache storage by key. The key can have an arbitrary string value and is typically provided using a policy expression.
@@ -277,7 +277,7 @@ For more information and examples of this policy, see [Custom caching in Azure A
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** inbound, outbound, backend, on-error
-- **Policy scopes:** global, API, operation, product
+- **Policy scopes:** all scopes
 
 ### <a name="RemoveCacheByKey"></a> Remove value from cache
 The `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.
@@ -315,7 +315,7 @@ The `cache-remove-value` deletes a cached item identified by its key. The key ca
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
 
 - **Policy sections:** inbound, outbound, backend, on-error
-- **Policy scopes:** global, API, operation, product
+- **Policy scopes:** all scopes
 
 ## Next steps
 

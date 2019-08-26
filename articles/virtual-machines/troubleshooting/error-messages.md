@@ -4,7 +4,7 @@ description: Understand some of the common error codes encountered when you prov
 services: virtual-machines
 documentationcenter: ''
 author: xujing-ms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

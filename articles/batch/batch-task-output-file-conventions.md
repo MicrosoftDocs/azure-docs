@@ -4,7 +4,7 @@ description: Learn how to use Azure Batch File Conventions library for .NET to p
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e

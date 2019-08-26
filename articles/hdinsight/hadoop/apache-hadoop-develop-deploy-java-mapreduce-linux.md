@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/13/2019
 ms.author: hrasheed
 
 ---

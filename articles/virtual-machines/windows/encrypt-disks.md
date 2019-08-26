@@ -4,7 +4,7 @@ description: Encrypt virtual disks on a Windows VM for enhanced security by usin
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

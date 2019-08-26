@@ -4,7 +4,7 @@ description: Learn about networking as it relates to the basics of creating Linu
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

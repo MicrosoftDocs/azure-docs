@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: cephalin;dariac
+ms.author: cephalin
+ms.reviewer: dariac
 ms.custom: seodec18
 
 ---

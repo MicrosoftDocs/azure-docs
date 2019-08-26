@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
@@ -37,11 +37,11 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a blank SQL data warehouse
+## Create a blank SQL Data Warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
-Follow these steps to create a blank SQL data warehouse. 
+Follow these steps to create a blank SQL Data Warehouse. 
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -598,8 +598,7 @@ Loading using PolyBase and authenticating through managed identities is the most
         
    1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Refer to the following [documentation] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
-) if you'd like to set up virtual network service endpoints for SQL Data Warehouse. 
+Refer to the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) if you'd like to set up virtual network service endpoints for SQL Data Warehouse. 
 
 ## Clean up resources
 

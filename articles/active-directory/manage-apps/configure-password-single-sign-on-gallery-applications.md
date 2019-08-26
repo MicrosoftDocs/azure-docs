@@ -3,8 +3,8 @@ title: How to configure password single sign-on for an Azure AD Gallery applicat
 description: How to configure an application for secure password-based single sign-on when it is already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # How to configure password single sign-on for an Azure AD Gallery application

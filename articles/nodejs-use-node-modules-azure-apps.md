@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: rloutlaw
+ms.author: routlaw
 
 ---
 # Using Node.js Modules with Azure applications

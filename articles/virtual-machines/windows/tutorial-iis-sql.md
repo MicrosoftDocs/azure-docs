@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to install the Azure SQL, IIS, .NET
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

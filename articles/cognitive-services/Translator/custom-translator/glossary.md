@@ -2,12 +2,12 @@
 title: Glossary - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator Glossary
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review glossary, so that I can understand the terms in multiple articles.
 ---

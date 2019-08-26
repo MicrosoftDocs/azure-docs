@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ---
 # Tutorial: Install and create Service Fabric cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS or Azure and install an application into it.
 
 This tutorial is part two of a series. This tutorial walks you through the steps for creating a Service Fabric standalone cluster.
 
@@ -32,7 +32,7 @@ In part two of the series, you learn how to:
 
 ## Download the Service Fabric for Windows Server package
 
-Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](https://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
+Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](https://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your VM, and paste it on the Desktop.
 
 Select the zip file and open the context menu and select **Extract All** > **Extract**.  As you extract the files, you will generate a folder on the desktop that is the same as the zip file name.
 

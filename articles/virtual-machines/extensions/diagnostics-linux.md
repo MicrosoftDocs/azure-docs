@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018 
-ms.author: agaiha
+ms.author: gwallace
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
 

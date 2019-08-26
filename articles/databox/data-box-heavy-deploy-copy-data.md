@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Copy data to Azure Data Box Heavy via SMB (preview)
+# Tutorial: Copy data to Azure Data Box Heavy via SMB
 
 This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
@@ -223,7 +223,7 @@ After you've connected to the SMB share, begin data copy.
 
     ![Download error files](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    For more information, see [View error logs during data copy to Data Box Heavy](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box Heavy issues](data-box-troubleshoot.md).
+    For more information, see [View error logs during data copy to Data Box Heavy](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box Heavy issues](data-box-troubleshoot.md).
 
 5. Open the error file in Notepad. The following error file indicates that the data is not aligned correctly.
 

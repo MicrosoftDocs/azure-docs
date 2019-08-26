@@ -4,7 +4,7 @@ description: Quickstart guide for manual installation of single-instance SAP HAN
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''

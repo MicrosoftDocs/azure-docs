@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you will enable features of Azure Active Directory (Azure AD) Identity Protection, an Azure AD Premium P2 feature that is more than just a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to risky behaviors. These policies, can either automatically block or initiate remediation, including requiring password changes and enforcing Multi-Factor Authentication.
 
-Azure AD Identity Protection policies can be used in addition to existing conditional access policies as an extra layer of protection. Your users may never trigger a risky behavior requiring one of these policies, but as an administrator you know they are protected.
+Azure AD Identity Protection policies can be used in addition to existing Conditional Access policies as an extra layer of protection. Your users may never trigger a risky behavior requiring one of these policies, but as an administrator you know they are protected.
 
 Some items that may trigger a risk event include:
 

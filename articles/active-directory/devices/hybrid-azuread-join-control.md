@@ -5,9 +5,9 @@ description: Learn how to do a controlled validation of hybrid Azure AD join bef
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: article
+ms.topic: conceptual
+ms.date: 06/28/2019
 
-ms.date: 05/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -29,14 +29,9 @@ To do a controlled validation of hybrid Azure AD join on Windows current devices
 
 1. Clear the Service Connection Point (SCP) entry from Active Directory (AD) if it exists
 1. Configure client-side registry setting for SCP on your domain-joined computers using a Group Policy Object (GPO)
-1. If you are using AD FS, you must also:
-   1. Configure the client-side registry setting for SCP on you’re an AD FS server using a GPO  
-   1. Uncheck “Automatically remove unused devices” under Services > Device Registration > Properties  
+1. If you are using AD FS, you must also configure the client-side registry setting for SCP on your AD FS server using a GPO  
 
-> [!NOTE]
-> Ensure default configuration remains unchanged for “Register domain-joined computers as devices” GPO set to “Not Configured” and “Automatically register new Windows 10 domain joined devices with Azure Active Directory” set to “Yes” when using Configuration Manager.
 
-After you verify that everything works as expected, you can automatically register the rest of your Windows current devices with Azure AD by [configuring SCP using Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ### Clear the SCP from AD
 
@@ -50,8 +45,6 @@ Use the Active Directory Services Interfaces Editor (ADSI Edit) to modify the SC
    1. Select the values of **azureADId** and **azureADName** (one at a time) and click **Remove**
 1. Close **ADSI Edit**
 
-> [!NOTE]
-> If a SCP is not configured in AD, then you should follow the same approach as described to [Configure client-side registry setting for SCP](#configure-client-side-registry-setting-for-scp)) on your domain-joined computers using a Group Policy Object (GPO).
 
 ### Configure client-side registry setting for SCP
 
@@ -76,14 +69,17 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Value name: **TenantName**
       1. Value type: **REG_SZ**
-      1. Value data: Your verified **domain name** in Azure AD (for example, `contoso.onmicrosoft.com` or any other verified domain name in your directory)
+      1. Value data: Your verified **domain name** if you are using federated environment such as AD FS. Your verified **domain name** or your onmicrosoft.com domain name for example, `contoso.onmicrosoft.com` if you are using managed environment
    1. Click **OK**
 1. Close the editor for the newly created GPO
 1. Link the newly created GPO to the desired OU containing domain-joined computers that belong to your controlled rollout population
 
 ### Configure AD FS settings
 
-If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your AD FS servers. This configuration is needed for AD FS to establish the source for device identities as Azure AD.
+If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your AD FS servers. The SCP object defines the source of authority for device objects. It can be on-premises or Azure AD. When this is configured for AD FS, the source for device objects is established as Azure AD.
+
+> [!NOTE]
+> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises, and AD FS would start deleting device objects from on-premises directory after a stipulated period.
 
 ## Controlled validation of hybrid Azure AD join on Windows down-level devices
 
@@ -96,9 +92,10 @@ The installer creates a scheduled task on the system that runs in the user conte
 To control the device registration, you should deploy the Windows Installer package to your selected group of Windows down-level devices.
 
 > [!NOTE]
-> If SCP is not configured in AD, then you should follow the same approach as described above to configure the client-side registry setting for SCP on your domain-joined computers using a Group Policy Object (GPO).
+> If a SCP is not configured in AD, then you should follow the same approach as described to [Configure client-side registry setting for SCP](#configure-client-side-registry-setting-for-scp)) on your domain-joined computers using a Group Policy Object (GPO).
 
-After you verify that everything works as expected, you can automatically register the rest of your Windows down-level devices with Azure AD by deploying the package to all down-level devices and [configuring SCP using Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+
+After you verify that everything works as expected, you can automatically register the rest of your Windows current and down-level devices with Azure AD by [configuring SCP using Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## Next steps
 

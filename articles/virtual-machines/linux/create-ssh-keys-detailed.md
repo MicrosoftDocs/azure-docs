@@ -4,7 +4,7 @@ description: Learn detailed steps to create and manage an SSH public and private
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 

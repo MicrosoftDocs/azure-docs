@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal
@@ -98,57 +98,47 @@ Open your server's **Overview** page. Make a note of the **Server name** and the
 
 There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
 
-1. In a shell, connect to a database in your Azure Database for PostgreSQL server by typing the psql command line.
+1. Run the following psql command to connect to an Azure Database for PostgreSQL server
+   ```bash
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-    To connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/current/static/app-psql.html) utility, use the following format:
-    ```bash
-    psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
-    ```
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
+  
+   ```bash
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
 
-    For example, the following command connects to an example server:
+   > [!TIP]
+   > If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example the connection string for psql would be, 
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
-    ```bash
-    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-    ```
+   After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may appear because the psql you're using might be a different version than the Azure Database for PostgreSQL server version. 
 
-    psql parameter |Value|Description
-    ---|---|---
-    --host | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. The example server shown is **mydemoserver.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
-    --port | 5432 | The port to use when you connect to the Azure Database for PostgreSQL server. 
-    --username | Server admin login name |The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember your username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
-    --dbname | *postgres* | The default, system-generated database name that was created for the first connection. Later, you create your own database.
-
-    After you run the psql command with your own parameter values, you're prompted to enter the server admin password. This password is the same one that you provided when you created the server. 
-
-    psql parameter |Suggested value|Description
-    ---|---|---
-    password | Your admin password | The typed password characters aren't shown on the bash prompt. After you type all the characters, hit the Enter key to authenticate and connect.
-
-    After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may appear because the psql you're using might be a different version than the Azure Database for PostgreSQL server version. 
-    
-    Example psql output:
-    ```bash
-    psql (9.5.7, server 9.6.2)
-    WARNING: psql major version 9.5, server major version 9.6.
-        Some psql features might not work.
+   Example psql output:
+   ```bash
+   psql (9.5.7, server 9.6.2)
+   WARNING: psql major version 9.5, server major version 9.6.
+    Some psql features might not work.
     SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
-    Type "help" for help.
-   
-    postgres=> 
-    ```
+   Type "help" for help.
 
-    > [!TIP]
-    > If the firewall is not configured to allow the IP address of your client, the following error occurs:
-    > 
-    > "psql: FATAL:  no pg_hba.conf entry for host `<IP address>`, user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
-    > 
-    > To resolve the error, make sure the server configuration matches the steps in the "Configure a server-level firewall rule" section of this article.
+   postgres=> 
+   ```
+
+   > [!TIP]
+   > If the firewall is not configured to allow the IP address of your client, the following error occurs:
+   > 
+   > "psql: FATAL:  no pg_hba.conf entry for host `<IP address>`, user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+   > 
+   > Confirm your client's IP is allowed in the firewall rules step above.
 
 2. Create a blank database called "mypgsqldb" at the prompt by typing the following command:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
-    The command might take a few minutes to finish. 
 
 3. At the prompt, execute the following command to switch connections to the newly created database **mypgsqldb**:
     ```bash

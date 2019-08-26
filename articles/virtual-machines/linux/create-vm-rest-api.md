@@ -4,7 +4,7 @@ description: Learn how to create a Linux virtual machine in Azure that uses Mana
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

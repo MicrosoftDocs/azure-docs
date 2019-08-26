@@ -42,7 +42,7 @@ Here are a couple example scenarios when you might invite guests to your organiz
 
 When you use B2B collaboration, you can invite an external user to your organization as a guest. The guest appears to be in your organization, but the guest does not have any credentials associated with it. Whenever a guest has to be authenticated, they must be authenticated in their home organization and not in your organization. This means that if the guest no longer has access to their home organization, they also lose access to your organization. For example, if the guest leaves their organization, they automatically lose access to any resources you shared with them in Azure AD without you having to do anything. For more information about B2B, see [What is guest user access in Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
-![B2B and guest](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagram showing how a guest user appears in your directory, but is authenticated in their home directory](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## Check guest collaboration settings
 
@@ -54,7 +54,7 @@ To make sure you can invite guests into your organization, you should check your
 
 1. Click **Manage external collaboration settings**.
 
-    ![External collaboration settings](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![External collaboration settings page showing permission, invite, and collaboration restriction settings](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
 1. Make sure that the **Admins and users in the guest inviter role can invite** switch is set to **Yes**.
 
@@ -76,21 +76,21 @@ Using PIM, you can invite a guest and make them eligible for an Azure resource r
 
 1. Under Manage, click **Roles** to see the list of roles for Azure resources.
 
-    ![Azure resources roles](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Azure resources roles list showing number of users that are active and eligible](./media/pim-resource-roles-external-users/resources-roles.png)
 
 1. Click the minimum role that the user will need.
 
-    ![Selected role](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Selected role page listing the current members of that role](./media/pim-resource-roles-external-users/selected-role.png)
 
 1. On the role page, click **Add member** to open the New assignment pane.
 
 1. Click **Select a member or group**.
 
-    ![Select a member or group](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![New assignment - Select a member or group pane listing users and groups along with an Invite option](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. To invite a guest, click **Invite**.
 
-    ![Invite a guest](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Invite a guest page with boxes to enter an email address and specify a personal message](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. After you have selected a guest, click **Invite**.
 
@@ -100,13 +100,13 @@ Using PIM, you can invite a guest and make them eligible for an Azure resource r
 
 1. In the **Membership settings** pane, select the assignment type and duration.
 
-    ![Membership settings](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![New assignment - Membership settings page with options to specify assignment type, start date, and end date](./media/pim-resource-roles-external-users/membership-settings.png)
 
 1. To complete the assignment, click **Done** and then **Add**.
 
     The guest role assignment will appear in your role list.
 
-    ![Role assignment for guest](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Role page listing the guest as eligible](./media/pim-resource-roles-external-users/role-assignment.png)
 
 ## Activate role as a guest
 
@@ -114,13 +114,13 @@ As an external user, you first need to accept the invite to your Azure AD organi
 
 1. Open the email with your invitation. The email will look similar to the following.
 
-    ![Email invite](./media/pim-resource-roles-external-users/email-invite.png)
+    ![Email invite with directory name, personal message, and a Get Started link](./media/pim-resource-roles-external-users/email-invite.png)
 
 1. Click the **Get Started** link in the email.
 
 1. After reviewing the permissions, click **Accept**.
 
-    ![Review permissions](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Review permissions page in a browser with a list of permissions that the organization would like you to review](./media/pim-resource-roles-external-users/invite-accept.png)
 
 1. You might be asked to accept a terms of use and specify whether you want to stay signed in.
 
@@ -128,11 +128,11 @@ As an external user, you first need to accept the invite to your Azure AD organi
 
 1. To activate your role, open the email with your activate role link. The email will look similar to the following.
 
-    ![Email invite](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![Email message from PIM indicating that you eligible for a role with an Activate role link](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
 1. Click **Activate role** to open your eligible roles in PIM.
 
-    ![My roles - eligible](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![My roles page in PIM listing your eligible roles](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. Under Action, click the **Activate** link.
 
@@ -140,7 +140,7 @@ As an external user, you first need to accept the invite to your Azure AD organi
 
 1. Once you have specified the settings for the role, click **Activate** to activate the role.
 
-    ![Activate role](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Activate page listing scope and options to specify the start time, duration, and reason](./media/pim-resource-roles-external-users/activate-role.png)
 
     Unless the administrator is required to approve your request, you should have access to the specified resources.
 
@@ -152,13 +152,13 @@ Just like a member user, you can view audit logs to keep track of what guests ar
 
 1. Click **Resource audit** to view the activity for that resource. The following shows an example of the activity for a resource group.
 
-    ![Resource audit](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Azure resources - Resource audit page listing the time, requestor, and action](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. To view the activity for the guest, click **Azure Active Directory** > **Users** > guest name.
 
 1. Click **Audit logs** to see the audit logs for the organization. If necessary, you can specify filters.
 
-    ![organization audit](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Directory audit logs listing date, target, initiated by, and activity](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## Next steps
 

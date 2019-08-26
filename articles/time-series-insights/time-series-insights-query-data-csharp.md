@@ -10,13 +10,13 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
 # Query data from the Azure Time Series Insights GA environment using C#
 
-This C# example demonstrates how to query data from the Azure Time Series Insights GA environment. 
+This C# example demonstrates how to query data from the Azure Time Series Insights GA environment.
 
 The sample shows several basic examples of Query API usage:
 
@@ -26,7 +26,7 @@ The sample shows several basic examples of Query API usage:
 1. As an example of web socket request, event aggregates data is requested for the environment of interest. Data is requested for the whole availability time range.
 
 > [!NOTE]
-> The example code is available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> The example code is available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## Project Dependencies
 
@@ -38,6 +38,6 @@ Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newton
 
 ## Next steps
 
-- To learn more about querying, read the [Query API reference](/rest/api/time-series-insights/ga-query-api).
+- To learn more about querying, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Read how to [connect a JavaScript single-page app](tutorial-create-tsi-sample-spa.md) to Time Series Insights.

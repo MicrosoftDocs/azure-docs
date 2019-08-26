@@ -6,16 +6,14 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: ''
-
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
-ms.author: monhaber
-
+ms.date: 6/03/2019
+ms.author: "v-mohabe"
 ---
 # Platforms and features supported by Azure Security Center
 
@@ -26,8 +24,7 @@ Security state monitoring and recommendations are available for virtual machines
 >
 
 ## Platforms that support the data collection agent 
-
-This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
+This section lists the platforms on which the Log Analytics Agent, which is used by Azure Security Center, can run.
 
 ### Supported platforms for Windows computers and VMs
 The following Windows operating systems are supported:
@@ -55,7 +52,7 @@ The following Linux operating systems are supported:
 * Oracle Linux 6 and 7
 * Red Hat Enterprise Linux Server 6 and 7
 * Debian GNU/Linux 8 and 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+* Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
 32-bit
@@ -63,7 +60,7 @@ The following Linux operating systems are supported:
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 and 9
-* Ubuntu Linux 14.04 LTS and 16.04 LTS
+* Ubuntu Linux 14.04 LTS, and 16.04 LTS
 
 ## VMs and Cloud Services
 VMs that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
@@ -74,7 +71,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||||Pricing|
+|Server|Windows|||Linux|||Pricing|
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
@@ -89,7 +86,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party deployment|✔|X|X|✔|X|X|Free|
-|NSGs assessment|✔|✔|X|✔|✔|X|Free|
+|NSG assessment|✔|✔|X|✔|✔|X|Free|
 |Fileless threat detection|✔|✔|✔|X|X|X|Standard|
 |Network map|✔|✔|X|✔|✔|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
@@ -108,14 +105,17 @@ For information about when recommendations are generated for each of these prote
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
-| Trend Micro – All version | Windows Server Family  | No | Yes |
+| Trend Micro – All versions* | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
-| Kaspersky| Windows Server Family  | No | No  |
-| Sophos| Windows Server Family  | No | No  |
+| McAfee v10+ | Linux Server Family  | No | Yes **\*** |
+| Sophos V9+| Linux Server Family  | No | Yes  **\***  |
+
+ **\*** The coverage state and supporting data is currently available only in the Log Analytics workspace associated to your protected subscriptions, and is not reflected in Azure Security Center portal.
 
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+> - Detection of Trend Micro protection is supported for Deep Security agents.  OfficeScan agents are not supported.
 
 ## Supported PaaS features
 
@@ -125,7 +125,7 @@ For information about when recommendations are generated for each of these prote
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob storage accounts*|✔| ✔|
+|Azure Blob storage accounts|✔| ✔|
 |App services|✔| ✔|
 |Cloud Services|✔| X|
 |VNets|✔| NA|
@@ -133,7 +133,6 @@ For information about when recommendations are generated for each of these prote
 |NICs|✔| NA|
 |NSGs|✔| NA|
 |Subscription|✔ **| ✔|
-|App service|✔| NA|
 |Batch|✔| NA|
 |Service fabric|✔| NA|
 |Automation account|✔| NA|
@@ -143,14 +142,9 @@ For information about when recommendations are generated for each of these prote
 |Stream analytics|✔| NA|
 |Event hub|✔| NA|
 |Logic apps|✔| NA|
-|Subnet|✔| NA|
-|Vnet|✔| NA|
 |Storage account|✔| NA|
 |Redis|✔| NA|
-|SQL|✔| NA|
 |Data lake analytics|✔| NA|
-|Storage account|✔| NA|
-|Subscription|✔| NA|
 |Key vault|✔| NA|
 
 
@@ -165,6 +159,6 @@ For information about when recommendations are generated for each of these prote
 ## Next steps
 
 - Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
-- Learn more about [virtual machine behavioral analysis and crash dump memory analysis in Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Learn more about [Threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
 - Find [frequently asked questions about using Azure Security Center](security-center-faq.md).
 - Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).

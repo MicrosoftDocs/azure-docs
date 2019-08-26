@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to understand about the Microsoft identity platform (v2.0) endpoint and platform so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
@@ -34,13 +34,13 @@ Microsoft identity platform is an evolution of the Azure Active Directory (Azure
 - **Application configuration API and PowerShell**: which allows programmatic configuration of your applications through REST API (Microsoft Graph and Azure Active Directory Graph 1.6) and PowerShell, so you can automate your DevOps tasks.
 - **Developer content**: conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
 
-For developers, Microsoft identity platform offers seamless integration into innovations in the identity and security space, such as passwordless authentication, step-up authentication, and conditional access.  You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
+For developers, Microsoft identity platform offers seamless integration into innovations in the identity and security space, such as passwordless authentication, step-up authentication, and Conditional Access.  You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
 
 With Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
 
 ## Getting started
 
-Working with identity doesn’t have to be hard. Choose a scenario that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
+Working with identity doesn’t have to be hard. Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
 
 - [Build a single-page app](scenario-spa-overview.md)
 - [Build a web app that signs in users](scenario-web-app-sign-user-overview.md)
@@ -59,6 +59,7 @@ The following chart outlines common authentication app scenarios – use it as a
 
 If you’d like to learn more about core authentication concepts, we recommend you start with these topics:
 
+- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 - [Authentication basics](authentication-scenarios.md)
 - [Application and service principals](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)

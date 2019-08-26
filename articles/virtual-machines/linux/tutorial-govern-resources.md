@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use the Azure CLI to manage Azur
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 
 ms.service: virtual-machines-linux

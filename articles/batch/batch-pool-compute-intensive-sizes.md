@@ -3,7 +3,7 @@ title: Use compute-intensive Azure VMs with Batch | Microsoft Docs
 description: How to take advantage of HPC and GPU VM sizes in Azure Batch pools
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 
 ms.service: batch

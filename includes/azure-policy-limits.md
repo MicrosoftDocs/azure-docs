@@ -5,7 +5,7 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: "include"
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: dacoulte
 ms.custom: "include file"
 ---
@@ -15,7 +15,7 @@ the subscription or the [management group](../articles/governance/management-gro
 
 | Where | What | Maximum count |
 |---|---|---|
-| Scope | Policy definitions | 250 |
+| Scope | Policy definitions | 500 |
 | Scope | Initiative definitions | 100 |
 | Tenant | Initiative definitions | 1,000 |
 | Scope | Policy or initiative assignments | 100 |

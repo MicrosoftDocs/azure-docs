@@ -1,14 +1,14 @@
 ---
 title: What is Ink Recognizer? - Ink Recognizer API
-titlesuffix: Azure Cognitive Services
-description: Integrate the Ink Recognizer into your applications, websites, tools, and other solutions to provide...
+titleSuffix: Azure Cognitive Services
+description: Integrate the Ink Recognizer into your applications, websites, tools, and other solutions to allow ink stroke data to be identified and used as input.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: tutorial
-ms.date: 05/02/2019
+ms.topic: overview
+ms.date: 07/24/2019
 ms.author: erhopf
 ---
 
@@ -17,7 +17,7 @@ ms.author: erhopf
 
 The Ink Recognizer Cognitive Service provides a cloud-based REST API to analyze and recognize digital ink content. Unlike services that use Optical Character Recognition (OCR), the API requires digital ink stroke data as input. Digital ink strokes are time-ordered sets of 2D points (X,Y coordinates) that represent the motion of input tools such as digital pens or fingers. It then recognizes the shapes and handwritten content from the input and returns a JSON response containing all recognized entities.
 
-![A flowchart describing sending an ink stroke input to the API](media/ink-recognizer-pen-graph.png)
+![A flowchart describing sending an ink stroke input to the API](media/ink-recognizer-pen-graph.svg)
 
 ## Features
 

@@ -4,7 +4,7 @@ description: Crawl Azure JSON blobs for text content using the Azure Search Blob
 
 ms.date: 05/02/2019
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 
 services: search
@@ -115,7 +115,7 @@ You can use the REST API to index JSON blobs, following a three-part workflow co
 
 You can review [REST example code](#rest-example) at the end of this section that shows how to create all three objects. This section also contains details about [JSON parsing modes](#parsing-modes), [single blobs](#parsing-single-blobs), [JSON arrays](#parsing-arrays), and [nested arrays](#nested-json-arrays).
 
-For code-based JSON indexing, use [Postman](search-fiddler.md) and the REST API to create these objects:
+For code-based JSON indexing, use [Postman](search-get-started-postman.md) and the REST API to create these objects:
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -133,7 +133,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 
 ### 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-fiddler.md) to send HTTP requests to Azure Search.
+For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-postman.md) to send HTTP requests to Azure Search.
 
 Copy the following four values into Notepad so that you can paste them into a request:
 

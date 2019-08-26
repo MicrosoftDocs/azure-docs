@@ -2,13 +2,13 @@
 title: Cheat sheet for Azure SQL Data Warehouse | Microsoft Docs
 description: Find links and best practices to quickly build your Azure SQL Data Warehouse solutions.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: nicw
+ms.date: 08/23/2019
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
@@ -91,9 +91,11 @@ Learn more about [partitions].
 
 ## Incremental load
 
-If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data. We recommend using PolyBase and ADF V2 for automating your ELT pipelines into SQL Data Warehouse.
+If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data.  This is particularly important when loading into tables with clustered columnstore indexes.  See [resource classes](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) for further details.  
 
-For a large batch of updates in your historical data, first delete the concerned data. Then make a bulk insert of the new data. This two-step approach is more efficient.
+We recommend using PolyBase and ADF V2 for automating your ELT pipelines into SQL Data Warehouse.
+
+For a large batch of updates in your historical data, consider using a [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
 
 ## Maintain statistics
  Until auto-statistics are generally available, SQL Data Warehouse requires manual maintenance of statistics. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics. 

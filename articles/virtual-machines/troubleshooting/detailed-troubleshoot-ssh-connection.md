@@ -5,7 +5,7 @@ keywords: ssh connection refused,ssh error,azure ssh,SSH connection failed
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 

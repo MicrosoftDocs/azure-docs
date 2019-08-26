@@ -51,6 +51,14 @@ The **-ActivityId** parameter returns a specific diagnostic activity if it exist
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
 ```
 
+### View error messages for a failed activity by activity ID
+
+To view the error messages for a failed activity, you must run the cmdlet with the **-Detailed** parameter. You can view the list of errors by running the **Select-Object** cmdlet.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
+```
+
 ### Filter diagnostic activities by user
 
 The **-UserName** parameter returns a list of diagnostic activities initiated by the specified user, as shown in the following example cmdlet.
@@ -140,7 +148,7 @@ The following table lists common errors your admins might run into.
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |
 |8001|UserNotFound |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
 |8005|UserNotFoundInAAD |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
-|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) to provide consent for your tenant.|
+|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to provide consent for your tenant.|
 
 ### External connection error codes
 

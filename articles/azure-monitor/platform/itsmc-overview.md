@@ -35,6 +35,7 @@ With ITSMC, you can
 -  Create work items in ITSM tool, based on your Azure alerts (metric alerts, Activity Log alerts and Log Analytics alerts).
 -  Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
+Read more about the [legal terms and privacy policy](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 You can start using the ITSM Connector using the following steps:
 
@@ -57,7 +58,9 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
 3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
    >[!NOTE]
-   >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
+   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
+   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West Europe, Southeast Asia, Southeast Australia, West Central US, East Japan, South UK, Central India, Central Canada.
+
 4. In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
 
    ![ITSMC workspace](media/itsmc-overview/itsmc-solution-workspace.png)

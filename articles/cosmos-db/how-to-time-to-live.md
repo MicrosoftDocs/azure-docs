@@ -31,6 +31,11 @@ Use the following steps to enable time to live on a container with no expiration
 
    ![Configure Time to live in Azure portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+
+- When DefaultTimeToLive is null then your Time to Live is Off
+- When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
+- When DefaultTimeToLive has any other Int value (except 0) your Time to Live setting is On
+
 ## Enable time to live on a container using SDK
 
 ### <a id="dotnet-enable-noexpiry"></a>.NET SDK

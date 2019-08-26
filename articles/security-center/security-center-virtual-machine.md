@@ -65,15 +65,15 @@ After setting a security policy, Security Center analyzes the security state of 
 
 | Recommendation | Description |
 | --- | --- |
-| [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
-| [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
-| [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to VMs. |
-| [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
-| [Install Endpoint Protection](security-center-install-endpoint-protection.md) |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
-| [Enable VM Agent](security-center-enable-vm-agent.md) |Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
-| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM. |
-| [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
-| [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
+| Enable data collection for subscriptions |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
+| Remediate OS vulnerabilities |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
+| Apply system updates |Recommends that you deploy missing system security and critical updates to VMs. |
+| Reboot after system updates |Recommends that you reboot a VM to complete the process of applying system updates. |
+| Install Endpoint Protection |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
+| Enable VM Agent |Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
+| Apply disk encryption |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM. |
+| Vulnerability assessment not installed |Recommends that you install a vulnerability assessment solution on your VM. |
+| Remediate vulnerabilities |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
 
 > [!NOTE]
 > To learn more about recommendations, see [Managing security recommendations](security-center-recommendations.md) article.
@@ -90,7 +90,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 ![Security alerts](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by [type](security-center-alerts-type.md) and date.
+Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date.
 
 ## See also
 To learn more about Security Center, see the following:

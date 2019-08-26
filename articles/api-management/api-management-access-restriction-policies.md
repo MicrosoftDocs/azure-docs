@@ -31,6 +31,9 @@ This topic provides a reference for the following API Management policies. For i
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
 -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 
+> [!TIP]
+> You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with AAD authentication by applying the `validate-jwt` policy on the API level or you can apply it on the API operation level and use `claims` for more granular control.
+
 ## <a name="CheckHTTPHeader"></a> Check HTTP header
 
 Use the `check-header` policy to enforce that a request has a specified HTTP header. You can optionally check to see if the header has a specific value or check for a range of allowed values. If the check fails, the policy terminates request processing and returns the HTTP status code and error message specified by the policy.
@@ -74,7 +77,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="LimitCallRate"></a> Limit call rate by subscription
 
@@ -134,7 +137,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** product
+-   **Policy scopes:** product, api, operation
 
 ## <a name="LimitCallRateByKey"></a> Limit call rate by key
 
@@ -198,7 +201,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 
@@ -244,7 +247,7 @@ In the following example, the policy only allows requests coming either from the
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
@@ -362,7 +365,7 @@ In the following example, the quota is keyed by the caller IP address.
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
@@ -549,7 +552,7 @@ output-token-variable-name|String. Name of context variable that will receive to
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## Next steps
 

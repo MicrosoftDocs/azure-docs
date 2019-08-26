@@ -4,7 +4,7 @@ description: Learn what Azure VM extensions are and how to use them with Azure v
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

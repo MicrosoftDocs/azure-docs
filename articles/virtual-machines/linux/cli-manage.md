@@ -4,7 +4,7 @@ description: Learn some of the common Azure CLI commands to get you started mana
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
