@@ -7,10 +7,10 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
+ms.date: 08/26/2019
 ---
 # Azure SQL Database serverless (preview)
 

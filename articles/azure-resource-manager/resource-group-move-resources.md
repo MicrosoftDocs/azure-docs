@@ -31,8 +31,6 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
 
-   If the destination resource group contains a virtual network, the state of its dependent resources can block the move, even when those resources aren't involved in the move. For more information, see [Networking move guidance](./move-limitations/virtual-network-move-limitations.md).
-
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
 1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
