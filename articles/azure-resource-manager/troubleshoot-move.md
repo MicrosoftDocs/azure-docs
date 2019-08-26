@@ -38,7 +38,9 @@ When possible, break large moves into separate move operations. Resource Manager
 
 ## Resource not in succeeded state
 
-If you get an error message that indicates a resource can't be moved because it isn't in a succeeded state, it may actually be a dependent resource that is blocking the move. See [State of dependent resources](./move-limitations/networking-move-limitations.md#state-of-dependent-resources).
+When you get an error message that indicates a resource can't be moved because it isn't in a succeeded state, it may actually be a dependent resource that is blocking the move.
+
+If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move. To avoid this problem, move your resources to a resource group that doesn't have a virtual network.
 
 ## Next steps
 
