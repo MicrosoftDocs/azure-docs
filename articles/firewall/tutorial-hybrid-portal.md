@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 6/15/2019
+ms.date: 08/27/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -88,49 +88,93 @@ Now, create the VNet:
 
 ## Create the spoke virtual network
 
-Define the subnets to be included in the spoke virtual network:
-
-This VNet will contain three subnets.
-
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
-4. For **Name**, type **Test-FW-VN**.
-5. For **Address space**, type **10.0.0.0/16**.
+4. For **Name**, type **VNet-Spoke**.
+5. For **Address space**, type **192.168.0.0/16**.
 6. For **Subscription**, select your subscription.
 7. For **Resource group**, select **Test-FW-RG**.
 8. For **Location**, select the same location that you used previously.
-9. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-10. For **Address range**, type **10.0.1.0/24**.
+9. Under **Subnet**, for **Name** type **SN-Workload**.
+10. For **Address range**, type **10.6.1.0/24**.
 11. Accept the other default settings, and then select **Create**.
-
-
-
-### Create additional subnets
-
-Next, create subnets for the jump server, and a subnet for the workload servers.
-
-1. On the Azure portal home page, select **Resource groups** > **Test-FW-RG**.
-2. Select the **Test-FW-VN** virtual network.
-3. Select **Subnets** > **+Subnet**.
-4. For **Name**, type **Workload-SN**.
-5. For **Address range**, type **10.0.2.0/24**.
-6. Select **OK**.
 
 ## Create the on-premises virtual network
 
-Define the subnets to be included in the virtual network:
+1. From the Azure portal home page, select **Create a resource**.
+2. Under **Networking**, select **Virtual network**.
+4. For **Name**, type **VNet-OnPrem**.
+5. For **Address space**, type **10.6.0.0/16**.
+6. For **Subscription**, select your subscription.
+7. For **Resource group**, select **FW-Hybrid-Test**.
+8. For **Location**, select the same location that you used previously.
+9. Under **Subnet**, for **Name** type **SN-Corp**.
+10. For **Address range**, type **192.168.1.0/24**.
+11. Accept the other default settings, and then select **Create**.
+
+### Create a public IP address
+
+This is the public IP address used for the on-premises gateway.
+
+1. From the Azure portal home page, select **Create a resource**.
+2. In the search text box, type **public IP address** and press **Enter**.
+3. Select **Public IP address** and then select **Create**.
+4. For the name, type **VNet-Onprem-GW-pip**.
+5. For the resource group, type **FW-Hybrid-Test**.
+6. For **Location**, select the same location that you used previously.
+
+Accept the other defaults, and then select **Create**.
 
 ## Configure and deploy the firewall
 
-Now deploy the firewall into the hub virtual network.
+Now deploy the firewall into the firewall hub virtual network.
 
+1. From the Azure portal home page, select **Create a resource**.
+2. In the left column, select **Networking**, and then select **Firewall**.
+4. On the **Create a Firewall** page, use the following table to configure the firewall:
 
+   |Setting  |Value  |
+   |---------|---------|
+   |Subscription     |\<your subscription\>|
+   |Resource group     |**FW-Hybrid-Test** |
+   |Name     |**AzFW01**|
+   |Location     |Select the same location that you used previously|
+   |Choose a virtual network     |**Use existing**: **VNet-hub**|
+   |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
 
-#Save the firewall private IP address for future use
+5. Select **Review + create**.
+6. Review the summary, and then select **Create** to create the firewall.
 
+   This will take a few minutes to deploy.
+7. After deployment completes, go to the **FW-Hybrid-Test** resource group, and select the **AzFW01** firewall.
+8. Note the private IP address. You'll use it later when you create the default route.
 
 ### Configure network rules
 
+First, add a network rule to allow web traffic.
+
+1. On the **AzFW01** page, Select **Rules**.
+2. Select the **Network rule collection** tab.
+3. Select **Add network rule collection**.
+4. For **Name**, type **RCNet01**.
+5. For **Priority**, type **100**.
+6. For **Action**, select **Allow**.
+6. Under **Rules**, for **Name**, type **AllowWeb**.
+7. For **Protocol**, select **TCP**.
+8. For **Source Addresses**, type **192.168.1.0/24**.
+9. For Destination address, type **10.6.0.0/16**
+10. For **Destination Ports**, type **80**.
+
+Now add a rule to allow RDP traffic.
+
+On the second rule row, type the following:
+
+1. **Name**, type **AllowRDP**.
+2. For **Protocol**, select **TCP**.
+3. For **Source Addresses**, type **192.168.1.0/24**.
+4. For Destination address, type **10.6.0.0/16**
+5. For **Destination Ports**, type **3389**.
+6. Select **Add**.
 
 ## Create and connect the VPN gateways
 
@@ -138,40 +182,93 @@ The hub and on-premises virtual networks are connected via VPN gateways.
 
 ### Create a VPN gateway for the hub virtual network
 
-Create the VPN gateway configuration. The VPN gateway configuration defines the subnet and the public IP address to use.
-
 Now create the VPN gateway for the hub virtual network. Network-to-network configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway SKU.
 
+1. From the Azure portal home page, select **Create a resource**.
+2. In the search text box, type **virtual network gateway** and press **Enter**.
+3. Select **Virtual network gateway**, and select **Create**.
+4. For **Name**, type **GW-hub**.
+5. For **Region**, select the same region that you used previously.
+6. For **Gateway type**, select **VPN**.
+7. For **VPN type**, select **Route-based**.
+8. For **SKU**, select **Basic**.
+9. For **Virtual network**, select **VNet-hub**.
+10. For **Public IP address**, select **Create new**, and type **VNet-hub-GW-pip** for the name.
+11. Accept the remaining defaults and then select **Review + create**.
+12. Review the configuration, then select **Create**.
 
 ### Create a VPN gateway for the on-premises virtual network
 
-Create the VPN gateway configuration. The VPN gateway configuration defines the subnet and the public IP address to use.
-
 Now create the VPN gateway for the on-premises virtual network. Network-to-network configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway SKU.
 
+1. From the Azure portal home page, select **Create a resource**.
+2. In the search text box, type **virtual network gateway** and press **Enter**.
+3. Select **Virtual network gateway**, and select **Create**.
+4. For **Name**, type **GW-Onprem**.
+5. For **Region**, select the same region that you used previously.
+6. For **Gateway type**, select **VPN**.
+7. For **VPN type**, select **Route-based**.
+8. For **SKU**, select **Basic**.
+9. For **Virtual network**, select **VNet-Onprem**.
+10. For **Public IP address**, select **Create new**, and type **VNet-Onprem-GW-pip** for the name.
+11. Accept the remaining defaults and then select **Review + create**.
+12. Review the configuration, then select **Create**.
 
 ### Create the VPN connections
 
-Now you can create the VPN connections between the hub and on-premises gateways
-
-#### Get the VPN gateways
-
-#### Create the connections
+Now you can create the VPN connections between the hub and on-premises gateways.
 
 In this step, you create the connection from the hub virtual network to the on-premises virtual network. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
 
+1. Open the **FW-Hybrid-Test** resource group and select the **GW-hub** gateway.
+2. Select **Connections** in the left column.
+3. Select **Add**.
+4. The the connection name, type **hub-to-Onprem**.
+5. Select **VNet-to-VNet** for **Connection type**.
+6. For the **Second virtual network gateway**, select **GW-Onprem**.
+7. For **Shared key (PSK)**, type **AzureA1b2C3**.
+8. Select **OK**.
+
 Create the on-premises to hub virtual network connection. This step is similar to the previous one, except you create the connection from VNet-Onprem to VNet-hub. Make sure the shared keys match. The connection will be established after a few minutes.
+
+1. Open the **FW-Hybrid-Test** resource group and select the **GW-Onprem** gateway.
+2. Select **Connections** in the left column.
+3. Select **Add**.
+4. The the connection name, type **OnPrem-to-hub**.
+5. Select **VNet-to-VNet** for **Connection type**.
+6. For the **Second virtual network gateway**, select **GW-hub**.
+7. For **Shared key (PSK)**, type **AzureA1b2C3**.
+8. Select **OK**.
+
 
 #### Verify the connection
 
-You can verify a successful connection by using the *Get-AzVirtualNetworkGatewayConnection* cmdlet, with or without *-Debug*. 
-Use the following cmdlet example, configuring the values to match your own. If prompted, select **A** to run **All**. In the example, *-Name* refers to the name of the connection that you want to test.
+After about five minutes or so, the status of both connections should be **Connected**.
 
-After the cmdlet finishes, view the values. In the following example, the connection status shows as *Connected* and you can see ingress and egress bytes.
+![Gateway connections](media/tutorial-hybrid-portal/gateway-connections.png)
 
 ## Peer the hub and spoke virtual networks
 
 Now peer the hub and spoke virtual networks.
+
+1. Open the **FW-Hybrid-Test** resource group and select the **VNet-hub** virtual network.
+2. In the left column, select **Peerings**.
+3. Select **Add**.
+4. For **Name**, type **HubtoSpoke**.
+5. For the **Virtual network**, select **VNet-spoke**
+6. For the name of the peering from VNetSpoke to VNet-hub, type **SpoketoHub**.
+7. Select **Allow gateway transit**.
+8. Select **OK**.
+
+### Configure additional settings for the SpoketoHub peering
+
+You'll need to enable the **Allow forwarded traffic** on the SpoketoHub peering.
+
+1. Open the **FW-Hybrid-Test** resource group and select the **VNet-Spoke** virtual network.
+2. In the left column, select **Peerings**.
+3. Select the **SpoketoHub** peering.
+4. Under **Allow forwarded traffic from VNet-hub to VNet-Spoke**, select **Enabled**.
+5. Select **Save**.
 
 ## Create the routes
 
@@ -180,6 +277,60 @@ Next, create a couple routes:
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
 
+1. From the Azure portal home page, select **Create a resource**.
+2. In the search text box, type **route table** and press **Enter**.
+3. Select **Route table**.
+4. Select **Create**.
+5. For the name, type **UDR-Hub-Spoke**.
+6. Select the **FW-Hybrid-Test** for the resource group.
+8. For **Location**, select the same location that you used previously.
+9. Select **Create**.
+10. After the route table is created, select it to open the route table page.
+11. Select **Routes** in the left column.
+12. Select **Add**.
+13. For the route name, type **ToSpoke**.
+14. For the address prefix, type **10.6.0.0/16**.
+15. For next hop type, select **Virtual appliance**.
+16. For next hop address, type the firewall's private IP address that you noted earlier.
+17. Select **OK**.
+
+Now associate the route to the subnet.
+
+1. On the **UDR-Hub-Spoke** page, select **Subnets**.
+2. Select **Associate**.
+3. Select **Choose a virtual network**.
+4. Select **VNet-hub**.
+5. Select **GatewaySubnet**.
+6. Select **OK**.
+
+Now create the default route from the spoke subnet.
+
+1. From the Azure portal home page, select **Create a resource**.
+2. In the search text box, type **route table** and press **Enter**.
+3. Select **Route table**.
+5. Select **Create**.
+6. For the name, type **UDR-DG**.
+7. Select the **FW-Hybrid-Test** for the resource group.
+8. For **Location**, select the same location that you used previously.
+4. For **Virtual network gateway route propagation**, select **Disabled**.
+1. Select **Create**.
+2. After the route table is created, select it to open the route table page.
+3. Select **Routes** in the left column.
+4. Select **Add**.
+5. For the route name, type **ToSpoke**.
+6. For the address prefix, type **0.0.0.0/0**.
+7. For next hop type, select **Virtual appliance**.
+8. For next hop address, type the firewall's private IP address that you noted earlier.
+9. Select **OK**.
+
+Now associate the route to the subnet.
+
+1. On the **UDR-DG** page, select **Subnets**.
+2. Select **Associate**.
+3. Select **Choose a virtual network**.
+4. Select **VNet-spoke**.
+5. Select **SN-Workload**.
+6. Select **OK**.
 
 ## Create virtual machines
 
@@ -187,13 +338,61 @@ Now create the spoke workload and on-premises virtual machines, and place them i
 
 ### Create the workload virtual machine
 
-Create a virtual machine in the spoke virtual network, running IIS, with no public IP address, and allows pings in.
-When prompted, type a user name and password for the virtual machine.
+Create a virtual machine in the spoke virtual network, running IIS, with no public IP address.
 
+1. From the Azure portal home page, select **Create a resource**.
+2. Under **Popular**, select **Windows Server 2016 Datacenter**.
+3. Enter these values for the virtual machine:
+    - **Resource group** - Select existing, and then select **FW-Hybrid-Test**.
+    - **Virtual machine name** - *VM-Spoke-01* .
+    - **Region** - Same region that you're used previously.
+    - **User name** -*azureuser*.
+    - **Password** -*Azure123456!*.
+4. Select **Next:Disks**.
+5. Accept the defaults and select **Next:Networking**.
+6. Make sure that **VNet-Spoke** is selected for the virtual network and the subnet is **SN-Workload**.
+7. For **Public IP**, select **None**.
+8. For **Public inbound ports**, select **Allow selected ports**, and then select **HTTP (80)**, and **RDP (3389)**
+9. Select **Next:Management**.
+10. For **Boot diagnostics**, Select **Off**.
+11. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
+
+### Install IIS
+
+1. Open the interactive shell and make sure that it's set to **PowerShell**.
+2. Run the following command to install IIS on the virtual machine:
+
+    ```azurepowershell-interactive
+    Set-AzVMExtension `
+      -ResourceGroupName FW-Hybrid-Test `
+      -ExtensionName IIS `
+      -VMName VM-Spoke-01 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
 ### Create the on-premises virtual machine
 
-This is a simple virtual machine that you use to connect using Remote Desktop to the public IP address. From there, you then connect to the on-premises server through the firewall. When prompted, type a user name and password for the virtual machine.
+This is a virtual machine that you use to connect using Remote Desktop to the public IP address. From there, you then connect to the on-premises server through the firewall.
+
+1. From the Azure portal home page, select **Create a resource**.
+2. Under **Popular**, select **Windows Server 2016 Datacenter**.
+3. Enter these values for the virtual machine:
+    - **Resource group** - Select existing, and then select **FW-Hybrid-Test**.
+    - **Virtual machine name** - *VM-Onprem* .
+    - **Region** - Same region that you're used previously.
+    - **User name** -*azureuser*.
+    - **Password** -*Azure123456!*.
+4. Select **Next:Disks**.
+5. Accept the defaults and select **Next:Networking**.
+6. Make sure that **VNet-Onprem** is selected for the virtual network and the subnet is **SN-Corp**.
+7. For **Public inbound ports**, select **Allow selected ports**, and then select **RDP (3389)**
+8. Select **Next:Management**.
+9. For **Boot diagnostics**, Select **Off**.
+10. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
 ## Test the firewall
 
@@ -217,9 +416,15 @@ So now you've verified that the firewall rules are working:
 - You can browse web server on the spoke virtual network.
 - You can connect to the server on the spoke virtual network using RDP.
 
-Next, change the firewall network rule collection action to **Deny** to verify that the firewall rules work as expected. Run the following script to change the rule collection action to **Deny**.
+Next, change the firewall network rule collection action to **Deny** to verify that the firewall rules work as expected.
 
-Now run the tests again. They should all fail this time. Close any existing remote desktops before testing the changed rules.
+1. Select the **AzFW01** firewall.
+2. Select **Rules**.
+3. Select the **Network rule collection** tab and select the **RCNet01** rule collection.
+4. For **Action**, select **Deny**.
+5. Select **Save**.
+
+Close any existing remote desktops before testing the changed rules. Now run the tests again. They should all fail this time. 
 
 ## Clean up resources
 
