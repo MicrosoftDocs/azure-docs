@@ -309,7 +309,10 @@
       href: b2clogin.md
     - name: Migrate web API to b2clogin.com
       href: multiple-token-endpoints.md
-      displayName: migrate, b2clogin, owin, jwt
+      displayName: migrate, b2clogin, owin
+    - name: Migrate APIM API to b2clogin.com
+      href: multiple-token-endpoints-apim.md
+      displayName: migrate, b2clogin, apim, api management
   - name: Automation
     items:
     - name: Export usage report
