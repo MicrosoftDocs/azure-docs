@@ -88,6 +88,8 @@ A pipeline consists of one or more steps. A step is a unit run on a compute targ
 You just created a data source that can be referenced in a pipeline as an input to a step. A data source in a pipeline is represented by a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) object. The `DataReference` object points to data that lives in or is accessible from a datastore.
 
 ```python
+from azureml.data.data_reference import DataReference
+
 blob_input_data = DataReference(
     datastore=def_blob_store,
     data_reference_name="test_data",
@@ -97,6 +99,8 @@ blob_input_data = DataReference(
 Intermediate data (or output of a step) is represented by a [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline.
 
 ```python
+from azureml.pipeline.core import PipelineData
+
 output_data1 = PipelineData(
     "output_data1",
     datastore=def_blob_store,
@@ -258,6 +262,8 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 Once you create and attach a compute target to your workspace, you are ready to define a pipeline step. There are many built-in steps available via the Azure Machine Learning SDK. The most basic of these steps is a [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), which runs a Python script in a specified compute target:
 
 ```python
+from azureml.pipeline.steps import PythonScriptStep
+
 trainStep = PythonScriptStep(
     script_name="train.py",
     arguments=["--input", blob_input_data, "--output", processed_data1],
@@ -279,6 +285,8 @@ After you define your steps, you build the pipeline by using some or all of thos
 # list of steps to run
 compareModels = [trainStep, extractStep, compareStep]
 
+from azureml.pipeline.core import Pipeline
+
 # Build the pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 ```
@@ -286,6 +294,8 @@ pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 The following example uses the Azure Databricks compute target created earlier: 
 
 ```python
+from azureml.pipeline.steps import DatabricksStep
+
 dbStep = DatabricksStep(
     name="databricksmodule",
     inputs=[step_1_input],
@@ -316,6 +326,8 @@ When you submit the pipeline, Azure Machine Learning service checks the dependen
 > For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
+from azureml.core import Experiment
+
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
 pipeline_run1.wait_for_completion()
@@ -347,6 +359,8 @@ You can publish a pipeline to run it with different inputs later. For the REST e
 1. To create a pipeline parameter, use a [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object with a default value.
 
    ```python
+   from azureml.pipeline.core.graph import PipelineParameter
+   
    pipeline_param = PipelineParameter(
      name="pipeline_arg",
      default_value=10)
@@ -380,6 +394,9 @@ All published pipelines have a REST endpoint. This endpoint invokes the run of t
 To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) or get more details at [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
+from azureml.pipeline.core import PublishedPipeline
+import requests
+
 response = requests.post(published_pipeline1.endpoint,
                          headers=aad_token,
                          json={"ExperimentName": "My_Pipeline",
