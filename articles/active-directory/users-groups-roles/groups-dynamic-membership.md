@@ -43,11 +43,17 @@ The order of the parts within an expression are important to avoid syntax errors
 
 ### Rule builder in the Azure portal
 
-Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports up to five rules. To add a sixth and any subsequent rule terms, you must use the text box. For more step-by-step instructions, see [Update a dynamic group](groups-update-rule.md).
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports up to five expressions. To add more expressions, you can use the text box.
 
-   ![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
+> [!IMPORTANT]
+> The rule builder guarantees valid rule syntax for up to five expressions. If you make changes that aren't valid in the text box, the rule builder can't synchronize with it until the rule is corrected.
+> The rule builder doesn't change the syntax or usage of dynamic group rules in any way.
 
-### Rules with a single expression
+For more step-by-step instructions, see [Update a dynamic group](groups-update-rule.md).
+
+![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
+
+### Rule syntax for a single expression
 
 A single expression is the simplest form of a membership rule and only has the three parts mentioned above. A rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the name of object.property.
 
@@ -116,7 +122,7 @@ The following are the user properties that you can use to create a single expres
 
 For the properties used for device rules, see [Rules for devices](#rules-for-devices).
 
-## Supported operators
+## Supported expression operators
 
 The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
 
