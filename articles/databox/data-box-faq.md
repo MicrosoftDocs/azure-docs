@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/21/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -180,6 +180,9 @@ A. For Data Box service, Microsoft handles the shipping to and from the Azure da
 
 ### Q. Will my Data Box devices cross country borders during shipping?
 A. All Data Box devices are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country. This applies to both the Data Box and the Data Box Heavy devices.
+
+### Q. I ordered a Data Box in US East but I received a device that was shipped from a location in US West. Where should I return the device to?
+A. We try to get a Data Box device as fast as possible to you. We prioritize the shipment from a datacenter closest to your storage account location but will ship a device from any Azure datacenter that has available inventory. Your Data Box should be returned to the same location where it was shipped from as displayed in the shipping label.
 
 ### Q. E-ink display is not showing the return shipment label. What should I do?
 A. If the E-ink display doesn't show the return shipment label, perform the following steps:
