@@ -27,7 +27,7 @@ For more details on the specification of each VM type, see the following documen
 ### All supported regions except Brazil south and Japan west
 
 > [!Note]
-> To get the SKU identifier for use in powershell and other scripts, add `` to the beginning of all of the VM SKUs in the tables below. For example, `D12_v2` would become `D12_v2`.
+> To get the SKU identifier for use in powershell and other scripts, add `Standard_` to the beginning of all of the VM SKUs in the tables below. For example, `D12_v2` would become `Standard_D12_v2`.
 
 | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
