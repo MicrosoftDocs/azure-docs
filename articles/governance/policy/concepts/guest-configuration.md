@@ -136,7 +136,7 @@ outbound access to the IPs in the regions where your VMs are deployed.
 ## Guest Configuration definition requirements
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
-definition and an **Audit** definition. The **DeployIfNotExists** definition is used to prepare the
+definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** definition is used to prepare the
 virtual machine with the Guest Configuration agent and other components to support the [validation
 tools](#validation-tools).
 
@@ -151,7 +151,7 @@ The **DeployIfNotExists** policy definition validates and corrects the following
 If the **DeployIfNotExists** assignment is Non-compliant, a [remediation
 task](../how-to/remediate-resources.md#create-a-remediation-task) can be used.
 
-Once the **DeployIfNotExists** assignment is Compliant, the **Audit** policy assignment uses the
+Once the **DeployIfNotExists** assignment is Compliant, the **AuditIfNotExists** policy assignment uses the
 local validation tools to determine if the configuration assignment is Compliant or Non-compliant.
 The validation tool provides the results to the Guest Configuration client. The client forwards the
 results to the Guest Extension, which makes them available through the Guest Configuration resource
@@ -162,13 +162,13 @@ compliance in the **Compliance** node. For more information, see [getting compli
 data](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> The **DeployIfNotExists** policy is required for the **Audit** policy to return results.
-> Without the **DeployIfNotExists**, the **Audit** policy shows "0 of 0" resources as status.
+> The **DeployIfNotExists** policy is required for the **AuditIfNotExists** policy to return results.
+> Without the **DeployIfNotExists**, the **AuditIfNotExists** policy shows "0 of 0" resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
 for use in assignments. The built-in initiative named *[Preview]: Audit Password security settings
 inside Linux and Windows virtual machines* contains 18 policies. There are six **DeployIfNotExists**
-and **Audit** pairs for Windows and three pairs for Linux. In each case, the logic inside the
+and **AuditIfNotExists** pairs for Windows and three pairs for Linux. In each case, the logic inside the
 definition validates only the target operating system is evaluated based on the [policy rule](definition-structure.md#policy-rule)
 definition.
 

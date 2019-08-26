@@ -37,7 +37,7 @@ The following tools are included in a DSVM:
 * A standalone Apache Spark instance for local development and testing.
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html).
 * Machine learning and data analytics tools:
-  * Deep learning frameworks: The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), MXNet, and Keras AI frameworks are included on the VM.
+  * Deep learning frameworks: [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), MXNet, and Keras AI frameworks are included on the VM.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool that provides fast and accurate boosted tree implementation.
   * [Rattle](https://togaware.com/rattle/). The R analytical tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
@@ -108,7 +108,9 @@ You're ready to start using the tools that are installed and configured on the V
 
 You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
-## Tools installed on the Microsoft Data Science Virtual Machine
+<a name="tools"></a>
+
+## Tools installed on the DVSM
 
 In the following sections, learn more about the tools that come installed on the Data Science Virtual Machine.
 
