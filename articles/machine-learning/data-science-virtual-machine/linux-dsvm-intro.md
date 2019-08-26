@@ -29,7 +29,7 @@ The key software components included in a Linux DSVM are:
 * Microsoft Machine Learning Server.
 * Anaconda Python distribution (versions 3.5 and 2.7), including popular data analysis libraries.
 * JuliaPro, a curated distribution of the Julia language and popular scientific and data analytics libraries.
-* Standalone Spark instance and single-node Hadoop (HDFS, YARN).
+* Spark Standalone instance and single-node Hadoop (HDFS, YARN).
 * JupyterHub, a multiuser Jupyter notebook server that support R, Python, PySpark, and Julia kernels.
 * Azure Storage Explorer.
 * Azure CLI, the Azure command-line interface for managing Azure resources.
@@ -59,8 +59,8 @@ There are no software charges for the DSVM image. You pay only the Azure hardwar
 
 Before you can create a Linux Data Science Virtual Machine, you must have these prerequisites:
 
-* **Azure subscription**: To get an Azure subscription, see [Get an Azure free trial](https://azure.microsoft.com/free/).
-* **Azure storage account**: To get an Azure storage account, see [Create an Azure storage account](../../storage/common/storage-quickstart-create-account.md). If you don't want to use an existing Azure storage account, you can create a storage account when you create the DSVM.
+* **Azure subscription**: To get an Azure subscription, see [Create a free Azure account](https://azure.microsoft.com/free/).
+* **Azure storage account**: To get an Azure storage account, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md). If you don't want to use an existing Azure storage account, you can create a storage account when you create the DSVM.
 
 ## Other versions of the Data Science Virtual Machine
 
@@ -78,8 +78,8 @@ To create an instance of the Linux DSVM:
 
    ![The wizard that configures a Data Science Virtual Machine](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 1. Enter or select the following information for each step of the wizard:
-
-   1. **Basics**:
+   
+   **1** **Basics**:
 
       * **Name**: The name of the data science server you're creating.
       * **User name**: The first account sign-in ID.
@@ -87,13 +87,18 @@ To create an instance of the Linux DSVM:
       * **Subscription**: If you have more than one subscription, select the subscription on which the machine will be created and billed. You must have permissions to create resources for the subscription.
       * **Resource group**: You can create a new resource group or use an existing group.
       * **Location**: Select a datacenter to use for the DSVM. In most cases, select the datacenter that holds most of your data or that's closest to your physical location (for the fastest network access).
-   1. **Size**: Select a server type that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
-   1. **Settings**:
+   
+   **2** **Size**: Select a server type that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
+   
+   
+   **3** **Settings**:
       * **Disk type**: If you prefer a solid-state drive (SSD), select **Premium**. Otherwise, select **Standard**.
       * **Storage account**: You can create a new Azure storage account in your subscription or use an existing Azure account in the same location that you selected in the **Basics** step of the wizard.
       * **Other parameters**: In most cases, use the default values to configure other parameters. To see non-default values, hover over the informational link for the parameter.
-   1. **Summary**: Verify that the information you entered is correct.
-   1. **Buy**: To start the provisioning, select **Buy**. A link to the terms of the transaction is provided. There are no additional charges for the DSVM beyond the compute for the server size you select in **Size**.
+   
+   **4** **Summary**: Verify that the information you entered is correct.
+   
+   **5** **Buy**: To start the provisioning, select **Buy**. A link to the terms of the transaction is provided. There are no additional charges for the DSVM beyond the compute for the server size you select in **Size**.
 
 Provisioning takes 10-20 minutes. The status of the provisioning is displayed in the Azure portal.
 
@@ -175,7 +180,7 @@ If you're on a graphical interface or have X11 forwarding set up, you can enter 
 
 The Anaconda distribution also comes with a Jupyter Notebook, an environment to share code and analysis. Access the Jupyter Notebook through JupyterHub. You sign in by using your local Linux username and password.
 
-The Jupyter Notebook server is preconfigured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the Jupyter Notebook server. If you access the DSVM via SSH or the X2Go client, you can also access the Jupyter Notebook server at [https://localhost:8000/](https://localhost:8000/).
+The Jupyter Notebook server is preconfigured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the Jupyter Notebook server. If you access the DSVM via SSH or the X2Go client, you can also access the Jupyter Notebook server at https:\//localhost:8000/.
 
 > [!NOTE]
 > Continue if you get any certificate warnings.
@@ -187,9 +192,9 @@ You can access the Jupyter notebook server from any host. Enter **https:\//\<DSV
 
 Microsoft has packaged sample notebooks, one in Python and one in R. You can see the link to the samples on the Jupyter Notebook home page after you authenticate to the Jupyter Notebook by using your local Linux username and password. To create a new notebook, select **New**, and then select the language kernel you want to use. If you don't see the **New** button, select the **Jupyter** icon on the upper left to go to the home page of the notebook server.
 
-### Apache Spark Standalone 
+### Spark Standalone 
 
-A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally before you test and deploy them on large clusters. 
+An instance of Spark Standalone mode is preinstalled on the Linux DSVM to help you develop Spark applications locally before you test and deploy them on large clusters. 
 
 You can run PySpark programs through the Jupyter kernel. When you open Jupyter, select the **New** button and you should see a list of available kernels. **Spark - Python** is the PySpark kernel that lets you build Spark applications by using the Python language. You can also use a Python IDE like PyCharm or Spyder to build your Spark program. 
 
@@ -211,13 +216,13 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-You can stop the Hadoop-related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
+You can stop the Hadoop-related services when you don't need them by running `systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn`.
 
 The /dsvm/samples/MRS directory provides a sample that demonstrates how to develop and test Machine Learning Server in a remote Spark context (the standalone Spark instance on the DSVM).
 
 ### IDEs and editors
 
-You can choose from several code editors, including vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse, LaTeX, and IntelliJ. 
+You can choose from several code editors, including vi/VIM, Emacs, gedit, PyCharm, RStudio, Eclipse, LaTeX, and IntelliJ. 
 
 * gedit, Eclipse, IntelliJ, R Studio, and PyCharm are graphical editors. To use them, you must be signed in to a graphical desktop. You open them by using desktop and application menu shortcuts.
 
@@ -229,19 +234,21 @@ You can choose from several code editors, including vi/VIM, Emacs, gEdit, PyChar
 
   The Azure SDK for Java is also installed with the Azure Toolkit for Eclipse on the DSVM. The Azure SDK for Java gives you access to different Azure services from inside a Java environment. 
   
-  For more information, see [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse.md).
+  For more information, see [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
 * LaTeX is installed through the texlive package, along with an Emacs add-on package called [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). This package simplifies authoring your LaTeX documents in Emacs. 
 
 ### Databases
 
-#### Postgres
+The Linux DSVM gives you access to several database and command-line tools.
 
-The open-source database Postgres is available on the DSVM, with services running and initdb completed. You must create databases and users. For more information, see the [Postgres documentation](https://www.postgresql.org/docs/).  
+#### PostgresSQL
+
+The open-source database PostgresSQL is available on the DSVM, with services running and initdb completed. You must create databases and users. For more information, see the [PostgresSQL documentation](https://www.postgresql.org/docs/).  
 
 #### SQuirreL SQL
 
-SQuirreL SQL, a graphical SQL client, can connect to various databases (such as SQL Server, Postgres, and MySQL) and run SQL queries. You can run SQuirreL SQL from a graphical desktop session (through the X2Go client, for example) by using a desktop icon. Or you can run the client by using the following command in the shell:
+SQuirreL SQL is a graphical SQL client that can connect to various databases (including SQL Server, PostgresSQL, and MySQL) and run SQL queries. You can run SQuirreL SQL from a graphical desktop session (through the X2Go client, for example) by using a desktop icon. Or you can run the client by using the following command in the shell:
 
 ```bash
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh	/usr/local/squirrel-sql-3.7/squirrel-sql.sh
@@ -316,7 +323,7 @@ Microsoft Cognitive Toolkit, Vowpal Wabbit, and XGBoost are discussed in more de
 
 #### Microsoft Cognitive Toolkit
 
-Microsoft Cognitive Toolkit is an open-source deep learning toolkit. It's a command-line tool (cntk) and is already in the PATH.
+Microsoft Cognitive Toolkit is an open-source deep learning toolkit. It's a command-line tool (CNTK) and is already in the PATH.
 
 To run a basic sample, run the following commands in the shell:
 
@@ -377,7 +384,7 @@ For more information about XGBoost, see the [XGBoost documentation](https://xgbo
 
 #### Rattle
 
-Rattle (**R** **A**nalytical **T**ool **T**o **L**earn **E**asily) uses GUI-based data exploration and modeling. Rattle:
+Rattle (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) uses GUI-based data exploration and modeling. Rattle:
 - Presents statistical and visual summaries of data.
 - Transforms data that can be readily modeled.
 - Builds both unsupervised and supervised models from data.
