@@ -89,7 +89,7 @@ landingContent:
         links:
           - text: Enable diagnostic logging
             url: traffic-manager-diagnostic-logs.md
-          - text: Troubleshooting degraded state
+          - text: Troubleshoot degraded state
             url: traffic-manager-troubleshooting-degraded.md
   
   # Card
