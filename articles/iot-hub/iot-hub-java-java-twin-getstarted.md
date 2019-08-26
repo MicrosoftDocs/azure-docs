@@ -75,7 +75,7 @@ In this section, you create a Java app that adds location metadata as a tag to t
     > [!NOTE]
     > You can check for the latest version of **iot-service-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app.
 
     ```xml
     <build>
@@ -108,7 +108,7 @@ In this section, you create a Java app that adds location metadata as a tag to t
     import java.util.Set;
     ```
 
-9. Add the following class-level variables to the **App** class. Replace the `{youriothubconnectionstring}` placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
+9. Add the following class-level variables to the **App** class. Replace `{youriothubconnectionstring}` with the IoT hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -173,7 +173,7 @@ In this section, you create a Java app that adds location metadata as a tag to t
     System.out.println(device);
     ```
 
-14. To query the device twins in IoT hub, add the following code to the `try` block after the code you added in the previous step. The code runs two queries. Each query returns a maximum of 100 devices:
+14. To query the device twins in IoT hub, add the following code to the `try` block after the code you added in the previous step. The code runs two queries. Each query returns a maximum of 100 devices.
 
     ```java
     // Query the device twins in IoT Hub
@@ -222,7 +222,7 @@ In this section, you create a Java console app that sets a reported property val
 
 2. At your command prompt, navigate to the **simulated-device** folder.
 
-3. Using a text editor, open the **pom.xml** file in the **simulated-device** folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub:
+3. Using a text editor, open the **pom.xml** file in the **simulated-device** folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub.
 
     ```xml
     <dependency>
@@ -278,7 +278,7 @@ In this section, you create a Java console app that sets a reported property val
     import java.util.Scanner;
     ```
 
-9. Add the following class-level variables to the **App** class. Replace the `{yourdeviceconnectionstring}` placeholder value with the device connection string you copied previously in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -338,7 +338,7 @@ In this section, you create a Java console app that sets a reported property val
     }
     ```
 
-13. Add the following code to the end of the **main** method. Waiting for the **Enter** key allows time for IoT Hub to report the status of the device twin operations:
+13. Add the following code to the end of the **main** method. Waiting for the **Enter** key allows time for IoT Hub to report the status of the device twin operations.
 
     ```java
     System.out.println("Press any key to exit...");

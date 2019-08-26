@@ -26,7 +26,7 @@ At the end of this tutorial, you will have two Node.js console apps:
 
 ## Prerequisites
 
-To complete this tutorial you need:
+To complete this tutorial, you need:
 
 * Node.js version 10.0.x or later.
 
@@ -50,7 +50,7 @@ To complete this tutorial you need:
 
 In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that are reporting a cellular connection.
 
-1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command prompt. The `--yes` parameter accepts all the defaults:
+1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command prompt. The `--yes` parameter accepts all the defaults.
 
     ```cmd/sh
     npm init --yes
@@ -64,7 +64,7 @@ In this section, you create a Node.js console app that adds location metadata to
 
 3. Using a text editor, create a new **AddTagsAndQuery.js** file in the **addtagsandqueryapp** folder.
 
-4. Add the following code to the **AddTagsAndQuery.js** file, and replace the `{iot hub connection string}` placeholder value with the IoT Hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
+4. Add the following code to the **AddTagsAndQuery.js** file. Replace `{iot hub connection string}` with the IoT Hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
@@ -145,7 +145,7 @@ In the next section, you create a device app that reports the connectivity infor
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.
 
-1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. The `--yes` parameter accepts all the defaults:
+1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. The `--yes` parameter accepts all the defaults.
 
     ```cmd/sh
     npm init --yes
@@ -159,7 +159,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
 
-4. Add the following code to the **ReportConnectivity.js** file. Replace the `{device connection string}` placeholder value with the device connection string you copied when you created the **myDeviceId** device identity in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+4. Add the following code to the **ReportConnectivity.js** file. Replace `{device connection string}` with the device connection string you copied when you created the **myDeviceId** device identity in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
 
     ```javascript
         'use strict';

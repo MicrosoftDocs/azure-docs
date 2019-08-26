@@ -29,7 +29,7 @@ At the end of this tutorial, you will have these .NET console apps:
 
 ## Prerequisites
 
-To complete this tutorial you need:
+To complete this tutorial, you need:
 
 * Visual Studio.
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
@@ -68,7 +68,7 @@ In this section, you create a .NET console app (using C#) that adds location met
     using Microsoft.Azure.Devices;
     ```
 
-5. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT Hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+5. Add the following fields to the **Program** class. Replace `{iot hub connection string}` with the IoT Hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
     ```csharp  
     static RegistryManager registryManager;
@@ -150,7 +150,7 @@ In this section, you create a .NET console app that connects to your hub as **my
     using Newtonsoft.Json;
     ```
 
-5. Add the following fields to the **Program** class. Replace the `{device connection string}` placeholder value with the device connection string that you noted previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+5. Add the following fields to the **Program** class. Replace `{device connection string}` with the device connection string that you noted in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp  
     static string DeviceConnectionString = "{device connection string}";
