@@ -78,25 +78,25 @@ The code snippets in this section demonstrate registering a model from a trainin
 
   + Register a model from an `azureml.core.Run` object:
  
-  ```python
-  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-  print(model.name, model.id, model.version, sep='\t')
-  ```
+    ```python
+    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    print(model.name, model.id, model.version, sep='\t')
+    ```
 
-  The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) reference.
+    The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) reference.
 
   + Register a model from an `azureml.train.automl.run.AutoMLRun` object:
 
-  ```python
-    description = 'My AutoML Model'
-    model = run.register_model(description = description)
+    ```python
+        description = 'My AutoML Model'
+        model = run.register_model(description = description)
 
-    print(run.model_id)
-  ```
+        print(run.model_id)
+    ```
 
-  In this example, the `metric` and `iteration` parameters are not specified, which causes the iteration with the best primary metric to be registered. The `model_id` value returned from the run is used instead of a model name.
+    In this example, the `metric` and `iteration` parameters are not specified, which causes the iteration with the best primary metric to be registered. The `model_id` value returned from the run is used instead of a model name.
 
-  For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) reference.
+    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) reference.
 
 + **Using the CLI**
 
