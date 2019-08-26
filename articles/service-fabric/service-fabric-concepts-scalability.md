@@ -118,6 +118,10 @@ Another option for scaling with Service Fabric is to change the size of the clus
 
 For more information, see [cluster scaling](service-fabric-cluster-scaling.md).
 
+## Choosing a platform
+
+Due to implementation differences between operating systems, choosing to use Service Fabric with Windows or Linux can be a vital part of scaling your application. One potential barrier is how staged logging is performed. Service Fabric on Windows uses a kernel driver for a one-per-machine log, shared between stateful service replicas. This log weighs in at about 8GB. Linux, on the other hand, uses a 256MB staging log for each replica, making it less ideal for applications that want to maximize the number of lightweight service replicas running on a given node. These differences in temporary storage requirements could potentially inform the desired platform for Service Fabric cluster deployment.
+
 ## Putting it all together
 Let's take all the ideas that we've discussed here and talk through an example. Consider the following service: you are trying to build a service that acts as an address book, holding on to names and contact information. 
 
