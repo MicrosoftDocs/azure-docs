@@ -8,60 +8,66 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/26/2019
 ---
-# What are the minimum and recommended node configurations for Azure HDInsight?
+# What are the default and recommended node configurations for Azure HDInsight?
 
-This article discusses various node configurations for the Azure HDInsight service: default, recommended, and supported.
+This article discusses default and recommended node configurations for Azure HDInsight clusters.
 
-## Default node configuration and virtual machine sizes for clusters
+## Default and recommended node configuration and virtual machine sizes for clusters
 
-The following tables list the **default** virtual machine (VM) sizes for HDInsight clusters.  This chart is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters. If you need more than 32 worker nodes in a cluster, select a head node size with at least 8 cores and 14 GB of RAM.
+The following tables list default and recommended virtual machine (VM) sizes for HDInsight clusters.  This chart is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters. If you need more than 32 worker nodes in a cluster, select a head node size with at least 8 cores and 14 GB of RAM. The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios.
+
+For more details on the specification of each VM type, see the following documents:
+
+* [General purpose virtual machine sizes: Dv2 series 1-5](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#dv2-series)
+* [Memory optimized virtual machine sizes: Dv2 series 11-15](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory#dv2-series-11-15)
+* [General purpose virtual machine sizes: Av2 series 1-8](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#av2-series)
 
 * All supported regions except Brazil South and Japan West:
 
-|Cluster type|Hadoop|HBase|Interactive Query|Storm|Spark|ML Server|Kafka|
+| Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
-|Head: default VM size|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
-|Head: recommended VM sizes|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
-||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
-||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
-||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
-|Worker: default VM size|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 with 2 S30 disks per broker|
-|Worker: recommended VM sizes|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
-||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
-||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
-||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
-||||E32 v3||E16 v3|E16 v3|ES4 v3|
-||||E64 v3||E20 v3|E20 v3|E8 v3|
-||||||E32 v3|E32 v3|ES8 v3|
-||||||E64 v3|E64 v3||
-|ZooKeeper: default VM size||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
-|ZooKeeper: recommended VM sizes||A4 v2||A2 v2|||A2M v2|
-|||A8 v2||A4 v2|||D3 v2|
-|||A2m v2||A8 v2|||E8 v3|
-|ML Services: default VM size||||||D4 v2||
-|ML Services: recommended VM size||||||D4 v2||
-|||||||D12 v2||
-|||||||D13 v2||
-|||||||D14 v2||
-|||||||E16 v3||
-|||||||E20 v3||
-|||||||E32 v3||
-|||||||E64 v3||
+| Head: default VM size | Standard_D12_v2 | Standard_D12_v2 | Standard_D13_v2 | Standard_A4_v2 | Standard_D12_v2 | Standard_D12_v2 | Standard_D3_v2 |
+| Head: recommended VM sizes | Standard_D13_v2 | Standard_D3_v2 | Standard_D13_v2 | Standard_A4_v2 | Standard_D12_v2 | Standard_D12_v2 | Standard_D3_v2 |
+|  | Standard_D14_v2 | Standard_D4_v2 | Standard_D14_v2 | Standard_A8_v2 | Standard_D13_v2 | Standard_D13_v2 | Standard_D4_v2 |
+|  | Standard_D5_v2 | Standard_D12_v2 |  |  | Standard_D14_v2 | Standard_D14_v2 | Standard_D12_v2 |
+|  |  |  |  |  |  |  |  |
+| Worker: default VM size | Standard_D4_v2 | Standard_D4_v2 | Standard_D14_v2 | Standard_D3_v2 | Standard_D13_v2 | Standard_D4_v2 | 4 Standard_D12_v2 with 2 S30 disks per broker |
+| Worker: recommended VM sizes | Standard_D5_v2 | Standard_D3_v2 | Standard_D13_v2 | Standard_D3_v2 | Standard_D12_v2 | Standard_D4_v2 | Standard_D3_v2 |
+|  | Standard_D12_v2 | Standard_D4_v2 | Standard_D14_v2 | Standard_D4_v2 | Standard_D13_v2 | Standard_D12_v2 | Standard_D4_v2 |
+|  | Standard_D13_v2 | Standard_D13_v2 |  | Standard_D12_v2 | Standard_D14_v2 | Standard_D13_v2 | Standard_DS3_v2 |
+|  |  |  |  |  |  | Standard_D14_v2 | Standard_DS4_v2 |
+|  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
+| ZooKeeper: default VM size |  | Standard_A4_v2 | Standard_A4_v2 | Standard_A4_v2 |  | Standard_A2_v2 | Standard_A4_v2 |
+| ZooKeeper: recommended VM sizes |  | Standard_A4_v2 | Standard_A4_v2 | Standard_A2_v2 |  | Standard_A2_v2 | Standard_A4_v2 |
+|  |  | Standard_A8_v2 | Standard_A8_v2 | Standard_A4_v2 |  |  | Standard_A8_v2 |
+|  |  | Standard_A2m_v2 | Standard_A2m_v2 | Standard_A8_v2 |  |  | Standard_A2m_v2 |
+| ML Services: default VM size |  |  |  |  |  | Standard_D4_v2 |  |
+| ML Services: recommended VM size |  |  |  |  |  | Standard_D4_v2 |  |
+|  |  |  |  |  |  | Standard_D12_v2 |  |
+|  |  |  |  |  |  | Standard_D13_v2 |  |
+|  |  |  |  |  |  | Standard_D14_v2 |  |
+|  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
 
 * Brazil South and Japan West only (no v2 sizes):
 
-| Cluster type | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
-| --- | --- | --- | --- | --- | --- | --- |
-| Head: default VM size |D12 |D12  | D13 |A3 |D12 |D12 |
-| Head: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-| Worker: default VM size |D4 |D4  |  D14 |D3 |D13 |D4 |
-| Worker: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-| ZooKeeper: default VM size | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-| ZooKeeper: recommended VM sizes | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
-| ML Services: default VM sizes | | | | | |D4 |
-| ML Services: recommended VM sizes | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
+| Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Services |
+|---|---|---|---|---|---|---|
+| Head: default VM size | Standard_D12 | Standard_D12 | Standard_D13 | Standard_A4_v2 | Standard_D12 | Standard_D12 |
+| Head: recommended VM sizes | Standard_D5_v2,<br/> Standard_D13_v2,<br/> Standard_D14_v2 | Standard_D3_v2,<br/> Standard_D4_v2,<br/> Standard_D12_v2 | Standard_D13_v2,<br/> Standard_D14_v2 | Standard_A4_v2,<br/> Standard_A8_v2 | Standard_D12_v2,<br/> Standard_D13_v2,<br/> Standard_D14_v2 | Standard_D12_v2,<br/> Standard_D13_v2,<br/> Standard_D14_v2 |
+| Worker: default VM size | Standard_D4 | Standard_D4 | Standard_D14 | Standard_D3 | Standard_D13 | Standard_D4 |
+| Worker: recommended VM sizes | Standard_D5_v2,<br/> Standard_D12_v2,<br/> Standard_D13_v2 | Standard_D3_v2,<br/> Standard_D4_v2,<br/> Standard_D13_v2 | Standard_D13_v2,<br/> Standard_D14_v2 | Standard_D3_v2,<br/> Standard_D4_v2,<br/> Standard_D12_v2 | Standard_D12_v2,<br/> Standard_D13_v2,<br/> Standard_D14_v2 | Standard_D4_v2,<br/> Standard_D12_v2,<br/> Standard_D13_v2,<br/> Standard_D14_v2 |
+| ZooKeeper: default VM size |  | Standard_A4_v2 | Standard_A4_v2 | Standard_A4_v2 |  | Standard_A2_v2 |
+| ZooKeeper: recommended VM sizes |  | Standard_A4_v2,<br/> Standard_A8_v2,<br/> Standard_A2m_v2 | Standard_A4_v2,<br/> Standard_A8_v2,<br/> Standard_A2m_v2 | Standard_A4_v2,<br/> Standard_A8_v2 |  | Standard_A2_v2 |
+| ML Services: default VM sizes |  |  |  |  |  | Standard_D4 |
+| ML Services: recommended VM sizes |  |  |  |  |  | Standard_D4_v2,<br/> Standard_D12_v2,<br/> Standard_D13_v2,<br/> Standard_D14_v2 |
 
 > [!NOTE]
 > - Head is known as *Nimbus* for the Storm cluster type.
