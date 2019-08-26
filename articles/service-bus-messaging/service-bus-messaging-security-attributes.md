@@ -4,12 +4,11 @@ description: A checklist of security attributes for evaluating Azure Service Bus
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: axisc
 
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
+ms.author: aschhab
 
 ---
 # Security attributes for Azure Service Bus Messaging
@@ -48,7 +47,7 @@ This article documents the security attributes built into Azure Service Bus Mess
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md).|
-| Authorization| Yes | Supports authorization via [RBAC](service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
+| Authorization| Yes | Supports authorization via [RBAC](authenticate-application.md) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
 
 
 

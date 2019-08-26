@@ -75,6 +75,10 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
   1. Assign the built-in **contributor** role at the data factory level.
   2. Create a custom role with the permission  **Microsoft.Resources/deployments/**. Assign this custom role to the user at resource group level.
 
+- Let a user only be able to test connection in a linked service
+
+    Create a custom role role with permissions for the following actions: **Microsoft.DataFactory/factories/getFeatureValue/read** and **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Assign this custom role on the data factory resource for the user.
+
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 
   Assign the built-in **contributor** role on the data factory resource for the user. This role lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.

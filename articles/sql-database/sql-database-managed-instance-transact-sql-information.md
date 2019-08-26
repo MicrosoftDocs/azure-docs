@@ -13,20 +13,23 @@ ms.date: 08/12/2019
 ms.custom: seoapril2019
 ---
 
-# Azure SQL Database managed instance T-SQL differences from SQL Server
+# Managed instance T-SQL differences, limitations and known issues
 
-This article summarizes and explains the differences in syntax and behavior between Azure SQL Database managed instance and on-premises SQL Server Database Engine. The following subjects are discussed: <a name="Differences"></a>
+This article summarizes and explains the differences in syntax and behavior between Azure SQL Database managed instance and on-premises SQL Server Database Engine. The managed instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a managed instance.
+
+![Migration](./media/sql-database-managed-instance/migration.png)
+
+There are some PaaS limitations that are introduced in Managed Instance and some behaviour changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
 - [Availability](#availability) includes the differences in [Always-On](#always-on-availability) and [backups](#backup).
 - [Security](#security) includes the differences in [auditing](#auditing), [certificates](#certificates), [credentials](#credential), [cryptographic providers](#cryptographic-providers), [logins and users](#logins-and-users), and the [service key and service master key](#service-key-and-service-master-key).
 - [Configuration](#configuration) includes the differences in [buffer pool extension](#buffer-pool-extension), [collation](#collation), [compatibility levels](#compatibility-levels), [database mirroring](#database-mirroring), [database options](#database-options), [SQL Server Agent](#sql-server-agent), and [table options](#tables).
 - [Functionalities](#functionalities) include [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distributed transactions](#distributed-transactions), [extended events](#extended-events), [external libraries](#external-libraries), [filestream and FileTable](#filestream-and-filetable), [full-text Semantic Search](#full-text-semantic-search), [linked servers](#linked-servers), [PolyBase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [stored procedures, functions, and triggers](#stored-procedures-functions-and-triggers).
 - [Environment settings](#Environment) such as VNets and subnet configurations.
-- [Temporary limitations and known issues](#Issues).
 
-The managed instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a managed instance.
+Most of these features are architectural constraints and represent service features.
 
-![Migration](./media/sql-database-managed-instance/migration.png)
+This page also explains [Temporary known issues](#Issues) that are discovered in managed instance, which will be resolved in the future.
 
 ## Availability
 
@@ -519,21 +522,25 @@ The following variables, functions, and views return different results:
 - After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and managed instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access managed instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
-### TEMPDB size
+### TEMPDB
 
 The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 
-## <a name="Issues"></a> Known issues and limitations
+### Error logs
 
-### Cross-database Service Broker dialogs don't work after service tier upgrade
+A managed instance places verbose information in error logs. There are many internal system event that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+## <a name="Issues"></a> Known issues
+
+### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 
 **Date:** Aug 2019
 
-Cross-database Service Broker dialogs fail to deliver the messages after change service tier operation. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database by GUID will not be able to deliver messages.
+Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages messages to the target service.
 
-**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after.
+**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
 
-### Some AAD login types cannot be impersonated
+### Impersonification of AAD login types is not supported
 
 **Date:** July 2019
 
@@ -588,13 +595,7 @@ Several system views, performance counters, error messages, XEvents, and error l
 
 ### Error logs aren't persisted
 
-Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs.
-
-### Error logs are verbose
-
-A managed instance places verbose information in error logs, and much of it isn't relevant. 
-
-**Workaround:** Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because Managed Instance was moved several time on several virtual machines.
 
 ### Transaction scope on two databases within the same instance isn't supported
 
