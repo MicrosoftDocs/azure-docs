@@ -61,8 +61,7 @@ The following topics explain how Security Center uses the different telemetry th
 
 ## See also
 In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
-
-* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.

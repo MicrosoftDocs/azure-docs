@@ -27,12 +27,11 @@ This topic shows you how to view and process the alerts that you have received i
 > [!NOTE]
 > To enable advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select Pricing Tier in the [Security Policy](tutorial-security-policy.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
 
-
 ## What are security alerts?
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
 
 > [!NOTE]
-> For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
+> For more information about how Security Center detection capabilities work, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 ## Manage your security alerts
 
@@ -86,4 +85,6 @@ In this document, you learned how to configure security policies in Security Cen
 
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md).
 * [Handling Security Incident in Azure Security Center](security-center-incident.md)
+* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
+* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
