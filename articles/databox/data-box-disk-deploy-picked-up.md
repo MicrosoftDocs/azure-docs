@@ -11,6 +11,13 @@ ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+
+::: zone target="chromeless"
+
+# Return Azure Data Box Disk 
+
+::: zone end
+
 ::: zone target="docs"
 
 # Tutorial: Return Azure Data Box Disk 
@@ -22,16 +29,6 @@ In this tutorial, you will learn how to:
 > [!div class="checklist"]
 > * Ship Data Box Disk to Microsoft
 > * Pick up Data Box Disk in different regions
-
-::: zone end
-
-::: zone target="chromeless"
-
-# Return Azure Data Box Disk 
-
-::: zone end
-
-::: zone target="docs"
 
 ## Prerequisites
 
@@ -162,6 +159,8 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
 3. Hand over to the courier. 
 
+
+::: zone target="docs"
 
 ## Next steps
 
