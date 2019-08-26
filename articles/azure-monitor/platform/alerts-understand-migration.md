@@ -254,9 +254,16 @@ After you [trigger the migration](alerts-using-migration-tool.md), you'll receiv
 
 Due to some recent changes to classic alert rules in your subscription, the subscription cannot be migrated. This problem is temporary. You can restart the migration after the migration status moves back **Ready for migration** in a few days.
 
-### Policy or scope lock preventing us from migrating your rules
+### Scope lock preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, there's either a policy or scope lock preventing us from creating resources. Depending on the policy or scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock or policy temporarily and triggering the migration again.
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### Policy with 'Deny' effect preventing us from migrating your rules
+
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. The policies that are blocking the process are listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolve this problem by either:
+
+- Excluding the subscriptions, or resource groups for the duration of the migration process from the policy assignment. [Learn more about managing policies exclusion scope](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- Removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## Next steps
 
