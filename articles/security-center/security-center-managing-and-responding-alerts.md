@@ -23,16 +23,13 @@ This document helps you use Azure Security Center to manage and respond to secur
 > [!NOTE]
 > To enable advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select Pricing Tier in the [Security Policy](tutorial-security-policy.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
 >
->
 
 ## What are security alerts?
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
 
 
 > [!NOTE]
-> For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
->
->
+> For more information about how Security Center detection capabilities work, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 ## Managing security alerts
 You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
@@ -104,7 +101,7 @@ The remediation suggested by Security Center vary according to the security aler
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
 * [Handling Security Incident in Azure Security Center](security-center-incident.md)
-* [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
+* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.

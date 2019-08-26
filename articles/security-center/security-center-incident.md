@@ -18,7 +18,7 @@ ms.author: rkarlin
 
 ---
 # Handling Security Incidents in Azure Security Center
-Triaging and investigating security alerts can be time consuming for even the most skilled security analysts, and for many it is hard to even know where to begin. By using [analytics](security-center-detection-capabilities.md) to connect the information between distinct [security alerts](security-center-managing-and-responding-alerts.md), Security Center can provide you with a single view of an attack campaign and all of the related alerts – you can quickly understand what actions the attacker took and what resources were impacted.
+Triaging and investigating security alerts can be time consuming for even the most skilled security analysts, and for many it is hard to even know where to begin. By using [analytics](security-center-alerts-overview.md#detect-threats) to connect the information between distinct [security alerts](security-center-managing-and-responding-alerts.md), Security Center can provide you with a single view of an attack campaign and all of the related alerts – you can quickly understand what actions the attacker took and what resources were impacted.
 
 This document discusses how to use security alert capability in Security Center to assist you handling security incidents.
 
@@ -53,8 +53,6 @@ The information on this blade will vary according to the alert. Read [Managing a
 In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
 
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.
