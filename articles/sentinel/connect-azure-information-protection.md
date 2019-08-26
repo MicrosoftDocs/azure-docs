@@ -5,7 +5,6 @@ services: sentinel
 documentationcenter: na
 author: cabailey
 manager: rkarlin
-editor: ''
 
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
@@ -14,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2019
+ms.date: 08/26/2019
 ms.author: cabailey
 
 ---
@@ -25,7 +24,11 @@ ms.author: cabailey
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can stream logs from [Azure Information Protection](https://azure.microsoft.com/en-us/services/information-protection/) into Azure Sentinel by configuring the Azure Information Protection data connector. Azure Information Protection helps you control and secure your sensitive data, whether it’s stored in the cloud or on-premises. When you connect Azure Sentinel to Azure Information Protection, you stream all the [central reporting information from Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) into Azure Sentinel.
+You can stream logging information from [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) into Azure Sentinel by configuring the Azure Information Protection data connector. Azure Information Protection helps you control and secure your sensitive data, whether it’s stored in the cloud or on-premises. When you connect Azure Sentinel to Azure Information Protection, you stream logging information from Azure Information Protection into Azure Sentinel.
+
+If central reporting for Azure Information Protection is already configured to use the same Log Analytics workspace as you've currently selected for Azure Sentinel, you don't need to configure this data connector. Configure this data connector only if central reporting for Azure Information Protection is not already configured, or it's configured but currently using a different workspace to the one you're using for Azure Sentinel.
+
+To learn more about the logging information that's available from Azure Information Protection, and the configuration from Azure Information Protection, see [Central reporting for Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip). 
 
 ## Prerequisites
 
@@ -42,9 +45,9 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
 
 ## Connect to Azure Information Protection
 
-Like Sentinel, Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. When you connect Sentinel to Azure Information Protection, you're prompted to select a workspace and you must select the same workspace that you've currently selected to use for Sentinel.
+Like Azure Sentinel, Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. When you connect Sentinel to Azure Information Protection, you're prompted to select a workspace and you must select the same workspace that you've currently selected to use for Azure Sentinel.
 
-If a different workspace has already been [configured for Azure Information Protection analytics](https://docs.microsoft.com/azure//information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), the configuration for Sentinel changes the configuration for Azure Information Protection analytics. New logging data from Azure Information Protection will now be stored in the workspace you're using for Sentinel, and any custom queries created for the previously configured workspace will need to be recreated for the Sentinel workspace.
+If a different workspace has already been [configured for Azure Information Protection analytics](https://docs.microsoft.com/azure//information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), the following procedure changes the existing configuration for Azure Information Protection analytics. New reporting data for Azure Information Protection will now be stored in the workspace you're using for Sentinel, and any custom queries created for the previously configured workspace will need to be recreated for the Azure Sentinel workspace.
 
 1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection**.
 
@@ -52,7 +55,7 @@ If a different workspace has already been [configured for Azure Information Prot
 
 3. On the next blade, in the **Configuration** section, select **Azure Information Protection** to go to **Azure Information Protection analytics**.
 
-4. From the list of available workspaces, select the workspace that you're using for Sentinel. If you select a different workspace, or create a new workspace that you then select, the reporting data from Azure Information Protection won't be available to Sentinel.
+4. From the list of available workspaces, select the workspace that you're currently using for Azure Sentinel. If you select a different workspace, or create a new workspace that you then select, the reporting data from Azure Information Protection won't be available to Azure Sentinel.
 
 5. When you have selected a workspace, select **OK** and the connector **STATUS** should now change to **Connected**.
 
