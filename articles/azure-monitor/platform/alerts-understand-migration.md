@@ -260,7 +260,10 @@ As part of the migration, new metric alerts and new action groups will be create
 
 ### Policy with 'Deny' effect preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. The policies that are blocking the process are listed in the [migration tool](alerts-using-migration-tool.md). Resolve this problem by either removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. The policies that are blocking the process are listed in the [migration tool](alerts-using-migration-tool.md). Resolve this problem by either:
+
+- Excluding the subscriptions, or resource groups for the duration of the migration process. [Learn more about managing policies exclusion scope](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- Removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## Next steps
 
