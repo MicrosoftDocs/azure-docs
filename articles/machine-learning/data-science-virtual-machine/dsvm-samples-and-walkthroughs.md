@@ -30,9 +30,9 @@ Azure Data Science Virtual Machines (DSVMs) include a comprehensive set of sampl
 ## Quick reference of samples
 | Samples category | Description | Locations |
 | ------------- | ------------- | ------------- |
-| R language  | Samples in R illustrate scenarios such as how to connect with Azure cloud data stores and how to compare open-source R and Microsoft R. They also explain how to operationalize models on Microsoft Machine Learning Server and SQL Server. <br/> [R language](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
-| Python language  | Samples in Python explain scenarios like how to connect with Azure cloud data stores and how to work with Azure Machine Learning.  <br/> [Python language](#python-language) | <br/>`~notebooks` <br/><br/>|
-| Julia language  | This sample provides a detailed description of plotting and deep learning in Julia. It also explains how to call C and Python from Julia. <br/> [Julia language](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
+| R language  | Samples illustrate scenarios such as how to connect with Azure cloud data stores and how to compare open-source R and Microsoft Machine Learning Server. They also explain how to operationalize models on Microsoft Machine Learning Server and SQL Server. <br/> [R language](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
+| Python language  | Samples explain scenarios like how to connect with Azure cloud data stores and how to work with Azure Machine Learning.  <br/> [Python language](#python-language) | <br/>`~notebooks` <br/><br/>|
+| Julia language  | Provides a detailed description of plotting and deep learning in Julia. Also explains how to call C and Python from Julia. <br/> [Julia language](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
 | Azure Machine Learning  | Illustrates how to build machine-learning and deep-learning models with Machine Learning. Deploy models anywhere. Use automated machine learning and intelligent hyperparameter tuning. Also use model management and distributed training. <br/> [Machine Learning](#azureml) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | PyTorch notebooks  | Deep-learning samples that use PyTorch-based neural networks. Notebooks range from beginner to advanced scenarios.  <br/> [PyTorch notebooks](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  A variety of neural network samples and techniques implemented by using the TensorFlow framework. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
@@ -48,13 +48,13 @@ Azure Data Science Virtual Machines (DSVMs) include a comprehensive set of sampl
 
 To access Jupyter, select the **Jupyter** icon on the desktop or application menu. You also can access Jupyter on Linux editions of DSVMs. To access remotely from a web browser, go to `https://<Full Domain Name or IP Address of the DSVM>:8000` on Ubuntu.
 
-To add exceptions and make Jupyter access available over a browser, see the following screenshot:
+To add exceptions and make Jupyter access available over a browser, use the following guidance:
 
 
 ![Enable Jupyter exception](./media/ubuntu-jupyter-exception.png)
 
 
-Sign in with the same password as your login for Data Science Virtual Machines:
+Sign in with the same password that you use to log in to the Data Science Virtual Machine:
 <br/>
 
 **Jupyter home**
