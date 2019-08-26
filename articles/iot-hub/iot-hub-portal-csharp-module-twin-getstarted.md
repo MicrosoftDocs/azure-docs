@@ -50,11 +50,11 @@ Within one device identity, you can create up to 20 module identities. To add an
 
 1. Enter the name *myFirstModule*. Save your module identity.
 
-  ![Add module identity](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+    ![Add module identity](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
 Your new module identity appears at the bottom of the screen. Select it to see module identity details.
 
-  ![See module identity details](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+    ![See module identity details](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
 Save the **Connect string - primary key**. You use it in the next section to you set up your module on the device.
 
@@ -70,7 +70,7 @@ To create an app that updates the module twin reported properties, follow these 
 
 1. In **Configure your new project**, enter *UpdateModuleTwinReportedProperties* as the **Project name**. Select **Create** to continue.
 
-  ![Configure your a visual studio project](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
+    ![Configure your a visual studio project](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
 
 ### Install the latest Azure IoT Hub .NET device SDK
 
@@ -80,9 +80,9 @@ Module identity and module twin is in public preview. It's only available in the
 
 1. Select **Browse**, and then select **Include prerelease**. Search for *Microsoft.Azure.Devices.Client*. Select the latest version and install.
 
-  ![Install Azure IoT Hub .NET service SDK preview](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
+    ![Install Azure IoT Hub .NET service SDK preview](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
-Now you have access to all the module features.
+    Now you have access to all the module features.
 
 ### Get your module connection string
 
@@ -94,7 +94,7 @@ You need the module connection string for your console app. Follow these steps:
 
 1. Select **myFirstModule** under **Module Identities**. In **Module Identity Details**, copy the **Connection string (primary key)**.
 
-  ![Azure portal module detail](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+    ![Azure portal module detail](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
 ### Create UpdateModuleTwinReportedProperties console app
 
@@ -102,78 +102,78 @@ To create your app, follow these steps:
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 
-```csharp
-using Microsoft.Azure.Devices.Client;
-using Microsoft.Azure.Devices.Shared;
-using Newtonsoft.Json;
-```
+  ```csharp
+  using Microsoft.Azure.Devices.Client;
+  using Microsoft.Azure.Devices.Shared;
+  using Newtonsoft.Json;
+  ```
 
 2. Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
 
-```csharp
-private const string ModuleConnectionString = "<Your module connection string>";
-private static ModuleClient Client = null;
-```
+  ```csharp
+  private const string ModuleConnectionString = "<Your module connection string>";
+  private static ModuleClient Client = null;
+  ```
 
 3. Add the following method **OnDesiredPropertyChanged** to the **Program** class:
 
-```csharp
-private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
-    {
-        Console.WriteLine("desired property change:");
-        Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-        Console.WriteLine("Sending current time as reported property");
-        TwinCollection reportedProperties = new TwinCollection
-        {
-            ["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.Now
-        };
-
-        await Client.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
-    }
-```
+  ```csharp
+  private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
+      {
+          Console.WriteLine("desired property change:");
+          Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+          Console.WriteLine("Sending current time as reported property");
+          TwinCollection reportedProperties = new TwinCollection
+          {
+              ["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.Now
+          };
+  
+          await Client.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
+      }
+  ```
 
 4. Finally, replace the **Main** method with the following code:
 
-```csharp
-static void Main(string[] args)
-{
-    Microsoft.Azure.Devices.Client.TransportType transport = Microsoft.Azure.Devices.Client.TransportType.Amqp;
-
-    try
-    {
-        Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
-        Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
-        Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
-
-        Console.WriteLine("Retrieving twin");
-        var twinTask = Client.GetTwinAsync();
-        twinTask.Wait();
-        var twin = twinTask.Result;
-        Console.WriteLine(JsonConvert.SerializeObject(twin));
-
-        Console.WriteLine("Sending app start time as reported property");
-        TwinCollection reportedProperties = new TwinCollection();
-        reportedProperties["DateTimeLastAppLaunch"] = DateTime.Now;
-
-        Client.UpdateReportedPropertiesAsync(reportedProperties);
-    }
-    catch (AggregateException ex)
-    {
-        Console.WriteLine("Error in sample: {0}", ex);
-    }
-
-    Console.WriteLine("Waiting for Events.  Press enter to exit...");
-    Console.ReadKey();
-    Client.CloseAsync().Wait();
-}
-
-private static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
-{
-    Console.WriteLine($"Status {status} changed: {reason}");
-}
-```
-
-You can build and run this app by using **F5**.
+  ```csharp
+  static void Main(string[] args)
+  {
+      Microsoft.Azure.Devices.Client.TransportType transport = Microsoft.Azure.Devices.Client.TransportType.Amqp;
+  
+      try
+      {
+          Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
+          Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
+          Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
+  
+          Console.WriteLine("Retrieving twin");
+          var twinTask = Client.GetTwinAsync();
+          twinTask.Wait();
+          var twin = twinTask.Result;
+          Console.WriteLine(JsonConvert.SerializeObject(twin));
+  
+          Console.WriteLine("Sending app start time as reported property");
+          TwinCollection reportedProperties = new TwinCollection();
+          reportedProperties["DateTimeLastAppLaunch"] = DateTime.Now;
+  
+          Client.UpdateReportedPropertiesAsync(reportedProperties);
+      }
+      catch (AggregateException ex)
+      {
+          Console.WriteLine("Error in sample: {0}", ex);
+      }
+  
+      Console.WriteLine("Waiting for Events.  Press enter to exit...");
+      Console.ReadKey();
+      Client.CloseAsync().Wait();
+  }
+  
+  private static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
+  {
+      Console.WriteLine($"Status {status} changed: {reason}");
+  }
+  ```
+  
+  You can build and run this app by using **F5**.
 
 This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
 
