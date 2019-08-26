@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 08/26/2019
 ms.author: apimpm
 
 ---
@@ -20,9 +20,9 @@ ms.author: apimpm
 To migrate API Management instances from one Azure region to another, you can use the [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) feature. You should choose the same API Management pricing tier in the source and target regions. 
 
 > [!NOTE]
-> Backup and restore won't work while migrating between different cloud types. For that, you'll need to export the resource [as a template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates). Then, adapt the exported template for the target Azure region and re-create the resource. 
+> Backup and restore won't work while migrating between different cloud types. For that, you'll need to export the resource [as a template](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates). Then, adapt the exported template for the target Azure region and re-create the resource. 
 
-## Option 1: if you're okay with a different API Management instance name
+## Option 1: Use a different API Management instance name
 
 1. In the target region, create a new API Management instance with the same pricing tier as the source API Management instance. The new instance should have a different name. 
 1. Backup existing API Management instance to a storage account.
@@ -30,7 +30,7 @@ To migrate API Management instances from one Azure region to another, you can us
 1. If you have a custom domain pointing to the source region API Management instance, update the custom domain CNAME to point to the new API Management instance. 
 
 
-## Option 2: if you're okay with a different API Management instance name
+## Option 2: Use the same API Management instance name
 
 > [!NOTE]
 > This option will result in downtime during the migration.
