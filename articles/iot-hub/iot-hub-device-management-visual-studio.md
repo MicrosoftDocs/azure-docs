@@ -84,7 +84,7 @@ To edit a device twin, do the following steps:
 
 1. Right-click your device and select **Edit Device Twin**.
 
-   An **azure-iot-device-twin.json** file openes with the content of device twin.
+   An **azure-iot-device-twin.json** file opens with the content of device twin.
 
 1. Make some edits of **tags** or **properties.desired** fields to the **azure-iot-device-twin.json** file.
 
