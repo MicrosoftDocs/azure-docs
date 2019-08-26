@@ -108,7 +108,7 @@ foreach ($Psflowlog in $FlowLogsList)
         if ((-not $Confirm) -or ($Confirmation -eq 'Y'))
         {
             Write-Output ($Blob.Name + '===>' + $BlobLastModifietedDTinUTC  + ' ===> DELETED')
-            Remove-AzStorageBlob -Container $container_name -Context $storage_account.Context -Blob $Blob.Name
+            Remove-AzStorageBlob -Container $ContainerName -Context $StorageAccount.Context -Blob $Blob.Name
         }
         else
         {

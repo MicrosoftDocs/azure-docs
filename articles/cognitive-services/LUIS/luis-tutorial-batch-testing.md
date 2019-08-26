@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ---
 
@@ -192,8 +192,6 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 6. Select the **Run** button. Wait until the test is done.
 
 7. Select **See results**.
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## Review entity batch results
 

@@ -4,7 +4,7 @@ description: Explains how to create an index, load data, and run queries using P
 
 ms.date: 07/11/2019
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
