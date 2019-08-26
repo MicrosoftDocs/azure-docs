@@ -1,14 +1,16 @@
 ---
-title: Create and manage automated workflows with Visual Studio Code - Azure Logic Apps | Microsoft Docs
+title: Create and manage automated workflows with Visual Studio Code - Azure Logic Apps
 description: Quickstart for how to create and manage logic apps with JSON in Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
-ms.topic: article
+ms.manager: carmonm
 ms.reviewer: klam, deli, LADocs
-ms.suite: integration
+ms.topic: quickstart
+ms.custom: mvc
 ms.date: 10/05/2018
 ---
 
