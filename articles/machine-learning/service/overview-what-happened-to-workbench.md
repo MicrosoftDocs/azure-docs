@@ -14,9 +14,9 @@ ms.custom: seodec18
 ---
 # What happened to Azure Machine Learning Workbench?
 
-The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). 
+The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md).
 
-To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
+To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
 
 Most of the artifacts that were created in the earlier version of Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't ever disappear.
 
@@ -42,13 +42,13 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 ## Support timeline
 
-On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI has ended. 
+On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI has ended.
 
 All the latest capabilities are available by using this <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
 
 ## What about run histories?
 
-Older run histories are no longer accessible, how you can still see your runs in the latest version. 
+Older run histories are no longer accessible, how you can still see your runs in the latest version.
 
 Run histories are now called **experiments**. You can collect your model's experiments and explore them by using the SDK, the CLI, or the Azure portal.
 
@@ -60,11 +60,9 @@ Start training your models and tracking the run histories using the new CLI and 
 
 ## Can I still prep data?
 
-Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.   
+Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.
 
-With data sets of any size, you can use the [data prep package for Azure Machine Learning](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
-
-You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to use Azure Machine Learning Data Prep SDK.
+With data sets of any size, you can use the [data prep package for Azure Machine Learning](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code.
 
 ## Will projects persist?
 
@@ -80,7 +78,7 @@ run = exp.submit(source_directory=script_folder,
 
 ## What about my registered models and images?
 
-The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, download the models and re-register them in your new workspace. 
+The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, download the models and re-register them in your new workspace.
 
 The images that you created in your old image registry cannot be directly migrated to the new workspace. In most cases, the model can be deployed without having to create an image. If needed, you can create an image for the model in the new workspace. For more information, see [Manage, register, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
 
@@ -88,7 +86,7 @@ The images that you created in your old image registry cannot be directly migrat
 
 Now that support for the old CLI has ended, you can no longer redeploy models or manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
 
-In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to Azure IoT Edge. 
+In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to Azure IoT Edge.
 
 Learn more in these articles:
 + [Where and how to deploy models](how-to-deploy-and-where.md)
@@ -112,10 +110,10 @@ The domain packages for computer vision, text analytics, and forecasting can't b
 
 ## Next steps
 
-Learn about the [latest architecture for Azure Machine Learning service](concept-azure-machine-learning-architecture.md). 
+Learn about the [latest architecture for Azure Machine Learning service](concept-azure-machine-learning-architecture.md).
 
 For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md).
 
 Create your first experiment with the two-part tutorial to [setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) and [train your first model](tutorial-1st-experiment-sdk-train.md)
 
-For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning service. 
+For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning service.
