@@ -29,9 +29,11 @@ New-AzResourceGroup `
   -Location $location
 ```
 ## Create a virtual network
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVnet* with subnet for frontend (*frontendSubnet*), backend (*backendSubnet*), private link (*otherSubnet*):
+Create a virtual network for your Private Link with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myvnet* with subnet for frontend (*frontendSubnet*), backend (*backendSubnet*), private link (*otherSubnet*):
 
 ```azurepowershell
+$virtualNetworkName = "myvnet"
+
 
 # Create subnet config
 
@@ -60,11 +62,10 @@ $vnet = New-AzVirtualNetwork `
 Create an internal Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates an internal Standard Load Balancer using the frontend IP configuration and backend pool that you created in the preceding steps:
 
 ```azurepowershell
-$ver = "815"
 
 $lbBackendName = "LB-backend" 
 $lbFrontName = "LB-frontend" 
-$lbName = "lb" + $ver
+$lbName = "lb"
  
 #Create Internal Load Balancer
 $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name $lbFrontName -PrivateIpAddress 10.0.1.5 -SubnetId $vnet.subnets[0].Id 
@@ -77,8 +78,8 @@ Create a private link service with [New-AzPrivateLinkService](/powershell/module
 ```azurepowershell
 
 $plsIpConfigName = "PLS-ipconfig" 
-$plsName = "pls" + $ver 
-$peName = "pe" + $ver  
+$plsName = "pls"
+$peName = "pe" 
   
 $IPConfig = New-AzPrivateLinkServiceIpConfig `
 -Name $plsIpConfigName `
@@ -105,8 +106,11 @@ $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName
 
   
 ### Create a virtual network
+Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
  
 ```azurepowershell
+$virtualNetworkNamePE = "vnetPE"
+ 
 # Create VNet for private endpoint
 $peSubnet = New-AzVirtualNetworkSubnetConfig `
 -Name peSubnet `
@@ -122,7 +126,8 @@ $vnetPE = New-AzVirtualNetwork `
 ```
 ### Create a Private Endpoint
  
-```azurepowershell  
+```azurepowershell
+ 
 $plsConnection= New-AzPrivateLinkServiceConnection `
 -Name plsConnection `
 -PrivateLinkServiceId  $privateLinkService.Id  
@@ -141,7 +146,7 @@ $pe =  Get-AzPrivateEndpoint `
 ### Approve the Private Endpoint connection
 
 ```azurepowershell   
-# For Private Link Service to approve the Private Endpoint Connection 
+
 $pls = Get-AzPrivateLinkService `
 -Name $plsName `
 -ResourceGroupName $rgName 
