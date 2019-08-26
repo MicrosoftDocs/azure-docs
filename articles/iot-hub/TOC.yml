@@ -406,14 +406,16 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
   - name: Platform Services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: IoT Service SDKs

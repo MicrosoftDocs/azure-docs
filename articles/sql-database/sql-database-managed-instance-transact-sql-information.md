@@ -540,15 +540,13 @@ Cross-database Service Broker dialogs will stop delivering the messages to the s
 
 **Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
 
-### Impresonification of AAD login types is not supported
+### Impersonification of AAD login types is not supported
 
 **Date:** July 2019
 
 Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of following AAD principals is not supported:
 -	Aliased AAD users. The following error is returned in this case `15517`.
 - AAD logins and users based on AAD applications or service principals. The following errors are returned in this case `15517` and `15406`.
-
-### Database email 
 
 ### @query parameter not supported in sp_send_db_mail
 

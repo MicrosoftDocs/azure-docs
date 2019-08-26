@@ -113,7 +113,7 @@ To verify the connection to your cluster, run the [kubectl get nodes][kubectl-ge
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.9
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 ```
 
 ## Next steps
