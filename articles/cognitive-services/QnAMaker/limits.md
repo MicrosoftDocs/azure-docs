@@ -39,11 +39,17 @@ The maximum number of deep-links that can be crawled for extraction of QnAs from
 
 ## Metadata Limits
 
+### By Azure Search pricing tier
+
 Maximum number of metadata fields per knowledge base is based on your **[Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)**.
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
+
+### By name and value
+
+The length and acceptable characters for metadata name and value are listed in the following table.
 
 |Item|Allowed chars|Regex pattern match|Max chars|
 |--|--|--|--|
