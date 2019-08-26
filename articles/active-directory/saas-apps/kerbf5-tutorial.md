@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: 59a87abb-1ec1-4438-be07-5b115676115f
+ms.assetid: 39382eab-05fe-4dc2-8792-62d742dfb4e1
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with F5, complete the following building bloc
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure F5 (Header Based) SSO](#configure-f5-header-based-sso)** - to configure the single sign-on settings on application side.
+1. **[Configure F5 (Kerberos) SSO](#configure-f5-kerberos-sso)** - to configure the single sign-on settings on application side.
     1. **[Create F5 test user](#create-f5-test-user)** - to have a counterpart of B.Simon in F5 that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -132,57 +132,60 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure F5 (Header Based) SSO
+## Configure F5 (Kerberos) SSO
 
-1. Open a new web browser window and sign into your F5 (Header Based) company site as an administrator and perform the following steps:
+1. Open a new web browser window and sign into your F5 (Kerberos) company site as an administrator and perform the following steps:
 
-1. You need to import the Metadata Certificate into the F5 (Header Based) which will be used later in the setup process. Go to **System > Certificate Management > Traffic Certificate Management >> SSL Certificate List**. Click on **Import** of the right-hand corner
+1. You need to import the Metadata Certificate into the F5 (Kerberos) which will be used later in the setup process. Go to **System > Certificate Management > Traffic Certificate Management >> SSL Certificate List**. Click on **Import** of the right-hand corner.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure12.png)
+	![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure01.png) 
+
+1. Additionally you also need an **SSL Certificate** for the Hostname (`Kerbapp.superdemo.live`), in this example we used Wildcard Certificate.
+
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure02.png) 
  
-1. Additionally you also need an **SSL Certificate** for the Hostname (`headerapp.superdemo.live`), in this example we used Wildcard Certificate.
+1. Go to – **F5 BIG-IP Click Access > Guided Configuration > Federation > SAML Service Provider**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure13.png)
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure03.png) 
 
-1. Go to – **F5 (Header Based) BIG-IP Click Access > Guided Configuration > Federation > SAML Service Provider**.
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure04.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure01.png)
-
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure02.png)
- 
 1. Specify the **Entity ID** (same as what you configured on the Azure AD Application Configuration)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure03.png) 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure05.png) 
 
-1. Create a new Virtual Server, Specify the **Destination Address**, **Redirect Port** is Optional. Choose the **Wild Card Certificate** (or **Cert** you uploaded for the Application) that we uploaded earlier and the **Associated Private Key**.
+1. Create a new Virtual Server, Specify the **Destination Address**. Choose the **Wild Card Certificate** (or **Cert** you uploaded for the Application) that we uploaded earlier and the **Associated Private Key**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure04.png) 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure06.png)
 
 1. Upload the Configuration **Metadata** and Specify a new **Name for SAML IDP Connector** and you will also need to specify the Federation Certificate that was uploaded earlier.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure05.png)
- 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure07.png)  
+
 1. **Create New** Backend App Pool, specify the **IP Address(s)** of the Backend Application Servers.
+ 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure08.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure06.png)
+1. Under **Single Sign-on Settings**, choose **Kerberos** and Select **Advanced Settings**. The request needs to be created in `user@domain.suffix`.
 
-1. Under Single Sign-on, Choose **HTTP header-based**. You can add other Headers based on your application. See the Appendix for the list of SAML Session Variables
+1. Under the **username source** specify `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`. Refer Appendix for complete list of variables and values.
+Account Name Is the F5 Delegation Account Created ( Check F5 Documentation).
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure07.png) 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure09.png)   
 
-1. Contact [F5 (Header Based) Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) for **Endpoint Check Properties** documentation details.
+1. Contact [F5 (Kerberos) Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) for **Endpoint Check Properties** documentation details.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure08.png)
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure10.png) 
 
-1. Contact [F5 (Header Based) Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) for **Session Management Properties** documentation details.
+1. Contact [F5 (Kerberos) Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) for **Session Management Properties** documentation details.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure09.png)
-
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure11.png) 
+ 
 1. **Review Summary** and click on **Deploy**.
+ 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure12.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure10.png)
-
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure11.png)
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure13.png)
 
 ### Create F5 test user
 
@@ -204,7 +207,8 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [Try F5 with Azure AD](https://aad.portal.azure.com/)
 
-- [Configure F5 (Kerberos) Application](kerbf5-tutorial.md)
+- [Configure F5 (Header Based) Application](headerf5-tutorial.md
+)
 
 - [Configure F5 (Advanced Kerberos) Application](advance-kerbf5-tutorial.md)
 
