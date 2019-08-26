@@ -79,6 +79,7 @@ In some cases, in order to mitigate a threat detection alert, you may have to us
     * [Integration with Azure security products](security-center-alerts-integration.md)
     
 ## See also
+
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md).
