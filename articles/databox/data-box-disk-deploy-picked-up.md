@@ -16,7 +16,7 @@ Customer intent: As an IT admin, I need to be able to order Data Box Disk to upl
 
 # Return Azure Data Box Disk 
 
-::: zone end
+::: zone-end
 
 ::: zone target="docs"
 
@@ -37,7 +37,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 ## Ship Data Box Disk back
 
-::: zone end
+::: zone-end
 
 1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
 2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
@@ -56,7 +56,7 @@ The next steps are determined by where you are returning the device.
 
 After the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
 
-::: zone end
+::: zone-end
 
 ## Pick up in US, Canada
 
