@@ -116,21 +116,21 @@ If you chose to write audit logs to Azure Monitor logs:
 
 - Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing** page, click **View audit logs**.
 
-    ![view audit logs](./media/sql-database-auditing-get-started/auditing_view_audit_logs.png)
+    ![view audit logs](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
 - Then, you have two ways to view the logs:
     
     Clicking on **Log Analytics** at the top of the **Audit records** page will open the Logs view in Log Analytics workspace, where you can customize the time range and the search query.
     
-    ![open in Log Analytics workspace](./media/sql-database-auditing-get-started/auditing_log_analytics.png)
+    ![open in Log Analytics workspace](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
     Clicking **View dashboard** at the top of the **Audit records** page will open a dashboard displaying audit logs info, where you can drill down into Security Insights, Access to Sensitive Data and more. This dashboard is designed to help you gain security insights for your data.
     You can also customize the time range and search query. 
-    ![View Log Analytics Dashboard](media/sql-database-auditing-get-started/auditing_view_dashboard.png)
+    ![View Log Analytics Dashboard](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
 
-    ![Log Analytics Dashboard](media/sql-database-auditing-get-started/auditing_log_analytics_dashboard.png)
+    ![Log Analytics Dashboard](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
 
-    ![Log Analytics Security Insights](media/sql-database-auditing-get-started/auditing_log_analytics_dashboard_data.png)
+    ![Log Analytics Security Insights](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
  
 
 - Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: *search "SQLSecurityAuditEvents"* to view the audit logs.
@@ -263,7 +263,7 @@ Extended policy with WHERE clause support for additional filtering:
 - [Get Database *Extended* Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Get Server *Extended* Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Manage SQL database auditing using ARM templates
+## <a id="subheading-10"></a>Manage SQL database auditing using Azure Resource Manager templates
 
 You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
 
