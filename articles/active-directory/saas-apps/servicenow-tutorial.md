@@ -20,93 +20,93 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow
+# Tutorial: Azure Active Directory single sign-on integration with ServiceNow
 
 In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Directory (Azure AD). When you integrate ServiceNow with Azure AD, you can:
 
 * Control in Azure AD who has access to ServiceNow.
 * Enable your users to be automatically signed-in to ServiceNow with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* ServiceNow single sign-on (SSO) enabled subscription.
-* For ServiceNow, an instance or tenant of ServiceNow, Calgary version or higher
-* For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or higher
-* The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by [submitting a service request](https://hi.service-now.com).
+* A ServiceNow single sign-on (SSO) enabled subscription.
+* For ServiceNow, an instance or tenant of ServiceNow, Calgary version or later.
+* For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
+* The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. You can do this by [submitting a service request](https://hi.service-now.com).
 * For automatic configuration, enable the multi-provider plugin for ServiceNow.
-* To install the ServiceNow Classic (Mobile) application you need to go to the appropriate store and search for the ServiceNow Classic application and click Download.
+* To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow supports **SP** initiated SSO and supports [**Automated** user provisioning](servicenow-provisioning-tutorial.md).
+In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow supports **SP** initiated SSO, and [**Automated** user provisioning](servicenow-provisioning-tutorial.md).
 
-ServiceNow Classic (Mobile) application can now be configured with Azure AD for enabling SSO and it supports both **Android** and **IOS** users. In this tutorial, you configure and test Azure AD SSO in a test environment.
+You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-## Adding ServiceNow from the gallery
+## Add ServiceNow from the gallery
 
 To configure the integration of ServiceNow into Azure AD, you need to add ServiceNow from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or by using a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Go to **Enterprise Applications**, and select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **ServiceNow** in the search box.
-1. Select **ServiceNow** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **ServiceNow** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for ServiceNow
 
-Configure and test Azure AD SSO with ServiceNow using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ServiceNow.
+Configure and test Azure AD SSO with ServiceNow by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ServiceNow.
 
 To configure and test Azure AD SSO with ServiceNow, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-	1. **[Configure Azure AD SSO for ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express)** - to enable your users to use this feature.
-2. **[Configure ServiceNow](#configure-servicenow)** to configure the SSO settings on application side.
-	1. **[Create ServiceNow test user](#create-servicenow-test-user)** to have a counterpart of B.Simon in ServiceNow that is linked to the Azure AD representation of user.
-	1. **[Configure ServiceNow Express SSO](#configure-servicenow-express-sso)** - to configure the single sign-on settings on application side.	
-3. **[Test SSO](#test-sso)** to verify whether the configuration works.
-4. **[Test SSO for ServiceNow Classic (Mobile)](#test-sso-for-servicenow-classic-mobile)** to verify whether the configuration works.
+1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
+	1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
+	1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
+	1. [Configure Azure AD SSO for ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express) to enable your users to use this feature.
+2. [Configure ServiceNow](#configure-servicenow) to configure the SSO settings on the application side.
+	1. [Create a ServiceNow test user](#create-servicenow-test-user) to have a counterpart of B.Simon in ServiceNow, linked to the Azure AD representation of the user.
+	1. [Configure ServiceNow Express SSO](#configure-servicenow-express-sso) to configure the single sign-on settings on the application side.	
+3. [Test SSO](#test-sso) to verify whether the configuration works.
+4. [Test SSO for ServiceNow Classic (Mobile)](#test-sso-for-servicenow-classic-mobile) to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **ServiceNow** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **ServiceNow** application integration page, find the **Manage** section. Select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Set up Single Sign-On with SAML page, with pen icon highlighted](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. In the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. In **Sign on URL**, type a URL that uses the following pattern:
     `https://<instance-name>.service-now.com/navpage.do`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In **Identifier (Entity ID)**, type a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
 	> [!NOTE]
-	> These values are not real. You need to update these values with the actual Sign-on URL and Identifier which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual sign-on URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
 
-   ![The Certificate download link](common/certificatebase64.png)
+   ![Screenshot of the SAML Signing Certificate section, with Download highlighted](common/certificatebase64.png)
 
-   a. Click the copy button to copy **App Federation Metadata Url** and paste it into notepad, as this App Federation Metadata Url will be used later in the tutorial.
+   a. Select the copy button to copy **App Federation Metadata Url**, and paste it into Notepad. This URL will be used later in the tutorial.
 
-	b. Click on **Download** to download **Certificate(Base64)** and then save the certificate file on your computer.
+	b. Select **Download** to download **Certificate(Base64)**, and then save the certificate file on your computer.
 
-1. On the **Set up ServiceNow** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up ServiceNow** section, copy the appropriate URLs, based on your requirement.
 
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Screenshot of Set up ServiceNow section, with URLs highlighted](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
