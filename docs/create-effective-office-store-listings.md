@@ -88,7 +88,7 @@ Features:
 |:-----|:-----|:-----|:-----|
 |Title|50 characters|30 characters|First 30 characters|
 |Short description|100 characters|70 characters|First 30 characters|
-|Long description|4,000 characters|300-500 characters|First 300 characters|
+|Long description|4,000 characters|300-500 words|First 300 words|
 
 <a name="bk_images"> </a>
 ## Create a consistent visual identity 
