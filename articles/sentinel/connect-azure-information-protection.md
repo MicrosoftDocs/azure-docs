@@ -28,7 +28,7 @@ You can stream logging information from [Azure Information Protection](https://a
 
 If central reporting for Azure Information Protection is already configured to use the same Log Analytics workspace as you've currently selected for Azure Sentinel, you don't need to configure this data connector. Configure this data connector only if central reporting for Azure Information Protection is not already configured, or it's configured but currently using a different workspace to the one you're using for Azure Sentinel.
 
-To learn more about the logging information that's available from Azure Information Protection, and the configuration from Azure Information Protection, see [Central reporting for Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip). 
+To learn more about the logging information that's available from Azure Information Protection, and the configuration from Azure Information Protection, see [Central reporting for Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) from the Azure Information Protection documentation. 
 
 ## Prerequisites
 
