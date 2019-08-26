@@ -22,12 +22,12 @@ ms.author: diberry
 LUIS uses two Azure resources, each resource has an access key: 
  
 * [Authoring](#programmatic-key) to create intents, entities, and label utterances, train, and publish. When you are ready to publish your LUIS app, you need a [runtime key](luis-how-to-azure-subscription.md) assigned to the app.
-* [Runtime](#runtime-key-for-query-predictions-of-user-utterances). Client-applications, such as a chat bot, need access to the runtime's **query prediction endpoint** through this key. 
+* [Runtime](#runtime-key). Client-applications, such as a chat bot, need access to the runtime's **query prediction endpoint** through this key. 
 
 |Key|Purpose|Cognitive service `kind`|Cognitive service `type`|
 |--|--|--|--|
 |[Authoring key](#programmatic-key)|Authoring, training, publishing, testing.|`LUIS.Authoring`|`Cognitive Services`|
-|[Runtime key](#runtime-key-for-query-predictions-of-user-utterances)| Querying with a user utterance to determine intents and entities.|`LUIS`|`Cognitive Services`|
+|[Runtime key](#runtime-key)| Querying with a user utterance to determine intents and entities.|`LUIS`|`Cognitive Services`|
 
 While you don't need to create both keys at the time, it is much easier if you do.
 
@@ -125,7 +125,7 @@ You can move your LUIS app. Use the following documentation resources in the Azu
 
 ## Access for private and public apps
 
-For a **private** app, runtime access is available for owners and collaborators. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) resource, and has the public app's ID. 
+For a **private** app, runtime access is available for owners and collaborators. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal) runtime resource, and has the public app's ID. 
 
 Currently, there isn't a catalog of public apps.
 
@@ -152,7 +152,7 @@ Access to query the endpoint is controlled by a setting on the **Application Inf
 
 ![Set app to public](./media/luis-concept-security/set-application-as-public.png)
 
-|[Private endpoint](#private-app-endpoint-security)|[Public endpoint](#public-app-endpoint-access)|
+|[Private endpoint](#runtime-security-for-private-apps)|[Public endpoint](#runtime-security-for-public-apps)|
 |:--|:--|
 |Available to owner and collaborators|Available to owner, collaborators, and anyone else that knows app ID|
 
