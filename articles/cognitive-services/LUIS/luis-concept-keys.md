@@ -182,6 +182,10 @@ A user who is not an owner or collaborator, can only access a public app's runti
 
 A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
 
+## Securing the endpoint 
+
+You can control who can see your LUIS prediction runtime endpoint key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
+
 ## Next steps
 
 * Understand [versioning](luis-concept-version.md) concepts. 

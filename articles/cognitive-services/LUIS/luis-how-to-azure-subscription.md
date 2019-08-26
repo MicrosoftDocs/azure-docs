@@ -134,7 +134,7 @@ The intents and their scores are also included the endpoint logs. You can [expor
 
 ### Enable Bing spell checker 
 
-Learn how to enable the [spell checker](luis-tutorial-bing-spellcheck) for LUIS.
+Learn how to enable the [spell checker](luis-tutorial-bing-spellcheck.md) for LUIS.
 
 ### Publishing regions
 
