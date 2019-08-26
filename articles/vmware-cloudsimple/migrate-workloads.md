@@ -18,7 +18,7 @@ To migrate VMs from an on-premises datacenter to your CloudSimple Private Cloud,
 
 Migration of VMs and data from your on-premises datacenter requires network connectivity from the datacenter to your Private Cloud environment.  Use either of the following methods to establish network connectivity:
 
-* [Site-to-site VPN connection](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises environment and your Private Cloud.
+* [Site-to-Site VPN connection](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises environment and your Private Cloud.
 * ExpressRoute Global Reach connection between your on-premises ExpressRoute circuit and a CloudSimple ExpressRoute circuit.
 
 The network path from your on-premises vCenter environment to your Private Cloud must be available for migration of VMs using vMotion.  The vMotion network on your on-premises vCenter must have routing abilities.  Verify that your firewall allows all vMotion traffic between your on-premises vCenter and Private Cloud vCenter. (On the Private Cloud, routing on the vMotion network is configured by default.)

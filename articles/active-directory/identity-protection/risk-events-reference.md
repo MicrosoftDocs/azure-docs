@@ -73,3 +73,8 @@ We also run this detection for basic authentication (or legacy protocols). Becau
 **Old name:** This detection will be shown in the legacy Azure AD Identity Protection reports (Users flagged for risk, Risk events) as ‘Users with leaked credentials’
 
 This risk event type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft’s internal and external threat intelligence sources.
+
+## Admin confirmed user compromised
+
+**Detection Type:** Offline <br>
+This detection indicates an admin has selected ‘Confirm user compromised’ in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user’s risk history (via UI or API).
