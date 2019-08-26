@@ -36,7 +36,7 @@ In addition, attackers have evolved their methods to subvert many signature-base
 Alerts are the notifications that Security Center generates when it detects threats on your resources. Security Center prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
 
 ## How does Security Center detect threats? <a name="detect-threats"> </a>
-=======
+
 Microsoft security researchers are constantly on the lookout for threats. Because of Microsoft’s global presence in the cloud and on-premises, they have access to an expansive set of telemetry. The wide-reaching and diverse collection of datasets enables the discovering of new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services. As a result, Security Center can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast moving threat environment.
 
 To detect real threats and reduce false positives, Security Center collects, analyzes, and integrates log data from your Azure resources and the network. It also works with connected partner solutions, like firewall and endpoint protection solutions. Security Center analyzes this information, often correlating information from multiple sources, to identify threats.
@@ -67,7 +67,7 @@ Azure Security Center also uses anomaly detection to identify threats. In contra
 
 ## Continuous monitoring and assessments
 
-Azure Security Center benefits from having security research and data science teams throughout Microsoft continuously monitor for changes in the threat landscape. This includes the following initiatives:
+Azure Security Center benefits from having security research and data science teams throughout Microsoft who continuously monitor for changes in the threat landscape. This includes the following initiatives:
 
 * **Threat intelligence monitoring**: Threat intelligence includes mechanisms, indicators, implications and actionable advice about existing or emerging threats. This information is shared in the security community and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
 * **Signal sharing**: Insights from security teams across Microsoft’s broad portfolio of cloud and on-premises services, servers, and client endpoint devices are shared and analyzed.
