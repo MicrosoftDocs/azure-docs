@@ -24,7 +24,7 @@ ms.author: vijetaj
 
 As one of the first technical steps in a data science or AI project, you must identify the datasets to be used and bring them into your analytics environment. The Data Science Virtual Machine (DSVM) provides tools and libraries to bring data from different sources into analytical data storage locally on the DSVM, or into a data platform either on the cloud or on-premises.
 
-Here are some data movement tools we've provided in the DSVM.
+Here are some data movement tools that are available in the DSVM.
 
 ## AdlCopy
 
@@ -41,7 +41,7 @@ Here are some data movement tools we've provided in the DSVM.
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | A management tool for Azure. It also contains command verbs to move data from Azure data platforms like Azure Blob storage and Azure Data Lake Storage.     |
+| What is it?   | A management tool for Azure. It also contains command verbs to move data from Azure data platforms like Azure Blob storage and Azure Data Lake Store.     |
 | Supported DSVM versions      | Windows, Linux     |
 | Typical uses      | Importing and exporting data to and from Azure Storage and Azure Data Lake Store.      |
 |  How to use / run it?    |   Open a command prompt and type `az` to get help.    |
@@ -79,9 +79,9 @@ Here are some data movement tools we've provided in the DSVM.
 | ------------- | ------------- |
 | What is it?   | SQL Server tool to copy data between SQL Server and a data file.      |
 | Supported DSVM versions      | Windows      |
-| Typical uses      | Importing a CSV file into a SQL Server table, exporting a SQL Server table to a file.      |
+| Typical uses      | Importing a CSV file into a SQL Server table and exporting a SQL Server table to a file.      |
 |  How to use / run it?    |   Open a command prompt and type `bcp` to get help.    |
-| Links to samples      | [Bulk Copy Utility](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| Links to samples      | [bcp utility](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Related tools on the DSVM      | SQL Server, sqlcmd      |
 
 ## blobfuse
