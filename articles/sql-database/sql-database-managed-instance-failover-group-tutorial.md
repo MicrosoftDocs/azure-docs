@@ -23,8 +23,9 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
 > - Test failover
 
   > [!NOTE]
-  > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > Using failover groups with managed instances is currently in preview. 
+  > - Ensure you have met the [prerequisites for setting up failover groups for managed instance](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Using failover groups with managed instances is currently in preview. 
 
 ## Prerequisites
 
