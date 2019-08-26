@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
 ms.localizationpriority: high 
-ms.date: 02/26/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -60,6 +60,7 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 
 - You have placed your order for Data Box Disk using the [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 - You have received your disks and the job status in the portal is updated to **Delivered**.
+- You have checked that you have the right number of disks (1-5 disks) and one connecting cable per disk.
 - You have a client computer available from which you can copy the data. Your client computer must:
 
     - Run a [supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
