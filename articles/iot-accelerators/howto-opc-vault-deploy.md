@@ -81,7 +81,7 @@ It is also possible to redeploy just the web app binaries. With the parameter `-
 
 After successful deployment, feel free to start using the services: [How to manage the OPC Vault Certificate Management Service](howto-opc-vault-manage.md)
 
-## Delete the certificate management service from the subscription
+## Delete the services from the subscription
 
 1. Sign in to the Azure portal: `https://portal.azure.com`.
 2. Go to the resource group in which the service was deployed.
