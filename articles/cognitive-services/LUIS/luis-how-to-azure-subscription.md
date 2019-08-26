@@ -33,7 +33,7 @@ This single, region-specific authoring key, on the **Settings** page, allows you
 
 The authoring key is:
 
-* Used for any apps you own as well as any apps you are listed as a collaborator.
+* Used for any apps you own as well as any apps you are listed as a contributor.
 * Specific to the [authoring region](luis-reference-regions.md#publishing-regions). The key does not work in a different [authoring region](luis-reference-regions.md#luis-authoring-regions).
 
 ### Create an authoring resource for your app
@@ -41,7 +41,7 @@ The authoring key is:
 Create an authoring resource through:
 
 * LUIS portal's **[User Settings](https://www.luis.ai/user/settings)** page.
-* Azure portal's create resource with kind `luis-authoring`.
+* Azure portal's create resource with kind `LUIS.Authoring`.
 
 From the LUIS portal's **User Settings** page, you can create an authoring resource and assign it to the app. Access the **User Settings** by selecting your name in the top, right corner of the [LUIS portal](https://www.luis.ai).  
 

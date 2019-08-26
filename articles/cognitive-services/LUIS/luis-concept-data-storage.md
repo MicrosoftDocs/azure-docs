@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
@@ -47,7 +47,7 @@ If you don't want active learning utterances, you can [disable active learning](
 <a name="accounts"></a>
 
 ## Delete an account
-If you delete an LUIS authoring resource as an owner, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
+If you delete a LUIS authoring resource as an owner, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
 
 Deleting authoring resource is available from the Azure portal. 
 
