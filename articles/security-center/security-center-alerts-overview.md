@@ -17,7 +17,7 @@ ms.author: v-mohabe
 ---
 # Security alerts in Azure Security Center
 
-In Azure Security Center, there are a variety of alerts for the many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments. Therefore, Security Center works as both a Cloud Security Posture Management (CSPM) and a Cloud Workload Protection Platform (CWPP) to protect all of your resources.
+In Azure Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
 
 Advanced detections are available in the Standard Tier of Azure Security Center. A free trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-pricing.md#pricing-upgrade). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing.
 
