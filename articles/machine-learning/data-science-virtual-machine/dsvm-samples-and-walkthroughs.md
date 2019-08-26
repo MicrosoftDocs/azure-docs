@@ -54,7 +54,7 @@ To add exceptions and make Jupyter access available over a browser, use the foll
 ![Enable Jupyter exception](./media/ubuntu-jupyter-exception.png)
 
 
-Sign in with the same password that you use to log in to the Data Science Virtual Machine:
+Sign in with the same password that you use to log in to the Data Science Virtual Machine.
 <br/>
 
 **Jupyter home**
