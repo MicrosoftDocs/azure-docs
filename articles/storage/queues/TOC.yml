@@ -1,7 +1,6 @@
-- name: Azure Storage Documentation
-  href: /azure/storage/
+- name: Azure Queues storage documentation
+  href: /azure/storage/queues/index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What are Azure Queues?
     href: storage-queues-introduction.md
