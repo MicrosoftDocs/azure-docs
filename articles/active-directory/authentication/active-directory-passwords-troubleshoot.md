@@ -223,7 +223,12 @@ If installing the latest version of the Azure AD Connect server does not resolve
 
 ## Verify that Azure AD Connect has the required permission for password writeback
 
-Azure AD Connect requires Active Directory **Reset password** permission to perform password writeback. To find out if Azure AD Connect has the required permission for a given on-premises Active Directory user account, you can use the Windows Effective Permission feature:
+Azure AD Connect requires Active Directory permissions to perform password writeback. To find out if Azure AD Connect has the required permission for a given on-premises Active Directory user account, you can use the Windows Effective Permission feature:
+
+> [!IMPORTANT] 
+> To get a complete list of required permissions, refer to "Active Directory permissions" sction of the following article:
+https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-writeback
+  
 
 1. Sign in to the Azure AD Connect server and start the **Synchronization Service Manager** by selecting **Start** > **Synchronization Service**.
 1. Under the **Connectors** tab, select the on-premises **Active Directory Domain Services** connector, and then select **Properties**.  
@@ -245,7 +250,7 @@ Azure AD Connect requires Active Directory **Reset password** permission to perf
 
    ![Effective Access tab showing the Synchronization Account](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-1. Scroll down and look for **Reset password**. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
+1. Scroll down and look for the necessary permissions. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
 
    ![Validating that the sync account has the Reset password permission](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
