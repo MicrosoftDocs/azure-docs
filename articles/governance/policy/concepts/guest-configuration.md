@@ -28,13 +28,20 @@ To audit settings inside a virtual machine, a [virtual machine
 extension](../../../virtual-machines/extensions/overview.md) is enabled. The extension downloads
 applicable policy assignment and the corresponding configuration definition.
 
-### Register Guest Configuration resource provider
+### Limits set on the exension
+
+In order to limit the extension from impacting applications running inside the machine,
+the Guest Configuration is not allowed to exceed more than 5% of CPU utilization.
+This is true boh for configurations provided by Microsoft as "built-in"
+and for custom configurations authored by customers.
+
+## Register Guest Configuration resource provider
 
 Before you can use Guest Configuration, you must register the resource provider. You can register
 through the portal or through PowerShell. The resource provider is registered automatically if
 assignment of a Guest Configuration policy is done through the portal.
 
-#### Registration - Portal
+### Registration - Portal
 
 To register the resource provider for Guest Configuration through the Azure portal, follow these
 steps:
@@ -48,7 +55,7 @@ steps:
 1. Filter for or scroll until you locate **Microsoft.GuestConfiguration**, then click **Register**
    on the same row.
 
-#### Registration - PowerShell
+### Registration - PowerShell
 
 To register the resource provider for Guest Configuration through PowerShell, run the following
 command:
@@ -58,7 +65,7 @@ command:
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
-### Validation tools
+## Validation tools
 
 Inside the virtual machine, the Guest Configuration client uses local tools to run the audit.
 
@@ -80,7 +87,7 @@ Resource Manager properties. An on-demand Azure Policy evaluation retrieves the 
 the Guest Configuration resource provider. However, it doesn't trigger a new audit of the
 configuration within the virtual machine.
 
-### Supported client types
+## Supported client types
 
 The following table shows a list of supported operating system on Azure images:
 
@@ -103,7 +110,7 @@ The following table shows a list of supported operating system on Azure images:
 
 Windows Server Nano Server is not supported in any version.
 
-### Guest Configuration Extension network requirements
+## Guest Configuration Extension network requirements
 
 To communicate with the Guest Configuration resource provider in Azure, virtual machines require
 outbound access to Azure datacenters on port **443**. If you're using a private virtual network in
@@ -165,7 +172,7 @@ and **Audit** pairs for Windows and three pairs for Linux. In each case, the log
 definition validates only the target operating system is evaluated based on the [policy rule](definition-structure.md#policy-rule)
 definition.
 
-## Multiple assignments
+### Multiple assignments
 
 Guest Configuration policies currently only support assigning the same Guest Assignment once
 per virtual machine, even if the Policy assignment uses different parameters.
