@@ -25,6 +25,8 @@
     items:
     - name: Set up a geofence
       href: tutorial-geofence.md
+    - name: Spatial analytics
+      href: tutorial-iot-hub-maps.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -147,6 +149,8 @@
       href: display-feature-information-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
+  - name: Provide data feedback
+    href: how-to-use-feedback-tool.md
 - name: Reference
   items:
   - name: API and parameter extensions
@@ -229,6 +233,8 @@
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: Maps

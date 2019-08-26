@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 08/20/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to understand all the programming requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
@@ -26,7 +26,7 @@ This tutorial walks you through programmatically creating and publishing a knowl
 > * Use Curl to query the knowledge base
 
 
-This quickstart calls QnA Maker APIs:
+This quickstart calls QnA Maker REST APIs:
 
 * [Create Knowledge base (kb)](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)

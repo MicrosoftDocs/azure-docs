@@ -168,14 +168,13 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     **SSRS Configuration with SQL 2017**
 
-    When you are using own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
+    When you are using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
-    Use the following values for SSRS configuration:
-
-        - Service Account: ‘Use built-in account’ should be Network Service
-        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
-        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    Use the following values for SSRS configuration: 
+    - Service Account: ‘Use built-in account’ should be Network Service
+    - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
+    - Database: DatabaseName should be ReportServer$<SQLInstanceName>
+    - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
 
     [Learn more](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
 

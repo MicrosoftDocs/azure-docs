@@ -14,8 +14,8 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/15/2019
-ms.author: curtand
-ms.reviewer: ajayanti1
+ms.author: arjay
+ms.reviewer: arjay
 ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 #Aruna Jayanti is minding this reference until it can be automated

@@ -11,7 +11,7 @@ ms.author: sngun
 ms.custom: seo-java-august2019
 
 ---
-# Quickstart: Build a Table API app with Java and Azure Cosmos DB
+# Quickstart: Build a Java app to manage Azure Cosmos DB Table API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)

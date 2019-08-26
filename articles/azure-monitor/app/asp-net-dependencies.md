@@ -86,7 +86,7 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 ## Tracking AJAX calls from Web Pages
 
-For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies as described [here](javascript.md#ajax-performance). This document focuses on dependencies from server components.
+For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies.
 
 ## Advanced SQL tracking to get full SQL Query
 
@@ -109,7 +109,7 @@ In the above cases, the correct way of validating that instrumentation engine is
 
 * [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
 * [Transaction Diagnostics](transaction-diagnostics.md) shows unified, correlated server data.
-* [Browsers tab](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
+* [Browsers tab](javascript.md) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#logs-analytics) can be used to query dependency data.
 

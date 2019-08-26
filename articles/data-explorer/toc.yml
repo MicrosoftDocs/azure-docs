@@ -44,6 +44,8 @@
       href: ingest-data-event-hub.md
     - name: Event Grid
       href: ingest-data-event-grid.md
+    - name: One-click ingestion
+      href: ingest-data-one-click.md
     - name: Kafka
       href: ingest-data-kafka.md
     - name: Python

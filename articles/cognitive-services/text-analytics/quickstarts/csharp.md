@@ -17,7 +17,7 @@ ms.author: assafi
 
 Get started with the Text Analytics client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
 
-Use the Text Analytics client library for Python to perform:
+Use the Text Analytics client library for .NET to perform:
 
 * Sentiment analysis
 * Language detection
@@ -92,10 +92,16 @@ In the application's `Main` method, create variables for your resource's Azure e
 static void Main(string[] args)
 {
     // replace this endpoint with the correct one for your Azure resource. 
-    string endpoint = $"https://westus2.api.cognitive.microsoft.com";
+    string endpoint = $"https://westus.api.cognitive.microsoft.com";
     //This sample assumes you have created an environment variable for your key
     string key = Environment.GetEnvironmentVariable("TEXT_ANALYTICS_SUBSCRIPTION_KEY");
-    ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
+
+    var credentials = new ApiKeyServiceClientCredentials(key);
+    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+    {
+        Endpoint = endpoint
+    };
+
     Console.OutputEncoding = System.Text.Encoding.UTF8;
     SentimentAnalysisExample(client);
     // languageDetectionExample(client);
@@ -154,10 +160,14 @@ class ApiKeyServiceClientCredentials : ServiceClientCredentials
 }
 ```
 
-In the `main()` method, instantiate the client.
+In the `main()` method, instantiate the client with your key and endpoint.
 
 ```csharp
-ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
+var credentials = new ApiKeyServiceClientCredentials(key);
+TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+{
+    Endpoint = endpoint
+};
 ```
 
 ## Sentiment analysis
@@ -167,7 +177,7 @@ Create a new function called `SentimentAnalysisExample()` that takes the client 
 A score that's close to 0 indicates a negative sentiment, while a score that's closer to 1 indicates a positive sentiment.
 
 ```csharp
-static void SentimentAnalysisExample(ITextAnalyticsClient client){
+static void SentimentAnalysisExample(TextAnalyticsClient client){
     var result = client.Sentiment("I had the best day of my life.", "en");
     Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
 }
@@ -187,7 +197,7 @@ Create a new function called `languageDetectionExample()` that takes the client 
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""` .
 
 ```csharp
-static void languageDetectionExample(ITextAnalyticsClient client){
+static void languageDetectionExample(TextAnalyticsClient client){
     var result = client.DetectLanguage("This is a document written in English.");
     Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
 }
@@ -207,7 +217,7 @@ Language: English
 Create a new function called `RecognizeEntitiesExample()` that takes the client that you created earlier, and call its [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. Iterate through the results. The returned [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) object will contain the list of detected entities in `Entities` if successful, and an `errorMessage` if not. For each detected entity, print its Type, Sub-Type, Wikipedia name (if they exist) as well as the locations in the original text.
 
 ```csharp
-static void entityRecognitionExample(ITextAnalyticsClient client){
+static void entityRecognitionExample(TextAnalyticsClient client){
 
     var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
     Console.WriteLine("Entities:");
