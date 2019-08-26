@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: aahi
 ---
 
@@ -90,7 +90,7 @@ Your rate limit will vary with your pricing tier.
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
 | S / Multi-service | 1000                | 1000                |
-| S0/F0         | 100                 | 300                 |
+| S0 / F0         | 100                 | 300                 |
 | S1            | 200                 | 300                 |
 | S2            | 300                 | 300                 |
 | S3            | 500                 | 500                 |
