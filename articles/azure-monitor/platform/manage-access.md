@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 08/26/2019
 ms.author: magoedte
 ---
 
@@ -199,7 +199,7 @@ When users query logs from a workspace using resource-context access, they'll ha
 
 See [Defining per-table access control](#table-level-rbac) below if you want to create different access control for different tables.
 
-### Custom role examples
+## Custom role examples
 
 1. To grant a user access to log data from their resources, perform the following:
 
