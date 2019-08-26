@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Migrate an Azure API Management API to b2clogin.com
 
-If you have an API in Azure API Management secured with Azure AD B2C by accepting tokens issued by the legacy `login.microsoftonline.com` issuer endpoint, you should migrate the API and your applications to support tokens issued by [b2clogin.com](b2clogin.md).
+If you have an API in Azure API Management secured with Azure AD B2C tokens issued by the legacy `login.microsoftonline.com` endpoint, you should migrate the API and your applications to support tokens issued by [b2clogin.com](b2clogin.md).
 
 By adding support for accepting tokens issued by both b2clogin.com and login.microsoftonline.com to your Azure API Management (APIM) policy, you can migrate your client applications in a staged manner before removing support for login.microsoftonline.com-issued tokens from the API.
 
