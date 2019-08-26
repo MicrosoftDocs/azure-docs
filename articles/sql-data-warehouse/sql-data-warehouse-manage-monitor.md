@@ -259,6 +259,31 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
+## Monitor PolyBase load
+The following query provides a ballpark estimate of the progress of your load. The query only shows files currently being processed. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
+```
+
 ## Next steps
 For more information about DMVs, see [System views][System views].
 
