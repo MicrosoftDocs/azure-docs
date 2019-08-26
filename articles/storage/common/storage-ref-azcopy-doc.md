@@ -39,4 +39,4 @@ azcopy doc [flags]
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

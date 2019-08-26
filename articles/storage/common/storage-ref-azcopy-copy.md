@@ -227,4 +227,4 @@ azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.
 
 ## See also
 
-- [azcopy](azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

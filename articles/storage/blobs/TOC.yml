@@ -499,9 +499,9 @@
       - name: azCopy jobs list
         href: ../common/storage-ref-azcopy-list.md
       - name: azCopy jobs resume
-        href: ../common/storage-ref-azcopy-resume.md
+        href: ../common/storage-ref-azcopy-jobs-resume.md
       - name: azCopy jobs show
-        href: ../common/storage-ref-azcopy-show.md
+        href: ../common/storage-ref-azcopy-jobs-show.md
       - name: azCopy list
         href: ../common/storage-ref-azcopy-list.md
       - name: azCopy login
