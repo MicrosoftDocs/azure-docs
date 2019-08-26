@@ -1,6 +1,6 @@
 ---
 title: Monitor data factories using Azure Monitor | Microsoft Docs
-description: Learn how to use Azure Monitor to monitor Data Factory pipelines by enabling diagnostic logs with information from Azure Data Factory.
+description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -16,51 +16,57 @@ ms.date: 12/11/2018
 ms.author: shlo
 
 ---
-# Alert and Monitor data factories using Azure Monitor
-Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. This knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
+# Alert and monitor data factories using Azure Monitor
 
-Azure Monitor provides base level infrastructure metrics and logs for most services in Microsoft Azure. For details, see [monitoring overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure Diagnostic logs are logs emitted by a resource that provide rich, frequent data about the operation of that resource. Data Factory outputs diagnostic logs in Azure Monitor.
+Cloud applications are complex and have many moving parts. Monitoring provides data to help ensure that your application stays up and running in a healthy state. Monitoring also helps you to stave off potential problems and troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. This knowledge can help you to improve application performance or maintainability or to automate actions that would otherwise require manual intervention.
 
-## Persist Data Factory Data
-Data Factory only stores pipeline run data for 45 days. If you want to persist pipeline run data for more than 45 days, using Azure Monitor, you cannot only route diagnostic logs for analysis, you can persist them into a storage account so you have factory information for the duration of your choosing.
+Azure Monitor provides base-level infrastructure metrics and logs for most services in Microsoft Azure. For details, see [Azure Monitor overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostic logs are logs emitted by a resource that provide rich, frequent data about the operation of that resource. Azure Data Factory outputs diagnostic logs in Azure Monitor.
+
+## Persist Azure Data Factory data
+
+Data Factory stores pipeline run data for only 45 days. If you want to persist pipeline run data for more than 45 days, use Azure Monitor. With Azure Monitor you can route diagnostic logs for analysis. You can also persist them into a storage account so that you have factory information for the duration you choose.
 
 ## Diagnostic logs
 
-* Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the diagnostic settings.
-* Stream them to **Event Hubs** for ingestion by a third-party service or custom analytics solution such as Power BI.
-* Analyze them with **Log Analytics**
+* Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
+* Stream the logs to Azure Event Hubs for input to a partner service or a custom analytics solution like Power BI.
+* Analyze the logs with Log Analytics.
 
-You can use a storage account or event hub namespace that is not in the same subscription as the resource that is emitting logs. The user who configures the setting must have the appropriate role-based access control (RBAC) access to both subscriptions.
+You can use a storage account or event-hub namespace that isn't in the same subscription as the resource that is emitting logs. The user who configures the setting must have the appropriate role-based access control (RBAC) access to both subscriptions.
 
 ## Set up diagnostic logs
 
-### Diagnostic Settings
-Diagnostic Logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control:
+### Diagnostic settings
 
-* Where diagnostic logs are sent (Storage Account, Event Hubs, or Azure Monitor logs).
-* Which log categories are sent.
-* How long each log category should be retained in a storage account.
-* A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
-* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Azure Monitor logs options are selected), the retention policies have no effect.
-* Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
+Diagnostic logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control have the following features:
 
-### Enable diagnostic logs via REST APIs
+* They specify where diagnostic logs are sent. Examples are an Azure storage account, an Azure event hub, or Azure Monitor.
+* They specify which log categories are sent.
+* They specify how long each log category should be retained in a storage account.
+* A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days from 1 through 2,147,483,647.
+* If retention policies are set but storing logs in a storage account is disabled, such as when only Event Hubs or Azure Monitor logs options are selected, the retention policies have no effect.
+* Retention policies are applied per day. The boundary between days occurs at midnight Coordinated Universal Time (UTC). At the end of a day, logs from the day that is beyond the retention policy are deleted. For example, if you have a retention policy of one day, at the beginning of today the logs from before yesterday are deleted.
 
-Create or update a diagnostics setting in Azure Monitor REST API
+### Enable diagnostic logs via REST API
 
-**Request**
+#### Create or update a diagnostics setting in the Azure Monitor REST API
+
+##### Request
+
 ```
 PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-**Headers**
-* Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
-* Set the `Content-Type` header to `application/json`.
-* Set the authorization header to a JSON web token that you obtain from Azure Active Directory. For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
+##### Headers
 
-**Body**
+* Replace `{api-version}` with `2016-09-01`.
+* Replace `{resource-id}` with the resource ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+* Set the `Content-Type` header to `application/json`.
+* Set the authorization header to a JSON web token that you got from Azure Active Directory (Azure AD). For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
+
+##### Body
+
 ```json
 {
     "properties": {
@@ -102,18 +108,18 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Property | Type | Description |
 | --- | --- | --- |
-| storageAccountId |String | The resource ID of the storage account to which you would like to send Diagnostic Logs |
-| serviceBusRuleId |String | The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming Diagnostic Logs. The rule ID is of the format: "{service bus resource ID}/authorizationrules/{key name}".|
-| workspaceId | Complex Type | Array of metric time grains and their retention policies. Currently, this property is empty. |
-|metrics| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object mapping parameter names to argument values |
-| logs| Complex Type| Name of a Diagnostic Log category for a resource type. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation. |
-| category| String| Array of log categories and their retention policies |
-| timeGrain | String | The granularity of metrics that are captured in ISO 8601 duration format. Must be PT1M (one minute)|
-| enabled| Boolean | Specifies whether collection of that metric or log category is enabled for this resource|
-| retentionPolicy| Complex Type| Describes the retention policy for a metric or log category. Used for storage account option only.|
-| days| Int| Number of days to retain the metrics or logs. A value of 0 retains the logs indefinitely. Used for storage account option only. |
+| storageAccountId |String | The resource ID of the storage account to which you want to send diagnostic logs. |
+| serviceBusRuleId |String | The service-bus rule ID of the service-bus namespace in which you want to have Event Hubs created for streaming diagnostic logs. The rule ID has the format: "{service bus resource ID}/authorizationrules/{key name}".|
+| workspaceId | Complex Type | An array of metric time grains and their retention policies. This property is empty. |
+|metrics| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object that maps parameter names to argument values. |
+| logs| Complex Type| The name of a diagnostic log category for a resource type. To obtain the list of diagnostic log categories for a resource, first perform a GET diagnostic-settings operation. |
+| category| String| An array of log categories and their retention policies. |
+| timeGrain | String | The granularity of metrics that are captured. The value is expressed in ISO 8601 duration format and must be PT1M, which specifies one minute. |
+| enabled| Boolean | Specifies whether collection of the metric or log category is enabled for this resource.|
+| retentionPolicy| Complex Type| Describes the retention policy for a metric or log category. This property is used for storage accounts only.|
+| days| Int| The number of days to retain the metrics or logs. A value of 0 retains the logs indefinitely. This property is used for storage accounts only. |
 
-**Response**
+##### Response
 
 200 OK
 
@@ -164,7 +170,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-Get information about diagnostics setting in Azure Monitor REST API
+#### Get information about diagnostics settings in Azure Monitor REST API
 
 **Request**
 ```
@@ -176,7 +182,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 * Replace `{api-version}` with `2016-09-01`.
 * Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information Using Resource groups to manage your Azure resources.
 * Set the `Content-Type` header to `application/json`.
-* Set the authorization header to a JSON Web Token that you obtain from Azure Active Directory. For more information, see Authenticating requests.
+* Set the authorization header to a JSON Web Token that you obtain from Azure AD. For more information, see Authenticating requests.
 
 **Response**
 
@@ -229,7 +235,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 [More info here](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 
-## Schema of Logs & Events
+## Schema of logs and events
 
 ### Azure Monitor Schema
 
@@ -417,9 +423,9 @@ ADFV2 emits the following metrics:
 
 To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
-## Monitor Data Factory Metrics with Azure Monitor
+## Monitor Data Factory metrics with Azure Monitor
 
-You can use Azure Data Factory integration with Azure Monitor to route data to Azure Monitor. This integration is useful in the following scenarios:
+You can use Data Factory integration with Azure Monitor to route data to Azure Monitor. This integration is useful in the following scenarios:
 
 1.  You want to write complex queries on a rich set of metrics that is published by Data Factory to Azure Monitor. You can also create custom alerts on these queries via Azure Monitor.
 
@@ -466,7 +472,7 @@ Click **Create** and select the Workspace and Workspace settings.
 
 ![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
 
-### Monitor Data Factory Metrics
+### Monitor Data Factory metrics
 
 Installing **Azure Data Factory Analytics** creates a default set of views that enables the following metrics:
 
