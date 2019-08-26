@@ -81,6 +81,8 @@ Once logged in, Docker caches the credentials.
 
 * See the [authentication overview](container-registry-authentication.md) for other scenarios to authenticate with an Azure container registry.
 
+* For an example of using an Azure key vault to store and retrieve service principal credentials for a container registry, see the tutorial to [build and deploy a container image using ACR Tasks](container-registry-tutorial-quick-task.md).
+
 <!-- LINKS - External -->
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
