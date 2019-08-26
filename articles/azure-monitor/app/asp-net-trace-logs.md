@@ -29,7 +29,6 @@ Install your chosen logging framework in your project, which should result in an
 ```XML
     <configuration>
       <system.diagnostics>
-    <trace autoflush="true" indentsize="0">
       <listeners>
         <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
       </listeners>
