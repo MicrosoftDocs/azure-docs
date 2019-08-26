@@ -204,7 +204,7 @@ For more information on the ARMClient command, refer to [ARMClient README](https
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-3. In the Azure portal, make sure the vault is deleted.
+3. In the Azure portal, make sure that the vault is deleted.
 
 
 ## Next steps
