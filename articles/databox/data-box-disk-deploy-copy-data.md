@@ -319,6 +319,6 @@ Take the following steps to verify your data.
 1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
 2. Use option 2 to validate your files and generate checksums. Depending upon your data size, this step may take a while. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
-    For more information on data validation, see [Validate data](data-box-disk-deploy-copy-data#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
+    For more information on data validation, see [Validate data](data-box-disk-deploy-copy-data.md#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ::: zone-end
