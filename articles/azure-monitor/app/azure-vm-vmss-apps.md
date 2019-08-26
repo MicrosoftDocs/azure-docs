@@ -31,7 +31,7 @@ There are two ways to enable application monitoring for Azure VM and Azure virtu
 
     * For Azure VMs and Azure virtual machine scale sets we recommend at a minimum enabling this level of monitoring. After that, based on your specific scenario, you can evaluate whether manual instrumentation is needed.
 
-    * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](https://docs.microsoft.com/en-us/azure/azure-monitor/app/auto-collect-dependencies#net) to learn more.
+    * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) to learn more.
         > [!NOTE]
         > Currently only .Net IIS-hosted applications are supported. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications hosted on an Azure VM and VMSS.
 
