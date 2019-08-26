@@ -115,7 +115,7 @@ There are a few reasons why your backup might not be available:
 
 - **Existing Microsoft Authenticator accounts.** If you've already set up accounts in the Microsoft Authenticator app, the app won't be able to recover your backed-up accounts. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
 
-- **Backup is out of date.** If your backup information is out-of-date, you might be asked to refresh the information by signing in to your Microsoft Recovery account again. Your recovery account is the personal Microsoft account you used initially to store your backup. If a sign-in is required, you’ll see a red dot on your menu or action bar. After you select the red dot, you’ll be prompted to sign in again to update your information.
+- **Backup is out-of-date.** If your backup information is out-of-date, you might be asked to refresh the information by signing in to your Microsoft Recovery account again. Your recovery account is the personal Microsoft account you used initially to store your backup. If a sign-in is required, you’ll see a red dot on your menu or action bar. After you select the red dot, you’ll be prompted to sign in again to update your information.
 
 ## Next steps
 
