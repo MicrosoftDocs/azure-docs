@@ -47,12 +47,14 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 The next steps are determined by where you are returning the device.
 
-::: zone target="chromeless"
+
 
 - [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
 - [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
 - [Schedule a pickup in Australia](data-box-disk-deploy-picked-up.md#pick-up-in-australia).
 - [Schedule a pickup for countries in Asia](data-box-disk-deploy-picked-up.md#pick-up-in-asia) such as Japan, Korea, and Singapore.
+
+::: zone target="chromeless"
 
 After the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
 
