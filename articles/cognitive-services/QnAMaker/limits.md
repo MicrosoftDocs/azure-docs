@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -45,13 +45,19 @@ Maximum number of metadata fields per knowledge base is based on your **[Azure S
 |---|---|---|---|---|---|----|
 |Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
 
+|Item|Allowed chars|Regex pattern match|Max chars|
+|--|--|--|--|
+|Name|alphanumeric (letters and digits)<br>`_` (underscore)|`^[a-zA-Z0-9_]+$`|100|
+|Value|`:` (colon)<br>`|` (vertical pipe)|`^[^:|]+$`|500|
+|||||
+
 ## Knowledge Base content limits
 Overall limits on the content in the knowledge base:
 * Length of answer text: 25,000
 * Length of question text: 1,000
 * Length of metadata key/value text: 100
-* Supported characters for metadata name: Alphabets, digits and _  
-* Supported characters for metadata value: All except : and | 
+* Supported characters for metadata name: Alphabets, digits and `_`  
+* Supported characters for metadata value: All except `:` and `|` 
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
