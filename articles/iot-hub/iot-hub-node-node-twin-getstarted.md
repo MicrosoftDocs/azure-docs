@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 08/26/2019
 ms.author: elioda
 ---
 

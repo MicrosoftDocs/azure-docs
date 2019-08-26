@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: robinsh
 ---
 # Get started with device twins (Python)

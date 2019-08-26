@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 05/15/2017
+ms.date: 08/26/2019
 ms.author: robinsh
 ---
 

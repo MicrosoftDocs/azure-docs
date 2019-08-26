@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 07/04/2017
+ms.date: 08/26/2019
 ---
 
 # Get started with device twins (Java)
