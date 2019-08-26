@@ -101,13 +101,13 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
     >
     >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
-## Troubleshooting backup and recovery problems
+## Troubleshoot backup and recovery problems
 
 There are a few reasons why your backup might not be available:
 
 - **Changing operating systems.** Your backup is stored in the iCloud for iOS and in Microsoft's cloud storage provider for Android. This means that your backup is unavailable if you switch between Android and iOS devices. If you make the switch, you must manually recreate your accounts within the Microsoft Authenticator app.
 
-- **Network problems.** If you're experiencing network-related problems, make sure you're connected to network and properly signed in to your account.
+- **Network problems.** If you're experiencing network-related problems, make sure you're connected to the network and properly signed in to your account.
 
 - **Account problems.** If you're experiencing account-related problems, make sure that you're properly signed in to your account. For iOS this means that you must be signed into iCloud using the same AppleID account as your iPhone.
 
