@@ -37,7 +37,7 @@ The following tools are included in a DSVM:
 * A standalone Apache Spark instance for local development and testing.
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html).
 * Machine learning and data analytics tools:
-  * Deep learning frameworks: A rich set of AI frameworks are included on the VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), MXNet, and Keras.
+  * Deep learning frameworks: The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), MXNet, and Keras AI frameworks are included on the VM.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool that provides fast and accurate boosted tree implementation.
   * [Rattle](https://togaware.com/rattle/). The R analytical tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
@@ -108,7 +108,7 @@ You're ready to start using the tools that are installed and configured on the V
 
 You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
-## Tools on the DSVM
+## Tools installed on the Microsoft Data Science Virtual Machine
 
 In the following sections, learn more about the tools that come installed on the Data Science Virtual Machine.
 
@@ -129,7 +129,7 @@ For development by using Python, Anaconda Python distributions 2.7 and 3.6 are i
 > [!NOTE]
 > To point the Python Tools for Visual Studio at Anaconda Python 2.7, you need to create custom environments for each version. To set these environment paths in Visual Studio 2017 Community, go to **Tools** > **Python Tools** > **Python Environments**. Then select **+ Custom**.
 
-Anaconda Python 3.6 is installed under **C:\Anaconda**. Anaconda Python 2.7 is installed under **c:\Anaconda\envs\python2**. For detailed steps, see the [PTVS documentation](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters).
+Anaconda Python 3.6 is installed under C:\Anaconda. Anaconda Python 2.7 is installed under C:\Anaconda\envs\python2. For detailed steps, see the [PTVS documentation](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters).
 
 ### The Jupyter Notebook
 
@@ -224,13 +224,13 @@ You can use the [Microsoft Web Platform Installer](https://www.microsoft.com/web
 | Miscellaneous tools | C:\dsvm\tools |
 
 > [!NOTE]
-> On the Windows Server 2012 edition of the DSVM and the Windows Server 2016 edition before March 2018, the default Anaconda environment is Python 2.7. The secondary environment is Python 3.5, located at **C:\Anaconda\envs\py35**.
+> On the Windows Server 2012 edition of the DSVM and the Windows Server 2016 edition before March 2018, the default Anaconda environment is Python 2.7. The secondary environment is Python 3.5, located at C:\Anaconda\envs\py35.
 
 ## Next steps
 
 * Explore the tools on the DSVM by opening the **Start** menu.
 * Learn about the Azure Machine Learning service by reading [What is Azure Machine Learning service?](../service/overview-what-is-azure-ml.md) and trying out [quickstarts and tutorials](../service/index.yml).
-* In File Explorer, browse to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples that use the RevoScaleR library in R that supports data analytics at enterprise scale. 
+* In File Explorer, browse to C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts for samples that use the RevoScaleR library in R that supports data analytics at enterprise scale. 
 * Read the article [Ten things you can do on the Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](../team-data-science-process/index.yml).
 * Visit the [Azure AI Gallery](https://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine Learning and related data services on Azure. We've also provided an icon for this gallery on the **Start** menu and on the desktop of the virtual machine.
