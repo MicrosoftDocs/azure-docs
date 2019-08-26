@@ -41483,17 +41483,17 @@
     },
     {
       "source_path": "articles/cognitive-services/text-analytics/how-tos/deploy-sentiment-analysis-on-container-instances.md",
-      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances?pivots=text-analytics-sentiment-analysis",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances?tabs=sentiment",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks.md",
-      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?pivots=text-analytics-language-detection",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=language",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/text-analytics/how-tos/use-sentiment-analysis-on-aks.md",
-      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?pivots=text-analytics-sentiment-analysis",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=sentiment",
       "redirect_document_id": false
     }
   ]
