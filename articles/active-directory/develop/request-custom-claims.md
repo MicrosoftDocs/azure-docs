@@ -22,41 +22,62 @@ ms.collection: M365-identity-device-management
 
 # How to: Request custom claims using MSAL for iOS and macOS
 
-OpenID Connect allows you to optionally request individual claims. Claims are returned as a JSON object containing the list of requested claims. The mechanism for doing this is an optional `claims` parameter (See [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) for details.)
+OpenID Connect allows you to optionally request individual claims to be returned from the UserInfo Endpoint and/or in the ID Token. Claims request is represented as a JSON object containing lists of Claims being requested. The mechanism for doing this is an optional `claims` parameter (See [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) for details.)
 
-The Microsoft Authentication Library (MSAL) provides an interactive API to pass a `claims` parameter to OpenID Connect so that you can request individual claims and specify parameters that apply to the requested Claims.
+The Microsoft Authentication Library (MSAL) for iOS and macOS allows requesting specific claims in both interactive and silent token acquisition scenarios. It does so through the `claimsRequest` parameter. 
 
-A situation where you would need to request is claim is if a claims challenge is issued by the resource when the access token is used to access it. In that case, an interactive acquire token call is needed to pass the claims challenge to the server.
+There're multiple scenarios where this is needed, some examples:
 
-MSAL provides the following function on the `MSALPublicClientApplication` class, which accepts a claims challenge:
+1. Requesting claims outside of the standard set for your application.
+2. Requesting specific combinations of the standard claims that cannot be specified using scopes for your application. For example, if an access token gets rejected by RP due to missing claims, application can request those missing claims from MSAL.
+
+Note that MSAL will bypass access token cache whenever claims request is specified. Therefore it is important to only provide `claimsRequest` parameter when additional claims are needed (as opposed to always providing same `claimsRequest` parameter into each MSAL API call). 
+
+`claimsRequest` can be specified in the `MSALSilentTokenParameters` and `MSALInteractiveTokenParameters`:
 
 ```objc
-(void)acquireTokenForScopes:(NSArray<NSString *> *)scopes
-         extraScopesToConsent:(NSArray<NSString *> *)extraScopesToConsent
-                      account:(MSALAccount *)account
-                   uiBehavior:(MSALUIBehavior)uiBehavior
-         extraQueryParameters:(NSDictionary <NSString *, NSString *> *)extraQueryParameters
-                       claims:(NSString *)claims
-                    authority:(NSString *)authority
-                correlationId:(NSUUID *)correlationId
-              completionBlock:(MSALCompletionBlock)completionBlock;
+/*!
+ MSALTokenParameters is the base abstract class for all types of token parameters (silent and interactive).
+ */
+@interface MSALTokenParameters : NSObject
+
+/*!
+ The claims parameter that needs to be sent to authorization or token endpoint.
+ If claims parameter is passed in silent flow, access token will be skipped and refresh token will be tried.
+ */
+@property (nonatomic, nullable) MSALClaimsRequest *claimsRequest;
+
+@end
+```
+`MSALClaimsRequest` can be constructed from an NSString representation of JSON Claims request. 
+
+```objc
+NSError *claimsError = nil;
+MSALClaimsRequest *request = [[MSALClaimsRequest alloc] initWithJsonString:@"{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}" error:&claimsError];
 ```
 
-The `claims` parameter value is represented in an OAuth 2.0 request as UTF-8 encoded JSON.  
-MSAL expects the claims string to be URL encoded.  For example:
+It can also be modified by requesting additional specific claims:
 
 ```objc
-[application acquireTokenForScopes:@[@"user.read"]
-                  extraScopesToConsent:nil
-                  account:account
-                  uiBehavior:MSALUIBehaviorDefault
-                  extraQueryParameters:nil
-                  claims:@"%7B%22access_token%22%3A%7B%22deviceid%22%3A%7B%22essential%22%3Atrue%7D%7D%7D"
-                  authority:nil
-                  correlationId:nil
-                  completionBlock:^(MSALResult *result, NSError *error) {
-                      // TODO: handle result or error
-    }];
+MSALIndividualClaimRequest *individualClaimRequest = [[MSALIndividualClaimRequest alloc] initWithName:@"custom_claim"];
+individualClaimRequest.additionalInfo = [MSALIndividualClaimRequestAdditionalInfo new];
+individualClaimRequest.additionalInfo.essential = @1;
+individualClaimRequest.additionalInfo.value = @"myvalue";
+[request requestClaim:individualClaimRequest forTarget:MSALClaimsRequestTargetIdToken error:&claimsError];
+```
+
+`MSALClaimsRequest` should be then set in the token parameters and provided to one of MSAL token acquisitions APIs:
+
+```objc
+MSALPublicClientApplication *application = ...;
+MSALWebviewParameters *webParameters = ...;
+
+MSALInteractiveTokenParameters *parameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"user.read"]
+                                                                                  webviewParameters:webParameters];
+parameters.claimsRequest = request;
+    
+[application acquireTokenWithParameters:parameters completionBlock:completionBlock];
+
 ```
 
 ## Next steps
