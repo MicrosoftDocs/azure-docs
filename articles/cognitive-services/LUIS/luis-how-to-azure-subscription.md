@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
@@ -55,7 +55,9 @@ Assign an authoring resource through the LUIS portal:
 
 ### Reset authoring key
 
-If your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that resource. 
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: if your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that authoring resource. 
+
+**For apps that have not migrated yet**: the key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of Ocp-Apim-Subscription-Key to the new key.
 
 ## Delete account
 

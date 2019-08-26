@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
@@ -51,7 +51,9 @@ Before you migrate to the Azure resource authoring experience, you need to have 
     * **Location** - an Azure global region your authoring resource is in. LUIS has 3 regions for authoring. The authoring region determines your available publishing regions.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month. 
 
-1. If your apps (that you own) have collaborators, you need to add these collaborators manually in the Azure portal's authoring resource. 
+## After migration process
+
+If your apps (that you own) have collaborators, you need to add these collaborators manually in the Azure portal's authoring resource.
 
 ## Next steps
 

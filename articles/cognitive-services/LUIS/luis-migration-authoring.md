@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
@@ -60,7 +60,7 @@ Follow [these migration steps](luis-migration-authoring-steps.md).
 
 ### After you migrate 
 
-* Add collaborators back to app.
+After the migration process, [add collaborator access](luis-migration-authoring-steps.md#after-migration-process).
 
 ## Migration for the app collaborator
 
