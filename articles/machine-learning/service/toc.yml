@@ -6,7 +6,7 @@
   - name: What is Azure Machine Learning service?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
-  - name: Architecture & terms 
+  - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
 
@@ -29,10 +29,7 @@
         href: tutorial-deploy-models-with-aml.md
     - name: Regression (NYC Taxi data)
       items:
-      - name: 1. Prepare data for modeling
-        displayName: data prep
-        href: tutorial-data-prep.md
-      - name: 2. Auto-train an ML model
+      - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
   - name: Visual interface
@@ -131,7 +128,7 @@
       href: how-to-configure-environment.md
     - name: Manage software environment
       displayName: pip, Conda
-      href: how-to-use-environments.md  
+      href: how-to-use-environments.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
       href: how-to-enable-logging.md
@@ -211,7 +208,7 @@
       displayName: time series
       href: how-to-auto-train-forecast.md
     - name: Understand charts and metrics
-      href: how-to-understand-automated-ml.md  
+      href: how-to-understand-automated-ml.md
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
@@ -231,7 +228,7 @@
     - name: Deploy to Notebook VMs
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
-      href: how-to-deploy-custom-docker-image.md      
+      href: how-to-deploy-custom-docker-image.md
     - name: Deploy existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
@@ -261,7 +258,7 @@
   - name: Create reusable workflows
     displayName: pipelines
     items:
-    - name: ML pipelines
+    - name: Create ML pipelines in Python
       href: how-to-create-your-first-pipeline.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery

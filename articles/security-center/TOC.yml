@@ -36,8 +36,6 @@
     href: security-center-data-security.md
   - name: Use recommendations to enhance security
     href: security-center-using-recommendations.md
-  - name: Detect threats
-    href: security-center-detection-capabilities.md
   - name: Cross-tenant management
     href: security-center-cross-tenant-management.md 
   - name: Threat detection alerts and incidents
