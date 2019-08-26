@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/26/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
@@ -22,18 +22,18 @@ ms.collection: M365-identity-device-management
 
 # How to: Request custom claims using MSAL for iOS and macOS
 
-OpenID Connect allows you to optionally request individual claims to be returned from the UserInfo Endpoint and/or in the ID Token. Claims request is represented as a JSON object containing lists of Claims being requested. The mechanism for doing this is an optional `claims` parameter (See [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) for details.)
+OpenID Connect allows you to optionally request the return of individual claims from the UserInfo Endpoint and/or in the ID Token. A claims request is represented as a JSON object that contains a list of requested claims. See [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) for more details.
 
-The Microsoft Authentication Library (MSAL) for iOS and macOS allows requesting specific claims in both interactive and silent token acquisition scenarios. It does so through the `claimsRequest` parameter. 
+The Microsoft Authentication Library (MSAL) for iOS and macOS allows requesting specific claims in both interactive and silent token acquisition scenarios. It does so through the `claimsRequest` parameter.
 
-There're multiple scenarios where this is needed, some examples:
+There're multiple scenarios where this is needed, for example:
 
-1. Requesting claims outside of the standard set for your application.
-2. Requesting specific combinations of the standard claims that cannot be specified using scopes for your application. For example, if an access token gets rejected by RP due to missing claims, application can request those missing claims from MSAL.
+- Requesting claims outside of the standard set for your application.
+- Requesting specific combinations of the standard claims that cannot be specified using scopes for your application. For example, if an access token gets rejected due to missing claims, the application can request the missing claims using MSAL.
 
-Note that MSAL will bypass access token cache whenever claims request is specified. Therefore it is important to only provide `claimsRequest` parameter when additional claims are needed (as opposed to always providing same `claimsRequest` parameter into each MSAL API call). 
+MSAL bypasses the access token cache whenever a claims request is specified. Therefore it is important to only provide `claimsRequest` parameter when additional claims are needed (as opposed to always providing same `claimsRequest` parameter in each MSAL API call).
 
-`claimsRequest` can be specified in the `MSALSilentTokenParameters` and `MSALInteractiveTokenParameters`:
+`claimsRequest` can be specified in `MSALSilentTokenParameters` and `MSALInteractiveTokenParameters`:
 
 ```objc
 /*!
@@ -77,7 +77,6 @@ MSALInteractiveTokenParameters *parameters = [[MSALInteractiveTokenParameters al
 parameters.claimsRequest = request;
     
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
-
 ```
 
 ## Next steps
