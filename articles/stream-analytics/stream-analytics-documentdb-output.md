@@ -92,3 +92,12 @@ Creating Cosmos DB as an output in Stream Analytics generates a prompt for infor
 |Database        | The Azure Cosmos DB database name.|
 |Container name | The container name to be used. `MyContainer` is a sample valid input - one container named `MyContainer` must exist.  |
 |Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.|
+
+## Error Handling and retries
+
+In the event of a transient failures, service unavailability or throttling while sending events to Cosmos DB, Stream Analytics retries indefinitely to successfully complete the operation. However, there are some failures for which retries are not attempted and they are as follows:
+
+- Unauthorized (Http error code 401)
+- NotFound (Http error code 404)
+- Forbidden (Http error code 403)
+- BadRequest (Http error code 400)
