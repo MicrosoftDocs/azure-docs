@@ -54,6 +54,20 @@ landingContent:
           - text: Get help
             url: multi-factor-authentication-end-user-troubleshoot.md
  
+   # Card
+  - title: Set up and use My Apps portal
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the My Apps portal?
+            url: my-apps-portal-end-user-access.md
+      - linkListType: how-to-guide
+        links:
+          - text: Update your info
+            url: my-apps-portal-end-user-update-profile.md
+          - text: Get help
+            url: my-apps-portal-end-user-troubleshoot.md
+
   # Card
   - title: Set up and use security info (preview)
     linkLists:
@@ -81,20 +95,6 @@ landingContent:
             url: myprofile-portal-organizations-page.md
           - text: Manage your connected devices
             url: myprofile-portal-devices-page.md
-  
-  # Card
-  - title: Set up and use My Apps portal
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is the My Apps portal?
-            url: my-apps-portal-end-user-access.md
-      - linkListType: how-to-guide
-        links:
-          - text: Update your info
-            url: my-apps-portal-end-user-update-profile.md
-          - text: Get help
-            url: my-apps-portal-end-user-troubleshoot.md
   
   # Card
   - title: Reset your own password
