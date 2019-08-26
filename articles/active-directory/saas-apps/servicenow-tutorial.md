@@ -110,149 +110,147 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user, called B.Simon, in the Azure portal.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. For **Name**, enter `B.Simon`.  
+   1. For **User name**, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
+   1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to ServiceNow.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **ServiceNow**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   ![Screenshot of Manage section, with Users and groups highlighted](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**. In the **Add Assignment** dialog box, select **Users and groups**.
 
-	![The Add User link](common/add-assign-user.png)
+	![Screenshot of Users and groups, with Add user highlighted](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog box, select **B.Simon** from the users list, and then choose **Select**.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then choose **Select**.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
 ### Configure Azure AD SSO for ServiceNow Express
 
 1. In the [Azure portal](https://portal.azure.com/), on the **ServiceNow** application integration page, select **single sign-on**.
 
-    ![Configure single sign-on link](common/select-sso.png)
+    ![Screenshot of ServiceNow application integration page, with Single sign-on highlighted](common/select-sso.png)
 
-2. On the **Select a single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on.
 
-    ![single sign-on select mode](common/select-saml-option.png)
+    ![Screenshot of Select a single sign-on method, with SAML highlighted](common/select-saml-option.png)
 
-3. On the **Set up single sign-on with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up single sign-on with SAML** page, select the pen icon to open the **Basic SAML Configuration** dialog box.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+	![Screenshot of Set up single sign-on with SAML page, with pen icon highlighted](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. In the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. For **Sign on URL**, type a URL that uses the following pattern:
     `https://<instance-name>.service-now.com/navpage.do`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. For **Identifier (Entity ID)**, type a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
 	> [!NOTE]
-	> These values are not real. You need to update these values with the  actual Sign-on URL and Identifier which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual sign-on URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)** from the specified options, as per your requirement. Save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot of SAML Signing Certificate section, with Download highlighted](common/certificatebase64.png)
 
-6. One click configure service is provided for ServiceNow that is, to have Azure AD automatically configure ServiceNow for SAML-based authentication. To enable this service go to **Set up ServiceNow** section, click **View step-by-step instructions** to open Configure sign-on window.
+6. You can have Azure AD automatically configure ServiceNow for SAML-based authentication. To enable this service, go to the **Set up ServiceNow** section, and select **View step-by-step instructions** to open the **Configure sign-on** window.
 
-	![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
+	![Screenshot of Set up ServiceNow section, with View step-by-step instructions highlighted](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-7. Enter your ServiceNow instance name, admin username, and admin password in the **Configure sign-on** form and click **Configure Now**. Make sure that the admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, click **Manually configure single sign-on** and copy the **Logout URL, Azure AD Identifier, and Login URL** from the Quick Reference section.
+7. In the **Configure sign-on** form, enter your ServiceNow instance name, admin username, and admin password. Select **Configure Now**. The admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, select **Manually configure single sign-on**. Copy the **Logout URL, Azure AD Identifier, and Login URL** from the Quick Reference section.
 
-	![Configure app URL](./media/servicenow-tutorial/configure.png "Configure app URL")
+	![Screenshot of Configure sign-on form, with Configure Now highlighted](./media/servicenow-tutorial/configure.png "Configure app URL")
 
 ## Configure ServiceNow
 
 1. Sign on to your ServiceNow application as an administrator.
 
-2. Activate the **Integration - Multiple Provider single sign-on Installer** plugin by following the next steps:
+2. Activate the **Integration - Multiple Provider single sign-on Installer** plug-in by following these steps:
 
-	a. In the navigation pane on the left side, search **System Definition** section from the search bar and then click **Plugins**.
+	a. In the navigation pane on the left side, search for the **System Definition** section from the search box, and then select **Plugins**.
 
-	![Activate plugin](./media/servicenow-tutorial/tutorial_servicenow_03.png "Activate plugin")
+	![Screenshot of System Definition section, with System Definition and Plugins highlighted](./media/servicenow-tutorial/tutorial_servicenow_03.png "Activate plugin")
 
 	b. Search for **Integration - Multiple Provider single sign-on Installer**.
 
-	 ![Activate plugin](./media/servicenow-tutorial/tutorial_servicenow_04.png "Activate plugin")
+	 ![Screenshot of System Plugins page, with Integration - Multiple Provider Single Sign-On Installer highlighted](./media/servicenow-tutorial/tutorial_servicenow_04.png "Activate plugin")
 
-	c. Select the plugin. Right click and select **Activate/Upgrade**.
+	c. Select the plug-in. Right-click, and select **Activate/Upgrade**.
 
-	 ![Activate plugin](./media/servicenow-tutorial/tutorial_activate.png "Activate plugin")
+	 ![Screenshot of plug-in right-click menu, with Activate/Upgrade highlighted](./media/servicenow-tutorial/tutorial_activate.png "Activate plugin")
 
-	d. Click the **Activate** button.
+	d. Select **Activate**.
 
-	 ![Activate plugin](./media/servicenow-tutorial/tutorial_activate1.png "Activate plugin")
+	 ![Screenshot of Activate Plugin dialog box, with Activate highlighted](./media/servicenow-tutorial/tutorial_activate1.png "Activate plugin")
 
-3. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
+3. In the navigation pane on the left side, search for the **Multi-Provider SSO** section from the search bar, and then select **Properties**.
 
-	![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
+	![Screenshot of Multi-Provider SSO section, with Multi-Provider SSO and Properties highlighted](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
-4. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
+4. On the **Multiple Provider SSO Properties** dialog box, perform the following steps:
 
-	![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
+	![Screenshot of Multiple Provider SSO Properties dialog box](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
 
-	* As **Enable multiple provider SSO**, select **Yes**.
+	* For **Enable multiple provider SSO**, select **Yes**.
   
-	* As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
+	* For **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
 
-	* As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
+	* For **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
 
-	* In **The field on the user table that...** textbox, type **user_name**.
+	* For **The field on the user table that...**, type **user_name**.
   
-	* Click **Save**.
+	* Select **Save**.
 
-5. There are two ways in which **ServiceNow** can be configured - Automatic and Manual.
+6. You can configure **ServiceNow** automatically or manually. For configuring **ServiceNow** automatically, follow these steps:
 
-6. For configuring **ServiceNow** automatically, follow the below steps:
+	1. Return to the **ServiceNow** Single-Sign on page in the Azure portal.
 
-	* Return to the **ServiceNow** Single-Sign on page in the Azure portal.
+	1. One-click configure service is provided for ServiceNow. To enable this service, go to the **ServiceNow Configuration** section, and select **Configure ServiceNow** to open the Configure sign-on window.
 
-	* One click configure service is provided for ServiceNow that is, to have Azure AD automatically configure ServiceNow for SAML-based authentication. To enable this service go to **ServiceNow Configuration** section, click **Configure ServiceNow** to open Configure sign-on window.
+		![Screenshot of Set up ServiceNow, with View step-by-step instructions highlighted](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
+	1. In the **Configure sign-on** form, enter your ServiceNow instance name, admin username, and admin password. Select **Configure Now**. The admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, select **Manually configure single sign-on**. Copy the **Sign-Out URL, SAML Entity ID, and SAML single sign-on Service URL** from the Quick Reference section.
 
-	* Enter your ServiceNow instance name, admin username, and admin password in the **Configure sign-on** form and click **Configure Now**. Make sure that the admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, click **Manually configure single sign-on** and copy the **Sign-Out URL, SAML Entity ID, and SAML single sign-on Service URL** from the Quick Reference section.
+		![Screenshot of Configure sign-on form, with Configure Now highlighted](./media/servicenow-tutorial/configure.png "Configure app URL")
 
-		![Configure app URL](./media/servicenow-tutorial/configure.png "Configure app URL")
+	1. Sign on to your ServiceNow application as an administrator.
 
-	* Sign on to your ServiceNow application as an administrator.
+	   * In the automatic configuration, all the necessary settings are configured on the **ServiceNow** side, but the **X.509 Certificate** isn't enabled by default. You have to map it manually to your identity provider in ServiceNow. Follow these steps:
 
-	* In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your Identity Provider in ServiceNow. Follow the below steps for the same:
+	     1. In the navigation pane on the left side, search for the **Multi-Provider SSO** section from the search box, and select **Identity Providers**.
 
-	* In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Identity Providers**.
+		    ![Screenshot of Multi-Provider SSO section, with Identity Providers highlighted](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
+	     1. Select the automatically generated identity provider.
 
-	* Click on the automatically generated Identity Provider
+		    ![Screenshot of identity providers, with automatically generated identity provider highlighted](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
 
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
+	     1.  On the **Identity Provider** section, perform the following steps:
 
-	*  On the **Identity Provider** section, perform the following steps:
+		     ![Screenshot of Identity Provider section](./media/servicenow-tutorial/automatic_config.png "Configure single sign-on")
 
-		![Configure single sign-on](./media/servicenow-tutorial/automatic_config.png "Configure single sign-on")
+		       * For **Name**, type a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
-		* In the **Name** textbox, type a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
+		       * Remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
 
-		* Please remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
+		       * Copy the **ServiceNow Homepage** value, and paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
-		* Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Basic SAML Configuration** section on Azure portal.
-
-			> [!NOTE]
-			> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
+			      > [!NOTE]
+			      > The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
 		* Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Basic SAML Configuration** section on Azure portal.
 
