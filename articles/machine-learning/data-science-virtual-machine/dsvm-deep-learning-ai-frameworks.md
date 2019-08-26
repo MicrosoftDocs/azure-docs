@@ -44,7 +44,7 @@ Deep learning frameworks available on the DSVM include:
 + TensorRT
 + Microsoft Cognitive Toolkit
 
-|DL&nbsp;tools&nbsp;on&nbsp;DSVM|Windows|Linus|Usage&nbsp;Notes|
+|DL&nbsp;tools&nbsp;on&nbsp;DSVM|Windows|Linux|Usage&nbsp;Notes|
 |---------|:-------------------:|:------------------:|-----|
 |[TensorFlow](https://www.tensorflow.org/) | Yes (Windows 2016) | Yes |Installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Sample Jupyter notebooks are included on DSVM.<br/><br/>**To run it**:<br/>* Terminal: activate the correct environment, then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the TensorFlow directory for samples.  |
 |[PyTorch](https://pytorch.org/)| No | Yes |Installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch.    <br/><br/>**To run it**<br/>* Terminal: activate the correct environment, then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux): Connect, then open the PyTorch directory for samples.  |

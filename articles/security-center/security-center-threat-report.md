@@ -44,7 +44,7 @@ Security Center has three types of threat reports, which can vary according to t
 * **Campaign Report**: focuses on details of specific attack campaigns.
 * **Threat Summary Report**: covers all of the items in the previous two reports.
 
-This type of information is useful during the [incident response](security-center-incident-response.md) process, where there is an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue moving forward.
+This type of information is useful during the incident response process, where there is an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue moving forward.
 
 ## How to access the threat intelligence report?
 You can review your current alerts by looking at the **Security alerts** tile. Open the Azure portal and follow the steps below to see more details about each alert:
@@ -66,7 +66,6 @@ From here you can download the PDF for this report and read more about the secur
 In this document, you learned how Azure Security Center Threat Intelligent Reports can help during an investigation about security alerts. To learn more about Azure Security Center, see the following:
 
 * [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-* [Leveraging Azure Security Center for Incident Response](security-center-incident-response.md)
 * [Azure Security Center detection capabilities](security-center-detection-capabilities.md)
 * [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
