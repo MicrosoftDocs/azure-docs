@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
@@ -93,11 +93,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### Create or attach an existing compute resource
+### Create or attach an existing compute target
 
 By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. The code below creates the compute clusters for you if they don't already exist in your workspace.
 
- **Creation of the compute takes about five minutes.** If the compute is already in the workspace, the code uses it and skips the creation process.
+ **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -209,9 +209,9 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ### Upload data to the cloud
 
-Now make the data accessible remotely by uploading that data from your local machine into Azure. Then it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload or download data. You can also interact with it from your remote compute targets. It's backed by an Azure Blob storage account.
+You downloaded and used the training data on the computer your notebook is running on.  In the next section, you will train a model on the remote Azure Machine Learning Compute.  The remote compute resource will also need access to your data. To provide access, upload your data to a centralized datastore associated with your workspace. This datastore provides fast access to your data when using remote compute targets in the cloud, as it is in the Azure data center.
 
-The MNIST files are uploaded into a directory named `mnist` at the root of the datastore:
+Upload the MNIST files into a directory named `mnist` at the root of the datastore. See [access data from your datastores](how-to-access-data.md) for more information.
 
 ```python
 ds = ws.get_default_datastore()
