@@ -7,13 +7,13 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
 
 ---
-# Deploy the Azure Monitor Application Insights Agent on Azure VMs and VMSSs
+# Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets
 
-Enabling monitoring on your .NET based web applications running on [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) and [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
+Enabling monitoring on your .NET based web applications running on [Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
 This article walks you through enabling Application Insights monitoring using the Application Insights Agent and provides preliminary guidance for automating the process for large-scale deployments.
 
@@ -24,16 +24,16 @@ This article walks you through enabling Application Insights monitoring using th
 
 ## Enable Application Insights
 
-There are two ways to enable application monitoring for Azure VM and Azure virtual machine scale set hosted applications:
+There are two ways to enable application monitoring for Azure virtual machines and Azure virtual machine scale sets hosted applications:
 
 * **Codeless** via Application Insights Agent
     * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring.
 
-    * For Azure VMs and Azure virtual machine scale sets we recommend at a minimum enabling this level of monitoring. After that, based on your specific scenario, you can evaluate whether manual instrumentation is needed.
+    * For Azure virtual machines and Azure virtual machine scale sets we recommend at a minimum enabling this level of monitoring. After that, based on your specific scenario, you can evaluate whether manual instrumentation is needed.
 
     * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) to learn more.
         > [!NOTE]
-        > Currently only .Net IIS-hosted applications are supported. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications hosted on an Azure VM and VMSS.
+        > Currently only .Net IIS-hosted applications are supported. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications hosted on an Azure virtual machines and virtual machine scale sets.
 
 * **Code-based** via SDK
 
@@ -44,15 +44,15 @@ There are two ways to enable application monitoring for Azure VM and Azure virtu
 > [!NOTE]
 > If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this check out the [troubleshooting section](#troubleshooting) below.
 
-## Manage Application Insights Agent for .NET applications on VM using PowerShell
+## Manage Application Insights Agent for .NET applications on Azure virtual machines using PowerShell
 
 > [!NOTE]
-> Before installing the Application Insights Agent, you'll need an instrumentation key. [Create a new Application Insights Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource) or copy the instrumentation key from an existing application insights resource.
+> Before installing the Application Insights Agent, you'll need an instrumentation key. [Create a new Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) or copy the instrumentation key from an existing application insights resource.
 
 > [!NOTE]
 > New to powershell? Check out the [Get Started Guide](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
 
-Install or update the Application Insights Agent as an extension for VM
+Install or update the Application Insights Agent as an extension for Azure virtual machines
 ```powershell
 $publicCfgJsonString = '
 {
@@ -79,19 +79,19 @@ Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" 
 > Include spaces in VMName. (Example: -VMName "South Central US")
 
 > [!NOTE]
-> You may install or update the Application Insights Agent as an extension across multiple VMs at-scale using a Powershell loop. Deploying via Azure Policy is not currently supported.
+> You may install or update the Application Insights Agent as an extension across multiple Virtual Machines at-scale using a Powershell loop. Deploying via Azure Policy is not currently supported.
 
-Uninstall Application Insights Agent extension from VM
+Uninstall Application Insights Agent extension from Azure virtual machines
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Name "ApplicationMonitoring"
 ```
 
-Query Application Insights Agent extension status for VM
+Query Application Insights Agent extension status for Azure virtual machines
 ```powershell
 Get-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Name ApplicationMonitoring -Status
 ```
 
-Get list of installed extensions for VM
+Get list of installed extensions for Azure virtual machines
 ```powershell
 Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions"
 
@@ -101,14 +101,14 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-You may also view installed extensions in the VM blade in the Portal.
+You may also view installed extensions in the Azure virtual machine blade in the Portal.
 
 > [!NOTE]
-> Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the instrumentation key you used to deploy the Application Insights Agent Extension. If you are sending data from multiple VMs, select the target VM under Server Name. It may take up to a minute for data to begin flowing.
+> Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the instrumentation key you used to deploy the Application Insights Agent Extension. If you are sending data from multiple Virtual Machines, select the target Azure virtual machines under Server Name. It may take up to a minute for data to begin flowing.
 
-## Manage Application Insights Agent for .NET applications on Azure VMSS using powershell
+## Manage Application Insights Agent for .NET applications on Azure virtual machine scale sets using powershell
 
-Install or update the Application Insights Agent as an extension for Azure VMSS
+Install or update the Application Insights Agent as an extension for Azure virtual machine scale sets
 ```powershell
 $publicCfgHashtable =
 @{
@@ -137,7 +137,7 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
-Uninstall application monitoring extension from Azure VMSS
+Uninstall application monitoring extension from Azure virtual machine scale sets
 ```powershell
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
 
@@ -148,12 +148,12 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
-Query application monitoring extension status for Azure VMSS
+Query application monitoring extension status for Azure virtual machine scale sets
 ```powershell
 # Not supported by extensions framework
 ```
 
-Get list of installed extensions for Azure VMSS
+Get list of installed extensions for Azure virtual machine scale sets
 ```powershell
 Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVmssName>/extensions
 
@@ -166,10 +166,10 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 
 ## Troubleshooting
 
-Find troubleshooting tips for Application Insights Monitoring Agent Extension for .NET applications running on Azure VM and VMSS.
+Find troubleshooting tips for Application Insights Monitoring Agent Extension for .NET applications running on Azure virtual machines and virtual machine scale sets.
 
 > [!NOTE]
-> .NET Core, Java, and Node.js applications are only supported on Azure VM and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+> .NET Core, Java, and Node.js applications are only supported on Azure virtual machines and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
 Extension execution output is logged to files found in the following directories:
 ```Windows
