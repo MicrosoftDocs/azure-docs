@@ -15,7 +15,8 @@ ms.custom: seodec18
 
 # Install and run Recognize Text containers
 
-The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.  
+The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.
+
 > [!IMPORTANT]
 > The Recognize Text container currently works only with English.
 
@@ -33,7 +34,7 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ## Request access to the private container registry
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### The host computer
 

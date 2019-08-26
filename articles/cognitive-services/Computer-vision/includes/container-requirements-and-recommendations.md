@@ -1,3 +1,15 @@
+---
+title: Container requirements and recommendations.
+titleSuffix: Azure Cognitive Services
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include 
+ms.date: 8/26/2019
+ms.author: dapine
+---
+
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
 
 | Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
