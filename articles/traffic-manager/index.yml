@@ -73,13 +73,13 @@ landingContent:
         links:
           - text: Add, disable, enable, or delete endpoints
             url: traffic-manager-manage-endpoints.md
-          - text: Manage an Azure Traffic Manager profile
+          - text: Manage a Traffic Manager profile
             url: traffic-manager-manage-profiles.md
           - text: Using load-balancing services in Azure
             url: traffic-manager-load-balancing-azure.md
           - text: Point a company Internet domain to an Azure Traffic Manager domain
             url: traffic-manager-point-internet-domain.md
-          - text: Performance considerations for Traffic Manager
+          - text: Performance considerations
             url: traffic-manager-performance-considerations.md
          
   # Card
@@ -87,9 +87,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostic logging in Azure Traffic Manager
+          - text: Enable diagnostic logging
             url: traffic-manager-diagnostic-logs.md
-          - text: Troubleshooting degraded state on Azure Traffic Manager
+          - text: Troubleshooting degraded state
             url: traffic-manager-troubleshooting-degraded.md
   
   # Card
