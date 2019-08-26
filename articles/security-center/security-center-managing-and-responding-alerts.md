@@ -17,7 +17,7 @@ ms.date: 08/22/2019
 ms.author: v-mohabe
 
 ---
-# Managing and responding to security alerts in Azure Security Center
+# Manage and respond to security alerts in Azure Security Center
 
 This topic shows you how to view and process the alerts that you have received in order to protect your resources. 
 
