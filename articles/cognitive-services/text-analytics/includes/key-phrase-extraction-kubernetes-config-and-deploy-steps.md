@@ -11,7 +11,7 @@ ms.date: 08/21/2019
 ms.author: dapine
 ---
 
-## Deploy a Text Analytics container to an AKS cluster
+## Deploy the Key Phrase Extraction container to an AKS cluster
 
 1. Open the Azure CLI, and sign in to Azure.
 
