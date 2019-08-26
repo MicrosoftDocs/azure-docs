@@ -6,12 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Prerequisites](prerequisites-go.md)]
 
-This quickstart requires:
-
-* [Go](https://golang.org/doc/install)
-* An Azure subscription key for Translator Text
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Create a project and import required modules
 
@@ -33,28 +30,33 @@ import (
 
 ## Create the main function
 
-This sample will try to read your Translator Text subscription key from the environment variable `TRANSLATOR_TEXT_KEY`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
+This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
 ```go
 func main() {
     /*
-     * Read your subscription key from an env variable.
-     * Please note: You can replace this code block with
-     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables. If so, be sure to delete the "os" import.
-     */
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
-    if subscriptionKey == "" {
-       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
+    * Read your subscription key from an env variable.
+    * Please note: You can replace this code block with
+    * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+    * want to use env variables. If so, be sure to delete the "os" import.
+    */
+    if "" == os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_SUBSCRIPTION_KEY.")
     }
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY")
+    if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+    }
+    endpoint := os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    uri := endpoint + "/translate?api-version=3.0"
     /*
-     * This calls our translate function, which we'll
+     * This calls our breakSentence function, which we'll
      * create in the next section. It takes a single argument,
      * the subscription key.
      */
-    translate(subscriptionKey)
+    translate(subscriptionKey, uri)
 }
 ```
 
@@ -63,7 +65,7 @@ func main() {
 Let's create a function to translate text. This function will take a single argument, your Translator Text subscription key.
 
 ```go
-func translate(subscriptionKey string) {
+func translate(subscriptionKey string, uri string) {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -77,7 +79,7 @@ Copy this code into the `translate` function.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0")
+u, _ := url.Parse(uri)
 q := u.Query()
 q.Add("to", "de")
 q.Add("to", "it")
@@ -94,9 +96,9 @@ Next, create an anonymous structure for the request body and encode it as JSON w
 ```go
 // Create an anonymous struct for your request body and encode it to JSON
 body := []struct {
-	Text string
+    Text string
 }{
-	{Text: "Hello, world!"},
+    {Text: "Hello, world!"},
 }
 b, _ := json.Marshal(body)
 ```
@@ -132,7 +134,7 @@ Add this code to the `translate` function to decode the JSON response, and then 
 // Decode the JSON response
 var result interface{}
 if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-	log.Fatal(err)
+    log.Fatal(err)
 }
 // Format and print the response to terminal
 prettyJSON, _ := json.MarshalIndent(result, "", "  ")
