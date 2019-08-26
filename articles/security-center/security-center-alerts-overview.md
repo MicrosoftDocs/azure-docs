@@ -67,7 +67,7 @@ Azure Security Center also uses anomaly detection to identify threats. In contra
 
 ## Continuous monitoring and assessments
 
-Azure Security Center benefits from being able to operate security research and data science teams throughout Microsoft, that continuously monitor for changes in the threat landscape. This includes the following initiatives:
+Azure Security Center benefits from having security research and data science teams throughout Microsoft continuously monitor for changes in the threat landscape. This includes the following initiatives:
 
 * **Threat intelligence monitoring**: Threat intelligence includes mechanisms, indicators, implications and actionable advice about existing or emerging threats. This information is shared in the security community and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
 * **Signal sharing**: Insights from security teams across Microsoft’s broad portfolio of cloud and on-premises services, servers, and client endpoint devices are shared and analyzed.
