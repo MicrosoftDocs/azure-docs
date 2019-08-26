@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 > * Create the virtual machines
 > * Test the firewall
 
-If you want to use Azure PowerShell instead to complete this tutorial, see [Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell](tutorial-hybrid-ps.md).
+If you want to use Azure PowerShell instead to complete this procedure, see [Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell](tutorial-hybrid-ps.md).
 
 ## Prerequisites
 
