@@ -12,6 +12,8 @@ manager: philmea
 
 # Device connectivity in Azure IoT Central
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
 
 Azure IoT Central uses the [Azure IoT Hub Device Provisioning service (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps) to manage all device registration and connection.

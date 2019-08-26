@@ -4,7 +4,7 @@ description: The Azure storage emulator provides a free local development enviro
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/10/2018
+ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -217,9 +217,21 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
 
+### Version 5.10
+
+* The storage emulator will not reject version 2019-07-07 of the storage services on Blob, Queue, and Table service endpoints.
+
+### Version 5.9
+
+* The storage emulator will not reject version 2019-02-02 of the storage services on Blob, Queue, and Table service endpoints.
+
+### Version 5.8
+
+* The storage emulator will not reject version 2018-11-09 of the storage services on Blob, Queue, and Table service endpoints.
+
 ### Version 5.7
 
-Fixed a bug that would cause a crash if logging was enabled.
+* Fixed a bug that would cause a crash if logging was enabled.
 
 ### Version 5.6
 
@@ -232,11 +244,11 @@ Fixed a bug that would cause a crash if logging was enabled.
 
 ### Version 5.4
 
-To improve installation stability, the emulator no longer attempts to reserve ports at install time. If port reservations are desired, use the *-reserveports* option of the **init** command to specify them.
+* To improve installation stability, the emulator no longer attempts to reserve ports at install time. If port reservations are desired, use the *-reserveports* option of the **init** command to specify them.
 
 ### Version 5.3
 
-The storage emulator now supports version 2017-07-29 of the storage services on Blob, Queue, and Table service endpoints.
+* The storage emulator now supports version 2017-07-29 of the storage services on Blob, Queue, and Table service endpoints.
 
 ### Version 5.2
 
@@ -245,7 +257,7 @@ The storage emulator now supports version 2017-07-29 of the storage services on 
 
 ### Version 5.1
 
-Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
+* Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
 
 ### Version 5.0
 

@@ -379,6 +379,8 @@
         href: druva-tutorial.md
       - name: Dynamic Signal
         href: dynamicsignal-tutorial.md
+      - name: EAB Navigate Strategic Care
+        href: eab-navigate-strategic-care-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
@@ -531,6 +533,8 @@
         href: halosys-tutorial.md
       - name: HappyFox
         href: happyfox-tutorial.md
+      - name: Harness
+        href: harness-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
@@ -1552,8 +1556,12 @@
         href: velpic-provisioning-tutorial.md
       - name: Workday
         href: workday-inbound-tutorial.md
+      - name: Workteam
+        href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook
         href: workplacebyfacebook-provisioning-tutorial.md
+      - name: Workgrid
+        href: workgrid-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler

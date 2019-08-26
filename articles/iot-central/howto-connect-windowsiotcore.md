@@ -12,6 +12,8 @@ manager: peterpr
 
 # Connect a Windows IoT Core device to your Azure IoT Central application
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as a device developer, to connect a Windows IoT Core device to your Microsoft Azure IoT Central application.
 
 ## Before you begin

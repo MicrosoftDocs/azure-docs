@@ -1,7 +1,7 @@
 ---
 title: Samples - CAF Foundation blueprint - Deploy steps
 description: Deploy steps of the CAF Foundation blueprint sample.
-author: dacoulte
+author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
@@ -11,7 +11,8 @@ ms.custom: fasttrack-new
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 
-To deploy the Microsoft Cloud Adoption Framework for Azure (CAF) Foundation blueprint sample, the following steps must be taken:
+To deploy the Microsoft Cloud Adoption Framework for Azure (CAF) Foundation blueprint sample, the
+following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -32,13 +33,12 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **CAF Foundation** blueprint sample under _Other Samples_ and select **Use
-   this sample**.
+1. Find the **CAF Foundation** blueprint sample under _Other Samples_ and select **Use this
+   sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
 
-   - **Blueprint name**: Provide a name for your copy of the CAF Foundation blueprint
-     sample.
+   - **Blueprint name**: Provide a name for your copy of the CAF Foundation blueprint sample.
    - **Definition location**: Use the ellipsis and select the management group to save your copy of
      the sample to.
 
@@ -59,18 +59,25 @@ away from the CAF Foundation blueprint.
 1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
    page, select **Blueprints**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
+   blueprint sample and then select it.
 
-1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a  **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the CAF Foundation blueprint sample." Then select **Publish** at the bottom of the page.
+1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a
+   **Version** for your copy of the blueprint sample. This property is useful for if you make a
+   modification later. Provide **Change notes** such as "First version published from the CAF
+   Foundation blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
 
-Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a subscription within the management group it was saved to. This step is where parameters are provided to make each deployment of the copy of the blueprint sample unique.
+Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a
+subscription within the management group it was saved to. This step is where parameters are provided
+to make each deployment of the copy of the blueprint sample unique.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy** page, select **Blueprints**.
+1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
+   page, select **Blueprints**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
+   blueprint sample and then select it.
 
 1. Select **Assign blueprint** at the top of the blueprint definition page.
 
@@ -83,8 +90,8 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
      - **Location**: Select a region for the managed identity to be created in.
-     - Azure Blueprint uses
-       this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
+     - Azure Blueprint uses this managed identity to deploy all artifacts in the assigned blueprint.
+       To learn more, see
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
        sample.
@@ -95,7 +102,8 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 
    - Managed Identity
 
-     Choose either the default _system assigned_ managed identity option or the _user assigned_ identity option.
+     Choose either the default _system assigned_ managed identity option or the _user assigned_
+     identity option.
 
    - Blueprint parameters
 
@@ -129,16 +137,17 @@ The following table provides a list of the blueprint artifact parameters:
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
 |Allowed storage account SKUs|Policy assignment|Policy_Allowed-StorageAccount-SKUs|SKU used in Diagnostic Log storage accounts|
-|Allowed virtual machine SKUs|Policy assignment|Policy_Allowed-VM-SKUs|Allowed virtual machine SKUs|                    
+|Allowed virtual machine SKUs|Policy assignment|Policy_Allowed-VM-SKUs|Allowed virtual machine SKUs|
 |Append CostCenter TAG to Resource Groups|Policy assignment|Policy_CostCenter_Tag|Append CostCenter TAG and its value from the Resource Group|
-|Resource Types that you do not want to allow in your environment|Policy assignment|Policy_Allowed-Resource-Types|Which Azure Resources you want to allow in your environment|            
+|Resource Types that you do not want to allow in your environment|Policy assignment|Policy _Allowed-Resource-Types|Which Azure Resources you want to allow in your environment|
 |Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Azure AD Group or User <Object ID> to grant permissions to in Key Vault|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in Log Analytics|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the CAF Foundation blueprint sample, visit the following article to learn about the architecture:
+Now that you've reviewed the steps to deploy the CAF Foundation blueprint sample, visit the
+following article to learn about the architecture:
 
 > [!div class="nextstepaction"]
 > [CAF Foundation blueprint - Overview](./index.md)
