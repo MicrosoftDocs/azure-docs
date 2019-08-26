@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 Advanced Threat Protection for Azure Cosmos DB provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit Azure Cosmos DB accounts. This layer of protection allows you to address threats, even without being a security expert, and integrate them with central security monitoring systems.
 
-Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with  [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of the suspicious activity and recommendations on how to investigate and remediate the threats.
+Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with  [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of the suspicious activity and recommendations on how to investigate and remediate the threats.
 
 > [!NOTE]
 >
@@ -28,16 +28,16 @@ For a full investigation experience of the security alerts, we recommended enabl
 
 ### Set up ATP using the portal
 
-1. Launch the Azure portal at  [https://portal.azure.com](https://portal.azure.com/).
+1. Launch the Azure portal at  [https://portal.azure.com](https://portal.azure.com/).
 
 2. From the Azure Cosmos DB account, from the **Settings** menu, select **Advanced security**.
 
     ![Set up ATP](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png)
 
-3. In the **Advanced security** configuration blade:
+3. In the **Advanced security** configuration blade:
 
-    * Click the **Advanced Threat Protection** option to set it to **ON**.
-    * Click **Save** to save the new or updated Advanced Threat Protection policy.   
+    * Click the **Advanced Threat Protection** option to set it to **ON**.
+    * Click **Save** to save the new or updated Advanced Threat Protection policy.   
 
 ### Set up ATP using REST API
 
@@ -72,5 +72,5 @@ An email notification is also sent with the alert details and recommended action
 
 ## Next steps
 
-* Learn more about [Diagnostic logging in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Learn more about [Diagnostic logging in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

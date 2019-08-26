@@ -77,27 +77,11 @@ Select from the following options:
 
 ## Connect lead management
 
-Connect with customers directly by hooking up your Customer Relationship Management (CRM) system. When you do so, you'll receive customer contact information when a customer expresses interest or deploys your product.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-To connect your CRM system, select **Connect**.
+See [Lead management overview](./commercial-marketplace-get-customer-leads.md) for more information.
 
-### Choose a lead destination
-
-After you select **Connect**, you'll see a drop-down menu where you can select your CRM system, then provide connection details.
-
-Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
-
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – Provide your storage account connection string. 
-- [Dynamics 365 for Customer Engagement (formerly Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Provide your Dynamics 365 Instance URL and authentication mode (Office 365 or Azure Active Directory).
-- [HTTPS Endpoint](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – Provide your HTTPS endpoint URL. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – Provide your server ID, Munchkin account ID, and form ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -  Provide your organization ID.
-
-#### Additional lead management resources
-
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Remember to **Save** before moving on to the next section!
 
 ## Properties
 

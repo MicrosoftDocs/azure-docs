@@ -50,15 +50,15 @@ The following table provides a brief description of each built-in role. Click th
 | [Automation Runbook Operator](#automation-runbook-operator) | Read Runbook properties - to be able to create Jobs of the runbook. |
 | [Avere Contributor](#avere-contributor) | Can create and manage an Avere vFXT cluster. |
 | [Avere Operator](#avere-operator) | Used by the Avere vFXT cluster to manage the cluster |
-| [Azure Event Hubs Data Owner (Preview)](#azure-event-hubs-data-owner-preview) | Allows for full access to Azure Event Hubs resources. |
-| [Azure Event Hubs Data Receiver (Preview)](#azure-event-hubs-data-receiver-preview) | Allows receive access to Azure Event Hubs resources. |
-| [Azure Event Hubs Data Sender (Preview)](#azure-event-hubs-data-sender-preview) | Allows send access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Owner](#azure-event-hubs-data-owner) | Allows for full access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Receiver](#azure-event-hubs-data-receiver) | Allows receive access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Sender](#azure-event-hubs-data-sender) | Allows send access to Azure Event Hubs resources. |
 | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. |
 | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. |
 | [Azure Maps Data Reader (Preview)](#azure-maps-data-reader-preview) | Grants access to read map related data from an Azure maps account. |
-| [Azure Service Bus Data Owner (Preview)](#azure-service-bus-data-owner-preview) | Allows for full access to Azure Service Bus resources. |
-| [Azure Service Bus Data Receiver (Preview)](#azure-service-bus-data-receiver-preview) | Allows for receive access to Azure Service Bus resources. |
-| [Azure Service Bus Data Sender (Preview)](#azure-service-bus-data-sender-preview) | Allows for send access to Azure Service Bus resources. |
+| [Azure Service Bus Data Owner](#azure-service-bus-data-owner) | Allows for full access to Azure Service Bus resources. |
+| [Azure Service Bus Data Receiver](#azure-service-bus-data-receiver) | Allows for receive access to Azure Service Bus resources. |
+| [Azure Service Bus Data Sender](#azure-service-bus-data-sender) | Allows for send access to Azure Service Bus resources. |
 | [Azure Stack Registration Owner](#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. |
 | [Backup Contributor](#backup-contributor) | Lets you manage backup service, but can't create vaults and give access to others |
 | [Backup Operator](#backup-operator) | Lets you manage backup services, except removal of backup, vault creation and giving access to others |
@@ -135,7 +135,7 @@ The following table provides a brief description of each built-in role. Click th
 | [Storage Blob Data Contributor](#storage-blob-data-contributor) | Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage Blob Data Owner](#storage-blob-data-owner) | Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Storage Blob Data Reader](#storage-blob-data-reader) | Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
-| [Storage Blob Delegator](#storage-blob-delegator) | Get the user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas). |
+| [Storage Blob Delegator](#storage-blob-delegator) | Get the user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
 | [Storage File Data SMB Share Contributor](#storage-file-data-smb-share-contributor) | Allows for read, write, and delete access in Azure Storage file shares over SMB |
 | [Storage File Data SMB Share Elevated Contributor](#storage-file-data-smb-share-elevated-contributor) | Allows for read, write, delete and modify NTFS permission access in Azure Storage file shares over SMB |
 | [Storage File Data SMB Share Reader](#storage-file-data-smb-share-reader) | Allows for read access to Azure File Share over SMB |
@@ -552,7 +552,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Event Hubs Data Owner (Preview)
+## Azure Event Hubs Data Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -567,7 +567,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Event Hubs Data Receiver (Preview)
+## Azure Event Hubs Data Receiver
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -582,7 +582,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Event Hubs Data Sender (Preview)
+## Azure Event Hubs Data Sender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -642,7 +642,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Service Bus Data Owner (Preview)
+## Azure Service Bus Data Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -657,7 +657,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Service Bus Data Receiver (Preview)
+## Azure Service Bus Data Receiver
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -674,7 +674,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Azure Service Bus Data Sender (Preview)
+## Azure Service Bus Data Sender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2651,7 +2651,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas). |
+> | **Description** | Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
 > | **Id** | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the Blob service. |
