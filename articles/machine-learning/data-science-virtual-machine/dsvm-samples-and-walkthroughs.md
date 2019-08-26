@@ -69,8 +69,8 @@ Sign in with the same password that you use to log in to the Data Science Virtua
 ## Julia language 
 <br/>![Julia samples](./media/julia-samples.png)<br/>
 
-## AzureML 
-<br/>![AzurekML samples](./media/azureml-samples.png)<br/>
+## Azure Machine Learning 
+<br/>![Azure Machine Learning samples](./media/azureml-samples.png)<br/>
 
 ## PyTorch
 <br/>![PyTorch samples](./media/pytorch-samples.png)<br/>
