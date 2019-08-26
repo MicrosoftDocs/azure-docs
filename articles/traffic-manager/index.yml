@@ -26,8 +26,16 @@ landingContent:
         links:
           - text: What is Traffic Manager?
             url: traffic-manager-overview.md
+      - linkListType: concept
+        links:
           - text: Traffic Manager routing methods
             url: traffic-manager-routing-methods.md
+      - linkListType: learn
+        links:
+          - text: Enhance your service availability and data locality
+            url: https://docs.microsoft.com/learn/modules/distribute-load-with-traffic-manager/
+          
+         
 
   # Card (optional)
   - title: Get started
@@ -36,25 +44,22 @@ landingContent:
         links:
           - text: Create a Traffic Manager profile using the Azure portal
             url: quickstart-create-traffic-manager-profile.md
-          - text: Create a Traffic Manager profile for a highly available web application using Azure PowerShell
-            url: quickstart-create-traffic-manager-profile-powershell.md
-          - text: Create a Traffic Manager profile for a highly available web application using Azure CLI
-            url: quickstart-create-traffic-manager-profile-cli.md
+
       - linkListType: tutorial
         links:
-          - text: Improve website response using Traffic Manager
+          - text: Improve website response
             url: tutorial-traffic-manager-improve-website-response.md
-          - text: Configure the geographic traffic routing method using Traffic Manager
+          - text: Configure the geographic traffic routing method
             url: traffic-manager-configure-geographic-routing-method.md
-          - text: Configure the weighted traffic routing method in Traffic Manager
+          - text: Configure the weighted traffic routing method
             url: traffic-manager-configure-weighted-routing-method.md
-          - text: Configure priority traffic routing method in Traffic Manager
+          - text: Configure priority traffic routing method
             url: traffic-manager-configure-priority-routing-method.md
-          - text: Direct traffic to specific endpoints based on user subnet using Traffic Manager
+          - text: Direct traffic to specific endpoints based on user subnet
             url: tutorial-traffic-manager-subnet-routing.md
 
   # Card
-  - title: Manage profiles and endpoints
+  - title: Manage
     linkLists:
       - linkListType: concept
         links:
@@ -64,10 +69,6 @@ landingContent:
             url: traffic-manager-endpoint-types.md
           - text: Traffic Manager endpoint monitoring
             url: traffic-manager-monitoring.md
-         
-  # Card
-  - title: Deploy
-    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Add, disable, enable, or delete endpoints
@@ -76,12 +77,27 @@ landingContent:
             url: traffic-manager-manage-profiles.md
           - text: Using load-balancing services in Azure
             url: traffic-manager-load-balancing-azure.md
-          - text: Performance considerations for Traffic Manager
-            url: traffic-manager-performance-considerations.md
-          - text: Enable diagnostic logging in Azure Traffic Manager
-            url: traffic-manager-diagnostic-logs.md
           - text: Point a company Internet domain to an Azure Traffic Manager domain
             url: traffic-manager-point-internet-domain.md
+          - text: Performance considerations for Traffic Manager
+            url: traffic-manager-performance-considerations.md
+         
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable diagnostic logging in Azure Traffic Manager
+            url: traffic-manager-diagnostic-logs.md
           - text: Troubleshooting degraded state on Azure Traffic Manager
             url: traffic-manager-troubleshooting-degraded.md
-      
+  
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.trafficmanager/?view=azps-2.5.0
+          - text: Azure CLI
+            url: https://docs.microsoft.com/cli/azure/network/traffic-manager?view=azure-cli-latest
