@@ -49,6 +49,9 @@ For more information about this issue, see [Azure Active Directory Authenticatio
 
 ---
 
+## August 2019
+ 
+
 [791181](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=791181&triage=true&fullScreen=false&_a=edit)
 
 ### Announcement of Deprecation: Azure AD Power BI Content pack is getting deprecated
@@ -103,6 +106,34 @@ You can also find the documentation of all the applications from here https://ak
 
 For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
+
+ 
+
+---
+ 
+
+[591968](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=591968&triage=true&fullScreen=false&_a=edit)
+
+### Enhanced Groups search, filtering, and sorting capabilities in the Azure AD portal (Public Preview)
+
+**Type:** New feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+ 
+
+We're pleased to announce the public preview of the enhanced groups experiences in the Azure AD portal. We've made improvements to allow administrators to better manage groups and member lists by providing additional search, filtering and sorting capabilities.
+
+ 
+
+Improvements include:
+
+Advanced search capabilities, such as substring search on groups lists.
+Advanced filtering and sorting options on member and owner lists.
+New search capabilities for member and owner lists for easy discovery.
+Accurate group counts for large groups including total counts for groups > 1000 members.
+ 
+
+For more information, see Manage groups in the Azure portal (Preview).
 
  
 
@@ -351,7 +382,8 @@ If you do not complete these steps before September 25, 2019, your Azure Active 
 
 ---
  
-
+ 
+---
 
 ## July 2019
 
