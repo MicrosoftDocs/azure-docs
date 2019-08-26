@@ -89,8 +89,7 @@ Your rate limit will vary with your pricing tier.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
-| Cognitive Services all-in-one | 1000                | 1000                |
-| S             | 1000                | 1000                |
+| S / Multi-service | 1000                | 1000                |
 | S0/F0         | 100                 | 300                 |
 | S1            | 200                 | 300                 |
 | S2            | 300                 | 300                 |
