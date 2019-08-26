@@ -35,6 +35,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   Custom extensions are ignored on import and aren't saved or preserved for export.
 -   **Recursion** - API Management doesn't support definitions defined recursively (for example, schemas referring to themselves).
 -   Source file URL (if available) is applied to relative server URLs.
+-   Security definitions are ignored.
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
