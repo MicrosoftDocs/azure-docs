@@ -130,7 +130,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Blackboard Learn SSO
 
-To configure single sign-on on **Blackboard Learn** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Blackboard Learn support team](https://www.blackboard.com/support/index.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Blackboard Learn** side, follow the [link](https://help.blackboard.com/Learn/Administrator/SaaS/Authentication/Implement_Authentication/SAML_Authentication_Provider_Type). If you are facing any problem while configuring, contact [Blackboard Learn support team](https://www.blackboard.com/support/index.aspx).
+
 
 ### Create Blackboard Learn test user
 
