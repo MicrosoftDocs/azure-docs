@@ -60,7 +60,7 @@ There are no software charges for the DSVM image. You pay only the Azure hardwar
 Before you can create a Linux Data Science Virtual Machine, you must have these prerequisites:
 
 * **Azure subscription**: To get an Azure subscription, see [Get an Azure free trial](https://azure.microsoft.com/free/).
-* **Azure storage account**: To get an Azure storage account, see [Create an Azure storage account](../../storage/common/storage-quickstart-create-account.md). If you don't want to use an existing Azure storage account, you can create a storage account when you create the VM.
+* **Azure storage account**: To get an Azure storage account, see [Create an Azure storage account](../../storage/common/storage-quickstart-create-account.md). If you don't want to use an existing Azure storage account, you can create a storage account when you create the DSVM.
 
 ## Other versions of the Data Science Virtual Machine
 
@@ -99,7 +99,7 @@ Provisioning takes 10-20 minutes. The status of the provisioning is displayed in
 
 ## How to access the Linux Data Science Virtual Machine
 
-After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of the wizard for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY or install the X2Go client.
+After the DSVM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of the wizard for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY or install the X2Go client.
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
@@ -416,6 +416,6 @@ You can exit Rattle and R. Now you can modify the generated R script. Or, use th
 Here's how you can continue your learning and exploration:
 
 * The walkthrough [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) shows you how to do several common data science tasks with the Linux DSVM provisioned here. 
-* Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` in the shell in the virtual machine for a basic introduction and for pointers to more information about the tools installed on the VM.  
+* Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` in the shell in the virtual machine for a basic introduction and for pointers to more information about the tools installed on the DSVM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://aka.ms/tdsp).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
