@@ -102,7 +102,7 @@ landingContent:
             url: code-samples.md
 
   # Card
-  - title: Enable common identity scenarios
+  - title: Configure common identity scenarios
     linkLists:
       - linkListType: concept
         links:
