@@ -26008,7 +26008,7 @@
       "source_path": "articles/security-center/security-center-enable-transparent-data-encryption.md",
       "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/security-center/security-center-incident-response.md",
       "redirect_url": "/azure/security-center/tutorial-security-incident",
@@ -41475,6 +41475,11 @@
       "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-scratch.md",
       "redirect_url": "/azure/iot-accelerators/howto-opc-vault-deploy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/tutorial-data-prep.md",
+			"redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
+			"redirect_document_id": false
     }
   ]
 }
