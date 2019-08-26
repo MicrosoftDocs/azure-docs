@@ -8,45 +8,69 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 09/01/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
 # Migrate an Azure API Management API to b2clogin.com
 
-> [!WARNING]
-> This article is WIP, please DO NOT review.
+If you have an API in Azure API Management secured with Azure AD B2C by accepting tokens issued by the legacy `login.microsoftonline.com` issuer endpoint, you should migrate the API and your applications to support tokens issued by [b2clogin.com](b2clogin.md).
 
-If you previously protected an API in Azure API Management with Azure AD B2C using the `login.microsoftonline.com` issuer endpoint, you should migrate the API to support tokens issued by [b2clogin.com](b2clogin.md). During the migration, you might wish to support both endpoints to continue supporting clients with tokens issued by the legacy `login.microsoftonline.com` endpoint.
+By adding support for accepting tokens issued by both b2clogin.com and login.microsoftonline.com to your Azure API Management (APIM) policy, you can migrate your client applications in a staged manner before removing support for login.microsoftonline.com-issued tokens from the API.
 
 > [!NOTE]
 > This article is intended for Azure AD B2C customers with currently deployed APIs and applications that reference `login.microsoftonline.com` and who want to migrate to the recommended `b2clogin.com` endpoint. If you're setting up a new application with secured access to an Azure API Management API, use [b2clogin.com](b2clogin.md) as directed.
 
-To enable support for multiple token issuer domains, use the `<choose>` element in your API Management policy to enable a branching flow within the policy. To inform the API which condition to validate, modify the `Authorization` header.
+## Add b2clogin.com support to inbound policy
 
-For example, this policy enables branching support handling tokens issued by two issuer endpoints, `login.microsoftonline.com` and `b2clogin.com`, with a fall-through that accepts `login.microsoftonline.com`-issued tokens.
+If you've [secured your API with Azure AD B2C](secure-api-management.md), you have a inbound policy in APIM that specifies the token issuer endpoint and the claims to be validated. If you deployed prior to the release of the b2clogin.com endpoint, the `<inbound>` element of your policy might look similar to the following XML snippet:
+
+```XML
+<!-- BEFORE: Validate claims in tokens issued by login.microsoftonline.com ONLY -->
+<inbound>
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
+        <openid-config url="https://login.microsoftonline.com/contosob2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_signup_signin" />
+        <required-claims>
+            <claim name="aud">
+                <value>40000000-0000-0000-0000-000000000000</value>
+            </claim>
+            <claim name="iss">
+                <value>https://login.microsoftonline.com/80000000-0000-0000-0000-000000000000/v2.0/</value>
+            </claim>
+        </required-claims>
+    </validate-jwt>
+    <base />
+</inbound>
+```
+
+### Add branching to inbound policy
+
+To enable support for multiple token issuer endpoints, add the `<choose>` element to your inbound policy to enable a branching flow within the policy. To inform the API which condition to brnach on, evaluate the `Domain` header in the request, and then verify the claims appropriate for each endpoint.
+
+For example, this policy enables branching support for tokens issued by two issuer endpoints, `login.microsoftonline.com` and `b2clogin.com`, with a fall-through that accepts `login.microsoftonline.com`-issued tokens.
 
 ```xml
+<!-- AFTER: Validate claims in tokens issued by b2clogin.com AND login.microsoftonline.com -->
 <policies>
     <inbound>
         <choose>
             <when condition="@(context.Request.Headers.GetValueOrDefault("Domain", "") == "b2clogin.com")">
                 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                    <openid-config url="https://testapimanagement.b2clogin.com/testapimanagement.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_signup_signin" />
+                    <openid-config url="https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_signup_signin" />
                     <required-claims>
                         <claim name="aud">
                             <value>40000000-0000-0000-0000-000000000000</value>
                         </claim>
                         <claim name="iss">
-                            <value>https://testapimanagement.b2clogin.com/80000000-0000-0000-0000-000000000000/v2.0/</value>
+                            <value>https://contosob2c.b2clogin.com/80000000-0000-0000-0000-000000000000/v2.0/</value>
                         </claim>
                     </required-claims>
                 </validate-jwt>
             </when>
             <when condition="@(context.Request.Headers.GetValueOrDefault("Domain", "") == "microsoftonline.com")">
                 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                    <openid-config url="https://login.microsoftonline.com/testapimanagement.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_signup_signin" />
+                    <openid-config url="https://login.microsoftonline.com/contosob2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_signup_signin" />
                     <required-claims>
                         <claim name="aud">
                             <value>40000000-0000-0000-0000-000000000000</value>
@@ -59,7 +83,7 @@ For example, this policy enables branching support handling tokens issued by two
             </when>
             <otherwise>
                 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                    <openid-config url="https://login.microsoftonline.com/tfp/testapimanagement.onmicrosoft.com/B2C_1A_signup_signin/v2.0/.well-known/openid-configuration" />
+                    <openid-config url="https://login.microsoftonline.com/tfp/contosob2c.onmicrosoft.com/B2C_1A_signup_signin/v2.0/.well-known/openid-configuration" />
                     <required-claims>
                         <claim name="aud">
                             <value>40000000-0000-0000-0000-000000000000</value>
@@ -75,14 +99,6 @@ For example, this policy enables branching support handling tokens issued by two
     <on-error> <base /> </on-error>
 </policies>
 ```
-
-### Validate Azure API Management in multiple config URLs case
-
-**[TODO: EXPLANATION HERE]**
-
-Example request:
-
-**[TODO: IMAGE HERE]**
 
 ## Next steps
 
