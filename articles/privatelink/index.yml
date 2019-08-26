@@ -6,7 +6,7 @@ summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples
 metadata:
   title: Private Link Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Private Link service. Quickstarts, tutorials, show you how to deploy a Private Link service.
-  ms.service: private-link
+  ms.service: virtual-network
   ms.topic: landing-page
   ms.collection: collection
   author: KumudD
@@ -24,7 +24,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Private Link?
-            url: privatelink-overview.md.md
+            url: privatelink-overview.md
 
   # Card (optional)
   - title: Get started
