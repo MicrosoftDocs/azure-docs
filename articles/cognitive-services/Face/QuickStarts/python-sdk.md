@@ -130,7 +130,7 @@ The following code creates a **PersonGroup** with three different **Person** obj
 
 ### Create PersonGroup
 
-To step this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+To step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 This group of images contains three sets of face images corresponding to three different people. The code will define three **Person** objects and associate them with image files that start with `woman`, `man`, and `child`.
 
@@ -156,7 +156,7 @@ Once you've assigned faces, you must train the **PersonGroup** so that it can id
 
 ## Identify a face
 
-The following code takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects that each have several faces associated with them. 
+The following code takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
 
 > [!IMPORTANT]
 > In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
