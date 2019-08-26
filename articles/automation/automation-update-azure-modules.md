@@ -26,6 +26,9 @@ If you develop your scripts locally, it's recommended to have the same module ve
 > [!NOTE]
 > A new Automation account might not contain the latest modules.
 
+> [!NOTE]
+> You will not be able to delete global modules - modules that Automation provides out of the box.
+
 ## Considerations
 
 The following are some considerations to take into account when using this process to update your Azure Modules:
