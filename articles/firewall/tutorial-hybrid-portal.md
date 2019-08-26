@@ -67,7 +67,7 @@ First, create the resource group to contain the resources for this tutorial:
 2. On the Azure portal home page, select **Resource groups** > **Add**.
 3. For **Resource group name**, type **FW-Hybrid-Test**.
 4. For **Subscription**, select your subscription.
-5. For **Region**, select **East US**. All subsequent resources that you create must be in the same location.
+5. For **Region**, select **East US**. All resources that you create later must be in the same location.
 6. Select **Review + Create**.
 7. Select **Create**.
 
@@ -167,7 +167,7 @@ First, add a network rule to allow web traffic.
 
 Now add a rule to allow RDP traffic.
 
-On the second rule row, type the following:
+On the second rule row, type the following information:
 
 1. **Name**, type **AllowRDP**.
 2. For **Protocol**, select **TCP**.
@@ -344,7 +344,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 2. Under **Popular**, select **Windows Server 2016 Datacenter**.
 3. Enter these values for the virtual machine:
     - **Resource group** - Select existing, and then select **FW-Hybrid-Test**.
-    - **Virtual machine name** - *VM-Spoke-01* .
+    - **Virtual machine name** - *VM-Spoke-01*.
     - **Region** - Same region that you're used previously.
     - **User name** -*azureuser*.
     - **Password** -*Azure123456!*.
@@ -382,7 +382,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 2. Under **Popular**, select **Windows Server 2016 Datacenter**.
 3. Enter these values for the virtual machine:
     - **Resource group** - Select existing, and then select **FW-Hybrid-Test**.
-    - **Virtual machine name** - *VM-Onprem* .
+    - **Virtual machine name** - *VM-Onprem*.
     - **Region** - Same region that you're used previously.
     - **User name** -*azureuser*.
     - **Password** -*Azure123456!*.
@@ -396,19 +396,19 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 
 ## Test the firewall
 
-First, get and then note the private IP address for **VM-spoke-01** virtual machine.
+1. First, get and then note the private IP address for **VM-spoke-01** virtual machine.
 
-From the Azure portal, connect to the **VM-Onprem** virtual machine.
+2. From the Azure portal, connect to the **VM-Onprem** virtual machine.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>.
+3. Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>.
 
-You should see the Internet Information Services default page.
+   You should see the Internet Information Services default page.
 
-From **VM-Onprem**, open a remote desktop to **VM-spoke-01** at the private IP address.
+4. From **VM-Onprem**, open a remote desktop to **VM-spoke-01** at the private IP address.
 
-Your connection should succeed, and you should be able to sign in using your chosen username and password.
+   Your connection should succeed, and you should be able to sign in using your chosen username and password.
 
 So now you've verified that the firewall rules are working:
 
@@ -424,7 +424,7 @@ Next, change the firewall network rule collection action to **Deny** to verify t
 4. For **Action**, select **Deny**.
 5. Select **Save**.
 
-Close any existing remote desktops before testing the changed rules. Now run the tests again. They should all fail this time. 
+Close any existing remote desktops before testing the changed rules. Now run the tests again. They should all fail this time.
 
 ## Clean up resources
 
