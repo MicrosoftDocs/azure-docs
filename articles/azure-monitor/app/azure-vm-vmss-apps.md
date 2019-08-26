@@ -50,7 +50,7 @@ There are two ways to enable application monitoring for Azure VM and Azure virtu
 > Before installing the Application Insights Agent, you'll need an instrumentation key. [Create a new Application Insights Resource](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource) or copy the instrumentation key from an existing application insights resource.
 
 > [!NOTE]
-> New to powershell? Check out the [Get Started Guide](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> New to powershell? Check out the [Get Started Guide](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
 
 Install or update the Application Insights Agent as an extension for VM
 ```powershell
