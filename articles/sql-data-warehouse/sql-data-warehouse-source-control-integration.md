@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.subservice: develop
+ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
