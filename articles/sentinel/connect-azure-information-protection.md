@@ -24,7 +24,7 @@ ms.author: cabailey
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can stream logging information from [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) into Azure Sentinel by configuring the Azure Information Protection data connector. Azure Information Protection helps you control and secure your sensitive data, whether it’s stored in the cloud or on-premises. When you connect Azure Sentinel to Azure Information Protection, you stream logging information from Azure Information Protection into Azure Sentinel.
+You can stream logging information from [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) into Azure Sentinel by configuring the Azure Information Protection data connector. Azure Information Protection helps you control and secure your sensitive data, whether it’s stored in the cloud or on-premises.
 
 If central reporting for Azure Information Protection is already configured to use the same Log Analytics workspace as you've currently selected for Azure Sentinel, you don't need to configure this data connector. Configure this data connector only if central reporting for Azure Information Protection is not already configured, or it's configured but currently using a different workspace to the one you're using for Azure Sentinel.
 
