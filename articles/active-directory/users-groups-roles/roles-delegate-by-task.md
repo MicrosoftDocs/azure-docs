@@ -141,7 +141,7 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
-## Entitlement Management
+## Entitlement management
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Add resources to a catalog | Catalog owner | User administrator

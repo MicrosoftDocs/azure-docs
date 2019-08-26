@@ -35,7 +35,7 @@ Instead of granting unrestricted permissions to non-administrators, you can gran
 
 ## Delegate example for departmental adoption
 
-To understand how you might delegate tasks in entitlement management, it helps to consider an example. To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md).
+To understand how you might delegate tasks in entitlement management, it helps to consider an example. 
 
 Suppose your organization has the following five users:
 
@@ -115,6 +115,8 @@ For a user who is not a Global administrator or a User administrator, to add gro
 | [Application administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  |  | :heavy_check_mark: |  |
 | [Cloud application administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  |  | :heavy_check_mark: |  |
 | User | Catalog owner | Only if group owner | Only if group owner | Only if app owner |  |
+
+To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
 ## Add a catalog creator
 
