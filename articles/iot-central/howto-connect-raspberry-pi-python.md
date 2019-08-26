@@ -3,7 +3,7 @@ title: Connect a Raspberry Pi to your Azure IoT Central application (Python) | M
 description: As a device developer, how to connect a Raspberry Pi to your Azure IoT Central application using Python.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

@@ -3,7 +3,7 @@ title: Generate a device connection string for Azure IoT Central | Microsoft Doc
 description: As a device developer, how do I generate a connection string for device that needs to connect to an IoT Central application?
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
