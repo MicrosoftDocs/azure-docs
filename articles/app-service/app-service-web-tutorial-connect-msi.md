@@ -165,6 +165,9 @@ var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
+> [!TIP]
+> This demonstration code is asynchronous for clarify. For more information, see [Asynchronous guide for constructors](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors).
+
 That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up the SQL Database server later to allow connection from the managed identity of your App Service app.
 
 Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now connecting to the Azure SQL Database directly, using Azure AD authentication. This setup lets you run database migrations from Visual Studio.
