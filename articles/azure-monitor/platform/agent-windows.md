@@ -199,6 +199,6 @@ In the search results returned, you should see heartbeat records for the compute
 
 ## Next steps
 
-- Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to manage the agent during its deployment lifecycle on your machines.  
+- Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 
 - Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while installing or managing the agent.
