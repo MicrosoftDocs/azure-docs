@@ -39,7 +39,6 @@ metadata:
 productDirectory:
   items:
   - title: Decision services 
-    imageSrc: media/index/azure.png
     links:
       - url: ./anomaly-detector/overview.md
         text: Anomaly Detector 
