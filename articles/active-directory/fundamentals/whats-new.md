@@ -49,22 +49,15 @@ For more information about this issue, see [Azure Active Directory Authenticatio
 
 ---
 
-## August 2019
- 
-
-[791181](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=791181&triage=true&fullScreen=false&_a=edit)
-
-### Announcement of Deprecation: Azure AD Power BI Content pack is getting deprecated
+### Plan for change: Deprecation of the Power BI content packs
 
 **Type:** Plan for change  
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
- 
 
-As Power BI is in the process of deprecating content packs from their store, we will be no longer supporting the Azure AD Power BI Content pack starting October 1st, 2019. As an alternative, customers can leverage the Azure AD Workbooks (built on top of Log Analytics) to get insights into Azure AD related services. Check out the documentation to learn about how to use these workbooks. Azure AD will be adding more workbooks including insights around CA Policies in Report-only mode, App consent based insights etc.
+Starting on October 1, 2019, Power BI will begin to deprecate all content packs, including the Azure AD Power BI content pack. As an alternative to this content pack, you can use Azure AD Workbooks to gain insights into your Azure AD-related services. Additional workbooks will be coming in the future, including workbooks about Conditional Access policies in report-only mode, app consent-based insights, and more.
 
-Please check out this forum for any future updates. 
- 
+For more information about the workbooks, see [How to use Azure Monitor workbooks for Azure Active Directory reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). For more information about the deprecation of the content packs, see the [Announcing Power BI template apps general availability](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) blog post.
 
 ---
  
@@ -83,31 +76,17 @@ Custom roles give you fine-grained control over what access your admins have. Th
 
 ---
  
-
-[797467](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=797467&triage=true&fullScreen=false&_a=edit)
-
 ### New Federated Apps available in Azure AD App gallery - August 2019
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
- 
 
-In August 2019 we have added following 26 new applications in our App gallery with Federation support:
+In August 2019, we've added these 26 new apps with Federation support to the app gallery:
 
+[Civic Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareport's Inativ Portal (Europe)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [Academy Attendance](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [Priority Matrix](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint Backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [CPQSync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee--tutorial), [deliver.media™ Portal](https://portal.deliver.media), [Frontline Education](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [ProNovos Analytics](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [Watch by Colors](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [Harness](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [EAB Navigate Strategic Care](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
 
-
-Civic Platform, Amazon Business, ProNovos Ops Manager, Cognidox, Viareport's Inativ Portal (Europe), Azure Databricks, Robin, Academy Attendance, Priority Matrix, Cousto MySpace, Uploadcare, Carbonite Endpoint Backup, CPQSync by Cincom, Chargebee, deliver.media™ Portal, Frontline Education, F5, stashcat AD connect, Blink, Vocoli, ProNovos Analytics, Sigstr, Darwinbox, Watch by Colors, Harness, EAB Navigate Strategic Care           
-
-       
-
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
-
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
-
-
- 
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
 
 ---
  
