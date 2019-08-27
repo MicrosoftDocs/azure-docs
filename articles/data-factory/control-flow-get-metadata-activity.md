@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -135,8 +135,8 @@ Property | Description | Required
 -------- | ----------- | --------
 fieldList | Lists the types of metadata information required. See details in [Metadata options](#metadata-options) section on supported metadata. | Yes 
 dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. See [Supported capabilities](#supported-capabilities) section on supported connectors, and refer to connector topic on dataset syntax details. | Yes
-formatSettings | Apply when using format type dataset (Parquet, DelimitedText). | No
-storeSettings | Apply when using format type dataset (Parquet, DelimitedText). | No
+formatSettings | Apply when using format type dataset. | No
+storeSettings | Apply when using format type dataset. | No
 
 ## Sample output
 
