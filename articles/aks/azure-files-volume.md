@@ -158,7 +158,7 @@ spec:
     - ReadWriteMany
   azureFile:
     secretName: azure-secret
-    shareName: azurefile
+    shareName: aksshare
     readOnly: false
   mountOptions:
   - dir_mode=0777
