@@ -24,9 +24,9 @@ The only cluster types that have data disks are Kafka and HBase clusters with th
 
 For more details on the specification of each VM type, see the following documents:
 
-* [General purpose virtual machine sizes: Dv2 series 1-5](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#dv2-series)
-* [Memory optimized virtual machine sizes: Dv2 series 11-15](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory#dv2-series-11-15)
-* [General purpose virtual machine sizes: Av2 series 1-8](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#av2-series)
+* [General purpose virtual machine sizes: Dv2 series 1-5](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dv2-series)
+* [Memory optimized virtual machine sizes: Dv2 series 11-15](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#dv2-series-11-15)
+* [General purpose virtual machine sizes: Av2 series 1-8](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#av2-series)
 
 ### All supported regions except Brazil south and Japan west
 
