@@ -31,7 +31,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 | What is it?   | General purpose IDE      |
 | Supported DSVM versions      | Windows      |
 | Typical uses      | Software development    |
-| How is it configured / installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
+| How is it configured and installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | How to use and run it      | Desktop shortcut (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`)    |
 | Related tools on the DSVM      |     Visual Studio Code, RStudio, Juno  |
 
