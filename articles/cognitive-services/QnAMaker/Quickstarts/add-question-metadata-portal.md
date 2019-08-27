@@ -118,6 +118,8 @@ Adding metadata to a question and answer set allows your client application to r
 
     Notice the question is just a single word, `size`, which can return either question and answer set. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers. 
 
+    [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
+
 1. The response includes only the answer that meets the filter criteria. 
 
     The following cURL response has been formatted for readability:
