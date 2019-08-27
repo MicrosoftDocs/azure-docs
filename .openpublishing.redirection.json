@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
@@ -16,8 +11,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview.md",
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro",
       "redirect_document_id": false
     },
     {
@@ -11406,6 +11411,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-role-based-access-control.md",
+      "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
       "redirect_document_id": false
@@ -11599,7 +11609,12 @@
       "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
       "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
       "redirect_document_id": false
-    },
+	},
+	{
+		"source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus.md",
+		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+		"redirect_document_id": false
+	},
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-analyze-twitter-sentiment.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
@@ -13820,6 +13835,11 @@
       "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-role-based-access-control.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-managed-service-identity",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/service-bus-messaging/service-bus-amqp-apache.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
@@ -25265,6 +25285,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-factory/how-to-read-write-partitioned-data.md",
+      "redirect_url": "/azure/data-factory/tutorial-incremental-copy-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-factory/data-factory-amazon-simple-storage-service-connector.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-amazon-simple-storage-service-connector",
       "redirect_document_id": true
@@ -25965,6 +25990,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-sql-database.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-data-services",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/security-center/security-center-enable-auditing-on-sql-databases.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-auditing-on-sql-servers.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-transparent-data-encryption.md",
+      "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-incident-response.md",
+      "redirect_url": "/azure/security-center/tutorial-security-incident",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/security-center/security-center-detection-capabilities.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
@@ -26554,11 +26609,16 @@
       "redirect_url": "/azure/hdinsight/hadoop/submit-apache-hadoop-jobs-programmatically",
       "redirect_document_id": true
     },
-    {
-      "source_path": "articles/hdinsight/hdinsight-troubleshoot-hbase.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-troubleshoot-hbase",
-      "redirect_document_id": true
-    },
+	{
+		"source_path": "articles/hdinsight/hdinsight-troubleshoot-hbase.md",
+		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+		"redirect_document_id": false
+	},
+	{
+		"source_path": "articles/hdinsight/hbase/apache-troubleshoot-hbase.md",
+		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+		"redirect_document_id": false
+	},
     {
       "source_path": "articles/hdinsight/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
       "redirect_url": "/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox",
@@ -28511,6 +28571,11 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-workload.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
       "redirect_document_id": false
     },
@@ -35554,11 +35619,6 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/monitoring/monitoring-service-map-configure.md",
-      "redirect_url": "/azure/azure-monitor/insights/service-map-configure",
-      "redirect_document_id": "false"
-    },
-    {
       "source_path": "articles/monitoring/monitoring-service-map-scom.md",
       "redirect_url": "/azure/azure-monitor/insights/service-map-scom",
       "redirect_document_id": "false"
@@ -41166,7 +41226,11 @@
       "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
       "redirect_document_id": false
     },
-
+		{
+			"source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
+			"redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
+			"redirect_document_id": true
+		},
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
@@ -41202,7 +41266,6 @@
       "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/quick-start.md",
       "redirect_url": "/azure/cognitive-services/bing-image-search",
@@ -41392,10 +41455,50 @@
       "source_path": "articles/media-services/previous/meda-services-managing-multiple-storage-accounts.md",
       "redirect_url": "/azure/media-services/previous/media-services-managing-multiple-storage-accounts",
       "redirect_document_id": false
-    },
+	},
+	{
+		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
+		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/media-services/previous/media-services-upload-files-with-aspera.md",
       "redirect_url": "/azure/media-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-plc-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-existing-client-server-communication.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-scratch.md",
+      "redirect_url": "/azure/iot-accelerators/howto-opc-vault-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/tutorial-data-prep.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/deploy-sentiment-analysis-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances?tabs=sentiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=language",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/use-sentiment-analysis-on-aks.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=sentiment",
       "redirect_document_id": false
     }
   ]

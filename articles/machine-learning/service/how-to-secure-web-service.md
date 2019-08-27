@@ -226,9 +226,7 @@ For more information, see the following reference docs:
 
 ## Disable SSL
 
-To disable SSL for a model deployed to Azure Kubernetes Service, you can use the SDK or CLI:
-
-**Use the SDK**
+To disable SSL for a model deployed to Azure Kubernetes Service, create an `SslConfiguration` with `status="Disabled"`, then perform an update:
 
 ```python
 from azureml.core.compute import AksCompute
@@ -242,12 +240,6 @@ aks_target = AksCompute(ws, clustername)
 ssl_configuration = SslConfiguration(status="Disabled")
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
-```
-
-**Use the CLI**
-
-```azurecli
- az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
 ```
 
 ## Next steps
