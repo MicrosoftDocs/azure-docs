@@ -55,13 +55,12 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
 Create your failover group and add your single database to it using the Azure portal. 
 
 
-1. Select **All Services** on the upper-left hand corner of the [Azure portal](https://portal.azure.com). 
-1. Type `sql servers` in the search box. 
-1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
-    
-    ![Locate SQL Servers](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the single database created in the section 2, such as `mySampleDatbase`. 
+1. Select the name of the server under **Server name** to open the settings for the server.
 
-1. Select **SQL servers** and choose the server you created in section 1, such as `mysqlserver`.
+   ![Open server for single db](media/sql-database-single-database-create-failover-group-tutorial/open-sql-db-server.png)
+
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
     ![Add new failover group](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
@@ -188,7 +187,12 @@ In this step, you will fail your failover group over to the secondary server, an
 # [Portal](#tab/azure-portal)
 Test failover using the Azure portal. 
 
-1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the single database created in the section 2, such as `mySampleDatbase`. 
+1. Select the name of the server under **Server name** to open the settings for the server.
+
+   ![Open server for single db](media/sql-database-single-database-create-failover-group-tutorial/open-sql-db-server.png)
+
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
   
    ![Select the failover group from the portal](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
