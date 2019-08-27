@@ -24,9 +24,9 @@ With maintenance control, you can:
 ## Preview limitations
 
 
-After 35-days update will automatically be applied and availability constraints will not be respected.
+- After 35 days, an update will automatically be applied and availability constraints will not be respected.
 
-To perform above operations user must have Resource Owner access.
+- User must have Resource Owner access.
 
 
 ## Enable preview
@@ -41,7 +41,7 @@ Machine level settings (required once on each machine from where MRP commands wi
 
 ## Create a maintenance configuration
 
-Use [az maintenance configuration create]() to create a maintenance configuration. This example creates a maintance configuration named *myConfig* scoped to the host. Replace the example subscription ID with your own. 
+Use [az maintenance configuration create]() to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. Replace the example subscription ID with your own. 
 
 ```bash
 az maintenance configuration create \
@@ -110,7 +110,7 @@ az maintenance update list \
    --provider-name Microsoft.Compute
 ```
 
-To check for pending updates 
+To check for pending updates for a dedicated host.
 
 ```bash
 az maintenance update list \
