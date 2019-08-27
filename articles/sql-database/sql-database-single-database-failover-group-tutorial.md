@@ -71,7 +71,7 @@ Create your failover group and add your single database to it using the Azure po
         - **Server name**: Type in a unique name for the secondary server, such as `mysqlsecondary`. 
         - **Server admin login**: Type `azureuser`
         - **Password**: Type a complex password that meets password requirements.
-        - **Location**: Choose a location from the drop-down, such as East US 2. This location cannot be the same location as your primary server.
+        - **Location**: Choose a location from the drop-down, such as `East US`. This location cannot be the same location as your primary server.
 
     > [!NOTE]
     > The server login and firewall settings must match that of your primary server. 
@@ -92,12 +92,12 @@ Create your failover group and add your single database to it using PowerShell.
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
    # $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   # $location = "West US 2"
+   # $location = "West US"
    # $adminLogin = "azureuser"
    # $password = "PWD27!"+(New-Guid).Guid
    # $serverName = "mysqlserver-$(Get-Random)"
    # $databaseName = "mySampleDatabase"
-   $drLocation = "East US 2"
+   $drLocation = "East US"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
