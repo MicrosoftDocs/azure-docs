@@ -134,7 +134,7 @@ After the deployment, if you wish to start over or discard the virtual network i
 
 ```azurepowershell-interactive
 
-Remove-AzureResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name <resource-group-name>
 
 ```
 
@@ -144,7 +144,7 @@ To commit the changes and complete the move of the virtual network, delete the s
 
 ```azurepowershell-interactive
 
-Remove-AzureResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name <resource-group-name>
 
 ```
 
