@@ -27,7 +27,7 @@ In data science, the key is to understand the data. Visualization and data explo
 ## Apache Drill
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Open source SQL query engine on big data    |
+| What is it?   | Open-source SQL query engine on big data    |
 | Supported DSVM versions      | Windows, Linux  |
 | How is it configured and installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
 | Typical uses      |  For in-place data exploration without requiring extract, transform, load (ETL). Query different data sources and formats, including CSV, JSON, relational tables, and Hadoop.     |
