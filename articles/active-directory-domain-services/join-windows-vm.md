@@ -162,7 +162,7 @@ In the next tutorial, you use this Windows Server VM to install the management t
 
 ### Un-join the VM from Azure AD DS managed domain
 
-To remove the VM from the Azure AD DS managed domain, follow through the steps again to [join the VM to a domain](#-join-the-vm-to-the-azure-ad-ds-managed-domain). Instead of joining the Azure AD DS managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the Azure AD DS managed domain.
+To remove the VM from the Azure AD DS managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-azure-ad-ds-managed-domain). Instead of joining the Azure AD DS managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the Azure AD DS managed domain.
 
 If you [delete the VM](#delete-the-vm) without unjoining from the domain, an orphaned computer object is left in Azure AD DS.
 
