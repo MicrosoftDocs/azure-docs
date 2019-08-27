@@ -257,7 +257,7 @@ For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box Blob
 1. To copy data by using the data copy service, you need to create a job. In the local web UI of your Data Box, go to **Manage > Copy data > Create**. 
 2. Fill out the parameters and create a job.
 
-For step-by-step instructions, go to [Tutorial: Use the data copy service to copy data into Azure Data Box](data-box-deploy-copy-data-via-data-copy-service.md).
+For step-by-step instructions, go to [Tutorial: Use the data copy service to copy data into Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
 
 ## Copy data to managed disks
 
