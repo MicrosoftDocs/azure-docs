@@ -89,7 +89,7 @@ conceptualContent:
           itemType: tutorial
         - text: "How to: Use the Anomaly Detector API on your time series data" 
           url: anomaly-detector/how-to/identify-anomalies.md
-          itemType: how-to
+          itemType: how-to-guide
         - text: Best practices
           itemType: concept
           url: anomaly-detector/concepts/anomaly-detection-best-practices
@@ -106,7 +106,7 @@ conceptualContent:
           itemType: tutorial
         - text: "How to: Check video content"
           url: content-moderator/video-moderation-api
-          itemType: how-to
+          itemType: how-to-guide
         - text: Image moderation
           url: content-moderator/image-moderation-api.md
           itemType: concept
@@ -122,10 +122,10 @@ conceptualContent:
           itemType: quickstart
           url: personalizer/csharp-quickstart-commandline-feedback-loop
         - text: Create and configure Personalizer
-          itemType: how-to
+          itemType: how-to-guide
           url: personalizer/how-to-settings.md
         - text: Analyze with an offline evaluation
-          itemType: how-to
+          itemType: how-to-guide
           url: personalizer/how-to-offline-evaluation.md
         - text: Ethics and responsible use
           itemType: concept
