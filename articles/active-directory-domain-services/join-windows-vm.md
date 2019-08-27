@@ -150,15 +150,23 @@ With the VM created and an RDP connection establish, now let's join the Windows 
 1. To complete the process to join to the Azure AD DS managed domain, restart the VM.
 
 > [!TIP]
-> You can also domain-join a VM using PowerShell with the [Add-Computer][add-computer] cmdlet. The following example joins the *CONTOSO* domain and then restarts the VM. When prompted, enter the credentials for a user that belongs to the *Azure AD DC administrators* group:
+> You can domain-join a VM using PowerShell with the [Add-Computer][add-computer] cmdlet. The following example joins the *CONTOSO* domain and then restarts the VM. When prompted, enter the credentials for a user that belongs to the *Azure AD DC administrators* group:
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
+>
+> To domain-join a VM without connecting to it and manually configuring the connection, you can also explore the use of the [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell cmdlet.
 
 Once the Windows Server VM has restarted, any policies applied in the Azure AD DS managed domain are be pushed to the VM. You can also now sign in to the Windows Server VM using appropriate domain credentials.
 
 ## Clean up resources
 
 In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the Azure AD DS managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [disable RDP](#disable-rdp) or [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
+
+### Un-join the VM from Azure AD DS managed domain
+
+To remove the VM from the Azure AD DS managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-azure-ad-ds-managed-domain). Instead of joining the Azure AD DS managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the Azure AD DS managed domain.
+
+If you [delete the VM](#delete-the-vm) without unjoining from the domain, an orphaned computer object is left in Azure AD DS.
 
 ### Disable RDP
 
@@ -228,3 +236,4 @@ To administer your Azure AD DS managed domain, configure a management VM using t
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension
