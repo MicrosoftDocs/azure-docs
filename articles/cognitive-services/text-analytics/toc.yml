@@ -59,7 +59,7 @@
      href: How-tos/text-analytics-how-to-language-detection.md
    - name: Sentiment analysis 
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
-   - name: Key phrase Extraction
+   - name: Key phrase extraction
      href: How-tos/text-analytics-how-to-keyword-extraction.md
    - name: Named entity recognition
      href: How-tos/text-analytics-how-to-entity-linking.md
