@@ -49,7 +49,7 @@ Create variables for your subscription key, and the endpoint for the Text Analyt
     
 ```python
 subscription_key = "<ADD YOUR KEY HERE>"
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
+text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com"
 ```
 
 The following sections describe how to call each of the API's features.
@@ -58,11 +58,11 @@ The following sections describe how to call each of the API's features.
 
 ## Detect languages
 
-Append `languages` to the Text Analytics base endpoint to form the language detection URL. For example:
+Append `/text/analytics/v2.1/languages` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
     
 ```python
-language_api_url = text_analytics_base_url + "languages"
+language_api_url = text_analytics_base_url + "/text/analytics/v2.1/languages"
 ```
 
 The payload to the API consists of a list of `documents`, which are tuples containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
@@ -128,11 +128,11 @@ pprint(languages)
 
 ## Analyze sentiment
 
-To detect the sentiment (which ranges between positive or negative) of a set of documents, append `sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
+To detect the sentiment (which ranges between positive or negative) of a set of documents, append `/text/analytics/v2.1/sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
     
 ```python
-sentiment_url = text_analytics_base_url + "sentiment"
+sentiment_url = text_analytics_base_url + "/text/analytics/v2.1/sentiment"
 ```
 
 As with the language detection example, create a dictionary with a `documents` key that consists of a list of documents. Each document is a tuple consisting of the `id`, the `text` to be analyzed and the `language` of the text. 
@@ -191,11 +191,11 @@ The sentiment score for a document is between 0.0 and 1.0, with a higher score i
 
 ## Extract key phrases
  
-To extract the key phrases from a set of documents, append `keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
+To extract the key phrases from a set of documents, append `/text/analytics/v2.1/keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
-keyphrase_url = text_analytics_base_url + "keyPhrases"
+keyphrase_url = text_analytics_base_url + "/text/analytics/v2.1/keyPhrases"
 ```
 
 This collection of documents is the same used for the sentiment analysis example.
@@ -268,11 +268,11 @@ pprint(key_phrases)
 
 ## Identify Entities
 
-To identify well-known entities (people, places, and things) in text documents, append `entities` to the Text Analytics base endpoint to form the language detection URL. For example:
+To identify well-known entities (people, places, and things) in text documents, append `/text/analytics/v2.1/entities` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
     
 ```python
-entities_url = text_analytics_base_url + "entities"
+entities_url = text_analytics_base_url + "/text/analytics/v2.1/entities"
 ```
 
 Create a collection of documents, like in the previous examples. 

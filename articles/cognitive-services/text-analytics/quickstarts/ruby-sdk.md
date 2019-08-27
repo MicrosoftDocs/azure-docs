@@ -55,7 +55,8 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
     
     credentials =
         MsRestAzure::CognitiveServicesCredentials.new("enter key here")
-    # Replace 'westus' with the correct region for your Text Analytics subscription
+    
+    # Replace the below endpoint with the one listed in your Text Analytics resource. 
     endpoint = String.new("https://westus.api.cognitive.microsoft.com/")
     
     textAnalyticsClient =

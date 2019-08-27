@@ -47,17 +47,10 @@ require 'json'
 # Replace the accessKey string value with your valid access key.
 accessKey = 'enter key here'
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
+# Replace the below variable with the endpoint listed in your Text Analytics resource. 
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.1/languages'
 
+path = '/text/analytics/v2.1/languages'
 uri = URI(uri + path)
 
 documents = { 'documents': [
@@ -150,17 +143,10 @@ require 'json'
 # Replace the accessKey string value with your valid access key.
 accessKey = 'enter key here'
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
+# Replace the below variable with the endpoint listed in your Text Analytics resource. 
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.1/sentiment'
 
+path = '/text/analytics/v2.1/sentiment'
 uri = URI(uri + path)
 
 documents = { 'documents': [
@@ -227,17 +213,10 @@ require 'json'
 # Replace the accessKey string value with your valid access key.
 accessKey = 'enter key here'
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
+# Replace the below variable with the endpoint listed in your Text Analytics resource. 
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.1/keyPhrases'
 
+path = '/text/analytics/v2.1/keyPhrases'
 uri = URI(uri + path)
 
 documents = { 'documents': [
@@ -324,17 +303,10 @@ require 'json'
 # Replace the accessKey string value with your valid access key.
 accessKey = 'enter key here'
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
+# Replace the below variable with the endpoint listed in your Text Analytics resource. 
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.1/entities'
 
+path = '/text/analytics/v2.1/entities'
 uri = URI(uri + path)
 
 documents = { 'documents': [
