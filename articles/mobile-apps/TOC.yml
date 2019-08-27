@@ -31,7 +31,7 @@
   - name: DevOps
     - name: What is DevOps?
       href: devops.md
-    - name: Continuous Integration
+    - name: Continuous Build & Integration
       href: continuous-integration.md
     - name: Test on real devices
       href: test.md

@@ -15,8 +15,8 @@ DevOps (a combination of "Development" and "Operations") is a term that emphasiz
 reducing barriers that divide traditionally siloed teams. In addition to automation and culture, guiding
 principles of DevOps include measurement, sharing, fast feedback, and infrastructure as code. 
 
-Microsoft has a comprehensive set of [DevOps solutions](https://azure.microsoft.com/en-us/solutions/devops/) through [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) (cloud) and [Azure DevOps
-Server](https://azure.microsoft.com/en-us/services/devops/server/) (on-premises). These products create a working environment in which building, testing, and deploying software can occur rapidly, frequently, and reliably. In turn, this allows for an organization to achieve its goals quicker, allowing for a faster turnaround time in the deployment of new features, security patches, and bug fixes.
+Microsoft has a comprehensive set of [DevOps solutions](https://azure.microsoft.com/en-us/solutions/devops/) through [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) (cloud), [Azure DevOps
+Server](https://azure.microsoft.com/en-us/services/devops/server/) (on-premises) and [Visual Studio App Center](https://azure.microsoft.com/en-us/services/app-center/). These products create a working environment in which building, testing, and deploying software can occur rapidly, frequently, and reliably. In turn, this allows for an organization to achieve its goals quicker, allowing for a faster turnaround time in the deployment of new features, security patches, and bug fixes.
 
 ## Importance of DevOps
 - Makes the entire software lifecycle faster, from code commit to production deployment.
