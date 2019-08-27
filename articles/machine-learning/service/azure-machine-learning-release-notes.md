@@ -52,10 +52,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + This release improves the execution performance of automated machine learning local runs.
     + Users can query metrics now by name.
     + Improved the logging by using custom exceptions instead of generic in the forecasting tasks.
-  + **azureml-dataprep**
-    + Fix a bug in `azureml.dataprep` that cause `include_path=True` not working for `read_parquet` .
-    + Fix `to_pandas_dataframe()` failure caused by exception "Invalid property value: hostSecret".
-    + Enable writing to ADLS/ADLSGen2 using raw path and credentials.
   + **azureml-explain-model**
     + Added feature_maps parameter to the new MimicWrapper, allowing users to get raw feature explanations.
     + Dataset uploads are now off by default for explanation upload, and can be re-enabled with upload_datasets=True
