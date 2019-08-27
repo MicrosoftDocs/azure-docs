@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: 
-ms.date: 07/18/2019
+ms.date: 08/27/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
