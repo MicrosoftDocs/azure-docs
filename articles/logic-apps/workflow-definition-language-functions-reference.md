@@ -3318,15 +3318,6 @@ removeProperty(<object>, '<property>')
 
 *Example*
 
-This example removes the `accountLocation` property from a `customerProfile` object,
-which is converted to JSON with the [JSON()](#json) function, and returns the updated object:
-
-```
-removeProperty(json('customerProfile'), 'accountLocation')
-```
-
-*Example*
-
 This example removes the `accountLocation` property from a `customerProfile` object, which is converted from a string to JSON by using the [JSON()](#json) function, and returns the updated object:
 
 ```
