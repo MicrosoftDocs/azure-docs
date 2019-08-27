@@ -74,12 +74,29 @@ The code snippets in this section demonstrate registering a model from a trainin
 
 + **Using the SDK**
 
-  ```python
-  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-  print(model.name, model.id, model.version, sep='\t')
-  ```
+  When using the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) or [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 
-  The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  + Register a model from an `azureml.core.Run` object:
+ 
+    ```python
+    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    print(model.name, model.id, model.version, sep='\t')
+    ```
+
+    The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) reference.
+
+  + Register a model from an `azureml.train.automl.run.AutoMLRun` object:
+
+    ```python
+        description = 'My AutoML Model'
+        model = run.register_model(description = description)
+
+        print(run.model_id)
+    ```
+
+    In this example, the `metric` and `iteration` parameters are not specified, which causes the iteration with the best primary metric to be registered. The `model_id` value returned from the run is used instead of a model name.
+
+    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) reference.
 
 + **Using the CLI**
 
@@ -180,6 +197,9 @@ The script contains two functions that load and run the model:
 When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
 
 When you register a model, you give it a name, which corresponds to where the model is placed, either locally or during service deployment.
+
+> [!IMPORTANT]
+> If you trained a model using automated machine learning, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated ml, see [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment).
 
 The below example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
 

@@ -28,7 +28,7 @@ In this tutorial, you learn the following tasks:
 
 The only prerequisite is to run part one of this tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
-In this part of the tutorial, you run the code in the sample Jupyter notebook opened at the end of part one. This article walks through the same code that is in the notebook.
+In this part of the tutorial, you run the code in the sample Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` opened at the end of part one. This article walks through the same code that is in the notebook.
 
 ## Connect workspace and create experiment
 
@@ -36,6 +36,10 @@ Import the `Workspace` class, and load your subscription information from the fi
 
 If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token.
 
+> [!TIP]
+> If you're new to Jupyter notebooks, run code by clicking on a code cell and hitting 
+> **Shift+Enter** to run the cells one at a time. Alternatively, to run the entire notebook at once,
+> click **Cell** on the top menu bar and then click **Run All**.
 
 ```python
 from azureml.core import Workspace
