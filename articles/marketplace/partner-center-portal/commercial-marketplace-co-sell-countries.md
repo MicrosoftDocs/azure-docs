@@ -11,7 +11,7 @@ ms.date: 08/27/2019
 
 # Co-sell countries and regions
 
-Use these two-letter country/region codes when providing contact info on your offer's [Co-sell page](commercial-marketplace-co-sell.md).
+Use these two-letter country/region codes when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md).
 
 If the contact covers all Countries/Regions, use the three letter code “OOO”.
 
