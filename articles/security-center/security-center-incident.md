@@ -34,6 +34,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
     ![View security incidents](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
 1. To view details, click on an incident. The **Security incident detected** blade displays further details. The **General Information** section can offer an insight into what triggered the security alert. It displays information such as the target resource, source IP address (when applicable), if the alert is still active, and recommendations about how to remediate.  
+
     ![Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
 1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert. The remediation suggested by Security Center vary according to the security alert. 

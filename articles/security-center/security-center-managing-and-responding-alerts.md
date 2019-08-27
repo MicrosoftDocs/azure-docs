@@ -37,7 +37,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 1. From the Security Center dashboard, see the  **Threat protection** tile to view and overview of the alerts.
 
-  ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
+   ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
 1. To see more details about the alerts, click the tile.
 
