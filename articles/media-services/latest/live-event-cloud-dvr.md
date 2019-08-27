@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 08/27/2019
 ms.author: juliako
 
 ---
@@ -21,9 +21,11 @@ ms.author: juliako
 
 In Azure Media Services, a [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) object is like a tape recorder that will catch and record the live stream into an asset in your Media Services account. The recorded content will be persisted into the container defined by the [Asset](https://docs.microsoft.com/rest/api/media/assets) resource (the container is in the Azure Storage account attached to your account). The Live Output also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the Live Output. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. The **archiveWindowLength** value represents an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
 
-The relationship between a **Live Event** and its **Live Outputs** is similar to traditional television broadcast, whereby a channel (Live Event) represents a constant stream of video and a recording (Live Output) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). You can create multiple Live Outputs (up to three maximum) on a Live Event with different archive lengths and settings. For information about the live streaming workflow, see the [General steps](live-streaming-overview.md#general-steps).
+The relationship between a **Live Event** and its **Live Outputs** is similar to traditional television broadcast, whereby a channel (Live Event) represents a constant stream of video and a recording (Live Output) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). You can create multiple Live Outputs (up to three maximum) on a Live Event with different archive lengths and settings. For information about the live streaming workflow, see the [General steps](live-streaming-overview.md#general-steps) section.
 
-## Using a DVR during an event to control what portions of the stream is available for ‘rewind’
+## Using a DVR during an event 
+
+This section discusses how to use a DVR during an event to control what portions of the stream is available for ‘rewind’.
 
 The **archiveWindowLength** value determines how far back in time a viewer can seek from the current live position. The **archiveWindowLength** value also determines how long the client manifests can grow.
 
