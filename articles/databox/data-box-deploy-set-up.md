@@ -77,6 +77,8 @@ Perform the following steps to cable your device.
 
 ::: zone target="chromeless"
 
+After you have received the device, you need to cable and connect to your device. 
+
 ## Cable your device
 
 1. If there is any evidence that the device is tampered with or damaged, do not proceed. Contact Microsoft Support to ship you a replacement device.

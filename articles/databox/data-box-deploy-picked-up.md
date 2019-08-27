@@ -51,6 +51,8 @@ Before you begin, make sure:
 
 ::: zone target="chromeless"
 
+After the data copy is complete, you prepare and ship the device. When the device reaches Azure datacenter, data is automatically uploaded to Azure.
+
 ## Prepare to ship
 
 Before you prepare to ship, make sure that copy jobs are complete.
@@ -62,13 +64,15 @@ The next steps are determined by where you are returning the device.
 
 ::: zone-end
 
+::: zone target="docs"
 
 ## Ship Data Box back
 
 Ensure that the data copy to device is complete and **Prepare to ship** run is successful. Based on the region where you are shipping the device, the procedure is different.
 
+::: zone-end
 
-### Ship in US, Canada, Europe
+## Ship in US, Canada, Europe
 
 Take the following steps if returning the device in US, Canada, or Europe.
 
@@ -85,7 +89,7 @@ Take the following steps if returning the device in US, Canada, or Europe.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 
-### Ship in Australia
+## Ship in Australia
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps to ship in Australia.
 

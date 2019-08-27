@@ -34,7 +34,7 @@ For detailed step-by-step deployment and tracking instructions, go to [Tutorial:
 
 ::: zone target="chromeless"
 
-This quickstart describes how to deploy the Azure Data Box using the Azure portal. The steps include review the prerequisites, cable and connect your device, copy data to your device so that uploads to Azure.
+This guide describes how to deploy the Azure Data Box using the Azure portal. The steps include review the prerequisites, cable and connect your device, and copy data to your device so that it uploads to Azure.
 
 ::: zone-end
 

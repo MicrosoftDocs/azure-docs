@@ -229,7 +229,8 @@ In each case, make sure that the share and folder names, and the data size follo
 
 1. If using a Windows host, use the following command to connect to the SMB shares:
 
-`\\<IP address of your device>\ShareName`.
+    `\\<IP address of your device>\ShareName`
+
 2. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
 3. Use an SMB compatible file copy tool such as Robocopy to copy data to shares. 
 
@@ -239,7 +240,8 @@ For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via 
 
 1. If using an NFS host, use the following command to mount the NFS shares on your Data Box:
 
-`sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`.
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
+
 2. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
 3. Use `cp` or `rsync` command to copy your data.
 
