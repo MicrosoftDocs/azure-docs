@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 08/27/2019
 ms.author: v-mohabe
 
 ---
@@ -35,9 +35,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 ## Manage your security alerts
 
-You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
-
-1. On the Security Center dashboard, the **Security alerts** tile displays an overview of the alerts.
+1. From the Security Center dashboard, see the  **Threat protection** tile to view and overview of the alerts.
 
   ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
@@ -51,7 +49,7 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
 ## Respond to security alerts
 
-1. Click a security alert. The resources involved and the steps you need to take to remediate an attack is shown.
+1. From the **Security alerts** list, click a security alert. The resources involved and the steps you need to take to remediate an attack is shown.
 
     ![Respond to security alerts](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
 
@@ -59,12 +57,12 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
     ![Suggestions for what to do about security alerts](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    In the **Description** field, see additional details which can offer an insight into what triggered the security alert. You can see the target resource, when applicable the source IP address, and recommendations about how to remediate.  
+    The **General Information** section can offer an insight into what triggered the security alert. It displays information such as the target resource, source IP address (when applicable), if the alert is still active, and recommendations about how to remediate.  
 
     > [!NOTE]
-    >In some instances, the source IP address is empty (not available) because not all Windows security events logs include the IP address.
+    >In some instances, the source IP address is not available, some Windows security events logs do not include the IP address.
 
-1. The remediation suggested by Security Center vary according to the security alert. Follow the remediation steps given for each alert. 
+1. The remediation steps suggested by Security Center vary according to the security alert. Follow them for each alert. 
 In some cases, in order to mitigate a threat detection alert, you may have to use other Azure controls or services to implement the recommended remediation. 
 
     The following topics guide you through the different alerts, according to resource types:
@@ -83,7 +81,7 @@ In some cases, in order to mitigate a threat detection alert, you may have to us
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md).
-* [Handling Security Incident in Azure Security Center](security-center-incident.md)
+* [Handling security incidents](security-center-incident.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
