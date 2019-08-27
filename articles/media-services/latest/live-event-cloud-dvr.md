@@ -47,5 +47,5 @@ For more information, see:
 
 ## Next steps
 
-* [Create a single bitrate MP4 for long term archival](subclip-video-rest-howto.md).
+* [Subclip your videos](subclip-video-rest-howto.md).
 * [Define filters for your assets](filters-dynamic-manifest-rest-howto.md).
