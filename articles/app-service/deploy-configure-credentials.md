@@ -9,7 +9,6 @@ manager: jpconnoc
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 08/14/2019
 ms.author: cephalin
