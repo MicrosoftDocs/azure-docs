@@ -1,38 +1,17 @@
 ---
-title: Run Azure Kubernetes Service - Text Analytics
+title: Sentiment Analysis Kubernetes config and deploy steps
 titleSuffix: Azure Cognitive Services
-description: Deploy the Text Analytics containers with the sentiment analysis image to Azure Kubernetes Service, and test it in a web browser.
+description: Sentiment Analysis Kubernetes config and deploy steps
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
-ms.topic: conceptual
-ms.date: 06/21/2019
+ms.topic: include 
+ms.date: 08/21/2019
 ms.author: dapine
 ---
 
-# Deploy a sentiment analysis container to Azure Kubernetes Service
-
-Learn how to deploy the Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container with the sentiment analysis image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to create an associated sentiment analysis image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development.
-
-## Prerequisites
-
-This procedure requires several tools that must be installed and run locally. Don't use Azure Cloud Shell. You need the following:
-
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A text editor, for example, [Visual Studio Code](https://code.visualstudio.com/download).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
-* The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
-* An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
-    * **Azure Text Analytics** resource with F0 or standard pricing tiers only.
-    * **Azure Cognitive Services** resource with the S0 pricing tier.
-
-[!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
-
-[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
-
-## Deploy a Text Analytics container to an AKS cluster
+## Deploy the Sentiment Analysis container to an AKS cluster
 
 1. Open the Azure CLI, and sign in to Azure.
 
@@ -64,7 +43,7 @@ This procedure requires several tools that must be installed and run locally. Do
     code .
     ```
 
-1. Within the text editor, create a new file named _sentiment.yaml_, and paste the following YAML into it. Be sure to replace `billing/value` and `apikey/value` with your own information.
+1. Within the text editor, create a new file named *sentiment.yaml*, and paste the following YAML into it. Be sure to replace `billing/value` and `apikey/value` with your own information.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -86,9 +65,9 @@ This procedure requires several tools that must be installed and run locally. Do
             - name: EULA
               value: "accept"
             - name: billing
-              value: # < Your endpoint >
+              value: # {ENDPOINT_URI}
             - name: apikey
-              value: # < Your API Key >
+              value: # {API_KEY}
      
     --- 
     apiVersion: v1
@@ -104,7 +83,7 @@ This procedure requires several tools that must be installed and run locally. Do
     ```
 
 1. Save the file, and close the text editor.
-1. Run the Kubernetes `apply` command with _sentiment.yaml_ as its target:
+1. Run the Kubernetes `apply` command with the *sentiment.yaml* file as its target:
 
     ```console
     kuberctl apply -f sentiment.yaml
@@ -112,7 +91,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
     After the command successfully applies the deployment configuration, a message appears similar to the following output:
 
-    ```
+    ```console
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
@@ -124,7 +103,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
     The output for the running status of the pod:
 
-    ```
+    ```console
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -135,17 +114,10 @@ This procedure requires several tools that must be installed and run locally. Do
     kubectl get services
     ```
 
-    The output for the running status of the _sentiment_ service in the pod:
+    The output for the running status of the *sentiment* service in the pod:
 
-    ```
+    ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
-
-[!INCLUDE [Verify the sentiment analysis container instance](../includes/verify-sentiment-analysis-container.md)]
-
-## Next steps
-
-* Use more [Cognitive Services containers](../../cognitive-services-container-support.md)
-* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)
