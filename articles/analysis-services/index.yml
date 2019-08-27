@@ -1,0 +1,96 @@
+### YamlMime:Hub 
+
+title: Azure Analysis Services documentation 
+summary: Learn how to set up data modeling with Analysis Services in the cloud. Documentation shows you how to create an enterprise BI solution using tabular data. 
+brand: azure ## Used for color theme of icons and hero area 
+
+metadata: 
+  title: Azure Analysis Services documentation
+  description: Azure Analysis Services is a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud. 
+  ms.service: analysis-services
+  ms.topic: landing-page
+  ms.collection: 
+  author: minewiskan
+  ms.author: owend
+  manager: mtillman
+  ms.date: 08/27/2019
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: What is Azure Analysis Services? 
+      itemType: overview # controls the icon image and super-title text 
+      url: analysis-services-overview.md
+    - title: Create an Azure Analysis Services server - Portal
+      itemType: quickstart 
+      url: analysis-services-create-server.md
+    - title: Configure a server firewall - Portal 
+      itemType: quickstart
+      url: analysis-services-qs-firewall.md
+    - title: Add a sample model from - Portal
+      itemType: tutorial
+      url: analysis-services-create-sample-model.md
+    - title: Connect with Power BI Desktop
+      itemType: tutorial
+      url: analysis-services-tutorial-pbid.md
+
+conceptualContent: 
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items: 
+    - title: Concepts 
+      links: 
+        - url: analysis-services-datasource.md
+          itemType: concept
+          text: Supported data sources 
+        - url: analysis-services-service-principal.md
+          itemType: concept
+          text: Automation with service principals 
+        - url: analysis-services-gateway.md
+          itemType: concept
+          text: Connecting to on-premises data sources
+
+    - title: How to guides
+      links: 
+        - url: .md
+          itemType: how-to-guide
+          text: Manage Analysis Services
+        - url: .md
+          itemType: how-to-guide 
+          text: Azure AD self-service password reset 
+        - url: .md
+          itemType: how-to-guide
+          text: Azure AD password protection 
+
+    - title: Data models 
+      links: 
+        - url: .md
+          itemType: concept
+          text: 
+        - url: analysis-services-samples.md
+          itemType: concept
+          text: Azure Analysis Services samples
+        - url: analysis-services-capacity-limits.md
+          itemType: concept
+          text: Resource and object limits
+
+    - title: Developers 
+      links: 
+        - url: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
+          itemType: overview
+          text:  Tabular Model Scripting Language (TMSL) 
+        - url: https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
+          itemType: concept
+          text:  Tabular Object Model (TOM)
+
+additionalContent:
+  sections:
+    - items:
+      - title: Azure Analysis Services pricing
+        summary: Azure Analysis Services is available in developer, basic, and standard tiers.
+        url: https://azure.microsoft.com/pricing/details/analysis-services/
+      - title: Azure Analysis Services feedback
+        summary: Have feedback for the product team? Submit your idea here. 
+        url: https://feedback.azure.com/forums/556165-azure-analysis-services
+      - title: Azure Analysis Services on the Power BI blog
+        summary: Get Azure Analysis Services announcements on the Power BI blog.
+        url: https://powerbi.microsoft.com/blog/
