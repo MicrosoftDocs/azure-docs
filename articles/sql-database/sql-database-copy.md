@@ -64,7 +64,7 @@ To create a database copy, you will need to be in the following roles
 
 •	Subscription Owner or
 •	SQL Server Contributor role or
-•	Custom role with following permission:
+•	Custom role on the source and target databases with following permission:
    Microsoft.Sql/servers/databases/read
    Microsoft.Sql/servers/databases/write
 
@@ -72,7 +72,8 @@ To cancel a database copy, you will need to be in the following roles
 
 •	Subscription Owner or
 •	SQL Server Contributor role or
-•	Custom role with following permission:
+•	Custom role on the source and target databases with following permission:
+   Microsoft.Sql/servers/databases/read
    Microsoft.Sql/servers/databases/write
 
 ## Copy a database by using Transact-SQL
