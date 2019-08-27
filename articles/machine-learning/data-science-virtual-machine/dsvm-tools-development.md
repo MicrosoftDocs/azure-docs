@@ -87,7 +87,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 
 
-## PowerBI Desktop 
+## Power BI Desktop 
 
 |    |           |
 | ------------- | ------------- |
