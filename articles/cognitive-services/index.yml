@@ -1,11 +1,10 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services Documentation
-summary: Learn how to build intelligent algorithms into apps, websites, and bots so they see, hear, speak, understand, and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how to use the APIs.
-
+summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs. 
 metadata:
   title: Azure Cognitive Services Documentation
-  description: Learn how to build intelligent algorithms into apps, websites, and bots so they see, hear, speak, understand, and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how to use the APIs.
+  description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs. 
   ms.service: cognitive-services
   ms.topic: hub-page
   brand: azure
@@ -72,10 +71,6 @@ conceptualContent:
         - url: ./personalizer/what-is-personalizer.md
           itemType: get-started
           text: Personalizer
-
-conceptualContent:
-  title: Get started 
-  items:
     - title: Anomaly Detector 
       links:
         - text: What is Anomaly Detector?
