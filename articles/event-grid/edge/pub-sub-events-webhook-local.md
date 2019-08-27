@@ -4,32 +4,29 @@ description: Publish, subscribe to events locally using Webhook with Event Grid 
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 07/23/2019
+ms.reviewer: spelluru
+ms.date: 08/27/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
 ---
 
 # Tutorial: Publish, subscribe to events locally
+This article walks you through all the steps needed to publish and subscribe to events using Event Grid on IoT Edge.
 
-This article walks through all the steps needed to publish  and subscribe to events using Event Grid on IoT Edge.
-
-Refer to [Event Grid Concepts](concepts.md) documentation to understand what an event grid topic, subscription is before proceeding.
+> [!NOTE]
+> To learn about Azure Event Grid topics and subscriptions, see [Event Grid Concepts](concepts.md).
 
 ## Prerequisites
+To complete this tutorial, you'll need:
 
-In order to complete this tutorial, you will need:-
-
-* **Azure Event Grid module on IoT Edge Device** - Follow the steps in described [here](deploy-event-grid-portal.md) on how to do that if not already done.
-
-* **Azure Function subscriber module on the same IoT Edge Device** - Follow the steps in described [here](deploy-func-webhook-module-portal.md) on how to do that if not already done.
+- **Azure Event Grid module on An IoT Edge device**. If you don't have this set up already, follow steps in the [Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article.
+- **Azure Function subscriber module on the same IoT Edge Device**. If you haven't deployed this module already, follow steps in the [Deploy Azure Function IoT Edge module](deploy-func-webhook-module-portal.md) article. 
 
 ## Step 1: Create topic
+As a publisher of an event, you need to create an event grid topic. In Azure Event Grid, a topic refers to an endpoint where publishers can send events to.
 
-As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to.
-
-1. Create topic.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create topic.json with the following content. For details about the payload, see our [API documentation](api.md).
 
    ```json
    {
@@ -40,7 +37,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
    }
    ```
 
-1. Run the following command to create the topic. HTTP Status Code of 200 OK should be returned.
+1. Run the following command to create an event grid topic. Confirm that you see the HTTP status code is `200 OK`.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -48,9 +45,9 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Step 2: Create event subscription
 
-   Subscribers can register for events published to a topic. In order to receive any event, they will need to create an Event grid subscription on a topic of interest.
+Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest.
 
-1. Create subscription.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create subscription.json with the following content. For details about the payload, see our [API documentation](api.md) 
 
    ```json
     {
@@ -66,9 +63,9 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     ```
 
    >[!NOTE]
-   > The **endpointType** specifies that the subscriber is a Webhook.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Function sample we deployed earlier.
+   > The **endpointType** property specifies that the subscriber is a **Webhook**.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Function sample you deployed earlier.
 
-2. Run the following command to create the subscription. HTTP Status Code of 200 OK should be returned.
+2. Run the following command to create a subscription for the topic. Confirm that you see the HTTP status code is `200 OK`.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
@@ -76,7 +73,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Step 3: Publish event
 
-1. Create event.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create event.json with the following content. For details about the payload, see our [API documentation](api.md).
 
    ```json
    [{
@@ -92,7 +89,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     }]
     ```
 
-1. Run the following command to publish event
+1. Run the following command to publish an event.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/events?api-version=2019-01-01-preview
@@ -100,22 +97,22 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Step 4: Verify event delivery
 
-1. SSH or RDP into your IoT Edge VM
-1. Check the subscriber logs
+1. SSH or RDP into your IoT Edge VM.
+1. Check the subscriber logs.
 
-    On Windows,
+    On Windows, run the following command:
 
     ```sh
     docker -H npipe:////./pipe/notedly_moby_engine container logs subscriber
     ```
     
-   On Linux,
+   On Linux, run the following command: 
 
     ```sh
     sudo docker logs subscriber
     ```
 
-    Sample Output: -
+    Sample output: 
 
     ```json
     Received event data [
@@ -137,7 +134,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Cleanup resources
 
-* Run the following command to delete the topic and all its subscriptions
+* Run the following command to delete the topic and all its subscriptions.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -147,9 +144,9 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Next steps
 
-In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps:
+In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
 
-* Create/update subscription with filters
+* Create/update subscription with filters.
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication
 * Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)
