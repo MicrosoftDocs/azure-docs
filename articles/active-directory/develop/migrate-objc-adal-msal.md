@@ -82,21 +82,21 @@ You can read more information about using the "/.default" scope [here](https://d
 
 ### Supporting different WebView types & browsers
 
-ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for iOS supports more options for displaying web content when requesting an authorization code; which can improve the user experience.
+ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for iOS supports more options for displaying web content when requesting an authorization code, and no longer supports UIWebView; which can improve the user experience and security. 
 
-By default, MSAL uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides Single Sign-On (SSO) benefits through cookie sharing between apps and web content.
+By default, MSAL uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides Single Sign-On (SSO) benefits through cookie sharing between apps and the Safari browser.
 
 You can choose to use a different web component depending on app requirements and the end-user experience you want. See [supported web view types](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Customizing-Browsers-and-WebViews) for more options.
 
-When migrating from ADAL to MSAL, WKWebView provides the user experience most similar to ADAL on iOS. You're encouraged to migrate to ASWebAuthenticationSession if possible.
+When migrating from ADAL to MSAL, WKWebView provides the user experience most similar to ADAL on iOS. For iOS 12+ devices, you're encouraged to use ASWebAuthenticationSession.
 
 ### Account management API differences
 
 When you call the ADAL methods `acquireToken()` or `acquireTokenSilent()`, you receive an `ADUserInformation` object containing a list of claims from the `id_token` that represents the account being authenticated. Additionally, `ADUserInformation` returns a `userId` based on the `upn` claim. After initial interactive token acquisition, ADAL expects developer to provide `userId` in all silent calls.
 
-ADAL didn't provide an API to retrieve known user identities. It relies on the app to save and manage those accounts.
+ADAL does not provide an API to retrieve known user identities. It relies on the app to save and manage those accounts.
 
-MSAL provides a set of APIs that list all accounts known to MSAL without having doing token acquisition.
+MSAL provides a set of APIs to list accounts known to MSAL without having to do a token acquisition.
 
 Like ADAL, MSAL returns account information that holds a list of claim from the `id_token` in its result object `MSALResult`.
 
@@ -106,7 +106,7 @@ Additionally, MSAL also returns an account identifier that can be used to reques
 
 ### Migrating the account cache
 
-When migrating from ADAL, apps normally store ADAL's `userId`, which doesn't have the `homeAccountId` required by MSAL. As a onetime migration step, an app can query an MSAL account using ADAL's userId with the following API:
+When migrating from ADAL, apps normally store ADAL's `userId`, which doesn't have the `homeAccountId` required by MSAL. As a one time migration step, an app can query an MSAL account using ADAL's userId with the following API:
 
 `- (nullable MSALAccount *)accountForUsername:(nonnull NSString *)username error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
@@ -116,7 +116,7 @@ If the account is found, the developer should use the account to do silent token
 
 `- (nullable MSALAccount *)accountForHomeAccountId:(nonnull NSString *)homeAccountId error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
-Although it's possible to continue using ADAL's `userId` for all operations in MSAL, since `userId` is based on UPN, it's subject to multiple limitations that result in a bad user experience. For example, if the UPN changes, the user has to sign in again. We recommend all apps use the non-displayable `homeAccountId` for all operations.
+Although it's possible to continue using ADAL's `userId` for all operations in MSAL, since `userId` is based on UPN, it's subject to multiple limitations that could result in a bad user experience. For example, if the UPN changes, the user has to sign in again. We recommend all apps use the non-displayable `homeAccountId` for all operations.
 
 Read more about [cache state migration](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/SSO-between-ADAL-and-MSAL-based-apps).
 
