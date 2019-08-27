@@ -199,7 +199,7 @@ The output dataset represents the data that's copied to the destination. In the 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
-3. Repeat the steps to create the output dataset:Create a JSON file named **OutputDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
+3. Repeat the steps to create the output dataset. Create a JSON file named **OutputDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
 
     ```json
     {
@@ -226,8 +226,8 @@ The output dataset represents the data that's copied to the destination. In the 
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" `
-        -DefinitionFile ".\BlobDataset.json"
+        -ResourceGroupName $ResGrp.ResourceGroupName -Name "OutputDataset" `
+        -DefinitionFile ".\OutputDataset.json"
     ```
 
     Here is the sample output:
