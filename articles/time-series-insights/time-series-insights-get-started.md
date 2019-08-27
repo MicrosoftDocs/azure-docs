@@ -29,13 +29,13 @@ Follow these steps to create an environment:
 
 1. Select the **Internet of Things** category, and select **Time Series Insights**.
 
-   ![Create the Time Series Insights environment](media/time-series-insights-get-started/1-new-tsi.png)
+   [![Create the Time Series Insights environment](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
 
 1. On the **Time Series Insights** page, select **Create**.
 
 1. Fill in the required parameters. The following table explains each parameter:
    
-   ![Create the Time Series Insights resource group](media/time-series-insights-get-started/2-create-tsi.png)
+   [![Create the Time Series Insights resource group](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
    
    Setting|Suggested value|Description
    ---|---|---
@@ -50,13 +50,13 @@ Follow these steps to create an environment:
 
 1. To monitor the deployment process, select the **Notifications** symbol (bell icon).
 
-   ![Watch the notifications](media/time-series-insights-get-started/3-notifications.png)
+   [![Watch the notifications](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
 
     When the deployment succeeds, you can select **Go to resource** to configure other properties, set security with data access policies, add event sources, and other actions.
 
 1. In the resource **Overview**, check **Pin to dashboard** to easily access your Time Series Insights environment in the future.
 
-   ![Create the Time Series Insights pin to dashboard](media/time-series-insights-get-started/4-pin-create.png)
+   [![Create the Time Series Insights pin to dashboard](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
 ## Next steps
 
