@@ -27,14 +27,6 @@ landingContent:
         links:
           - text: What are Azure Queues?
             url: storage-queues-introduction.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
 
   # Card (optional)
   - title: Get started
