@@ -149,10 +149,10 @@ Learn more about permissions and consent:
 [!div class="nextstepaction"]
 [Permissions and Consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
 
-To know more about the auth flow for this scenario, see the Oauth 2.0 client credentials flow:
+To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
 
 [!div class="nextstepaction"]
-[Authentication Code Oauth flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+[Authorization Code Oauth flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
