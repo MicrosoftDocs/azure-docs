@@ -6,7 +6,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/03/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
 ---

@@ -23,8 +23,9 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
 > - Test failover
 
   > [!NOTE]
-  > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > Using failover groups with managed instances is currently in preview. 
+  > - When going through this tutorial, ensure you are configuring your resources with the [prerequisites for setting up failover groups for managed instance](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Using failover groups with managed instances is currently in preview. 
 
 ## Prerequisites
 
@@ -91,7 +92,7 @@ Your second managed instance must:
 
 To create your secondary managed instance, follow these steps: 
 
-1. In the [Azure portal](http://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
 1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next page.
 1. On the **Basics** tab of the **Create Azure SQL Database Managed Instance** page, fill out the required fields to configure your secondary managed instance. 
 
