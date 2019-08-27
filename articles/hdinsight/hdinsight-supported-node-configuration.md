@@ -16,7 +16,11 @@ This article discusses default and recommended node configurations for Azure HDI
 
 ## Default and recommended node configuration and virtual machine sizes for clusters
 
-The following tables list default and recommended virtual machine (VM) sizes for HDInsight clusters.  This chart is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters. If you need more than 32 worker nodes in a cluster, select a head node size with at least 8 cores and 14 GB of RAM. The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios.
+The following tables list default and recommended virtual machine (VM) sizes for HDInsight clusters.  This information is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters. 
+
+If you need more than 32 worker nodes in a cluster, select a head node size with at least 8 cores and 14 GB of RAM. 
+
+The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios.
 
 For more details on the specification of each VM type, see the following documents:
 
@@ -32,23 +36,13 @@ For more details on the specification of each VM type, see the following documen
 | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
 | Head: default VM size | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 | D3_v2 |
-| Head: recommended VM sizes | D13_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 | D3_v2 |
-|  | D14_v2 | D4_v2 | D14_v2 | A8_v2 | D13_v2 | D13_v2 | D4_v2 |
-|  | D5_v2 | D12_v2 |  |  | D14_v2 | D14_v2 | D12_v2 |
+| Head: recommended VM sizes | D13_v2,<br/>D14_v2,<br/>D5_v2 | D3_v2,<br/>D4_v2,<br/>D12_v2 | D13_v2,<br/>D14_v2 | A4_v2,<br/>A8_v2 | D12_v2,<br/>D13_v2,<br/>D14_v2 | D12_v2,<br/>D13_v2,<br/>D14_v2 | D3_v2,<br/>D4_v2,<br/>D12_v2 |
 | Worker: default VM size | D4_v2 | D4_v2 | D14_v2 | D3_v2 | D13_v2 | D4_v2 | 4 D12_v2 with 2 S30 disks per broker |
-| Worker: recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 | D3_v2 |
-|  | D12_v2 | D4_v2 | D14_v2 | D4_v2 | D13_v2 | D12_v2 | D4_v2 |
-|  | D13_v2 | D13_v2 |  | D12_v2 | D14_v2 | D13_v2 | DS3_v2 |
-|  |  |  |  |  |  | D14_v2 | DS4_v2 |
+| Worker: recommended VM sizes | D5_v2,<br>D12_v2,<br/>D13_v2 | D3_v2,<br/>D4_v2,<br/>D13_v2 | D13_v2,<br/>D14_v2 | D3_v2<br/>D4_v2,<br/>D12_v2 | D12_v2,<br>D13_v2,<br>D14_v2 | D4_v2,<br/>D12_v2,<br>D13_v2,<br>D14_v2 | D3_v2,<br/>D4_v2,<br/>DS3_v2,<br/>DS4_v2 |
 | ZooKeeper: default VM size |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 | A4_v2 |
-| ZooKeeper: recommended VM sizes |  | A4_v2 | A4_v2 | A2_v2 |  | A2_v2 | A4_v2 |
-|  |  | A8_v2 | A8_v2 | A4_v2 |  |  | A8_v2 |
-|  |  | A2m_v2 | A2m_v2 | A8_v2 |  |  | A2m_v2 |
+| ZooKeeper: recommended VM sizes |  | A4_v2, <br/>A8_v2, <br/>A2m_v2 | A4_v2,<br/>A8_v2,<br/>A2m_v2 | A4_v2,<br/>A2_v2,<br/>A8_v2 |  | A2_v2 | A4_v2,<br/> A8_v2,<br/>A2m_v2 |
 | ML Services: default VM size |  |  |  |  |  | D4_v2 |  |
-| ML Services: recommended VM size |  |  |  |  |  | D4_v2 |  |
-|  |  |  |  |  |  | D12_v2 |  |
-|  |  |  |  |  |  | D13_v2 |  |
-|  |  |  |  |  |  | D14_v2 |  |
+| ML Services: recommended VM size |  |  |  |  |  | D4_v2,<br/> D12_v2,<br/> D13_v2,<br/>D14_v2 |  |
 
 ### Brazil south and Japan west only
 
