@@ -64,19 +64,21 @@ For more information, see
 
 Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
 
-1. Launch the Azure **Policy - Definitions** page.
+1. Launch the Azure **Policy - Definitions** page, and search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
 
-1. Search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
+    ![Search Policy](./media/cosmos-db-advanced-threat-protection/cosmos-db.png) 
 
-     ![Search Policy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
-  
-1. Select an Azure subscription or resource group.
+1. Click on the **Deploy Advanced Threat Protection on Storage Accounts** policy.
 
-    ![Select Subscription Or Group](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+1. CLick **Assign**.
 
-1. Assign the policy.
+1. From the **Scope** field, click the three dots, select an Azure subscription or resource group, and then click **Select**.
 
-    ![Policy Definitions Page](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+    ![Select Subscription Or Group](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png)
+
+1. Enter the other parameters, and click **Assign**.
+
+    ![Policy Definitions Page](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-scope.png)
 
 ## Manage ATP security alerts
 
