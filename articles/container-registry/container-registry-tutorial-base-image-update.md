@@ -71,7 +71,14 @@ When a base image is updated, you're presented with the need to rebuild any cont
 
 ### Tasks triggered by a base image update
 
-* Currently, for image builds from a Dockerfile, an ACR task detects dependencies on base images in an Azure container registry, a public Docker Hub repo, or a public repo in Microsoft Container Registry. If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
+* For image builds from a Dockerfile, an ACR task detects dependencies on base images in the following locations:
+
+  * The same Azure container registry where the task runs
+  * Another Azure container registry in the same region 
+  * A public repo in Docker Hub 
+  * A public repo in Microsoft Container Registry
+
+   If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
 
 * Currently, an ACR tasks only tracks base image updates for application (*runtime*) images. It doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
 
