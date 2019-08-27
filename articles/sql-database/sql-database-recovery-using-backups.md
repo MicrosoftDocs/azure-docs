@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
+ms.date: 08/27/2019
 ---
 # Recover an Azure SQL database using automated database backups
 
@@ -121,7 +121,7 @@ Point-in-time restore on a geo-secondary is not currently supported. Point-in-ti
 
 ### Geo-restore using the Azure portal
 
-To geo-restore a database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice.
+To geo-restore a database using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice.
 
 > [!Note]
 > Geo-restore using the Azure portal is not available in Managed Instance. Please use PowerShell instead.
