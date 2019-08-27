@@ -31550,21 +31550,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/storage/blobs/index.md",
-      "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/files/index.md",
-      "redirect_url": "/azure/storage/files/storage-files-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/queues/index.md",
-      "redirect_url": "/azure/storage/queues/storage-queues-introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/storage/data-lake-storage/index.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
       "redirect_document_id": false
