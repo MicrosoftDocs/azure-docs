@@ -630,7 +630,7 @@ This error occurs because there are changes on the Azure file share directly and
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
-| **HRESULT (decimal)** | -2134364145 |
+| **HRESULT (decimal)** | -2134375877 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
 | | |
@@ -680,7 +680,7 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 | **Error string** | ECS_E_SERVICE_UNAVAILABLE |
 | **Remediation required** | No |
 
-This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service because available again.
+This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service is available again.
 
 <a id="-2146233088"></a>**Sync failed due to an exception.**  
 

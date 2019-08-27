@@ -6,8 +6,9 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
 ---
@@ -38,7 +39,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 * Azure Blob Storage triggers don't support chunking. When requesting file content, triggers select only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
 
-  * Use a Azure Blob Storage trigger that returns file properties, such as **When a blob is added or modified (properties only)**.
+  * Use an Azure Blob Storage trigger that returns file properties, such as **When a blob is added or modified (properties only)**.
 
   * Follow the trigger with the Azure Blob Storage **Get blob content** action, which reads the complete file and implicitly uses chunking.
 
