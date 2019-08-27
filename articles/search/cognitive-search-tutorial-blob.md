@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## 1 - Create services
 
-This walkthrough uses Azure Search for indexing and queries, Cognitive Services for AI processing, and Azure Blob storage as the data provider. When creating multiple services for one solution, place them in the same region and in the same resource group for proximity and manageability.
+This walkthrough uses Azure Search for indexing and queries, Cognitive Services for AI enrichment, and Azure Blob storage to provide the data. Create all three services in the same region and resource group for proximity and manageability.
 
 ### Start with Azure Storage
 
