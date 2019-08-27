@@ -32,7 +32,7 @@ If you have an on-premises Active Directory (AD) environment and you want to joi
 This article assumes that you are familiar with the [Introduction to device identity management in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
+> The minimum required domain controller version for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
 
 ## Plan your implementation
 
