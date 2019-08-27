@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/27/2019
 ms.author: tomfitz
 ---
 
@@ -38,9 +38,11 @@ When possible, break large moves into separate move operations. Resource Manager
 
 ## Resource not in succeeded state
 
-When you get an error message that indicates a resource can't be moved because it isn't in a succeeded state, it may actually be a dependent resource that is blocking the move.
+When you get an error message that indicates a resource can't be moved because it isn't in a succeeded state, it may actually be a dependent resource that is blocking the move. Typically, the error code is **MoveCannotProceedWithResourcesNotInSucceededState**.
 
-If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move. To avoid this problem, move your resources to a resource group that doesn't have a virtual network.
+If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. The check includes those resources directly and indirectly dependent on the virtual network. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move.
+
+When you receive this error, you have two options. Either move your resources to a resource group that doesn't have a virtual network, or [contact support](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## Next steps
 
