@@ -72,7 +72,6 @@ To apply an ACL to your certificates for your Service Fabric Cluster processes, 
 }
 ```
 
-
 ## Secure a Service Fabric cluster certificate by common name
 
 To secure your Service Fabric cluster by certificate `Common Name`, use the Resource Manager template property [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames), as follows:
@@ -150,7 +149,7 @@ After encrypting your protected values, [specify encrypted secrets in Service Fa
 
 ## Include certificate in Service Fabric applications
 
-To give your application access to secrets, include the certificate by adding a **SecretCertificate** element to the application manifest.
+To give your application access to secrets, include the certificate by adding a **SecretsCertificate** element to the application manifest.
 
 ```xml
 <ApplicationManifest … >
