@@ -1,5 +1,5 @@
 ---
-title: Co-sell countries and regions | Azure Marketplace
+title: Co-sell country and region codes | Azure Marketplace
 description: Use these two-letter country/region codes when providing contact info on your offer's Co-sell page.
 author: qianw211 
 manager: evansma
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/27/2019
 ---
 
-# Co-sell countries and regions
+# Co-sell country and region codes
 
 Use these two-letter country/region codes when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md).
 
