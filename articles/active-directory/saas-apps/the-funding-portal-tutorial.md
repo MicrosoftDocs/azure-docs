@@ -54,7 +54,6 @@ To configure the integration of The Funding Portal into Azure AD, you need to ad
 1. In the **Add from the gallery** section, type **The Funding Portal** in the search box.
 1. Select **The Funding Portal** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for The Funding Portal
 
 Configure and test Azure AD SSO with The Funding Portal using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in The Funding Portal.
@@ -72,7 +71,7 @@ To configure and test Azure AD SSO with The Funding Portal, complete the followi
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **The Funding Portal** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on **The Funding Portal** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -149,4 +148,4 @@ When you click the The Funding Portal tile in the Access Panel, you should be au
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Slack with Azure AD](https://aad.portal.azure.com/)
+- [Try The Funding Portal with Azure AD](https://aad.portal.azure.com/)
