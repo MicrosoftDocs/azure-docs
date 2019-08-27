@@ -162,6 +162,12 @@ Once the Windows Server VM has restarted, any policies applied in the Azure AD D
 
 In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the Azure AD DS managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [disable RDP](#disable-rdp) or [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
 
+### Un-join the VM from Azure AD DS managed domain
+
+To remove the VM from the Azure AD DS managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-azure-ad-ds-managed-domain). Instead of joining the Azure AD DS managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the Azure AD DS managed domain.
+
+If you [delete the VM](#delete-the-vm) without unjoining from the domain, an orphaned computer object is left in Azure AD DS.
+
 ### Disable RDP
 
 If you continue to use the Windows Server VM created in this tutorial for running your own applications or workloads, recall that RDP was open over the Internet. To improve the security and reduce the risk of attack, RDP should be disabled over the Internet. To disable RDP to the Windows Server VM over the internet, complete the following steps:
