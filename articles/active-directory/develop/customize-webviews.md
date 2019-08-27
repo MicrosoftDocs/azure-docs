@@ -24,16 +24,21 @@ ms.collection: M365-identity-device-management
 
 The Microsoft Authentication Library (MSAL) on iOS uses an external web browser by default, which might appear on top of your app, to do interactive authentication to sign in users. You can change the experience by customizing the configuration to other options for displaying web content, such as:
 
+For iOS only:
+
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession?language=objc) 
 - [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller?language=objc)
+
+For iOS and macOS:
+
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
 MSAL for macOS only supports WKWebView at this time.
 
 ## System browsers
 
-`ASWebAuthenticationSession`, `SFAuthenticationSession`, and `SFSafariViewController` are considered system browsers. In general, system browsers share cookies and other website data with the Safari browser application.
+For iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`, and `SFSafariViewController` are considered system browsers. In general, system browsers share cookies and other website data with the Safari browser application.
 
 - `ASWebAuthenticationSession` replaces `SFAuthenticationSession`, which has been available since iOS 11. Use this class to share SSO between Safari and an app.
 - `SFSafariViewController` is more general purpose and provides an interface for browsing the web and can be used for login purposes as well. In iOS 9 and 10, cookies and other website data are shared with Safari, but not in iOS 11 and later.
@@ -63,9 +68,7 @@ By default, the MSAL for iOS uses the following system web browser depending on 
     | iOS12    | `ASWebAuthenticationSession` |
     | iOS11    | `SFAuthenticationSession` |
     | iOS9-10 | `SFSafariViewController` |
-    
 ## Change the default browser for the request
-
 You can use an in-app browser, or a specific system browser depending on your UX requirements, by changing the following property in `MSALWebviewParameters`:
 
 ```objc
@@ -111,6 +114,7 @@ extern NSString *MSALWebAuthWillSwitchToBrokerApp;
 ```
 
 ### Options
+
 ```objc
 typedef NS_ENUM(NSInteger, MSALWebviewType)
 {
