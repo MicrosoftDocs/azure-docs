@@ -6,8 +6,9 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
 ---
@@ -90,11 +91,6 @@ create a new file in Dropbox.
 For technical details, such as triggers, actions, and limits, 
 as described by the connector's OpenAPI (formerly Swagger) file, 
 see the [connector's reference page](/connectors/dropbox/).
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 
