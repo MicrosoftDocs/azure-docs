@@ -114,7 +114,7 @@ Follow these steps to use the Dockerfile and place the new image in your private
 
 1. Sign in to Azure CLI from a console. This command opens a browser and requires authentication. Once authenticated, you can close the browser and continue working in the console.
 
-    ```azure-cli
+    ```azurecli
     az login
     ```
 
@@ -122,7 +122,7 @@ Follow these steps to use the Dockerfile and place the new image in your private
 
     Replace the values in the angle brackets, `<my-registry>`, with your own registry name.  
 
-    ```azure-cli
+    ```azurecli
     az acr login --name <my-registry>
     ```
 
