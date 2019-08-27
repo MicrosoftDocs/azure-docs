@@ -37,7 +37,7 @@ to US West Region on the group "Production". This policy will inherit onto both 
 group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or
 subscription owner allowing for improved governance.
 
-Another scenario where you would use management groups is to provide user access to multi
+Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one [role-based access control](../../role-based-access-control/overview.md) (RBAC)
 assignment on the management group, which will inherit that access to all the subscriptions.
 One assignment on the management group can enable users to have access to everything they need instead of scripting RBAC over different subscriptions.
