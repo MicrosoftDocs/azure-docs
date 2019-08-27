@@ -51,44 +51,12 @@ In this tutorial, you will:
 ## Prepare and Move
 The following steps shows how to prepare the virtual network for the move using a Azure Resource manager template, and move the virtual network to the target region using the portal and a script.
 
-### Export the template and deploy from the portal in one step
-
-1. Login to the [Azure Portal](http://portal.azure.com) > **Resource Groups**.
-2. Locate the Resource Group that contains the source virtual network and click on it.
-3. Select > **Settings** > **Export template**.
-4. You can choose to deploy the template now and choose the parameters in the portal or you can download the template and deploy with a script to the region and resource group of your choosing.  To deploy now in the portal, choose **Deploy**.
-5. In the custom deployment blade under **Basics** > **Subscription**, choose the subscription where you wish to deploy the target virtual network.
-6. Under **Basics** > **Resource Group**, choose **Create new** and name the resource group **myResourceGroupVNET-Move**.
-7. Under **Basics** > **Location**, choose any other region except the region of the source virtual network.
-8. Under **Settings** > **Virtual Networks_name**, enter a name for the target virtual network.
-9. Check the box **I agree to the terms and conditions stated above.**
-10. Click **Purchase**
-
-### Export the template and deploy from a script
-
-1. Login to the [Azure Portal](http://portal.azure.com) > **Resource Groups**.
-2. Locate the Resource Group that contains the source virtual network and click on it.
-3. Select > **Settings** > **Export template**.
-4. Choose **Download** in the **Export template** blade.
-5. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template as well as a shell script and PowerShell script to deploy the template.
-6. To edit the parameter of the virtual network name, open the **parameters.json** file that you unzipped into the folder of your choice in text editor of your choice.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "virtualNetworks_myVNET1_name": {
-            "value": null
-        }
-    }
-}
-```
-7. Change the **null** value in the .json file to a name of your choice for the target VNET, and save the parameters.json file.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-8. Log in to Azure
+### Export the template and deploy from a script
+
+1. Log in to Azure
 
     Log in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
     
@@ -96,25 +64,94 @@ The following steps shows how to prepare the virtual network for the move using 
     Connect-AzAccount
     ```
 
-9. Obtain the subscription ID where you wish to deploy the target virtual network with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+2. Obtain the subscription ID where you wish to deploy the target virtual network with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
 
     ```azurepowershell-interactive
     Get-AzSubscription
     ```
-10. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
+3. Login to the [Azure Portal](http://portal.azure.com) > **Resource Groups**.
+4. Locate the Resource Group that contains the source virtual network and click on it.
+5. Select > **Settings** > **Export template**.
+6. Choose **Download** in the **Export template** blade.
+7. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template as well as a shell script and PowerShell script to deploy the template.
+8. To edit the parameter of the virtual network name, open the **parameters.json** file that you unzipped into the folder of your choice in the text editor of your choice:
+    
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "virtualNetworks_myVNET1_name": {
+                "value": "null"
+            }
+        }
+    }
+    ```
+9. Change the **null** value in the .json file to a name of your choice for the target VNET, and save the parameters.json file. Ensure you enclose the name in quotes.
+
+10. To edit the target region where the VNET will be moved, open the **template.json** file that you unzipped into the folder of your choice in the text editor of your choice:
+    
+           ```json
+            "resources": [
+                {
+                    "type": "Microsoft.Network/virtualNetworks",
+                    "apiVersion": "2019-06-01",
+                    "name": "[parameters('virtualNetworks_myVNET1_name')]",
+                    "location": "TARGET REGION",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
+                        "addressSpace": {
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ]
+                        },
+            ```
+
+    
+    
+11. Edit the location in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
+
+    Get-AzLocation | format-table
+    
+    ```
+12. Save the **template.json** file.
+
+13. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
+
+    ```azurepowershell-interactive
+
     ./deploy.ps1 -subscription "Azure Subscription" -resourceGroupName myresourcegroup -resourceGroupLocation targetregion
+    
     ```
 
 ## Discard 
 
-After the deployment, if you wish to start over or discard the virtual network in the target, delete the resource group that was created in the target and the moved virtual network will be deleted.
+After the deployment, if you wish to start over or discard the virtual network in the target, delete the resource group that was created in the target and the moved virtual network will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
+```azurepowershell-interactive
+
+Remove-AzureResourceGroup -Name <resource-group-name>
+
+```
 
 ## Clean up
 
-To commit the changes and complete the move of the virtual network, delete the source virtual network or resource group.
+To commit the changes and complete the move of the virtual network, delete the source virtual network or resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) or [Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0):
+
+```azurepowershell-interactive
+
+Remove-AzureResourceGroup -Name <resource-group-name>
+
+```
+
+``` azurepowershell-interactive
+
+Remove-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resource-group-name>
+
+```
 
 ## Next steps
 
