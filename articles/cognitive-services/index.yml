@@ -14,7 +14,7 @@ metadata:
   manager: nitinme
   ms.date: 09/03/2019
 
-  highlightedContent:
+highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
     - title: What are Cognitive Services? 
