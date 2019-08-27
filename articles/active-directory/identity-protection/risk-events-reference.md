@@ -89,4 +89,4 @@ This detection indicates sign-in from a malicious IP address. An IP address is c
 ## Additional risk detected
 
 **Detection Type:** Real-time or  Offline <br>
-This detection indicates one of the above premium detections that are only visible to Azure AD Premium P2 customers.
+This detection indicates that one of the above premium detections was detected. Since the premium detections are visible only to Azure AD Premium P2 customers, they are titled "additional risk detected" for non-P2 customers.
