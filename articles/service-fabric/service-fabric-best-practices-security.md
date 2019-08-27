@@ -154,12 +154,6 @@ To give your application access to secrets, include the certificate by adding a 
 ```xml
 <ApplicationManifest … >
   ...
-  <Policies>
-    <SecurityAccessPolicies>
-      <SecurityAccessPolicy GrantRights="Read"
-      PrincipalRef="Service1" ResourceRef="MyCert" ResourceType="Certificate"/>
-    </SecurityAccessPolicies>
-  </Policies>
   <Certificates>
     <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
   </Certificates>

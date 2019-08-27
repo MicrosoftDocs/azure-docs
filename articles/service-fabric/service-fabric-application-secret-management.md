@@ -57,12 +57,6 @@ The secrets can also be included in your Service Fabric application by specifyin
 ```xml
 <ApplicationManifest … >
   ...
-  <Policies>
-    <SecurityAccessPolicies>
-      <SecurityAccessPolicy GrantRights="Read"
-      PrincipalRef="Service1" ResourceRef="MyCert" ResourceType="Certificate"/>
-    </SecurityAccessPolicies>
-  </Policies>
   <Certificates>
     <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
   </Certificates>
