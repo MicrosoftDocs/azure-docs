@@ -42,15 +42,15 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 
 | Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | Yes/Yes | Yes/Yes | Yes | No/No | Yes/Yes* | Yes | No | Yes | Yes | Yes/Yes* |
-| [Google Cloud Storage](connector-google-cloud-storage.md) | Yes/Yes | Yes/Yes | Yes | No/No | Yes/Yes* | Yes | No | Yes | Yes | Yes/Yes* |
-| [Azure Blob storage](connector-azure-blob-storage.md) | Yes/Yes | Yes/Yes | Yes | No/No | Yes/Yes* | Yes | Yes | Yes | Yes | Yes/Yes |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Yes/Yes | Yes/Yes | Yes | No/No | Yes/Yes | Yes | No | Yes | Yes | Yes/Yes |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Yes/Yes | Yes/Yes | Yes | No/No | Yes/Yes | Yes | No | Yes | Yes | Yes/Yes |
-| [Azure Files](connector-azure-file-storage.md) | Yes/Yes | Yes/Yes | Yes | Yes/Yes | Yes/Yes | Yes | No | Yes | Yes | Yes/Yes |
-| [File system](connector-file-system.md) | Yes/Yes | Yes/Yes | Yes | Yes/Yes | Yes/Yes | Yes | No | Yes | Yes | Yes/Yes |
-| [SFTP](connector-sftp.md) | Yes/Yes | Yes/Yes | Yes | No/No | Yes/Yes | Yes | No | Yes | Yes | Yes/Yes |
-| [FTP](connector-ftp.md) | Yes/Yes | Yes/Yes | Yes | No/No	| Yes/Yes | Yes | No | Yes | Yes | Yes/Yes |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Azure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
 
 - For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder.
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
@@ -59,10 +59,10 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
-| [Azure SQL Database](connector-azure-sql-database.md) | Yes | Yes | Yes |
-| [Azure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | Yes | Yes | Yes |
-| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | Yes | Yes | Yes |
-| [SQL Server](connector-sql-server.md) | Yes | Yes | Yes |
+| [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
+| [Azure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### Metadata options
 
