@@ -30,7 +30,7 @@ in these expressions, you can use *functions* provided by the
 
 For example, you can calculate values by using math functions, such as the
 [add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
-when you want the sum from integers or floats. Here are a couple other 
+when you want the sum from integers or floats. Here are other 
 example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
@@ -734,9 +734,9 @@ Here's the updated `customerName` object:
 ```json
 {
    "customerName": {
-      "firstName": "Sophie",
+      "firstName": "Sophia",
       "middleName": "Anne",
-      "surName": "Owens"
+      "surName": "Owen"
    }
 }
 ```
@@ -3352,7 +3352,7 @@ Here's the updated `customerProfile` object:
 ```json
 {
    "customerName": {
-      "firstName": "Sophie",
+      "firstName": "Sophia",
       "surName": "Owen"
    }
 }
@@ -3529,7 +3529,7 @@ Here's the current `customerName` object:
 ```json
 {
    "customerName": {
-      "firstName": "Sophia",
+      "firstName": "Sophie",
       "middleName": "Anne",
       "surName": "Owen"
    }
