@@ -59,7 +59,7 @@ With **Continuous build and Integration**, developers can simplify build and tes
     - **Supports Deployment to other cloud vendors** like AWS , GCP etc.
 
     **References**
-  - [Get started with Azure Pipelines guide](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
-  - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
+    - [Get started with Azure Pipelines guide](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
+    - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
 
 In order the choose the right service for your app builds, follow the article that compares [App Center Build vs. Azure DevOps Pipelines](https://docs.microsoft.com/en-us/appcenter/build/choose-between-services).
