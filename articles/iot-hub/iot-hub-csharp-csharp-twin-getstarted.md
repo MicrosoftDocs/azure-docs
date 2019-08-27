@@ -73,7 +73,7 @@ In this section, you create a .NET console app, using C#, that adds location met
     using Microsoft.Azure.Devices;
     ```
 
-1. Add the following fields to the **Program** class. Replace `{iot hub connection string}` with the IoT Hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+1. Add the following fields to the **Program** class. Replace `{iot hub connection string}` with the IoT Hub connection string that you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
     ```csharp  
     static RegistryManager registryManager;
