@@ -108,6 +108,8 @@ Here are the limits for a single logic app definition:
 
 ### Integration service environment (ISE)
 
+Here are the throughput limits for the Premium SKU:
+
 | Name | Limit | Notes |
 |------|-------|-------|
 | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
@@ -115,10 +117,12 @@ Here are the limits for a single logic app definition:
 | Maximum scale units that you can add | 10 | |
 ||||
 
-To go above these limits in normal processing, 
-or run load testing that might go above these limits, 
-[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
-for help with your requirements.
+To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+
+> [!NOTE]
+> The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU 
+> doesn't have any service-level agreement (SLA) or capabilities for scaling up. 
+> Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
 <a name="request-limits"></a>
 
@@ -188,10 +192,10 @@ Each Azure subscription has these integration account limits:
 
 * Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 5 total integration accounts:
 
-  | ISE SKU | Limit |
-  |---------|-------|
-  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) only, no Free or Basic |
-  | **Developer** | 5 total - Free (limited to 1), Standard, or both, but no Basic |
+  | ISE SKU | Integration account limits |
+  |---------|----------------------------|
+  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. No Free or Basic accounts are permitted. |
+  | **Developer** | 5 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
 Additional costs apply to integration accounts that you add beyond the integration accounts that are included with an ISE. To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
