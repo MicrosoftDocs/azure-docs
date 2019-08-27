@@ -24,13 +24,16 @@ ms.collection: M365-identity-device-management
 
 When the [Microsoft Authentication Library for iOS and macOS](msal-overview.md) (MSAL) signs in a user, or refreshes a token, it tries to cache the token in the keychain.
 
-This article covers how to configure app entitlements so that MSAL can write cached tokens to iOS keychain.
+This article covers how to configure app entitlements so that MSAL can write cached tokens to iOS and macOS keychain.
 
 ## Default keychain access group
 
-MSAL uses the `com.microsoft.adalcache` access group by default. This is the shared access group used by both MSAL and Azure AD Authentication Library (ADAL) SDKs and ensures the best single sign-on (SSO) experience between multiple apps from the same publisher.
+MSAL on iOS uses the `com.microsoft.adalcache` access group by default. This is the shared access group used by both MSAL and Azure AD Authentication Library (ADAL) SDKs and ensures the best single sign-on (SSO) experience between multiple apps from the same publisher. 
 
-Add the `com.microsoft.adalcache` keychain group to your app's entitlement under **Project settings** -> **Capabilities** -> **Keychain sharing**
+On iOS, add the `com.microsoft.adalcache` keychain group to your app's entitlement under **Project settings** -> **Capabilities** -> **Keychain sharing**
+
+MSAL on macOS uses `com.microsoft.identity.universalstorage` access group by default. 
+Due to macOS keychain limitations, MSAL `access group` doesn't directly translate to keychain access group. However, it behaves very similarly from SSO perspective by ensuring that multiple applications distributed by the same Apple developer can get silent SSO. 
 
 ## Custom keychain access group
 
@@ -55,7 +58,11 @@ If you don't want to share SSO state between multiple apps, or use any keychain 
 
 ## Handle -34018 failed to set item into keychain errors
 
-Error -34018 this normally means that the keychain hasn't been configured correctly. Ensure the keychain access group that has been configured in MSAL matches the ones configured in entitlements.
+Error -34018 normally means that the keychain hasn't been configured correctly. Ensure the keychain access group that has been configured in MSAL matches the ones configured in entitlements.
+
+## Ensure your application is properly signed
+
+On macOS, applications can execute without being signed by developer. While most of MSAL's functionality will continue working, SSO through keychain access requires application to be signed. If you're experiencing multiple keychain prompts, make sure your application's signature is valid. 
 
 ## Next steps
 
