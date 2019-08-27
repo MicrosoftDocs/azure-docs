@@ -98,11 +98,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![iProva Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
-	a. Fill the **Identifier** box with the value that's displayed behind the label **EntityID** on the **iProva SAML2 info** page. This page is still open in your other browser tab.
+	a. Fill the **Sign-on URL** box with the value that's displayed behind the label **Sign-on URL** on the **iProva SAML2 info** page. This page is still open in your other browser tab.
 
-	b. Fill the **Reply-URL** box with the value that's displayed behind the label **Reply URL** on the **iProva SAML2 info** page. This page is still open in your other browser tab.
+	b. Fill the **Identifier** box with the value that's displayed behind the label **EntityID** on the **iProva SAML2 info** page. This page is still open in your other browser tab.
 
-	c. Fill the **Sign-on URL** box with the value that's displayed behind the label **Sign-on URL** on the **iProva SAML2 info** page. This page is still open in your other browser tab.
+	c. Fill the **Reply-URL** box with the value that's displayed behind the label **Reply URL** on the **iProva SAML2 info** page. This page is still open in your other browser tab.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
