@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
-ms.date: 07/12/2019
+ms.date: 08/27/2019
 ---
 # Run batch predictions on large data sets with Azure Machine Learning pipelines
 
