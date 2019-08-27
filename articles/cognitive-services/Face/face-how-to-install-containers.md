@@ -113,7 +113,7 @@ More [examples](./face-resource-container-config.md#example-docker-run-commands)
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, `https://localhost:5000`, for container APIs.
+Use the host, `http://localhost:5000`, for container APIs.
 
 
 <!--  ## Validate container is running -->
