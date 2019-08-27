@@ -46,6 +46,13 @@ The following table shows a few examples of supported context locations for ACR 
 | GitHub subfolder | Files within a subfolder in a GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
 
+By default, ACR Tasks builds images for the Linux OS and the amd64 architecture. Specify the `--platform` tag to build Windows images or Linux images for other architectures. Specify the OS and optionally a supported architecture in OS/architecture format (for example, `--platform Linux/arm`). For arm architectures, optionally specify a variant in OS/architecture/variant format (for example, `--platform Linux/arm64/v8`):
+
+| OS | Architecture|
+| --- | ------- | 
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Windows | amd64 |
+
 ACR Tasks is designed as a container lifecycle primitive. For example, integrate ACR Tasks into your CI/CD solution. By executing [az login][az-login] with a [service principal][az-login-service-principal], your CI/CD solution could then issue [az acr build][az-acr-build] commands to kick off image builds.
 
 Learn how to use quick tasks in the first ACR Tasks tutorial, [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md).
