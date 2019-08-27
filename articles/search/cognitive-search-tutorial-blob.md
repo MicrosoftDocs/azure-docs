@@ -27,13 +27,13 @@ You'll need several services to complete this walkthrough, plus the [Postman des
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## 1 - Download files
+## Download files
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
 1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
 
-## 2 - Create services
+## 1 - Create services
 
 This walkthrough uses Azure Search for indexing and queries, Cognitive Services for AI processing, and Azure Blob storage as the data provider. When creating multiple services for one solution, place them in the same region and in the same resource group for proximity and manageability.
 
@@ -103,7 +103,7 @@ As with Azure Blob storage, take a moment to collect the access key. Further on,
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 3 - Set up Postman
+## 2 - Set up Postman
 
 Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-get-started-postman.md).
 
@@ -113,7 +113,7 @@ In Headers, set "Content-type" to `application/json` and set `api-key` to the ad
 
   ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
-## 4 - Create the pipeline
+## 3 - Create the pipeline
 
 In Azure Search, AI processing occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
 
@@ -409,7 +409,7 @@ The ```"dataToExtract":"contentAndMetadata"``` statement tells the indexer to au
 
 When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
-## 5 - Monitor indexing
+## 4 - Monitor indexing
 
 Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on which cognitive skills you defined, indexing can take a while. To find out whether the indexer is still running, send the following request to check the indexer status.
 
@@ -426,7 +426,7 @@ If you are using the Free tier, the following message is expected: `"Could not e
 > [!NOTE]
 > Warnings are common in some scenarios and do not always indicate a problem. For example, if a blob container includes image files, and the pipeline doesn't handle images, you'll get a warning stating that images were not processed.
 
-## 6 - Search
+## 5 - Search
 
 Now that you've created new fields and information, let's run some queries to understand the value of cognitive search as it relates to a typical search scenario.
 
@@ -451,12 +451,24 @@ Recall that we started with blob content, where the entire document is packaged 
 
    ![Pipeline output](media/cognitive-search-tutorial-blob/pipeline-output.png "Pipeline output")
 
-<!-- 1. Shorter values are useful in filters and faceted navigation structures. This query returns a facets for locations and sorts results by language code.
+1. Add a facet parameter to return an aggregation of matching documents by each facet. 
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$select=persons,organizations,locations&&$filter=organizations eq 'Microsoft'&$orderby=languageCode&api-version=2019-05-06 -->
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&facet=locations&api-version=2019-05-06
+   ``` 
+
+   In this example, for each location, there are 2 or 3 matches.
+
+   ![Facet output](media/cognitive-search-tutorial-blob/facet-output.png "Facet output")
+   
+
+1. This final example applies a filter on the organizations collection, returning two matches.
+
+   ```http
+   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
    ```
 
+For more query examples, see [Examples in Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).
 <a name="reset"></a>
 
 ## Reset and rerun
@@ -465,9 +477,9 @@ In the early experimental stages of pipeline development, the most practical app
 
 To reindex your documents with the new definitions:
 
-1. Delete the index to remove persisted data. Delete the indexer to recreate it on your service.
-2. Modify a skillset and index definition.
-3. Recreate an index and indexer on the service to run the pipeline. 
+1. Delete the indexer, index, and skillset.
+2. Modify objects.
+3. Recreate on your service to run the pipeline. 
 
 You can use the portal to delete indexes, indexers, and skillsets, or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
 
