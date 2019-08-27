@@ -10,13 +10,13 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# How to use the OPC UA Certificate Management Service
+# How to use the OPC Vault certificate management service
 
 This article explains how to register applications and how to issue signed application certificates for your OPC UA devices.
 
 ## Prerequisites
 
-### Deploy the Certificate Management Service
+### Deploy the certificate management service
 
 First of all, the service needs to be deployed to the Azure cloud.
 Please find an article describing how to [deploy the OPC Vault Certificate Management Service](howto-opc-vault-deploy.md).
