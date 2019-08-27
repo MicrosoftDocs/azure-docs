@@ -76,6 +76,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
+
    > [!NOTE]
    > If you get an error running `device-identity`, install the [Azure IOT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) for more details.
   
@@ -131,6 +132,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
     ![Sending data](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
 
 1. To verify the telemetry data sent to Azure, run the following command in Azure Cloud Shell:
+
     ```bash
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
@@ -165,11 +167,11 @@ Follow these steps to prepare the development environment for the DevKit:
 
     In Visual Studio Code, click **File > Preference > Settings**. Then click the **...** and **Open settings.json**.
     ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
-    
+
     Add following lines to configure Arduino depending on your platform: 
 
     * **Windows**:
-      
+
         ```json
         "arduino.path": "C:\\Program Files (x86)\\Arduino",
         "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
@@ -183,7 +185,7 @@ Follow these steps to prepare the development environment for the DevKit:
         ```
 
     * **Ubuntu**:
-    
+
         Replace the **{username}** placeholder below with your username.
 
         ```json
@@ -198,9 +200,10 @@ Follow these steps to prepare the development environment for the DevKit:
 
 [ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) is the USB interface that IoT DevKit uses to communicate with your development machine. You need to install it on Windows to flash the compiled device code to the DevKit. Follow the OS-specific steps to allow the machine access to your device.
 
-* **Windows**: Download and install USB driver from [STMicroelectronics website](https://www.st.com/en/development-tools/stsw-link009.html) or [direct link](https://aka.ms/stlink-v2-windows).
+* **Windows**: Download and install USB driver from [STMicroelectronics website](https://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: No driver is required for macOS.
 * **Ubuntu**: Run the commands in terminal and sign out and sign in for the group change to take effect:
+
     ```bash
     # Copy the default rules. This grants permission to the group 'plugdev'
     sudo cp ~/.arduino15/packages/AZ3166/tools/openocd/0.10.0/linux/contrib/60-openocd.rules /etc/udev/rules.d/
