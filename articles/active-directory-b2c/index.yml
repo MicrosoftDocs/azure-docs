@@ -130,8 +130,10 @@ landingContent:
             url: active-directory-b2c-get-started-custom.md
           - text: Customize the user interface
             url: active-directory-b2c-ui-customization-custom.md
-          - text: Enable sign-in with LinkedIn
-            url: active-directory-b2c-custom-setup-li-idp.md
+          - text: Enable sign-in with Azure AD multi-tenant
+            url: active-directory-b2c-setup-commonaad-custom.md
+          - text: Add your own business logic with REST APIs
+            url: active-directory-b2c-rest-api-validation-custom.md
 
 #  # Card
 #  - title: cardtitle2
