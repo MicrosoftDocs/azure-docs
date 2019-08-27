@@ -114,17 +114,17 @@ Create linked services in a data factory to link your data stores and compute se
 
     ```json
     {
-    "name": "AzureStorageLinkedService",
-    "type": "Microsoft.DataFactory/factories/linkedservices",
-    "properties": {
-        "annotations": [],
-        "type": "AzureBlobStorage",
-        "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;EndpointSuffix=core.windows.net;",
-            "encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERlFVSUNLU1RBUlRGQUNUT1JZMDgyNl9lMmQ5MTA5NS02MGU0LTRhNjgtOTI4MC04MTU1MDE5NzI1NjMiDQp9"
+        "name": "AzureStorageLinkedService",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "annotations": [],
+            "type": "AzureBlobStorage",
+            "typeProperties": {
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=adfdocupdate;EndpointSuffix=core.windows.net;",
+                "encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERlFVSUNLU1RBUlRGQUNUT1JZMDgyNl9lMmQ5MTA5NS02MGU0LTRhNjgtOTI4MC04MTU1MDE5NzI1NjMiDQp9"
+            }
         }
     }
-} 
     ```
 
     If you are using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it may add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you may not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step.
@@ -161,24 +161,24 @@ The output dataset represents the data that's copied to the destination. In the 
 
     ```json
     {
-    "name": "InputDataset",
-    "properties": {
-        "linkedServiceName": {
+        "name": "InputDataset",
+        "properties": {
+            "linkedServiceName": {
             "referenceName": "AzureStorageLinkedService",
             "type": "LinkedServiceReference"
-        },
-        "annotations": [],
-        "type": "Binary",
-        "typeProperties": {
-            "location": {
-                "type": "AzureBlobStorageLocation",
-                "fileName": "emp.txt",
-                "folderPath": "input",
-                "container": "adftutorial"
+            },
+            "annotations": [],
+            "type": "Binary",
+            "typeProperties": {
+                "location": {
+                    "type": "AzureBlobStorageLocation",
+                    "fileName": "emp.txt",
+                    "folderPath": "input",
+                    "container": "adftutorial"
+                }
             }
         }
     }
-}
     ```
 
 2. To create the dataset: **InputDataset**, run the **Set-AzDataFactoryV2Dataset** cmdlet.
@@ -199,36 +199,37 @@ The output dataset represents the data that's copied to the destination. In the 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
-3. Repeat the steps to create the output dataset:
-   1. Create a JSON file named **OutputDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
+3. Repeat the steps to create the output dataset:Create a JSON file named **OutputDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
 
     ```json
-{
-    "name": "OutputDataset",
-    "properties": {
-        "linkedServiceName": {
+    {
+        "name": "OutputDataset",
+        "properties": {
+            "linkedServiceName": {
             "referenceName": "AzureStorageLinkedService",
             "type": "LinkedServiceReference"
-        },
-        "annotations": [],
-        "type": "Binary",
-        "typeProperties": {
-            "location": {
-                "type": "AzureBlobStorageLocation",
-                "folderPath": "output",
-                "container": "adftutorial"
+            },
+            "annotations": [],
+            "type": "Binary",
+            "typeProperties": {
+                "location": {
+                    "type": "AzureBlobStorageLocation",
+                    "folderPath": "output",
+                    "container": "adftutorial"
+                }
             }
         }
     }
-}
     ```
-   1. To create the dataset: **OutputDataset**, run the **Set-AzDataFactoryV2Dataset** cmdlet.
+
+4. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the **OutDataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName -Name "OutputDataset" `
-        -DefinitionFile ".\OutputDataset.json"
-  
+        -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" `
+        -DefinitionFile ".\BlobDataset.json"
+    ```
+
     Here is the sample output:
 
     ```console
@@ -245,56 +246,56 @@ In this procedure, you create a pipeline with a copy activity that uses the inpu
 1. Create a JSON file named **Adfv2QuickStartPipeline.json** in the **C:\ADFv2QuickStartPSH** folder with the following content:
 
     ```json
-{
-    "name": "Adfv2QuickStartPipeline",
-    "properties": {
-        "activities": [
-            {
-                "name": "CopyFromBlobToBlob",
-                "type": "Copy",
-                "dependsOn": [],
-                "policy": {
-                    "timeout": "7.00:00:00",
-                    "retry": 0,
-                    "retryIntervalInSeconds": 30,
-                    "secureOutput": false,
-                    "secureInput": false
-                },
-                "userProperties": [],
-                "typeProperties": {
-                    "source": {
-                        "type": "BinarySource",
-                        "storeSettings": {
-                            "type": "AzureBlobStorageReadSettings",
-                            "recursive": true
-                        }
+    {
+        "name": "Adfv2QuickStartPipeline",
+        "properties": {
+            "activities": [
+                {
+                    "name": "CopyFromBlobToBlob",
+                    "type": "Copy",
+                    "dependsOn": [],
+                    "policy": {
+                        "timeout": "7.00:00:00",
+                        "retry": 0,
+                        "retryIntervalInSeconds": 30,
+                        "secureOutput": false,
+                        "secureInput": false
                     },
-                    "sink": {
-                        "type": "BinarySink",
-                        "storeSettings": {
-                            "type": "AzureBlobStorageWriteSettings"
-                        }
+                    "userProperties": [],
+                    "typeProperties": {
+                        "source": {
+                            "type": "BinarySource",
+                            "storeSettings": {
+                                "type": "AzureBlobStorageReadSettings",
+                                "recursive": true
+                            }
+                        },
+                        "sink": {
+                            "type": "BinarySink",
+                            "storeSettings": {
+                                "type": "AzureBlobStorageWriteSettings"
+                            }
+                        },
+                        "enableStaging": false
                     },
-                    "enableStaging": false
-                },
-                "inputs": [
-                    {
-                        "referenceName": "InputDataset",
-                        "type": "DatasetReference"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "referenceName": "OutputDataset",
-                        "type": "DatasetReference"
-                    }
-                ]
-            }
-        ],
-        "annotations": []
-    },
-    "type": "Microsoft.DataFactory/factories/pipelines"
-}
+                    "inputs": [
+                        {
+                            "referenceName": "InputDataset",
+                            "type": "DatasetReference"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "referenceName": "OutputDataset",
+                            "type": "DatasetReference"
+                        }
+                    ]
+                }
+            ],
+            "annotations": []
+        },
+        "type": "Microsoft.DataFactory/factories/pipelines"
+    }
     ```
 
 2. To create the pipeline: **Adfv2QuickStartPipeline**, Run the **Set-AzDataFactoryV2Pipeline** cmdlet.
