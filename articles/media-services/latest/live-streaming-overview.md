@@ -84,6 +84,12 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 9. Get the hostname for the **Streaming Endpoint** (Origin) you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
 11. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event and delete the **Streaming Locator**.
+12. If you are done streaming events, you should clean up the resources.
+
+    Live Event automatically converts events to on-demand content when stopped. Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first.
+
+> [!TIP]
+> See [Live streaming tutorial](stream-live-tutorial-with-api.md), the article examines the code that implements the steps described above.
 
 ## Other important articles
 
