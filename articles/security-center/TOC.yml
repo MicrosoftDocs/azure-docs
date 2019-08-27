@@ -36,18 +36,16 @@
     href: security-center-data-security.md
   - name: Use recommendations to enhance security
     href: security-center-using-recommendations.md
-  - name: Detect threats
-    href: security-center-detection-capabilities.md
-  - name: Manage Security alerts
-    href: security-center-managing-and-responding-alerts.md
-  - name: Security incidents
-    href: security-center-incident.md
   - name: Cross-tenant management
     href: security-center-cross-tenant-management.md 
-  - name: Threat detection alerts
+  - name: Threat detection alerts and incidents
     items:
     - name: Security alerts overview
-      href: security-center-alerts-overview.md
+      href: security-center-alerts-overview.md      
+    - name: Manage security alerts
+      href: security-center-managing-and-responding-alerts.md
+    - name: Manage security incidents
+      href: security-center-incident.md
     - name: Threat detection for VMs & servers
       href: security-center-alerts-iaas.md
     - name: Threat detection for cloud native compute
