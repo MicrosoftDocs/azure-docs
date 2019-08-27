@@ -17,7 +17,7 @@ This article shows you how deploy the Azure Functions IoT module, which would ac
 ## Prerequisites
 To complete this tutorial, you will need:-
 
-* **An Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up. 
+* **Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up. 
 
 >[!IMPORTANT]
 >In this tutorial, you will deploy a sample Azure Function-based subscribing module. It can of course be any custom IoT Module that can listen for HTTP POST requests.
