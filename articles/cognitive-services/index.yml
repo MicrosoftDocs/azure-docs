@@ -36,18 +36,6 @@ metadata:
       itemType: how-to-guide 
       url: ./how-to-guide.md
 
-productDirectory:
-  items:
-  - title: Decision services 
-    links:
-      - url: ./anomaly-detector/overview.md
-        text: Anomaly Detector 
-      - url: ./content-moderator/overview.md
-        text: Content Moderator
-      - url: ./personalizer/what-is-personalizer.md
-        text: Personalizer        
-
-
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
@@ -89,14 +77,15 @@ conceptualContent:
         text: See more
 
 additionalContent:
-  sections:
-    - items:
-      - title: Microsoft 365
-        summary: Explore Microsoft 365, a complete solution that includes Azure AD.
-        url: https://docs.microsoft.com/microsoft-365/
-      - title: Azure AD PowerShell
-        summary: Learn how to install and use the Azure AD PowerShell module. 
-        url: https://docs.microsoft.com/powershell/module/azuread/
-      - title: Azure CLI commands for Azure AD
-        summary: Find the Azure AD commands in the CLI reference.
-        url: https://docs.microsoft.com/cli/azure/ad
+   sections:
+   - title: Cognitive Services
+     items:
+      - title: Anomaly Detector
+        summary: Easily add anomaly detection capabilities to your apps.
+        url: ./anomaly-detector/index.yml
+      - title: Content Moderator
+        summary: Automated image, text, and video moderation
+        url: ide/compiling-and-building-in-visual-studio.md
+      - title: Personalizer
+        summary: An AI service that delivers a personalized user experience
+        url: ./personalizer/index.yml
