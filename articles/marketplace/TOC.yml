@@ -504,9 +504,9 @@
     - name: Co-sell option
       href: ./partner-center-portal/commercial-marketplace-co-sell.md 
       items:
-      - name: Countries and regions
+      - name: Country and region codes
         href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md 
-      - name: States
+      - name: State codes
         href: ./partner-center-portal/commercial-marketplace-co-sell-states.md       
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
