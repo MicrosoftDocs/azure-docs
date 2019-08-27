@@ -11,15 +11,15 @@ ms.date: 08/13/2019
 ms.author: cynthn
 ---
 
-<1-- Is it limited to isolated VM types for public preview? What does "--maintenanceScope Host" do - does it make all VMs on that host have the same maintenance config? -->
+<1-- Is it limited to isolated VM types for public preview? Isolated and Dedicated Hosts. What does "--maintenanceScope Host" do - does it make all VMs on that host have the same maintenance config? Yes. Azure functions? Separate dedicated hosts from isolated sizes? Other maintenance docs - what needs to be updated? -->
 
 Maintenance control lets you decide when to apply updates to your VMs.
 
 With maintenance control, you can:
-- Batch of updates into one update package 
-- Wait up to 35 days to apply updates from the time it becomes available. 
-- You can automate platform updates for your maintenance window using Azure Functions to start updating
-- Maintenance configurations are work across subscriptions and resource groups. You can manage all of your maintenance configurations together and use them across subscriptions.
+- Batch updates into one update package.
+- Wait up to 35 days to apply updates. 
+- Automate platform updates for your maintenance window using Azure Functions.
+- Maintenance configurations work across subscriptions and resource groups. 
 
 ## Preview limitations
 
