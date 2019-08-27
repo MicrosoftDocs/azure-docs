@@ -49,7 +49,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Client IDE for R    |
+| What is it?   | Client IDE for R language   |
 | Supported DSVM versions      | Windows, Linux      |
 | Typical uses      |  R development     |
 | How to use and run it      | Desktop shortcut (`C:\Program Files\RStudio\bin\rstudio.exe`) on Windows, desktop shortcut (`/usr/bin/rstudio`) on Linux      |
@@ -59,10 +59,11 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 |    |           |
 | ------------- | ------------- |
+| What is it?   | Client IDE for R language   |
 | What is it?   | Web-based IDE for R    |
 | Supported DSVM versions      | Linux      |
 | Typical uses      |  R development     |
-| How to use and run it      | Enable the service with _systemctl enable rstudio-server_, and then start the service with _systemctl start rstudio-server_. You can then sign in to RStudio Server at http:\//your-vm-ip:8787.       |
+| How to use and run it      | Enable the service with _systemctl enable rstudio-server_, and then start the service with _systemctl start rstudio-server_. Then sign in to RStudio Server at http:\//your-vm-ip:8787.       |
 | Related tools on the DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
 
 ## Juno 
@@ -91,9 +92,9 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Interactive Data Visualization and BI Tool    |
+| What is it?   | Interactive data visualization and BI tool    |
 | Supported DSVM versions      | Windows  |
-| Typical uses      |  Data Visualization and building dashboards   |
+| Typical uses      |  Data visualization and building dashboards   |
 | How to use and run it      | Desktop shortcut (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Related tools on the DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 
