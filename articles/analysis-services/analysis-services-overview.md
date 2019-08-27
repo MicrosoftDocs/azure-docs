@@ -95,7 +95,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|North Europe     |    S8v2, S9v2      |    1     |
+|North Europe     |    S8v2, S9v2      |    3     |
 |UK South     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |West Europe     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |West Europe    |   S8, S9, S8v2, S9v2  |  1  |
