@@ -57,12 +57,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fix `to_pandas_dataframe()` failure caused by exception "Invalid property value: hostSecret".
     + Enable writing to ADLS/ADLSGen2 using raw path and credentials.
   + **azureml-explain-model**
-    + Added feature_maps parameter to the new MimicWrapper (contrib), allowing users to get raw feature explanations that way. Related work items: #481135
-    + Dataset uploads are now off by default for explanation upload, can be re-enabled with upload_datasets=True
-    + Added filtering parameters to explanation download - Added filtering parameters to explanation list, added is_raw to listed information.
+    + Added feature_maps parameter to the new MimicWrapper, allowing users to get raw feature explanations.
+    + Dataset uploads are now off by default for explanation upload, and can be re-enabled with upload_datasets=True
+    + Added "is_law" filtering parameters to explanation list and download functions.
     + Adds method `get_raw_explanation(feature_maps)` to both global and local explanation objects.
-    + added version check to lightgbm with printed warning if below supported version
-    + optimized memory usage when batching explanations
+    + Added version check to lightgbm with printed warning if below supported version
+    + Optimized memory usage when batching explanations
     + AutoML models now return AutoMLExceptions
   + **azureml-pipeline-core**
     + Added support to create, update and use PipelineDrafts.
