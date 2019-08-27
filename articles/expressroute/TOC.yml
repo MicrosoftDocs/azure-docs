@@ -1,4 +1,4 @@
-- name: ExpressRoute Documentation
+ - name: ExpressRoute Documentation
   href: index.yml
 - name: Overview
   items:
@@ -45,7 +45,7 @@
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
   - name: Connect Azure to public cloud
-    href: expressroute-connecting-azure-to-public-cloud.md
+    href: expressroute-connect-azure-to-public-cloud.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
