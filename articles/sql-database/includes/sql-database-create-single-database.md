@@ -38,7 +38,7 @@ Create your resource group and single database using the Azure portal.
        - **Server name**: Type `mysqlserver`; along with some numbers for uniqueness.
        - **Server admin login**: Type `azureuser`.
        - **Password**: Type a complex password that meets password requirements.
-       - **Location**: Choose a location from the drop-down, such as `West US 2`.
+       - **Location**: Choose a location from the drop-down, such as `West US`.
 
          ![New server](../media/sql-database-get-started-portal/new-server.png)
 

@@ -77,7 +77,7 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
         - **Server name**: Type in a unique name for the secondary server, such as `mysqlsecondary`. 
         - **Server admin login**: Type `azureuser`
         - **Password**: Type a complex password that meets password requirements.
-        - **Location**: Choose a location from the drop-down, such as East US 2. This location cannot be the same location as your primary server.
+        - **Location**: Choose a location from the drop-down, such as `East US`. This location cannot be the same location as your primary server.
 
        > [!NOTE]
        > The server login and firewall settings must match that of your primary server. 
