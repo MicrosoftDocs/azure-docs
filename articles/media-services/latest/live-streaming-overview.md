@@ -77,6 +77,8 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 
     Each Live Output is associated with an asset, which it uses to record the video into the associated Azure blob storage container. 
 6. Create a **Live Output** and use the asset name that you created so that the stream can be archived into the asset.
+
+    Live Outputs start on creation and stop when deleted. When you delete the Live Output, you are not deleting the underlying asset and content in the asset.
 7. Create a **Streaming Locator** with the [built-in Streaming Policy types](streaming-policy-concept.md).
 
     To publish the Live Output, you must create a Streaming Locator for the associated asset. 
