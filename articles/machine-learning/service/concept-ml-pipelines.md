@@ -74,7 +74,7 @@ Save your pipelines as templates, and deploy them to a REST endpoint for batch-s
 There are two Python packages for pipelines with Azure Machine Learning: [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). To get started quickly, use one of the pre-built modules such as running
 Python script in a step
 ([PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep)), transferring data between storage options 
-([DataTransferStep ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)),
+([DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)),
 or creating an AutoML pipeline step
 ([AutoMLStep](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep)).
 
