@@ -86,11 +86,11 @@ To use Azure CLI, follow these steps:
 
 1. Verify access by entering *az account get-access-token*.  If you receive an error, verify that the right version of Azure CLI was correctly installed.
 
-  If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI.  Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
+   If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI.  Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
 1. If you are signed in to Azure CLI using multiple accounts or your account has access to multiple subscriptions, you need to specify the subscription to use.  To do so, enter the command *az account set --subscription <subscription-id>*.
 
-  This command generates output only on failure.  To verify the current account settings, enter the command `az account list`.
+This command generates output only on failure.  To verify the current account settings, enter the command `az account list`.
 
 #### Authenticating with Azure AD authentication
 
@@ -264,7 +264,7 @@ Using Azure CLI, set the default subscription to one which has the account you w
 
 #### Unauthorized access, access denied, forbidden, etc. error
  
-The principal used does not have access to the resource it is trying to access. Grant either your user account or the App Service's MSI "Contributor" access to the desired resource, depending on whether you are running the sample on your local development machine or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, suche as users, apps, and groups.
+The principal used does not have access to the resource it is trying to access. Grant either your user account or the App Service's MSI "Contributor" access to the desired resource, depending on whether you are running the sample on your local development machine or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
 
 ### Common issues when deployed to Azure App Service
 
