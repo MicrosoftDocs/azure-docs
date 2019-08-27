@@ -3,7 +3,7 @@ title: Microsoft identity platform Java web app quickstart | Azure
 description: Learn how to implement Microsoft Sign-In on a Java Web App using OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
-author: sagonzal
+author: sangonzal
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -34,7 +34,7 @@ When you've completed the guide, your application will accept sign-ins of person
 > To run this sample you will need: 
 > - Java Development Kit (JDK) 8 or greater and Maven.
 > - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [how to get an Azure AD tenant.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)
-
+>
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
