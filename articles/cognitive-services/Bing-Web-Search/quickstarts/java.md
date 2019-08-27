@@ -14,7 +14,7 @@ ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 
-# Quickstart: Use Java and Azure Cognitive Services to search with the Bing Web Search REST API
+# Quickstart: Use Java to search the web with the Bing Web Search REST API, an Azure cognitive service
 
 Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Java application sends a search request to the API, and shows the response. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
