@@ -258,7 +258,7 @@
   - name: Create reusable workflows
     displayName: pipelines
     items:
-    - name: ML pipelines
+    - name: Create ML pipelines in Python
       href: how-to-create-your-first-pipeline.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
