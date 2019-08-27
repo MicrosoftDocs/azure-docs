@@ -71,8 +71,6 @@ For more information on templates, see the following articles:
    * Workspace name: The name to use for the Azure Machine Learning workspace that will be created. The workspace name must be between 3 and 33 characters. It may only contain alphanumeric characters and '-'.
    * Location: Select the location where the resources will be created.
 
-     ![The template parameters in the Azure portal](media/how-to-create-workspace-template/template-parameters.png)
-
 For more information, see [Deploy resources from custom template](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Use Azure PowerShell
