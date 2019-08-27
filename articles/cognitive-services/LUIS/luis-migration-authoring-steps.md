@@ -17,43 +17,44 @@ ms.author: diberry
 
 From the Language Understanding (LUIS) portal, migrate all the apps you own to use the Azure authoring resource.
 
+## Prerequisites
+
+Before you migrate to the Azure resource authoring experience, you need to have an Azure subscription. If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/en-us/free/). 
+
 ## Find the migration process
 
 On a regular basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
 
 ## Begin the migration process
 
-Before you migrate to the Azure resource authoring experience, you need to have an Azure subscription. If you do not have an Azure subscription, [sign up](). 
+1. The migration pop-up window allows for you to continue the migration or migrate later. Select **Migrate now**. If you choose to migrate later, you have 9 months to migrate to the new authoring key in Azure.
 
-![Migration notice for authoring keys](./media/migrate-authoring-key/migration-notice.png)
+    ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
 
-1. Choose to migrate now or migrate later. You have 9 months to migrate to the new authoring key in Azure.
+1. Choose to create a LUIS authoring resource by selecting **Start by creating an authoring resource to migrate your apps to**. 
 
-1. [Sign up to Azure](https://azure.microsoft.com/en-us/free/) and create your first subscription if you do not have an Azure subscription. 
+    ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource.png)
 
-1. Send email to your collaborators. Select the apps and its collaborators to notify your collaborators about the migration.
+1. In the next window, enter your resourc key information. 
 
-1. Choose or create a LUIS authoring resource.
-
-    ![Choose or create a LUIS authoring resource](./media/migrate-authoring-key/choose-authoring-resource.png)
-
-    If you do not have a LUIS authoring resource, create one. 
-
-    ![Create authoring resource](./media/migrate-authoring-key/create-luis-resources.png)
-
-    ![Create authoring resource](./media/migrate-authoring-key/create-authoring-resource.png)
+    ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-form.png)
 
     When **creating a new authoring resource**, provide the following information: 
 
     * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
     * **Tenant** - the tenant your Azure subscription is associated with. 
+    * **Subscription name** - the subscription that will be billed for the resource.
     * **Resource group** - a custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management. 
-    * **Location** - an Azure global region your authoring resource is in. LUIS has 3 regions for authoring. The authoring region determines your available publishing regions.
+    * **Location** - an Azure global region your authoring resource is in. The authoring region determines your available publishing regions.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month. 
 
 ## After migration process
 
-If your apps (that you own) have collaborators, you need to add these collaborators manually in the Azure portal's authoring resource.
+If your apps need to be authoring by other people, you need to add these contributors manually in the Azure portal's authoring resource, using each person's email address.
+
+1. In the Azure portal, for the authoring resource, select the **Access control** page.
+
+    ![Select the Access control button for the authoring resource in the Azure portal.](./media/migrate-authoring-key/access-control-button.png)
 
 ## Next steps
 
