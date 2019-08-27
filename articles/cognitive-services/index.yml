@@ -62,7 +62,29 @@ conceptualContent:
           text: Content Moderator
         - url: ./personalizer/what-is-personalizer.md
           itemType: get-started
-          text: Personalizer       
+          text: Personalizer    
+    - title: Decision Services 
+      links: 
+        - url: ./anomaly-detector/overview.md
+          itemType: get-started
+          text: Anomaly Detector 
+        - url: ./content-moderator/overview.md
+          itemType: get-started
+          text: Content Moderator
+        - url: ./personalizer/what-is-personalizer.md
+          itemType: get-started
+          text: Personalizer 
+    - title: Decision Services 
+      links: 
+        - url: ./anomaly-detector/overview.md
+          itemType: get-started
+          text: Anomaly Detector 
+        - url: ./content-moderator/overview.md
+          itemType: get-started
+          text: Content Moderator
+        - url: ./personalizer/what-is-personalizer.md
+          itemType: get-started
+          text: Personalizer
       footerLink: 
         url: ./manage-apps/index.yml
         text: See more
