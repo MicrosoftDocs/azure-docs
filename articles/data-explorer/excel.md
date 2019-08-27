@@ -16,7 +16,7 @@ ms.date: 08/22/2019
 Azure Data Explorer offers the ability to export query results to Excel using the Excel native connector. In addition, you can add a Kusto query language query as an Excel data source for additional calculations or visualizations.
 
 Azure Data Explorer provides two options for connecting to data in Excel:
-* Use the native connector, detailed in this article, in Excel to connect to the Azure Data Explorer cluster.
+* Use the native connector in Excel to connect to the Azure Data Explorer cluster (see below)
 * Import a query from Azure Data Explorer
 
 ## Define Kusto query as Excel data source and load data to Excel
@@ -40,22 +40,21 @@ Azure Data Explorer provides two options for connecting to data in Excel:
 
      |Field   |Description |
     |---------|---------|
-    |**Limit query result record number**     |     \\to do    |    
-    |**(Limit query result data size (bytes)**    |    \\to do      |   
-    |**Disable result-set truncation**    |    \\to do      |      
-    |**Additional Set statements (separated by semicolons)**    |    \\to do      |   
+    |**Limit query result record number**     |     Limit the number of records loaded into excel  |    
+    |**Limit query result data size (bytes)**    |    Limit the data size      |   
+    |**Disable result-set truncation**    |         |      
+    |**Additional Set statements (separated by semicolons)**    |    Add `set` statements to apply to data source     |   
 
-1.	In the **Navigator** pane, navigate to correct table. In the table preview pane, select **Transform Data** to make changes to your data (\\to do: kind of changes?) or select **Load** to load it to Excel.
-
-![Table preview window](media/excel/table-preview-window.png)
+1.	In the **Navigator** pane, navigate to correct table. In the table preview pane, select **Transform Data** to make changes to your data or select **Load** to load it to Excel.
 
 ![Table preview window](media/excel/navigate-table-preview-window.png)
 
-\\to do: add new pic
+> [!TIP]
+> If **Database** and/or **Table name or Azure Data Explorer query** are already specified, the correct table preview pane will open automatically. 
 
-## Analyze and Visualize Data in Excel
+## Analyze and visualize data in Excel
 
-Once the data loads to excel and is available in your Excel sheet you can analyze, summarize,and visualize the data by creating relationships and visuals. 
+Once the data loads to excel and is available in your Excel sheet you can analyze, summarize, and visualize the data by creating relationships and visuals. 
 
 1.	In **Table Design** tab, select **Summarize with PivotTable**. In **Create PivotTable** window select the relevant table and **OK**.
 
@@ -65,9 +64,7 @@ Once the data loads to excel and is available in your Excel sheet you can analyz
     
     ![Select PivotTable fields](media/excel/pivot-table-pick-fields.png)
 
-\\to do: how create visuals and how create dashboards. 
-
-1. Create visuals based on the table, for example, “Count of Event Id” by “Start time” to view the number of weather events over time.
+1. In **PivotTable Analyze** tab, select **PivotChart** to create visuals based on the table. In the example below use **Event Id**, **StartTime**, and **EventType** to view additional information about the weather events.
 
     ![Visualize data](media/excel/visualize-excel-data.png)
 
