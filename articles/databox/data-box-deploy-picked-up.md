@@ -121,7 +121,7 @@ For inquiry regarding your order via the phone:
 - Send an email for pickup first.
 - Provide your order name on the phone.
 
-### Ship in Japan 
+## Ship in Japan 
 
 1. Retain the original box used to ship the device for return shipment.
 2. Power off the device and remove the cables.
