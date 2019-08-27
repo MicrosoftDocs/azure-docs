@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/23/2019
+  ms.date: 08/27/2019
 
 highlightedContent: 
   items: 
@@ -70,9 +70,6 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/security-center/security-center-using-recommendations
           itemType: overview
           text: Azure Security Center recommendations
-      footerLink: 
-        url: ./fundamentals/index.md
-        text: See More
 
     - title: Secrets and keys
       links: 
@@ -166,17 +163,17 @@ conceptualContent:
 
     - title: Threat protection
       links: 
-        - url: https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp
+        - url: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
           itemType: overview
-          text:  What is Azure Advanced Threat Protection?
-        - url: https://docs.microsoft.com/azure-advanced-threat-protection/atp-prerequisites
+          text:  Security alerts in Azure Security Center
+        - url: https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection
           itemType: overview
-          text:  Advanced Threat Protection prerequisites
-        - url: https://docs.microsoft.com/azure-advanced-threat-protection/atp-capacity-planning
+          text:  Advanced Threat Protection for Azure Storage
+        - url: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
           itemType: quickstart
-          text:  Plan capacity for Advanced Threat Protection
+          text:  Advanced Threat Protection for Azure SQL Database
       footerLink: 
-        url: https://docs.microsoft.com/azure-advanced-threat-protection/
+        url: ./fundamentals/threat-detection.md
         text: See more
 
     - title: Logging and auditing
@@ -205,9 +202,6 @@ conceptualContent:
         - url: ./fundamentals/ddos-best-practices.md
           itemType: concept
           text:  DDoS Protection
-      footerLink: 
-        url: ./fundamentals/index.md
-        text: See more
 
     - title: Infrastructure security
       links: 
@@ -235,9 +229,6 @@ conceptualContent:
         - url: ./fundamentals/azure-marketplace-images.md
           itemType: concept
           text:  Security configuration recommendations
-      footerLink: 
-        url: ./fundamentals/index.md
-        text: See more
 
     - title: Database security
       links: 
@@ -250,9 +241,6 @@ conceptualContent:
         - url: ./fundamentals/database-security-checklist.md
           itemType: concept
           text:  Security checklist
-      footerLink: 
-        url: ./fundamentals/index.md
-        text: See more
 
     - title: Governance and compliance
       links: 
