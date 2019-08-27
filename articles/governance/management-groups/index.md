@@ -32,8 +32,8 @@ example of creating a hierarchy for governance using management groups.
 
 ![Example of a management group hierarchy tree](./media/tree.png)
 
-Create a hierarchy so you can apply a policy, for example, limit VM locations
-to US West Region on the group "Production". This policy will inherit onto both EA subscriptions under that management
+You can create a hierarchy that applies a policy, for example, which limits VM locations
+to the US West Region in the group called "Production". This policy will inherit onto both EA subscriptions under that management
 group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or
 subscription owner allowing for improved governance.
 
