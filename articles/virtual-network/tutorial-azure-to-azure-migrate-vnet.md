@@ -32,9 +32,6 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Make sure that the Azure Virtual Network is in the Azure region from which you want to move.
-- Verify that your choice of [source region - target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), and make an informed decision about the target region.
-- Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
-- Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
 - Verify account permissions. If you created your free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need. To export a virtual network and deploy a template to create a virtual network in another region, you will need the following permissions:
 
         - Permissions to create a virtual network in Azure resources. The Network Contributor built-in role has these permissions, which include:
@@ -42,7 +39,7 @@ In this tutorial, you will:
           - Permission to create and manage resource group deployments
 
 
-- Virtual network peerings will not be recreated and will fail if they are still present in the template.  Virtual network peers will have to be deleted and re-created once the Virtual Networks are exported to a template and moved.
+- Virtual network peerings will not be recreated and will fail if they are still present in the template.  Virtual network peers will have to be deleted before exporting the template and then re-established after the move of the virtual network.
     
 - Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
 
