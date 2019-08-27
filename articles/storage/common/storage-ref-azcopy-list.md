@@ -35,7 +35,7 @@ azcopy list [containerURL]
 |-h, --help|Show help content for the list command.|
 |--machine-readable|Lists file sizes in bytes.|
 |--mega-units|Displays units in orders of 1000, not 1024.|
-|--running-tally|Counts the total number of files & their sizes.|
+|--running-tally|Counts the total number of files and their sizes.|
 
 ## Options inherited from parent commands
 

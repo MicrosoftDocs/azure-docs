@@ -21,7 +21,7 @@ azcopy env [flags]
 ```
 
 > [!IMPORTANT]
-> Bear in mind that setting an environment variable from the command line will be readable in your command line history. For variables that contain credentials, consider clearing these entries from your history or using a small script of sorts to prompt for and set these variables.
+> If you set an environment variable by using the command line, that variable will be readable in your command line history. Consider clearing variables that contain credentials from your command line history. To keep variables from appearing in your history, you can use a script to prompt the user for their credentials, and to set the environment variable.
 
 ## Options
 

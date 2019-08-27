@@ -18,14 +18,14 @@ Logs in to Azure Active Directory to access Azure Storage resources.
 
 Log in to Azure Active Directory to access Azure Storage resources.
 
-To be authorized to your Azure Storage account, you must assign your user **Storage Blob Data Contributor** role on the Storage account.
+To be authorized to your Azure Storage account, you must assign the **Storage Blob Data Contributor** role to your user account in the context of the either the Storage account, parent resource group or parent subscription.
 
 This command will cache encrypted login information for current user using the OS built-in mechanisms.
 
 Please refer to the examples for more information.
 
 > [!IMPORTANT]
-> Bear in mind that setting an environment variable from the command line will be readable in your command line history. For variables that contain credentials, consider clearing these entries from your history or using a small script of sorts to prompt for and set these variables.
+> If you set an environment variable by using the command line, that variable will be readable in your command line history. Consider clearing variables that contain credentials from your command line history. To keep variables from appearing in your history, you can use a script to prompt the user for their credentials, and to set the environment variable.
 
 ```azcopy
 azcopy login [flags]
@@ -75,7 +75,7 @@ Log in as a service principal using a client secret. Set the environment variabl
 azcopy login --service-principal
 ```
 
-Log in as a service principal using a certificate & password. Set the environment variable AZCOPY_SPA_CERT_PASSWORD to the certificate's password for cert based service principal auth
+Log in as a service principal using a certificate and password. Set the environment variable AZCOPY_SPA_CERT_PASSWORD to the certificate's password for cert based service principal authorization.
 
 ```azcopy
 azcopy login --service-principal --certificate-path /path/to/my/cert
@@ -92,10 +92,10 @@ Make sure to treat /path/to/my/cert as a path to a PEM or PKCS12 file. AzCopy do
 |--application-id string|Application ID of user-assigned identity. Required for service principal auth.|
 |--certificate-path string|Path to certificate for SPN authentication. Required for certificate-based service principal auth.|
 |-h, --help|Show help content for the login command.|
-|--identity|log in using virtual machine's identity, also known as managed service identity (MSI)|
-|--identity-client-id string|Client ID of user-assigned identity|
-|--identity-object-id string|Object ID of user-assigned identity|
-|--identity-resource-id string|Resource ID of user-assigned identity|
+|--identity|log in using virtual machine's identity, also known as managed service identity (MSI).|
+|--identity-client-id string|Client ID of user-assigned identity.|
+|--identity-object-id string|Object ID of user-assigned identity.|
+|--identity-resource-id string|Resource ID of user-assigned identity.|
 |--service-principal|Log in via SPN (Service Principal Name) by using a certificate or a secret. The client secret or certificate password must be placed in the appropriate environment variable. Type `AzCopy env` to see names and descriptions of environment variables.|
 |--tenant-id string| the Azure active directory tenant id to use for OAuth device interactive login.|
 

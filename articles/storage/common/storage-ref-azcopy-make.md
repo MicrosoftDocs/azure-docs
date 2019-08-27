@@ -16,7 +16,7 @@ Creates a container or file share.
 
 ## Synopsis
 
-Create a container/share/filesystem represented by the given resource URL.
+Create a container or file share represented by the given resource URL.
 
 ```azcopy
 azcopy make [resourceURL] [flags]

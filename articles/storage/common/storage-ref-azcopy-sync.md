@@ -55,7 +55,7 @@ Sync a single file:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-Same as above, but this time, also compute MD5 hash of the file content and save it as the blob's Content-MD5 property.
+Same as above, but this time, also compute MD5 hash of the file content and save it as the blob's Content-MD5 property:
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
@@ -98,15 +98,15 @@ azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/
 
 |Option|Description|
 |--|--|
-|--block-size-mb float|Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25)|
+|--block-size-mb float|Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).|
 |--check-md5 string|Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default "FailIfDifferent").|
-|--delete-destination string|defines whether to delete extra files from the destination that are not present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default "false")|
-|--exclude string|Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName|
+|--delete-destination string|defines whether to delete extra files from the destination that are not present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default "false").|
+|--exclude string|Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName.|
 |-h, --help|Show help content for the sync command.|
-|--include string|Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName|
-|--log-level string|Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default "INFO")|
+|--include string|Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName.|
+|--log-level string|Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default "INFO").|
 |--put-md5|Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.|
-|--recursive|True by default, look into sub-directories recursively when syncing between directories. (default true)|
+|--recursive|True by default, look into sub-directories recursively when syncing between directories. (default true).|
 
 ## Options inherited from parent commands
 

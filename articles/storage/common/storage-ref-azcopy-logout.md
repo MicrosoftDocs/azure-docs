@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy logout
 
-Logs out to terminate access to Azure Storage resources.
+Logs the user out and terminates access to Azure Storage resources.
 
 ## Synopsis
 
