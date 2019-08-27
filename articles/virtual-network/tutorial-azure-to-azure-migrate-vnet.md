@@ -90,9 +90,9 @@ The following steps show how to prepare the virtual network for the move using a
 9. Change the **null** value in the .json file to a name of your choice for the target VNET. Save the parameters.json file. Ensure you enclose the name in quotes.
 
 10. To edit the target region where the VNET will be moved, open the **template.json** file that you unzipped into the folder of your choice in the text editor of your choice:
-    
-           ```json
-            "resources": [
+
+    ```json
+    "resources": [
                 {
                     "type": "Microsoft.Network/virtualNetworks",
                     "apiVersion": "2019-06-01",
@@ -106,7 +106,8 @@ The following steps show how to prepare the virtual network for the move using a
                                 "10.0.0.0/16"
                             ]
                         },
-            ```
+
+    ```
 
     
     
