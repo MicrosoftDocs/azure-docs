@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 08/21/2019
 ---
 
 # Query Performance Insight 
@@ -36,6 +36,9 @@ The table below the chart gives more details about the long-running queries in t
 Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
 
 ![Query Performance Insight waits statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+
+## Considerations
+* Query Performance Insight is not available for [read replicas](concepts-read-replicas.md).
 
 ## Next steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
