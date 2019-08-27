@@ -1,23 +1,23 @@
 ---
-title: Co-sell partner engagement | commercial marketplace program, Azure Marketplace
-description: Information required to achieve Co-sell Ready and IP Co-sell Ready status.
+title: Co-sell option in Partner Center | Azure Marketplace
+description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs.
 author: qianw211 
 manager: evansma
 ms.author: v-qiwe 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/27/2019
 ---
 
 # Co-sell option in Partner Center
 
-Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs.  It is not available directly to customers. For more information, see [sell through Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
 
 ## Applicable products
 
 Choose any of the Microsoft products that your offer is built on top of or designed to work with.
 
-## Customer Segments
+## Customer segments
 
 Select the size of business that your offer is targeting.
 
@@ -32,7 +32,7 @@ Select your offer type:
 | Service | Hands-on expertise for a specific one-time project, often delivered via consultants. For example: setting up a customer database for a client (with the client assuming responsibility for operating the database after delivery). |
 | Managed Service | Hands-on expertise for a cloud-based project, usually on an ongoing basis. For example: Providing a platform and tools for running an online database, with ongoing management provided by the managed service provider. |
 
-## Solution Areas
+## Solution areas
 
 You can add up to three solution areas for your offer.  For each solution area, you can choose up to two solution subareas. To select multiple subcategories, use the `Ctrl` key (on Windows) or Command key (on Mac OS).
 
@@ -72,13 +72,12 @@ You can also export your existing list of contacts of an offer, and then make ch
     | *Partner technical sales* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
     | *Partner customer success manager* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer’s organization. |
 
-* *Countries/Regions (Required):*  When filling out the template, use the [two letter country codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code “OOO”. If a contact covers more than one Country/Region enter each of the two letter codes separated by a comma (for example, enter “US, CA, FR” without quotation marks into the template)
+* *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code “OOO”. If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter “US, CA, FR” without quotation marks into the template).
 
-    The countries/regions should reflect each contact’s territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region. 
+    The countries/regions should reflect each contact’s territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region.
 
 * *States/Provinces (Optional):*  When filling out the template, use the XX-XX format as listed in the [States/Provinces table](./commercial-marketplace-co-sell-states.md).
 
-
 ## Next steps
 
-- For more information, see [selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+- For more information, see [Sell with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

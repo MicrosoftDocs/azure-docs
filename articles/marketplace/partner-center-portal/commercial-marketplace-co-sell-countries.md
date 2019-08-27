@@ -1,15 +1,23 @@
 ---
-title: Co-sell partner engagement | commercial marketplace program, Azure Marketplace
-description: Information required to achieve Co-sell Ready and IP Co-sell Ready status.
+title: Co-sell countries and regions | Azure Marketplace
+description: Use these two-letter country/region codes when providing contact info on your offer's Co-sell page.
 author: qianw211 
 manager: evansma
 ms.author: v-qiwe 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/27/2019
 ---
 
 # Co-sell countries and regions
+
+Use these two-letter country/region codes when providing contact info on your offer's [Co-sell page](commercial-marketplace-co-sell.md).
+
+If the contact covers all Countries/Regions, use the three letter code “OOO”.
+
+If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter “US, CA, FR” without quotation marks).
+
+## Country/Region table
 
 |   Country/Region Name               |   ISO-2   |
 |-------------------------------------|-----------|
@@ -262,6 +270,6 @@ ms.date: 08/23/2019
 | Zimbabwe                            | ZW        |
 |   |   |   |
 
-**Next steps**
+## Next steps
 
-- For more information, see [co-sell option in Partner Center](./commercial-marketplace-co-sell.md#contacts).
+- Learn about the [co-sell option in Partner Center](./commercial-marketplace-co-sell.md).

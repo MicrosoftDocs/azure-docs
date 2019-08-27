@@ -1,15 +1,19 @@
 ---
-title: Co-sell partner engagement | commercial marketplace program, Azure Marketplace
-description: Information required to achieve Co-sell Ready and IP Co-sell Ready status.
+title: Co-sell state codes | Azure Marketplace
+description: Use these state/province codes when providing contact info on your offer's Co-sell page.
 author: qianw211 
 manager: evansma
 ms.author: v-qiwe 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/27/2019
 ---
 
-# Co-sell option state codes
+# Co-sell state codes
+
+If applicable, use these codes to provide State/Province info when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md#contacts).
+
+## State/Province table
 
 |   State/Province Name               |   Code    |
 |-------------------------------------|-----------|
@@ -71,6 +75,6 @@ ms.date: 08/23/2019
 | United States Minor Outlying Islands | US-UM    |
 |Virgin Islands, U.S.                 | US-VI     |
 
-**Next steps**
+## Next steps
 
-- For more information, see [co-sell option in Partner Center](./commercial-marketplace-co-sell.md#contacts).
+- Learn about the [co-sell option in Partner Center](./commercial-marketplace-co-sell.md).
