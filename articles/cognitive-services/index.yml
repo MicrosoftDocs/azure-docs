@@ -73,6 +73,64 @@ conceptualContent:
           itemType: get-started
           text: Personalizer
 
+conceptualContent:
+  title: Get started 
+  items:
+    - title: Anomaly Detector 
+      links:
+        - text: What is Anomaly Detector?
+          url: anomaly-detector/overview.md
+          itemType: overview
+        - text: "Quickstart: Using .Net SDK"
+          url: anomaly-detector/quickstarts/detect-data-anomalies-csharp-sdk.md
+          itemType: quickstart
+        - text: "Tutorial: Visualize anomalies using batch detection and Power BI"
+          url: anomaly-detector/tutorials/batch-anomaly-detection-powerbi.md
+          itemType: tutorial
+        - text: "How to: Use the Anomaly Detector API on your time series data" 
+          url: anomaly-detector/how-to/identify-anomalies.md
+          itemType: how-to
+        - text: Best practices
+          itemType: concept
+          url: anomaly-detector/concepts/anomaly-detection-best-practices
+    - title: Content Moderator
+      links:
+        - text: What is Content Moderator?
+          url: content-moderator/overview
+          itemType: overview
+        - text: "Quickstart: Try Content Moderator on the web"
+          url: content-moderator/quick-start.md
+          itemType: quickstart
+        - text: "Tutorial: Moderate Facebook content"
+          url: content-moderator/facebook-post-moderation.md
+          itemType: tutorial
+        - text: "How to: Check video content"
+          url: content-moderator/video-moderation-api
+          itemType: how-to
+        - text: Image moderation
+          url: content-moderator/image-moderation-api.md
+          itemType: concept
+        - text: .Net SDK
+          url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+          itemType: reference
+    - title: Personalizer 
+      links:
+        - text: What is Personalizer?
+          itemType: overview
+          url: personalizer/what-is-personalizer.md
+        - text: "Quickstart: Create learning loop with .NET"
+          itemType: quickstart
+          url: personalizer/csharp-quickstart-commandline-feedback-loop
+        - text: Create and configure Personalizer
+          itemType: how-to
+          url: personalizer/how-to-settings.md
+        - text: Analyze with an offline evaluation
+          itemType: how-to
+          url: personalizer/how-to-offline-evaluation.md
+        - text: Ethics and responsible use
+          itemType: concept
+          url: personalizer/ethics-responsible-use.md
+
 additionalContent:
    sections:
    - title: Cognitive Services
