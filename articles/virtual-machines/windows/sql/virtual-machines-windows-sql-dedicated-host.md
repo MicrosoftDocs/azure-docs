@@ -32,23 +32,19 @@ This article details the specifics of using a SQL Server VM with an [Azure Dedic
 You can choose between two different licensing options when adding your SQL Server VM to an Azure Dedicated Host. 
 
   - **SQL VM licensing**: This is the existing licensing option, where you pay for each SQL Server VM license individually. 
-  - **Host licensing**: Also known as _perpetual_, this is the new licensing model available for the Azure Dedicated Host, where SQL Server licenses are bundled and paid for at the host level. 
+  - **Dedicated host licensing**: The new licensing model available for the Azure Dedicated Host, where SQL Server licenses are bundled and paid for at the host level. 
 
 
-### SQL VM Licensing 
-When deciding to license your SQL Server VM at the VM level, consider the following: 
+Host-level options for using existing SQL Server licenses: 
+  - SQL Server Enterprise Edition Azure Hybrid Benefit
+    - Available to customers with SA or subscription
+    - License all available physical cores and enjoy unlimited virtualization (up to the max vCPUs supported by the host)
+  - SQL Server Licenses Acquired Before October 1
+      - SQL Server Enterprise edition has both host-level and by-VM license options. 
+      - SQL Server Standard edition has only by-VM license option available. 
+  - If no SQL Server dedicated host-level option is selected, then SQL Server AHB may be selected at the level of individual VMs, just like with multi-tenant VMs.
 
-- Allows either the pay-as-you-go model, or the bring-your-own-license model through the [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md).
-- Only available to customers with [Software assurance](https://www.microsoft.com/licensing/licensing-programs/faq-software-assurance).
-- Available to SQL Server Enterprise and Standard edition licenses acquired before October 1, 2019. 
-- The number of SQL Server Enterprise Edition licenses required depends on the number of VMs running the software and their sizes. A minimum of 4 licenses are required per VM, with 1 license required per vCPU beyond that.
 
-### Host licensing
-When deciding to license your SQL Server VM at the host level, consider the following: 
-
-- Available for both customers with and without [Software assurance](https://www.microsoft.com/licensing/licensing-programs/faq-software-assurance) 
-- Available only to SQL Server enterprise edition VMs acquired before October 1, 2019. . 
-- The number of SQL Server Enterprise Edition licenses required is equal to the total number of physical cores on the Azure Dedicated Host. The software is then covered for a number of VMs equal to that number of physical cores.
 
 ## Provisioning  
 Provisioning a SQL Server VM to the dedicated host is no different than any other Azure Virtual Machine. You can do so using [Azure PowerShell](../dedicated-hosts-powershell.md), the [Azure portal](../dedicated-hosts-portal.md), and [Azure CLI](../../linux/dedicated-hosts-cli.md).
