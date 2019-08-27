@@ -41,6 +41,9 @@ SSO is achieved through the [ASWebAuthenticationSession](https://developer.apple
 
 If you use the default web view in your app to sign in users, you'll get automatic SSO between MSAL-based applications and Safari. To learn more about the web views that MSAL supports, visit [Customize browsers and WebViews](customize-webviews.md).
 
+> [!IMPORTANT]
+> This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari. 
+
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
 MSAL Objective-C supports migration and SSO with ADAL Objective-C based apps. The apps must be distributed by the same Apple Developer.
@@ -56,7 +59,7 @@ To enable SSO across your applications, you'll need to do the following steps, w
 1. Ensure that all your applications use the same Client ID or Application ID.
 1. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains.
 1. Request the same keychain entitlement for each of your applications.
-1. Tell the MSAL SDKs about the shared keychain you want us to use.
+1. Tell the MSAL SDKs about the shared keychain you want us to use if it is different from the default one. 
 
 ### Use the same Client ID and Application ID
 
@@ -64,9 +67,9 @@ For the Microsoft identity platform to know which applications can share tokens,
 
 The way the Microsoft identity platform tells apps that use the same Application ID apart is by their **Redirect URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. For example:
 
-App1 Redirect URI: `msauthcom.contoso.mytestapp1://auth`
-App2 Redirect URI: `msauthcom.contoso.mytestapp2://auth`
-App3 Redirect URI: `msauthcom.contoso.mytestapp3://auth`
+App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`
+App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`
+App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
 
 These Redirect URIs are then grouped under the same client ID/application ID and are looked up based on the redirect URI that you return in your SDK configuration.
 
@@ -110,7 +113,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 
 That's it! The Microsoft identity SDK will now share credentials across all your applications. The account list will also be shared across application instances.
 
-## SSO through Authentication broker
+## SSO through Authentication broker on iOS
 
 MSAL provides support for brokered authentication with Microsoft Authenticator starting with version 0.3.0.
 Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow conditional access policies.
@@ -131,15 +134,15 @@ The following steps are how you enable SSO using an authentication broker for yo
     ```xml
     <key>LSApplicationQueriesSchemes</key>
     <array>
-         <string>msauth</string>
          <string>msauthv2</string>
+         <string>msauthv3</string>
     </array>
     ```
 
 1. Add the following to your `AppDelegate.m` file to handle callbacks:
 
     ```objc
-    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
+    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
     {
         return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     }
