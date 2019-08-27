@@ -45,7 +45,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## Configure SAS tokens for thumbnails
 
-In part one of this tutorial series, the web application was showing images from a public container. In this part of the series, you use [Shared Access Signature (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens to retrieve the thumbnail images. SAS tokens allow you to provide restricted access to a container or blob based on IP, protocol, time interval, or rights allowed.
+In part one of this tutorial series, the web application was showing images from a public container. In this part of the series, you use shared access signatures (SAS) tokens to retrieve the thumbnail images. SAS tokens allow you to provide restricted access to a container or blob based on IP, protocol, time interval, or rights allowed. For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
 In this example, the source code repository uses the `sasTokens` branch, which has an updated code sample. Delete the existing GitHub deployment with the [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Next, configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.  
 

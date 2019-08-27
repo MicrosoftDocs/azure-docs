@@ -5,7 +5,6 @@ manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca

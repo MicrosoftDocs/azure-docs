@@ -2,12 +2,12 @@
 title: Use Availability Zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Preview - Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones
@@ -19,7 +19,7 @@ To provide a higher level of availability to your applications, AKS clusters can
 This article shows you how to create an AKS cluster and distribute the node components across availability zones. This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]
@@ -120,7 +120,6 @@ az group create --name myResourceGroup --location eastus2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --enable-vmss \
     --load-balancer-sku standard \
