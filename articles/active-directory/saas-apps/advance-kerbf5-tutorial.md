@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * F5 supports **SP and IDP** initiated SSO
-* You can configure F5 for multiple applications. For more details refer **Additional resources** section.
+* F5 SSO can be configured in three different ways of configurations. For more details refer **Additional resources** section.
 
 ## Adding F5 from the gallery
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with F5, complete the following building bloc
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure F5 (Advanced Kerberos) SSO](#configure-f5-advanced-kerberos-sso)** - to configure the single sign-on settings on application side.
+1. **[Configure F5-SSO](#configure-f5-sso)** - to configure the single sign-on settings on application side.
     1. **[Create F5 test user](#create-f5-test-user)** - to have a counterpart of B.Simon in F5 that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -132,7 +132,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure F5 (Advanced Kerberos) SSO
+## Configure F5 SSO
+
+- [Configure F5 SSO in Header Based](headerf5-tutorial.md)
+
+- [Configure F5 SSO in Kerberos](kerbf5-tutorial.md)
+
+### Configure F5 SSO in Advanced Kerberos
 
 1. Open a new web browser window and sign into your F5 (Advanced Kerberos) company site as an administrator and perform the following steps:
 
@@ -269,13 +275,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 | | |
 | -- | -- | -- |
-| b46b6b6.session.saml.authnreq	| <samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" AssertionConsumerServiceURL="https://kerbapp.superdemo.live/saml/sp/profile/post/acs" Destination="https://login.microsoftonline.com/`<Tenant ID>`/saml2" ID="_b9c67faa63a224d7a63f4f3cbb09f78dc05fab" IssueInstant="2019-06-16T19:17:06.002Z" ForceAuthn="false" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Version="2.0"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">https://kerbapp.superdemo.live</saml:Issuer><samlp:NameIDPolicy AllowCreate="true"/></samlp:AuthnRequest> |
 | eb46b6b6.session.saml.last.assertionID |	_9a4e4ddd-148f-45c4-b959-f4d148172e00 
 | eb46b6b6.session.saml.last.assertionIssueInstant |	2019-06-16T19:18:03.054Z |
-| eb46b6b6.session.saml.last.assertionIssuer | https://sts.windows.net/`<Tenant ID>` |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/claims/authnmethodsreferences	| http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password |
+| eb46b6b6.session.saml.last.assertionIssuer | `https://sts.windows.net/`<Tenant ID>`` |
+| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/claims/authnmethodsreferences	| `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
 | eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/displayname | user0 |
-| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/identityprovider | https://sts.windows.net/`<Tenant ID>` |
+| eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/`<Tenant ID>`` |
 | eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/objectidentifier |90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
 | eb46b6b6.session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/tenantid |e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
 | eb46b6b6.session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user0@superdemo.live |
@@ -323,7 +328,7 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [Try F5 with Azure AD](https://aad.portal.azure.com/)
 
-- [Configure F5 (Header Based) Application](headerf5-tutorial.md)
+- [Configure F5 SSO in Header Based](headerf5-tutorial.md)
 
-- [Configure F5 (Kerberos) Application](kerbf5-tutorial.md)
+- [Configure F5 SSO in Kerberos](kerbf5-tutorial.md)
 
