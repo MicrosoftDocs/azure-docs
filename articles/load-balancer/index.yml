@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
-          - text: What is standard Load Balancer?
+          - text: What is Standard Load Balancer?
             url: load-balancer-standard-overview.md
       
   # Card (optional)
@@ -62,7 +62,7 @@ landingContent:
         links:
           - text: Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI
             url: configure-load-balancer-outbound-cli.md
-          - text: Get started creating an Internet facing load balancer with IPv6 using PowerShell
+          - text: Create an Internet facing load balancer with IPv6 using PowerShell
             url: load-balancer-ipv6-internet-ps.md
           - text: Configure the distribution mode
             url: load-balancer-distribution-mode.md
@@ -101,6 +101,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0
+            url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
