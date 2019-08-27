@@ -35,7 +35,7 @@ On a regular basis, you are prompted to migrate your apps. You can cancel this w
 
     ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource.png)
 
-1. In the next window, enter your resourc key information. 
+1. In the next window, enter your resource key information. After you enter the information, select **Create resource**. 
 
     ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-form.png)
 
@@ -48,7 +48,11 @@ On a regular basis, you are prompted to migrate your apps. You can cancel this w
     * **Location** - an Azure global region your authoring resource is in. The authoring region determines your available publishing regions.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month. 
 
-## After migration process
+1. When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
+
+    ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success.png)
+
+## After the migration process, add contributors to your authoring resource
 
 If your apps need to be authoring by other people, you need to add these contributors manually in the Azure portal's authoring resource, using each person's email address.
 
