@@ -156,5 +156,5 @@ When you click the Pluralsight tile in the Access Panel, you should be automatic
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Slack with Azure AD](https://aad.portal.azure.com/)
+- [Try Pluralsight with Azure AD](https://aad.portal.azure.com/)
 
