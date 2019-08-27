@@ -55,15 +55,39 @@ After creating the individual enrollment, save the value of the **Registration I
 
 ## Install the IoT Edge runtime
 
-After completing the previous section, you should see your new device listed as an IoT Edge device in your IoT Hub. Now, you need to install the IoT Edge runtime on your device.
+The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.
 
-The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.  
+You'll need the following information when provisioning your device:
 
-Follow the instructions to install the IoT Edge runtime on the device that is running the simulated TPM from the previous section. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
+* The DPS **ID Scope** value
+* The device **Registration ID** you created
 
-Know your DPS **ID Scope** and device **Registration ID** before installing IoT Edge on your device.
+Install the IoT Edge runtime on the device that is running the simulated TPM. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-[Install and automatically provision IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+> [!TIP]
+> Keep the window that's running the TPM simulator open during your installation and testing.
+
+See [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md) for more detailed information, including prerequisites and instructions for tasks like managing containers and updating IoT Edge.
+
+1. Run PowerShell as an administrator. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
+
+1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+
+1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the Device Provisioning Service instead of manual provisioning.
+
+   Replace the placeholder values for `{scope_id}` and `{registration_id}` with the data you collected earlier.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
+   ```
 
 ## Verify successful installation
 

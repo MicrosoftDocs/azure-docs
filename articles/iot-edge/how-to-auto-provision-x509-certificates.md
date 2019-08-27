@@ -278,7 +278,7 @@ Install the IoT Edge runtime on the device for which you generated the identity 
 
 For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
-1. Run PowerShell as an administrator.
+1. Run PowerShell as an administrator. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
 
 1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
 
