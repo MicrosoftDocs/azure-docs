@@ -11,7 +11,7 @@ ms.date: 08/20/2019
 ms.author: dapine
 ---
 
-## Get the Key Phrase Extraction container image with `docker pull`
+## Pull the Key Phrase Extraction container
 
 Container images for Text Analytics are available on the Microsoft Container Registry.
 

@@ -11,7 +11,7 @@ ms.date: 08/20/2019
 ms.author: dapine
 ---
 
-## Get the Language Detection container image with `docker pull`
+## Pull the Language Detection container
 
 Container images for Text Analytics are available on the Microsoft Container Registry.
 

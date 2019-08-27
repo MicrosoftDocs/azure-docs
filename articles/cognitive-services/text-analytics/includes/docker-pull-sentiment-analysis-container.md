@@ -11,7 +11,7 @@ ms.date: 08/20/2019
 ms.author: dapine
 ---
 
-## Get the Sentiment Analysis container image with `docker pull`
+## Pull the Sentiment Analysis container
 
 Container images for Text Analytics are available on the Microsoft Container Registry.
 
