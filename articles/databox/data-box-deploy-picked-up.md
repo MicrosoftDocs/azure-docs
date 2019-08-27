@@ -188,11 +188,7 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
 ## Verify data upload to Azure
 
-1. When the Data Box device is connected to the Azure datacenter network, the data upload to Azure starts automatically. 
-2. Azure Data Box service notifies you that the data copy is complete via the Azure portal. 
-
-    1. Check error logs for any failures and take appropriate actions.
-    2. Verify that your data is in the storage account(s) before you delete it from the source.
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end
 
