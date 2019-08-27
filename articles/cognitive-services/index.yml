@@ -92,11 +92,11 @@ conceptualContent:
           itemType: how-to-guide
         - text: Best practices
           itemType: concept
-          url: anomaly-detector/concepts/anomaly-detection-best-practices
+          url: anomaly-detector/concepts/anomaly-detection-best-practices.md
     - title: Content Moderator
       links:
         - text: What is Content Moderator?
-          url: content-moderator/overview
+          url: content-moderator/overview.md
           itemType: overview
         - text: "Quickstart: Try Content Moderator on the web"
           url: content-moderator/quick-start.md
@@ -105,7 +105,7 @@ conceptualContent:
           url: content-moderator/facebook-post-moderation.md
           itemType: tutorial
         - text: "How to: Check video content"
-          url: content-moderator/video-moderation-api
+          url: content-moderator/video-moderation-api.md
           itemType: how-to-guide
         - text: Image moderation
           url: content-moderator/image-moderation-api.md
@@ -120,7 +120,7 @@ conceptualContent:
           url: personalizer/what-is-personalizer.md
         - text: "Quickstart: Create learning loop with .NET"
           itemType: quickstart
-          url: personalizer/csharp-quickstart-commandline-feedback-loop
+          url: personalizer/csharp-quickstart-commandline-feedback-loop.md
         - text: Create and configure Personalizer
           itemType: how-to-guide
           url: personalizer/how-to-settings.md
