@@ -154,7 +154,7 @@ With the VM created and an RDP connection establish, now let's join the Windows 
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
 >
-> To domain-join a VM without connecting to it and manually configuring the connection, you can also explore the use of the [Set-azvmaddomainextension][set-azvmaddomainextension] Azure PowerShell cmdlet.
+> To domain-join a VM without connecting to it and manually configuring the connection, you can also explore the use of the [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell cmdlet.
 
 Once the Windows Server VM has restarted, any policies applied in the Azure AD DS managed domain are be pushed to the VM. You can also now sign in to the Windows Server VM using appropriate domain credentials.
 
