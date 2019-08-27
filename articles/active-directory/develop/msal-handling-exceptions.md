@@ -25,26 +25,28 @@ This article gives an overview of the different types of errors and recommendati
 
 ## MSAL error handling basics
 
-Exceptions in the Microsoft Authentication Library (MSAL) are intended for app developers--not for displaying to end users. Exception messages aren't localized.
+Exceptions and errors in the Microsoft Authentication Library (MSAL) are intended for app developers--not for displaying to end users. Exception messages aren't localized.
 
-For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
+For a list of protocol error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
-The complete list of errors can be found in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/dev/MSAL/src/public/MSALError.h#L128).
+During silent or interactive token acquisition, apps may come across errors during the sign-in experience such as errors about consents, conditional access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties. 
 
-During silent or interactive token acquisition, apps may come across errors during the sign-in experience such as errors about consents, conditional access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
+## Errors in MSAL for iOS and macOS
 
-For all such errors MSAL returns errors with `MSALErrorDomain`.
+The complete list of errors can be found in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128). 
 
-We recommend that you handle the following two MSAL errors on the client side:
-- `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused by a many different reasons including expired auth session or additional auth requirements.
+All MSAL produced errors are returned with `MSALErrorDomain` domain. 
+
+For any system errors, MSAL will return the original `NSError` from the system API. For example, if token acquisition fails because of a lack of network connectivity, MSAL will return an error with `NSURLErrorDomain` domain and `NSURLErrorNotConnectedToInternet` code.
+
+We recommend that you handle at least the following two MSAL errors on the client side:
+- `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused by a many different reasons including expired auth session or additional auth requirements. Call MSAL interactive token acquisition API to recover. 
 - `MSALErrorServerDeclinedScopes`: Some or all scopes were declined. Decide whether to continue with only the granted scopes, or stop the sign-in process.
 
 > [!NOTE]
-> The `MSALInternalError` enum is only for reference. Do not try to automatically handle these errors at runtime. If your app encounters any of the errors that fall under `MSALInternalError`, you may want to show a generic user facing message explaining what happened.
+> The `MSALInternalError` enum is only for reference and debugging. Do not try to automatically handle these errors at runtime. If your app encounters any of the errors that fall under `MSALInternalError`, you may want to show a generic user facing message explaining what happened.
 
 For example, `MSALInternalErrorBrokerResponseNotReceived` means that user didn't complete authentication and manually returned to the app. In this case, your app should show a generic error message explaining that authentication didn't complete and suggest that they try to authenticate again.
-
-For any system errors, MSAL will return the original `NSError` from the system API. For example, if token acquisition fails because of a lack of network connectivity, MSAL will return an error with `NSURLErrorDomain` domain and `NSURLErrorNotConnectedToInternet` code.
 
 The following Objective-C sample code demonstrates best practices for handling some common error conditions:
 
@@ -313,6 +315,10 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
+### MSAL for iOS and macOS
+
+MSAL for iOS and macOS allows requesting specific claims in both interactive and silent token acquisition scenarios. To request custom claims, specify `claimsRequest` in MSALSilentTokenParameters or MSALInteractiveTokenParameters. More information can be found in the [claims request topic](request-custom-claims.md). 
 
 ## Retrying after errors and exceptions
 
