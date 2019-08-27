@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
+ms.date: 08/12/2019
 ---
 # Transparent data encryption for SQL Database and Data Warehouse
 
@@ -31,7 +31,7 @@ In Azure, the default setting for transparent data encryption is that the databa
 Microsoft also seamlessly moves and manages the keys as needed for geo-replication and restores.
 
 > [!IMPORTANT]
-> All newly created SQL databases are encrypted by default by using service-managed transparent data encryption. Azure SQL Managed Instance databases, existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default.
+> All newly created SQL databases and Managed Instance databases are encrypted by default by using service-managed transparent data encryption. Existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default. Existing Managed Instance databases created before February 2019 are not encrypted by default. Managed Instance databases created through restore inherit encryption status from the source.
 
 ## Customer-managed transparent data encryption - Bring Your Own Key
 

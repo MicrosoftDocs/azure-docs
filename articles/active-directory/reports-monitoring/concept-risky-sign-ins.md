@@ -3,7 +3,7 @@
 title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Docs
 description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

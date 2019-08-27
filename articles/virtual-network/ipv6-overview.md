@@ -43,7 +43,9 @@ IPv6 for VNet includes the following capabilities:
 
 - Azure customers can define their own IPv6 virtual network address space to meet the needs of their applications, customers, or seamlessly integrate into their on-premises IP space.
 - Dual stack (IPv4 and IPv6) virtual networks with dual stack subnets enable applications to connect with both IPv4 and IPv6 resources in their virtual network or - the Internet.
-- Protect your resources with IPv6 rules for Network Security Groups
+    > [!IMPORTANT]
+    > The subnets for IPv6 must be exactly /64 in size.  This ensures compatibility if you decide to enable routing of the subnet to an on-premises network since some routers can only accept /64 IPv6 routes.  
+- Protect your resources with IPv6 rules for Network Security Groups.
 - Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes- especially when leveraging Network Virtual Appliances to augment your application.
 - Let Internet clients seamlessly access your dual stack application using their protocol of choice with Azure DNS support for IPv6 (AAAA) records. 
 - Standard IPv6 Public Load Balancer support to create resilient, scalable applications which includes:

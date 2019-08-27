@@ -6,7 +6,7 @@
   - name: What is Azure Machine Learning service?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
-  - name: Architecture & terms 
+  - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
 
@@ -29,10 +29,7 @@
         href: tutorial-deploy-models-with-aml.md
     - name: Regression (NYC Taxi data)
       items:
-      - name: 1. Prepare data for modeling
-        displayName: data prep
-        href: tutorial-data-prep.md
-      - name: 2. Auto-train an ML model
+      - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
   - name: Visual interface
@@ -99,15 +96,12 @@
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
-  - name: FPGA vs. CPU GPU ASIC
-    displayName: field, programmable, arrays
-    href: concept-accelerate-with-fpgas.md
   - name: ONNX
     href: concept-onnx.md
   - name: Security
     items:
     - name: Enterprise security overview
-      displayName: authorization authentication encryption
+      displayName: authorization authentication encryption aad azure active directory
       href: concept-enterprise-security.md
     - name: Manage users and roles
       href: how-to-assign-roles.md
@@ -132,6 +126,9 @@
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
+    - name: Manage software environment
+      displayName: pip, Conda
+      href: how-to-use-environments.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
       href: how-to-enable-logging.md
@@ -149,9 +146,6 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
-    - name: Explore data
-      displayName: data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
-      href: how-to-explore-prepare-data.md
     - name: 'Prepare with azureml.dataprep'
       items:
       - name: Load data
@@ -183,6 +177,9 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
+    - name: Use Key Vault when training
+      displayName: secrets keyvault
+      href: how-to-use-secrets-in-runs.md
   - name: Track & monitor experiments
     items:
     - name: Start, monitor or cancel runs
@@ -211,33 +208,35 @@
       displayName: time series
       href: how-to-auto-train-forecast.md
     - name: Understand charts and metrics
-      href: how-to-understand-automated-ml.md  
+      href: how-to-understand-automated-ml.md
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: how-to-deploy-and-where.md
-    - name: Notebook VMs
-      href: how-to-deploy-local-container-notebook-vm.md
-    - name: Azure Container Instances
-      href: how-to-deploy-azure-container-instance.md
-    - name: Azure Kubernetes Service
+    - name: Deploy to Azure Kubernetes Service
+      displayName: aks, aad, authentication, azure active directory
       href: how-to-deploy-azure-kubernetes-service.md
-    - name: GPU inference
+    - name: Deploy for GPU inference
       href: how-to-deploy-inferencing-gpus.md
-    - name: FPGAs inference
-      href: how-to-deploy-fpga-web-service.md
-    - name: IoT Edge
-      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: Azure App Service
+    - name: Deploy to Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
-    - name: Custom Docker image
+    - name: Deploy to Azure Container Instances
+      displayName: aci
+      href: how-to-deploy-azure-container-instance.md
+    - name: Deploy to Notebook VMs
+      href: how-to-deploy-local-container-notebook-vm.md
+    - name: Use custom Docker image
       href: how-to-deploy-custom-docker-image.md
     - name: Deploy existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
-    - name: Troubleshoot & Debug
+    - name: Deploy to IoT Edge
+      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Deploy for FPGAs inference
+      href: how-to-deploy-fpga-web-service.md
+    - name: Troubleshoot & debug deployments
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
     items:
@@ -259,9 +258,9 @@
   - name: Create reusable workflows
     displayName: pipelines
     items:
-    - name: ML pipelines
+    - name: Create ML pipelines in Python
       href: how-to-create-your-first-pipeline.md
-    - name: 'Azure pipelines for CI/CD'
+    - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
   - name: Manage resource quotas

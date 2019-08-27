@@ -131,6 +131,10 @@ Depending on your organization settings, you may see a check box that says **Don
 
 ## Next steps
 
-- Get troubleshooting tips and help on [Having trouble with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)
+After you add or update your two-factor verification settings, you can manage your app passwords, sign-in, or get help with some common two-factor verification-related problems.
 
 - [Manage app passwords for two-factor verification](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-factor verification.
+
+- [Sign-in using two-factor verification](multi-factor-authentication-end-user-signin.md)
+
+- [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)
