@@ -47,7 +47,7 @@ To upgrade the QnA Maker management SKU:
 
  When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
 
-You can [scale up](https://docs.microsoft.com/azure/app-service/web-sites-scale) or scale down the App service.
+You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or scale down the App service.
 
 1. Go to the App service resource in the Azure portal, and select **scale up** or **scale down** options as required.
 

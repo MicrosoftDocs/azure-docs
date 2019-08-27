@@ -29,21 +29,21 @@ Using Azure Resource Manager to manage your services is a highly privileged acti
 
 Once this policy is enabled in a tenant, all users logging into Azure management resources will be challenged with multi-factor authentication. If the user is not registered for MFA, the user will be required to register using the Microsoft Authenticator App in order to proceed.
 
-To perform interactive sign-in using [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+To perform interactive sign-in using [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```PowerShell
 Connect-AzAccount
 ```
 
-When run, this cmdlet will present a token string. To sign in, copy this string and paste it into [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) in a browser. Your PowerShell session will be authenticated to connect to Azure.
+When run, this cmdlet will present a token string. To sign in, copy this string and paste it into [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) in a browser. Your PowerShell session will be authenticated to connect to Azure.
 
-To perform interactive sign-in using [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), Run the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
+To perform interactive sign-in using [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), Run the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
 
 ```azurecli
 az login
 ```
 
-If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser page and follow the instructions on the command line to enter an authorization code after navigating to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in your browser. Afterwards, sign in with your account credentials in the browser.
+If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser page and follow the instructions on the command line to enter an authorization code after navigating to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in your browser. Afterwards, sign in with your account credentials in the browser.
 
 ## Deployment considerations
 
@@ -55,11 +55,11 @@ The policy **Baseline policy: Require MFA for service management (preview)** com
 
 To enable this policy and protect your administrators:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Require MFA for service management (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Click **Save**.
+1. Click **Save**.
 
 ## Next steps
 

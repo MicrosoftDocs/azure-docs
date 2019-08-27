@@ -1,15 +1,12 @@
 ---
 title: Develop Azure Functions using Visual Studio  | Microsoft Docs
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
-services: functions
-documentationcenter: .net
 author: ggailey777  
-manager: jeconnoc
-
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 08/21/2019
 ms.author: glenga
 ---
 
@@ -208,6 +205,9 @@ This displays the **Application Settings** dialog for the function app, where yo
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **Local** represents a setting value in the local.settings.json file, and **Remote** is the current setting in the function app in Azure.  Choose **Add setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
+
+> [!NOTE]
+> By default, the local.settings.json file is not checked into source control. This means that when you clone a local Functions project from source control, the project doesn't have a local.settings.json file. In this case, you need to manually create the local.settings.json file in the project root so that the **Application Settings** dialog works as expected. 
 
 You can also manage application settings in one of these other ways:
 

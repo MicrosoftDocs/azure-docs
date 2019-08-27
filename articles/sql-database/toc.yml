@@ -238,7 +238,7 @@
   - name: Platform as a Service
     items:
     - name: Platform as a Service documentation
-      href: sql-database-paas.yml
+      href: sql-database-paas-index.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
     - name: High availability
