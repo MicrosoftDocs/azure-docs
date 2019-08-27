@@ -65,7 +65,9 @@ If an error occurs while processing the membership rule for a specific group, an
 
 ![processing error message alerts](./media/groups-create-rule/processing-error.png)
 
-These articles provide additional information on groups in Azure AD.
+## Next steps
+
+These articles provide additional information on working with dynamic groups in Azure AD.
 
 * For a complete reference to dynamic rule structure, see [Dynamic membership rule syntax](groups-dynamic-membership.md).
-* [Create a static membership group and add members](../fundamentals/active-directory-groups-create-azure-portal.md)
+* [Create a static membership group and add members](../fundamentals/active-directory-groups-create-azure-portal.md).

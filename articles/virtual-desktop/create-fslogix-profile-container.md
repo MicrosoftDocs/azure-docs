@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/26/2019
 ms.author: helohr
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
@@ -146,7 +146,7 @@ After you create the volume, configure the volume access parameters.
 
 ## Configure FSLogix on session host virtual machines (VMs)
 
-This section is based on [Set up a user profile share for a host pool](create-host-pools-user-profile.md).
+This section is based on [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 
 1. [Download the FSLogix agent .zip file](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) while you're still remoted in the session host VM.
 
@@ -220,4 +220,4 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 ## Next steps
 
-You can use FSLogix profile containers to set up a user profile share. To learn how to create user profile shares with your new containers, see [Set up a user profile share for a host pool](create-host-pools-user-profile.md).
+You can use FSLogix profile containers to set up a user profile share. To learn how to create user profile shares with your new containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).

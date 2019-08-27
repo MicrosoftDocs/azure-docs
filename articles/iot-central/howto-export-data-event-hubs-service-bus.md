@@ -12,6 +12,8 @@ manager: peterpr
 
 # Export your data in Azure IoT Central
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 *This topic applies to administrators.*
 
 This article describes how to use the continuous data export feature in Azure IoT Central to export your data to your own **Azure Event Hubs**, and **Azure Service Bus** instances. You can export **measurements**, **devices**, and **device templates** to your own destination for warm path insights and analytics. This includes triggering custom rules in Azure Stream Analytics, triggering custom workflows in Azure Logic Apps, or transforming the data and passing it through Azure Functions. 

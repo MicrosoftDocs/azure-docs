@@ -34,7 +34,7 @@
     href: create-host-pools-powershell.md
   - name: Apply Windows license to Windows Virtual Desktop session hosts
     href: apply-windows-license.md
-  - name: Set up a user profile share for a host pool
+  - name: Create a profile container for a host pool using a file share
     href: create-host-pools-user-profile.md
   - name: Create a profile container for a host pool using Azure NetApp Files
     href: create-fslogix-profile-container.md
