@@ -124,8 +124,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-\\To do: change location of png file    
-    ![Run the simulated device](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![Run the simulated device](media/ingest-data-iot-hub/SimulatedDevice.png)
 
 ## Review the data flow
 
