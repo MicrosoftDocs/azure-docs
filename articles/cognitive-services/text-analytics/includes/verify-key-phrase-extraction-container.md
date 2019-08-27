@@ -1,7 +1,7 @@
 ---
-title: Verify the Sentiment Analysis container instance
+title: Verify the Key Phrase Extraction container instance
 titleSuffix: Azure Cognitive Services
-description: Learn how to verify the Sentiment Analysis container instance.
+description: Learn how to verify the Key Phrase Extraction container instance.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 08/21/2019
 ms.author: dapine
 ---
 
-## Verify the Sentiment Analysis container instance
+## Verify the Key Phrase Extraction container instance
 
 1. Select the **Overview** tab, and copy the IP address.
 1. Open a new browser tab, and enter the IP address. For example, enter `http://<IP-address>:5000 (http://55.55.55.55:5000`). The container's home page is displayed, which lets you know the container is running.
@@ -26,19 +26,20 @@ ms.author: dapine
     {
       "documents": [
         {
-          "language": "en",
           "id": "1",
-          "text": "Hello world. This is some input text that I love."
+          "text": "Hello world"
         },
         {
-          "language": "fr",
           "id": "2",
           "text": "Bonjour tout le monde"
         },
         {
-          "language": "es",
           "id": "3",
           "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."
+        },
+        {
+          "id": "4",
+          "text": ":) :( :D"
         }
       ]
     }
@@ -62,18 +63,24 @@ ms.author: dapine
 
 1. Select **Execute** to determine the sentiment of the text.
 
-    The model that's packaged in the container generates a score that ranges from 0 to 1, where 0 is negative sentiment and 1 is positive sentiment.
+    The model that's packaged in the container generates a score that ranges from 0 to 1, where 0 is negative and 1 is positive.
 
     The JSON response that's returned includes sentiment for the updated text input:
 
     ```json
     {
       "documents": [
-      {
-        "id": "7",
-        "score": 0.9826303720474243,
-        "statistics": {
-          "charactersCount": 176,
+        {
+          "id": "7",
+          "keyPhrases": [
+            "Great people",
+            "great sessions",
+            "KubeCon Conference",
+            "Barcelona",
+            "best conferences"
+          ],
+          "statistics": {
+            "charactersCount": 176,
             "transactionsCount": 1
           }
         }
@@ -88,4 +95,4 @@ ms.author: dapine
     }
     ```
 
-We can now correlate the document `id` of the response payload's JSON data to the original request payload document `id`. The score of more than `0.98` indicates a very positive sentiment.
+We can now correlate the document `id` of the response payload's JSON data to the original request payload document `id`. The resulting document has a `keyPhrases` array, which contains the list of key phrases that have been extracted from the corresponding input document. Additionally, there are various statistics such as `characterCount` and `transactionCount` for each resulting document.
