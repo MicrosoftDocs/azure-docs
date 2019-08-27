@@ -58,7 +58,7 @@ The key advantages of using pipelines for your machine learning workflows are:
 |Key advantage|Description|
 |:-------:|-----------|
 |**Unattended&nbsp;runs**|Schedule steps to run in parallel or in sequence in a reliable and unattended manner. Data preparation and modeling can last days or weeks, and pipelines allow you to focus on other tasks while the process is running. |
-|**Heterogenous compute**|Use multiple pipelines that are reliably coordinated across heterogeneous and scalable compute resources and storage locations. Make efficient use of available compute resources by runbubg individual pipeline steps on different compute targets, such as HDInsight, GPU Data Science VMs, and Databricks.|
+|**Heterogenous compute**|Use multiple pipelines that are reliably coordinated across heterogeneous and scalable compute resources and storage locations. Make efficient use of available compute resources by running individual pipeline steps on different compute targets, such as HDInsight, GPU Data Science VMs, and Databricks.|
 |**Reusability**|Create pipeline templates for specific scenarios, such as retraining and batch-scoring. Trigger published pipelines from external systems via simple REST calls.|
 |**Tracking and versioning**|Instead of manually tracking data and result paths as you iterate, use the pipelines SDK to explicitly name and version your data sources, inputs, and outputs. You can also manage scripts and data separately for increased productivity.|
 |**Collaboration**|Pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps.|
@@ -71,7 +71,7 @@ Using declarative data dependencies, you can optimize your tasks. The SDK includ
 
 Save your pipelines as templates, and deploy them to a REST endpoint for batch-scoring or retraining jobs.
 
-There are two Python packages for pipelines with Azure Machine Learning: [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). To get started quickly, use one of the pre-built pipeline steps designed for common scenarios such as running
+There are two Python packages for pipelines with Azure Machine Learning: [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). To get started quickly, use one of the pre-built modules such as running
 Python script in a step
 ([PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep)), transferring data between storage options 
 ([DataTransferStep ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)),
