@@ -6,7 +6,7 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/27/2019
 
 # Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an IoT Hub, so I can analyze streaming data.
 ---
@@ -31,42 +31,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Register a device to the IoT Hub
 
-\\To do: Use include
-
-A device must be registered with your IoT hub before it can connect. In this article, you use the Azure Cloud Shell to register a simulated device.
-
-1. Run the following command in Azure Cloud Shell to create the device identity.
-
-    ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
-    ```
-    **YourIoTHubName**: Replace the placeholder with your IoT Hub name.
-
-   **MyDotnetDevice**: The name of the device you're registering. Use **MyDotnetDevice** as shown. If you choose a different name for your device, you need to use that name throughout the article, and update the device name in the sample applications before you run them.
-
-2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
-
-    ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
-    ```
-    **YourIoTHubName**: Replace the placeholderwith your IoT Hub name.
-
-    > [!NOTE]
-    > Device connection string, which looks like:
-    > `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
-    > will be used later in the article.
-
-3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _service primary key_ from your IoT Hub to enable the back-end application to connect to your IoT Hub and retrieve the messages. Note these three values, which you use later in the article. The following commands retrieve these values for your IoT Hub:
-
-    ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
-
-    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
-
-    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
-    ```
-
-    **YourIoTHubName**: Replace the placeholder with your IoT Hub name.
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a target table in Azure Data Explorer
 
@@ -127,8 +92,11 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     | Column mapping | *TestMapping* | The mapping you created in **testdb**, which maps incoming JSON data to the column names and data types of **testdb**. Required for JSON, MULTILINE JSON, and AVRO, and optional for other formats.|
     | | |
 
-    > [!NOTE]
-    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
+    > [!TIP]
+    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
+
+> [!NOTE]
+> In case of a [manual failover](/azure/iot-hub/iot-hub-ha-dr#manual-failover), you must recreate the data connection.
 
 ## Generate sample data for testing
 
@@ -190,14 +158,12 @@ With the app generating data, you can now see the flow of that data from the Iot
 
 ## Clean up resources
 
-\\To do: change this to an include
-
 If you don't plan to use your IoT Hub again, clean up **test-hub-rg**, to avoid incurring costs.
 
 1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
 
     If the left menu is collapsed, select ![Expand button](media/ingest-data-event-hub/expand.png) to expand it.
-	\\TODO: find better image
+
    ![Select resource group to delete](media/ingest-data-event-hub/delete-resources-select.png)
 
 1. Under **test-resource-group**, select **Delete resource group**.
