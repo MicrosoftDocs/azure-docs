@@ -67,7 +67,7 @@ Install the IoT Edge runtime on the device that is running the simulated TPM. Yo
 > [!TIP]
 > Keep the window that's running the TPM simulator open during your installation and testing.
 
-See [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md) for more detailed information, including prerequisites and instructions for tasks like managing containers and updating IoT Edge.
+For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
 1. Run PowerShell as an administrator. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
 
