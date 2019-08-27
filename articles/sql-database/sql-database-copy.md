@@ -56,6 +56,25 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 For a complete sample script, see [Copy a database to a new server](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
+The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.  
+
+## RBAC roles to manage database copy
+
+To create a database copy, you will need to be in the following roles
+
+•	Subscription Owner or
+•	SQL Server Contributor role or
+•	Custom role with following permission:
+   Microsoft.Sql/servers/databases/read
+   Microsoft.Sql/servers/databases/write
+
+To cancel a database copy, you will need to be in the following roles
+
+•	Subscription Owner or
+•	SQL Server Contributor role or
+•	Custom role with following permission:
+   Microsoft.Sql/servers/databases/write
+
 ## Copy a database by using Transact-SQL
 
 Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
