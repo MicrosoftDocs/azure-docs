@@ -39,25 +39,17 @@ In some scenarios, such as business-to-consumer (B2C), you may need to change th
 
 To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requires a different authority configuration. MSAL supports one authority URL format for B2C unless the authority is declared as a known authority. The supported format is `https://<host>/tfp/<tenant>/<policy>`, for example `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`.
 
-To support an arbitrary URL format for B2C, add it to `@property MSALAuthority *authority` in `MSALPublicClientApplicationConfig` before creating MSALPublicClientApplication. For example:
+To support an arbitrary URL format for B2C, `MSALB2CAuthority` can be set with an arbitrary URL, like this:
 
-```ObjC
-
-    // Create authority
-    MSALB2CAuthority *b2cAuthority = [MSALB2CAuthority initWithURL:[NSURL URLWithString:@"your url"] error:&initError];
-
-    // Create MSALPublicClientApplication configuration
-    MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientApplicationConfig alloc]
-                                                                   initWithClientId:@"your-client-id"
-                                                                   redirectUri:@"your-redirect-uri"
-                                                                   authority:b2cAuthority];
-
-    // Initialize MSALPublicClientApplication
-    MSALPublicClientApplication *b2cApplication =
-    [[MSALPublicClientApplication alloc] initWithConfiguration:b2cApplicationConfig error:&error];
+```objc
+NSURL *authorityURL = [NSURL URLWithString:@"arbitrary URL"];
+MSALB2CAuthority *b2cAuthority = [[MSALB2CAuthority alloc] initWithURL:authorityURL
+                                                                     error:&b2cAuthorityError];
 ```
 
-When your app requests a new policy, the authority URL needs to be changed because the authority URL is different for each policy. To configure a B2C application, create an instance of `MSALB2CAuthority` and pass it to the MSALPublicClientApplication, like this: 
+Note that when your app requests a new policy, the authority URL needs to be changed because the authority URL is different for each policy. 
+
+To configure a B2C application, set `@property MSALAuthority *authority` with an instance of `MSALB2CAuthority` in `MSALPublicClientApplicationConfig` before creating `MSALPublicClientApplication`, like this:
 
 ```ObjC
     // Create B2C authority URL
@@ -122,7 +114,7 @@ You may need to pass different scopes to each sovereign cloud. Which scopes to s
 
 ### Signing a user into a specific tenant
 
-When the authority URL is set to `"common"`, the user will be signed into their home tenant. However, some apps may need to sign the user into a different tenant and some apps only work with a single tenant.
+When the authority URL is set to `"login.microsoftonline.com/common"`,   the user will be signed into their home tenant. However, some apps may need to sign the user into a different tenant and some apps only work with a single tenant.
 
 To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority.  MSAL doesn't currently support authorities with tenant names so use an authority with GUID tenant ID instead. For example:
 
@@ -141,13 +133,13 @@ The following shows how to sign a user into a specific tenant:
         return;
     }
     
-    MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientApplicationConfig alloc]
+    MSALPublicClientApplicationConfig *applicationConfig = [[MSALPublicClientApplicationConfig alloc]
                                                                initWithClientId:@"your-client-id"
                                                                redirectUri:@"your-redirect-uri"
                                                                authority:tenantedAuthority];
     
     MSALPublicClientApplication *application =
-    [[MSALPublicClientApplication alloc] initWithConfiguration:b2cApplicationConfig error:&error];
+    [[MSALPublicClientApplication alloc] initWithConfiguration:applicationConfig error:&error];
     
     if (!application)
     {
@@ -160,7 +152,7 @@ The following shows how to sign a user into a specific tenant:
 
 ### MSALAuthority
 
-The `MSALAuthority` class is the base abstract class for the MSAL authority classes. Don't try to create instance of it. Instead either create one of its subclasses directly (`MSALAADAuthority`, `MSALB2CAuthority`) or use the factory method `authorityWithURL:error:` to create subclasses using an authority URL.
+The `MSALAuthority` class is the base abstract class for the MSAL authority classes. Don't try to create instance of it using `alloc` or `new`. Instead, either create one of its subclasses directly (`MSALAADAuthority`, `MSALB2CAuthority`) or use the factory method `authorityWithURL:error:` to create subclasses using an authority URL.
 
 Use the `url` property to get a normalized authority URL. Extra parameters and path components or fragments that are not part of authority won't be in the returned normalized authority URL.
 
