@@ -72,9 +72,6 @@ conceptualContent:
         - url: ./personalizer/what-is-personalizer.md
           itemType: get-started
           text: Personalizer
-      footerLink: 
-        url: ./manage-apps/index.yml
-        text: See more
 
 additionalContent:
    sections:
@@ -85,7 +82,7 @@ additionalContent:
         url: ./anomaly-detector/index.yml
       - title: Content Moderator
         summary: Automated image, text, and video moderation
-        url: ide/compiling-and-building-in-visual-studio.md
+        url: ./content-moderator/overview.md
       - title: Personalizer
         summary: An AI service that delivers a personalized user experience
         url: ./personalizer/index.yml
