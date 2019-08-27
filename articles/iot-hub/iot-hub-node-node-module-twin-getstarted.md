@@ -6,7 +6,7 @@ manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
 ---
