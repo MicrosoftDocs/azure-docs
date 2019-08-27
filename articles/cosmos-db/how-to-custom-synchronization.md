@@ -79,7 +79,7 @@ class MyDataAccessLayer
 
 
         writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
-        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        readClient = new CosmosClient(accountEndpoint, key, readConnectionOptions);
     }
 }
 ```

@@ -131,6 +131,18 @@ You can also view rerun history for a particular pipeline run.
 
 ![View history for a pipeline run](media/monitor-visually/rerun-history-image2.png)
 
+## Gantt Views
+
+Use Gantt views to quickly visualize your pipelines and activity runs. You can look at the Gantt view per pipeline or group by annotations/tags that you have created on your pipelines.
+
+![Gantt Chart](media/monitor-visually/gantt1.png)
+
+![Gantt Chart Annotations](media/monitor-visually/gantt2.png)
+
+The length of the bar informs the duration of the pipeline. You can also click the bar to see more details.
+
+![Gantt Chart Duration](media/monitor-visually/gantt3.png)
+
 ## Guided Tours
 Click on the 'Information Icon' in lower left and click 'Guided Tours' to get step-by-step instructions on how to monitor your pipeline and activity runs.
 

@@ -23,7 +23,7 @@ ms.author: lbosq
 
 Azure Cosmos DB is the globally distributed multimodel database service from Microsoft. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.
+This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.
 
 ## Prerequisites
 
@@ -74,15 +74,22 @@ The following snippets are all taken from the app.js file.
 * The Gremlin client is created.
 
     ```javascript
-    const client = Gremlin.createClient(
-        443, 
+    const authenticator = new Gremlin.driver.auth.PlainTextSaslAuthenticator(
+        `/dbs/${config.database}/colls/${config.collection}`, 
+        config.primaryKey
+    )
+
+
+    const client = new Gremlin.driver.Client(
         config.endpoint, 
         { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
+            authenticator,
+            traversalsource : "g",
+            rejectUnauthorized : true,
+            mimeType : "application/vnd.gremlin-v2.0+json"
+        }
+    );
+
     ```
 
   The configurations are all in `config.js`, which we edit in the [following section](#update-your-connection-string).
@@ -90,42 +97,50 @@ The following snippets are all taken from the app.js file.
 * A series of functions are defined to execute different Gremlin operations. This is one of them:
 
     ```javascript
-    function addVertex1(callback)
+    function addVertex1()
     {
         console.log('Running Add Vertex1'); 
-        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
-          if (err) callback(console.error(err));
-          console.log("Result: %s\n", JSON.stringify(results));
-          callback(null)
-        });
+        return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid).property('pk', 'pk')", {
+                label:"person",
+                id:"thomas",
+                firstName:"Thomas",
+                age:44, userid: 1
+            }).then(function (result) {
+                    console.log("Result: %s\n", JSON.stringify(result));
+            });
     }
     ```
 
 * Each function executes a `client.execute` method with a Gremlin query string parameter. Here is an example of how `g.V().count()` is executed:
 
     ```javascript
-    console.log('Running Count'); 
-    client.execute("g.V().count()", { }, (err, results) => {
-        if (err) return console.error(err);
-        console.log(JSON.stringify(results));
-        console.log();
-    });
+    function countVertices()
+    {
+        console.log('Running Count');
+        return client.submit("g.V().count()", { }).then(function (result) {
+            console.log("Result: %s\n", JSON.stringify(result));
+        });
+    }
     ```
 
-* At the end of the file, all methods are then invoked using the `async.waterfall()` method. This will execute them one after the other:
+* At the end of the file, all methods are then invoked. This will execute them one after the other:
 
     ```javascript
-    try{
-        async.waterfall([
-            dropGraph,
-            addVertex1,
-            addVertex2,
-            addEdge,
-            countVertices
-            ], finish);
-    } catch(err) {
-        console.log(err)
-    }
+    client.open()
+    .then(dropGraph)
+    .then(addVertex1)
+    .then(addVertex2)
+    .then(addEdge)
+    .then(countVertices)
+    .catch((err) => {
+        console.error("Error running query...");
+        console.error(err)
+    }).then((res) => {
+        client.close();
+        finish();
+    }).catch((err) => 
+        console.error("Fatal error:", err)
+    );
     ```
 
 

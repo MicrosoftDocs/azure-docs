@@ -11,7 +11,7 @@ ms.author: dacurwin
 
 
 ---
-# Back up an SAP HANA database
+# Back up an SAP HANA database to Azure
 
 [Azure Backup](backup-overview.md) supports the backup of SAP HANA databases to Azure.
 
@@ -103,9 +103,9 @@ Now enable backup.
 
 1. In Step 2, click **Configure Backup**.
 2. In **Select items to back up**, select all the databases you want to protect > **OK**.
-3. In **Backup Policy** > **Choose backup policy**, create a new backup policy for the databases, in accordance with the instructions below.
+3. In **Backup Policy** > **Choose backup policy**, create a new backup policy for the databases, in accordance with the instructions below.
 4. After creating the policy, on the **Backup** menu, click **Enable backup**.
-5. Track the backup configuration progress in the **Notifications** area of the portal.
+5. Track the backup configuration progress in the **Notifications** area of the portal.
 
 ### Create a backup policy
 

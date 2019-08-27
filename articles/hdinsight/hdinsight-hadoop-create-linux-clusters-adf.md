@@ -290,7 +290,7 @@ In this section, you author two linked services within your data factory.
 
         ![Provide Hive script details for the pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Provide Hive script details for the pipeline")
 
-    1. Under **Advanced** > **Parameters**, select **Auto-fill from script**. This option looks for any parameters in the Hive script that require values at runtime. The script you use (**partitionweblogs.hql**) has an **Output** parameter. Provide the **value** in the format `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` to point to an existing folder on your Azure Storage. The path is case-sensitive. This is the path where the output of the script will be stored.
+    1. Under **Advanced** > **Parameters**, select **Auto-fill from script**. This option looks for any parameters in the Hive script that require values at runtime. The script you use (**partitionweblogs.hql**) has an **Output** parameter. Provide the **value** in the format `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` to point to an existing folder on your Azure Storage. The path is case-sensitive. This is the path where the output of the script will be stored. The `wasbs` schema is necessary because storage accounts now have secure transfer required enabled by default.
     
         ![Provide parameters for the Hive script](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Provide parameters for the Hive script")
 

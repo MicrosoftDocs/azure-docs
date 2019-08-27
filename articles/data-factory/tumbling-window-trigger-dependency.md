@@ -146,16 +146,14 @@ A daily job with no gaps in the output streams of the job:
 
 ## Monitor dependencies
 
-You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**.
+You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**. Under the actions column, you can rerun the trigger or view its dependencies.
 
 ![Monitor trigger runs](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitor trigger runs")
 
-Click on the action icon to view all the dependent trigger runs of the selected window.
+If you click on 'View Trigger Dependencies', you can see the status of the dependencies. If one of the dependency triggers fails, you must successfully rerun it in order for the dependent trigger to run. A tumbling window trigger will wait on dependencies for seven days before timing out.
 
 ![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitor dependencies")
 
-In the above example, a daily trigger is dependent on an hourly trigger with no window defined and an offset of 3 hrs. As a result, the trigger runs after 24 successful runs of the dependency.
-
 ## Next steps
 
-Review [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
+* Review [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md)

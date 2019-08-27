@@ -9,6 +9,7 @@ editor: TomSh
 
 ms.assetid: 4f2d9386-bda3-4ec8-8b1a-cd0c11242ffc
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

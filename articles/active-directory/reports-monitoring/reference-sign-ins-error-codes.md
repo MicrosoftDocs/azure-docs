@@ -3,7 +3,7 @@ title: Sign-in activity report error codes in the Azure Active Directory portal 
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
-ms.author: markvi
+ms.date: 08/08/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -124,6 +124,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50177|External challenge is not supported for passthrough users.|
 |50178|Session Control  is not supported for passthrough users.|
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
+|50201|This message prompt interrupt will be shown to the user during login when additional information should be provided to user.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
 |51006|Windows Integrated authentication is needed. User logged in using session token that is missing via claim. Request the  user to re-login.|
@@ -178,6 +179,9 @@ You can also programmatically access the sign-in data using the [reporting API](
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
+|530032|Blocked by security policy.| 
+|700016|Application with identifier '{appIdentifier}' was not found in the directory '{tenantName}'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.|
+|900432|Confidential Client is not supported in Cross Cloud request.|
 |7000218|The request body must contain the following parameter: 'client_assertion' or 'client_secret'.|
 
 

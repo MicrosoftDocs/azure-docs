@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/28/2019
+ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: mvc
 ms.custom: seodec18
@@ -105,7 +105,7 @@ To configure your DNS:
 
 - create a zone for *&lt;ASE name&gt;.appserviceenvironment.net*
 - create an A record in that zone that points * to the ILB IP address 
-- create a zone in *&lt;ASE name&gt;.scm.appserviceenvironment.net* named scm
+- create a zone in *&lt;ASE name&gt;.appserviceenvironment.net* named scm
 - create an A record in the scm zone that points to the ILB IP address
 
 ## Publish with an ILB ASE

@@ -12,7 +12,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin

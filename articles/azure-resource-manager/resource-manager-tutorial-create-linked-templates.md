@@ -223,7 +223,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Make a note of the two values (Resource Group Name and Linked template URI) at the end of the shell pane. You need the values later in the tutorial.
 5. Select **Exit focus mode** to close the shell pane.
 
-In practice, you generate a SAS token when you deploy the main template, and give the SAS token expiry a smaller window to make it more secure. For more information, see [Provide SAS token during deployment](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+In practice, you generate a SAS token when you deploy the main template, and give the SAS token expiry a smaller window to make it more secure. For more information, see [Provide SAS token during deployment](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## Call the linked template
 
@@ -323,7 +323,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 To improve the project, make the following additional changes to the completed project:
 
 1. Modify the main template (azuredeploy.json) so that it takes the linked template URI value via a parameter.
-2. Instead of generating a SAS token when you upload the linked template, generate the token when you deploy the main template. For more information, see [Provide SAS token during deployment](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+2. Instead of generating a SAS token when you upload the linked template, generate the token when you deploy the main template. For more information, see [Provide SAS token during deployment](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## Next steps
 

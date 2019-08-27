@@ -17,11 +17,12 @@ ms.collection: M365-identity-device-management
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are three APIs that expose information about risky users and sign-ins. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
 
-* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 
 ## Connect to Microsoft graph
 
@@ -191,6 +192,14 @@ Just add your client ID, the secret key, and the tenant domain.
 ## Query the APIs
 
 These three APIs provide a multitude of opportunities to retrieve information about risky users and sign-ins in your organization. Below are some common use cases for these APIs and the associated sample requests. You can run these queries using the sample code above or by using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+### Get all of the offline risk detections (riskDetection API)
+
+With Identity Protection sign-in risk policies you can apply conditions when risk is detected in real-time. But what about detections that are discovered offline (or non real-time)? To understand what detections occurred offline, and thus would not have triggered the sign-in risk policy, you can query the riskDetection API.
+
+```
+GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
+```
 
 ### Get the high-risk and medium-risk events (identityRiskEvents API)
 

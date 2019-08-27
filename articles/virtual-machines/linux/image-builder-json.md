@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
@@ -59,7 +59,11 @@ The location is the region where the custom image will be created. For the Image
 ```json
     "location": "<region>",
 ```
-	
+
+## Tags
+
+These are key/value pairs you can specify for the image that's generated.
+
 ## Depends on (optional)
 
 This optional section can be used to ensure that dependencies are completed before proceeding. 
@@ -182,6 +186,19 @@ Sets the source image an existing image version in a Shared Image Gallery. The i
 
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
+## Properties: buildTimeoutInMinutes
+By default, the Image Builder will run for 240 minutes. After that, it will timeout and stop, whether or not the image build is complete. If the timeout is hit, you will see an error similar to this:
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+If you do not specify a buildTimeoutInMinutes value, or set it to 0, is will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs), to see if the customization step is waiting on something like user input. 
+
+If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
+
+
 ## Properties: customize
 
 
@@ -191,7 +208,6 @@ When using `customize`:
 - You can use multiple customizers, but they must have a unique `name`.
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
-- Consider how much time your image build will require, and adjust the 'buildTimeoutInMinutes' property to allow image builder enough time to complete.
 - It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - Do not put sensitive data in the scripts. 
 - The script locations need to be publicly accessible, unless you are using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
@@ -329,7 +345,8 @@ This is supported by Windows directories and Linux paths, but there are some dif
  
 If there is an error trying to download the file, or put it in a specified directory, the customize step will fail, and this will be in the customization.log.
 
->> Note! The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+> [!NOTE]
+> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
 
 Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

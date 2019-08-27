@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Workteam, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
 
     ![Workteam Domain and URLs single sign-on information](common/preintegrated.png)
 

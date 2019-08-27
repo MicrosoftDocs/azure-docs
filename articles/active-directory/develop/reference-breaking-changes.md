@@ -13,7 +13,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
@@ -45,7 +45,7 @@ August 2019: Enforce POST semantics according to URL parsing rules - duplicate p
 
 **Effective date**: July 26, 2019
 
-**Endpoints impacted**: Both [v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) and [v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Endpoints impacted**: Both [v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) and [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
 **Protocol impacted**: [Client Credentials (app-only tokens)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 

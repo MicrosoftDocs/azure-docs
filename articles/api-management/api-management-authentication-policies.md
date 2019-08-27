@@ -78,64 +78,73 @@ In this example client certificate is identified by its thumbprint.
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
 In this example client certificate is identified by resource name.
-```xml
-<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
+```  
+
+### Elements  
+  
+|Name|Description|Required|  
+|----------|-----------------|--------------|  
+|authentication-certificate|Root element.|Yes|  
+  
+### Attributes  
+  
+|Name|Description|Required|Default|  
+|----------|-----------------|--------------|-------------|  
+|thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` must be present.|N/A|  
+|certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` must be present.|N/A|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound  
+  
+-   **Policy scopes:** all scopes  
+
+##  <a name="ManagedIdentity"></a> Authenticate with managed identity  
+ Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity of the API Management service. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
+  
+### Policy statement  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### Example  
+#### Use managed identity to authenticate with a backend service
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net"/> 
+```
+  
+#### Use managed identity in send-request policy
+```xml  
+<send-request mode="new" timeout="20" ignore-error="false">
+    <set-url>https://example.com/</set-url>
+    <set-method>GET</set-method>
+    <authentication-managed-identity resource="ResourceID"/>
+</send-request>
 ```
 
-### Elements
-
-|Name|Description|Required|
-|----------|-----------------|--------------|
-|authentication-certificate|Root element.|Yes|
-
-### Attributes
-
-|Name|Description|Required|Default|
-|----------|-----------------|--------------|-------------|
-|thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` must be present.|N/A|
-|certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` must be present.|N/A|
-
-### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
-
--   **Policy sections:** inbound
-
--   **Policy scopes:** all scopes
-
-##  <a name="ManagedIdentity"></a> Authenticate with managed identity
- Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity of the API Management service. This policy effectively uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource.
-
-### Policy statement
-
-```xml
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>
-```
-
-### Example
-
-```xml
-<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" />
-```
-
-### Elements
-
-|Name|Description|Required|
-|----------|-----------------|--------------|
-|authentication-managed-identity |Root element.|Yes|
-
-### Attributes
-
-|Name|Description|Required|Default|
-|----------|-----------------|--------------|-------------|
-|resource|String. The App ID URI of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|
-|output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`.|No|N/A|
-|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|
-
-### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
-
--   **Policy sections:** inbound
-
+### Elements  
+  
+|Name|Description|Required|  
+|----------|-----------------|--------------|  
+|authentication-managed-identity |Root element.|Yes|  
+  
+### Attributes  
+  
+|Name|Description|Required|Default|  
+|----------|-----------------|--------------|-------------|  
+|resource|String. The App ID URI of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
+|output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`. |No|N/A|  
+|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound  
+  
 -   **Policy scopes:** all scopes
 
 ## Next steps

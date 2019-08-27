@@ -37,14 +37,14 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 * This tutorial uses your browser's **Developer Tools** feature. Modern web browsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others)
 typically provide access to the **Web Inspector View** through the F12 hotkey on your keyboard. Another way to access the view is to right-click on a webpage, and then select **Inspect Element**.
 
-## Video
+## Review video
 
 In this video, we introduce the open-source Time Series Insights JavaScript SDK:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## Time Series Insights sample application
+## Sample application
 
 Throughout this tutorial, we use a free, hosted Time Series Insights sample app to explore the source code behind the application and to explore the Time Series Insights JavaScript client library. By using the sample app, you'll learn how to interact with Time Series Insights in JavaScript and visualize data through charts and graphs.
 
@@ -97,7 +97,7 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
    [![Body script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## Time Series Insights JavaScript client library concepts
+## JavaScript client library
 
 The Time Series Insights client library (*tsiclient.js*) provides abstractions for two important JavaScript functionalities:
 
@@ -228,7 +228,7 @@ The three charts appear as follows when rendered:
 
 [![Multiple chart types from the same data](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## Advanced features
+## Learn about advanced features
 
 The Time Series Insights client library has several additional features that you can use to implement data visualizations creatively.
 

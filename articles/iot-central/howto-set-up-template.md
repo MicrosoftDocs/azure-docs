@@ -12,6 +12,8 @@ manager: peterpr
 
 # Set up a device template
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
 For example, a builder can create a device template for a connected fan that has the following characteristics:
@@ -263,6 +265,8 @@ For example, you can add a new **Echo** command by selecting the **Commands** ta
 !["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho1.png)
 
 After you select **Save**, the **Echo** command appears as a tile and is ready to be used from the **Device Explorer** when your real device connects. The field names of your command must match the property names in the corresponding device code in order for commands to run successfully.
+
+[Here is link to sample C device code.](https://github.com/Azure/iot-central-firmware/blob/ad40358906aeb8f2040a822ba5292df866692c16/MXCHIP/mxchip_advanced/src/AzureIOTClient.cpp#L34)
 
 ## Rules
 

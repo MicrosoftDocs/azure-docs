@@ -9,6 +9,7 @@ editor: techlake
 
 ms.assetid:
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
 
 ---
@@ -80,7 +80,7 @@ If you find that your organization's reservations are being under-used:
 - Make sure the virtual machines that your organization creates match the VM size that's on the reservation.
 - Make sure instance size flexibility is on. For more information, see [Manage reservations - Change optimize setting for Reserved VM Instances](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Change the scope of reservation to shared so that it applies more broadly. For more information, see [Manage reservations - Change the scope for a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- Exchange the unused quantity. For more information, see [Manage reservations - Cancellations and exchanges](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
+- Exchange the unused quantity. For more information, see [Manage reservations](billing-manage-reserved-vm-instance.md).
 
 ## Give access to reservations
 

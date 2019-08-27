@@ -272,6 +272,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      sudo cd ..
      sudo umount /saptmp
      sudo rmdir /saptmp
+    ``` 
 
 1. **[A]** Create the shared directories
 

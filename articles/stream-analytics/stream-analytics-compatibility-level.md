@@ -86,6 +86,12 @@ The upsert behavior is *insert or replace*.
 
 **1.2 level:** Values that do not fit into the target type are handled according to the output error policy.
 
+### Record and array serialization when writing to SQL output
+
+**Previous levels:** Records were written as "Record" and arrays were written as "Array".
+
+**1.2 level:** Records and arrays are serialized in JSON format.
+
 ### Strict validation of prefix of functions
 
 **Previous levels:** There was no strict validation of function prefixes.

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -79,8 +79,9 @@ This feature is in preview but, it is supported for Windows app production workl
 * The app and the VNet must be in the same region
 * You cannot delete a VNet with an integrated app. You must remove the integration first 
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet. 
+* You cannot change the subscription of an app or an App Service plan while there is an app that is using Regional VNet Integration
 
-One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate a Premium App Service plan that is scaled to 20 instances.
+One address is used for each App Service plan instance. If you scaled your app to 5 instances, then 5 addresses are used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /26 with 64 addresses is the recommended size. A /27 with 32 addresses would accommodate a Premium App Service plan 20 instances if you didn't change the size of the App Service plan. When you scale an App Service plan up or down, you need twice as many addresses for a short period of time. 
 
 If you want your apps in another App Service plan to reach a VNet that is connected to already by apps in another App Service plan, you need to select a different subnet than the one being used by the pre-existing VNet Integration.  
 
@@ -97,6 +98,8 @@ The feature is in preview also for Linux. To use the VNet Integration feature wi
    ![Select the VNet and subnet][7]
 
 Once your app is integrated with your VNet, it will use the same DNS server that your VNet is configured with. 
+
+Regional VNet Integration requires your integration subnet to be delegated to Microsoft.Web.  The VNet Integration UI will delegate the subnet to Microsoft.Web automatically. If your account does not have sufficient networking permissions to set this, you will need someone who can set attributes on your integration subnet to do delegate the subnet. To manually delegate the integration subnet, go to the Azure Virtual Network subnet UI and set delegation for Microsoft.Web.
 
 To disconnect your app from the VNet, select **Disconnect**. This will restart your web app. 
 
@@ -131,11 +134,10 @@ The Gateway required VNet Integration feature:
 * Enables up to five VNets to be integrated with in an App Service Plan 
 * Allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
 * Requires a Virtual Network Gateway that is configured with Point to Site VPN
-* Is not supported for use with Linux apps
 * Supports a 99.9% SLA due to the SLA on the gateway
 
 This feature does not support:
-
+* Use with Linux apps
 * Accessing resources across ExpressRoute 
 * Accessing resources across Service Endpoints 
 
@@ -247,7 +249,7 @@ There are three related charges to the use of the gateway required VNet Integrat
 
 
 ## Troubleshooting
-While the feature is easy to set up, that doesn't mean that your experience will be problem free. Should you encounter problems accessing your desired endpoint there are some utilities you can use to test connectivity from the app console. There are two consoles that you can use. One is the Kudu console and the other is the console in the Azure portal. To reach the Kudu console from your app, go to Tools -> Kudu. This is the same as going to [sitename].scm.azurewebsites.net. Once that opens, go to the Debug console tab. To get to the Azure portal hosted console then from your app go to Tools -> Console. 
+While the feature is easy to set up, that doesn't mean that your experience will be problem free. Should you encounter problems accessing your desired endpoint there are some utilities you can use to test connectivity from the app console. There are two consoles that you can use. One is the Kudu console and the other is the console in the Azure portal. To reach the Kudu console from your app, go to Tools -> Kudu. You can also reach the Kudo console at [sitename].scm.azurewebsites.net. Once the website loads, go to the Debug console tab. To get to the Azure portal hosted console then from your app go to Tools -> Console. 
 
 #### Tools
 The tools **ping**, **nslookup** and **tracert** won’t work through the console due to security constraints. To fill the void,  two separate tools added. In order to test DNS functionality, we added a tool named nameresolver.exe. The syntax is:
