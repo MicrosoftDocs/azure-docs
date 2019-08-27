@@ -37,8 +37,8 @@ You can choose between two different licensing options when adding your SQL Serv
 
 Host-level options for using existing SQL Server licenses: 
   - SQL Server Enterprise Edition Azure Hybrid Benefit
-    - Available to customers with SA or subscription
-    - License all available physical cores and enjoy unlimited virtualization (up to the max vCPUs supported by the host)
+    - Available to customers with SA or subscription.
+    - License all available physical cores and enjoy unlimited virtualization (up to the max vCPUs supported by the host).
   - SQL Server Licenses Acquired Before October 1
       - SQL Server Enterprise edition has both host-level and by-VM license options. 
       - SQL Server Standard edition has only by-VM license option available. 
