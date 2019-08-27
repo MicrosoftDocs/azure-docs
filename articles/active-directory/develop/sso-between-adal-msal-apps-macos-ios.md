@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # How to: SSO between ADAL and MSAL apps on macOS and iOS
 
-Microsoft Authentication Library (MSAL) for macOS and iOS, starting with [0.2.0](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases/tag/0.2.0), can coexist in the same app, and share SSO state with [ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc). You can migrate your apps to MSAL Objective-C at your own pace, ensuring that your users will still benefit from cross-app SSO even with a mix of ADAL and MSAL based apps.
+Microsoft Authentication Library (MSAL) for macOS and iOS, starting with [0.2.0](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases/tag/0.2.0) for iOS, can share SSO state with [ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc) when you have multiple applications. You can migrate your apps to MSAL Objective-C at your own pace, ensuring that your users will still benefit from cross-app SSO even with a mix of ADAL and MSAL based apps.
 
 If you're looking for guidance of setting up SSO between apps using the MSAL SDK, see [Silent SSO between multiple apps](single-sign-on-macos-ios.md#silent-sso-between-apps). This article focuses on SSO between ADAL and MSAL.
 
