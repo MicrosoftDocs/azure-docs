@@ -120,7 +120,7 @@ Create linked services in a data factory to link your data stores and compute se
             "annotations": [],
             "type": "AzureBlobStorage",
             "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=adfdocupdate;EndpointSuffix=core.windows.net;",
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;EndpointSuffix=core.windows.net;",
                 "encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERlFVSUNLU1RBUlRGQUNUT1JZMDgyNl9lMmQ5MTA5NS02MGU0LTRhNjgtOTI4MC04MTU1MDE5NzI1NjMiDQp9"
             }
         }
