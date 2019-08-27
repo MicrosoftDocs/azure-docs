@@ -77,9 +77,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 ### Review deployment
 
-The review section shows you the JSON deployment manifest that was created based on your selections in the previous two sections. There are also two modules declared that you didn't add: $edgeAgent and $edgeHub. These two modules make up the IoT Edge runtime and are required defaults in every deployment.
-
-Review your deployment information, then select **Submit**.
+1. The review section shows you the JSON deployment manifest that was created based on your selections in the previous two sections. Confirm that you see the two modules in the list: **$edgeAgent** and **$edgeHub**. These two modules make up the IoT Edge runtime and are required defaults in every deployment.
+1. Review your deployment information, then select **Submit**.
 
 ## Verify your deployment
 
