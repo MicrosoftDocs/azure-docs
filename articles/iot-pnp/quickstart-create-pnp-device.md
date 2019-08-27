@@ -1,5 +1,5 @@
 ---
-title: Create an Azure IoT Plug and Play Preview device | Microsoft Docs
+title: Create an IoT Plug and Play Preview device | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: miagdp
 ms.author: miag

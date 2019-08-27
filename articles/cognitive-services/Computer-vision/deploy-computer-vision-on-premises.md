@@ -1,5 +1,5 @@
 ---
-title: Use with Kubernetes and Helm - Computer Vision
+title: Use Computer Vision container with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Deploy the Computer Vision container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 8/22/2019
 ms.author: dapine
 ---
 
-# Use with Kubernetes and Helm
+# Use Computer Vision container with Kubernetes and Helm
 
 One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the Recognize Text container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Recognize Text containers](computer-vision-how-to-install-containers.md).
 

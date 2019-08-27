@@ -1,5 +1,5 @@
 ---
-title: Create and test an Azure IoT Plug and Play Preview device | Microsoft Docs
+title: Create and test an IoT Plug and Play Preview device | Microsoft Docs
 description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play Preview device.
 author: dominicbetts
 ms.author: dobett
