@@ -31,7 +31,7 @@ Setting up an encryption certificate and using it to encrypt secrets varies betw
 * [Set up an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]
 
 ## Specify encrypted secrets in an application
-The previous step describes how to encrypt a secret with a certificate and produce a base-64 encoded string for use in an application. This base-64 encoded string can be specified as an encrypted [parameter][parameters-link] in a service's Settings.xml or as an encrypted [environment variable][environment-variables-link] in a service's ServiceManifest.xml.
+The previous step describes how to encrypt a secret with a certificate and produce a base-64 encoded string for use in an application. This base-64 encoded string can be specified as an encrypted [parameter][parameters-link] in a service's Settings.xml or as an encrypted [environment variable][environment-variables-link] in a service's ServiceManifest.xml. 
 
 Specify an encrypted [parameter][parameters-link] in your service's Settings.xml configuration file with the `IsEncrypted` attribute set to `true`:
 
@@ -50,6 +50,23 @@ Specify an encrypted [environment variable][environment-variables-link] in your 
     <EnvironmentVariable Name="MyEnvVariable" Type="Encrypted" Value="I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM=" />
   </EnvironmentVariables>
 </CodePackage>
+```
+
+The secrets can also be included in your Service Fabric application by specifying a certificate in the application manifest. Add a **SecretCertificate** element to **ApplicationManifest.xml** and include the desired certificate's thumbprint.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Policies>
+    <SecurityAccessPolicies>
+      <SecurityAccessPolicy GrantRights="Read"
+      PrincipalRef="Service1" ResourceRef="MyCert" ResourceType="Certificate"/>
+    </SecurityAccessPolicies>
+  </Policies>
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
 ```
 
 ### Inject application secrets into application instances
