@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 07/21/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -38,13 +38,13 @@ An Azure AD B2C tenant is the first resource you need to create to get started w
 
 ## Accounts in Azure AD B2C
 
-Azure AD B2C defines several different types of user accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share types of accounts:
+Azure AD B2C defines several types of user accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share these account types.
 
 * **Work account** - Users with work accounts can manage resources in a tenant, and with an administrator role, can also manage tenants. Users with work accounts can create new consumer accounts, reset passwords, block/unblock accounts, and set permissions or assign an account to a security group.
 * **Guest account** - External users you invite to your tenant as guests. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities.
 * **Consumer account** - Consumer accounts are the accounts created in your Azure AD B2C directory when users complete the sign-up user journey in an application you've registered in your tenant.
 
-![Azure AD B2C user management page in the Azure portal](media/technical-overview/user-mng.png)
+![Azure AD B2C user management page in the Azure portal](media/technical-overview/user-mng.png)<br/>*Figure: User directory within an Azure AD B2C tenant in the Azure portal*
 
 ### Consumer accounts
 
@@ -57,7 +57,7 @@ A consumer account can be associated with these identity types:
 
 A user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
 
-![Consumer account identities](media/technical-overview/identities.png)<br/><sup>*A single consumer account with multiple identities in Azure AD B2C*</sup>
+![Consumer account identities](media/technical-overview/identities.png)<br/>*Figure: A single consumer account with multiple identities in Azure AD B2C*
 
 Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
 
