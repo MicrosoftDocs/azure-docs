@@ -12,13 +12,13 @@ ms.reviewer: zezha-msft
 
 # azcopy
 
-AzCopy is a command line tool that moves data into and out of Azure Storage.
+AzCopy is a command-line tool that moves data into and out of Azure Storage.
 
 ## Synopsis
 
 The general format of the commands is: `azcopy [command] [arguments] --[flag-name]=[flag-value]`.
 
-To report issues or to learn more about the tool, see [github.com/Azure/azure-storage-azcopy](github.com/Azure/azure-storage-azcopy).
+To report issues or to learn more about the tool, see [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy).
 
 ## Options
 

@@ -18,7 +18,7 @@ Logs in to Azure Active Directory to access Azure Storage resources.
 
 Log in to Azure Active Directory to access Azure Storage resources.
 
-To be authorized to your Azure Storage account, you must assign the **Storage Blob Data Contributor** role to your user account in the context of the either the Storage account, parent resource group or parent subscription.
+To be authorized to your Azure Storage account, you must assign the **Storage Blob Data Contributor** role to your user account in the context of either the Storage account, parent resource group or parent subscription.
 
 This command will cache encrypted login information for current user using the OS built-in mechanisms.
 
@@ -75,7 +75,7 @@ Log in as a service principal using a client secret. Set the environment variabl
 azcopy login --service-principal
 ```
 
-Log in as a service principal using a certificate and password. Set the environment variable AZCOPY_SPA_CERT_PASSWORD to the certificate's password for cert based service principal authorization.
+Log in as a service principal using a certificate and password. Set the environment variable AZCOPY_SPA_CERT_PASSWORD to the certificate's password for cert-based service principal authorization.
 
 ```azcopy
 azcopy login --service-principal --certificate-path /path/to/my/cert
@@ -97,7 +97,7 @@ Make sure to treat /path/to/my/cert as a path to a PEM or PKCS12 file. AzCopy do
 |--identity-object-id string|Object ID of user-assigned identity.|
 |--identity-resource-id string|Resource ID of user-assigned identity.|
 |--service-principal|Log in via SPN (Service Principal Name) by using a certificate or a secret. The client secret or certificate password must be placed in the appropriate environment variable. Type `AzCopy env` to see names and descriptions of environment variables.|
-|--tenant-id string| the Azure active directory tenant id to use for OAuth device interactive login.|
+|--tenant-id string| the Azure active directory tenant ID to use for OAuth device interactive login.|
 
 ## Options inherited from parent commands
 
