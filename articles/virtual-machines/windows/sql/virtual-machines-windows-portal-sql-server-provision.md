@@ -33,7 +33,7 @@ When you create a SQL Server virtual machine, you can select one of several pre-
 
 1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information by selecting **Show details**. 
-1. Type `2017` in the SQL image search box and then select **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** from the drop-down. 
+1. Type `2017` in the SQL Server image search box on the **SQL virtual machines** tile, and then select **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** from the drop-down. 
 
 
    ![Select SQL VM image](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
