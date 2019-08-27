@@ -34,12 +34,12 @@ app that automatically checks for new records in Dynamics CRM Online,
 adds items to your SQL database for any new records, and then sends email alerts.
 
 If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 For connector-specific technical information, see the 
-<a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server connector reference</a>.
+[SQL Server connector reference](https://docs.microsoft.com/connectors/sql/).
 
 ## Prerequisites
 

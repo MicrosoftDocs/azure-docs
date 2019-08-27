@@ -26,7 +26,7 @@ Dropbox **Get file content using path** action.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * A [Dropbox account](https://www.dropbox.com/), 
 which you can sign up for free. Your account credentials 

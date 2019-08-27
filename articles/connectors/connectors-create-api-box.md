@@ -37,7 +37,7 @@ for example:
 * A [Box account](https://www.box.com/home)
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * The logic app where you want to access your Box account. 
 To start your logic app with a Box trigger, you need a 

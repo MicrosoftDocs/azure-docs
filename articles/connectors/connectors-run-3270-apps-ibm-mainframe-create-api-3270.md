@@ -74,7 +74,7 @@ that Azure Logic Apps supports.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)

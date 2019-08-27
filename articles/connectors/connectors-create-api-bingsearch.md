@@ -23,12 +23,12 @@ For example, you can find news items based on search criteria,
 and have Twitter post those items as tweets in your Twitter feed.
 
 If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 For connector-specific technical information, see the 
-<a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">Bing Search connector reference</a>.
+[Bing Search connector reference](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## Prerequisites
 
