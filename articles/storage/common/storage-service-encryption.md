@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 08/27/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -33,11 +33,11 @@ The following table compares the key management options for Azure Storage encryp
 |                                        |    Microsoft-managed keys                             |    Customer-managed keys                                                                                                                        |    Client-provided keys                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Encryption/decryption operations    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Azure Storage services supported    |    All                                                |    <ul><li>Blob storage</li><li>Azure Files</li></ul>                                                                                                               |    Blob storage                                                                  |
+|    Azure Storage services supported    |    All                                                |    &bull;&nbsp;Blob storage&bull;&nbsp;Azure Files                                                                                                               |    Blob storage                                                                  |
 |    Key storage                         |    Microsoft data center secret management service    |    Azure Key Vault                                                                                                                              |    Any key store                                                                 |
 |    Key rotation responsibility         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
-|    Key usage                           |    Microsoft                                          |    <ul><li>Management console (portal???)</li><li>Storage Resource Provider REST API</li><li>Azure Storage management libraries</li><li>PowerShell</li><li>CLI</li></ul>        |    <ul><li>Azure Storage REST API (Blob storage)</li><li>Azure Storage client libraries</li></ul>    |
-|    Key access                          |    Microsoft only                                     |    <ul><li>Microsoft</li><li>Customer</li></ul>                                                                                                                    |    Customer only                                                                 |
+|    Key usage                           |    Microsoft                                          |    &bull;&nbsp;Azure portal&bull;&nbsp;Storage Resource Provider REST API&bull;&nbsp;Azure Storage management libraries&bull;&nbsp;PowerShell&bull;&nbsp;CLI        |    &bull;&nbsp;Azure Storage REST API (Blob storage)&bull;&nbsp;Azure Storage client libraries    |
+|    Key access                          |    Microsoft only                                     |    &bull;&nbsp;Microsoft&bull;&nbsp;Customer                                                                                                                    |    Customer only                                                                 |
 
 The following sections describe each of the options for key management in greater detail.
 
