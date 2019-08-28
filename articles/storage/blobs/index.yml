@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Blob Storage documentation # < 60 chars
+title: Azure Blob storage documentation # < 60 chars
 summary: Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.  # < 160 chars
 
 metadata:
-  title: Azure Blob Storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Blob storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data. # Required; article description that is displayed in search results. < 160 chars.
   services: storage
   ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -27,13 +27,17 @@ landingContent:
         links:
           - text: What is Blob storage?
             url: storage-blobs-overview.md
-          - text: Storage accounts
-            url: ../common/storage-account-overview.md
+          - text: Azure Blob storage
+            url: storage-blobs-introduction.md
+          - text: Azure Data Lake Storage Gen2
+            url: data-lake-storage-introduction.md
   # Card
   - title: Create and manage an account
     linkLists:
       - linkListType: concept
         links:
+          - text: Storage accounts
+            url: ../common/storage-account-overview.md
           - text: Data redundancy
             url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Access tiers 
@@ -50,6 +54,38 @@ landingContent:
             url: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 
   # Card
+  - title: Data Lake storage
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Data Lake Storage Gen2
+            url: data-lake-storage-introduction.md
+          - text: Processing big data
+            url: data-lake-storage-data-scenarios.md
+      - linkListType: whats-new
+        links:
+          - text: Known issues with Azure Data Lake Storage Gen2
+            url: data-lake-storage-known-issues.md
+      - linkListType: quickstart
+        links:
+          - text: Analyze data with Databricks
+            url: data-lake-storage-quickstart-create-databricks-account.md
+      - linkListType: tutorial
+        links:
+          - text: Extract, transform, and load data with Azure HDInsight
+            url: data-lake-storage-tutorial-extract-transform-load-hive.md
+          - text: Extract, transform, and load data with Azure Databricks
+            url: databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Insert data into Databricks tables by using Event Grid
+            url: databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - linkListType: how-to-guide
+        links:
+          - text: Use with Azure HDInsight clusters
+            url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Use with Power BI
+            url: data-lake-storage-use-power-bi.md
+
+  # Card
   - title: Secure an account
     linkLists:
       - linkListType: concept
@@ -60,23 +96,17 @@ landingContent:
             url: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Authorization
             url: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Delegate access with shared access signatures (SAS)
+          - text: Delegate access SAS
             url: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - linkListType: how-to-guide
         links:
-          - text: Use the Azure portal to access blob or queue data
-            url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data 
-            url: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Grant access to Azure blob and queue data with RBAC in the Azure portal 
+          - text: Access blob or queue data
+            url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
+          - text: Manage access rights with RBAC 
             url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Grant access to Azure blob and queue data with RBAC using PowerShell 
-            url: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Grant access to Azure blob and queue data with RBAC using Azure CLI 
-            url: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources 
+          - text: Authorize with a managed identity 
             url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Authorize access to blobs and queues with Azure Active Directory from a client application 
+          - text: Authorize from a client application 
             url: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 
   # Card
@@ -84,43 +114,35 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Upload, download, and list blobs with the Azure portal
+          - text: Use the Portal
             url: storage-quickstart-blobs-portal.md
-          - text: Use Azure Storage Explorer to create a blob in object storage
+          - text: Use Storage Explorer
             url: storage-quickstart-blobs-storage-explorer.md
-          - text: Upload, download, and list blobs by using Azure PowerShell
-            url: storage-quickstart-blobs-powershell.md
-          - text: Upload, download, and list blobs using the Azure CLI
-            url: storage-quickstart-blobs-cli.md
-          - text: Azure Blob storage client library for .NET
+          - text: Use .NET
             url: storage-quickstart-blobs-dotnet.md
-          - text: Upload, download, and list blobs by using the Java Storage SDK V10 
+          - text: Use Java
             url: storage-quickstart-blobs-java-v10.md
-          - text: Upload, download, and list blobs with Python
+          - text: Use Python
             url: storage-quickstart-blobs-python.md
       - linkListType: concept
         links:
-          - text: Choose an Azure solution for data transfer
+          - text: Compare data transfer solutions
             url: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: What is Azure Import/Export service?
-            url: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - linkListType: how-to-guide
         links:
-          - text: Get started with AzCopy
+          - text: Transfer with AzCopy
             url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Transfer data with AzCopy and Blob storage
-            url: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Copy data to or from Azure Blob storage by using Azure Data Factory
+          - text: Transfer with Azure Data Factory
             url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   
   # Card
-  - title: Set up a custom domain to access blob data
+  - title: Enable access through a custom domain
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure a custom domain name for your Azure storage account
+          - text: Configure a custom domain
             url: storage-custom-domain-name.md
-          - text: Use Azure CDN to access blobs with custom domains over HTTPS
+          - text: Use Azure CDN with custom domains over HTTPS
             url: storage-https-custom-domain-cdn.md
 
   # Card
@@ -128,65 +150,22 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Reacting to Blob storage events
+          - text: Handle events
             url: storage-blob-event-overview.md
       - linkListType: quickstart
         links:
-          - text: Route Blob storage events to web endpoint with the Azure portal
+          - text: Route events to web endpoint
             url: ../../event-grid/blob-event-quickstart-portal.md
-          - text: Route storage events to web endpoint with PowerShell
-            url: storage-blob-event-quickstart-powershell.md
-          - text: Route storage events to web endpoint with Azure CLI
-            url: storage-blob-event-quickstart.md
 
   # Card
   - title: Create a static website
     linkLists:
       - linkListType: concept
         links:
-          - text: Static website hosting in Azure Storage
+          - text: Static websites
             url: storage-blob-static-website.md
       - linkListType: how-to-guide
         links:
-          - text: Host a static website in Azure Storage
+          - text: Host a static website
             url: storage-blob-static-website-how-to.md
 
-  # Card
-  - title: Search for data in Blob Storage
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Search unstructured data in cloud storage
-            url: storage-unstructured-search.md
-      - linkListType: how-to-guide
-        links:
-          - text: Searching Blob storage with Azure Search
-            url: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-
-  # Card
-  - title: Store and analyze big data
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Introduction to Azure Data Lake Storage Gen2
-            url: data-lake-storage-introduction.md
-          - text: Using Azure Data Lake Storage Gen2 for big data requirements
-            url: data-lake-storage-data-scenarios.md
-      - linkListType: whats-new
-        links:
-          - text: Known issues with Azure Data Lake Storage Gen2
-            url: data-lake-storage-known-issues.md
-      - linkListType: quickstart
-        links:
-          - text: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks
-            url: data-lake-storage-quickstart-create-databricks-account.md
-      - linkListType: tutorial
-        links:
-          - text: Extract, transform, and load data by using Apache Hive on Azure HDInsight
-            url: data-lake-storage-tutorial-extract-transform-load-hive.md
-      - linkListType: how-to-guide
-        links:
-          - text: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
-            url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Analyze data in Azure Data Lake Storage Gen2 by using Power BI
-            url: data-lake-storage-use-power-bi.md
