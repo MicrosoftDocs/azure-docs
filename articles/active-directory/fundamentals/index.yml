@@ -5,7 +5,7 @@ summary: Learn basic Azure Active Directory (Azure AD) concepts and processes, i
 
 metadata:
   title: Azure Active Directory fundamentals documentation 
-  description: Learn basic Azure Active Directory (Azure AD) concepts and processes, including how to create a basic environment, basic users, and groups, to get started.
+  description: "Learn basic Azure Active Directory (Azure AD) concepts and processes, including how to create a basic environment, basic users, and groups, to get started."
   manager: daveba
   ms.author: ajburnle
   ms.collection: na
@@ -18,8 +18,6 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
   # Card 
   - title: About Azure AD
     linkLists:
@@ -29,7 +27,7 @@ landingContent:
             url: active-directory-whatis.md
           - text: What's new in Azure Active Directory
             url: whats-new.md
-      - linkListType: Concept
+      - linkListType: concept
         links:
           - text: Azure AD architecture
             url: active-directory-architecture.md
