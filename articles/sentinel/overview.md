@@ -61,12 +61,6 @@ To help you reduce noise and minimize the number of alerts you have to review an
 
 ![Incidents](./media/overview/cases.png)
 
-## User analytics
-
-With native integration of machine learning (ML), and [user analytics](user-analytics.md), Azure Sentinel can help detect threats quickly. Azure Sentinel seamlessly integrates with Azure Advanced Threat Protection to analyze user behavior and prioritize which users you should investigate first, based on their alerts, and suspicious activity patterns across Azure Sentinel and Microsoft 365.
-
-![User analytics](./media/overview/user-analytics.png)
-
 
 ## Security automation & orchestration
 
