@@ -53,7 +53,7 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
 To use dependency visualization, you need to download and install agents on each on-premises machine that you want to analyze.  
 
 - [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) about how to install the MMA agent.
-- The [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
+- The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
 - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
 You don't need these agents on machines you want to assess unless you're using dependency visualization.

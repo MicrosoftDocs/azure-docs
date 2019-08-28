@@ -46,8 +46,8 @@
       href: overview-v2.md
     - name: Security overview
       href: security-overview.md
-    - name: Investigate risky users and sign-ins
-      href: howto-investigate-risky-users-signins.md
+    - name: Investigate risk
+      href: howto-investigate-risk.md
     - name: Provide feedback on risk events
       href: howto-provide-risk-event-feedback.md
     - name: Configure risk policies

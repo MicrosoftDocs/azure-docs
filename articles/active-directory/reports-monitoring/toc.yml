@@ -46,6 +46,8 @@
     href: concept-risk-events.md
   - name: Users at risk
     href: concept-user-at-risk.md
+  - name: Provisioning logs
+    href: concept-provisioning-logs.md
   - name: Reporting APIs
     href: concept-reporting-api.md
   - name: Azure AD logs in Azure Monitor
