@@ -26,10 +26,10 @@ This article will show you how to configure your Microsoft authentication librar
 
 ## Default authority configuration
 
-`MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios, or working with B2C, you won't need to change it.
+`MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
 
 > [!NOTE]
-> Active Directory Federation Service (AD FS) is not supported.
+> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers) for more details). ADFS is supported through federation.
 
 ## Change the default authority
 
@@ -37,7 +37,7 @@ In some scenarios, such as business-to-consumer (B2C), you may need to change th
 
 ### B2C
 
-To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requires a different authority configuration. MSAL supports one authority URL format for B2C unless the authority is declared as a known authority. The supported format is `https://<host>/tfp/<tenant>/<policy>`, for example `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`.
+To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requires a different authority configuration. MSAL recognizes one authority URL format as B2C by itself. The recognized B2C authority format is `https://<host>/tfp/<tenant>/<policy>`, for example `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`. However, developer can also use any other supported B2C authority URLs by declaring authority as B2C authority explicitly. 
 
 To support an arbitrary URL format for B2C, `MSALB2CAuthority` can be set with an arbitrary URL, like this:
 
@@ -45,6 +45,17 @@ To support an arbitrary URL format for B2C, `MSALB2CAuthority` can be set with a
 NSURL *authorityURL = [NSURL URLWithString:@"arbitrary URL"];
 MSALB2CAuthority *b2cAuthority = [[MSALB2CAuthority alloc] initWithURL:authorityURL
                                                                      error:&b2cAuthorityError];
+```
+
+All B2C authorities that do not use the default B2C authority format also need to be declared as known authorities.
+You need to add each different B2C authority to the known authorities list even if authorities only differ in policy.
+
+```objc
+MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientApplicationConfig alloc]
+                                                               initWithClientId:@"your-client-id"
+                                                               redirectUri:@"your-redirect-uri"
+                                                               authority:b2cAuthority];
+b2cApplicationConfig.knownAuthorities = @[b2cAuthority];
 ```
 
 Note that when your app requests a new policy, the authority URL needs to be changed because the authority URL is different for each policy. 
@@ -116,10 +127,9 @@ You may need to pass different scopes to each sovereign cloud. Which scopes to s
 
 When the authority URL is set to `"login.microsoftonline.com/common"`,   the user will be signed into their home tenant. However, some apps may need to sign the user into a different tenant and some apps only work with a single tenant.
 
-To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority.  MSAL doesn't currently support authorities with tenant names so use an authority with GUID tenant ID instead. For example:
+To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority. For example:
 
-**Correct:** `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
-**Incorrect:** `https://login.microsoftonline.com/contoso.com`
+`https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
 The following shows how to sign a user into a specific tenant:
 
@@ -164,7 +174,7 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 
 ### MSALB2CAuthority
 
-`MSALB2CAuthority` represents a B2C authority. The authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`
+`MSALB2CAuthority` represents a B2C authority. By default, B2C authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`. However, MSAL also supports other arbitrary B2C authority formats. 
 
 ## Next steps
 
