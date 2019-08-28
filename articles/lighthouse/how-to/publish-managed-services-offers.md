@@ -127,7 +127,7 @@ Once you're happy with all of the info you've provided, your next step is to pub
 
 When a customer adds your offer, they will be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources) which will then be onboarded for Azure delegated resource management. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal.
 
-Before a subscription (or resource groups within a subscription) can be onboarded, the subscriptoin must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. The customer can register a subscription by following the steps outlined in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+Before a subscription (or resource groups within a subscription) can be onboarded, the subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. The customer can register a subscription by following the steps outlined in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
 
 The customer can then confirm that the subscription is ready for onboarding in one of the following ways.
 
