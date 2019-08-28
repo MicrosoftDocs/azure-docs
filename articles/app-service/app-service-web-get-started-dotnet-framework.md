@@ -20,7 +20,9 @@ ms.custom: seodec18
 ---
 # Create an ASP.NET Framework web app in Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.
+
+This quickstart shows how to deploy your first ASP.NET web app to Azure App Service. When you're finished, you'll have an App Service plan. You'll also have an App Service app with a deployed web application.
 
 ![Web app running live](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
@@ -35,7 +37,7 @@ If you've installed Visual Studio 2019 already:
 - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
 - Add the workload by selecting **Tools** > **Get Tools and Features**.
 
-## Create an ASP.NET web app
+## Create an ASP.NET web app <a name="Create and publish the web app"></a>
 
 Create an ASP.NET web app by following these steps:
 
@@ -57,7 +59,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Run app locally](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## Publish your web app
+## Publish your web app <a name="Launch the publish wizard"></a>
 
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
@@ -65,7 +67,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Publish from project overview page](./media/app-service-web-get-started-dotnet-framework/publish-app-framework-vs2019.png)
 
-1. In **App Service Create new**, your options depend on whether you are signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
+1. In **App Service Create new**, your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
    > [!NOTE]
    > If you're already signed in, don't select **Create** yet.
@@ -125,7 +127,7 @@ Congratulations, your ASP.NET web app is running live in Azure App Service.
 
 1. In the **Publish** summary page, select **Publish**.
 
-   ![Visual Studio publish summary page](./media/app-service-web-get-started-dotnet-framework/publish-summary-page-framework-vs2019.png)
+   ![Visual Studio summary page for publishing](./media/app-service-web-get-started-dotnet-framework/publish-summary-page-framework-vs2019.png)
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
@@ -139,9 +141,9 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
    ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 
-   You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+   You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
 
-   ![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
+   ![App Service overview in Azure portal](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
 
    The left menu provides different pages for configuring your app.
 

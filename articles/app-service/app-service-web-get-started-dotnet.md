@@ -24,7 +24,9 @@ ms.custom: seodec18
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
 >
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.
+
+This quickstart shows how to deploy your first ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
 
 ![Web app running live](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -51,7 +53,7 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Configure your web app project](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. For this quickstart, choose the **Web Application** template, and make sure authentication is set to **No Authentication** and no other option is selected. Select **Create**.
+1. For this quickstart, choose the **Web Application** template. Make sure authentication is set to **No Authentication** and no other option is selected. Select **Create**.
 
    ![Select ASP.NET Core Razor Pages for this tutorial](./media/app-service-web-get-started-dotnet/aspnet-razor-pages-app.png)
 
@@ -69,7 +71,7 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Publish from project overview page](./media/app-service-web-get-started-dotnet/publish-app-vs2019.png)
 
-1. In **App Service Create new**, your options depend on whether you are signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
+1. In **App Service Create new**, your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
    > [!NOTE]
    > If you're already signed in, don't select **Create** yet.
@@ -128,7 +130,7 @@ Congratulations, your ASP.NET Core web app is running live in Azure App Service.
 
 1. In the **Publish** summary page, select **Publish**.
 
-   ![Visual Studio publish summary page](./media/app-service-web-get-started-dotnet/publish-summary-page-vs2019.png)
+   ![Visual Studio publishing summary page](./media/app-service-web-get-started-dotnet/publish-summary-page-vs2019.png)
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
@@ -142,7 +144,7 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
    ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
+   You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
 
    ![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
 

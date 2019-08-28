@@ -19,7 +19,9 @@ ms.custom: seodec18
 ---
 # Run a custom Windows container in Azure (Preview)
 
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead. This quickstart shows how to deploy an ASP.NET app in a Windows image to [Docker Hub](https://hub.docker.com/) from Visual Studio and run it in a custom container in Azure App Service.
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead.
+
+This quickstart shows how to deploy an ASP.NET app in a Windows image to [Docker Hub](https://hub.docker.com/) from Visual Studio. You run the app in a custom container in Azure App Service.
 
 ![Web app running live](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
@@ -56,7 +58,7 @@ Create an ASP.NET web app by following these steps:
 
 1. If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
 
-1. You need to use a [supported parent image](#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code and save the file:
+1. You need a [supported parent image](#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
    ```Dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -78,7 +80,7 @@ Create an ASP.NET web app by following these steps:
 
 1. Supply your Docker Hub account credentials and select **Save**.
 
-   Wait for the deployment to complete. The **Publish** page now shows the repository name that you will use later in App Service.
+   Wait for the deployment to complete. The **Publish** page now shows the repository name to use later.
 
    ![Publish from project overview page](./media/app-service-web-get-started-windows-container/published-docker-repository-vs2019.png)
 
@@ -94,7 +96,7 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Web App Create**, choose your subscription and a **Resource Group**. You can create a new resource group if needed.
 
-1. Provide an app name, such as *win-container-demo* and choose **Windows** for **Operating System**. Select **Next: Docker** to proceed.
+1. Provide an app name, such as *win-container-demo* and choose **Windows** for **Operating System**. Select **Next: Docker** to continue.
 
    ![Create a Web App for Containers](media/app-service-web-get-started-windows-container/create-web-app-continer.png)
 
@@ -170,7 +172,7 @@ The streamed logs looks like this:
 
 ## Use a different parent image
 
-You are free to use a different custom Docker image to run your app. However, you must choose the right [parent image](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
+You're free to use a different custom Docker image to run your app. However, you must choose the right [parent image](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
 
 - To deploy .NET Framework apps, use a parent image based on the Windows Server Core 2019 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) release. 
 - To deploy .NET Core apps, use a parent image based on the Windows Server Nano 1809 [Semi-Annual Servicing Channel (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) release. 
@@ -178,7 +180,7 @@ You are free to use a different custom Docker image to run your app. However, yo
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - this is the base container used across Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Microsoft Windows Nano Server images.
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - this image is the base container used across Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Microsoft Windows Nano Server images.
 
 ## Next steps
 
