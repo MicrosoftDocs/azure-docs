@@ -37,7 +37,7 @@ If you've installed Visual Studio 2019 already:
 - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
 - Add the workload by selecting **Tools** > **Get Tools and Features**.
 
-## Create an ASP.NET web app <a name="Create and publish the web app"></a>
+## Create an ASP.NET web app <a name="create-and-publish-the-web-app"></a>
 
 Create an ASP.NET web app by following these steps:
 
@@ -59,7 +59,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Run app locally](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## Publish your web app <a name="Launch the publish wizard"></a>
+## Publish your web app <a name="launch-the-publish-wizard"></a>
 
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
