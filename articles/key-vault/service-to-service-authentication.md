@@ -7,7 +7,7 @@ manager: barbkess
 services: key-vault
 
 ms.author: mbaldwin
-ms.date: 07/06/2019
+ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 
@@ -15,13 +15,13 @@ ms.service: key-vault
 
 # Service-to-service authentication to Azure Key Vault using .NET
 
-To authenticate to Azure Key Vault you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
+To authenticate to Azure Key Vault, you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
 
-Managing such credentials can be difficult and it's tempting to bundle credentials into an app by including them in source or configuration files.  The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses the developer's credentials to authenticate during local development. When the solution is later deployed to Azure, the library automatically switches to application credentials. Using developer credentials during local development is more secure because you don't need to create Azure AD credentials or share credentials between developers.
+Managing such credentials can be difficult. It's tempting to bundle credentials into an app by including them in source or configuration files. The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses the developer's credentials to authenticate during local development. When the solution is later deployed to Azure, the library automatically switches to application credentials. Using developer credentials during local development is more secure because you don't need to create Azure AD credentials or share credentials between developers.
 
-The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.  It supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to an Azure resource that supports a managed identity, the library automatically uses [managed identities for Azure resources](../active-directory/msi-overview.md). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](../azure-resource-manager/resource-group-authenticate-service-principal.md) when a managed identity isn't available, or when the developer's security context can't be determined during local development.
+The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn lets you focus on your solution, rather than your credentials. It supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to an Azure resource that supports a managed identity, the library automatically uses [managed identities for Azure resources](../active-directory/msi-overview.md). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](../azure-resource-manager/resource-group-authenticate-service-principal.md) when a managed identity isn't available, or when the developer's security context can't be determined during local development.
 
-To follow this article, you need the following prerequisites:
+## Prerequisites
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) or [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -48,7 +48,7 @@ For .NET applications, the simplest way to work with a managed identity is throu
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. Consequently, you no longer have to check the expiration before calling the `GetAccessTokenAsync` method. Just call the method when you want to use the token.
+The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. So, you no longer have to check the expiration before calling the `GetAccessTokenAsync` method. Just call the method when you want to use the token.
 
 The `GetAccessTokenAsync` method requires a resource identifier. To learn more about Microsoft Azure services, see [What is managed identities for Azure resources](../active-directory/msi-overview.md).
 
@@ -58,39 +58,39 @@ For local development, there are two primary authentication scenarios: [authenti
 
 ### Authenticating to Azure Services
 
-Local machines don't support managed identities for Azure resources.  As a result, the `Microsoft.Azure.Services.AppAuthentication` library uses your developer credentials to run in your local development environment. When the solution is deployed to Azure, the library uses a managed identity to switch to an OAuth 2.0 client credential grant flow.  This approach means you can test the same code locally and remotely without worry.
+Local machines don't support managed identities for Azure resources. As a result, the `Microsoft.Azure.Services.AppAuthentication` library uses your developer credentials to run in your local development environment. When the solution is deployed to Azure, the library uses a managed identity to switch to an OAuth 2.0 client credential grant flow. This approach means you can test the same code locally and remotely without worry.
 
 For local development, `AzureServiceTokenProvider` fetches tokens using **Visual Studio**, **Azure command-line interface** (CLI), or **Azure AD Integrated Authentication**. Each option is tried sequentially and the library uses the first option that succeeds. If no option works, an `AzureServiceTokenProviderException` exception is thrown with detailed information.
 
 #### Authenticating with Visual Studio
 
-To authenticate by using Visual Studio, do the following steps:
+To authenticate by using Visual Studio:
 
 1. Sign in to Visual Studio and use **Tools**&nbsp;>&nbsp;**Options** to open **Options**.
 
-1. Select **Azure Service Authentication**, and then choose an account for local development, and then select **OK**.
+1. Select **Azure Service Authentication**, choose an account for local development, and select **OK**.
 
-If you run into problems using Visual Studio, such as errors regarding the token provider file, carefully review the preceding steps.
+If you run into problems using Visual Studio, such as errors that involve the token provider file, carefully review the preceding steps.
 
-You may need to reauthenticate your developer token. To do so, select **Tools**&nbsp;>&nbsp;**Options**, and then select **Azure&nbsp;Service&nbsp;Authentication**. Look for a **Re-authenticate** link under the selected account.  Select it to authenticate.
+You may need to reauthenticate your developer token. To do so, select **Tools**&nbsp;>&nbsp;**Options**, and then select **Azure&nbsp;Service&nbsp;Authentication**. Look for a **Re-authenticate** link under the selected account. Select it to authenticate.
 
 #### Authenticating with Azure CLI
 
-To use Azure CLI for local development, be sure that you have version [Azure CLI v2.0.12](/cli/azure/install-azure-cli) or later. Upgrade earlier versions.
+To use Azure CLI for local development, be sure you have version [Azure CLI v2.0.12](/cli/azure/install-azure-cli) or later.
 
-To use Azure CLI, follow these steps:
+To use Azure CLI:
 
-1. Enter Azure CLI into the Windows Taskbar to open the **Microsoft Azure Command Prompt**.
+1. Search for Azure CLI in the Windows Taskbar to open the **Microsoft Azure Command Prompt**.
 
-1. Enter *az login* to sign in to Azure.
+1. Sign in to the Azure portal: *az login* to sign in to Azure.
 
-1. Verify access by entering *az account get-access-token*.  If you receive an error, verify that the right version of Azure CLI was correctly installed.
+1. Verify access by entering *az account get-access-token*. If you receive an error, check that the right version of Azure CLI is correctly installed.
 
-   If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI.  Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
+   If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI. Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
-1. If you are signed in to Azure CLI using multiple accounts or your account has access to multiple subscriptions, you need to specify the subscription to use.  To do so, enter the command *az account set --subscription <subscription-id>*.
+1. If you're signed in to Azure CLI using multiple accounts or your account has access to multiple subscriptions, you need to specify the subscription to use. Enter the command *az account set --subscription <subscription-id>*.
 
-This command generates output only on failure.  To verify the current account settings, enter the command `az account list`.
+This command generates output only on failure. To verify the current account settings, enter the command `az account list`.
 
 #### Authenticating with Azure AD authentication
 
@@ -102,13 +102,13 @@ To use Azure AD authentication, verify that:
 
 ### Authenticating to custom services
 
-When a service calls Azure services, the previous steps work because Azure services allow access to both users and applications.  
+When a service calls Azure services, the previous steps work because Azure services allow access to both users and applications.
 
-When creating a service that calls a custom service, use Azure AD client credentials for local development authentication.  There are two options:
+When creating a service that calls a custom service, use Azure AD client credentials for local development authentication. There are two options:
 
 - Use a service principal to sign into Azure:
 
-    1. Create a service principal. For details, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+    1. Create a service principal. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
     1. Use Azure CLI to sign in with the following command:
 
@@ -118,7 +118,7 @@ When creating a service that calls a custom service, use Azure AD client credent
 
         Because the service principal may not have access to a subscription, use the `--allow-no-subscriptions` argument.
 
-- Use environment variables to specify service principal details.  For details, see [Running the application using a service principal](#running-the-application-using-a-service-principal).
+- Use environment variables to specify service principal details. For more information, see [Running the application using a service principal](#running-the-application-using-a-service-principal).
 
 After you've signed in to Azure, `AzureServiceTokenProvider` uses the service principal to retrieve a token for local development.
 
@@ -132,13 +132,13 @@ Alternatively, you may authenticate with a user-assigned identity. For more info
 
 ## Running the application using a Service Principal
 
-It may be necessary to create an Azure AD Client credential to authenticate. This may happen in the following examples:
+It may be necessary to create an Azure AD Client credential to authenticate. This situation may happen in the following examples:
 
-- Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses the [NetworkService account](../service-fabric/service-fabric-application-secret-management.md) for local development.
+- Your code runs on a local development environment, but not under the developer's identity. Service Fabric, for example, uses the [NetworkService account](../service-fabric/service-fabric-application-secret-management.md) for local development.
 
 - Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity.
 
-- Your code is running on an Azure compute resource that does not yet support managed identities for Azure resources, such as Azure Batch.
+- Your code is running on an Azure compute resource that doesn't yet support managed identities for Azure resources, such as Azure Batch.
 
 There are three primary methods of using a Service Principal to run your application. To use any of them, you must first create a service principal. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
@@ -150,7 +150,7 @@ There are three primary methods of using a Service Principal to run your applica
     az ad sp create-for-rbac --create-cert
     ```
 
-    This command will create a .pem file (private key) that will be stored in your home directory. Deploy this certificate to either the *LocalMachine* or *CurrentUser* store.
+    This command creates a .pem file (private key) that's stored in your home directory. Deploy this certificate to either the *LocalMachine* or *CurrentUser* store.
 
     > [!Important]
     > The CLI command generates a .pem file, but Windows only provides native support for PFX certificates. To generate a PFX certificate instead, use the PowerShell commands shown here: [Create service principal with self-signed certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). These commands automatically deploy the certificate as well.
@@ -180,21 +180,21 @@ There are three primary methods of using a Service Principal to run your applica
 
 1. Run the application.
 
-Once everything's set up correctly, no further code changes are necessary.  `AzureServiceTokenProvider` uses the environment variable and the certificate to authenticate to Azure AD.
+Once everything's set up correctly, no further code changes are necessary. `AzureServiceTokenProvider` uses the environment variable and the certificate to authenticate to Azure AD.
 
 ### Use a certificate in Key Vault to sign into Azure AD
 
-This option allows you to store a service principal's client certificate in Key Vault and use it for service principal authentication. You may use this option for the following scenarios:
+This option lets you store a service principal's client certificate in Key Vault and use it for service principal authentication. You may use this option for the following scenarios:
 
 - Local authentication, where you want to authenticate using an explicit service principal, and want to keep the service principal credential securely in a key vault. Developer account must have access to the key vault.
 
-- Authentication from Azure where you want to use explicit credential, for example, for cross-tenant scenarios, and want to keep the service principal credential securely in a key vault. Managed identity must have access to key vault.
+- Authentication from Azure where you want to use explicit credential and want to keep the service principal credential securely in a key vault. You might use this option for a cross-tenant scenario. Managed identity must have access to key vault.
 
 The managed identity or your developer identity must have permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal's client credential.
 
-To use a client certificate for service principal authentication, follow these steps:
+To use a client certificate for service principal authentication:
 
-1. Create a service principal certificate and automatically store it in your Key Vault using the Azure CLI [az ad sp create-for-rbac --keyvault \<keyvaultname> --cert \<certificatename> --create-cert --skip-assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+1. Create a service principal certificate and automatically store it in your Key Vault. Use the Azure CLI [az ad sp create-for-rbac --keyvault \<keyvaultname> --cert \<certificatename> --create-cert --skip-assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
     az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
@@ -248,40 +248,40 @@ To see the `Microsoft.Azure.Services.AppAuthentication` library in action, refer
 
 ### Common issues during local development
 
-#### Azure CLI is not installed, you are not logged in, or you do not have the latest version
+#### Azure CLI is not installed, you're not logged in, or you don't have the latest version
 
-Run **az account get-access-token** to see if Azure CLI shows a token for you. If it says no such program found, install the [latest version of the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). If you have installed it, you may be prompted to sign in.
+Run *az account get-access-token* to see if Azure CLI shows a token for you. If it says **no such program found**, install the [latest version of the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). You may be prompted to sign in.
 
-#### AzureServiceTokenProvider cannot find the path for Azure CLI
+#### AzureServiceTokenProvider can't find the path for Azure CLI
 
-AzureServiceTokenProvider looks for Azure CLI at its default install locations. If it cannot find Azure CLI, set environment variable **AzureCLIPath** to the Azure CLI installation folder. AzureServiceTokenProvider will add the environment variable to the Path environment variable.
- 
-#### You are logged into Azure CLI using multiple accounts, the same account has access to subscriptions in multiple tenants, or you get an Access Denied error when trying to make calls during local development
+AzureServiceTokenProvider looks for Azure CLI at its default install locations. If it can't find Azure CLI, set environment variable **AzureCLIPath** to the Azure CLI installation folder. AzureServiceTokenProvider will add the environment variable to the Path environment variable.
 
-Using Azure CLI, set the default subscription to one which has the account you want to use, and is in the same tenant as the resource you want to access: **az account set --subscription [subscription-id]**. If no output is seen, then it succeeded. Verify the right account is now the default using **az account list**.
+#### You're logged into Azure CLI using multiple accounts, the same account has access to subscriptions in multiple tenants, or you get an Access Denied error when trying to make calls during local development
+
+Using Azure CLI, set the default subscription to one that has the account you want to use. The subscription must be in the same tenant as the resource you want to access: **az account set --subscription [subscription-id]**. If no output is seen, it succeeded. Verify the right account is now the default using **az account list**.
 
 ### Common issues across environments
 
-#### Unauthorized access, access denied, forbidden, etc. error
- 
-The principal used does not have access to the resource it is trying to access. Grant either your user account or the App Service's MSI "Contributor" access to the desired resource, depending on whether you are running the sample on your local development machine or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
+#### Unauthorized access, access denied, forbidden, or similar error
+
+The principal used doesn't have access to the resource it's trying to access. Grant either your user account or the App Service's MSI "Contributor" access to a resource. Which one depends on whether you're running the sample on your local computer or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
 
 ### Common issues when deployed to Azure App Service
 
-#### Managed identity is not set up on the App Service
- 
-Check the environment variables MSI_ENDPOINT and MSI_SECRET exist using [Kudu debug console](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). If these environment variables do not exist, Managed Identity is not enabled on the App Service. 
- 
+#### Managed identity isn't set up on the App Service
+
+Check the environment variables MSI_ENDPOINT and MSI_SECRET exist using [Kudu debug console](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). If these environment variables don't exist, Managed Identity isn't enabled on the App Service.
+
 ### Common issues when deployed locally with IIS
 
 #### Can't retrieve tokens when debugging app in IIS
 
-By default, AppAuth runs in a different user context in IIS and therefore does not have access to use your developer identity to retrieve access tokens. You can configure IIS to run with your user context with the following two steps:
+By default, AppAuth runs in a different user context in IIS. That's why it doesn't have access to use your developer identity to retrieve access tokens. You can configure IIS to run with your user context with the following two steps:
 - Configure the Application Pool for the web app to run as your current user account. See more information [here](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
 - Configure "setProfileEnvironment" to "True". See more information [here](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
 
     - Go to %windir%\System32\inetsrv\config\applicationHost.config
-    - Search for "setProfileEnvironment". If it is set to "False", change it to "True". If it is not present, add it as an attribute to the processModel element (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment), and set it to "True".
+    - Search for "setProfileEnvironment". If it's set to "False", change it to "True". If it's not present, add it as an attribute to the processModel element (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment), and set it to "True".
 
 - Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml).
 - Learn more about [Azure AD authentication scenarios](../active-directory/develop/active-directory-authentication-scenarios.md).
