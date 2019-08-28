@@ -1,6 +1,6 @@
 ---
 title: Technical overview - Azure Active Directory B2C
-description: An in-depth introduction to the features of Azure Active Directory B2C, including a high-level architectural overview of the service.
+description: An in-depth introduction to the features and technologies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -83,9 +83,9 @@ The extensible policy framework of Azure AD B2C is its core strength. Policies d
 
 In Azure AD B2C, there are two primary paths you can take to provide these identity experiences: user flows and custom policies.
 
-* **User flows** are predefined, built-in, and configurable policies that we provide so you can create sign up, sign in, and policy editing experiences in minutes.
+* **User flows** are predefined, built-in, configurable policies that we provide so you can create sign up, sign in, and policy editing experiences in minutes.
 
-* **Custom policies** enable you create your own user journeys for more complex scenarios not.
+* **Custom policies** enable you create your own user journeys for complex identity experience scenarios.
 
 Both user flows and custom policies are powered by the *Identity Experience Framework*, Azure AD B2C's policy orchestration engine.
 
@@ -95,13 +95,17 @@ To help you quickly set up the most common identity tasks, the Azure portal incl
 
 You can configure user flow settings like these to control identity experience behaviors in your applications:
 
-* Account types used for sign-in, such as social accounts like a Facebook or local accounts
+* Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
 * Attributes to be collected from the consumer, such as first name, postal code, or country of residency
 * Azure Multi-Factor Authentication (MFA)
 * Customization of the user interface
-* Set of claims in a token that your application receives after the user completes the user flow.
+* Set of claims in a token that your application receives after the user completes the user flow
 * Session management
 * ...and more.
+
+Most common identity scenarios for the majority of mobile, web, and single-page applications can be defined and implemented effectively with user flows. We recommend user flows for all but the advanced, complex application scenarios that require the full flexibility of custom policies.
+
+Learn more about user flows in [User flows in Azure Active Directory B2C](active-directory-b2c-reference-policies.md).
 
 ### Custom policy
 
@@ -110,7 +114,7 @@ Custom policies unlock access to the full power of the Identity Experience Frame
 The Identity Experience Framework gives you the ability to construct user journeys with any combination of steps. For example:
 
 * Federate with other identity providers
-* First- third-party multi-factor authentication (MFA) challenges
+* First- and third-party multi-factor authentication (MFA) challenges
 * Collect any user input
 * Integrate with external systems using REST API communication
 
@@ -121,6 +125,8 @@ Each such user journey is defined by a policy, and you can build as many or as f
 A custom policy is defined by several XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
 
 The powerful flexibility of custom policies is most appropriate for when you need to build complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
+
+Learn more about custom policies in [Custom policies in Azure Active Directory B2C](active-directory-b2c-overview-custom.md).
 
 ## Protocols and tokens
 
@@ -140,7 +146,7 @@ The preceding diagram shows how Azure AD B2C can communicate using variety of pr
 
 ## Application integration
 
-When a user wants to sign in to your application, whether it's a web, mobile, desktop, or single-page application (SPA), the application initiates an authorization request to a user flow- or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When a user completes a user flow, for example the sign-up or sign-in flow, Azure AD B2C generates a token, then redirects the user back to your application.
+When a user wants to sign in to your application, whether it's a web, mobile, desktop, or single-page application (SPA), the application initiates an authorization request to a user flow- or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When they complete a user flow, for example the *sign-up or sign-in* flow, Azure AD B2C generates a token, then redirects the user back to your application.
 
 ![Mobile app with arrows showing flow between Azure AD B2C sign-in page](media/technical-overview/app-integration.png)
 
@@ -158,7 +164,7 @@ In Azure AD B2C, you can craft your users' identity experiences so that the page
 
 Language customization in Azure AD B2C allows you to accommodate different languages to suit your customer needs. Microsoft provides the translations for 36 languages, but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages.
 
-![Localization](media/technical-overview/localization.png)
+![Three sign-up sign-in pages showing UI text in different languages](media/technical-overview/localization.png)
 
 ## Add your own business logic
 
