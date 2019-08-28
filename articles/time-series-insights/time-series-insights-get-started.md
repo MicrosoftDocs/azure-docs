@@ -54,7 +54,7 @@ Follow these steps to create an environment:
 
     When the deployment succeeds, you can select **Go to resource** to configure other properties, set security with data access policies, add event sources, and other actions.
 
-1. In the resource **Overview**, check **Pin to dashboard** to easily access your Time Series Insights environment in the future.
+1. In the resource **Overview**, select the **pin icon** in the upper right corner to easily access your Time Series Insights environment in the future.
 
    [![Create the Time Series Insights pin to dashboard](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
