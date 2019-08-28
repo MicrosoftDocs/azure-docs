@@ -37,18 +37,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## August 2019
 
-### ADAL.NET ignores the MSAL.NET shared cache for on-behalf-of scenarios
-
-**Type:** Fixed  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
-
-Starting with Azure AD authentication library (ADAL.NET) version 5.0.0-preview, app developers must [serialize one cache per account for web apps and web APIs](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). Otherwise, some scenarios using the [on-behalf-of flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), along with some specific use cases of `UserAssertion`, may result in an elevation of privilege. To avoid this vulnerability, ADAL.NET now ignores the Microsoft authentication library for dotnet (MSAL.NET) shared cache for on-behalf-of scenarios.
-
-For more information about this issue, see [Azure Active Directory Authentication Library Elevation of Privilege Vulnerability](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
-
----
-
 ### Plan for change: Deprecation of the Power BI content packs
 
 **Type:** Plan for change  
@@ -70,20 +58,6 @@ For more information about the workbooks, see [How to use Azure Monitor workbook
 New custom roles are available (with an Azure AD Premium P1 subscription) for app registration management. These custom roles are built on the previous work done for delegating app management, giving you more fine-grained control over what your administrators can see and do, including the ability to create a role to assign permissions for managing your organization's app registrations.
 
 For more information, see [Custom administrator roles in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-custom-overview).
-
----
-
-### New Federated Apps available in Azure AD App gallery - August 2019
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
-
-In August 2019, we've added these 26 new apps with Federation support to the app gallery:
-
-[Civic Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareport's Inativ Portal (Europe)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [Academy Attendance](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [Priority Matrix](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint Backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [CPQSync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee--tutorial), [deliver.media™ Portal](https://portal.deliver.media), [Frontline Education](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [ProNovos Analytics](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [Watch by Colors](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [Harness](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [EAB Navigate Strategic Care](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
 
 ---
 
@@ -117,6 +91,74 @@ New provisioning logs are available to help you monitor and troubleshoot the use
 - What employees weren't imported from [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)
 
 For more information, see [Provisioning reports in the Azure Active Directory portal (preview)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)
+
+---
+
+### New security reports are available for all Azure AD administrators (General Availability)
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+By default, all Azure AD administrators can now access modern security reports within Azure AD. Until the end of September, you can use the banner at the top of the modern security reports to return to the old reports.
+
+The modern security reports provide additional capabilities from the older versions, including:
+
+- Advanced filtering and sorting
+- Bulk actions, such as dismissing user risk
+- Confirmation of compromised or safe entities
+- Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
+- New risk-related detections (available to Azure AD Premium subscribers)
+
+For more information, see [Risk detection reports](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins) and the blog post, [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935).
+
+---
+
+### User-assigned managed identity is available for Virtual Machines and Virtual Machine Scale Sets (General Availability)
+
+**Type:** New feature  
+**Service category:** Managed identities for Azure resources  
+**Product capability:** Developer Experience
+
+User-assigned managed identities are now generally available for Virtual Machines and Virtual Machine Scale Sets. As part of this, Azure can create an identity in the Azure AD tenant that's trusted by the subscription in use, and can be assigned to one or more Azure service instances. For more information about user-assigned managed identities, see [What is managed identities for Azure resources?](aka.ms/azuremanagedidentity).
+
+---
+
+### Users can reset their passwords using a mobile app or hardware token (General Availability)
+
+**Type:** Changed feature  
+**Service category:** Self Service Password Reset  
+**Product capability:** User Authentication
+
+Users who have registered a mobile app with your organization can now reset their own password by approving a notification from the Microsoft Authenticator app or by entering a code from their mobile app or hardware token.
+
+For more information, see [How it works: Azure AD self-service password reset](aka.ms/authappsspr). For more information about the user experience, see [Reset your own work or school password overview](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview)
+
+---
+
+### ADAL.NET ignores the MSAL.NET shared cache for on-behalf-of scenarios
+
+**Type:** Fixed  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+
+Starting with Azure AD authentication library (ADAL.NET) version 5.0.0-preview, app developers must [serialize one cache per account for web apps and web APIs](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). Otherwise, some scenarios using the [on-behalf-of flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), along with some specific use cases of `UserAssertion`, may result in an elevation of privilege. To avoid this vulnerability, ADAL.NET now ignores the Microsoft authentication library for dotnet (MSAL.NET) shared cache for on-behalf-of scenarios.
+
+For more information about this issue, see [Azure Active Directory Authentication Library Elevation of Privilege Vulnerability](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
+
+---
+
+### New Federated Apps available in Azure AD App gallery - August 2019
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In August 2019, we've added these 26 new apps with Federation support to the app gallery:
+
+[Civic Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareport's Inativ Portal (Europe)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [Academy Attendance](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [Priority Matrix](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint Backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [CPQSync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee--tutorial), [deliver.media™ Portal](https://portal.deliver.media), [Frontline Education](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [ProNovos Analytics](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [Watch by Colors](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [Harness](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [EAB Navigate Strategic Care](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
 
 ---
 
@@ -165,107 +207,6 @@ For more information, see the [Example how to create Azure AD access reviews usi
 
 ---
 
-[797480](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=797480&triage=true&fullScreen=false&_a=edit)
-
-### Availability of Azure Monitor for Azure AD Logs in Gov Clouds
-
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-
-We are excited to announce the availability of Azure AD Logs in Azure Monitor for gov cloud instances. You can now route Azure AD logs to your storage account or to event hub to integrate with your SIEM tools like Sumologic, Splunk and ArcSight.  For more information on how to setup Azure Monitor, check out our documentation.  
-
-Note: Azure AD logs integration with Log Analytics is not available in gov clouds. This will be available soon. Watch out for this space for more updates.
-
----
-
-[791257](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=791257&triage=true&fullScreen=false&_a=edit)
-
-### Enable enhanced security info experience by September 25, 2019
-
-**Type:** Changed feature  
-**Service category:** Microsoft Authenticator App  
-**Product capability:** User Authentication
-
-On February 21, 2019, we released an enhanced experience for registering and managing security info. The enhanced experience makes it easier than ever for you and your users to register their security info in a single experience. To learn more about the enhanced security info experience, please read our admin documentation and user documentation.
-
-
-
-On September 25, 2019, we will be enabling the enhanced experience for register and managing security info for the users you have enabled for the non-enhanced experience. This means that the users who are enabled for the preview features for registering and managing security info will see the enhanced experience. You and your users will no longer have access to non-enhanced experience.  
-
-
-
-To enable the enhanced experience and disable the non-enhanced experience, complete the following steps: 
-
-
-
-Sign into the Azure portal as a global administrator or user administrator. 
-Browse to Azure Active Directory > User settings > Manage settings for access panel preview features. 
-Under Users can use preview features for registering and managing security info - enhanced, set the control to Selected and select a group of users or All to enable for all users in the tenant. 
-Under Users can use preview features for registering and managing security info, set the control to None. 
-Save your settings. Note: When you save your settings, you will no longer have access to the control for the old security info experience. 
-If you do not complete these steps before September 25, 2019, your Azure Active Directory tenant will be automatically enabled for the enhanced experience. If you have questions, please contact us at registrationpreview@microsoft.com. 
-
-
-
- 
-
----
- 
-
-[795768](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=795768&triage=true&fullScreen=false&_a=edit)
-
-### POST logins will now be strictly validated
-
-**Type:** Changed feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** Standards
-
----
-
-### New security reports are available for all Azure AD administrators (General Availability)
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-By default, all Azure AD administrators can now access modern security reports within Azure AD. Until the end of September, you can use the banner at the top of the modern security reports to return to the old reports.
-
-The modern security reports provide additional capabilities from the older versions, including:
-
-- Advanced filtering and sorting
-- Bulk actions, such as dismissing user risk
-- Confirmation of compromised or safe entities
-- Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
-- New risk-related detections (available to Azure AD Premium subscribers)
-
-For more information, see [Risk detection reports](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins) and the blog post, [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935).
-
----
-
-### User-assigned managed identity is available for Virtual Machines and Virtual Machine Scale Sets (General Availability)
-
-**Type:** New feature  
-**Service category:** Managed identities for Azure resources  
-**Product capability:** Developer Experience
-
-User-assigned managed identities are now generally available for Virtual Machines and Virtual Machine Scale Sets. As part of this, Azure can create an identity in the Azure AD tenant that's trusted by the subscription in use, and can be assigned to one or more Azure service instances. For more information about user-assigned managed identities, see [What is managed identities for Azure resources?](aka.ms/azuremanagedidentity).
-
----
-
-### Users can reset their passwords using a mobile app or hardware token (General Availability)
-
-**Type:** Changed feature  
-**Service category:** Self Service Password Reset  
-**Product capability:** User Authentication
-
-Users who have registered a mobile app with your organization can now reset their own password by approving a notification from the Microsoft Authenticator app or by entering a code from their mobile app or hardware token.
-
-For more information, see [How it works: Azure AD self-service password reset](aka.ms/authappsspr). For more information about the user experience, see [Reset your own work or school password overview](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview)
-
----
-
 ### Consolidated Security menu item is now available in the Azure portal
 
 **Type:** Changed feature  
@@ -285,7 +226,57 @@ The new **Security** menu includes:
 - Risk reports - Risky users, Risky sign-ins, Risk detections
 - And more...
 
-For more information, see the [Identity protection blog](https://aka.ms/IdentityProtectionBlog).
+For more information, see the [Identity protection blog](https://aka.ms/SecurityMenuDocs).
+
+---
+
+[797480](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=797480&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD log files are now available in Azure Monitor for government cloud instances
+
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+We are excited to announce the availability of Azure AD Logs in Azure Monitor for gov cloud instances. You can now route Azure AD logs to your storage account or to event hub to integrate with your SIEM tools like Sumologic, Splunk and ArcSight.  For more information on how to setup Azure Monitor, check out our documentation.  
+
+Note: Azure AD logs integration with Log Analytics is not available in gov clouds. This will be available soon. Watch out for this space for more updates.
+
+---
+
+[791257](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=791257&triage=true&fullScreen=false&_a=edit)
+
+### Enable enhanced security info experience by September 25, 2019
+
+**Type:** Changed feature  
+**Service category:** Microsoft Authenticator App  
+**Product capability:** User Authentication
+
+On February 21, 2019, we released an enhanced experience for registering and managing security info. The enhanced experience makes it easier than ever for you and your users to register their security info in a single experience. To learn more about the enhanced security info experience, please read our admin documentation and user documentation.
+
+On September 25, 2019, we will be enabling the enhanced experience for register and managing security info for the users you have enabled for the non-enhanced experience. This means that the users who are enabled for the preview features for registering and managing security info will see the enhanced experience. You and your users will no longer have access to non-enhanced experience.  
+
+To enable the enhanced experience and disable the non-enhanced experience, complete the following steps:
+Sign into the Azure portal as a global administrator or user administrator.
+Browse to Azure Active Directory > User settings > Manage settings for access panel preview features.
+Under Users can use preview features for registering and managing security info - enhanced, set the control to Selected and select a group of users or All to enable for all users in the tenant.
+Under Users can use preview features for registering and managing security info, set the control to None.
+Save your settings. Note: When you save your settings, you will no longer have access to the control for the old security info experience.
+If you do not complete these steps before September 25, 2019, your Azure Active Directory tenant will be automatically enabled for the enhanced experience. If you have questions, please contact us at registrationpreview@microsoft.com.
+
+---
+
+[795768](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=795768&triage=true&fullScreen=false&_a=edit)
+
+### POST logins will now be strictly validated
+
+**Type:** Changed feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** Standards
+
+Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards. Specifically, spaces and double-quotes (“) will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
+
+For more details and examples, see the Azure AD Breaking Changes notice page.
 
 ---
 
