@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/06/2019
+ms.date: 08/27/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -126,7 +126,7 @@ The deployment can take up to 90 minutes. You can use the Azure portal to monito
 > [!IMPORTANT]
 > Post deployment, you need to complete Active Directory settings. If you chose **Add Later**, you need to run the [Azure AD configuration script](#azure-ad-configuration-script).  If you chose **Add now**, you need to [configure the Reply URL](#configuring-the-reply-url).
 
-## Blockchain Workbench Web URL
+## Blockchain Workbench web URL
 
 Once the deployment of the Blockchain Workbench has completed, a new resource group contains your Blockchain Workbench resources. Blockchain Workbench services are accessed through a web URL. The following steps show you how to retrieve the web URL of the deployed framework.
 
@@ -184,30 +184,25 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select your account in the top-right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Workbench is deployed and you have sufficient permissions to register applications.
-3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New application registration**.
+2. Select your account in the top-right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Azure Blockchain Workbench is deployed and you have sufficient permissions to register applications.
+3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New registration**.
 
     ![App registration](media/deploy/app-registration.png)
 
-4. Provide a **Name** and **Sign-on URL** for the application. You can use placeholder values since the values are changed during the deployment. 
+4. Provide a display **Name** and choose **Accounts in this organizational directory only**.
 
     ![Create app registration](media/deploy/app-registration-create.png)
 
-    |Setting  | Value  |
-    |---------|---------|
-    |Name | `Blockchain API` |
-    |Application type |Web app / API|
-    |Sign-on URL | `https://blockchainapi` |
-
-5. Select **Create** to register the Azure AD application.
+5. Select **Register** to register the Azure AD application.
 
 ### Modify manifest
 
 Next, you need to modify the manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../../active-directory/develop/reference-app-manifest.md).
 
-1. For the application you registered, select **Manifest** in the registered application details pane.
-2. Generate a GUID. You can generate a GUID using the PowerShell command [guid] :: NewGuid () or New-GUID cmdlet. Another option is to use a GUID generator website.
-3. You are going to update the **appRoles** section of the manifest. In the Edit manifest pane, select **Edit** and replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
+
+1. You need to generate a GUID for the manifest. You can generate a GUID using the PowerShell command `[guid]::NewGuid()` or `New-GUID` cmdlet. Another option is to use a GUID generator website.
+1. For the application you registered, select **Manifest** in the **Manage** section.
+1. Next, update the **appRoles** section of the manifest. Replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
 
     ![Edit manifest](media/deploy/edit-manifest.png)
 
@@ -242,19 +237,13 @@ Next, you need to modify the manifest to use application roles within Azure AD t
 
 The API application needs to request permission from the user to access the directory. Set the following required permission for the API application:
 
-1. In the Blockchain API app registration, select **Settings > Required permissions > Select an API > Microsoft Graph**.
+1. In the Blockchain API app registration, select **API permissions**.
 
     ![Select an API](media/deploy/client-app-select-api.png)
 
-    Click **Select**.
+    By default, the Graph API User.Read permission is added.
 
-2. In **Enable Access** under **Delegated permissions**, choose **Read all users' basic profiles**.
-
-    ![Enable access](media/deploy/client-app-read-perms.png)
-
-    Select **Save** then select **Done**.
-
-3. In **Required permissions**, select **Grant Permissions** then select **Yes** for the verification prompt.
+3. In **Grant consent**, select **Grant admin consent** for the domain then select **Yes** for the verification prompt.
 
    ![Grant permissions](media/deploy/client-app-grant-permissions.png)
 
@@ -264,14 +253,14 @@ The API application needs to request permission from the user to access the dire
 
 The application ID and tenant information are required for deployment. Collect and store the information for use during deployment.
 
-1. For the application you registered, select **Settings** > **Properties**.
-2. In the **Properties** pane, copy and store the following values for later use during deployment.
+1. For the application you registered, select **Overview**.
+2. Copy and store the following values for later use during deployment.
 
     ![API app properties](media/deploy/app-properties.png)
 
     | Setting to store  | Use in deployment |
     |------------------|-------------------|
-    | Application ID | Azure Active Directory setup > Application ID |
+    | Application (client) ID | Azure Active Directory setup > Application ID |
 
 ### Get tenant domain name
 
@@ -289,7 +278,7 @@ If you have guest users in your Azure AD tenant, follow the additional steps to 
 2. Set **Guest user permissions are limited** to **No**.
     ![External collaboration settings](media/deploy/user-collaboration-settings.png)
 
-## Configuring the Reply URL
+## Configuring the reply URL
 
 Once the Azure Blockchain Workbench has been deployed, you have to configure the Azure Active Directory (Azure AD) client application **Reply URL** of the deployed Blockchain Workbench web URL.
 
@@ -297,8 +286,8 @@ Once the Azure Blockchain Workbench has been deployed, you have to configure the
 2. Verify you are in the tenant where you registered the Azure AD client application.
 3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations**.
 4. Select the Azure AD client application you registered in the prerequisite section.
-5. Select **Settings > Reply URLs**.
-6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the **Get the Azure Blockchain Workbench Web URL** section. The Reply URL is prefixed with `https://`. For example, `https://myblockchain2-7v75.azurewebsites.net`
+5. Select **Authentication**.
+6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the [Blockchain Workbench web URL](#blockchain-workbench-web-url) section. The Reply URL is prefixed with `https://`. For example, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Reply URLs](media/deploy/configure-reply-url.png)
 
