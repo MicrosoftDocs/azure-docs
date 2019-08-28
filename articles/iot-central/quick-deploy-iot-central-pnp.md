@@ -50,4 +50,4 @@ To create a new Azure IoT Central application that includes preview features suc
 In this quickstart, you created an IoT Central application that uses the preview features. The suggested next step is to:
 
 > [!div class="nextstepaction"]
-> [Take a tour of IoT Central](overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Define a new device type in your Azure IoT Central application](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
