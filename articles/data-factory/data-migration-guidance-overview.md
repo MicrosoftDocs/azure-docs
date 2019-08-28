@@ -20,7 +20,7 @@ If you want to migrate your data lake or enterprise data warehouse (EDW) to Micr
 - Big data workload migration from Amazon Simple Storage Service (Amazon S3) or an on-premises Hadoop Distributed File System (HDFS) to Azure
 - EDW migration from Oracle Exadata, Netezza, Teradata, or Amazon Redshift to Azure
 
-Azure Data Factory can move petabytes (PB) of data for data lake migration, and tens of terabytes (TB) data for data warehouse migration​.
+Azure Data Factory can move petabytes (PB) of data for data lake migration, and tens of terabytes (TB) of data for data warehouse migration​.
 
 ## Why Azure Data Factory can be used for data migration
 
@@ -43,9 +43,10 @@ There are three key considerations when you choose between an online and offline
 - Network bandwidth
 - Migration window
 
-For example, assume you want to use Azure Data Factory to complete your data migration within two weeks (your *migration window*). Notice the pink/blue cut line in the following table. The lowest pink cell for any given column shows the data size/network bandwidth pairing whose migration window is closest to but less than two weeks. (Any size/bandwidth pairing in a blue cell has a migration window of more than two weeks.) This table helps you determine whether you can meet your intended migration window based on the size of your data and your available network bandwidth.
+For example, assume you plan to use Azure Data Factory to complete your data migration within two weeks (your *migration window*). Notice the pink/blue cut line in the following table. The lowest pink cell for any given column shows the data size/network bandwidth pairing whose migration window is closest to but less than two weeks. (Any size/bandwidth pairing in a blue cell has an online migration window of more than two weeks.) 
 
 ![online vs. offline](media/data-migration-guidance-overview/online-offline.png)
+This table helps you determine whether you can meet your intended migration window through online migration (Azure Data Factory) based on the size of your data and your available network bandwidth. If the online migration window is more than two weeks, you'll want to use offline migration.
 
 > [!NOTE]
 > By using online migration, you can achieve both historical data loading and incremental feeds end-to-end through a single tool.  Through this approach, your data can be kept synchronized between the existing store and the new store during the entire migration window. This means you can rebuild your ETL logic on the new store with refreshed data.
