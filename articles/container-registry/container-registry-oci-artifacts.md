@@ -7,16 +7,16 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 08/28/2019
 ms.author: danlep
 ms.custom: 
 ---
 
 # Push and pull OCI artifacts using an Azure container registry
 
-An Azure container registry is able to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) in addition to Docker and Docker-compatible container images.
+You can use an Azure container registry to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and Docker-compatible container images.
 
-This article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) tool to push a sample artifact -  a text file - to an Azure container registry. Then, pull the image from the registry. While this example is basic, you can build and store a range of OCI artifacts in an Azure container registry using native command line tools for those artifacts.
+This article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) tool to push a sample artifact -  a text file - to an Azure container registry. Then, pull the image from the registry. This example is only for demonstration purposes, but you can manage a variety of OCI artifacts in an Azure container registry using different command-line tools.
 
 ## Prerequisites
 
@@ -24,11 +24,11 @@ This article shows how to use the [OCI Registry as Storage (ORAS)](https://githu
 * **Docker** - You must also have Docker installed locally, to authenticate with the registry. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
 * **ORAS tool** - Download and install a current `oras` release for your operating system from the [GitHub repo](https://github.com/deislabs/oras/releases). Currently the tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using stand procedures for your operating system.
-* **Azure Active Directory service principal (optional)** - Optionally create a [service principal](container-registry-auth-service-principal.md) to access your registry. For this article, ensure that the service principal is assigned the AcrPush role, which has permissions to push and pull artifacts.
+* **Azure Active Directory service principal (optional)** - Optionally create a [service principal](container-registry-auth-service-principal.md) to access your registry. Ensure that the service principal is assigned at least the AcrPush role so that it has permissions to push and pull artifacts.
 
 ## Sign in to a registry
 
-First, [sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with an identity (your own, or a service principal) that has permissions to push and pull artifacts from the container registry.
+[Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with an identity (your own, or a service principal) that has permissions to push and pull artifacts from the container registry.
 
 Then, use the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) to access the registry. For example, to log in to a registry named *myregistry*:
 
@@ -38,27 +38,79 @@ az acr login --name myregistry
 
 ## Push an artifact
 
-Create a text file with some sample text. For example, in a bash shell:
+Create a text file in a local working working directory with some sample text. For example, in a bash shell:
 
 ```bash
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Use the `oras` tool to push this artifact to your registry. The following example pushes the sample text file to the `samples/artifact` repo in *myregistry*. The artifact is tagged `v1`. Be sure to use the fully qualified registry name (all lowercase):
+Use the `oras` tool to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo in *myregistry*. The artifact is tagged `v1`. Note that you push the artifact using the fully qualified registry name *myregistry.azurecr.io* (all lowercase):
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:v1 artifact.txt
 ```
 
+Output for a successful push is similar to the following:
+
+```console
+Uploading 33998889555f artifact.txt
+Pushed myregistry.azurecr.io/samples/artifact:v1
+Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
+```
+
+To manage artifacts in your registry, use standard `az acr` commands that you use to manage images. For example, get the attributes of the artifact using the [az acr repository show][az-acr-repository-show] command:
+
+```azurecli
+az acr repository show --name myregistry --repository samples/artifact
+```
+
+Output is similar to the following:
+
+```json
+{
+  "changeableAttributes": {
+    "deleteEnabled": true,
+    "listEnabled": true,
+    "readEnabled": true,
+    "writeEnabled": true
+  },
+  "createdTime": "2019-08-28T18:01:01.4205711Z",
+  "imageName": "samples/artifact",
+  "lastUpdateTime": "2019-08-28T18:01:01.5363713Z",
+  "manifestCount": 1,
+  "registry": "myregistry.azurecr.io",
+  "tagCount": 1
+}
+```
 
 ## Pull an artifact
 
+Run the `oras pull` command to pull the artifact from your registry.
 
+First remove the text file from your local working directory:
 
+```bash
+rm artifact.txt
+```
+
+Run `oras pull` to pull the artifact:
+
+```bash
+oras pull myregistry.azurecr.io/samples/artifact:v1
+```
+
+Verify that the pull was successful:
+
+```bash
+$ cat hi.txt
+Here is an artifact!
+```
 
 
 ## Next steps
 
+* Learn more about [advanced features](https://github.com/deislabs/oras/tree/master/docs) of the ORAS library, including how to configure an image manifest.
+* Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types.
 
 
 
