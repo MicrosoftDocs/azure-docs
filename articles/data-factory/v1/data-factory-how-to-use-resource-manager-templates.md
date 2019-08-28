@@ -7,19 +7,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-editor: ''
-
-ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Use templates to create Azure Data Factory entities
 > [!NOTE]
 > This article applies to version 1 of Data Factory. 

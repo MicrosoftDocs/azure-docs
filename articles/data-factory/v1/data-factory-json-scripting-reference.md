@@ -11,10 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
