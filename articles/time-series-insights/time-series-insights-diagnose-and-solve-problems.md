@@ -66,9 +66,12 @@ The following figure shows a Time Series Insights environment that has an SKU of
 
 [![Environment SKU current capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-As an example, assume an environment ingests messages from an event hub. The daily ingress rate is ~67,000 messages. This rate translates to approximately 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, throttling doesn't occur. 
+As an example, assume an environment ingests messages from an event hub. The daily ingress rate is ~67,000 messages. This rate translates to approximately 46 messages every minute. 
 
-If each event hub message is flattened to 100 Time Series Insights events, 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). 
+* If each event hub message is flattened to a single Time Series Insights event, throttling doesn't occur. 
+* If each event hub message is flattened to 100 Time Series Insights events, 4,600 events should be ingested every minute. 
+
+An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). 
 
 For a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
