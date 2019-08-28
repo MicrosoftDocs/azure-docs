@@ -68,7 +68,7 @@ Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
 
     ![Search Policy](./media/cosmos-db-advanced-threat-protection/cosmos-db.png) 
 
-1. Click on the **Deploy Advanced Threat Protection for CosmosDB** policy, and thenclick **Assign**.
+1. Click on the **Deploy Advanced Threat Protection for CosmosDB** policy, and then click **Assign**.
 
     ![Select Subscription Or Group](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png)
 
