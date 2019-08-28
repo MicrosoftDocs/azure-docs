@@ -23,7 +23,7 @@ We have identified that your Virtual Machine (VM) entered a rescue console. The 
 
 If you find that you can't connect to a VM in the future, you can view a screenshot of your VM using the boot diagnostics blade in the Azure portal. This may help you diagnose the issue and determine if a similar boot error is the cause.
 
-## **Recommended Steps**
+## Recommended steps
 
 Follow the mitigation steps below depending on the error you receive:
 
