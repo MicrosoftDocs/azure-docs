@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
-	a. In the **Entity id** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+	a. In the **Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
 	b. In the **Single sign-on service endpoint** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
