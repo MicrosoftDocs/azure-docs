@@ -481,8 +481,12 @@ Learn about how web apps can call web APIs.
 
 ### Learn how to create the application used in this quickstart guide
 
+Learn more about Web apps calling web APIs with the Microsoft identity platform:
+
 > [!div class="nextstepaction"]
 > [Web apps calling Web APIs](scenario-web-app-sign-user-overview.md)
+
+Learn how to build Web apps calling Microsoft Graph:
 
 > [!div class="nextstepaction"]
 > [Microsoft Graph ASP.NET tutorial](https://docs.microsoft.com/graph/tutorials/aspnet)
