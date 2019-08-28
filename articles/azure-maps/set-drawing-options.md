@@ -28,6 +28,8 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 
 The code below is a complete running example of how to set a drawing mode of the drawing manager.
 
+<br/>
+
 <iframe height="500" style="width: 100%;" scrolling="no" title="Draw a polygon" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a polygon</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -59,6 +61,8 @@ Below is the code sample implementing the functionality that lets you draw on th
 ## Customizing drawing options
 
 The previous examples demonstrated how to customize drawing options in the code by setting the Drawing Manager options. You can also set the Drawing Manager options by using the **drawingManager.setOptions()** function. Below is a tool to test out customization of all options for the drawing manager using the setOptions function.
+
+<br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="LYPyrxR" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=310&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>LYPyrxR</a> by Azure Maps
