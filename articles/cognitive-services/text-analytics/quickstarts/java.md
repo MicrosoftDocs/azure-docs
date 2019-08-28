@@ -32,10 +32,9 @@ You must also have the [endpoint and access key](../../cognitive-services-apis-c
 
 The Language Detection API detects the language of a text document, using the [Detect Language method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class named `DetectLanguage.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -211,10 +210,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class  in it named `GetSentiment.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -255,14 +253,14 @@ class Document {
 }
 
 class Documents {
-	public List<Document> documents;
+    public List<Document> documents;
 
-	public Documents() {
-		this.documents = new ArrayList<Document>();
-	}
-	public void add(String id, String language, String text) {
-	    this.documents.add (new Document (id, language, text));
-	}
+    public Documents() {
+        this.documents = new ArrayList<Document>();
+    }
+    public void add(String id, String language, String text) {
+        this.documents.add (new Document (id, language, text));
+    }
 }
 
 public class GetSentiment {
@@ -367,10 +365,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). The following example extracts Key phrases for both English and Spanish documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class in it called `GetKeyPhrases.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -411,14 +408,14 @@ class Document {
 }
 
 class Documents {
-	public List<Document> documents;
+    public List<Document> documents;
 
-	public Documents() {
-		this.documents = new ArrayList<Document>();
-	}
-	public void add(String id, String language, String text) {
-	    this.documents.add (new Document (id, language, text));
-	}
+    public Documents() {
+        this.documents = new ArrayList<Document>();
+    }
+    public void add(String id, String language, String text) {
+        this.documents.add (new Document (id, language, text));
+    }
 }
 
 public class GetKeyPhrases {
@@ -542,10 +539,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entities](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extract words from text, like "United States", then give you the type and/or Wikipedia link for this word(s). The type for "United States" is `location`, while the link to Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  The following example identifies entities for English documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class in it named `GetEntities.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -586,14 +582,14 @@ class Document {
 }
 
 class Documents {
-	public List<Document> documents;
+    public List<Document> documents;
 
-	public Documents() {
-		this.documents = new ArrayList<Document>();
-	}
-	public void add(String id, String language, String text) {
-	    this.documents.add (new Document (id, language, text));
-	}
+    public Documents() {
+        this.documents = new ArrayList<Document>();
+    }
+    public void add(String id, String language, String text) {
+        this.documents.add (new Document (id, language, text));
+    }
 }
 
 public class GetEntities {
