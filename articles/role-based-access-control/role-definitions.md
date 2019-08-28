@@ -160,7 +160,7 @@ To view and work with data operations, you must have the correct versions of the
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 or later |
 | [Azure for Java](/java/azure/) | 1.9.0 or later |
-| [Azure for Python](/python/azure) | 0.40.0 or later |
+| [Azure for Python](/azure/python/) | 0.40.0 or later |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 or later |
 
 To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
