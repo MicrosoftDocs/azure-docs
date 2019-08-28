@@ -45,9 +45,26 @@ Another use case scenario is media upload. The data upload happens through UDP, 
 
 ## Configure source IP affinity settings
 
+### Azure portal
+
+You can change the configuration of the distribution mode by modifying the load balancing rule in the portal.
+
+1. Sign in to the Azure portal and locate the Resource Group containing the load balancer you wish to change by clicking on **Resource Groups**.
+2. In the load balancer overview blade, click on **Load balancing rules** under **Settings**.
+3. In the load balancing rules blade, click on the load balancing rule that you wish to change the distribution mode.
+4. Under the rule, the distribution mode is changed by changing the **Session persistence** drop down box.  The following options are available:
+    
+    * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
+    * **Client IP (source IP affinity 2-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
+    * **Client IP and protocol (source IP affinity 3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+
+5. Choose the distribution mode and then click **Save**.
+
+### Azure PowerShell
+
 For virtual machines deployed with Resource Manager, use PowerShell to change the load balancer distribution settings on an existing load balancing rule. This updates the distribution mode: 
 
-```powershell
+```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
 $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
@@ -55,7 +72,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 
 For classic virtual machines, use Azure PowerShell to change the distribution settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
@@ -89,7 +106,7 @@ When the `LoadBalancerDistribution` element is not present, Azure Load Balancer 
 
 When endpoints are part of a load-balanced endpoint set, the distribution mode must be configured on the load-balanced endpoint set:
 
-```azurepowershell
+```azurepowershell-interactive
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
