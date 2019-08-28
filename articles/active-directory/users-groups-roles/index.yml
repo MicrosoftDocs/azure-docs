@@ -41,7 +41,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Set expiration for user-created groups
+          - text: Add a user
+           url: https://review.docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+          - text: Set expiration policy for groups
             url: groups-quickstart-expiration.md
           - text: Assign licenses to users
             url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -55,7 +57,10 @@ landingContent:
             url: roles-assign-powershell.md
           - text: Assign roles using Graph API
             url: roles-assign-graph.md
-
+          - text: Delegate roles by task
+            url: roles-delegate-by-task.md
+          - text: Delegate application management
+            url: roles-delegate-app-roles.md
 
   # Card
   - title: Assign licenses
