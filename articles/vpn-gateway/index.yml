@@ -33,7 +33,7 @@ landingContent:
             url: vpn-gateway-bgp-overview.md
           - text: Zone-redundant gateways
             url: about-zone-redundant-vnet-gateways.md
-          - text: FAQ
+          - text: VPN Gateway FAQ
             url: vpn-gateway-vpn-faq.md
   # Card
   - title: Get started
