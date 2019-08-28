@@ -97,11 +97,11 @@ To use the DSVM as a development environment, do the following:
 
     * The Azure CLI:
 
-            > [!IMPORTANT]
-            > * When you use the Azure CLI, you must first sign in to your Azure subscription by using the `az login` command.
-            >
-            > * When you use the commands in this step, you must provide a resource group name, a name for the VM, a username, and a password.
-    
+        > [!IMPORTANT]
+        > * When you use the Azure CLI, you must first sign in to your Azure subscription by using the `az login` command.
+        >
+        > * When you use the commands in this step, you must provide a resource group name, a name for the VM, a username, and a password.
+
         * To create an Ubuntu Data Science Virtual Machine, use the following command:
 
             ```azurecli
@@ -182,14 +182,17 @@ When you're using a local computer (which might also be a remote virtual machine
 
     This command installs the base Azure Machine Learning SDK with notebook and automl extras. The `automl` extra is a large install, and can be removed from the brackets if you don't intend to run automated machine learning experiments. The `automl` extra also includes the Azure Machine Learning Data Prep SDK by default as a dependency.
 
-     ```shell
+    ```shell
     pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]
    > * If you get a message that PyYAML can't be uninstalled, use the following command instead:
+   >
    >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >
    > * Starting with macOS Catalina, zsh (Z shell) is the default login shell and interactive shell. In zsh, use the command shown above to install packages with brackets escaped with "\\" (backslash):
+   >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`.
 
 
