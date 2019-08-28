@@ -1,7 +1,7 @@
 ---
 title: How and where to deploy models 
 titleSuffix: Azure Machine Learning service
-description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
+description: 'Learn how and where to deploy your Azure Machine Learning service models, including Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and field-programmable gate arrays.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,24 +16,24 @@ ms.custom: seoapril2019
 
 # Deploy models with the Azure Machine Learning service
 
-Learn how to deploy your machine learning model as a web service in the Azure cloud, or to IoT Edge devices.
+Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
 The workflow is similar regardless of [where you deploy](#target) your model:
 
 1. Register the model.
-1. Prepare to deploy (specify assets, usage, compute target).
+1. Prepare to deploy. (Specify assets, usage, compute target.)
 1. Deploy the model to the compute target.
-1. Test the deployed model, also called web service.
+1. Test the deployed model, also called a web service.
 
-For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
+For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning service](concept-model-management-and-deployment.md).
 
 ## Prerequisites
 
 - An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
-- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
+- A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 ## Connect to your workspace
 
