@@ -37,44 +37,44 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Connect to your workspace
 
-The following code demonstrates how to connect to an Azure Machine Learning service workspace using information cached to the local development environment:
-
-**Using the SDK**
-
-```python
-from azureml.core import Workspace
-ws = Workspace.from_config(path=".file-path/ws_config.json")
-```
-
-For more information on using the SDK to connect to a workspace, see the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace).
-
-**Using the CLI**
-
-When using the CLI, use the `-w` or `--workspace-name` parameter to specify the workspace for the command.
-
-**Using VS Code**
-
-When using VS Code, the workspace is selected using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
-
-## <a id="registermodel"></a> Register your model
-
-A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
-
-> [!TIP]
-> When registering a model, you provide either a path to a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process; it does not need to match the path used in the entry script. For more information, see [What is get_model_path](#what-is-get_model_path).
-
-Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model:
-
-### Register a model from an Experiment Run
-
-The code snippets in this section demonstrate registering a model from a training run:
-
-> [!IMPORTANT]
-> These snippets assume that you have previously performed a training run and have access to the `run` object (SDK example) or run ID value (CLI example). For more information on training models, see [Create and use compute targets for model training](how-to-set-up-training-targets.md).
+The following code demonstrates how to connect to an Azure Machine Learning service workspace by using information cached to the local development environment:
 
 + **Using the SDK**
 
-  When using the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) or [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
+   ```python
+   from azureml.core import Workspace
+   ws = Workspace.from_config(path=".file-path/ws_config.json")
+   ```
+
+  For more information on using the SDK to connect to a workspace, see the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) documentation.
+
++ **Using the CLI**
+
+   When using the CLI, use the `-w` or `--workspace-name` parameter to specify the workspace for the command.
+
++ **Using VS Code**
+
+   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
+
+## <a id="registermodel"></a> Register your model
+
+A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
+
+> [!TIP]
+> When you register a model, you provide either the path of a cloud location (from a training run) or of a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [What is get_model_path?](#what-is-get_model_path).
+
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. The following examples demonstrate how to register a model.
+
+### Register a model from an experiment run
+
+The code snippets in this section demonstrate how to register a model from a training run:
+
+> [!IMPORTANT]
+> To use these snippets, you need to have previously performed a training run and you need to have access to the `Run` object (SDK example) or the run ID value (CLI example). For more information on training models, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+
++ **Using the SDK**
+
+  When you use the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) object or a [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 
   + Register a model from an `azureml.core.Run` object:
  
@@ -83,7 +83,7 @@ The code snippets in this section demonstrate registering a model from a trainin
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) reference.
+    The `model_path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) documentation.
 
   + Register a model from an `azureml.train.automl.run.AutoMLRun` object:
 
@@ -94,9 +94,9 @@ The code snippets in this section demonstrate registering a model from a trainin
         print(run.model_id)
     ```
 
-    In this example, the `metric` and `iteration` parameters are not specified, which causes the iteration with the best primary metric to be registered. The `model_id` value returned from the run is used instead of a model name.
+    In this example, the `metric` and `iteration` parameters aren't specified, so the iteration with the best primary metric will be registered. The `model_id` value returned from the run is used instead of a model name.
 
-    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) reference.
+    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) documentation.
 
 + **Using the CLI**
 
@@ -106,19 +106,19 @@ The code snippets in this section demonstrate registering a model from a trainin
 
   [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
-  The `--asset-path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
+  The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
 + **Using VS Code**
 
-  Register models using any model files or folders with the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
+  Register models by using any model files or folders with the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
 ### Register a model from a local file
 
-You can register a model by providing a **local path** to the model. You can provide either a folder or a single file. You can use this method to register both models trained with Azure Machine Learning service and then downloaded, or models trained outside Azure Machine Learning.
+You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file. You can use this method to register models trained with the Azure Machine Learning service and then downloaded. You can also use this method to register models trained outside of Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-+ **ONNX example with the Python SDK:**
++ **Using the SDK and ONNX**
 
     ```python
     import os
@@ -136,7 +136,7 @@ You can register a model by providing a **local path** to the model. You can pro
                             description = "MNIST image classification CNN from ONNX Model Zoo",)
     ```
 
-  To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files.
 
 + **Using the CLI**
 
@@ -144,19 +144,19 @@ You can register a model by providing a **local path** to the model. You can pro
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  To include multiple files in the model registration, set `-p` to the directory that contains the files.
+  To include multiple files in the model registration, set `-p` to the path of a folder that contains the files.
 
 **Time estimate**: Approximately 10 seconds.
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-For more information on working with models trained outside Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
+For more information on working with models trained outside the Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
 ## Choose a compute target
 
-The following compute targets, or compute resources, can be used to host your web service deployment. 
+You can use the following compute targets, or compute resources, to host your web service deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
