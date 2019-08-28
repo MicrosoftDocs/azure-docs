@@ -34,13 +34,15 @@ To complete this tutorial, make sure you have:
 - An Azure subscription, [create a free account](https://azure.microsoft.com/free/) if you don't already have one. 
 
 
-## 1 -  Create resource group and primary managed instance
+## 1 - Create resource group and primary managed instance
 In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal. 
 
-1. Sign into the [Azure portal](https://portal.azure.com). 
-1. Choose to **Create a resource** on the upper-left hand corner of the Azure portal. 
-1. Type `managed instance` in the search box and select the option for Azure SQL Managed Instance. 
-1. Select **Create** to launch the **SQL managed instance** creation page. 
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting Show details on the Databases tile.
+1. Select **Create** on the **SQL managed instances** tile. 
+
+    ![Select managed instance](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. On the **Create Azure SQL Database Managed Instance** page, on the **Basics** tab
     1. Under **Project Details**, select your **Subscription** from the drop-down and then choose to **Create New** resource group. Type in a name for your resource group, such as `myResourceGroup`. 
     1. Under **Managed Instance Details**, provide the name of your managed instance, and the region where you would like to deploy your managed instance. Leave the **Compute + storage** at default values. 
@@ -92,8 +94,12 @@ Your second managed instance must:
 
 To create your secondary managed instance, follow these steps: 
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
-1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next page.
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting Show details on the Databases tile.
+1. Select **Create** on the **SQL managed instances** tile. 
+
+    ![Select managed instance](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. On the **Basics** tab of the **Create Azure SQL Database Managed Instance** page, fill out the required fields to configure your secondary managed instance. 
 
    The following table shows the values necessary for the secondary managed instance:
@@ -203,9 +209,8 @@ To configure connectivity, follow these steps:
 ## 7 - Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
 
-1. In the [Azure portal](https://portal.azure.com), go to **All services** and type in `managed instance` in the search box. 
-1. (Optional) Select the star next to **SQL managed instances** to add managed instances as shortcut to your left-hand navigation bar. 
-1. Select **SQL managed instances** and select your primary managed instance, such as `sql-mi-primary`. 
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the primary managed instance you created in the first section, such as `sql-mi-primary`. 
 1. Under **Settings**, navigate to **Instance Failover Groups** and then choose to **Add group** to open the **Instance Failover Group** page. 
 
    ![Add a failover group](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

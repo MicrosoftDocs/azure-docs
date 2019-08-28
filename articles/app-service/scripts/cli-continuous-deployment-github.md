@@ -24,7 +24,7 @@ ms.custom: seodec18
 
 This sample script creates an app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create an app and deploy code from GitHub](cli-deploy-github.md). For this sample, you need:
 
-* A GitHub repository with application code, that you have administrative permissions for.
+* A GitHub repository with application code, that you have administrative permissions for. To get automatic builds, structure your repository according to the [Prepare your repository](../deploy-continuous-deployment.md#prepare-your-repository) table.
 * A [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) for your GitHub account.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
