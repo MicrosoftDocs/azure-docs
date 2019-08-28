@@ -18,7 +18,7 @@ This article summarizes the new features and improvements in the recent releases
 
 ## Check your Azure SQL Data Warehouse version
 
-As new features are being rolled out to all regions, check the version deployed to your instance and the latest Azure SQL DW release notes for the feature availability. To check your Azure SQL DW version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION AS 'SQL Data Warehouse';` to return the current version of Azure SQL DW.
+As new features are rolled out to all regions, check the version deployed to your instance and the latest Azure SQL DW release notes for the feature availability. To check your Azure SQL DW version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION AS 'SQL Data Warehouse';` to return the current version of Azure SQL DW.
 
 Example output:
 
@@ -31,7 +31,7 @@ Use the date identified to confirm which release has been applied to your Azure 
 | Service improvements | Details |
 | --- | --- |
 |**Data Discovery & Classification (GA)**|[Data Discovery and Classification](/azure/sql-database/sql-database-data-discovery-and-classification) feature is now Generally Available. This feature provides advanced capabilities for **discovering, classifying, labeling & protecting** sensitive data in your databases.|
-|**Azure Advisor one-click Integration**|SQL Data Warehouse now directly integrates with Azure Advisor recommendations in the data warehouse overview blade along with providing a one-click application experience. You can now discover recommendations in the overview blade instead of navigating to the Azure advisor blade. Find out more about recommendations, [here](sql-data-warehouse-concept-recommendations.md).|
+|**Azure Advisor one-click Integration**|SQL Data Warehouse now directly integrates with Azure Advisor recommendations in the overview blade along with providing a one-click experience. You can now discover recommendations in the overview blade instead of navigating to the Azure advisor blade. Find out more about recommendations, [here](sql-data-warehouse-concept-recommendations.md).|
 |**EXECUTE AS**| [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql?view=sql-server-2017) T-SQL support is now available in SQL Data Warehouse enabling customers to set the execution context of a session to the specified user.|
 |**Additional T-SQL support**|The T-SQL language surface area for SQL Data Warehouse has been extended to include support for: </br> - [FORMAT](/sql/t-sql/functions/format-transact-sql?view=sql-server-2017)</br> - [TRY_PARSE](/sql/t-sql/functions/try-parse-transact-sql?view=sql-server-2017)</br> - [TRY_CAST](/sql/t-sql/functions/try-cast-transact-sql?view=sql-server-2017)</br> - [TRY_CONVERT](/sql/t-sql/functions/try-convert-transact-sql?view=sql-server-2017)</br> - [sys.user_token](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=sql-server-2017)|
 
