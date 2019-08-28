@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/22/2019
+  ms.date: 08/28/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: What is Azure Virtual Network?
             url: virtual-networks-overview.md
-      - linkListType: reference
+      - linkListType: concept
         links:
           - text: Virtual network FAQ
             url: virtual-networks-overview.md
