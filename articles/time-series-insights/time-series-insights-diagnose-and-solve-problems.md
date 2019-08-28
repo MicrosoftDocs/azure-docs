@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
 ---
 
@@ -64,13 +64,14 @@ The throttling limit is enforced based on the environment's SKU type and capacit
 
 The following figure shows a Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
 
-![Environment SKU current capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![Environment SKU current capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-As an example, assume that this environment ingests messages from an event hub. The following figure shows the ingress rate:
+As an example, assume an environment ingests messages from an event hub. The daily ingress rate is ~67,000 messages. This rate translates to approximately 46 messages every minute. 
 
-[![Example ingress rate for an event hub](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
+* If each event hub message is flattened to a single Time Series Insights event, throttling doesn't occur. 
+* If each event hub message is flattened to 100 Time Series Insights events, 4,600 events should be ingested every minute. 
 
-The daily ingress rate is ~67,000 messages. This rate translates to approximately 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, throttling doesn't occur. If each event hub message is flattened to 100 Time Series Insights events, 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). For this setup, you see a lag due to throttling.
+An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). 
 
 For a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
