@@ -60,7 +60,7 @@ If you used the Update Management solution, optionally you may want to remove th
 
 * Update schedules - Each will have names that match the update deployments you created)
 
-* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Hybrid worker groups created for the solution -  Each will be named similarly to  `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`).
 
 If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 

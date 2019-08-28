@@ -53,25 +53,6 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## Configure your notification hub for iOS push notifications
-
-This section walks you through the steps to create a new notification hub and configure authentication with APNs using the **.p12** push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### Configure iOS settings for the notification hub
-
-1. Select **Apple (APNS)** in the **NOTIFICATION SETTINGS** group.
-2. Select **Certificate**, click the **file** icon, and select the **.p12** file that you exported earlier.
-3. Specify the **password** for the certificate.
-4. Select **Sandbox** mode. Use the **Production** mode only if you want to send push notifications to users who purchased your app from the store.
-
-    ![Configure APNs in Azure portal][6]
-
-    ![Configure APNs certification in Azure portal][7]
-
-Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send push notifications.
-
 ## Connect your app to the notification hub
 
 ### Create a new project
@@ -120,7 +101,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

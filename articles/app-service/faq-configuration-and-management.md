@@ -12,7 +12,6 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
@@ -148,12 +147,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 The exception was caused by an issue with the Hybrid Connection Manager that has since been fixed. Be sure to [update your Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) to resolve this issue.
 
-## How do I add or edit a URL rewrite rule?
+## How do I add a URL rewrite rule?
 
-To add or edit a URL rewrite rule:
-
-1. Set up Internet Information Services (IIS) Manager so that it connects to your App Service web app. To learn how to connect IIS Manager to App Service, see [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. In IIS Manager, add or edit a URL rewrite rule. To learn how to add or edit a URL rewrite rule, see [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+To add a URL rewrite rule, create a web.config file with the relevant config entries in the **wwwroot** folder. For more information, see [Azure App Services: Understanding URL rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## How do I control inbound traffic to App Service?
 
@@ -166,7 +162,7 @@ If you use App Service Environment, you can use [Barracuda firewall](https://azu
 
 ## How do I block ports in an App Service web app?
 
-In the App Service shared tenant environment, it is not possible to block specific ports because of the nature of the infrastructure. TCP ports 4016, 4018, and 4020 also might be open for Visual Studio remote debugging.
+In the App Service shared tenant environment, it is not possible to block specific ports because of the nature of the infrastructure. TCP ports 4020, 4022, and 4024 also might be open for Visual Studio remote debugging.
 
 In App Service Environment, you have full control over inbound  and outbound traffic. You can use Network Security Groups to restrict or block specific ports. For more information about App Service Environment, see [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
@@ -250,7 +246,7 @@ For more information about scheduled WebJobs, see [Create a scheduled WebJob by 
 
 ## How do I perform penetration testing for my App Service app?
 
-To perform penetration testing, [submit a request](https://portal.msrc.microsoft.com/en-us/engage/pentest).
+To perform penetration testing, [submit a request](https://portal.msrc.microsoft.com/engage/pentest).
 
 ## How do I configure a custom domain name for an App Service web app that uses Traffic Manager?
 

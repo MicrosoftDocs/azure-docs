@@ -3,7 +3,7 @@ title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: thweiss
 ---
@@ -150,7 +150,8 @@ container = client.ReadContainer(containerPath)
 # set the indexing mode to Consistent
 container['indexingPolicy']['indexingMode'] = 'consistent'
 # add an excluded path
-container['indexingPolicy']['excludedPaths'] = [{"path" : "/headquarters/employees/?"}]
+container['indexingPolicy']['excludedPaths'] = [
+    {"path": "/headquarters/employees/?"}]
 # update the container with our changes
 response = client.ReplaceContainer(containerPath, container)
 ```

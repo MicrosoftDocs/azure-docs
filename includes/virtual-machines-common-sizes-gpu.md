@@ -51,7 +51,7 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -74,7 +74,7 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/en-us/
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000 / 200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -98,9 +98,9 @@ NDv2-series virtual machine is a new addition to the GPU family designed for the
 [Sign-up and get access to these machines during preview](https://aka.ms/ndv2signup).
 <br>
 
-| Size | vCPU | GPU | Memory | NICs (Max) | Temp Storage (SSD) GiB | Max. data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000 / 800 | 24000 Mbps |
+| Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000 / 800 | 24000 Mbps | 8 |
 
 ## ND-series
 

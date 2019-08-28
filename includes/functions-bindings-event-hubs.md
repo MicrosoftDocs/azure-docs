@@ -245,7 +245,7 @@ The following examples show Event Hubs binding data in the *function.json* file.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, eventHubMessage) {
+module.exports = function (context, myEventHubMessage) {
     context.log('Function triggered to process a message: ', myEventHubMessage);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);
@@ -321,6 +321,7 @@ Here's the Python code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(event: func.EventHubEvent):
     logging.info('Function triggered to process a message: ', event.get_body())
@@ -625,9 +626,10 @@ import datetime
 import logging
 import azure.functions as func
 
+
 def main(timer: func.TimerRequest) -> str:
     timestamp = datetime.datetime.utcnow()
-    logging.info('Message created at: %s', timestamp);   
+    logging.info('Message created at: %s', timestamp)
     return 'Message created at: {}'.format(timestamp)
 ```
 

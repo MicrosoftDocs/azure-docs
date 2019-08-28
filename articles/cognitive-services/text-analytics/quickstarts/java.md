@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Using Java to call the Text Analytics API'
+title: 'Quickstart: Use Java to call the Text Analytics REST API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
@@ -9,10 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
+ms.custom: seo-java-july2019, seo-java-august2019
 ---
-# Quickstart: Using Java to call the Text Analytics Cognitive Service
+# Quickstart: Use Java to call the Azure Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Java.
@@ -23,7 +24,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
+You must also have the [endpoint and access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 
 <a name="Detect"></a>
 

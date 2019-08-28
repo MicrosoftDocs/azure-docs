@@ -5,7 +5,7 @@ author: mattwojo
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
 ---
 
@@ -47,7 +47,7 @@ So that you can link your company's work email account domain to your new Partne
 
 #### Agree to terms and conditions
 
-You'll need to agree to two sets of terms and conditions, including the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?LinkId=870457), and the [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?linkid=843476).
+You'll need to agree to terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560).
 
 #### Provide your publisher profile
 
@@ -66,7 +66,7 @@ Thank you for creating an account on Partner Center! You'll now be taken to the 
 
 If your account has been migrated from the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), you do not need to create a new Partner Center account, but will have received a customized link to your new Partner Center account via email, and in a banner notification displayed after logging in to your existing CPP account.
 
-Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/) in Partner Center.
+Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
 
 The publishing agreement and company profile information will be migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers associated with your CPP account. 
 

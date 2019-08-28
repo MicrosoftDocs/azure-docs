@@ -130,7 +130,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 1. Open *Startup.cs*, and add references to the .NET Core feature manager:
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. Update the `ConfigureServices` method to add feature flag support by calling the `services.AddFeatureManagement()` method. Optionally, you can include any filter to be used with feature flags by calling `services.AddFeatureFilter<FilterType>()`:

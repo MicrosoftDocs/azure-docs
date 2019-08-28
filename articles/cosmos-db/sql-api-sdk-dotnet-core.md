@@ -24,8 +24,8 @@ ms.author: sngun
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -41,13 +41,18 @@ ms.author: sngun
 > [!NOTE]
 > If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
 
+### <a name="2.5.1"/>2.5.1
+
+* SDK’s System.Net.Http version now matches what is defined in the NuGet package.
+* Allow write requests to fallback to a different region if the original one fails.
+* Add session retry policy for write request.
+
 ### <a name="2.4.1"/>2.4.1
 
 * Fixes tracing race condition for queries which caused empty pages
 
 ### <a name="2.4.0"/>2.4.0
 
-* SDK’s System.Net.Http version matches what is defined in the NuGet package
 * Increased decimal precision size for LINQ queries.
 * Added new classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType and PartitionKeyDefinitionVersion
 * Added TimeToLivePropertyPath to DocumentCollection
@@ -246,6 +251,7 @@ If you have questions related to this SDK, post to [StackOverflow](https://stack
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |July  02, 2019 |--- |
 | [2.4.1](#2.4.1) |June  20, 2019 |--- |
 | [2.4.0](#2.4.0) |May  05, 2019 |--- |
 | [2.3.0](#2.3.0) |April  04, 2019 |--- |

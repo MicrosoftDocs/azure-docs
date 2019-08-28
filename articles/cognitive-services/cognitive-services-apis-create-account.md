@@ -1,6 +1,6 @@
 ---
 title: Create a Cognitive Services resource in the Azure portal
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Get started with Azure Cognitive Services by creating and subscribing to a resource in the Azure portal.
 services: cognitive-services
 author: aahill
@@ -61,6 +61,13 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 After creating your resource, you can access it from the Azure dashboard if you pinned it. Otherwise, you can find it in **Resource Groups**. After selecting your resource, you can get the keys by selecting **Keys** under **Resource Management**.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## Pricing tiers and billing
+
+Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
+* maximum number of allowed transactions per second (TPS).
+* service features enabled within the pricing tier.
+* The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
 ## Clean up resources
 

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 07/24/2019
 ms.author: magoedte
 ---
 
@@ -87,11 +87,13 @@ Before you use the health feature for a single VM or group of VMs, it's importan
 
 To view the health of an Azure VM, select **Insights (preview)** in the left pane of the VM. On the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
 
-![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
+![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health-01.png)
 
-In the **Health** tab, under **Guest VM health**, the table shows the health state of the VM and the total number of VM health alerts raised by an unhealthy component.
+In the **Guest VM health** section, the table shows the health rollup of performance components monitored by health criteria for the VM, and the total number of VM health alerts raised by unhealthy components. These components include **CPU**, **Memory**, **Disk**, and **Network**. Expand the chevron next to Guest VM health to view the health its components.
 
-For more information, see [Alerts](#alerts).
+![Azure Monitor for VMs component health status of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health-02.png)
+
+Selecting the state next to the component will open the Health Diagnostics experience in the context of the selected component. It shows the composition of the state of that component, describing what health criteria are used to compute its health. For more information, see [Health Diagnostics and working with health criteria](#health-diagnostics). For more information about alerts, see [Alerts](#alerts).
 
 The health states defined for a VM are described in the following table:
 
@@ -151,13 +153,19 @@ For example, to review all VMs that run Red Hat Enterprise Linux release 7.5, se
 
 ![Example rollup of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
+You click **Show Health** check box and the health state is returned for the filtered results in the table.  
+
+![Example health state of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-02.png)
+
+For any one of the items in the list, you can click the corresponding health state to launch Health Diagnostics, which shows how health is evaluated for the selected VM. 
+
 In the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you're directed to the **VM instance** page. This page provides more details of the alerts and health criteria issues that are affecting the selected VM. Filter the health state details by selecting **Health State** icon in the upper-left corner of the page to see which components are unhealthy. You can also view VM Health alerts raised by an unhealthy component categorized by alert severity.
 
 From the **VM list** view, select the name of a VM to open the **Health** page for that VM, similarly as if you selected **Insights (preview)** from the VM directly.
 
 ![VM insights of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-The **Insights (preview)** page shows a rollup health status for the VM and alerts. This health status is categorized by severity, which represents VM health alerts raised when the health state changed from healthy to unhealthy, based on criteria. Selecting **VMs in critical condition** opens a page with a list of one or more VMs in a critical health state.
+The **Virtual Machines (preview) in Azure Monitor** page shows a rollup health status for the VM and alerts. This health status is categorized by severity, which represents VM health alerts raised when the health state changed from healthy to unhealthy, based on criteria. Selecting **VMs in critical condition** opens a page with a list of one or more VMs in a critical health state.
 
 Selecting the health status for one of the VMs shows the **Health Diagnostics** view of the VM. In this view, you can determine which health criteria is reflecting a health-state issue. When the **Health Diagnostics** page opens, it shows all the VM components and their associated health criteria with the current health state.
 

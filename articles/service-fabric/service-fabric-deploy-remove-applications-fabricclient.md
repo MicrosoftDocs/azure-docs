@@ -3,7 +3,7 @@ title: Azure Service Fabric application deployment | Microsoft Docs
 description: Use the FabricClient APIs to deploy and remove applications in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Deploy and remove applications using FabricClient

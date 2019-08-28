@@ -11,11 +11,13 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: jairoc
+ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory device management FAQ
+
+## General FAQ
 
 ### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
@@ -37,6 +39,11 @@ Only the following devices are listed under **USER devices**:
 - For Windows 10 and Windows Server 2016 or later devices, run `dsregcmd.exe /status`.
 - For down-level OS versions, run `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
 
+**A:** For troubleshooting information, see these articles:
+- [Troubleshooting devices using dsregcmd command](troubleshoot-device-dsregcmd.md)
+- [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+
 ---
 
 ### Q: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use Conditional Access?
@@ -46,23 +53,52 @@ For more information, see [Require managed devices for cloud app access with Con
 
 ---
 
-### Q: I deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered.
+### Q: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10 devices ?
 
-**A:** This operation is by design. The device doesn't have access to resources in the cloud. 
+**A:** On Windows 10 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign on. The validity of the PRT is based on the validaity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
 
-If you want to re-register, you must take a manual action on the device. 
+- User disables the device from the My Apps portal. 
+- An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
+- Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
 
-To clear the join state from Windows 10 and Windows Server 2016 that are on-premises Active Directory domain joined, take the following steps:
+See below on how these actions can be rectified.
 
-1. Open the command prompt as an administrator.
-1. Enter `dsregcmd.exe /debug /leave`.
-1. Sign out and sign in to trigger the scheduled task that registers the device again with Azure AD. 
+---
 
-For down-level Windows OS versions that are on-premises Active Directory domain joined, take the following steps:
+### Q: I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?
 
-1. Open the command prompt as an administrator.
-1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+**A:** This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you'll need to re-enable or re-register the device as described below
+
+- If the device was disabled in Azure AD, an administrator with sufficient privileges can enable it from the Azure AD portal  
+  > [!NOTE]
+  > If you are syncing devices using Azure AD Connect, hybrid Azure AD joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a hybrid Azure AD joined device, you need to disable it from your on-premises AD
+
+ - If the device is deleted in Azure AD, you need to re-register the device. To re-register, you must take a manual action on the device. See below for instructions for re-registration based on the device state. 
+
+      To re-register hybrid Azure AD joined Windows 10 and Windows Server 2016/2019 devices, take the following steps:
+
+      1. Open the command prompt as an administrator.
+      1. Enter `dsregcmd.exe /debug /leave`.
+      1. Sign out and sign in to trigger the scheduled task that registers the device again with Azure AD. 
+
+      For down-level Windows OS versions that are hybrid Azure AD joined, take the following steps:
+
+      1. Open the command prompt as an administrator.
+      1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+      1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+      For Azure AD joined devices Windows 10 devices, take the following steps:
+
+      1. Open the command prompt as an administrator
+      1. Enter `dsregcmd /forcerecovery` (Note: You need to be an administrator to perform this action).
+      1. Click "Sign in" in the dialog that opens up and continue with the sign in process.
+      1. Sign out and sign in back to the device to complete the recovery.
+
+      For Azure AD registered Windows 10 devices, take the following steps:
+
+      1. Go to **Settings** > **Accounts** > **Access Work or School**. 
+      1. Select the account and select **Disconnect**.
+      1. Click on "+ Connect" and register the device again by going through the sign in process.
 
 ---
 
@@ -85,20 +121,30 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **Q: Why can a user still access resources from a device I disabled in the Azure portal?**
 
-**A:** It takes up to an hour for a revoke to be applied.
+**A:** It takes up to an hour for a revoke to be applied from the time the Azure AD device is marked as disabled.
 
 >[!NOTE] 
 >For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
+### Q: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
+
+**A**:  Pending indicates the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from on-premises AD and is ready for device registration. These device have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
+
+>[!NOTE]
+>A device can also change from having a registered state to "Pending"
+>* If a device is deleted and from Azure AD first and re-synchronized from on-premises AD.
+>* If a device is removed from a sync scope on Azure AD Connect and added back.
+>
+>In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
+
+---
 ## Azure AD join FAQ
 
 ### Q: How do I unjoin an Azure AD joined device locally on the device?
 
-**A:** 
-- For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
-- For pure Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
+**A:** For pure Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
 
 ---
 
@@ -196,6 +242,10 @@ Create a different local account before you use Azure Active Directory join to f
 
 ## Hybrid Azure AD join FAQ
 
+### Q: How do I unjoin a Hybrid Azure AD joined device locally on the device?
+
+**A:** For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+
 ### Q: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
 
 **A:** For troubleshooting information, see these articles:
@@ -207,7 +257,7 @@ Create a different local account before you use Azure Active Directory join to f
 
 **A:** When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
-Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
+Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 
@@ -232,10 +282,19 @@ If a password is changed outside the corporate network (for example, by using Az
 
 ## Azure AD register FAQ
 
+### Q: How do I remove an Azure AD registered device locally on the device?
+
+**A:** 
+- For Windows 10 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10.
+- For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
+- For macOS, you can use the Microsoft Intune Company Portal application to un-enroll the device from management and remove any registration. 
+
+---
 ### Q: Can I register Android or iOS BYOD devices?
 
 **A:** Yes, but only with the Azure device registration service and for hybrid customers. It's not supported with the on-premises device registration service in Active Directory Federation Services (AD FS).
 
+---
 ### Q: How can I register a macOS device?
 
 **A:** Take the following steps:
@@ -248,6 +307,7 @@ If a password is changed outside the corporate network (for example, by using Az
 - The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
 - During the first access try, your users are prompted to enroll the device by using the company portal.
 
+---
 ## Next steps
 
 - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)

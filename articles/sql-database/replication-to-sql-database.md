@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Replication to SQL Database single and pooled databases

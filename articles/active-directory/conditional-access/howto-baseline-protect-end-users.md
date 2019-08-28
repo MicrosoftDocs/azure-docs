@@ -61,16 +61,16 @@ The policy **Baseline policy: End user protection (preview)** comes pre-configur
 
 To enable this policy and protect your users:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: End user protection (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Click **Save**.
+1. Click **Save**.
 
 ## Next steps
 
 For more information, see:
 
 * [Conditional Access baseline protection policies](concept-baseline-protection.md)
-* [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
+* [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
 * [What is Conditional Access in Azure Active Directory?](overview.md)

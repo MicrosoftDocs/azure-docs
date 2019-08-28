@@ -81,15 +81,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
        Add the following at the end of the ConfigureServices method in the `Startup` class in `Startup.cs`.
 
 	   ```csharp
-            services.AddSnapshotCollector((configuration) =>
-            {
-                IConfigurationSection section = Configuration.GetSection(nameof(SnapshotCollectorConfiguration));
-                if (section.Value != null)
-                {
-                    section.Bind(configuration);
-                }
-            });
-
+            services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
 	   ```
 	2. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.4 or below is used, then add the following using statements to `Startup.cs`.
 

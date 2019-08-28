@@ -61,14 +61,14 @@ To change the app settings, replace the `<your-tenant-name>` with your tenant na
 1. Open the `active-directory-b2c-wpf` solution in Visual Studio.
 2. In the `active-directory-b2c-wpf` project, open the **App.xaml.cs** file and make the following updates:
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
     private static string ClientId = "<application-ID>";
     ```
 
 3. Update the **PolicySignUpSignIn** variable with the name of the user flow that you created.
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 

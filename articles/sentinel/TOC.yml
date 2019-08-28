@@ -14,7 +14,7 @@
   items:
   - name: Detect suspicious threats
     href: tutorial-detect-threats.md
-  - name: Investigate cases
+  - name: Investigate incidents
     href: tutorial-investigate-cases.md 
   - name: Respond to threats
     href: tutorial-respond-threats-playbook.md  
@@ -76,6 +76,8 @@
         href: connect-cisco.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
+    - name: Connect Azure Stack VMs
+      href: connect-azure-stack.md  
   - name: Hunting
     href: hunting.md
     items:

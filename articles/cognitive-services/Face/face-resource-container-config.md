@@ -1,6 +1,6 @@
 ---
-title: Configure containers
-titlesuffix: Face - Azure Cognitive Services
+title: Configure containers - FACE API
+titleSuffix: Azure Cognitive Services
 description: Configuration settings for containers.
 services: cognitive-services
 author: IEvangelist

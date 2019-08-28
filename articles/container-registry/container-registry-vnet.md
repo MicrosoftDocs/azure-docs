@@ -15,11 +15,14 @@ ms.author: danlep
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By limiting access to your private Azure container registry from an Azure virtual network, you ensure that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses.
 
-This article shows two scenarios to create network access rules to limit access to an Azure container registry: from a virtual machine deployed in a virtual network, or from a VM's public IP address.
+This article shows two scenarios to configure inbound network access rules on a container registry: from a virtual machine deployed in a virtual network, or from a VM's public IP address.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 >
+
+If instead you need to set up access rules for resources to reach a container registry from behind a firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
+
 
 ## Preview limitations
 

@@ -1,5 +1,5 @@
 ---
-title: Windows installation of Azure Security Center for IoT agent Preview| Microsoft Docs
+title: Windows installation of Azure Security Center for IoT agent | Microsoft Docs
 description: Learn about how to install Azure Security Center for IoT agent on 32-bit or 64-bit Windows devices.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
 
 # Deploy an Azure Security Center for IoT C#-based security agent for Windows
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This guide explains how to install the Azure Security Center (ASC) for IoT C#-based security agent on Windows.
+This guide explains how to install the Azure Security Center for IoT C#-based security agent on Windows.
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
@@ -37,7 +32,7 @@ In this guide, you learn how to:
 
 ## Prerequisites
 
-For other platforms and agent flavours, see [Choose the right security agent](how-to-deploy-agent.md).
+For other platforms and agent flavors, see [Choose the right security agent](how-to-deploy-agent.md).
 
 1. Local admin rights on the machine you wish to install on. 
 
@@ -45,17 +40,19 @@ For other platforms and agent flavours, see [Choose the right security agent](ho
 
 ## Installation 
 
-To install the security agent, do the following:
+To install the security agent, use the following workflow:
 
-1. To install the ASC for IoT Windows C# agent on the device, download the most recent version to your machine from the ASC for IoT [GitHub repository](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Install the Azure Security Center for IoT Windows C# agent on the device. Download the most recent version to your machine from the Azure Security Center for IoT [GitHub repository](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
 
-2. Extract the contents of the package, and navigate to the /Install folder.
+1. Extract the contents of the package, and navigate to the /Install folder.
 
-3. Open Windows PowerShell as Administrator. 
-    1. Add running permissions to the InstallSecurityAgent script by running
-    ```Unblock-File .\InstallSecurityAgent.ps1```
+1. Open Windows PowerShell as Administrator. 
+1. Add running permissions to the InstallSecurityAgent script by running:<br>
+    ```
+    Unblock-File .\InstallSecurityAgent.ps1
+    ```
     
-        and run:
+    then run:
 
     ```
 	.\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
@@ -67,13 +64,13 @@ To install the security agent, do the following:
 	.\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
 	```
 	
-	See [How to configure authentication](concept-security-agent-authentication-methods.md) for more information about authentication parameters.
+	For more information about authentication parameters, see [How to configure authentication](concept-security-agent-authentication-methods.md).
 
-This script does the following:
+This script does the following actions:
 
 - Installs prerequisites.
 
-- Adds a service user (with interactive login disabled).
+- Adds a service user (with interactive sign in disabled).
 
 - Installs the agent as a **System Service**.
 
@@ -139,8 +136,8 @@ To turn on logging:
 
 
 ## Next steps
-- Read the ASC for IoT service [Overview](overview.md)
-- Learn more about ASC for IoT [Architecture](architecture.md)
+- Read the Azure Security Center for IoT service [Overview](overview.md)
+- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
 - Read the [FAQ](resources-frequently-asked-questions.md)
 - Understand [alerts](concept-security-alerts.md)

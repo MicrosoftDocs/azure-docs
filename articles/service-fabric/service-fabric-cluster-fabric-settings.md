@@ -3,7 +3,7 @@ title: Change Azure Service Fabric cluster settings | Microsoft Docs
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Customize Service Fabric cluster settings
@@ -406,6 +406,11 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SharedLogThrottleLimitInPercentUsed|int, default is 0 | Static | The percentage of usage of the shared log that will induce throttling. Value should be between 0 and 100. A value of 0 implies using the default percentage value. A value of 100 implies no throttling at all. A value between 1 and 99 specifies the percentage of log usage above which throttling will occur; for example if the shared log is 10GB and the value is 90 then throttling will occur once 9GB is in use. Using the default value is recommended.|
 |WriteBufferMemoryPoolMaximumInKB | Int, default is 0 |Dynamic|The number of KB to allow the write buffer memory pool to grow up to. Use 0 to indicate no limit. |
 |WriteBufferMemoryPoolMinimumInKB |Int, default is 8388608 |Dynamic|The number of KB to initially allocate for the write buffer memory pool. Use 0 to indicate no limit Default should be consistent with SharedLogSizeInMB below. |
+
+## ManagedIdentityTokenService
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, default is FALSE|Static|Flag controlling the presence and status of the Managed Identity Token Service in the cluster;this is a prerequisite for using the managed identity functionality of Service Fabric applications.|
 
 ## Management
 

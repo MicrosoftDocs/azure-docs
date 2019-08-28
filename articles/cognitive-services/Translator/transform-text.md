@@ -1,6 +1,6 @@
 ---
 title: Transform text - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Transform text using the Translator Text API.
 services: cognitive-services
 author: swmachan

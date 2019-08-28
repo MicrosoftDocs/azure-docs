@@ -1,5 +1,5 @@
 ---
-title: Send and receive events using Java - Azure Event Hubs | Microsoft Docs
+title: Use Java to send data to and from Azure Event Hubs
 description: This article provides a walkthrough of creating a Java application that sends events to Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,7 +8,7 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
 
@@ -175,12 +175,12 @@ The code in this tutorial is based on the [EventProcessorSample code on GitHub](
 
 To use EventProcessorHost, you must have an [Azure Storage account][Azure Storage account]:
 
-1. Sign in the [Azure portal](https://portal.azure.com), and click **+ Create a resource** on the left-hand side of the screen.
-2. Click **Storage**, then click **Storage account**. In the **Create storage account** window, type a name for the storage account. Complete the rest of the fields, select your desired region, and then click **Create**.
+1. Sign in the [Azure portal](https://portal.azure.com), and select **Create a resource** on the left-hand side of the screen.
+2. Select **Storage**, then select **Storage account**. In the **Create storage account** window, type a name for the storage account. Complete the rest of the fields, select your desired region, and then select **Create**.
    
     ![Create storage account](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. Click the newly created storage account, and then click **Access Keys**:
+3. Select the newly created storage account, and then select **Access Keys**:
    
     ![Get access keys](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 

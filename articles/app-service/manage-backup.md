@@ -11,7 +11,6 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
@@ -20,7 +19,7 @@ ms.custom: seodec18
 ---
 # Back up your app in Azure
 The Backup and Restore feature in [Azure App Service](overview.md) lets you easily
-create app backups manually or on a schedule. You can restore the app to a snapshot of a previous state by overwriting the existing app or restoring to another app. 
+create app backups manually or on a schedule.  Backups can be configured to be retained up to an indefinite amount of time. You can restore the app to a snapshot of a previous state by overwriting the existing app or restoring to another app.
 
 For information on restoring an app from backup, see [Restore an app in Azure](web-sites-restore.md).
 
@@ -48,7 +47,7 @@ The following database solutions are supported with backup feature:
 
 ## Requirements and restrictions
 * The Backup and Restore feature requires the App Service plan to be in the **Standard** tier or **Premium** tier. For more information 
-  about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](web-sites-scale.md).  
+  about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).  
   **Premium** tier allows a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that 
   you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
@@ -68,7 +67,7 @@ The following database solutions are supported with backup feature:
    
    > [!NOTE]
    > If you see the following message, click it to upgrade your App Service plan before you can proceed with backups.
-   > For more information, see [Scale up an app in Azure](web-sites-scale.md).  
+   > For more information, see [Scale up an app in Azure](manage-scale-up.md).  
    > ![Choose storage account](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 

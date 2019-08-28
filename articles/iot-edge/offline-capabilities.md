@@ -2,9 +2,8 @@
 title: Operate devices offline - Azure IoT Edge | Microsoft Docs 
 description: Understand how IoT Edge devices and modules can operate without internet connection for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 06/04/2019
+ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -40,7 +39,7 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 ## Restrictions and limits
 
-The extended offline capabilities described in this article are available in [IoT Edge version 1.0.4 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features. 
+The extended offline capabilities described in this article are available in [IoT Edge version 1.0.7 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features. 
 
 Extended offline support is available in all regions where IoT Hub is available, **except** East US.
 
@@ -132,43 +131,71 @@ This setting is a desired property of the IoT Edge hub, which is stored in the m
 }
 ```
 
-### Additional offline storage
+### Host storage for system modules
 
-Messages are stored by default in the IoT Edge hub's container filesystem. If that amount of storage isn't sufficient for your offline needs, you can dedicate local storage on the IoT Edge device. Create an environment variable for the IoT Edge hub that points to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
+Messages and module state information are stored in the IoT Edge hub's local container filesystem by default. For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device.
 
-You can configure environment variables and the create options for the IoT Edge hub module in the Azure portal in the **Configure advanced Edge Runtime settings** section. Or, you can configure it directly in the deployment manifest. 
+To set up storage on the host system, create environment variables for the IoT Edge hub and IoT Edge agent that point to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
+
+You can configure environment variables and the create options for the IoT Edge hub module in the Azure portal in the **Configure advanced Edge Runtime settings** section. 
+
+1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
+1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example: 
+
+   ![Add create options and environment variables for local storage](./media/offline-capabilities/offline-storage.png)
+
+Or, you can configure the local storage directly in the deployment manifest. For example: 
 
 ```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": {
-            "HostConfig": {
-                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
-                "PortBindings": {
-                    "8883/tcp": [{"HostPort":"8883"}],
-                    "443/tcp": [{"HostPort":"443"}],
-                    "5671/tcp": [{"HostPort":"5671"}]
+"systemModules": {
+    "edgeAgent": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
                 }
+            }
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
             }
         }
     },
-    "env": {
-        "storageFolder": {
-            "value": "<ModuleStoragePath>"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
+    "edgeHub": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
+            }
+        },
+        "status": "running",
+        "restartPolicy": "always"
+    }
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host and module storage path must be an absolute path. In the create options, bind the host and module storage paths together. Then, create an environment variable that points to the module storage path.  
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. 
 
 For example, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` means the directory **/etc/iotedge/storage** on your host system is mapped to the directory **/iotedge/storage/** on the container. Or another example for Windows systems, `"Binds":["C:\\temp:C:\\contemp"]` means the directory **C:\\temp** on your host system is mapped to the directory **C:\\contemp** on the container. 
 
-You can also find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+On Linux devices, make sure that the IoT Edge hub's user profile, UID 1000, has read, write, and execute permissions to the host system directory. These permissions are necessary so that the IoT Edge hub can store messages in the directory and retrieve them later. (The IoT Edge agent operates as root, so doesn't need additional permissions.) There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions. For example:
+
+```bash
+sudo chown 1000 <HostStoragePath>
+sudo chmod 700 <HostStoragePath>
+```
+
+You can find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## Next steps
 

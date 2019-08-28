@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 07/17/2019
 ---
 # Configuring a Custom DNS for Azure SQL Database Managed Instance

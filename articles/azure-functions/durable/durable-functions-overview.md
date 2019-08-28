@@ -6,7 +6,6 @@ author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: glenga

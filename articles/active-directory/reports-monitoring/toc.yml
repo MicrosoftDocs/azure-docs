@@ -32,6 +32,8 @@
 
 - name: Concepts
   items:
+  - name: Plan a reporting and monitoring deployment
+    href: plan-monitoring-and-reporting.md
   - name: Audit logs
     href: concept-audit-logs.md
   - name: Sign-in logs
@@ -44,6 +46,8 @@
     href: concept-risk-events.md
   - name: Users at risk
     href: concept-user-at-risk.md
+  - name: Provisioning logs
+    href: concept-provisioning-logs.md
   - name: Reporting APIs
     href: concept-reporting-api.md
   - name: Azure AD logs in Azure Monitor

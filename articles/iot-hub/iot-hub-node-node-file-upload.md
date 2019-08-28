@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ---
 
-# Upload files from your device to the cloud with IoT Hub
+# Upload files from your device to the cloud with IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -112,6 +112,12 @@ In this section, you create the device app to upload a file to IoT hub.
 
 9. Copy an image file to the `simulateddevice` folder and rename it `myimage.png`.
 
+## Get the IoT hub connection string
+
+In this article you create a backend service to receive file upload notification messages from the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md). To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## Receive a file upload notification
 
 In this section, you create a Node.js console app that receives file upload notification messages from IoT Hub.
@@ -140,7 +146,7 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
     var Client = require('azure-iothub').Client;
     ```
 
-5. Add a `iothubconnectionstring` variable and use it to create a **Client** instance.  Replace `{iothubconnectionstring}` with the connection string to the IoT hub you created in the _Create an IoT Hub_ section:
+5. Add a `iothubconnectionstring` variable and use it to create a **Client** instance.  Replace the `{iothubconnectionstring}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

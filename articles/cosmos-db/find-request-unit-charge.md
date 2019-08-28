@@ -3,7 +3,7 @@ title: Find the request unit (RU) charge in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for any operation executed against an Azure Cosmos container.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
 ---
@@ -147,10 +147,12 @@ For more information, see [Quickstart: Build a Node.js app by using an Azure Cos
 The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 

@@ -15,7 +15,7 @@ ms.custom: include file
 
 Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-By default, Visual Studio creates all of the Azure resources required to create your function app. The names of these resources are based on the function app name you choose. If you need to have full control of the created resources, you can instead [publish using advanced options](../articles/azure-functions/functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+By default, Visual Studio Code creates all of the Azure resources required to create your function app. The names of these resources are based on the function app name you choose. If you need to have full control of the created resources, you can instead [publish using advanced options](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
 
 This section assumes that you are creating a new function app in Azure.
 

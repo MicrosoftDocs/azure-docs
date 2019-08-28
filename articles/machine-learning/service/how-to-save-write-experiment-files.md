@@ -1,15 +1,16 @@
 ---
-title: Prevent storage limitations and experiment latency with input and output directories
-description: In this article, you learn where to save your experiment input files, and where to write output files to prevent storage limitation errors and experiment latency.
+title: Where to save & write experiment files
+titleSuffix: Azure Machine Learning service
+description: Learn where to save your experiment input files, and where to write output files to prevent storage limitation errors and experiment latency.
 services: machine-learning
 author: rastala
 ms.author: roastala
 manager: danielsc
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/28/2019
 
 ---
