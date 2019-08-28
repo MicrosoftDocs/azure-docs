@@ -14,10 +14,10 @@ ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database
 
-This topic teaches you how to configure an [auto-failover group](sql-database-auto-failover-group.md) for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, and PowerShell. 
+This topic teaches you how to configure an [auto-failover group](sql-database-auto-failover-group.md) for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, or PowerShell. 
 
 ## Single database
-Create the failover group and add a single database to it using the Azure portal, PowerShell, or the Az CLI.
+Create the failover group and add a single database to it using the Azure portal, or PowerShell.
 
 ### Prerequisites
 
@@ -35,10 +35,6 @@ Create your failover group and add your single database to it using the Azure po
 1. Select the name of the server under **Server name** to open the settings for the server.
 
    ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
-
-1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
-
-    ![Add new failover group](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
@@ -140,13 +136,17 @@ Create your failover group and add your single database to it using the Azure CL
 
 ### Test failover 
 
-Test failover of your failover group using the Azure portal, PowerShell, or the Az CLI. 
+Test failover of your failover group using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
 Test failover of your failover group using the Azure portal. 
 
-1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the single database you want to add to the failover group. 
+
+   ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you just created. 
   
    ![Select the failover group from the portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
@@ -270,7 +270,7 @@ Revert failover group back to the primary server:
 ---
 
 ## Elastic pool
-Create the failover group and add an elastic pool to it using the Azure portal, and PowerShell.  
+Create the failover group and add an elastic pool to it using the Azure portal, or PowerShell.  
 
 ### Prerequisites
 
@@ -280,7 +280,7 @@ Consider the following prerequisites:
 
 ### Create the failover group 
 
-Create the failover group for your elastic pool using the Azure portal, PowerShell, or the Az CLI. 
+Create the failover group for your elastic pool using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 Create your failover group and add your elastic pool to it using the Azure portal.
@@ -297,7 +297,7 @@ Create your failover group and add your elastic pool to it using the Azure porta
 
 1. On the **Failover Group** page, enter or select the required values, and then select **Create**. Either create a new secondary server, or select an existing secondary server. 
 
-1. Select **Databases within the group** then select the elastic pool you want to add to the failover group. If an elastic group does not already exist on the secondary server, a warning should appear prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server. 
+1. Select **Databases within the group** then choose the elastic pool you want to add to the failover group. If an elastic pool does not already exist on the secondary server, a warning appears prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server. 
         
     ![Add elastic pool to failover group](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
@@ -360,13 +360,17 @@ Create your failover group and add your elastic pool to it using AZ CLI.
 
 ### Test failover
 
-Test failover of your elastic pool using the Azure portal, PowerShell, or the Az CLI. 
+Test failover of your elastic pool using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
 Fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
-1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the elastic pool you want to add to the failover group. 
+1. On the **Overview** pane, select the name of the server under **Server name** to open the settings for the server.
+  
+    ![Open server for elastic pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
   
    ![Select the failover group from the portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
@@ -382,7 +386,7 @@ Fail your failover group over to the secondary server, and then fail back using 
 
 # [PowerShell](#tab/azure-powershell)
 
-Test failover of your failover group using PowerShell.  
+Test failover of your failover group using PowerShell.
 
 Check the role of the secondary replica: 
 
@@ -429,7 +433,7 @@ Fail your failover group over to the secondary server, and then fail back using 
 
 ## Managed instance
 
-Create a failover group between two managed instances using the Azure portal, PowerShell, or the Az CLI. 
+Create a failover group between two managed instances using the Azure portal, or PowerShell. 
 
 You will need to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group.
 
@@ -443,7 +447,7 @@ Consider the following prerequisites:
 
 ### Create primary virtual network gateway 
 
-Create the primary virtual network gateway with the Azure portal, and PowerShell. 
+Create the primary virtual network gateway with the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
@@ -524,7 +528,7 @@ Create the primary virtual network gateway using the Az CLI.
 
 ### Create secondary virtual network gateway
 
-Create the secondary virtual network gateway using the Azure portal, PowerShell, or the Az CLI. 
+Create the secondary virtual network gateway using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 Repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary managed instance. Fill out the required fields to configure the gateway for your secondary managed instance. 
@@ -590,7 +594,7 @@ Create the secondary virtual network gateway using the Az CLI.
 
 
 ### Connect the gateways 
-Create connections between the two gateways using the Azure portal, PowerShell, and Az CLI. 
+Create connections between the two gateways using the Azure portal, or PowerShell. 
 
 Two connections need to be created - the connection from the primary gateway to the secondary gateway, and then the connection from the secondary gateway to the primary gateway. 
 
@@ -657,7 +661,7 @@ Create connections between the two gateways using the Az CLI.
 ---
 
 ### Create the failover group 
-Create the failover group for your managed instances using the Azure portal, PowerShell, or the Az CLI. 
+Create the failover group for your managed instances using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
@@ -708,7 +712,7 @@ Create the failover group for your managed instances using the Az CLI.
 
 ### Test failover
 
-Test failover of your failover group using the Azure portal, PowerShell, or Az CLI. 
+Test failover of your failover group using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
@@ -784,14 +788,14 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 
 ## Remarks
 
-- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after its been removed. Failing to do either thing may result in an error similar to `The operation cannot be performed due to multiple errors.` when attempting to add the database to the failover group. 
+- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after its been removed. Failing to do either thing may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group. 
 
 
 ## Next steps
 
 For detailed steps configuring a failover group, see the following tutorials:
-- [Add single database to a failover group](sql-database-single-database-failover-group-tutorial.md)
-- [Add elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
-- [Add managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
+- [Add a single database to a failover group](sql-database-single-database-failover-group-tutorial.md)
+- [Add an elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
+- [Add managed instances to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
  
 For an overview of Azure SQL Database high availability options, see [geo-replication](sql-database-active-geo-replication.md) and [auto-failover groups][auto-failover group](sql-database-auto-failover-group.md). 
