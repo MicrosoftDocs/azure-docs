@@ -202,14 +202,14 @@ There are two ways to locate models in your entry script:
 
 AZUREML_MODEL_DIR is an environment variable created during service deployment. You can use this environment variable to find the location of the deployed model(s).
 
-To get the path to a file in a model, combine the environment variable with the filename you are looking for.
-The filenames of the model files are preserved during registration and deployment. 
-
 The following table describes the value of AZUREML_MODEL_DIR depending on the number of models deployed:
 | Deployment | Environment variable value |
 | ----- | ----- |
 | Single model | The path to the folder containing the model. |
 | Multiple models | The path to the folder containing all models. Models are located by name and version in this folder (`$MODEL_NAME/$VERSION`) |
+
+To get the path to a file in a model, combine the environment variable with the filename you are looking for.
+The filenames of the model files are preserved during registration and deployment. 
 
 **Single model example**
 ```python
