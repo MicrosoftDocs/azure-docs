@@ -78,3 +78,15 @@ This risk detection type indicates user activity that is unusual for the given u
 
 **Detection Type:** Offline <br>
 This detection indicates an admin has selected ‘Confirm user compromised’ in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user’s risk history (via UI or API).
+
+## Malicious IP address
+
+**Detection Type:** Offline <br>
+This detection indicates sign-in from a malicious IP address. An IP address is considered malicious based on the following:
+-	High failure rates (because of invalid credentials received from the IP address)
+-	Other IP reputation sources
+
+## Additional risk detected
+
+**Detection Type:** Real-time or  Offline <br>
+This detection indicates that one of the above premium detections was detected. Since the premium detections are visible only to Azure AD Premium P2 customers, they are titled "additional risk detected" for non-P2 customers.
