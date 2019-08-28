@@ -29,11 +29,17 @@ If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/
 
 On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
 
-## Begin the migration process
+## App owner begins the migration process
 
-1. The migration pop-up window allows for you to continue the migration or migrate later. Select **Migrate now**. If you choose to migrate later, you have 9 months to migrate to the new authoring key in Azure.
+The migration process is available if you are the owner of any LUIS apps. 
+
+1. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**. If you choose to migrate later, you have 9 months to migrate to the new authoring key in Azure.
 
     ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
+
+1. If any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step. The default email application opens with a lightly formatted email. 
+
+    ![Send collaborators email about migration](./media/migrate-authoring-key/send-collaborators-email.png)
 
 1. Choose to create a LUIS authoring resource by selecting **Start by creating an authoring resource to migrate your apps to**. 
 
@@ -49,22 +55,30 @@ On a weekly basis, you are prompted to migrate your apps. You can cancel this wi
     * **Tenant** - the tenant your Azure subscription is associated with. 
     * **Subscription name** - the subscription that will be billed for the resource.
     * **Resource group** - a custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management. 
-    * **Location** - an Azure global region your authoring resource is in. The authoring region determines your available publishing regions.
+    * **Location** - the location choice is based on the **resource group** selection.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month. 
 
 1. When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
 
     ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success.png)
 
+    The **My apps** list shows the apps migrated to the new authoring resource. 
+
+    You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal. If you plan to edit your apps programmatically, you need the authoring key values. These values are displayed on the **Manage -> Azure resources** page in the LUIS portal and are also available in the Azure portal on the resource's **Keys** page.  
+
 ## After the migration process, add contributors to your authoring resource
 
-If your apps need to be authoring by other people, you need to add these contributors manually in the Azure portal's authoring resource, using each person's email address.
+If your apps need to be authored by other people, you need to add the associated email addresses in the Azure portal's authoring resource.
 
-1. In the Azure portal, for the authoring resource, select the **Access control** page.
+If you are the owner or administrator of your Azure subscription, you can add a contributor to the resource. If you are not the owner or administrator of your Azure subscription, your Azure account needs to have `Microsoft.Authorization/roleAssignments/write` permissions.
 
-    ![Select the Access control button for the authoring resource in the Azure portal.](./media/migrate-authoring-key/access-control-button.png)
+Learn more about adding contributors to a resource:
+
+* [Azure role assignments](../../role-based-access-control/role-assignments-portal.md)
+* [Troubleshooting](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments) role assignments
 
 ## Next steps
 
+
 * Review [concepts](luis-concept-keys.md) about authoring and runtime keys
-* Review [how to assign keys](luis-how-to-azure-subscription.md) and add [collaborators](luis-how-to-collaborate.md)
+* Review [how to assign keys](luis-how-to-azure-subscription.md) and add [contributors](luis-how-to-collaborate.md)
