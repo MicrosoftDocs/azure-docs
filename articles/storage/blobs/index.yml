@@ -128,21 +128,6 @@ landingContent:
           - text: Upload image data
             url: storage-upload-process-images.md
  
-    # Card
-  - title: Transfer data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Compare data transfer solutions
-            url: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Import/Export data
-            url: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - linkListType: how-to-guide
-        links:
-          - text: Transfer with AzCopy
-            url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Transfer with Azure Data Factory
-            url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card
   - title: Enable access through a custom domain
     linkLists:
