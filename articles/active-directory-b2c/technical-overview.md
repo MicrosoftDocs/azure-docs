@@ -160,71 +160,99 @@ In Azure AD B2C, you can craft your users' identity experiences so that the page
 
 ![Screenshots of brand-customized sign-up sign-in page](media/technical-overview/seamless-ux.png)
 
+For information on UI customization, see [About user interface customization in Azure Active Directory B2C](customize-ui-overview.md).
+
 ## Localization
 
 Language customization in Azure AD B2C allows you to accommodate different languages to suit your customer needs. Microsoft provides the translations for 36 languages, but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages.
 
 ![Three sign-up sign-in pages showing UI text in different languages](media/technical-overview/localization.png)
 
+See how localization works in [Language customization in Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md).
+
 ## Add your own business logic
 
-With Azure B2C custom policy, you can integrate with a RESTful API in a user journey. By integrating with RESTful services, you can add your own business logic to a user journey. Azure AD B2C can send receive data from RESTful, or display a user friendly error message to the user.
+If you choose to use custom policies, you can integrate with a RESTful API in a user journey to add your own business logic to the journey. For example, Azure AD B2C can exchange data with a RESTful service to:
 
-With RESTful services integration you can validate user input data to prevent malformed data from persisting into Azure AD. Overwrite data entered by the user, such as the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. Enrich user data by further integrating with corporate line-of-business applications. Your RESTful service can receive the user's email address, query the customer's database, and return the user's loyalty number to Azure AD B2C. The return data can be stored in the user's Azure AD account, evaluated in the next steps in the policy, or included in the access token. Using RESTful call you can also send push notifications, update corporate databases, run a user migration process, manage permissions, audit databases, and perform other actions.
+* Display custom user-friendly error messages.
+* Validate user input to prevent malformed data from persisting in your user directory. For example, you can modify the data entered by the user, such as capitalizing their first name if they entered it in all lowercase.
+* Enrich user data by further integrating with your corporate line-of-business application.
+* Using RESTful calls, you can also send push notifications, update corporate databases, run a user migration process, manage permissions, audit databases, and perform other actions.
+
+Loyalty programs are another scenario enabled by Azure AD B2C's support for calling REST APIs. For example, your RESTful service can receive a user's email address, query your customer database, then return the user's loyalty number to Azure AD B2C. The return data can be stored in the user's Azure AD account, then further evaluated in following steps in the policy or included in the access token.
 
 ![Line of business integration](media/technical-overview/lob-integration.png)
 
-You can add a REST API call at any step in the user journey. For example, you can call a REST API, during sing-in just before Azure AD B2C validates the credentials, or immediately after. Before B2C creates a new account in the directory or after, or just before Azure AD B2C issues the access token.
+You can add a REST API call at any step in the user journey. For example, you can call a REST API:
+
+* During sign-in, just before Azure AD B2C validates the credentials
+* Immediately after sign-in
+* Before Azure AD B2C creates a new account in the directory
+* After Azure AD B2C creates a new account in the directory
+* Before Azure AD B2C issues an access token
+
+To see how to use custom policies for RESTful API integration in Azure AD B2C, see [Integrate REST API claims exchanges in your Azure AD B2C user journey](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## Protect customer identities
 
-Azure AD B2C complies with the security, privacy, and other commitments described in the [Microsoft Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/cloudservices/azure). Sessions are modeled as encrypted data where the decryption key is only known to Azure AD B2C Security Token Service. A strong encryption algorithm is used (AES192). All communication paths are protected with TLS for confidentiality and integrity. Our Security Token Service uses an Extended Validation (EV) certificate for TLS. In general, the Security Token Service mitigates XSS attacks by not rendering untrusted input.
+Azure AD B2C complies with the security, privacy, and other commitments described in the [Microsoft Azure Trust Center](https://www.microsoft.com/trustcenter/cloudservices/azure).
 
-![User data](media/technical-overview/user-data.png)
+Sessions are modeled as encrypted data, with the decryption key known only to the Azure AD B2C Security Token Service. A strong encryption algorithm, AES-192, is used. All communication paths are protected with TLS for confidentiality and integrity. Our Security Token Service uses an Extended Validation (EV) certificate for TLS. In general, the Security Token Service mitigates cross-site scripting (XSS) attacks by not rendering untrusted input.
+
+![Diagram of secure data in transit and at rest](media/technical-overview/user-data.png)
 
 ### Access to user data
 
-Azure AD B2C tenants share many characteristics with Azure Active Directory tenants used for employees and partners including the mechanisms to view roles, assign roles and audit activities. For more information, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles). There are set of roles that are relevant to Azure AD B2C, such as:
+Azure AD B2C tenants share many characteristics with Azure Active Directory tenants that are used for employees and partners. Shared aspects include the mechanisms for viewing roles, assigning roles, and auditing activities. The following set of roles is relevant to Azure AD B2C:
 
-- Who can create and manage all aspects of user flows.
-- Who can create and manage the attribute schema available to all user flows.
-- Who can configure identity providers for use in direct federation.
-- Who can create and manage trust framework policies in the Identity Experience Framework (IEF, a.k.a. custom policy).
-Who can manage secrets for federation and encryption in the Identity Experience Framework (IEF)
+* Who can create and manage all aspects of user flows.
+* Who can create and manage the attribute schema available to all user flows.
+* Who can configure identity providers for use in direct federation.
+* Who can create and manage trust framework policies in the Identity Experience Framework (IEF, a.k.a. custom policy).
+* Who can manage secrets for federation and encryption in the Identity Experience Framework (IEF)
 
-### Multi factor authentication
+For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-Azure AD B2C Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes.
+### Multi-factor authentication (MFA)
 
-### Account smart lockout
+Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides additional security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-To prevent brute force attempts, Azure AD B2C uses a sophisticated strategy used to lock accounts based on the IP of the request and the passwords entered and some other factors. Duration of lockout increased based on risk and number of tries.
+### Smart account lockout
+
+To prevent brute-force password guessing attempts, Azure AD B2C uses a sophisticated strategy to lock accounts based on the IP of the request, the passwords entered, and several other factors. The duration of the lockout is automatically increased based on risk and the number of attempts.
 
 ![Account smart lockout](media/technical-overview/smart-lockout1.png)
 
-Lockout occurs generally after 10 suspicious unsuccessful attempts, a lockout occurs. The next unsuccessful attempt after the account unlocks triggers another lockout, and so forth. The first ten lockout periods are between 1-5 minutes long, the next 10 are slightly longer, and so forth, with the periods increasing in duration after every 10 lockout periods.
+For more information about managing password protection settings, see [Manage threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### Password complexity
 
-During sign-up or password reset, an end user must supply a password that meets the complexity rules. By default, Azure AD B2C uses Strong passwords rules. Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
+During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also supports configuration options to control the complexity requirements for the passwords your customers use.
+
+You can configure password complexity requirements in both [user flows](active-directory-b2c-reference-password-complexity.md) and [custom policies](active-directory-b2c-reference-password-complexity-custom.md).
 
 ## Auditing and logs
 
-Azure AD B2C emits audit logs containing activity information about B2C resources, issued tokens, and administrator access. Use the audit logs to understand platform activity and  diagnose issues. You can read the auditing logs entities a couple of minutes after the activity. In the auditing log you can find information such as:
-- Activities concerning the authorization of a user to access B2C resources (for example, an administrator accessing a list of B2C policies)
--
-- Activities related to directory attributes retrieved when an administrator signs in using the Azure Portal
-- CRUD operations on B2C applications
-- CRUD operations on keys stored in B2C key container
-- CRUD operations on B2C resources (for example, policies and identity providers)
-- Validation of user credentials and token issuance
+Azure AD B2C emits audit logs containing activity information about its resources, issued tokens, and administrator access. You can use these audit logs to understand platform activity and  diagnose issues. Audit log entries are available minutes after the activity that generated the event occurs.
 
-The audit log is available at your Azure AD B2C tenant, or for a particular user.
-![audit log](media/technical-overview/audit-log.png)
+In an audit log, which is is available for your Azure AD B2C tenant or for a particular user, you can find information including:
+
+* Activities concerning the authorization of a user to access B2C resources (for example, an administrator accessing a list of B2C policies)
+* Activities related to directory attributes retrieved when an administrator signs in using the Azure portal
+* Create, read, update, and delete (CRUD) operations on B2C applications
+* CRUD operations on keys stored in a B2C key container
+* CRUD operations on B2C resources (for example, policies and identity providers)
+* Validation of user credentials and token issuance
+
+![Individual user audit log in the Azure portal](media/technical-overview/audit-log.png)
+
+For additional details on audit logs, see [Accessing Azure AD B2C audit logs](active-directory-b2c-reference-audit-logs.md).
 
 ### Usage insights
 
-Azure AD B2C allows you to find out when people sign-up or sign-in to your web app, where your users are located, and what browsers and operating systems they use. By integrating Azure Application Insights into Azure AD B2C, you gain powerful insights into how people sign-up, sign-in, reset their password or edit the profile. With this knowledge, you can make data driven decisions about your next development cycles.
+Azure AD B2C allows you to discover when people sign up or sign in to your web app, where your users are located, and what browsers and operating systems they use. By integrating Azure Application Insights into Azure AD B2C by using custom policies, you can gain insight into how people sign-up, sign-in, reset their password or edit the profile. With this knowledge, you can make data driven decisions about your next development cycles.
+
+Find out more about usage analytics in [Track user behavior in Azure Active Directory B2C using Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md).
 
 ## Next steps
 
