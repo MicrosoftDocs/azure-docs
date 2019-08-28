@@ -46,7 +46,8 @@ landingContent:
           - text: What is Azure Private DNS?
             url: private-dns-overview.md
       - linkListType: concept
-          - text Azure DNS Private Zones scenarios
+        links:
+          - text: Azure DNS Private Zones scenarios
             url: private-dns-scenarios.md
           - text: Azure Private DNS FAQ
             url: dns-faq-private.md
