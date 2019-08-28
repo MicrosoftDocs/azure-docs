@@ -4,17 +4,17 @@ description: Learn how to use Azure portal to create and share virtual machine i
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 06/27/2019
 ms.author: cynthn
 ms.custom: 
 
@@ -51,6 +51,10 @@ When working through this article, replace the resource group and VM names where
 ## Create VMs from an image
 
 Once the image version is complete, you can create one or more new VMs. 
+
+> [!IMPORTANT]
+> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the [Azure CLI](shared-images.md#create-a-vm) or [Powershell](../windows/shared-images.md#create-vms-from-an-image).
+
 
 This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *East US* datacenter.
 

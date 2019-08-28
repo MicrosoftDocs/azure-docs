@@ -8,7 +8,6 @@ editor: ''
 
 ms.service: app-service
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
@@ -35,6 +34,8 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
    > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
 
 1. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
+
+    Granting access to an application identity in key vault is a onetime operation, and it will remain same for all Azure subscriptions. You can use it to deploy as many certificates as you want. 
 
 ## Reference syntax
 

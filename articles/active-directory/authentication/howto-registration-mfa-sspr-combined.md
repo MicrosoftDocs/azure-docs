@@ -26,6 +26,11 @@ Before enabling the new experience, review the article [Combined security inform
 | Combined security information registration for Azure Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
+> [!NOTE]
+> Organizations who enabled the previous preview for registering and managing security info should complete the steps below to enable the enhanced preview experience. For organizations who do not make the switch, on September 25, 2019, Microsoft will switch users of the previous preview for registering and managing security info to the enhanced experience. 
+> 
+> If you have not enabled any version of the preview your organization will not be impacted.
+
 ## Enable combined registration
 
 Complete these steps to enable combined registration:
@@ -48,9 +53,9 @@ If you have configured the Site to Zone Assignment List in Internet Explorer, th
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
-## Conditional access policies for combined registration
+## Conditional Access policies for combined registration
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in conditional access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in conditional access, see the article [What is the location condition in Azure Active Directory conditional access?](../conditional-access/location-condition.md#named-locations)
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
 ### Create a policy to require registration from a trusted location
 
@@ -58,7 +63,7 @@ The following policy applies to all selected users, who attempt to register usin
 
 ![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional access**
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**
 1. Select **New policy**
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to
@@ -89,4 +94,4 @@ The following policy applies to all selected users, who attempt to register usin
 
 [Troubleshooting combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[What is the location condition in Azure Active Directory conditional access?](../conditional-access/location-condition.md)
+[What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md)

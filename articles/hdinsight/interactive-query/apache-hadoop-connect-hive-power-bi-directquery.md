@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/25/2018
+ms.date: 06/17/2019
 ---
 # Visualize Interactive Query Apache Hive data with Microsoft Power BI using direct query in Azure HDInsight
 

@@ -2,14 +2,12 @@
 title: Troubleshoot common search indexer issues - Azure Search
 description: Fix errors and common problems with indexers in Azure Search, including data source connection, firewall, and missing documents.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
 ---
 
 # Troubleshooting common indexer issues in Azure Search
@@ -30,20 +28,17 @@ Azure Storage provides a configurable firewall. By default, the firewall is disa
 
 There's no specific error message when the firewall is enabled. Typically, firewall errors look like `The remote server returned an error: (403) Forbidden`.
 
-You can verify that the firewall is enabled in the [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). If the firewall is enabled, you have two options for getting around this issue:
+You can verify that the firewall is enabled in the [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). The only supported workaround is to disable the firewall by choosing to allow access from ['All networks'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Disable the firewall by choosing to allow access from ['All networks'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)
-1. [Add an exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) for the IP address of your search service. To find this IP address, use the following command:
+If your indexer does not have an attached skillset, you _may_ attempt to [add an exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) for the IP addresses of your search service. However, this scenario is not supported and is not guaranteed to work.
 
-`nslookup <service name>.search.windows.net`
-
-Exceptions don't work for [cognitive search](cognitive-search-concept-intro.md). The only workaround is to disable the firewall.
+You can find out the IP address of your search service by pinging its FQDN (`<your-search-service-name>.search.windows.net`).
 
 ### Cosmos DB
 
 #### Indexing isn't enabled
 
-Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
+Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## Document Processing Errors
 

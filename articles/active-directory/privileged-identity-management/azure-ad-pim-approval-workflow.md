@@ -37,7 +37,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
 1. Click **Approve requests**.
 
-    ![PIM Azure AD roles - Roles](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Azure AD roles - Approve requests](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     You'll see a list of requests pending your approval.
 
@@ -45,27 +45,27 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
 1. Select the requests you want to approve and then click **Approve** to open the Approve selected requests pane.
 
-    ![PIM Approve requests list](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![Approve requests list with Approve option highlighted](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. In the **Approve reason** box, type a reason.
 
-    ![PIM Approve selected requests](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![Approve selected requests pane with a approve reason](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. Click **Approve**.
 
     The Status symbol will be updated with your approval.
 
-    ![PIM Approve selected requests](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![Approve selected requests pane after Approve button clicked](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## Deny requests
 
 1. Select the requests you want to deny and then click **Deny** to open the Deny selected requests pane.
 
-    ![PIM Approve requests list](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![Approve requests list with Deny option highlighted](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. In the **Deny reason** box, type a reason.
 
-    ![PIM Deny selected requests](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![Deny selected requests pane with a deny reason](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. Click **Deny**.
 

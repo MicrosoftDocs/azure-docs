@@ -15,7 +15,7 @@ Learn how to set up [Apache HBase](https://hbase.apache.org/) replication within
 
 Cluster replication uses a source-push methodology. An HBase cluster can be a source or a destination, or it can fulfill both roles at once. Replication is asynchronous. The goal of replication is eventual consistency. When the source receives an edit to a column family when replication is enabled, the edit is propagated to all destination clusters. When data is replicated from one cluster to another, the source cluster and all clusters that have already consumed the data are tracked, to prevent replication loops.
 
-In this tutorial, you set up a source-destination replication. For other cluster topologies, see the [Apache HBase reference guide](https://hbase.apache.org/book.html#_cluster_replication).
+In this article, you set up a source-destination replication. For other cluster topologies, see the [Apache HBase reference guide](https://hbase.apache.org/book.html#_cluster_replication).
 
 The following are HBase replication usage cases for a single virtual network:
 
@@ -33,7 +33,7 @@ The following are HBase replication usage cases for two virtual networks:
 You can replicate clusters by using [script action](../hdinsight-hadoop-customize-cluster-linux.md) scripts from [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## Prerequisites
-Before you begin this tutorial, you must have an Azure subscription. See [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Before you begin this article, you must have an Azure subscription. See [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Set up the environments
 
@@ -390,7 +390,7 @@ The `print_usage()` section of the [script](https://raw.githubusercontent.com/Az
 
 ## Next steps
 
-In this tutorial, you learned how to set up Apache HBase replication within a virtual network, or between two virtual networks. To learn more about HDInsight and Apache HBase, see these articles:
+In this article, you learned how to set up Apache HBase replication within a virtual network, or between two virtual networks. To learn more about HDInsight and Apache HBase, see these articles:
 
 * [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase overview](./apache-hbase-overview.md)

@@ -2,12 +2,12 @@
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster in the portal
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -88,7 +88,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 > [!TIP]
 > In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
 
-Create a file named `azure-vote.yaml` and copy in the following YAML definition. In Azure Cloud Shell, create the file using `vi` or `Nano`, as if working on a virtual or physical system:
+In the cloud shell, use `nano` or `vi` to create a file named `azure-vote.yaml` and copy in the following YAML definition:
 
 ```yaml
 apiVersion: apps/v1

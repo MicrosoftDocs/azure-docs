@@ -3,14 +3,14 @@ title: Azure Custom Script Extension for Windows | Microsoft Docs
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 manager: carmonm
-author: georgewallace
+author: bobbytreed
 manager: carmonm
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
-ms.author: gwallace
+ms.author: robreed
 
 ---
 # Custom Script Extension for Windows
@@ -51,6 +51,7 @@ If your script is on a local server, then you may still need additional firewall
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you'll need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*
 * Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
+* Custom Script Extension will run under the LocalSystem Account
 
 ## Extension schema
 

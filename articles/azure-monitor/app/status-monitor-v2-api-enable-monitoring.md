@@ -13,14 +13,9 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommended it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Description
 
@@ -39,7 +34,7 @@ After you enable monitoring, we recommend that you use [Live Metrics](live-strea
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy).
+> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ## Examples
 
@@ -62,9 +57,9 @@ In this example:
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
 	@(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-	  @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-	  @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-	  @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
+	  @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+	  @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+	  @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 
 ```
 
@@ -82,14 +77,14 @@ You can create a single installation script for several computers by setting `Ma
 > Apps will match against rules in the order that the rules are provided. So you should specify the most specific rules first and the most generic rules last.
 
 #### Schema
-`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
 	- 'ComputerName' will match only computers with the exact name specified.
-- **AppFilter** is a required C# regex of the computer or VM name.
+- **AppFilter** is a required C# regex of the IIS Site Name. You can get a list of sites on your server by running the command [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
 	- '.*' will match all
-	- 'ApplicationName' will match only IIS apps with the exact name specified.
+	- 'SiteName' will match only the IIS Site with the exact name specified.
 - **InstrumentationKey** is required to enable monitoring of apps that match the preceding two filters.
 	- Leave this value null if you want to define rules to exclude monitoring.
 
@@ -102,8 +97,15 @@ The instrumentation engine adds overhead and is off by default.
 ### -AcceptLicense
 **Optional.** Use this switch to accept the license and privacy statement in headless installations.
 
+### -IgnoreSharedConfig
+When you have a cluster of web servers, you might be using a [shared configuration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+The HttpModule can't be injected into this shared configuration.
+This script will fail with the message that extra installation steps are required.
+Use this switch to ignore this check and continue installing prerequisites. 
+For more information, see [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
+
 ### -Verbose
-**Common parameter.** Use this switch to output detailed logs.
+**Common parameter.** Use this switch to display detailed logs.
 
 ### -WhatIf 
 **Common parameter.** Use this switch to test and validate your input parameters without actually enabling monitoring.
@@ -149,7 +151,7 @@ Successfully enabled Application Insights Status Monitor
   View your telemetry:
  - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
 - [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
-- Use [analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
+- [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
 - [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
  
  Add more telemetry:

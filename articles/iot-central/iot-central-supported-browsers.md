@@ -3,7 +3,7 @@ title: Supported browsers for Azure IoT Central | Microsoft Docs
 description: Azure IoT Central can be accessed across modern desktops, tablets and browsers. This article outlines the list of supported browsers.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 04/24/2109
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

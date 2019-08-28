@@ -3,13 +3,13 @@ title: "Tutorial: Translator Speech API C#"
 titleSuffix: Azure Cognitive Services
 description: Use the Translator Speech API to translate text in real time.
 services: cognitive-services
-author: v-jerkin
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: v-jerkin
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Tutorial: Translator Speech application in C#

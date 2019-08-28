@@ -1,5 +1,5 @@
 ---
-title: Problem saving administrator credentials while configuring user provisioning to an Azure AD Gallery application | Microsoft Docs
+title: Problem saving admin credentials configuring Azure AD gallery app | Microsoft Docs
 description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''

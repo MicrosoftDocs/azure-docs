@@ -39,27 +39,27 @@ The second step of the wizard gives you an opportunity to change administrator's
 
 1. Click **Azure AD roles** and then click **Wizard**.
 
-    ![Azure AD roles - Wizard](./media/pim-security-wizard/wizard-start.png)
+    ![Azure AD roles - Wizard page showing the 3 steps to run the wizard](./media/pim-security-wizard/wizard-start.png)
 
 1. Click **1 Discover privileged roles**.
 
 1. Review the list of privileged roles to see which users are permanent or eligible.
 
-    ![Discover privileged roles users](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Discover privileged roles - Role pane showing permanent and eligible members](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Click **Next** to select the members you want to make eligible.
 
-    ![Convert members to eligible](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Convert members to eligible page with options to select members you want to make eligible for roles](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Once you have selected the members, click **Next**.
 
-    ![Review changes](./media/pim-security-wizard/review-changes.png)
+    ![Review changes page showing members with permanent role assignments that will be converted](./media/pim-security-wizard/review-changes.png)
 
 1. Click **OK** to convert the permanent assignments to eligible.
 
     When the conversion completes, you'll see a notification.
 
-    ![Notifications](./media/pim-security-wizard/notification-completion.png)
+    ![Notification showing the status of a conversion](./media/pim-security-wizard/notification-completion.png)
 
 If you need to convert other privileged role assignments to eligible, you can run the wizard again. If you want to use the PIM interface instead of the wizard, see [Assign Azure AD roles in PIM](pim-how-to-add-role-to-user.md).
 

@@ -4,16 +4,15 @@ description: Learn about default Azure Batch quotas, limits, and constraints, an
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -29,18 +28,21 @@ You can run multiple Batch workloads in a single Batch account, or distribute yo
 
 If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
 
-> [!NOTE]
-> A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
-
 ## Resource quotas
-[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
+
+Also note that quotas are not guaranteed values. Quotas can vary based on changes from the Batch service or a user request to change a quota value.
+
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### Cores quotas in user subscription mode
 
 If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 ## Pool size limits
+
+Pool size limits are set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed. Only pools with inter-node communication and custom images have restrictions different from the standard quota.
 
 | **Resource** | **Maximum Limit** |
 | --- | --- |
@@ -55,6 +57,8 @@ If you created a Batch account with pool allocation mode set to **user subscript
 
 ## Other limits
 
+Additional limits set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed.
+
 | **Resource** | **Maximum Limit** |
 | --- | --- |
 | [Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores |
@@ -62,6 +66,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | Application packages per application | 40 |
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
+| [Mounts](virtual-file-mount.md) per compute node | 10 |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime is not accessible.
 

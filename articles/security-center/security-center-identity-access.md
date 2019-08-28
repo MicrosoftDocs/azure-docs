@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor identity and access in Azure Security Center | Microsoft Docs
 description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: ''
-
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: monhaber
-
+ms.author: "v-mohabe"
 ---
 # Monitor identity and access in Azure Security Center (Preview)
 This article helps you use Azure Security Center to monitor users' identity and access activity.
@@ -119,12 +117,12 @@ Use the table below as a reference to help you understand the available Identity
 |Subscription|15|External accounts with read permissions should be removed  from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.| 
 
 > [!NOTE]
-> If you created a conditional access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
+> If you created a Conditional Access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
-- [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 - [Protecting your Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md)
 

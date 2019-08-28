@@ -11,7 +11,7 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
@@ -46,11 +46,9 @@ Generally, Azure VM activation issues occur if the Windows VM is not configured 
 >
 >If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
-### Step 1 Configure the appropriate KMS client setup key (for Windows Server 2016 and Windows Server 2012 R2)
+### Step 1 Configure the appropriate KMS client setup key
 
-For the VM that is created from a custom image of Windows Server 2016 or Windows Server 2012 R2, you must configure the appropriate KMS client setup key for the VM.
-
-This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automation Virtual Machine Activation (AVMA) feature, which is supported only by Windows Server 2016 and Windows Server 2012 R2.
+For the VM that is created from a custom image, you must configure the appropriate KMS client setup key for the VM.
 
 1. Run **slmgr.vbs /dlv** at an elevated command prompt. Check the Description value in the output, and then determine whether it was created from retail (RETAIL channel) or volume (VOLUME_KMSCLIENT) license media:
   
@@ -81,7 +79,6 @@ This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automat
 
 3. Make sure that the VM is configured to use the correct Azure KMS server. To do this, run the following command:
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -90,30 +87,27 @@ This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automat
 
 4. Verify by using Psping that you have connectivity to the KMS server. Switch to the folder where you extracted the Pstools.zip download, and then run the following:
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    In the second-to-last line of the output, make sure that you see: Sent = 4, Received = 4, Lost = 0 (0% loss).
 
    If Lost is greater than 0 (zero), the VM does not have connectivity to the KMS server. In this situation, if the VM is in a virtual network and has a custom DNS server specified, you must make sure that DNS server is able to resolve kms.core.windows.net. Or, change the DNS server to one that does resolve kms.core.windows.net.
 
    Notice that if you remove all DNS servers from a virtual network, VMs use Azure’s internal DNS service. This service can resolve kms.core.windows.net.
   
-Also verify that the guest firewall has not been configured in a manner that would block activation attempts.
+    Also make sure that the outbound network traffic to KMS endpoint with 1688 port is not blocked by the firewall in the VM.
 
-1. After you verify successful connectivity to kms.core.windows.net, run the following command at that elevated Windows PowerShell prompt. This command tries activation multiple times.
+5. After you verify successful connectivity to kms.core.windows.net, run the following command at that elevated Windows PowerShell prompt. This command tries activation multiple times.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-A successful activation returns information that resembles the following:
-
-**Activating Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) …
-Product activated successfully.**
+    A successful activation returns information that resembles the following:
+    
+    **Activating Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) …
+    Product activated successfully.**
 
 ## FAQ 
 

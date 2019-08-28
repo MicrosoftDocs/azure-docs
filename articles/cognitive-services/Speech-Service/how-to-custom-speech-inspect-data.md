@@ -1,14 +1,14 @@
 ---
-title: "Inspect data quality for Custom Speech - Speech Services"
-titlesuffix: Azure Cognitive Services
-description: "Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the Custom Speech portal, you can play back uploaded audio and determine if the provided recognition result is correct.  This tool allows you to quickly inspect quality of Microsoft's baseline speech-to-text model or a trained custom model without having to transcribe any audio data."
+title: "Inspect data quality for Custom Speech - Speech Service"
+titleSuffix: Azure Cognitive Services
+description: "Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the Custom Speech portal, you can play back uploaded audio and determine if the provided recognition result is correct.  This tool allows you to quickly inspect quality of our baseline speech-to-text model or a trained custom model without having to transcribe any audio data."
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -41,7 +41,7 @@ When the test status is *Succeeded*, click in the test item name to see details 
 
 To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
 
-Inspecting quality testing is useful to validate if the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in Testing: Evaluate Accuracy.
+Inspecting quality testing is useful to validate if the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in [Evaluate Accuracy](how-to-custom-speech-evaluate-data.md).
 
 ## Next steps
 

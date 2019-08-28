@@ -1,6 +1,6 @@
 ---
-title: Dimension Prebuilt entities
-titleSuffix: Azure
+title: Dimension Prebuilt entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains dimension prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 ms.custom: seodec18
@@ -8,7 +8,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ---

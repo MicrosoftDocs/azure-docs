@@ -51,7 +51,22 @@
       href: tutorial-deploy-custom-vision.md
     - name: Store data locally with SQL
       href: tutorial-store-data-sql-server.md
-
+  - name: 4. End-to-end example of machine learning at the edge
+    items:
+    - name: Introduction
+      href: tutorial-machine-learning-edge-01-intro.md
+    - name: Set up development machine and Azure services
+      href: tutorial-machine-learning-edge-02-prepare-environment.md
+    - name: Generate simulated device data
+      href: tutorial-machine-learning-edge-03-generate-data.md
+    - name: Train and deploy an Azure Machine Learning model
+      href: tutorial-machine-learning-edge-04-train-model.md
+    - name: Configure a transparent gateway
+      href: tutorial-machine-learning-edge-05-configure-edge-device.md
+    - name: Create and deploy IoT Edge modules
+      href: tutorial-machine-learning-edge-06-custom-modules.md
+    - name: Send data to IoT Hub via transparent gateway
+      href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Concepts
   items:
   - name: IoT Edge runtime
@@ -104,13 +119,11 @@
       href: how-to-register-device-vscode.md
   - name: Install and manage IoT Edge
     items:
-    - name: Linux X64
+    - name: Linux
       href: how-to-install-iot-edge-linux.md
-    - name: Linux ARM32
-      href: how-to-install-iot-edge-linux-arm.md
-    - name: Windows X64
+    - name: Windows
       href: how-to-install-iot-edge-windows.md
-    - name: Linux containers on Windows X64
+    - name: Linux containers on Windows
       href: how-to-install-iot-edge-windows-with-linux.md
     - name: Windows Server VM
       href: how-to-install-iot-edge-windows-server-vm.md
@@ -122,10 +135,14 @@
       href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
     items:
-    - name: Linux
-      href: how-to-auto-provision-simulated-device-linux.md
-    - name: Windows
-      href: how-to-auto-provision-simulated-device-windows.md
+    - name: Symmetric key attestation
+      href: how-to-auto-provision-symmetric-keys.md
+    - name: TPM attestation
+      items:
+      - name: Linux
+        href: how-to-auto-provision-simulated-device-linux.md
+      - name: Windows
+        href: how-to-auto-provision-simulated-device-windows.md  
   - name: Develop and debug custom modules
     items:
     - name: Visual Studio 2019
@@ -150,6 +167,8 @@
     items:
     - name: Configure a transparent gateway
       href: how-to-create-transparent-gateway.md
+    - name: Authenticate a downstream device
+      href: how-to-authenticate-downstream-device.md
     - name: Connect a downstream device
       href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway
@@ -176,25 +195,27 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform services
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+  - name: Platform Services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Maps
       href: /azure/azure-maps
-    - name: Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Azure IoT Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

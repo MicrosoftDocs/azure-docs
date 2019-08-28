@@ -1,21 +1,16 @@
 ---
 title: Enabling Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how to enable Azure Active Directory Identity Protection.
-services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
 
-ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
+services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2018
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -54,4 +49,3 @@ This article shows how to enable Azure Active Directory Identity Protection.
 
 ## Next Steps
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

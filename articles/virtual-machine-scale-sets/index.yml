@@ -4,14 +4,12 @@ title: Virtual Machine Scale Sets Documentation
 metadata:
   title: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs. Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
   services: virtual-machine-scale-sets
-  author: carolz
-  manager: czeumault
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machine-scale-sets
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/14/2018
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs. Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
 sections:

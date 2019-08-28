@@ -1,6 +1,6 @@
 ---
-title: Publish app
-titleSuffix: Language Understanding - Azure Cognitive Services 
+title: Publish app - LUIS
+titleSuffix: Azure Cognitive Services 
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 

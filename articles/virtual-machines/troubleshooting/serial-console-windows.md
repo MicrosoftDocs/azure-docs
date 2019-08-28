@@ -4,12 +4,12 @@ description: Bi-Directional Serial Console for Azure Virtual Machines and Virtua
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -124,7 +124,7 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 
 1.	Enter `cmd` to create a channel that has a CMD instance.
 
-1.	Enter `ch -si 1` to switch to the channel that's running the CMD instance.
+1.	Enter `ch -si 1` or press `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
 
 1.	Press **Enter**, and then enter sign-in credentials with administrative permissions.
 

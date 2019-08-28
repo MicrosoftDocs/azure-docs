@@ -6,7 +6,6 @@ author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -14,7 +13,7 @@ ms.author: azfuncdf
 
 # Handling errors in Durable Functions (Azure Functions)
 
-Durable Function orchestrations are implemented in code and can use the error-handling capabilities of the programming language. With this in mind, there really aren't any new concepts you need to learn about when incorporating error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
+Durable Function orchestrations are implemented in code and can use the error-handling capabilities of the programming language. With this in mind, there really aren't any new concepts you need to learn about incorporating error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
 
 ## Errors in activity functions
 

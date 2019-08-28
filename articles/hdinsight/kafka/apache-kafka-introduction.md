@@ -7,8 +7,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 05/16/2019
-# As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
+ms.date: 06/13/2019
+#Customer intent: As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---
 
 # What is Apache Kafka in Azure HDInsight

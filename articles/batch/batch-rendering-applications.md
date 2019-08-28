@@ -5,7 +5,7 @@ services: batch
 ms.service: batch
 author: laurenhughes
 ms.author: lahugh
-ms.date: 03/26/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ---
 
@@ -18,6 +18,8 @@ Where applicable, pay-per-use licensing is available for the pre-installed rende
 Some applications only support Windows, but most are supported on both Windows and Linux.
 
 ## Applications on CentOS 7 rendering images
+
+The following list applies to CentOS 7.6, version 1.1.5 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
 * Autodesk Maya I/O 2018 Update 2 (cut 201711281015)

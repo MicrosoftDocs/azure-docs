@@ -1,6 +1,6 @@
 ---
 title: Move a limited trial project to Azure
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to move a Limited Trial project to Azure. 
 services: cognitive-services
 author: anrothMSFT

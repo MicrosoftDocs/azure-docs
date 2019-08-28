@@ -22,7 +22,6 @@ robots: noindex
 # Tutorial: Build your first data factory by using the Azure portal
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
@@ -31,6 +30,9 @@ robots: noindex
 
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Quickstart: Create a data factory by using Data Factory](../quickstart-create-data-factory-dot-net.md).
+
+> [!WARNING]
+> The JSON editor in Azure Portal for authoring & deploying ADF v1 pipelines will be turned OFF on 31st July 2019. After 31st July 2019, you can continue to use [ADF v1 Powershell cmdlets](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .Net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST APIs](https://docs.microsoft.com/rest/api/datafactory/) to author & deploy your ADF v1 pipelines.
 
 In this article, you learn how to use the [Azure portal](https://portal.azure.com/) to create your first data factory. To do the tutorial by using other tools/SDKs, select one of the options from the drop-down list. 
 

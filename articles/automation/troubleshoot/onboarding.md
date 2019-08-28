@@ -2,8 +2,8 @@
 title: Troubleshoot errors onboarding Update Management, Change Tracking, and Inventory
 description: Learn how to troubleshoot onboarding errors with the Update Management, Change Tracking, and Inventory solutions
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
@@ -13,7 +13,41 @@ manager: carmonm
 
 You may encounter errors when onboarding solutions like Update Management or Change Tracking and Inventory. This article describes the various errors that may occur and how to resolve them.
 
-## General Errors
+## Known issues
+
+### <a name="node-rename"></a>Scenario: Renaming a registered node requires unregister / register again
+
+#### Issue
+
+A node is registered to Azure Automation and then the operating system computername is changed.  Reports from the node
+continue to appear with the original name.
+
+#### Cause
+
+Renaming registered nodes does not update the node name in Azure Automation.
+
+#### Resolution
+
+Unregister the node from Azure Automation State Configuration and then register it again.  Reports published to the 
+service before that time will no longer be available.
+
+
+### <a name="resigning-cert"></a>Scenario: Re-signing certificates via https proxy is not supported
+
+#### Issue
+
+Customers have reported that when connecting through a proxy solution that terminates https traffic and then
+re-encrypts traffic using a new certificate, the service does not allow the connection.
+
+#### Cause
+
+Azure Automation does not support re-signing certificates used to encrypt traffic.
+
+#### Resolution
+
+There is no workaround for this issue.
+
+## General errors
 
 ### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message - The solution cannot be enabled
 
@@ -49,7 +83,7 @@ Failed to configure automation account for diagnostic logging
 
 #### Cause
 
-This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](http://aka.ms/PricingTierWarning).
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](https://aka.ms/PricingTierWarning).
 
 #### Resolution
 

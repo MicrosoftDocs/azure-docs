@@ -10,13 +10,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
 ---
 
 # Feature-based comparison of the Azure API Management tiers
+
+>[!IMPORTANT]
+> Please note the Developer tier is for non-production use cases and evaluations. It does not offer SLA. 
 
 Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct set of features and per unit [capacity](api-management-capacity.md). The following table summarizes the key features available in each of the tiers. Some features might work differently or have different capabilities depending on the tier. In such cases the differences are called out in the documentation articles describing these individual features.
 
@@ -36,6 +38,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [Management over Git](api-management-configuration-repository-git.md)                        | No                            | Yes            | Yes            | Yes            | Yes            |
 | Direct management API                                                                        | No                            | Yes            | Yes            | Yes            | Yes            |
 | Azure Monitor logs and metrics                                                               | No                | Yes            | Yes            | Yes            | Yes            |
+| Static IP                                                               | No                | Yes            | Yes            | Yes            | Yes            |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
