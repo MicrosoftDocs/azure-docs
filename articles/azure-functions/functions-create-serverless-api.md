@@ -4,7 +4,6 @@ description: Learn how to customize an HTTP trigger endpoint in Azure Functions
 author: mattchenderson
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
