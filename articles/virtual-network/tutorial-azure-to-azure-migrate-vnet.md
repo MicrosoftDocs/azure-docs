@@ -118,6 +118,95 @@ The following steps show how to prepare the virtual network for the move using a
     Get-AzLocation | format-table
     
     ```
+12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
+
+    * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **addressPrefixes** property in the **template.json** file:
+    
+            ```json
+                 "resources": [
+                        {
+                            "type": "Microsoft.Network/virtualNetworks",
+                            "apiVersion": "2019-06-01",
+                            "name": "[parameters('virtualNetworks_myVNET1_name')]",
+                            "location": "TARGET REGION",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
+                                "addressSpace": {
+                                    "addressPrefixes": [
+                                        "10.0.0.0/16"
+                                    ]
+                                },
+            ```
+
+    * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
+    
+            ```json
+                "subnets": [
+                    {
+                        "name": "subnet-1",
+                        "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.0.0/24",
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    },
+                    {
+                        "name": "GatewaySubnet",
+                        "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.1.0/29",
+                            "serviceEndpoints": [],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    }
+                ],
+            ```
+           In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
+            
+           ```json
+                        "type": "Microsoft.Network/virtualNetworks/subnets",
+                            "apiVersion": "2019-06-01",
+                            "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
+                            ],
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "addressPrefix": "10.0.1.0/29",
+                                "serviceEndpoints": [],
+                                "delegations": [],
+                                "privateEndpointNetworkPolicies": "Enabled",
+                                "privateLinkServiceNetworkPolicies": "Enabled"
+                            }
+                        },
+                        {
+                            "type": "Microsoft.Network/virtualNetworks/subnets",
+                            "apiVersion": "2019-06-01",
+                            "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/subnet-1')]",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
+                            ],
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "addressPrefix": "10.0.0.0/24",
+                                "delegations": [],
+                                "privateEndpointNetworkPolicies": "Enabled",
+                                "privateLinkServiceNetworkPolicies": "Enabled"
+                            }
+                        }
+                    ]
+            ```
+        
+                    
+
+
 12. Save the **template.json** file.
 
 13. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
