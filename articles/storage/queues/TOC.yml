@@ -1,4 +1,4 @@
-- name: Azure Queues storage documentation
+- name: Azure Queues Storage documentation
   href: /azure/storage/queues/
 - name: Overview
   expanded: true
