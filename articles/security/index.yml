@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/27/2019
+  ms.date: 08/28/2019
 
 highlightedContent: 
   items: 
@@ -131,7 +131,7 @@ conceptualContent:
         url: https://docs.microsoft.com/azure/security-center/
         text: See more
 
-    - title: Security monitoring for IoT
+    - title: IoT security monitoring
       links: 
         - url: https://docs.microsoft.com/azure/asc-for-iot/overview
           itemType: overview
