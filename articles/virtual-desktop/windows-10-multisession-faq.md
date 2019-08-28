@@ -59,7 +59,7 @@ Windows 10 Enterprise multi-session, versions 1809 and later are supported and a
  
 ## Which profile management solution should I use for Windows 10 Enterprise multi-session?
 
-When Windows 10 Enterprise is configured in non-persistent environments or other scenarios that need a centrally stored profile, we recommend using FSLogix profile containers. FSLogix ensures the user profile is available and up-to-date for every user session. We recommend you use your FSLogix profile container to store a user profile in any SMB share with appropriate permissions, but you can also store user profiles in Azure page blob storage if necessary. Windows Virtual Desktop users can use FSLogix at no additional cost.
+We recommend you use FSLogix profile containers when you configure Windows 10 Enterprise in non-persistent environments or other scenarios that need a centrally stored profile. FSLogix ensures the user profile is available and up-to-date for every user session. We also recommend you use your FSLogix profile container to store a user profile in any SMB share with appropriate permissions, but you can store user profiles in Azure page blob storage if necessary. Windows Virtual Desktop users can use FSLogix at no additional cost.
  
 For more information about how to configure an FSLogix profile container, see [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).  
 
