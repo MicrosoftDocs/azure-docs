@@ -95,7 +95,7 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. Open the [Azure portal](https://portal.azure.com).
 1. Go to **Batch accounts** and select your account.
 1. Select **Pools** and then **Add** to create a new pool.
-1. In the **Image type** section, select **Shared Image Gallery**.
+1. In the **Image Type** section, select **Shared Image Gallery**.
 1. Complete the remaining sections with information about your managed image.
 1. Select **OK**.
 
