@@ -38,13 +38,21 @@ landingContent:
           - text: Use .NET to create a queue in Azure Storage
             url: storage-quickstart-queues-dotnet.md
 
+  # Card (optional)
+  - title: Tutorial
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Work with Azure storage queues (.NET)
+            url: storage-tutorial-queues.md
+
   # Card
   - title: Develop with queues
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Get started with Azure Queue storage using .NET
-            url: storage-dotnet-how-to-use-queues
+            url: storage-dotnet-how-to-use-queues.md
           - text: How to use Queue storage from Java
             url: storage-java-how-to-use-queue-storage.md
           - text: How to use Queue storage from Node.js
