@@ -3,7 +3,7 @@ title: Find the request unit (RU) charge in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for any operation executed against an Azure Cosmos container.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
 ---

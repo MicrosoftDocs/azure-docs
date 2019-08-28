@@ -152,7 +152,7 @@ To use dependency visualization, you need to download and install agents on each
 
 You need to install the following agents on each machine:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
-- [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure).
+- [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent).
 - If you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
 You don't need these agents unless you're using dependency visualization.
