@@ -155,7 +155,7 @@ Azure Machine Learning stores metrics and metadata in the Azure Cosmos DB instan
 
 #### Azure Container Registry
 
-All container images in your registry (Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it onthe fly when Azure Machine Learning pulls the image.
+All container images in your registry (Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it on the fly when Azure Machine Learning pulls the image.
 
 #### Machine Learning Compute
 
@@ -228,7 +228,7 @@ Additional resources are created in the user's subscription during workspace cre
 
 The user can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
 
-[![The create workspace workflow](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
+[![Create workspace workflow](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### Save source code (training scripts)
 
@@ -236,7 +236,7 @@ The following diagram shows the code snapshot workflow.
 
 Associated with an Azure Machine Learning workspace are directories (experiments) that contain the source code (training scripts). These scripts are stored on your local machine and in the cloud (in the Azure Blob storage for your subscription). The code snapshots are used for execution or inspection for historical auditing.
 
-[![The code snapshot workflow](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
+[![Code snapshot workflow](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### Training
 
@@ -261,32 +261,33 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
 
 #### Querying runs and metrics
 
-In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning service that will in turn pull metrics from the Cosmos DB and return it back to the client.
+In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning, which will in turn pull metrics from the Cosmos DB database and return them back to the client.
 
-[![Screenshot showing create workspace workflow](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
+[![Training workflow](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### Creating web services
 
-The following diagram shows the inference workflow. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
-See details below:
+The following diagram shows the inference workflow. Inference, or model scoring, is the phase in which the deployed model is used for prediction, most commonly on production data.
 
-* User registers a model using a client like Azure ML SDK
-* User creates image using model, score file, and other model dependencies
-* The Docker Image is created and stored in ACR
-* Webservice is deployed to the compute target (ACI/AKS) using the image created above
-* Scoring request details are stored in Application Insight, which is in user’s subscription
-* Telemetry is also pushed to Microsoft/Azure subscription
+Here are the details:
 
-[![Screenshot showing create workspace workflow](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
+* The user registers a model by using a client like the Azure Machine Learning SDK.
+* The user creates an image by using a model, a score file, and other model dependencies.
+* The Docker image is created and stored in Azure Container Registry.
+* The web service is deployed to the compute target (Container Instances/AKS) using the image created in the previous step.
+* Scoring request details are stored in Application Insights, which is in the user’s subscription.
+* Telemetry is also pushed to the Microsoft/Azure subscription.
+
+[![Inference workflow](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## Next steps
 
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
+* [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-run-batch-predictions.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
-* [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Use Azure Machine Learning with Azure Virtual Network](how-to-enable-virtual-network.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
 * [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)
