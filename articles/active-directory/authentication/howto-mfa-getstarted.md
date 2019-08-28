@@ -73,7 +73,7 @@ Conditional Access policies enforce registration, requiring unregistered users t
 * Sign-ins from infected devices
 * Sign-ins from IP addresses with suspicious activities
 
-Some of the risk events detected by Azure Active Directory Identity Protection occur in real time and some require offline processing. Administrators can choose to block users who exhibit risky behaviors and remediate manually, require a password change, or require a multi-factor authentication as part of their Conditional Access policies.
+Some of the risk detections detected by Azure Active Directory Identity Protection occur in real time and some require offline processing. Administrators can choose to block users who exhibit risky behaviors and remediate manually, require a password change, or require a multi-factor authentication as part of their Conditional Access policies.
 
 ## Define network locations
 
