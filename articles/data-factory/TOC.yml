@@ -308,7 +308,7 @@
       href: connector-oracle-service-cloud.md
     - name: Parquet format
       href: format-parquet.md
-    - name: Paypal
+    - name: PayPal
       href: connector-paypal.md
     - name: Phoenix
       href: connector-phoenix.md
