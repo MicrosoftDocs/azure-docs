@@ -173,7 +173,7 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
     ```
-
+ 
    Here are descriptions of the parameters used in the AzCopy command:
 
    * **/Source:** _&lt;source&gt;:_ Location of the folder or storage container URL that contains the VHD.
@@ -261,15 +261,15 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 2. Open Azure PowerShell and go to the folder where AzCopy is installed.
 3. Use the following command to copy the VHD file from "Source" to "Destination".
 
-	```azcopy
-	AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-    ```
+   ```azcopy
+      AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+   ```
 
-    Example:
+   Example:
 
-    ```azcopy
-    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-    ```
+   ```azcopy
+      AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
+   ```
 
    Here are descriptions of the parameters used in the AzCopy command:
 

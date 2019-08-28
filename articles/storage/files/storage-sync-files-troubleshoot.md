@@ -713,7 +713,7 @@ This error occurs because the storage account has failed over to another region.
 | **Error string** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **Remediation required** | No |
 
-This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
+This error occurs because of an internal problem with the sync database. This error will auto-resolve when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
 <a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
 
