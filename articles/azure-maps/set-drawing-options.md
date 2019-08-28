@@ -10,6 +10,8 @@ services: azure-maps
 manager: philmea
 ---
 
+# Set drawing options
+
 This article shows you how different options of the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) change the user experience. You can specify options for the drawing manager while instantiating it or alternatively use the **drawingManager.setOptions()** function to set options.
 
 
