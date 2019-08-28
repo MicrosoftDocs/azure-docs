@@ -18,7 +18,7 @@ metadata:
 landingContent:
   - title: About Personalizer
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
           - text: What is Personalizer?
             url: what-is-personalizer.md
