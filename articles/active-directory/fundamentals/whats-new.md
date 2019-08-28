@@ -104,152 +104,66 @@ For more information, see [Manage groups in the Azure portal (Preview)](https://
 
 ---
 
-### New security reports are available for all Azure AD administrators (General Availability)
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-By default, all Azure AD administrators can now access modern security reports within Azure AD. Until the end of September, you can use the banner at the top of the modern security reports to return to the old reports.
-
-The modern security reports provide additional capabilities from the older versions, including:
-
-- Advanced filtering and sorting
-- Bulk actions, such as dismissing user risk
-- Confirmation of compromised or safe entities
-- Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
-- New risk-related detections (available to Azure AD Premium subscribers)
-
-For more information, see [Risk detection reports](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins) and the blog post, [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935).
-
----
-
-### User-assigned managed identity is available for Virtual Machines and Virtual Machine Scale Sets (General Availability)
-
-**Type:** New feature  
-**Service category:** Managed identities for Azure resources  
-**Product capability:** Developer Experience
-
-User-assigned managed identities are now generally available for Virtual Machines and Virtual Machine Scale Sets. As part of this, Azure can create an identity in the Azure AD tenant that's trusted by the subscription in use, and can be assigned to one or more Azure service instances. For more information about user-assigned managed identities, see [What is managed identities for Azure resources?](aka.ms/azuremanagedidentity).
-
----
-
-[731878](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=731878&triage=true&fullScreen=false&_a=edit)
-
-### New provisioning logs can help you monitor and troubleshoot your app provisioning process
+### New provisioning logs can help you monitor and troubleshoot your app provisioning process (Public Preview)
 
 **Type:** New feature  
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
 
-New provisioning logs are available to help you monitor and troubleshoot the user and group provisioning process, including information about:
+New provisioning logs are available to help you monitor and troubleshoot the user and group provisioning process. These new log files include information about:
 
-- What groups are successfully created in [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)
-- What roles are imported from [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on)
-- What employees aren't imported from [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)
+- What groups were successfully created in [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)
+- What roles were imported from [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on)
+- What employees weren't imported from [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)
 
-For more information, see ...
+For more information, see [Provisioning reports in the Azure Active Directory portal (preview)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)
 
 ---
 
-[784587](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=784587&triage=true&fullScreen=false&_a=edit)
-
-### New versions of AzureAD PowerShell and AzureADPreview PowerShell modules
+### New versions of the AzureAD PowerShell and AzureADPreview PowerShell modules are available
 
 **Type:** Changed feature  
 **Service category:** Other  
 **Product capability:** Directory
- 
 
-We released updates to the AzureAD and AzureAD Preview PowerShell modules.
+New updates to the AzureAD and AzureAD Preview PowerShell modules are available:
 
-In the AzureAD module a new parameter "-Filter" was added to the Get-AzureADDirectoryRole parameter that allows administrators to filter on the directory roles this cmdlet retrieves.
+- A new `-Filter` parameter was added to the `Get-AzureADDirectoryRole` parameter in the AzureAD module. This parameter helps you filter on the directory roles returned by the cmdlet.
+- New cmdlets were added to the AzureADPreview module, to help define and assign custom roles in Azure AD, including:
 
-In the AzureADPreview module the following new cmdlets are added to define and assign custom roles in Azure Active Directory:
-
-Get-AzureADMSRoleAssignment
-Get-AzureADMSRoleDefinition
-New-AzureADMSRoleAssignment
-New-AzureADMSRoleDefinition
-Remove-AzureADMSRoleAssignment
-Remove-AzureADMSRoleDefinition
-Set-AzureADMSRoleDefinition
- 
+    - `Get-AzureADMSRoleAssignment`
+    - `Get-AzureADMSRoleDefinition`
+    - `New-AzureADMSRoleAssignment`
+    - `New-AzureADMSRoleDefinition`
+    - `Remove-AzureADMSRoleAssignment`
+    - `Remove-AzureADMSRoleDefinition`
+    - `Set-AzureADMSRoleDefinition`
 
 ---
- 
 
-[584481](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=584481&triage=true&fullScreen=false&_a=edit)
-
-### Users can reset their passwords using a mobile app or hardware token - GA
-
-**Type:** Changed feature  
-**Service category:** Self Service Password Reset  
-**Product capability:** User Authentication
- 
-
-The ability for users to reset their passwords using a mobile app or hardware token is now Generally Available! This means that a user who has registered a mobile app can reset their password by approving a notification from the Microsoft Authenticator app or entering a code from their mobile app or hardware token. Learn more at aka.ms/authappsspr
- 
-
----
- 
-
-[672383](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=672383&triage=true&fullScreen=false&_a=edit)
-
-### All Azure AD security features are now consolidated inside a new menu (Security) within Azure AD
-
-**Type:** Changed feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
- 
-
-Azure AD customers will soon be able to access all (present and future) Azure AD security features at Azure Portal >> Azure AD >> Security. The landing blade within the new Security menu (i.e. Getting started) will also provide links to public docs, security guidance and deployment guides. Here are a few security features getting consolidated in the Security menu. Additionally, these security features (along with the Security menu itself) will soon be available to you via the search bar at the top of the Azure Portal.
-Conditional Access
-Identity Protection
-Security Center
-Identity Secure Score
-Authentication methods
-MFA
-Risk reports - Risky users, Risky sign-ins, Risk detections
-For Liz: Link for the images, if you'd like to include them.
-https://microsoft.sharepoint.com/:i:/t/RajatsWorkspace/EQb2b4OjCqlJiqaB_kBx-fsB3iTGasYIOBNcm8VpU7LNew?e=d1KODo
-https://microsoft.sharepoint.com/:i:/t/RajatsWorkspace/EQS1kFa5aaVPudT9FJaMgdsBCbuprRvswCR79Mt7m30_MQ?e=l1dQjg
- 
-
----
- 
-
-[675982](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=675982&triage=true&fullScreen=false&_a=edit)
-
-### Design updates to Dynamic membership rules configuration in the Azure Portal
+### New updates to the design of the dynamic membership rules builder in the Azure portal
 
 **Type:** Changed feature  
 **Service category:** Group Management  
 **Product capability:** Collaboration
- 
 
-Administrators can now configure or update an existing dynamic membership rule using the improved design of the simple rule builder. These changes will allow you to more easily create rules with up to five expressions instead of just one. We've also updated the device property list to remove deprecated device properties.
+We've made some design improvements to the rule builder, available in the Azure portal, to help you more easily set up or change existing dynamic membership rules. These design improvements help you to create rules with up to five expressions, instead of just one. We've also updated the device property list to remove deprecated device properties.
 
-For more information, see Manage dynamic membership rules
- 
+For more information, see [Manage dynamic membership rules](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-update-rule)
 
 ---
- 
 
-[701751](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=701751&triage=true&fullScreen=false&_a=edit)
-
-### Application permission for access reviews
+### New Microsoft Graph app permission available for use with access reviews
 
 **Type:** Changed feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
- 
 
-The new application permission AccessReview.ReadWrite.Membership enables applications to automatically to create and retrieve access reviews of group memberships and app assignments through Microsoft Graph, from scheduled jobs or as part of your automation infrastructure, without needing a logged in user context.
- 
+We've introduced a new Microsoft Graph app permission, `AccessReview.ReadWrite.Membership`, which allows apps to automatically create and retrieve access reviews for group memberships and app assignments. This permission can be run from your scheduled jobs or as part of your automation, without requiring a logged-in user context.
+
+For more information, see the [Example how to create Azure AD access reviews using Microsoft Graph app permissions with PowerShell blog](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241)
 
 ---
- 
 
 [797480](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=797480&triage=true&fullScreen=false&_a=edit)
 
@@ -263,10 +177,8 @@ The new application permission AccessReview.ReadWrite.Membership enables applica
 We are excited to announce the availability of Azure AD Logs in Azure Monitor for gov cloud instances. You can now route Azure AD logs to your storage account or to event hub to integrate with your SIEM tools like Sumologic, Splunk and ArcSight.  For more information on how to setup Azure Monitor, check out our documentation.  
 
 Note: Azure AD logs integration with Log Analytics is not available in gov clouds. This will be available soon. Watch out for this space for more updates.
- 
 
 ---
- 
 
 [791257](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=791257&triage=true&fullScreen=false&_a=edit)
 
@@ -275,9 +187,8 @@ Note: Azure AD logs integration with Log Analytics is not available in gov cloud
 **Type:** Changed feature  
 **Service category:** Microsoft Authenticator App  
 **Product capability:** User Authentication
- 
 
-On February 21, 2019, we released an enhanced experience for registering and managing security info. The enhanced experience makes it easier than ever for you and your users to register their security info in a single experience. To learn more about the enhanced security info experience, please read our admin documentation and user documentation. 
+On February 21, 2019, we released an enhanced experience for registering and managing security info. The enhanced experience makes it easier than ever for you and your users to register their security info in a single experience. To learn more about the enhanced security info experience, please read our admin documentation and user documentation.
 
 
 
@@ -310,9 +221,71 @@ If you do not complete these steps before September 25, 2019, your Azure Active 
 **Type:** Changed feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** Standards
- 
 
- 
+---
+
+### New security reports are available for all Azure AD administrators (General Availability)
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+By default, all Azure AD administrators can now access modern security reports within Azure AD. Until the end of September, you can use the banner at the top of the modern security reports to return to the old reports.
+
+The modern security reports provide additional capabilities from the older versions, including:
+
+- Advanced filtering and sorting
+- Bulk actions, such as dismissing user risk
+- Confirmation of compromised or safe entities
+- Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
+- New risk-related detections (available to Azure AD Premium subscribers)
+
+For more information, see [Risk detection reports](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins) and the blog post, [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935).
+
+---
+
+### User-assigned managed identity is available for Virtual Machines and Virtual Machine Scale Sets (General Availability)
+
+**Type:** New feature  
+**Service category:** Managed identities for Azure resources  
+**Product capability:** Developer Experience
+
+User-assigned managed identities are now generally available for Virtual Machines and Virtual Machine Scale Sets. As part of this, Azure can create an identity in the Azure AD tenant that's trusted by the subscription in use, and can be assigned to one or more Azure service instances. For more information about user-assigned managed identities, see [What is managed identities for Azure resources?](aka.ms/azuremanagedidentity).
+
+---
+
+### Users can reset their passwords using a mobile app or hardware token (General Availability)
+
+**Type:** Changed feature  
+**Service category:** Self Service Password Reset  
+**Product capability:** User Authentication
+
+Users who have registered a mobile app with your organization can now reset their own password by approving a notification from the Microsoft Authenticator app or by entering a code from their mobile app or hardware token.
+
+For more information, see [How it works: Azure AD self-service password reset](aka.ms/authappsspr). For more information about the user experience, see [Reset your own work or school password overview](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview)
+
+---
+
+### Consolidated Security menu item is now available in the Azure portal
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+You can access all of the available Azure AD security features from the new **Security** menu item, and from the **Search** bar, in the Azure portal. Additionally, the new **Security** landing page, called **Security - Getting started**, provides links to our public documentation, security guidance, and deployment guides.
+
+The new **Security** menu includes:
+
+- Conditional Access
+- Identity Protection
+- Security Center
+- Identity Secure Score
+- Authentication methods
+- MFA
+- Risk reports - Risky users, Risky sign-ins, Risk detections
+- And more...
+
+For more information, see the [Identity protection blog](https://aka.ms/IdentityProtectionBlog).
 
 ---
 
