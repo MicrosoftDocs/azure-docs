@@ -4,11 +4,11 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: mhopkins-msft
 
-ms.service: storage
-ms.topic: article
-ms.date: 07/27/2019
 ms.author: mhopkins
+ms.date: 08/09/2019
+ms.service: storage
 ms.subservice: blobs
+ms.topic: conceptual
 ---
 
 # Manage blob properties and metadata with .NET
