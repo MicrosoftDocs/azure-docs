@@ -64,7 +64,7 @@ GRUB_TERMINAL="serial console"
 GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 ```
 
-### RHEL 7:
+#### RHEL 7:
 ```
 GRUB_TIMEOUT=5
 GRUB_TERMINAL_OUTPUT="serial console"

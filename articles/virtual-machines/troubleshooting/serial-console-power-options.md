@@ -28,6 +28,6 @@ Reset VM | A forceful power cycle of your VM or virtual machine scale set by the
 SysRq - Reboot (b) | A system request to force a guest restart. | This feature is only applicable to Linux operating systems, and requires [SysRq to be enabled](./serial-console-nmi-sysrq.md#system-request-sysrq) in the operating system. If the operating system is properly configured for SysRq, this command will cause the OS to restart.
 NMI (Non-maskable Interrupt) | An interrupt command, which will be delivered to the operating system | This operation is available for both [Windows](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) and [Linux](./serial-console-nmi-sysrq.md#non-maskable-interrupt-nmi) VMs, and requires NMI to be enabled. Sending an NMI will typically cause your operating system to crash. You can configure your operating system to create a dump file and then restart upon receiving the NMI, which may be useful in low-level debugging.
 
-# Next steps
+## Next steps
 * Learn more about the [Azure Serial Console for Linux VMs](./serial-console-linux.md)
 * Learn more about the [Azure Serial Console for Windows VMs](./serial-console-windows.md)

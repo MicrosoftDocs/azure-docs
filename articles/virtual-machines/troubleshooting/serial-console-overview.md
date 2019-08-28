@@ -72,5 +72,5 @@ Aside from console access to your VM, you can also use the Azure Serial Console 
 
 ## Next steps
 Additional Serial Console documentation is available in the sidebar.
-- For more information on Serial Console for Linux VMs, click [here](./serial-console-linux.md).
-- For more information on Serial Console for Windows VMs, click [here](./serial-console-windows.md).
+- More information is available for [Serial Console for Linux VMs](./serial-console-linux.md).
+- More information is available for [Serial Console for Windows VMs](./serial-console-windows.md).
