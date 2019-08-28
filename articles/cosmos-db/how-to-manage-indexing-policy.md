@@ -3,7 +3,7 @@ title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: thweiss
 ---
