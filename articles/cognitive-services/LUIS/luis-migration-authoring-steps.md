@@ -19,11 +19,15 @@ From the Language Understanding (LUIS) portal, migrate all the apps you own to u
 
 ## Prerequisites
 
-Before you migrate to the Azure resource authoring experience, you need to have an Azure subscription. If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/en-us/free/). 
+* **Optionally**, backup the apps from the LUIS portal's apps list by exporting each app or use the export [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
+* **Optionally**, save each app's collaborator's list. This email list is provided as part of the migration process.
+* **Required**, you need to have an [Azure subscription](https://azure.microsoft.com/en-us/free/). A part of the subscription process does require billing information. However, you can use Free (F0) pricing tiers when you use LUIS. You may eventually find you need a paid tier, as your usage increases. 
+
+If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/en-us/free/). 
 
 ## Find the migration process
 
-On a regular basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
+On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
 
 ## Begin the migration process
 
