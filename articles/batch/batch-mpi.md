@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.date: 03/13/2019

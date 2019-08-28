@@ -7,11 +7,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high 
-ms.date: 08/23/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+
+::: zone target="chromeless"
+
+# Return Azure Data Box Disk 
+
+::: zone-end
+
 ::: zone target="docs"
 
 # Tutorial: Return Azure Data Box Disk 
@@ -24,13 +30,14 @@ In this tutorial, you will learn how to:
 > * Ship Data Box Disk to Microsoft
 > * Pick up Data Box Disk in different regions
 
-
 ## Prerequisites
 
 Before you begin, make sure that you have completed the [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md).
 
 
 ## Ship Data Box Disk back
+
+::: zone-end
 
 1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
 2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
@@ -40,15 +47,25 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 The next steps are determined by where you are returning the device.
 
+
+
+- [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+- [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
+- [Schedule a pickup in Australia](data-box-disk-deploy-picked-up.md#pick-up-in-australia).
+- [Schedule a pickup for countries in Asia](data-box-disk-deploy-picked-up.md#pick-up-in-asia) such as Japan, Korea, and Singapore.
+
+::: zone target="chromeless"
+
+After the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
+
+::: zone-end
+
 ## Pick up in US, Canada
 
 Take the following steps if returning the device in US or Canada.
 
 1. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
-
-        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
@@ -59,33 +76,20 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-
 ## Pick up in Europe
 
 Take the following steps if returning the device in Europe.
 
 1. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
-
-        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
-4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
-
-    ![DHL return shipment](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
-    
+4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.    
 3. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
-      ![Schedule pickup](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
-
-## Pick up in Asia-Pacific
-
-This region includes instructions for pickup in Japan, Korea, Australia, and Singapore.
-
-### Pick up in Australia
+## Pick up in Australia
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
@@ -95,6 +99,10 @@ Azure datacenters in Australia have an additional security notification. All the
     - Order name
     - Address
     - Contact name
+
+## Pick up in Asia
+
+The pickup instructions are different for Japan, Korea, and Singapore.
 
 ### Pick up in Japan
 
@@ -154,6 +162,8 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 3. Hand over to the courier. 
 
 
+::: zone target="docs"
+
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box Disk topics such as:
@@ -170,24 +180,5 @@ Advance to the next how-to to learn how to verify data upload from Data Box Disk
 ::: zone-end
 
 
-::: zone target="chromeless"
-
-# Return the disk to Azure
-
-1. After the data validation is complete, unplug the disks. Remove the connecting cables.
-2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
-    - Reuse the packaging from the initial shipment.  
-    - We recommend that you pack disks using a well-secured bubbled wrap.
-    - Make sure the fit is snug to reduce any movements within the box.
-
-3. The next steps are determined by where you are returning the device.
-
-    - [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-    - [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
-    - [Schedule a pickup for countries in Australia-Pacific region](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific) such as Australia, Japan, Korea, and Singapore.
-
-After the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
-
-::: zone-end
 
 
