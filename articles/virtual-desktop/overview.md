@@ -107,6 +107,19 @@ Windows Virtual Desktop supports the following OS images:
 * Windows Server 2016
 * Windows Server 2012 R2
 
+Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
+
+|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|Automatic|
+|Windows 10 multi-session, version 1809|Yes|Yes|No|No|Automatic|
+|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|Automatic|
+|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|Automatic|
+|Windows 7 Enterprise|Yes|Yes|No|No|Manual|
+|Windows Server 2019|Yes|Yes|No|No|Automatic|
+|Windows Server 2016|Yes|Yes|Yes|Yes|Automatic|
+|Windows Server 2012 R2|Yes|Yes|No|No|Automatic|
+
 ## Next steps
 
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
