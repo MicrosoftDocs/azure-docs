@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Application Management Documentation
+title: Application management documentation
 summary: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
 
 metadata: 
-   title: Application Management Documentation
+   title: Application management documentation
    description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
    ms.service: active-directory
    ms.subservice: manage-apps
@@ -16,12 +16,14 @@ metadata:
    manager: celested
 
 landingContent:
-  - title: Manage cloud apps and single sign-on
+  - title: About application management
     linkLists:
       - linkListType: overview
         links:
           - text: What is application management?
             url: what-is-application-management.md
+  - title: Manage cloud apps and single sign-on
+    linkLists:
       - linkListType: concept
         links:
           - text: Understanding single sign-on
