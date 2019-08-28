@@ -31,7 +31,7 @@ With these accounts created for you, you can quickly start building and deployin
 To create or update an Automation account, and to complete the tasks described in this article, you must have the following privileges and permissions:
 
 * To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for **Microsoft. Automation** resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
-* In the Azure portal, under **Azure Active Directory** > **MANAGE** > **App registrations**, if **App registrations** is set to **Yes**, non-admin users in your Azure AD tenant can [register Active Directory applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
+* In the Azure portal, under **Azure Active Directory** > **MANAGE** > **User settings**, if **App registrations** is set to **Yes**, non-admin users in your Azure AD tenant can [register Active Directory applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
 
 If you aren't a member of the subscription’s Active Directory instance before you are added to the subscription's global administrator/coadministrator role, you are added to Active Directory as a guest. In this scenario, you see this message on the **Add Automation Account** page: “You do not have permissions to create."
 

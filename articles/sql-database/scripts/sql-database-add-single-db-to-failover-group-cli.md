@@ -12,7 +12,7 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use CLI to move an Azure SQL database in a SQL elastic pool
+# Use CLI to add an Azure SQL Database single database into a failover group
 
 This PowerShell script example creates a single database, creates a failover group, adds the database to it, and tests failover. 
 

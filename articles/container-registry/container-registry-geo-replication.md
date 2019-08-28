@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 08/16/2019
 ms.author: stevelas
 ---
 # Geo-replication in Azure Container Registry
@@ -55,7 +55,7 @@ Using the geo-replication feature of Azure Container Registry, these benefits ar
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
 * Manage a single configuration of image deployments as all regions used the same image URL: `contoso.azurecr.io/public/products/web:1.2`
-* Push to a single registry, while ACR manages the geo-replication. You can configure regional [webhooks](container-registry-webhook.md) to notify of you events in specific replicas.
+* Push to a single registry, while ACR manages the geo-replication. You can configure regional [webhooks](container-registry-webhook.md) to notify you of events in specific replicas.
 
 ## Configure geo-replication
 
@@ -100,6 +100,14 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 Geo-replication is a feature of the [Premium SKU](container-registry-skus.md) of Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
 
 In the preceding example, Contoso consolidated two registries down to one, adding replicas to East US, Canada Central, and West Europe. Contoso would pay four times Premium per month, with no additional configuration or management. Each region now pulls their images locally, improving performance, reliability without network egress fees from West US to Canada and East US.
+
+## Troubleshoot push operations with geo-replicated registries
+ 
+A Docker client that pushes an image to a geo-replicated registry may not push all image layers and its manifest to a single replicated region. This may occur because Azure Traffic Manager routes registry requests to the network-closest replicated registry. If the registry has two *nearby* replication regions, image layers and the manifest could be distributed to the two sites, and the push operation fails when the manifest is validated. This problem occurs because of the way the DNS name of the registry is resolved on some Linux hosts. This issue doesn't occur on Windows, which provides a client-side DNS cache.
+ 
+If this problem occurs, one solution is to apply a client-side DNS cache such as `dnsmasq` on the Linux host. This helps ensure that the registry's name is resolved consistently. If you're using a Linux VM in Azure to push to a registry, see options in [DNS Name Resolution options for Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+
+To optimize DNS resolution to the closest replica when pushing images, configure a geo-replicated registry in the same Azure regions as the source of the push operations, or the closest region when working outside of Azure.
 
 ## Next steps
 

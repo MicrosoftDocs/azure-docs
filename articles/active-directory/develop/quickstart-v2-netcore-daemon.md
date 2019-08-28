@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ms.collection: M365-identity-device-management
 ---
@@ -73,7 +73,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 > > [Make these changes for me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+> > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download your Visual Studio project
 

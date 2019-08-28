@@ -58,7 +58,7 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Available | Available |
-| User assigned | Preview | Not available | Not available | Not available |
+| User assigned | Available | Not available | Not available | Not available |
 
 Refer to the following list to configure managed identity for Azure App Service (in regions where available):
 
@@ -84,7 +84,7 @@ Refer to the following list to use a managed identity with [Azure Blueprints](..
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Available | Available |
-| User assigned | Preview | Not available | Not available | Not available |
+| User assigned | Available | Not available | Not available | Not available |
 
 Refer to the following list to configure managed identity for Azure Functions (in regions where available):
 

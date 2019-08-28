@@ -7,7 +7,7 @@
  ms.service: time-series-insights
  author: kingdomofends
  ms.author: adgera
- ms.date: 07/02/2019
+ ms.date: 08/08/2019
 ---
 
 > [!IMPORTANT]
@@ -46,6 +46,15 @@
    [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    Click **Save**.
+
+1. Select **Certificates & secrets** then **New client secret** to create an application password that client can use to prove its identity.
+
+   [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
+
+   Your client secret password will then be displayed. Copy the key to your favorite text editor.
+
+   > [!NOTE]
+   > You have the ability to import a certificate instead. For enhanced security, a certificate is recommended. To use a certificate, select **Upload certificate**.
 
 1. Associate your Azure Active Directory app Azure TIme Series Insights. Select **API permissions** > **Add a permission** > **APIs my organization uses**. 
 

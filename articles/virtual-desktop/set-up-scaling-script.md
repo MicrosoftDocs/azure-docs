@@ -60,7 +60,7 @@ Next, you'll need to create the securely stored credentials:
     Install-Module Microsoft.RdInfra.RdPowershell
     ```
     
-3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file.
+3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file, then run the whole script (F5)
 4. Run the following cmdlet:
     
     ```powershell
@@ -106,7 +106,7 @@ After configuring the configuration .xml file, you'll need to configure the Task
 4. Go to the **Triggers** tab, then select **New…**
 5. In the **New Trigger** dialog, under **Advanced settings**, check **Repeat task every** and select the appropriate period and duration (for example, **15 minutes** or **Indefinitely**).
 6. Select the **Actions** tab and **New…**
-7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\RDSScaler.ps1** into the **Add arguments (optional)** field.
+7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\basicScale.ps1** into the **Add arguments (optional)** field.
 8. Go to the **Conditions** and **Settings** tabs and select **OK** to accept the default settings for each.
 9. Enter the password for the administrative account where you plan to run the scaling script.
 

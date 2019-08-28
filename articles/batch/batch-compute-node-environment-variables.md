@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/23/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ---
 
@@ -19,7 +19,7 @@ ms.author: lahugh
 
 The [Azure Batch service](https://azure.microsoft.com/services/batch/) sets the following environment variables on compute nodes. You can reference these environment variables in task command lines, and in the programs and scripts run by the command lines.
 
-For additional information about using environment variables with Batch, see [Environment settings for tasks](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+For more information about using environment variables with Batch, see [Environment settings for tasks](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
 
 ## Environment variable visibility
 
@@ -45,9 +45,9 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | The name of the Batch account that the task belongs to.                  | All tasks.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | The URL of the Batch account. | All tasks. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | A prefix of all the app package environment variables. For example, if Application “Foo” version “1” is installed onto a pool, the environment variable is AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 points to the location which the package was downloaded (a folder). | Any task with an associated app package. Also available for all tasks if the node itself has application packages. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | A prefix of all the app package environment variables. For example, if Application “Foo” version “1” is installed onto a pool, the environment variable is AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 points to the location that the package was downloaded (a folder). | Any task with an associated app package. Also available for all tasks if the node itself has application packages. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | An authentication token that grants access to a limited set of Batch service operations. This environment variable is only present if the [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) are set when the [task is added](/rest/api/batchservice/task/add#request-body). The token value is used in the Batch APIs as credentials to create a Batch client, such as in the [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | All tasks. | OAuth2 access token |
-| AZ_BATCH_CERTIFICATES_DIR       | A directory within the [task working directory][files_dirs] in which certificates are stored for Linux compute nodes. Note that this environment variable does not apply to Windows compute nodes.                                                  | All tasks.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | A directory within the [task working directory][files_dirs] in which certificates are stored for Linux compute nodes. This environment variable does not apply to Windows compute nodes.                                                  | All tasks.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | The list of nodes that are allocated to a [multi-instance task][multi_instance] in the format `nodeIP,nodeIP`. | Multi-instance primary and subtasks. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Specifies whether the current node is the master node for a [multi-instance task][multi_instance]. Possible values are `true` and `false`.| Multi-instance primary and subtasks. | `true` |
 | AZ_BATCH_JOB_ID                 | The ID of the job that the task belongs to. | All tasks except start task. | batchjob001 |
@@ -57,6 +57,7 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 | AZ_BATCH_NODE_ID                | The ID of the node that the task is assigned to. | All tasks. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | If `true`, the current node is a dedicated node. If `false`, it is a [low-priority node](batch-low-pri-vms.md). | All tasks. | `true` |
 | AZ_BATCH_NODE_LIST              | The list of nodes that are allocated to a [multi-instance task][multi_instance] in the format `nodeIP;nodeIP`. | Multi-instance primary and subtasks. | `10.0.0.4;10.0.0.5` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | The full path of the node level [file system mount](virtual-file-mount.md) location where all mount directories reside. Windows file shares use a drive letter, so for Windows, the mount drive is part of devices and drives.  |  All tasks including start task have access to the user, given the user is aware of the mount permissions for the mounted directory. | In Ubuntu, for example, the location is: `/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | The full path of the root of all [Batch directories][files_dirs] on the node. | All tasks. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | The full path of the [shared directory][files_dirs] on the node. All tasks that execute on a node have read/write access to this directory. Tasks that execute on other nodes do not have remote access to this directory (it is not a "shared" network directory). | All tasks. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | The full path of the [start task directory][files_dirs] on the node. | All tasks. | C:\user\tasks\startup |

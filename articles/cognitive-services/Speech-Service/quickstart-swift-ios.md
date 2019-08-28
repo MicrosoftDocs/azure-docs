@@ -56,7 +56,7 @@ In the dialogs that follow, make the following selections:
 
 ## Add the sample code
 
-1. Place a new header file with the name `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` into the `helloworld` directory inside the helloworld project, and paste the following code into it:
+1. Place a new header file with the name `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` into the `helloworld` directory inside the helloworld project, and paste the following code into it:  
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. Add the relative path `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` to the bridging header to the Swift project settings for the helloworld target in the *Objective-C Bridging Header* field
    ![Header properties](media/sdk/qs-swift-ios-bridging-header.png)

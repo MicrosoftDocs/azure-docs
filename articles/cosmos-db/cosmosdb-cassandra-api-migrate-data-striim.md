@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: rimman
+ms.author: sngun
 ms.reviewer: sngun
 ---
 
@@ -13,11 +13,11 @@ ms.reviewer: sngun
 
 The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB Cassandra API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 
-This article shows how to use Striim to migrate data from an **Oracle database** to an **Azure Cosmos DB Cassnadra API account**.
+This article shows how to use Striim to migrate data from an **Oracle database** to an **Azure Cosmos DB Cassandra API account**.
 
 ## Prerequisites
 
-* If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * An Oracle database running on-premise with some data in it.
 

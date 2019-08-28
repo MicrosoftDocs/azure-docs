@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/19/2018
+ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -225,7 +225,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 To run a container task on a container-enabled pool, specify container-specific settings. Settings include the image to use, registry, and container run options.
 
-* Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class.
+* Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class. Note that the `--rm` container option doesn't require an additional `--runtime` option since it is taken care of by Batch. 
 
 * If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) do not require container settings (that is, they can run within a container context or directly on the node).
 

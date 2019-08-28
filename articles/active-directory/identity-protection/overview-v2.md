@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The Identity Protection experience has been refreshed to better protect your organization’s identities. This refreshed experience provides:
 
-- Redesigned admin experience that revolves around the risk most relevant to you¬- user risk and sign-in risk
+- Redesigned admin experience that revolves around the risk most relevant to your user risk and sign-in risk
 - Powerful investigations experience with support for filtering, sorting, and smart downloads
 - Improved user risk calculation to help you prioritize your efforts towards the users that are most likely to be compromised
 - New API support to enable programmatic access to risk data
@@ -142,13 +142,17 @@ For more information, see [Assigning administrator roles in Azure Active Directo
 >[!NOTE]
 > During public preview of Identity Protection (refreshed), only Azure AD Premium P2 customers will have access to the risky users report and risky sign-ins report.
 
-| Capability | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
-| --- | --- | --- | --- |
-| User risk policy | Yes | No | No |
-| Sign-in risk policy | Yes | No | No |
-| Risky users report | Full access | Limited Information | Limited Information |
-| Risky sign-ins report | Full Access | Limited Information | Limited Information |
-| MFA registration policy | Yes | No | No |
+| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| --- | --- | --- | --- | --- |
+| Risk policies | User risk policy (via Identity Protection) | Yes | No | No |
+| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | Yes | No | No |
+| Security reports | Overview | Yes | No | No |
+| Security reports | Risky users | Full access | Limited Information | Limited Information |
+| Security reports | Risky sign-ins | Full access | Limited Information | Limited Information |
+| Security reports | Risk detections | Full access | Limited Information | No |
+| Notifications | Users at risk detected alerts | Yes | No | No |
+| Notifications | Weekly digest | Yes | No | No |
+| | MFA registration policy | Yes | No | No |
 
 ## Next steps 
 

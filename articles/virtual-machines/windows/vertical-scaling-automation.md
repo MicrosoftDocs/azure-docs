@@ -34,6 +34,7 @@ The outline for the steps to accomplish this is as below
 3. Add a webhook to your runbook
 4. Add an alert to your Virtual Machine
 
+
 ## Scale limitations
 
 Because of the size of the first Virtual Machine, the sizes it can be scaled to, may be limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks used in this article we take care of this case and only scale within the below VM size pairs. This means that a Standard_D1v2 Virtual Machine will not suddenly be scaled up to Standard_G5 or scaled down to Basic_A0. Also constrained Virtual Machine sizes scale up/down is not supported. 
@@ -221,6 +222,7 @@ You can choose to scale between the following pairs of sizes:
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## Setup Azure Automation to access your Virtual Machines
 The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale a Virtual Machine. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:

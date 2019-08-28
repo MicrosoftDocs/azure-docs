@@ -5,7 +5,7 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
-ms.date: 06/13/2019
+ms.date: 08/01/2019
 ---
 
 # Troubleshooting Azure Data Catalog
@@ -16,7 +16,7 @@ This article describes common troubleshooting concerns for Azure Data Catalog re
 
 When using Azure Data Catalog, the following functionality is limited:
 
-- Accounts with type **Guest Role** are not supported. You cannot add guest accounts as users of Azure Data Catalog, and guest users cannot use the portal at www.azuredatacatalog.com.
+- Accounts with type **Guest Role** are not supported. You cannot add guest accounts as users of Azure Data Catalog, and guest users cannot use the portal at [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 - Creating Azure Data Catalog resources using Azure Resource Manager Templates or Azure PowerShell commands is not supported.
 

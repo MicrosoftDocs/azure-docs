@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 08/14/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -81,8 +81,6 @@ Open the following ports to **outbound** traffic.
 
 If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.
 
-You might have an older version of the connector installed if you're already using Application Proxy. Follow this tutorial to install the latest version of the connector. Versions earlier than 1.5.132.0 also require the following open ports: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120.
-
 ### Allow access to URLs
 
 Allow access to the following URLs:
@@ -93,7 +91,7 @@ Allow access to the following URLs:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates. |
 | login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | The connector uses these URLs during the registration process. |
 
-You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
+You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 
 ## Install and register a connector
 
@@ -175,7 +173,7 @@ Now that you've prepared your environment and installed a connector, you're read
 
     | Field | Description |
     | :---- | :---------- |
-    | **Backend Application Timeout** | Set this value to **Long** only if your application is slow to authenticate and connect. |
+    | **Backend Application Timeout** | Set this value to **Long** only if your application is slow to authenticate and connect. At default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. |
     | **Use HTTP-Only Cookie** | Set this value to **Yes** to have Application Proxy cookies include the HTTPOnly flag in the HTTP response header. If using Remote Desktop Services, set this value to **No**.|
     | **Use Secure Cookie**| Set this value to **Yes** to transmit cookies over a secure channel such as an encrypted HTTPS request.
     | **Use Persistent Cookie**| Keep this value set to **No**. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).

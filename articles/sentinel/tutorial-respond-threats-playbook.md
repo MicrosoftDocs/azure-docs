@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/25/2019
+ms.date: 8/21/2019
 ms.author: rkarlin
 ---
 
@@ -87,7 +87,7 @@ You can run a playbook on demand.
 
 To run a playbook on-demand:
 
-1. In the **Cases** page, select a case and click on **View full details**.
+1. In the **incidents** page, select an incident and click on **View full details**.
 
 2. In the **Alerts** tab, click on the alert you want to run the playbook on, and scroll all the way to the right and click **View playbooks** and select a playbook to **run** from the list of available playbooks on the subscription. 
 
@@ -101,9 +101,7 @@ Many, if not most, of these alerts conform to recurring patterns that can be add
 
 To automate responses:
 
-1. Choose the alert for which you want to automate the response.
-1. From the Azure Sentinel workspace navigation menu, select **Analytics**.
-1. Select the alert you want to automate. 
+1. Select the alert for which you want to automate the response.
 1. In the **Edit alert rule** page, under **Real-time automation**, choose the **Triggered playbook** you want to run when this alert rule is matched.
 1. Select **Save**.
 

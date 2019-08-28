@@ -51,7 +51,7 @@ To simplify the network configuration for application workloads, Kubernetes uses
 
 The IP address for load balancers and services can be dynamically assigned, or you can specify an existing static IP address to use. Both internal and external static IP addresses can be assigned. This existing static IP address is often tied to a DNS entry.
 
-Both *internal* and *external* load balancers can be created. Internal load balancers are only assigned a private IP address, so can't be accessed from the Internet.
+Both *internal* and *external* load balancers can be created. Internal load balancers are only assigned a private IP address, so they can't be accessed from the Internet.
 
 ## Azure virtual networks
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ---
 
@@ -92,11 +92,11 @@ Document size must be under 5,120 characters per document, and you can have up t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a **POST** request. Review the API documentation for this request: [Entity Linking API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Create a **POST** request. Review the API documentation for this request: [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Set the HTTP endpoint for entity extraction. It must include the `/entities` resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
-+ Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
++ Set a request header to include [the access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
 + In the request body, provide the JSON documents collection you prepared for this analysis
 
@@ -279,7 +279,7 @@ In this article, you learned concepts and workflow for entity linking using Text
 
 + [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) is available for selected languages.
 + JSON documents in the request body include an ID, text, and language code.
-+ POST request is to a `/entities` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
++ POST request is to a `/entities` endpoint, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
 + Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
 
 ## Next steps

@@ -77,6 +77,14 @@ group, results won't be returned.
 > new subscription added during an active session, the principal must refresh the context. This
 > action happens automatically when logging out and back in.
 
+Azure CLI and Azure PowerShell use subscriptions that the user has access to. When using REST API
+directly, the subscription list is provided by the user. If the user has access to any of the
+subscriptions in the list, the query results are returned for the subscriptions the user has access
+to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list)
+\- you get resource groups you've access to without any indication that the result may be partial.
+If there are no subscriptions in the subscription list that the user has appropriate rights to, the
+response is a _403_ (Forbidden).
+
 ## Throttling
 
 As a free service, queries to Resource Graph are throttled to provide the best experience and

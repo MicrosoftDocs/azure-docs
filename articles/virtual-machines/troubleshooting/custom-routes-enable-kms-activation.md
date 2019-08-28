@@ -49,6 +49,9 @@ To add the custom route, follow these steps:
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
+> [!NOTE] 
+> Activation uses public IP addresses and will be affected by a Standard SKU Load Balancer configuration. Carefully review [Outbound connections in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) to learn about the requirements.
+
 1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Run the following commands:
 

@@ -1,9 +1,7 @@
 ---
 title: 'Tutorial: Access Azure Data Lake Storage Gen2 data with Azure Databricks using Spark | Microsoft Docs'
 description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
@@ -122,18 +120,18 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 2. To copy data from the *.csv* account, enter the following command.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
    * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   * Replace the `<file-system-name>` placeholder with any name that you want to give your file system.
+   * Replace the `<container-name>` placeholder with any name that you want to give your container.
 
-## Create a file system and mount it
+## Create a container and mount it
 
-In this section, you'll create a file system and a folder in your storage account.
+In this section, you'll create a container and a folder in your storage account.
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
 
@@ -156,12 +154,12 @@ In this section, you'll create a file system and a folder in your storage accoun
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/folder1",
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
 
-18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with the name that you gave to the ADLS File System on the previous step.
+18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name that you gave to the container on the previous step.
 
 Use these values to replace the mentioned placeholders.
 
@@ -171,7 +169,7 @@ Use these values to replace the mentioned placeholders.
 
    * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
-   * Replace the `file-system-name` placeholder with any name that you want to give your file system.
+   * Replace the `container-name` placeholder with any name that you want to give your container.
 
    > [!NOTE]
    > In a production setting, consider storing your password in Azure Databricks. Then, add a look up key to your code block instead of the password. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.

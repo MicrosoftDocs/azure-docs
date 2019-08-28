@@ -1,10 +1,9 @@
 ---
 title: Use Azure Files with Linux | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB on Linux.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
@@ -36,9 +35,11 @@ ms.subservice: files
 | Ubuntu Server | 14.04+ | 16.04+ |
 | RHEL | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
+| Debian | 8+ | 9+<sup>*</sup> |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+<sup>*</sup>Usage of a backported kernel might be required. You can install it with `sudo apt-get install linux-image-cloud-amd64`.
 
 If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
 

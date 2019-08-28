@@ -8,6 +8,7 @@ editor: TomShinder
 
 ms.assetid:
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: Barclayn

@@ -216,7 +216,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
 6. In your solution folder, open the **deployment.template.json** file. 
 
-7. Find the **modules** section. You should see three modules. The module *tempSensor* is included by default in new solutions, and provides test data to use with your other modules. The module *sqlFunction* is the module that you initially created and updated with new code. Finally, the module *sql* was imported from the Azure Marketplace. 
+7. Find the **modules** section. You should see three modules. The module *SimulatedTemperatureSensor* is included by default in new solutions, and provides test data to use with your other modules. The module *sqlFunction* is the module that you initially created and updated with new code. Finally, the module *sql* was imported from the Azure Marketplace. 
 
    >[!Tip]
    >The SQL Server module comes with a default password set in the environment variables of the deployment manifest. Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
@@ -241,7 +241,7 @@ In the previous sections, you created a solution with one module, and then added
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then, it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the module, and then push the code to the container registry that you specified when you initialized the solution. 
 
-You can verify that the sqlFunction module was successfully pushed to your container registry. In the Azure portal, navigate to your container registry. Select **repositories** and search for **sqlFunction**. The other two modules, tempSensor and sql, won't be pushed to your container registry because you're already pointing to their repositories in the Microsoft registries.
+You can verify that the sqlFunction module was successfully pushed to your container registry. In the Azure portal, navigate to your container registry. Select **repositories** and search for **sqlFunction**. The other two modules, SimulatedTemperatureSensor and sql, won't be pushed to your container registry because you're already pointing to their repositories in the Microsoft registries.
 
 ## Deploy the solution to a device
 
@@ -265,7 +265,7 @@ Refresh the status of your device in the Azure IoT Hub Devices section of VS Cod
 
 ## Create the SQL database
 
-When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. This section guides you through setting up the SQL database to store the temperature data. 
+When you apply the deployment manifest to your device, you get three modules running. The SimulatedTemperatureSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. This section guides you through setting up the SQL database to store the temperature data. 
 
 Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it. 
 
