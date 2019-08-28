@@ -3,8 +3,8 @@ title: Azure Data Factory - Samples
 description: Provides details about samples that ship with the Azure Data Factory service.
 services: data-factory
 documentationcenter: ''
-author: chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

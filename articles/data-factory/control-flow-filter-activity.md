@@ -3,8 +3,8 @@ title: Filter activity in Azure Data Factory | Microsoft Docs
 description: The Filter activity filters the inputs. 
 services: data-factory
 documentationcenter: ''
-author: chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

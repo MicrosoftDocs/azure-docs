@@ -3,8 +3,8 @@ title: Use Case - Customer Profiling
 description: Learn how Azure Data Factory is used to create a data-driven workflow (pipeline) to profile gaming customers.
 services: data-factory
 documentationcenter: ''
-author: chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

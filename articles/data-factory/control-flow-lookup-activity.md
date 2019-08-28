@@ -3,8 +3,8 @@ title: Lookup activity in Azure Data Factory | Microsoft Docs
 description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
 services: data-factory
 documentationcenter: ''
-author: Chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory

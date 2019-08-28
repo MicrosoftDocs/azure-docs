@@ -3,8 +3,8 @@ title: Datasets in Azure Data Factory | Microsoft Docs
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 services: data-factory
 documentationcenter: ''
-author: chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

@@ -1,8 +1,8 @@
 ---
 title: "PowerShell script- transform data in cloud using Data Factory | Microsoft Docs"
 description: "This PowerShell script transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster." 
-author: chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

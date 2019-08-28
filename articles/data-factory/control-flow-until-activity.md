@@ -3,8 +3,8 @@ title: Until activity in Azure Data Factory | Microsoft Docs
 description: The Until activity executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
 services: data-factory
 documentationcenter: ''
-author: chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

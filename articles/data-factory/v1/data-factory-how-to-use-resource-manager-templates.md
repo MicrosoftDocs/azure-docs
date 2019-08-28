@@ -3,8 +3,8 @@ title: Use Resource Manager templates in Data Factory | Microsoft Docs
 description: Learn how to create and use Azure Resource Manager templates to create Data Factory entities.
 services: data-factory
 documentationcenter: ''
-author: chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 editor: ''

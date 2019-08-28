@@ -3,8 +3,8 @@ title: Web Activity in Azure Data Factory | Microsoft Docs
 description: Learn how you can use Web Activity, one of the control flow activities supported by Data Factory, to invoke a REST endpoint from a pipeline.
 services: data-factory
 documentationcenter: ''
-author: Chez-charlie
-ms.author: chez
+author: djpmsft
+ms.author: daperlov
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
