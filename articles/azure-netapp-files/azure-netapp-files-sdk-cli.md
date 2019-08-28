@@ -39,8 +39,8 @@ The table below lists the supported CLI tools and their command reference.
 
 |    Tool    |    Command reference    |
 |------------------|--------------------------------------------|
-|    [Azure CLI](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |    `https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest`    |
-|    [PowerShell](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |    `https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files`    |
+|    [Azure CLI](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |    [az netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
+|    [PowerShell](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |    [Azure PowerShell for Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
 
 ## Code samples
 
@@ -48,8 +48,8 @@ The table below lists code samples for your reference.
 
 |    Language/Tool    |    Code sample documentation    |
 |------------------|--------------------------------------------|
-|    [.NET](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    `https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/`    |
-|    [Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |    `https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/`    |
+|    [.NET](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    [Azure NetAppFiles SDK sample for .NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
+|    [Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |    [Azure NetAppFiles SDK sample for Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## Next steps   
  [Download Azure SDKs](https://azure.microsoft.com/downloads/)
