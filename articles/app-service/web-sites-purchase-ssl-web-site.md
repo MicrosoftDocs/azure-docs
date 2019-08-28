@@ -11,7 +11,6 @@ ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cephalin

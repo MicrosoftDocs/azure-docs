@@ -195,7 +195,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **London** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
 | **Los Angeles** | Equinix |Crown Castle, Spectrum Enterprise, Transtelco |
 | **Madrid** | Level3 | Zertia |
-| **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Cogeco Peer 1, Rogers, Zirro |
+| **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Aptum Technologies, Rogers, Zirro |
 | **New York** |Equinix, Megaport | Altice Business, Crown Castle, Spectrum Enterprise, Webair |
 | **Paris** | Equinix | Proximus |
 | **Quebec City** | Megaport | Fibrenoire |
@@ -206,7 +206,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Slough** | Equinix | HSO|
 | **Sydney** | Megaport | Macquarie Telecom Group|
 | **Tokyo** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
-| **Toronto** | Equinix, Megaport | Airgate Technologies Inc., Beanfield Metroconnect, Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
+| **Toronto** | Equinix, Megaport | Airgate Technologies Inc., Beanfield Metroconnect, Aptum Technologies, IVedha Inc, Rogers, Thinktel, Zirro|
 | **Washington DC** |Equinix | Altice Business, BICS, Cox Business, Crown Castle, Gtt Communications Inc, Epsilon Telecommunications Limited, Masergy, Windstream |
 
 ## ExpressRoute system integrators
