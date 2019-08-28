@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### IoT Central application
 
-Create an IoT Central application from the [Azure IoT Central - My applications](https://aka.ms/iotcentral) page with the following settings:
+Create an IoT Central application on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website with the following settings:
 
 | Setting | Value |
 | ------- | ----- |
@@ -300,7 +300,7 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 
 ## Configure export in IoT Central
 
-Navigate to the [IoT Central application](https://aka.ms/iotcentral) you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
+On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
 1. Navigate to the **Continuous Data Export** page, select **+ New**, and then **Azure Event Hubs**.
 1. Use the following settings to configure the export, then select **Save**:
