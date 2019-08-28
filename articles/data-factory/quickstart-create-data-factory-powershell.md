@@ -110,18 +110,16 @@ Create linked services in a data factory to link your data stores and compute se
 1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2QuickStartPSH** folder with the following content: (Create the folder ADFv2QuickStartPSH if it does not already exist.).
 
     > [!IMPORTANT]
-    > Replace &lt;accountName&gt; with name of your Azure storage account before saving the file.
+    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
 
     ```json
     {
         "name": "AzureStorageLinkedService",
-        "type": "Microsoft.DataFactory/factories/linkedservices",
         "properties": {
             "annotations": [],
             "type": "AzureBlobStorage",
             "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;EndpointSuffix=core.windows.net;",
-                "encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERlFVSUNLU1RBUlRGQUNUT1JZMDgyNl9lMmQ5MTA5NS02MGU0LTRhNjgtOTI4MC04MTU1MDE5NzI1NjMiDQp9"
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net"
             }
         }
     }
@@ -164,8 +162,8 @@ The output dataset represents the data that's copied to the destination. In the 
         "name": "InputDataset",
         "properties": {
             "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
             },
             "annotations": [],
             "type": "Binary",
@@ -206,8 +204,8 @@ The output dataset represents the data that's copied to the destination. In the 
         "name": "OutputDataset",
         "properties": {
             "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
             },
             "annotations": [],
             "type": "Binary",
@@ -238,7 +236,7 @@ The output dataset represents the data that's copied to the destination. In the 
     DataFactoryName   : <dataFactoryName>
     Structure         :
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
-    ```  ```
+    ```
 ## Create a pipeline
 
 In this procedure, you create a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings.  
@@ -293,8 +291,7 @@ In this procedure, you create a pipeline with a copy activity that uses the inpu
                 }
             ],
             "annotations": []
-        },
-        "type": "Microsoft.DataFactory/factories/pipelines"
+        }
     }
     ```
 
@@ -363,28 +360,6 @@ In this step, you create a pipeline run.
     Status            : Succeeded
     Message           : 
     ```
-
-    You might see the following error:
-
-    ```console
-    Activity CopyFromBlobToBlob failed: Failed to detect region of linked service 'AzureStorage' : 'AzureStorageLinkedService' with error '[Region Resolver] Azure Storage failed to get address for DNS. Warning: System.Net.Sockets.SocketException (0x80004005): No such host is known
-    ```
-
-    If you see the error, perform the following steps:
-
-    1. In the AzureStorageLinkedService.json, confirm that the name of your Azure Storage Account is correct.
-    2. Verify that the format of the connection string is correct. The properties, for example, AccountName and EndpointSuffix are separated by semi-colon (`;`) character.
-    3. If you have angled brackets surrounding the account name, remove them.
-    4. Here is an example connection string:
-
-        ```json
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;EndpointSuffix=core.windows.net",
-        ```
-
-    5. Recreate the linked service by following steps in the [Create a linked service](#create-a-linked-service) section.
-    6. Rerun the pipeline by following steps in the [Create a pipeline run](#create-a-pipeline-run) section.
-    7. Run the current monitoring command again to monitor the new pipeline run.
-
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
@@ -448,6 +423,7 @@ In this step, you create a pipeline run.
         }
       }
     ]
+    
     Activity 'Error' section:
     "errorCode": ""
     "message": ""
