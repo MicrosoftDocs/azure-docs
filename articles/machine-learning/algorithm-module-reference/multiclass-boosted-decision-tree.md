@@ -29,7 +29,7 @@ You can train this type of model by using the [Train Model](././train-model.md).
 
 1.  Add the **Multiclass Boosted Decision Tree** module to your experiment.
 
-1.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.
+1.  Specify how you want the model to be trained by setting the **Create trainer mode** option.
 
     + **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.
 
