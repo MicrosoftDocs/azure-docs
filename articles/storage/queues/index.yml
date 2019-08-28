@@ -54,17 +54,17 @@ landingContent:
             url: storage-python-how-to-use-queue-storage.md
 
   # Card
-  - title: Tutorial
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Work with Azure storage queues (.NET)
-            url: storage-tutorial-queues.md
-
-  # Card
   - title: Manage queues
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Perform Azure Queue storage operations with Azure PowerShell
             url: storage-powershell-how-to-use-queues.md
+
+  # Card
+  - title: Tutorial
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Work with Azure storage queues (.NET)
+            url: storage-tutorial-queues.md
