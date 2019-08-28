@@ -115,7 +115,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	d. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+	e. From the **Source attribute** list, select the attribute value shown for that row from the drop-down list.
 
 	f. Click **Save**.
 
