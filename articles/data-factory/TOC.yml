@@ -187,6 +187,8 @@
       href: iterative-development-debugging.md
   - name: Connectors
     items:
+    - name: Connector overview
+      href: connector-overview.md
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon Redshift
@@ -306,7 +308,7 @@
       href: connector-oracle-service-cloud.md
     - name: Parquet format
       href: format-parquet.md
-    - name: Paypal
+    - name: PayPal
       href: connector-paypal.md
     - name: Phoenix
       href: connector-phoenix.md
@@ -382,40 +384,40 @@
   - name: Transform data
     href: transform-data.md
     items:
+    - name: Azure Function Activity
+      href: control-flow-azure-function-activity.md
+    - name: Custom Activity
+      href: transform-data-using-dotnet-custom-activity.md
+    - name: Databricks Jar Activity
+      href: transform-data-databricks-jar.md
+    - name: Databricks Notebook Activity
+      href: transform-data-databricks-notebook.md
+    - name: Databricks Python Activity
+      href: transform-data-databricks-python.md
+    - name: Data Lake U-SQL Activity
+      href: transform-data-using-data-lake-analytics.md
     - name: HDInsight Hive Activity
       href: transform-data-using-hadoop-hive.md
-    - name: HDInsight Pig Activity
-      href: transform-data-using-hadoop-pig.md
     - name: HDInsight MapReduce Activity
       href: transform-data-using-hadoop-map-reduce.md
-    - name: HDInsight Streaming Activity
-      href: transform-data-using-hadoop-streaming.md
+    - name: HDInsight Pig Activity
+      href: transform-data-using-hadoop-pig.md
     - name: HDInsight Spark Activity
       href: transform-data-using-spark.md
+    - name: HDInsight Streaming Activity
+      href: transform-data-using-hadoop-streaming.md
     - name: ML Batch Execution Activity
       href: transform-data-using-machine-learning.md
     - name: ML Update Resource Activity
       href: update-machine-learning-models.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
-    - name: Data Lake U-SQL Activity
-      href: transform-data-using-data-lake-analytics.md
-    - name: Databricks Notebook Activity
-      href: transform-data-databricks-notebook.md
-    - name: Databricks Jar Activity
-      href: transform-data-databricks-jar.md
-    - name: Databricks Python Activity
-      href: transform-data-databricks-python.md
-    - name: Custom activity
-      href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services
       href: compute-linked-services.md
   - name: Control flow
     items:
     - name: Append Variable Activity
       href: control-flow-append-variable-activity.md
-    - name: Azure Function Activity
-      href: control-flow-azure-function-activity.md
     - name: Execute Data Flow Activity
       href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity

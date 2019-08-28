@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Machine Learning Service Documentation
 metadata:
   title: Azure Machine Learning Service Documentation – Tutorials, API reference | Microsoft Docs
-  description: Azure Machine Learning service provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and reduce costs with autoscaling compute and pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
+  description: Azure Machine Learning service provides SDKs and services to quickly train, and deploy machine learning models. Improve productivity and reduce costs with autoscaling compute and pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -16,7 +16,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning service provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
+  description: Azure Machine Learning service provides SDKs and services to quickly train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
   aside:
     image:
       alt:
@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prep data, set up experiments, train and operationalize your machine learning models.'
+    text: 'Learn how to set up experiments, train and operationalize your machine learning models.'
   - type: paragraph
     text: '<b>Use the Azure portal</b>, an easy-to-use, no code interface for machine learning:'
   - type: list
