@@ -29,10 +29,9 @@ landingContent:
             url: storage-files-planning.md
           - text: Azure File Sync planning guide
             url: storage-sync-files-planning.md
-      - linkListType: overview
-        links:
           - text: What is Azure Files?
             url: storage-files-introduction.md
+
 
   # Card (optional)
   - title: Get started
