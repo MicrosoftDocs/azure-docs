@@ -98,7 +98,7 @@ CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
 
 ### Submit an image to the default prediction endpoint
 
-In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console.
+In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console. The value of the publishedModelName variable should correspond to the "Published as" value found on the Custom Vision portal's **Performance** tab. 
 
 ```csharp
 // Make a prediction against the new project
