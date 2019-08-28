@@ -73,5 +73,5 @@ landingContent:
             url: /azure/analysis-services/analysis-services-powershell
           - text: REST API
             url: /rest/api/analysisservices/
-          - text: Tablular Model Scripting Language (TMSL)
+          - text: Tabular Model Scripting Language (TMSL)
             url: /bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
