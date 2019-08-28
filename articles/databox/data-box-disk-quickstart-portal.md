@@ -19,7 +19,7 @@ Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to
 
 ::: zone target="chromeless"
 
-# Get started with Azure Data Box Disk 
+## Get started with Azure Data Box Disk 
 
 ::: zone-end
 
@@ -55,7 +55,7 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 
 ::: zone target="chromeless"
 
-## Prerequisites
+### Prerequisites
 
 - You have placed your order for Data Box Disk using the [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 - You have received your disks and the job status in the portal is updated to **Delivered**.
