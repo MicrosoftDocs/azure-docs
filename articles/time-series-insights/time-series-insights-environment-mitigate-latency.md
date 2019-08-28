@@ -41,7 +41,7 @@ Alerts can help you to help diagnose and mitigate latency issues caused by your 
 
    [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
-1. The **Create rule** panel will then be displayed. Select **CONDITION**.
+1. The **Create rule** panel will then be displayed. Select **Add** under **CONDITION**.
 
    [![Add alert](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
