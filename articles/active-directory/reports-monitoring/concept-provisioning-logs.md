@@ -150,7 +150,7 @@ The details are grouped based on the following categories:
 
 - Steps
 
-- Troubleshoot and recomendations
+- Troubleshoot and recommendations
 
 - Modified properties
 
