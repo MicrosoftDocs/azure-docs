@@ -55,27 +55,24 @@ For more information about this issue, see [Azure Active Directory Authenticatio
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
 
-Starting on October 1, 2019, Power BI will begin to deprecate all content packs, including the Azure AD Power BI content pack. As an alternative to this content pack, you can use Azure AD Workbooks to gain insights into your Azure AD-related services. Additional workbooks will be coming in the future, including workbooks about Conditional Access policies in report-only mode, app consent-based insights, and more.
+Starting on October 1, 2019, Power BI will begin to deprecate all content packs, including the Azure AD Power BI content pack. As an alternative to this content pack, you can use Azure AD Workbooks to gain insights into your Azure AD-related services. Additional workbooks are coming, including workbooks about Conditional Access policies in report-only mode, app consent-based insights, and more.
 
 For more information about the workbooks, see [How to use Azure Monitor workbooks for Azure Active Directory reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). For more information about the deprecation of the content packs, see the [Announcing Power BI template apps general availability](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) blog post.
 
 ---
- 
 
-[796390](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=796390&triage=true&fullScreen=false&_a=edit)
-
-### Custom roles for app registration management is now in public preview
+### New custom roles are available for app registration management (Public Preview)
 
 **Type:** New feature  
 **Service category:** RBAC  
 **Product capability:** Access Control
- 
 
-Custom roles give you fine-grained control over what access your admins have. This first release of custom roles builds on our previous work for delegating application management and includes the ability to create a role to assign permissions for managing app registrations. Over time, we’ll release additional permissions to delegate management of enterprise applications, users, groups, and more. Azure AD custom roles requires an Azure AD Premium P1 subscription.
- 
+New custom roles are available (with an Azure AD Premium P1 subscription) for app registration management. These custom roles are built on the previous work done for delegating app management, giving you more fine-grained control over what your administrators can see and do, including the ability to create a role to assign permissions for managing your organization's app registrations.
+
+For more information, see [Custom administrator roles in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-custom-overview).
 
 ---
- 
+
 ### New Federated Apps available in Azure AD App gallery - August 2019
 
 **Type:** New feature  
@@ -89,113 +86,71 @@ In August 2019, we've added these 26 new apps with Federation support to the app
 For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
 
 ---
- 
 
-[591968](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=591968&triage=true&fullScreen=false&_a=edit)
-
-### Enhanced Groups search, filtering, and sorting capabilities in the Azure AD portal (Public Preview)
+### Improved groups-related search, filtering, and sorting are available in the Azure AD portal (Public Preview)
 
 **Type:** New feature  
 **Service category:** Group Management  
 **Product capability:** Collaboration
- 
 
-We're pleased to announce the public preview of the enhanced groups experiences in the Azure AD portal. We've made improvements to allow administrators to better manage groups and member lists by providing additional search, filtering and sorting capabilities.
+We're pleased to announce public preview availability of the enhanced groups-related experiences in the Azure AD portal. These enhancements help you better manage groups and member lists, by providing:
 
- 
+- Advanced search capabilities, such as substring search on groups lists.
+- Advanced filtering and sorting options on member and owner lists.
+- New search capabilities for member and owner lists.
+- More accurate group counts for large groups.
 
-Improvements include:
-
-Advanced search capabilities, such as substring search on groups lists.
-Advanced filtering and sorting options on member and owner lists.
-New search capabilities for member and owner lists for easy discovery.
-Accurate group counts for large groups including total counts for groups > 1000 members.
- 
-
-For more information, see Manage groups in the Azure portal (Preview).
-
- 
+For more information, see [Manage groups in the Azure portal (Preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-members-owners-search).
 
 ---
- 
 
-[649610](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=649610&triage=true&fullScreen=false&_a=edit)
-
-### New security reports will soon be available for all Azure AD administrators (GA)
+### New security reports are available for all Azure AD administrators (General Availability)
 
 **Type:** New feature  
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
- 
 
-All Azure AD administrators will soon see modern security reports by default within Azure AD. The banners at the top of the modern security reports will provide the option to go back to the old reports until September end. The modern security reports expand the offerings of the old reports with the following capabilities:
+By default, all Azure AD administrators can now access modern security reports within Azure AD. Until the end of September, you can use the banner at the top of the modern security reports to return to the old reports.
 
-Advanced filtering and sorting
+The modern security reports provide additional capabilities from the older versions, including:
 
-Bulk actions, such as dismissing user risk
+- Advanced filtering and sorting
+- Bulk actions, such as dismissing user risk
+- Confirmation of compromised or safe entities
+- Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
+- New risk-related detections (available to Azure AD Premium subscribers)
 
-Confirmation of compromised or safe entities
-
-Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
-
-New detections (available to Azure AD Premium customers)
-
-For more information, see Risky users, Risky sign-ins, and Risk detections reports. Please click here for more details. Note: This is the follow up to July 2019 Public Preview announcement.
-
- 
+For more information, see [Risk detection reports](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins) and the blog post, [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935).
 
 ---
- 
 
-[315209](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=315209&triage=true&fullScreen=false&_a=edit)
-
-### Custom roles for app registration management is now in public preview
-
-**Type:** New feature  
-**Service category:** RBAC  
-**Product capability:** Access Control
- 
-
-Custom roles give you fine-grained control over what access your admins have. This first release of custom roles builds on our previous work for delegating application management and includes the ability to create a role to assign permissions for managing app registrations. Over time, we’ll release additional permissions to delegate management of enterprise applications, users, groups, and more. Azure AD custom roles requires an Azure AD Premium P1 subscription.
- 
-
----
- 
-
-[423571](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=423571&triage=true&fullScreen=false&_a=edit)
-
-### GA: User-assigned managed identities for Virtual Machines and Virtual Machine Scale Sets
+### User-assigned managed identity is available for Virtual Machines and Virtual Machine Scale Sets (General Availability)
 
 **Type:** New feature  
 **Service category:** Managed identities for Azure resources  
 **Product capability:** Developer Experience
- 
 
-User-assigned managed identities for Virtual Machines and Virtual Machine Scale Sets is now GA! To learn more on how to get started using them, head over to aka.ms/azuremanagedidentity 
- 
+User-assigned managed identities are now generally available for Virtual Machines and Virtual Machine Scale Sets. As part of this, Azure can create an identity in the Azure AD tenant that's trusted by the subscription in use, and can be assigned to one or more Azure service instances. For more information about user-assigned managed identities, see [What is managed identities for Azure resources?](aka.ms/azuremanagedidentity).
 
 ---
- 
 
 [731878](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=731878&triage=true&fullScreen=false&_a=edit)
 
-### Monitor provisioning to your applications with the new provisioning logs
+### New provisioning logs can help you monitor and troubleshoot your app provisioning process
 
 **Type:** New feature  
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
- 
 
-When deploying user / group provisioning, having detailed logs are critical to monitoring and troubleshooting your deployment. With the new provisioning logs, you can answer questions sch as:
-What groups were successfully created in ServiceNow?
-How roles were imported from Amazon Web Services?
-What employees were unsuccessfully imported from Workday?
+New provisioning logs are available to help you monitor and troubleshoot the user and group provisioning process, including information about:
 
-Learn more about how to get started with provisioning logs
- 
+- What groups are successfully created in [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)
+- What roles are imported from [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on)
+- What employees aren't imported from [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)
+
+For more information, see ...
 
 ---
- 
 
 [784587](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=784587&triage=true&fullScreen=false&_a=edit)
 
@@ -359,9 +314,6 @@ If you do not complete these steps before September 25, 2019, your Azure Active 
 
  
 
----
- 
- 
 ---
 
 ## July 2019
