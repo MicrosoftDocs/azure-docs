@@ -43,7 +43,7 @@ The following list describes the user actions that could require a new version:
 
 What happens to rules and device dashboards when there is a version change?
 
-**Rules** on your previous version will continue to work with no impact. For the new device template version, rules will not be migrated automatically. Rules can be created on the new template version as usual. See how to [create a rule here](howto-create-telemetry-rules.md).
+**Rules** on the previous version of the device template continue to work unchanged. Rules are not automatically migrated to the new device template version. You can create rules on the new template version as usual. For more information, see the [Create a telemetry rule and set up notifications in your Azure IoT Central application](howto-create-telemetry-rules.md) how-to article.
 
 **Device dashboards** can contain several types of tiles. Some of the tiles may contain settings and properties. When a property or setting used in a tile is removed, the tile is fully or partially broken. You can go to the tile and fix the issue either by removing the tile or updating the contents of the tile.
 
