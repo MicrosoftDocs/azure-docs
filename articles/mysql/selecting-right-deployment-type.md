@@ -39,15 +39,6 @@ The main differences between these options are listed in the following table:
 
 There are several factors that can influence your decision to choose PaaS or IaaS to host your MySQL databases:
 
-* **Cost** - Both PaaS and IaaS option include base price that covers underlying infrastructure. However, with IaaS deployments you need to invest additional time and resources to manage your database server's redundancy which adds to the cost, while in PaaS you are getting these administrative features included in the price. IaaS deployments give you the flexibility to shut-down your resources while you are not using them to decrease the cost, while PaaS version is always running unless if you drop and re-create your resources based on needs. <br/>
-* **Administration** - PaaS reduces the amount of time that you need to invest to administer the database server. However, it also reduces access to a range of custom administration tasks, scripts and functionalities that you can perform or run. For example, spinning up a read replica for Azure Database for MySQL is just few click with no administration setting on PaaS but the customers on IaaS deployments have to manually manage the entire replication setup with necessary permission and authentication settings, and also ensure its functionality post create. <br/>
-
-* **Service-Level Agreement** - Both IaaS and PaaS provide high, industry standard SLA. PaaS option guarantees 99.99% SLA, while IaaS guarantees 99.95% SLA for infrastructure, meaning that you need to implement additional mechanisms to ensure availability of your databases. For example, if you want to implement High-availability solution that is matching PaaS, you will need to create additional MySQL server in VM and configure replication scenarios, which doubles the cost of running your database and additional management of your VMs. <br/>
-
-* **Time to move to Azure** – MySQL on Azure VM is the exact match of your environment, so migration from on-premises to Azure VM is not different than moving the databases from one on-premises server to another. Managed(PaaS) instance also enables extremely easy migration; however, there might be some changes that you need to apply before you migrate your databases. Additionally you could use Data Migration Service (DMS) to migrate on to PaaS MySQL.
-
-These factors will be discussed in more details in the following sections.
-
 ### Cost
 
 Whether you’re a startup that is strapped for cash, or a team in an established company that operates under tight budget constraints, limited funding is often the primary driver when deciding how to host your databases server. In this section, you learn about the billing and licensing basics in Azure with regards to these two relational database options Azure Database for MySQL and MySQL on Azure VMs:
