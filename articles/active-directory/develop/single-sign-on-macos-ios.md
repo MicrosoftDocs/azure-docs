@@ -28,7 +28,7 @@ The Microsoft Authentication Library (MSAL) for macOS and iOS supports Single Si
 
 This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.  
 
-- [SSO through Authentication broker](#sso-through-authentication-broker)
+- [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
 
 > [!IMPORTANT]
 > This flow is not available on macOS.
