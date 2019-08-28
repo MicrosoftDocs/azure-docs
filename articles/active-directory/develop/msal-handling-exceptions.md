@@ -61,7 +61,7 @@ export class AuthError extends Error {
 }
 ```                
 By extending the error class, you have access to the following properties:
-* **AuthError.message:** This meassge is same as the errorMessage.
+* **AuthError.message:**  Same as the errorMessage.
 * **AuthError.stack:** Stack trace for thrown errors. Allows tracing to origin point of error.
 
 **Error Types**
@@ -107,7 +107,9 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### Interaction required errors
 
-An error is returned when a UI interaction is required. This means you have attempted to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`), but MSAL could not do it silently. Possible reasons are:
+An error is returned, when you attempt to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`) and MSAL could not do it silently. 
+
+Possible reasons are:
 
 * you need to sign in
 * you need to consent
