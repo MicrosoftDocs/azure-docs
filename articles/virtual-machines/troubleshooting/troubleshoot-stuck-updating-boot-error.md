@@ -8,7 +8,7 @@ manager: cshepard
 editor: v-jesits
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
