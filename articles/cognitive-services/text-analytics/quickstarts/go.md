@@ -31,10 +31,9 @@ You must also have the [endpoint and access key](../../cognitive-services-apis-c
 
 The Language Detection API detects the language of a text document, using the [Detect Language method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed from your root folder.
 1. Build the file, for example: `go build detect.go`.
@@ -173,10 +172,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed from your root folder.
 1. Build the file, for example: `go build sentiment.go`.
@@ -290,10 +288,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed.
 1. Build the file, for example: `go build key-phrases.go`.
@@ -427,10 +424,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entities](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extract words from text, like "United States", then give you the type and/or Wikipedia link for this word(s). The type for "United States" is `location`, while the link to Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  The following example identifies entities for English documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed.
 1. Build the file, for example: `go build entities.go`.
