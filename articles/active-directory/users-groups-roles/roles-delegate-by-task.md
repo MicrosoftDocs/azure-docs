@@ -109,7 +109,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices
