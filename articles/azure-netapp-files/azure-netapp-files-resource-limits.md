@@ -1,6 +1,6 @@
 ---
 title: Resource limits for Azure NetApp Files | Microsoft Docs
-description: Describes limits for Azure NetApp Files resources, including limits for NetApp accounts, capacity pools, volumes, snapshots, and the delegated subnet.
+description: Describes limits for Azure NetApp Files resources and how to request resource limit increase.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 08/27/2019
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -37,6 +37,22 @@ The following table describes resource limits for Azure NetApp Files:
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No       |
 |  Maximum number of files (inodes) per volume     |    50 million    |    No    |    
+
+## Maxfiles limits
+
+Azure NetApp Files volumes have a limit called *maxfiles*. The maxfiles limit is the number of files a volume can contain. The maxfiles limit for an Azure NetApp Files volume is indexed based on the size (quota) of the volume. The maxfiles limit for a volume increases or decreases at the rate of 20 million files per TiB of provisioned volume size. 
+
+The service dynamically adjusts the maxfiles limit for a volume based on its provisioned size. For example, a volume configured initially with a size of 1 TiB would have a maxfiles limit of 20 million. Subsequent changes to the size of the volume would result in an automatic readjustment of the maxfiles limit based on the following rules: 
+
+|    Volume size (quota)        |    Automatic readjustment of the maxfiles limit    |
+|-------------------------------|----------------------------------------------------|
+|    Up to 1 TiB                |    20 million                                      |
+|    Between 1 TiB and 2 TiB    |    40 million                                      |
+|    Between 2 TiB and 3 TiB    |    60 million                                      |
+|    Between 3 TiB and 4 TiB    |    80 million                                      |
+|    Between 4 TiB and 5 TiB    |    100 million                                     |
+
+You can adjust the maxfiles limit beyond 100 million through a support request.
 
 ## Request limit increase 
 
