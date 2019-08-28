@@ -18,8 +18,9 @@ ms.author: alsin
 ---
 
 # Common errors within the Azure Serial Console
+There are a set of known errors within the Azure Serial Console. This is a list of those errors and mitigation steps for them.
 
-The following are common errors within Serial Console and their mitigations.
+## Common errors
 
 Error                            |   Mitigation
 :---------------------------------|:--------------------------------------------|
