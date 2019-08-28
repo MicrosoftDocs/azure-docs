@@ -43,7 +43,7 @@ The following list describes the user actions that could require a new version:
 
 What happens to rules and device dashboards when there is a version change?
 
-**Rules** could contain conditions that are dependent on properties. If you have removed one or more of these properties, these rules could be broken in your new device template version. You can go to these specific rules and update the conditions to fix the rules. Rules for your previous version should work with no impact.
+**Rules** on your previous version will continue to work with no impact. For the new device template version, rules will not be migrated automatically. Rules can be created on the new template version as usual. See how to [create a rule here](howto-create-telemetry-rules.md).
 
 **Device dashboards** can contain several types of tiles. Some of the tiles may contain settings and properties. When a property or setting used in a tile is removed, the tile is fully or partially broken. You can go to the tile and fix the issue either by removing the tile or updating the contents of the tile.
 
