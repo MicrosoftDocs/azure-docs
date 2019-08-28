@@ -69,7 +69,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Virtual network security FAQ
-            url: virtual-networks-faq.md#security.md
+            url: virtual-networks-faq.md#security
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
@@ -100,7 +100,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Virtual network peering FAQ
-            url: virtual-networks-faq.md#vnet-peering.md
+            url: virtual-networks-faq.md#vnet-peering
       - linkListType: learn
         links:
           - text: Communicate across virtual network with peering
@@ -165,7 +165,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Virtual network TAP FAQ
-            url: virtual-networks-faq.md#virtual-network-tap  .md
+            url: virtual-networks-faq.md#virtual-network-tap
 
   # Card
   - title: Manage IP services
