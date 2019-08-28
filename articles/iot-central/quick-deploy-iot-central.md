@@ -19,7 +19,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 ## Create an application
 
-Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. You will need to sign in with a Microsoft personal or work or school account.
+Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. You will need to sign in with a Microsoft personal or work or school account.
 
 To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
@@ -53,4 +53,4 @@ To create a new Azure IoT Central application:
 In this quickstart, you created an IoT Central application. Here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Take a tour of IoT Central](overview-iot-central-tour.md)
+> [Define a new device type in your Azure IoT Central application](./tutorial-define-device-type.md)
