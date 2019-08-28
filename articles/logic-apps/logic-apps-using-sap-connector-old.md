@@ -14,14 +14,17 @@ tags: connectors
 
 # Migrate to the latest SAP connector in Azure Logic Apps
 
-This topic applies to the previous SAP connector, which is scheduled for deprecation. 
-Instead, please use or migrate to the [newer and more advanced SAP connector](./logic-apps-using-sap-connector.md), 
-which consolidates both the Application Server and Message Server connectors 
-and helps you avoid having to change the connection type. The newer connector 
-continues to use the SAP .Net connector library (SAP NCo) and is fully compatible with 
-the previous connector.
+This topic applies to the previous SAP connector, which is scheduled for deprecation. Instead, please use or migrate to the [newer and more advanced SAP connector](./logic-apps-using-sap-connector.md), which consolidates both the Application Server and Message Server connectors and helps you avoid having to change the connection type. The newer connector continues to use the SAP .Net connector library (SAP NCo) and is fully compatible with the previous connector.
 
+## 
 
+1. Download the current on-premises data gateway and update your gateway to the latest version.
+
+1. In the logic app that uses the older SAP connector, delete the **Send to SAP** action.
+
+1. Now, add the **Send to SAP** action from the latest SAP connector. Before you can use this action, you must recreate the connection to your SAP system.
+
+1. When you're done, save your logic app.
 
 ## Next steps
 
