@@ -70,7 +70,7 @@ After the new server has been provisioned, the user has several options for conf
 1. Click on **Pricing tier**, located under **Settings**.
 2. Select the **Pricing tier** you want to change to.
 
-    ![change-pricingtier](./media/howto-create-manage-server-portal/change-pricingtier.png)
+    ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
 4. Click **OK** to save changes. 
 
