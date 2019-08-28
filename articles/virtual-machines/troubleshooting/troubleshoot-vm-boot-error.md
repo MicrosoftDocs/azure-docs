@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
-ms.author: summertgu
+ms.author: tiag
 ---
 
 # VM boot error
