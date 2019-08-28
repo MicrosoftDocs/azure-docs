@@ -59,5 +59,5 @@ You must also have registered your subscription for using the NetApp Resource Pr
 
 ## Next steps  
 
-Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 
