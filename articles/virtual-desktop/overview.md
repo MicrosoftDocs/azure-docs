@@ -110,7 +110,7 @@ Windows Virtual Desktop supports the following OS images:
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Management template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
-|--------------------------------------|------|------|------|------|------|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
 |Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|Automatic|
 |Windows 10 multi-session, version 1809|Yes|Yes|No|No|Automatic|
 |Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|Automatic|
