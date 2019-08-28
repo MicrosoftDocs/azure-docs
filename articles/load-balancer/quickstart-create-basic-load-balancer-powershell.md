@@ -322,9 +322,11 @@ Install IIS with a custom web page on both backend VMs as follows:
 Obtain the public IP address of your load balancer with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
 
 ```azurepowershell-interactive
+
 Get-AzPublicIPAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Name "myPublicIP" | select IpAddress
+
 ```
 
 You can then enter the public IP address in to a web browser. The website is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
