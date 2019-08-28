@@ -47,10 +47,10 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 |    Volume size (quota)        |    Automatic readjustment of the maxfiles limit    |
 |-------------------------------|----------------------------------------------------|
 |    Up to 1 TiB                |    20 million                                      |
-|    Between 1 TiB and 2 TiB    |    40 million                                      |
-|    Between 2 TiB and 3 TiB    |    60 million                                      |
-|    Between 3 TiB and 4 TiB    |    80 million                                      |
-|    Between 4 TiB and 5 TiB    |    100 million                                     |
+|    1 TiB to 2 TiB    |    40 million                                      |
+|    2 TiB to 3 TiB    |    60 million                                      |
+|    3 TiB to 4 TiB    |    80 million                                      |
+|    4 TiB to 5 TiB    |    100 million                                     |
 
 You can adjust the maxfiles limit beyond 100 million through a support request.
 
