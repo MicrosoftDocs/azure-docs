@@ -153,6 +153,8 @@
 - name: Boot errors
   href: boot-error-troubleshoot.md
   items:
+  - name: Azure Virtual Machine boot error
+    href: troubleshoot-vm-boot-error.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
   - name: BitLocker errors
