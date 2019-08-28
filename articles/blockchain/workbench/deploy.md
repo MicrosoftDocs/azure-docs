@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/27/2019
+ms.date: 08/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -184,8 +184,8 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select your account in the top-right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Azure Blockchain Workbench is deployed and you have sufficient permissions to register applications.
-3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New registration**.
+1. Select your account in the top-right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Azure Blockchain Workbench is deployed and you have sufficient permissions to register applications.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New registration**.
 
     ![App registration](media/deploy/app-registration.png)
 
@@ -237,11 +237,7 @@ Next, you need to modify the manifest to use application roles within Azure AD t
 
 The API application needs to request permission from the user to access the directory. Set the following required permission for the API application:
 
-1. In the Blockchain API app registration, select **API permissions**.
-
-    ![Select an API](media/deploy/client-app-select-api.png)
-
-    By default, the Graph API User.Read permission is added.
+1. In the *Blockchain API* app registration, select **API permissions**. By default, the Graph API **User.Read** permission is added.
 
 3. In **Grant consent**, select **Grant admin consent** for the domain then select **Yes** for the verification prompt.
 
@@ -254,7 +250,7 @@ The API application needs to request permission from the user to access the dire
 The application ID and tenant information are required for deployment. Collect and store the information for use during deployment.
 
 1. For the application you registered, select **Overview**.
-2. Copy and store the following values for later use during deployment.
+2. Copy and store the **Application ID** value for later use during deployment.
 
     ![API app properties](media/deploy/app-properties.png)
 
