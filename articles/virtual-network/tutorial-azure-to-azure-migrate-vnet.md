@@ -108,9 +108,7 @@ The following steps show how to prepare the virtual network for the move using a
                         },
 
     ```
-
-    
-    
+  
 11. Edit the location in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
@@ -122,7 +120,7 @@ The following steps show how to prepare the virtual network for the move using a
 
     * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **addressPrefixes** property in the **template.json** file:
     
-            ```json
+    ```json
                 "resources": [
                             {
                                 "type": "Microsoft.Network/virtualNetworks",
@@ -137,11 +135,11 @@ The following steps show how to prepare the virtual network for the move using a
                                             "10.0.0.0/16"
                                         ]
                                     },
-            ```
+    ```
 
     * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
     
-            ```json
+    ```json
                  "subnets": [
                         {
                             "name": "subnet-1",
