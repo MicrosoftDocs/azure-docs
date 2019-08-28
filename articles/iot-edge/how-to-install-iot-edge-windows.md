@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 08/26/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---
@@ -108,43 +108,13 @@ For more information about these installation options, skip ahead to learn about
 
 ### Option 2: Install and automatically provision
 
-In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance, and the **Registration ID** from your device. Additional values might be required according to your attestation mechanism when provisioning with DPS, such as when using [symmetric keys](how-to-auto-provision-symmetric-keys.md).
+In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance along with any other information specific to your preferred [attestation mechanism](../iot-dps/concepts-security.md#attestation-mechanism):
 
-The following example demonstrates an automatic installation with Windows containers and TPM attestation:
+* [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certificates.md)
+* [Create and provision a simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-keys.md)
 
-1. Follow the steps in [Create and provision a simulated TPM IoT Edge device on Windows](how-to-auto-provision-simulated-device-windows.md) to set up the Device Provisioning Service and retrieve its **Scope ID**, simulate a TPM device and retrieve its **Registration ID**, then create an individual enrollment. Once your device is registered in your IoT hub, continue with these installation steps.  
-
-   >[!TIP]
-   >Keep the window that's running the TPM simulator open during your installation and testing. 
-
-1. Run PowerShell as an administrator.
-
-   >[!NOTE]
-   >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
-   >
-   >```powershell
-   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
-   >```
-
-1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers. 
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
-
-1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the Device Provisioning Service instead of manual provisioning. Replace `{scope ID}` with the scope ID from your Device Provisioning Service and `{registration ID}` with the registration ID from your device, both of which you should have retrieved in step 1.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
-   ```
-
-1. Use the steps in [Verify successful installation](#verify-successful-installation) to check the status of IoT Edge on your device.
-
-When you install and provision a device manually, you can use additional parameters to modify the installation including:
+When you install and provision a device automatically, you can use additional parameters to modify the installation including:
 
 * Direct traffic to go through a proxy server
 * Point the installer to an offline directory
