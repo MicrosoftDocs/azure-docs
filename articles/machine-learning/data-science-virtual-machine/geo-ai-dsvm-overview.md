@@ -41,7 +41,7 @@ Integrating geography and location information into your data brings a powerful 
 
 The [Data Science Virtual Machine (DSVM)](overview.md) from Microsoft is a popular experimentation and modeling environment on Azure, which provides a host of AI, Machine Learning, and data science tools. These platforms and tools are all conveniently preconfigured to help you get productive immediately.
 
-By combining the predictive capabilities of the DSVM with the scalability of the Azure cloud and the geospatial analytics software from [ESRI](https://www.esri.com), data scientists and geospatial analysts now have a productive platform from which to obtain new intelligence from their data, and to identify new opportunities.
+Geo AI Data Science VM combines the predictive capabilities of the DSVM with the scalability of the Azure cloud and the geospatial analytics software from [ESRI](https://www.esri.com). This groundbreaking integration provides data scientists and geospatial analysts with a productive platform from which to obtain new intelligence from their data, and to identify new opportunities.
 
 
 ## Next steps
