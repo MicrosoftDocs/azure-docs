@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Configure the sign-in risk policy
 
-Azure Active Directory detects [risk detection types](../reports-monitoring/concept-risk-events.md#risk-event-types) in real-time and offline. Each risk detection that has been detected for a sign-in of a user contributes to a logical concept called risky sign-in. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account.
+Azure Active Directory detects [risk detection types](../reports-monitoring/concept-risk-events.md#risk-detection-types) in real-time and offline. Each risk detection that has been detected for a sign-in of a user contributes to a logical concept called risky sign-in. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account.
 
 ## What is the sign-in risk policy?
 
