@@ -98,7 +98,7 @@ ADAL 2.7.x returns the `homeAccountId` in the `ADUserInformation` object in the 
 
 You can save this identifier to use in MSAL for account lookups with the `accountForIdentifier:error:" API. 
 
-### Use ADAL account identifier to query accounts in MSAL
+### Use ADAL account identifier `userId` to query accounts in MSAL
 
 1. In MSAL, first lookup an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback. 
 
@@ -161,17 +161,31 @@ Because `homeAccountId` isn't available in older ADAL versions, you'd need to lo
                               error:(NSError * __autoreleasing *)error;
 ```
 
+For example:
+
+
+```objc
+MSALAccount *account = [application accountForUsername:@"adal.user.id" error:nil];;
+MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:account];
+[application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
+```
+
 Alternatively, you can read all of the accounts, which will also read account information from ADAL:
 
 ```objc
-/*!
- Returns an array of all accounts visible to this application.
-
- @param  error    The error that occurred trying to retrieve accounts, if any. If you're not interested in the specific error pass in nil.
- */
-
-- (NSArray <MSALAccount *> *)allAccounts:(NSError * __autoreleasing *)error;
+NSArray *accounts = [application allAccounts:nil];
+    
+if ([accounts count] != 1)
+{
+    // You might want to display an account picker to user in actual application
+    // For this sample we assume there's only ever one account in cache
+    return;
+}
+    
+MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:accounts[0]];
+[application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
+
 
 ## Next steps
 
