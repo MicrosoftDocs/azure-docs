@@ -362,7 +362,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) is a premium feature of Azure Active Directory that enables you to identify cloud applications that are used by the employees in your organization.
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) is a security service that uses Azure Active Directory anomaly detection capabilities to provide a consolidated view into risk events and potential vulnerabilities that could affect your organization’s identities.
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) is a security service that uses Azure Active Directory anomaly detection capabilities to provide a consolidated view into risk detections and potential vulnerabilities that could affect your organization’s identities.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) enables you to join Azure VMs to a domain without the need to deploy domain controllers. Users sign in to these VMs by using their corporate Active Directory credentials, and can seamlessly access resources.
 
