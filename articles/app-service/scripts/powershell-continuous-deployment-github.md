@@ -24,7 +24,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure. Also, ensure that:
 
-- The application code is in a public or private GitHub repository that you own. To get automatic builds, structure your repository according to the [Prepare your repository](../deploy-continuous-deployment#prepare-your-repository) table.
+- The application code is in a public or private GitHub repository that you own. To get automatic builds, structure your repository according to the [Prepare your repository](../deploy-continuous-deployment.md#prepare-your-repository) table.
 - You have [created a personal access token in your GitHub account](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
 ## Sample script
