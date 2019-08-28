@@ -141,6 +141,8 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
+
+
 ## Groups
 
 Task | Least privileged role | Additional roles
@@ -167,10 +169,10 @@ Configure and enable or disable MFA policy| Security Administrator |
 Configure and enable or disable sign-in risk policy| Security Administrator | 
 Configure and enable or disable user risk policy | Security Administrator | 
 Configure weekly digests | Security Administrator| 
-Dismiss all risk events | Security Administrator | 
+Dismiss all risk detections | Security Administrator | 
 Fix or dismiss vulnerability | Security Administrator | 
 Read all configuration | Security Reader | 
-Read all risk events | Security Reader | 
+Read all risk detections | Security Reader | 
 Read vulnerabilities | Security Reader | 
 
 ## Licenses
