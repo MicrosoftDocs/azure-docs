@@ -9,7 +9,6 @@ keywords: azure functions, functions, event processing, dynamic compute, serverl
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
