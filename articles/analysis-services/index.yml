@@ -2,7 +2,6 @@
 
 title: Azure Analysis Services documentation 
 summary: Learn how to set up data modeling with Analysis Services in the cloud. Documentation shows you how to create an enterprise BI solution by using tabular data models. 
-brand: azure ## Used for color theme of icons and hero area 
 
 metadata: 
   title: Azure Analysis Services Documentation - Concepts, how-to guides, tutorials, API reference
