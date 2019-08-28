@@ -29,8 +29,6 @@ landingContent:
         links:
           - text: Working with locations and partners
             url: virtual-wan-locations-partners.md
-      - linkListType: concept
-        links:
           - text: FAQ
             url: virtual-wan-faq.md
   # Card
@@ -46,7 +44,7 @@ landingContent:
         links:
           - text: Route traffic from a virtual hub to an NVA
             url: virtual-wan-route-table-portal.md
-      - linkListType: reference
+      - linkListType: concept
         links:
           - text: Default policies for IPsec connectivity
             url: virtual-wan-ipsec.md
@@ -65,7 +63,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/network/virtual-wan
+            url: /cli/azure/ext/virtual-wan/network
           - text: Azure Powershell
             url: /powershell/module/az.network.md#networking
           - text: REST
