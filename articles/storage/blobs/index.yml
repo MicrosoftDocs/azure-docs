@@ -50,7 +50,8 @@ landingContent:
             url: storage-blob-create-account-block-blob.md
           - text: Manage a storage account
             url: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-
+          - text: Configure a custom domain
+            url: storage-custom-domain-name.md
   # Card
   - title: Data Lake storage
     linkLists:
@@ -75,14 +76,13 @@ landingContent:
           - text: Extract, transform, and load data with Azure Databricks
             url: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Insert data into Databricks tables by using Event Grid
-            url: data-lake-storage-events?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - linkListType: how-to-guide
         links:
           - text: Use with Azure HDInsight clusters
             url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Use with Power BI
             url: data-lake-storage-use-power-bi.md
-
   # Card
   - title: Secure an account
     linkLists:
@@ -106,7 +106,6 @@ landingContent:
             url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Authorize from a client application 
             url: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-
   # Card
   - title: Work with data
     linkLists:
@@ -126,7 +125,6 @@ landingContent:
         links:
           - text: Upload image data
             url: storage-upload-process-images.md
- 
     # Card
   - title: Transfer data
     linkLists:
@@ -143,16 +141,6 @@ landingContent:
           - text: Transfer with Azure Data Factory
             url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card
-  - title: Enable access through a custom domain
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Configure a custom domain
-            url: storage-custom-domain-name.md
-          - text: Use Azure CDN with custom domains over HTTPS
-            url: storage-https-custom-domain-cdn.md
-
-  # Card
   - title: Handle events
     linkLists:
       - linkListType: concept
@@ -163,7 +151,6 @@ landingContent:
         links:
           - text: Route events to web endpoint
             url: ../../event-grid/blob-event-quickstart-portal.md
-
   # Card
   - title: Create a static website
     linkLists:
