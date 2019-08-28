@@ -192,7 +192,36 @@ The script contains two functions that load and run the model:
 
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
-#### What is get_model_path?
+#### Locate model files in your entry script
+
+There are two ways to locate models in your entry script:
+* `AZUREML_MODEL_DIR`: An environment variable containing the path to the model location.
+* `Model.get_model_path`: An API that returns the path to model file using the registered model name.
+
+##### AZUREML_MODEL_DIR
+
+AZUREML_MODEL_DIR is an environment variable created during service deployment. You can use this environment variable to find the location of the deployed model(s).
+
+To get the path to a file in a model, combine the environment variable with the filename you are looking for.
+The filenames of the model files are preserved during registration and deployment. 
+
+The following table describes the value of AZUREML_MODEL_DIR depending on the number of models deployed:
+| Deployment | Environment variable value |
+| ----- | ----- |
+| Single model | The path to the folder containing the model. |
+| Multiple models | The path to the folder containing all models. Models are located by name and version in this folder (`$MODEL_NAME/$VERSION`) |
+
+**Single model example**
+```python
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+```
+
+**Multiple model example**
+```python
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+```
+
+##### get_model_path
 
 When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
 
@@ -248,9 +277,9 @@ The following example demonstrates how to accept and return JSON data:
 #example: scikit-learn and Swagger
 import json
 import numpy as np
+import os
 from sklearn.externals import joblib
 from sklearn.linear_model import Ridge
-from azureml.core.model import Model
 
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
@@ -258,9 +287,10 @@ from inference_schema.parameter_types.numpy_parameter_type import NumpyParameter
 
 def init():
     global model
-    # note here "sklearn_regression_model.pkl" is the name of the model registered under
-    # this is a different behavior than before when the code is run locally, even though the code is the same.
-    model_path = Model.get_model_path('sklearn_regression_model.pkl')
+    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
+    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION)
+    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models)
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
@@ -299,8 +329,8 @@ from inference_schema.parameter_types.pandas_parameter_type import PandasParamet
 
 def init():
     global model
-    # replace model_name with your actual model name, if needed
-    model_path = Model.get_model_path('model_name')
+    # replace file name if needed
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model_file.pkl')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
