@@ -14,10 +14,10 @@ ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database
 
-This topic teaches you how to configure an [auto-failover group](sql-database-auto-failover-group.md) for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, the Az CLI, and PowerShell. 
+This topic teaches you how to configure an [auto-failover group](sql-database-auto-failover-group.md) for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, and PowerShell. 
 
 ## Single database
-Create the failover group and and add a single database to it using the Azure Portal, PowerShell, or the Az CLI.
+Create the failover group and add a single database to it using the Azure portal, PowerShell, or the Az CLI.
 
 ### Prerequisites
 
@@ -137,11 +137,11 @@ Create your failover group and add your single database to it using the Azure CL
 
 ### Test failover 
 
-Test failover of your failover group using the Azure Portal, PowerShell, or the Az CLI. 
+Test failover of your failover group using the Azure portal, PowerShell, or the Az CLI. 
 
 # [Portal](#tab/azure-portal)
 
-Test failover of your failover group using the Azure Portal. 
+Test failover of your failover group using the Azure portal. 
 
 1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you just created. 
@@ -154,7 +154,7 @@ Test failover of your failover group using the Azure Portal.
 
    ![Fail over your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
 
-1. Review which server is now primary and which server is secondary. If fail over succeeded, the two servers should have swapped roles. 
+1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles. 
 1. Select **Failover** again to fail the servers back to their originally roles. 
 
 # [PowerShell](#tab/azure-powershell)
@@ -267,7 +267,7 @@ Revert failover group back to the primary server:
 ---
 
 ## Elastic pool
-Create the failover group and and add an elastic pool to it using the Azure portal, PowerShell and the Az CLI.  
+Create the failover group and add an elastic pool to it using the Azure portal, and PowerShell.  
 
 ### Prerequisites
 
@@ -277,7 +277,7 @@ Consider the following prerequisites:
 
 ### Create the failover group 
 
-Create the failover group for your elastic pool using the Azure Portal, PowerShell, or the Az CLI. 
+Create the failover group for your elastic pool using the Azure portal, PowerShell, or the Az CLI. 
 
 # [Portal](#tab/azure-portal)
 Create your failover group and add your elastic pool to it using the Azure portal.
@@ -305,7 +305,47 @@ Create your failover group and add your elastic pool to it using the Azure porta
 
 Create your failover group and add your elastic pool to it using PowerShell. 
 
-!!!!!! Need PowerShell commands to create a failover group for an elastic pool !!!!!!!!
+   ```powershell-interactive
+   $subscriptionId = "<SubscriptionID>"
+   $resourceGroupName = "<Resource-Group-Name>"
+   $location = "<Region>"
+   $adminLogin = "<Admin-Login>"
+   $password = "<Complex-Password>"
+   $serverName = "<Primary-Server-Name>"
+   $databaseName = "<Database-Name>"
+   $poolName = "myElasticPool"
+   $drLocation = "<DR-Region>"
+   $drServerName = "<Secondary-Server-Name>"
+   $failoverGroupName = "<Failover-Group-Name>"
+
+   # Create a failover group between the servers
+   Write-host "Creating failover group..." 
+   New-AzSqlDatabaseFailoverGroup `
+       –ResourceGroupName $resourceGroupName `
+       -ServerName $serverName `
+       -PartnerServerName $drServerName  `
+       –FailoverGroupName $failoverGroupName `
+       –FailoverPolicy Automatic `
+       -GracePeriodWithDataLossHours 2
+   Write-host "Failover group created successfully." 
+
+   # Add elastic pool to the failover group
+   Write-host "Enumerating databases in elastic pool...." 
+   $FailoverGroup = Get-AzSqlDatabaseFailoverGroup `
+                    -ResourceGroupName $resourceGroupName `
+                    -ServerName $serverName `
+                    -FailoverGroupName $failoverGroupName
+   $databases = Get-AzSqlElasticPoolDatabase `
+               -ResourceGroupName $resourceGroupName `
+               -ServerName $serverName `
+               -ElasticPoolName $poolName
+   Write-host "Adding databases to failover group..." 
+   $failoverGroup = $failoverGroup | Add-AzSqlDatabaseToFailoverGroup `
+                                     -Database $databases 
+   Write-host "Databases added to failover group successfully." 
+  ```
+
+
 
 <!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
@@ -318,7 +358,7 @@ Create your failover group and add your elastic pool to it using AZ CLI.
 
 ### Test failover
 
-Test failover of your elastic pool using the Azure Portal, PowerShell, or the Az CLI. 
+Test failover of your elastic pool using the Azure portal, PowerShell, or the Az CLI. 
 
 # [Portal](#tab/azure-portal)
 
@@ -340,9 +380,40 @@ Fail your failover group over to the secondary server, and then fail back using 
 
 # [PowerShell](#tab/azure-powershell)
 
-Fail your failover group over to the secondary server, and then fail back using the PowerShell. 
+Test failover of your failover group using PowerShell.  
 
-!!!!!! Need PowerShell commands to test failover for an elastic pool !!!!!!!!
+Check the role of the secondary replica: 
+
+   ```powershell-interactive
+   # Set variables
+   $resourceGroupName = "<Resource-Group-Name>"
+   $serverName = "<Primary-Server-Name>"
+   $failoverGroupName = "<Failover-Group-Name>"
+   
+   # Check role of secondary replica
+   Write-host "Confirming the secondary replica is secondary...." 
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   ```
+
+Fail over to the secondary server: 
+
+   ```powershell-interactive
+   # Set variables
+   $resourceGroupName = "<Resource-Group-Name>"
+   $serverName = "<Primary-Server-Name>"
+   $failoverGroupName = "<Failover-Group-Name>"
+   
+   # Failover to secondary server
+   Write-host "Failing over failover group to the secondary..." 
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failed failover group to successfully to" $drServerName 
+   ```
 
 <!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
@@ -356,22 +427,21 @@ Fail your failover group over to the secondary server, and then fail back using 
 
 ## Managed instance
 
-Create a failover group between two managed instances using the Azure Portal, PowerShell, or the Az CLI. 
+Create a failover group between two managed instances using the Azure portal, PowerShell, or the Az CLI. 
 
-You will need to create a gateway for the virtual network of each managed instances, connect the two gateways, and then create the failover group.
+You will need to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group.
 
 ### Prerequisites
 Consider the following prerequisites:
 
 - The secondary managed instance must be empty.
-- The secondary managed instance must be in a [paired region](/azure/best-practices-availability-paired-regions) to the primary instance. 
 - The subnet range for the secondary virtual network must not overlap the subnet range of the primary virtual network. 
 - The collation and timezone of the secondary instance must match that of the primary instance. 
 - When connecting the two gateways, the **Shared Key** should be the same for both connections. 
 
 ### Create primary virtual network gateway 
 
-Create the primary virtual network gateway with the Azure portal, PowerShell and the Az CLI. 
+Create the primary virtual network gateway with the Azure portal, and PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
@@ -452,7 +522,7 @@ Create the primary virtual network gateway using the Az CLI.
 
 ### Create secondary virtual network gateway
 
-Create the secondary virtual network gateway using the Azure Portal, PowerShell, or the Az CLI. 
+Create the secondary virtual network gateway using the Azure portal, PowerShell, or the Az CLI. 
 
 # [Portal](#tab/azure-portal)
 Repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary managed instance. Fill out the required fields to configure the gateway for your secondary managed instance. 
@@ -649,7 +719,7 @@ Test failover of your failover group using the Azure portal.
 
    ![Fail over the failover group](media/sql-database-managed-instance-failover-group-tutorial/failover-mi-failover-group.png)
 
-1. Review which manged instance is the primary and which instance is the secondary. If fail over succeeded, the two instances should have switched roles. 
+1. Review which manged instance is the primary and which instance is the secondary. If failover succeeded, the two instances should have switched roles. 
 
    ![Managed instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
@@ -716,7 +786,7 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 
 For detailed steps configuring a failover group, see the following tutorials:
 - [Add single database to a failover group](sql-database-single-database-failover-group-tutorial.md)
-- [Add elastiac pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
+- [Add elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
 - [Add managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
  
 For an overview of Azure SQL Database high availability options, see [geo-replication](sql-database-active-geo-replication.md) and [auto-failover groups][auto-failover group](sql-database-auto-failover-group.md). 
