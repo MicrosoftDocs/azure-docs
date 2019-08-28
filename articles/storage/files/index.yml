@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: service documentation # < 60 chars
-summary: summary # < 160 chars
+title: Azure Files # < 60 chars
+summary: Azure Files offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. # < 160 chars
 
 metadata:
-  title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: description # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Files # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.  # Required; article description that is displayed in search results. < 160 chars.
   services: storage
   ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: files
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: rogarana #Required; your GitHub user alias, with correct capitalization.
   ms.author: rogarana #Required; microsoft alias of author; optional team alias.
-  ms.date: 07/03/2019 #Required; mm/dd/yyyy format.
+  ms.date: 08/27/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
