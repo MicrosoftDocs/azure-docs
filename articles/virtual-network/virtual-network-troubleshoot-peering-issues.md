@@ -35,7 +35,7 @@ To configure virtual network peering for the virtual networks that are in the sa
 * If the virtual networks are in the **same region**, follow the steps to [create a peering for virtual networks in the same subscription](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
 * If the virtual networks are in the **different regions**, follow the steps to set up [global virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).  
 
-**Note:** Connectivity will not work over Global VNet Peering for the following resources: 
+**Note:** Connectivity won't work over Global VNet Peering for the following resources: 
 
    * VMs behind Basic ILB SKU
    * Redis Cache (uses Basic ILB SKU)
@@ -78,7 +78,7 @@ You must configure a Network Virtual Appliance (NVA) in the hub virtual network 
 
 **Note:** If you require help to set up an NVA, [contact the NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
-For help to troubleshoot the NVA device setup and routing, see [Network virtual appliance issues in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+For help with troubleshooting the NVA device setup and routing, see [Network virtual appliance issues in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
 ### The virtual networks are in different regions
 
@@ -104,21 +104,24 @@ Sign-in to the [Azure portal](https://portal.azure.com/) with an account that ha
 
 To troubleshoot the issue, follow these steps:
 
-1. Check the network traffic flows. 
+1. Check the network traffic flows:
 
    Use [Connection Troubleshoot](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) and [IP flow verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) from the source VM to the destination VM to determine whether there is an NSG or UDR that is causing interference in traffic flows.
 
-   If you are using a firewall or NVA appliance, follow these steps: 
+   If you're using a firewall or NVA appliance, follow these steps: 
    1. Document the UDR parameters so that you can restore them after this step is completed.
    2. Remove the UDR from the source VM subnet or NIC that points to the NVA as the next hop. Verify connectivity from source VM directly to the destination that is bypassing the NVA. If this step works, refer to the [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
-2. Take a network trace. To do this, follow these steps: 
+2. Take a network trace: 
    1. Start a network trace on the destination VM. For Windows, you can use **Netsh**. For Linux, use **TCPDump**.
-   2. Run **TcpPing** or **PsPing** from the source to the destination IP. The following is an example of a **TcpPing** command: `tcping64.exe -t <destination VM address> 3389`
-   3. After the **TcpPing** is complete, stop the network trace on the destination.
-   4. If you see packets arriving from the source, this rules out the possibility of a networking issue. Therefore, you must examine both the VM firewall and the application listening on that port to locate the configuration issue.
+   2. Run **TcpPing** or **PsPing** from the source to the destination IP.
 
-   **Note:** You cannot connect to the following resource types over global virtual network peering (virtual networks in different regions):
+   * This is an example of a **TcpPing** command: `tcping64.exe -t <destination VM address> 3389`
+
+   3. After the **TcpPing** is complete, stop the network trace on the destination.
+   4. If packets arrive from the source, there is no networking issue. Examine both the VM firewall and the application listening on that port to locate the configuration issue.
+
+   **Note:** You can't connect to the following resource types over global virtual network peering (virtual networks in different regions):
 
    * VMs behind Basic ILB SKU
    * Redis Cache (uses Basic ILB SKU)
@@ -153,31 +156,33 @@ Do both the hub and spoke virtual networks have a VPN gateway?
 
 #### Both the hub and spoke virtual networks have a VPN gateway
 
-Using a remote gateway is not supported.
+Using a remote gateway isn't supported.
 
-Because of a VNet Peering limitation, **Use Remote Gateway** is not supported on the spoke VNet if the Spoke VNet already has a VPN gateway.
+Because of a VNet Peering limitation, **Use Remote Gateway** isn't supported on the spoke VNet if the Spoke VNet already has a VPN gateway.
 
-#### Both the hub and spoke virtual networks do not have a VPN gateway
+#### Both the hub and spoke virtual networks don't have a VPN gateway
 
 For site-to-site or ExpressRoute connections, check these primary causes of connectivity issues to the remote virtual network from on-premises.
 
-* Make sure that the **Allow forwarded traffic** check box is selected on the virtual network that has a gateway.
-* Make sure that the **Use remote gateway** check box is selected on the virtual network that does not have a gateway.
-* Have your network administrator check your on-premises devices to make sure that they all have the remote virtual network address space added. This is commonly overlooked.
+* Verify that the **Allow forwarded traffic** check box is selected on the virtual network that has a gateway.
+* Verify that the **Use remote gateway** check box is selected on the virtual network that does not have a gateway.
+* Have your network administrator check your on-premises devices to verify that they all have the remote virtual network address space added.
 
 For Point-to-Site connections:
 
-* Make sure that the **Allow forwarded traffic** check box is selected on the virtual network that has a gateway.
-* Make sure that the **Use remote gateway** check box is selected on the virtual network that does not have a gateway.
-* Download and install the Point-to-Site client package again. Virtual network routes that are newly peered do not automatically add routes to Point-to-Site clients.
+* Verify that the **Allow forwarded traffic** check box is selected on the virtual network that has a gateway.
+* Verify that the **Use remote gateway** check box is selected on the virtual network that does not have a gateway.
+* Download and install the Point-to-Site client package again. Virtual network routes that are newly peered don't automatically add routes to Point-to-Site clients.
 
 ## I have a Hub-Spoke network connectivity issue between spoke virtual networks in the same region
 
-You must have an NVA in a hub network. You must also configure UDRs in spokes that have an NVA set as the next hop. Also, you must enable **Allow Forwarded Traffic** in the hub virtual network. For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining), and discuss these requirements with the [NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) of your choice.
+You must have an NVA in a hub network, configure UDRs in spokes that have an NVA set as the next hop, and enable **Allow Forwarded Traffic** in the hub virtual network.
+
+For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining), and discuss these requirements with the [NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) of your choice.
 
 ## I have a Hub-Spoke network connectivity issue between spoke virtual networks in different regions
 
-Transit over Global VNet Peering is now supported. Connectivity will not work over Global VNet Peering for the following resources:
+Transit over Global VNet Peering is now supported. Connectivity won't work over Global VNet Peering for the following resources:
 
 * VMs behind Basic ILB SKU
 * Redis Cache (uses Basic ILB SKU)
@@ -205,7 +210,7 @@ For more information, see the following articles:
 
 ## I receive an error when configuring virtual network peering
 
-### Error: Current tenant '<TENANT ID>' is not authorized to access linked subscription
+### Error: Current tenant '<TENANT ID>' isn't authorized to access linked subscription
 
 To resolve this issue, follow the steps in [Create peering - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
