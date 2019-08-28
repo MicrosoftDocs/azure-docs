@@ -118,35 +118,41 @@ Each such user journey is defined by a policy, and you can build as many or as f
 
 ![Diagram showing an example of a complex user journey enabled by IEF](media/technical-overview/custom-policy.png)
 
-A custom policy is defined by several XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, and user journey orchestration steps, among other elements.
+A custom policy is defined by several XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
 
-While powerful, custom policies are most appropriate for complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
+The powerful flexibility of custom policies is most appropriate for when you need to build complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 
 ## Protocols and tokens
 
 Azure AD B2C supports the [OpenID Connect and OAuth 2.0 protocols](active-directory-b2c-reference-protocols.md) for user journeys. In the Azure AD B2C implementation of OpenID Connect, your application starts the user journey by issuing authentication requests to Azure AD B2C.
 
-The result of a request to Azure AD B2C is a security token, such as an [ID token or access token](active-directory-b2c-reference-tokens.md). This security token defines the user's identity. Tokens are received from Azure AD B2C endpoints, such as a `/token` or `/authorize` endpoint. From these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
+The result of a request to Azure AD B2C is a security token, such as an [ID token or access token](active-directory-b2c-reference-tokens.md). This security token defines the user's identity. Tokens are received from Azure AD B2C endpoints like the `/token` or `/authorize` endpoint. With these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
 
-For external identity providers, Azure AD B2C supports federated with OAuth1, OAuth2, OpenID Connect, SAML and WS-Fed.
+For external identities, Azure AD B2C supports federation with any OAuth 1.0, OAuth 2.0, OpenID Connect, SAML, and WS-Fed identity provider.
 
-![Protocols](media/technical-overview/protocols.png)
+![Diagram of OIDC-based client app federating with a SAML-based IdP](media/technical-overview/protocols.png)
 
-The diagram demonstrates how Azure AD B2C can communicate with verity of protocols in the same authentication flow context. The relying party application initiates an authorization request to Azure AD B2C, over OpenID connect. When a user clicks on one of the "Contoso employee" external identity providers, Azure AD B2C switches protocols to SAML, to communicate with the external identity provider, using the protocol supported by the selected external identify provider. After user complete the sign-in on the external identity provider, Azure AD B2C returns the token back to the relying party application using OpenID Connect.
+The preceding diagram shows how Azure AD B2C can communicate using variety of protocols within the same authentication flow:
+
+1. The relying party application initiates an authorization request to Azure AD B2C using OpenID Connect.
+1. When a user of the application chooses to sign in using one of the external identity providers, Azure AD B2C invokes the SAML protocol to communicate with a SAML-based external identity provider.
+1. After the user completes the sign-in operation with the external identity provider, Azure AD B2C then returns the token back to the relying party application using OpenID Connect.
 
 ## Application integration
 
-When a user wants to sign-in to your application, regardless if it is a web, mobile, desktop, or single page application, the app initiates an authorization request to one of the user-flows or custom policy. The user flow and custom policy control exactly what the experience should be for the user. After a user complete the user flow, for example, after user sign-up or sign-in, Azure AD B2C generates a token and takes the user back to the application.
+When a user wants to sign in to your application, whether it's a web, mobile, desktop, or single-page application (SPA), the application initiates an authorization request to a user flow- or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When a user completes a user flow, for example the sign-up or sign-in flow, Azure AD B2C generates a token, then redirects the user back to your application.
 
-![Application integration](media/technical-overview/app-integration.png)
+![Mobile app with arrows showing flow between Azure AD B2C sign-in page](media/technical-overview/app-integration.png)
 
-Multiple applications can use the same user flow. A single application can use multiple policies. For example, to sign-in to an application, the app uses the sign-up or sing-in user flow. After user is signed-in, a user may want to edit her/his profile, so the app may initiate another authorization request, this time to the profile edit user flow.
+Multiple applications can use the same user flow or custom policy. A single application can use multiple user flows or custom policies.
 
-## Seamless User Experiences
+For example, to sign in to an application, the application uses the *sign up or sign in* user flow. After the user has signed in, they may want to edit their profile, so the application initiates another authorization request, this time using the the *profile edit* user flow.
 
-User experience is paramount in a customer facing application. Grow your customer base by crafting user experiences with the look and feel of your brand. With Azure AD B2C, you get nearly full control of the HTML CSS content that's presented to users. Maintain brand and visual consistency between your application and Azure AD B2C.
+## Seamless user experiences
 
-![Seamless User Experiences](media/technical-overview/seamless-ux.png)
+In Azure AD B2C, you can craft your users' identity experiences so that the pages they're shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
+
+![Screenshots of brand-customized sign-up sign-in page](media/technical-overview/seamless-ux.png)
 
 ## Localization
 
