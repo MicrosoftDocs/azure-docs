@@ -16,12 +16,14 @@ metadata:
    manager: celested
 
 landingContent:
-  - title: Invite B2B guest users
+  - title: About B2B collaboration
     linkLists:
       - linkListType: overview
         links:
           - text: What is B2B guest user access?
             url: what-is-b2b.md
+  - title: Invite B2B guest users
+    linkLists:
       - linkListType: concept
         links:
           - text: How a B2B guest redeems an invitation
