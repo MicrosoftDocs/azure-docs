@@ -217,14 +217,10 @@ myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubunt
 To use an image from a __private container registry__ that is not in your workspace, you must use `docker.base_image_registry` to specify the address of the repository and a user name and password:
 
 ```python
-from azureml.core.container_registry import ContainerRegistry
 # Set the container registry information
-myacr = ContainerRegistry()
-myacr.address = "myregistry.azurecr.io"
-myacr.username = "username"
-myacr.password = "password"
-# Set the environment attribute
-myenv.docker.base_image_repository = myacr
+myenv.docker.base_image_repository.address = "myregistry.azurecr.io"
+myenv.docker.base_image_repository.username = "username"
+myenv.docker.base_image_repository.password = "password"
 ```
 
 After defining the environment, use it with an [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) object to define the inference environment in which the model and web service will run.
