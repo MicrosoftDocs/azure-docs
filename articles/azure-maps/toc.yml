@@ -129,6 +129,8 @@
       items:
       - name: Add drawing toolbar
         href: map-add-drawing-toolbar.md
+      - name: Set drawing options
+        href: map-set-drawing-options.md
     - name: Services module
       items:
       - name: Use the services module
