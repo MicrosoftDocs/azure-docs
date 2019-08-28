@@ -23,7 +23,7 @@ The `Microsoft.Azure.Services.AppAuthentication` library manages authentication 
 
 To follow this article, you need the following prerequisites:
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) or [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/). [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) or [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
 - The [App Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354), available as a separate extension for Visual Studio 2017 Update 5 and bundled with the product in Update 6 and later. With Update 6 or later, you can verify the installation of the App Authentication extension by selecting Azure Development tools from within the Visual Studio installer.
 
