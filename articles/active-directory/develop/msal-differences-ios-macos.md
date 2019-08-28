@@ -32,13 +32,13 @@ MSAL for macOS is a subset of the functionality available for iOS.
 MSAL for macOS doesn't support:
 
 - different authentication types such as `ASWebAuthenticationSession`, `SFAuthenticationSession`, `SFSafariViewController`.
-- brokered authentication flows. Conditional access scenarios that invoke Microsoft authenticator app are not supported on macOS.
+- brokered authentication flows. Conditional access scenarios that invoke Microsoft authenticator app aren't supported on macOS.
 
-MSAL Keychain support in macOS is more limited than on iOS. The keychain is not shared with other devices nor between apps from the same publisher. Use the legacy access control list to specify the paths to the apps that should share the keychain. The user may see more authentication prompts on macOS when you use keychain to cache tokens.
+MSAL Keychain support in macOS is more limited than on iOS. The keychain isn't shared with other devices nor between apps from the same publisher. Use the legacy access control list to specify the paths to the apps that should share the keychain. The user may see more authentication prompts on macOS when you use keychain to cache tokens.
 
 ### Conditional access authentication differences
 
-For conditional access scenarios, there will be fewer user prompts when you use MSAL for iOS. This is because iOS uses the broker app (Microsoft Authenticator) which negates the need, in some cases, to prompt the user.
+For conditional access scenarios, there will be fewer user prompts when you use MSAL for iOS. This is because iOS uses the broker app (Microsoft Authenticator) which negates the need to prompt the user in some cases.
 
 ### Project setup differences
 
@@ -48,5 +48,5 @@ For conditional access scenarios, there will be fewer user prompts when you use 
 
 **iOS**
 
-- There are additional steps to setup your project to support authentication broker flow. The steps are called out in the tutorial.
+- There are additional steps to set up your project to support authentication broker flow. The steps are called out in the tutorial.
 - iOS projects need to register custom schemes in the pinfo.list. This isn't required on macOS.

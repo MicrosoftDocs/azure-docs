@@ -46,8 +46,8 @@ By default, the MSAL logger doesn't capture any highly sensitive personal or org
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
 - *Level* enables you to decide which level of logging you want. Setting it to Errors will only get errors
-- *PiiLoggingEnabled* enables you to log personal and organizational data if set to true. By default this is set to false, so that your application does not log personal data.
-- *LogCallback* is set to a delegate that does the logging. If *PiiLoggingEnabled* is true, this method will receive the messages twice: once with the *containsPii* parameter equals false and the message without personal data, and a second time with the *containsPii* parameter equals to true and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
+- *PiiLoggingEnabled* enables you to log personal and organizational data if set to true. By default this is set to false, so that your application doesn't log personal data.
+- *LogCallback* is set to a delegate that does the logging. If *PiiLoggingEnabled* is true, this method will receive the messages twice: once with the *containsPii* parameter equals false and the message without personal data, and a second time with the *containsPii* parameter equals to true and the message might contain personal data. In some cases (when the message doesn't contain personal data), the message will be the same.
 - *DefaultLoggingEnabled* enables the default logging for the platform. By default it's false. If you set it to true it uses Event Tracing in Desktop/UWP applications, NSLog on iOS and logcat on Android.
 
 ```csharp
@@ -85,7 +85,7 @@ class Program
 
 - `level` (optional): the configurable log level. The supported log levels are: Error, Warning, Info, Verbose. Default value is Info.
 
-- `piiLoggingEnabled` (optional): enables you to log personal and organizational data if set to true. By default this is set to false so that your application does not log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog. Default is set to false.
+- `piiLoggingEnabled` (optional): enables you to log personal and organizational data if set to true. By default this is set to false so that your application doesn't log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog. Default is set to false.
 
 - `correlationId` (optional): a unique identifier, used to map the request with the response for debugging purposes. Defaults to RFC4122 version 4 guid (128 bits).
 
@@ -147,10 +147,10 @@ For example:
 
 ### Personal Identifiable Information (PII) & Organizational Identifiable Information (OII)
 
-By default, MSAL does not capture or log any PII or OII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII or OII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+By default, MSAL doesn't capture or log any PII or OII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII or OII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
 
 ```Objective-C
-// By default, the `MSALLogger` does not capture any PII or OII
+// By default, the `MSALLogger` doesn't capture any PII or OII
 
 // PII or OII will be logged
 MSALGlobalConfig.loggerConfig.piiEnabled = YES;
@@ -179,7 +179,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
 ### Log message format
 
-The message portion of MSAL log messages are in the format of `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+The message portion of MSAL log messages is in the format of `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 For example:
 

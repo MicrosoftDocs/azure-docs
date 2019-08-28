@@ -1,5 +1,5 @@
 ---
-title: Configure a MSAL for iOS and macOS to use different identity providers | Microsoft identity platform
+title: Configure MSAL for iOS and macOS to use different identity providers | Microsoft identity platform
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
 documentationcenter: ''
@@ -47,7 +47,7 @@ MSALB2CAuthority *b2cAuthority = [[MSALB2CAuthority alloc] initWithURL:authority
                                                                      error:&b2cAuthorityError];
 ```
 
-All B2C authorities that do not use the default B2C authority format must be declared as known authorities.
+All B2C authorities that don't use the default B2C authority format must be declared as known authorities.
 
 Add each different B2C authority to the known authorities list even if authorities only differ in policy.
 
@@ -59,7 +59,7 @@ MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientAppl
 b2cApplicationConfig.knownAuthorities = @[b2cAuthority];
 ```
 
-Note that when your app requests a new policy, the authority URL needs to be changed because the authority URL is different for each policy. 
+When your app requests a new policy, the authority URL needs to be changed because the authority URL is different for each policy. 
 
 To configure a B2C application, set `@property MSALAuthority *authority` with an instance of `MSALB2CAuthority` in `MSALPublicClientApplicationConfig` before creating `MSALPublicClientApplication`, like this:
 
@@ -165,7 +165,7 @@ The following shows how to sign a user into a specific tenant:
 
 The `MSALAuthority` class is the base abstract class for the MSAL authority classes. Don't try to create instance of it using `alloc` or `new`. Instead, either create one of its subclasses directly (`MSALAADAuthority`, `MSALB2CAuthority`) or use the factory method `authorityWithURL:error:` to create subclasses using an authority URL.
 
-Use the `url` property to get a normalized authority URL. Extra parameters and path components or fragments that are not part of authority won't be in the returned normalized authority URL.
+Use the `url` property to get a normalized authority URL. Extra parameters and path components or fragments that aren't part of authority won't be in the returned normalized authority URL.
 
 The following are subclasses of `MSALAuthority` that you can instantiate depending on the authority want to use.
 

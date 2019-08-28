@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # How to: Customize browsers and WebViews for iOS/macOS
 
-The Microsoft Authentication Library (MSAL) on iOS uses an external web browser by default, which might appear on top of your app, to do interactive authentication to sign in users. You can change the experience by customizing the configuration to other options for displaying web content, such as:
+The Microsoft Authentication Library (MSAL) on iOS uses an external web browser by default (which might appear on top of your app) to do interactive authentication to sign in users. You can change the experience by customizing the configuration to other options for displaying web content, such as:
 
 For iOS only:
 
@@ -45,7 +45,7 @@ For iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`, and `SFSafariV
 
 ## In-app browser
 
-[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) is an in-app browser that displays web content. It does not share cookies or web site data with other **WKWebView** instances, or with the Safari browser. WKWebView is a cross-platform browser that is available for both iOS and macOS.
+[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) is an in-app browser that displays web content. It doesn't share cookies or web site data with other **WKWebView** instances, or with the Safari browser. WKWebView is a cross-platform browser that is available for both iOS and macOS.
 
 ## Cookie sharing and Single sign-on (SSO) implications
 

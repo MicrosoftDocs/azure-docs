@@ -25,11 +25,11 @@ ms.collection: M365-identity-device-management
 
 The Azure Active Directory Authentication Library ([ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc)) was created to work with  Azure Active Directory accounts via the v1.0 endpoint.
 
-The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Azure Active Directory (Azure AD) accounts, personal Microsoft accounts, and Azure AD B2C accounts. It does this via the Microsoft identity platform (formally the Azure AD v2.0 endpoint).
+The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Azure Active Directory (Azure AD) accounts, personal Microsoft accounts, and Azure AD B2C accounts via the Microsoft identity platform (formally the Azure AD v2.0 endpoint).
 
 The Microsoft identity platform has a few key differences with Azure Active Directory v1.0. This article highlights these differences and provides guidance to migrate an app from ADAL to MSAL.
 
-##  ADAL and MSAL app capability differences
+## ADAL and MSAL app capability differences
 
 ### Who can sign in
 
@@ -98,9 +98,9 @@ ADAL doesn't provide an API to retrieve known user identities. It relies on the 
 
 MSAL provides a set of APIs to list all accounts known to MSAL without having to acquire a token.
 
-Like ADAL, MSAL returns account information that holds a list of claims from the `id_token`. It is part of the `MSALAccount` object inside the `MSALResult` object.
+Like ADAL, MSAL returns account information that holds a list of claims from the `id_token`. It's part of the `MSALAccount` object inside the `MSALResult` object.
 
-MSAL provides a set of APIs to remove accounts, making the removed accounts inaccessible to the app. After the account is removed, later token acquisition calls will prompt the user to do interactive token acquisition. Account removal only applies to the client application that initiated it, and doesn't remove the account from the other apps running on the device or from the system browser. This ensures that the user continues to have a SSO experience on the device even after signing out of an individual app.
+MSAL provides a set of APIs to remove accounts, making the removed accounts inaccessible to the app. After the account is removed, later token acquisition calls will prompt the user to do interactive token acquisition. Account removal only applies to the client application that started it, and doesn't remove the account from the other apps running on the device or from the system browser. This ensures that the user continues to have a SSO experience on the device even after signing out of an individual app.
 
 Additionally, MSAL also returns an account identifier that can be used to request a token silently later. However, the account identifier (accessible through `identifier` property in the `MSALAccount` object) isn't displayable and you can't assume what format it is in nor should you try to interpret or parse it.
 
@@ -190,12 +190,12 @@ SSO is achieved via iOS keychain sharing and is only available between apps publ
 
 SSO through iOS keychain sharing is the only silent SSO type.
 
-On macOS, MSAL can achieve SSO with other MSAL for iOS and macOS based applications and ADAL Objective-C based applications. 
+On macOS, MSAL can achieve SSO with other MSAL for iOS and macOS based applications and ADAL Objective-C-based applications.
 
 MSAL on iOS also supports two other types of SSO:
 
-- SSO through the web browser. MSAL for iOS supports `ASWebAuthenticationSession`, which provides SSO through cookies shared between other apps on the device and specifically the Safari browser.
-- SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow conditional access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
+* SSO through the web browser. MSAL for iOS supports `ASWebAuthenticationSession`, which provides SSO through cookies shared between other apps on the device and specifically the Safari browser.
+* SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow conditional access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
 
 ## Intune MAM SDK
 
@@ -203,7 +203,7 @@ The [Intune MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) supp
 
 ## MSAL and ADAL in the same app
 
-ADAL version 2.7.0, and above, can't coexist with MSAL in the same application. The main reason is because of the shared submodule common code. Because Objective-C doesn't support namespaces, if you add both ADAL and MSAL frameworks to your application, there will be two instances of the same class. And there is no guarantee for which one gets picked at runtime. If both SDKs are using same version of the conflicting class, your app may still work. However, if it's a different version, your app might experience unexpected crashes that are difficult to diagnose.
+ADAL version 2.7.0, and above, can't coexist with MSAL in the same application. The main reason is because of the shared submodule common code. Because Objective-C doesn't support namespaces, if you add both ADAL and MSAL frameworks to your application, there will be two instances of the same class. There's no guarantee for which one gets picked at runtime. If both SDKs are using same version of the conflicting class, your app may still work. However, if it's a different version, your app might experience unexpected crashes that are difficult to diagnose.
 
 Running ADAL and MSAL in the same production application isn't supported. However, if you're just testing and migrating your users from ADAL Objective-C to MSAL for iOS and macOS, you can continue using [ADAL Objective-C 2.6.10](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases/tag/2.6.10). It's the only version that works with MSAL in the same application. There will be no new feature updates for this ADAL version, so it should be only used for migration and testing purposes. Your app shouldn't rely on ADAL and MSAL coexistence long term.
 

@@ -26,12 +26,12 @@ OpenID Connect allows you to optionally request the return of individual claims 
 
 The Microsoft Authentication Library (MSAL) for iOS and macOS allows requesting specific claims in both interactive and silent token acquisition scenarios. It does so through the `claimsRequest` parameter.
 
-There're multiple scenarios where this is needed, for example:
+There are multiple scenarios where this is needed. For example:
 
 - Requesting claims outside of the standard set for your application.
-- Requesting specific combinations of the standard claims that cannot be specified using scopes for your application. For example, if an access token gets rejected due to missing claims, the application can request the missing claims using MSAL.
+- Requesting specific combinations of the standard claims that cannot be specified using scopes for your application. For example, if an access token gets rejected because of missing claims, the application can request the missing claims using MSAL.
 
-MSAL bypasses the access token cache whenever a claims request is specified. Therefore it is important to only provide `claimsRequest` parameter when additional claims are needed (as opposed to always providing same `claimsRequest` parameter in each MSAL API call).
+MSAL bypasses the access token cache whenever a claims request is specified. It's important to only provide `claimsRequest` parameter when additional claims are needed (as opposed to always providing same `claimsRequest` parameter in each MSAL API call).
 
 `claimsRequest` can be specified in `MSALSilentTokenParameters` and `MSALInteractiveTokenParameters`:
 

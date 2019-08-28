@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # How to: SSO between ADAL and MSAL apps on macOS and iOS
 
-The Microsoft Authentication Library (MSAL) for iOS can share SSO state with [ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc) between applications. You can migrate your apps to MSAL at your own pace, ensuring that your users will still benefit from cross-app SSO--even with a mix of ADAL and MSAL based apps.
+The Microsoft Authentication Library (MSAL) for iOS can share SSO state with [ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc) between applications. You can migrate your apps to MSAL at your own pace, ensuring that your users will still benefit from cross-app SSO--even with a mix of ADAL and MSAL-based apps.
 
 If you're looking for guidance of setting up SSO between apps using the MSAL SDK, see [Silent SSO between multiple apps](single-sign-on-macos-ios.md#silent-sso-between-apps). This article focuses on SSO between ADAL and MSAL.
 
@@ -38,11 +38,11 @@ ADAL 2.7.x can read the MSAL cache format. You don't need to do anything special
 
 ### Account identifier differences
 
-MSAL and ADAL use different account identifiers. ADAL uses UPN as its primary account identifier. MSAL uses a non-displayable account identifier which is based of an object ID and a tenant ID for AAD accounts, and a `sub` claim for other types of accounts.
+MSAL and ADAL use different account identifiers. ADAL uses UPN as its primary account identifier. MSAL uses a non-displayable account identifier that is based of an object ID and a tenant ID for AAD accounts, and a `sub` claim for other types of accounts.
 
 When you receive an `MSALAccount` object in the MSAL result, it contains an account identifier in the `identifier` property. The application should use this identifier for subsequent silent requests.
 
-In addition to `identifier`, `MSALAccount` object contains a displayable identifier called `username`. That translates to `userId` in ADAL. Note that `username` is not considered a unique identifier and can change any time, so it should only be used for backward compatibility scenarios with ADAL. MSAL supports cache queries using either `username` or `identifier`, where querying by `identifier` is recommended.
+In addition to `identifier`, `MSALAccount` object contains a displayable identifier called `username`. That translates to `userId` in ADAL. `username` is not considered a unique identifier and can change anytime, so it should only be used for backward compatibility scenarios with ADAL. MSAL supports cache queries using either `username` or `identifier`, where querying by `identifier` is recommended.
 
 Following table summarizes account identifier differences between ADAL and MSAL:
 
@@ -100,7 +100,7 @@ You can save this identifier to use in MSAL for account lookups with the `accoun
 
 ### Use ADAL account identifier `userId` to query accounts in MSAL
 
-1. In MSAL, first lookup an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback.
+1. In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback.
 
 ```objc
 /*!
@@ -148,7 +148,7 @@ This section covers SSO differences between MSAL and ADAL 2.x-2.6.6.
 
 Older ADAL versions don't natively support the MSAL cache format. However, to ensure smooth migration from ADAL to MSAL, MSAL can read the older ADAL cache format without prompting for user credentials again.
 
-Because `homeAccountId` isn't available in older ADAL versions, you'd need to lookup accounts using the `username`:
+Because `homeAccountId` isn't available in older ADAL versions, you'd need to look up accounts using the `username`:
 
 ```objc
 /*!

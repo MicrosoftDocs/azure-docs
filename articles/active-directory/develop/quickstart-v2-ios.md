@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform iOS and macOS quickstart | Azure
-description: Learn how to sign-in users and query Microsoft Graph in an iOS or macOS application.
+description: Learn how to sign in users and query Microsoft Graph in an iOS or macOS application.
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -185,7 +185,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 ### Additional App Requirements  
 
-Your app must also have the following in your `AppDelegate`. This lets MSAL SDK handle token response from the Auth broker app when you perform authentication.
+Your app must also have the following in your `AppDelegate`. This lets MSAL SDK handle token response from the Auth broker app when you authenticate.
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -216,8 +216,8 @@ MSAL has two methods used to acquire tokens: `acquireToken` and `acquireTokenSil
 
 Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to your app's permissions. For example, 
 
-* The first time users sign in to the application
-* If a user resets their password, they will need to enter their credentials 
+* The first-time users sign in to the application
+* If a user resets their password, they'll need to enter their credentials 
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 

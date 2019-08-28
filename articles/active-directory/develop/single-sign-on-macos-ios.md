@@ -46,9 +46,9 @@ If you use the default web view in your app to sign in users, you'll get automat
 
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
-MSAL Objective-C supports migration and SSO with ADAL Objective-C based apps. The apps must be distributed by the same Apple Developer.
+MSAL Objective-C supports migration and SSO with ADAL Objective-C-based apps. The apps must be distributed by the same Apple Developer.
 
-See [SSO between ADAL and MSAL apps on macOS and iOS](sso-between-adal-msal-apps-macos-ios.md) for instructions for cross-app SSO between ADAL and MSAL based apps.
+See [SSO between ADAL and MSAL apps on macOS and iOS](sso-between-adal-msal-apps-macos-ios.md) for instructions for cross-app SSO between ADAL and MSAL-based apps.
 
 ## Silent SSO between apps
 
@@ -59,7 +59,7 @@ To enable SSO across your applications, you'll need to do the following steps, w
 1. Ensure that all your applications use the same Client ID or Application ID.
 1. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains.
 1. Request the same keychain entitlement for each of your applications.
-1. Tell the MSAL SDKs about the shared keychain you want us to use if it is different from the default one. 
+1. Tell the MSAL SDKs about the shared keychain you want us to use if it's different from the default one.
 
 ### Use the same Client ID and Application ID
 
@@ -94,7 +94,7 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 </plist>
 ```
 
-Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
+Once you have the keychain entitlement enabled in each of your applications, and you're ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
 
 ```objc
 NSError *error = nil;
