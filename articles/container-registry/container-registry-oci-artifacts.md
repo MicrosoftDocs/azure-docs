@@ -108,7 +108,7 @@ Here is an artifact!
 
 ## Remove the artifact (optional)
 
-To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete]. The following example removes the repository and any artifact you stored:
+To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the repository and any artifact you stored:
 
 ```azurecli
 az acr repository delete --name myregistry --repository samples/artifact
