@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev
@@ -34,7 +34,7 @@ For iOS and macOS:
 
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MSAL for macOS only supports WKWebView at this time.
+MSAL for macOS only supports `WKWebView`.
 
 ## System browsers
 
@@ -68,7 +68,9 @@ By default, the MSAL for iOS uses the following system web browser depending on 
     | iOS12    | `ASWebAuthenticationSession` |
     | iOS11    | `SFAuthenticationSession` |
     | iOS9-10 | `SFSafariViewController` |
+
 ## Change the default browser for the request
+
 You can use an in-app browser, or a specific system browser depending on your UX requirements, by changing the following property in `MSALWebviewParameters`:
 
 ```objc

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
@@ -22,14 +22,14 @@ ms.collection: M365-identity-device-management
 
 # How to: Configure MSAL for iOS and macOS to use different identity providers
 
-This article will show you how to configure your Microsoft authentication library app for iOS and macOS (MSAL) for different authorities such as Azure Active Directory (Azure AD), business-to-consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
+This article will show you how to configure your Microsoft authentication library app for iOS and macOS (MSAL) for different authorities such as Azure Active Directory (Azure AD), Business-to-Consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
 
 ## Default authority configuration
 
 `MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
 
 > [!NOTE]
-> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers) for more details). ADFS is supported through federation.
+> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers) for details). ADFS is supported through federation.
 
 ## Change the default authority
 
@@ -37,7 +37,7 @@ In some scenarios, such as business-to-consumer (B2C), you may need to change th
 
 ### B2C
 
-To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requires a different authority configuration. MSAL recognizes one authority URL format as B2C by itself. The recognized B2C authority format is `https://<host>/tfp/<tenant>/<policy>`, for example `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`. However, developer can also use any other supported B2C authority URLs by declaring authority as B2C authority explicitly. 
+To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requires a different authority configuration. MSAL recognizes one authority URL format as B2C by itself. The recognized B2C authority format is `https://<host>/tfp/<tenant>/<policy>`, for example `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`. However, you can also use any other supported B2C authority URLs by declaring authority as B2C authority explicitly.
 
 To support an arbitrary URL format for B2C, `MSALB2CAuthority` can be set with an arbitrary URL, like this:
 
@@ -47,8 +47,9 @@ MSALB2CAuthority *b2cAuthority = [[MSALB2CAuthority alloc] initWithURL:authority
                                                                      error:&b2cAuthorityError];
 ```
 
-All B2C authorities that do not use the default B2C authority format also need to be declared as known authorities.
-You need to add each different B2C authority to the known authorities list even if authorities only differ in policy.
+All B2C authorities that do not use the default B2C authority format must be declared as known authorities.
+
+Add each different B2C authority to the known authorities list even if authorities only differ in policy.
 
 ```objc
 MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientApplicationConfig alloc]
@@ -174,7 +175,7 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 
 ### MSALB2CAuthority
 
-`MSALB2CAuthority` represents a B2C authority. By default, B2C authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`. However, MSAL also supports other arbitrary B2C authority formats. 
+`MSALB2CAuthority` represents a B2C authority. By default, the B2C authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`. However, MSAL also supports other arbitrary B2C authority formats.
 
 ## Next steps
 

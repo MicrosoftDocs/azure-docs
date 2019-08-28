@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
@@ -82,23 +82,23 @@ You can read more information about using the "/.default" scope [here](https://d
 
 ### Supporting different WebView types & browsers
 
-ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for iOS supports more options for displaying web content when requesting an authorization code, and no longer supports UIWebView; which can improve the user experience and security. 
+ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for iOS supports more options for displaying web content when requesting an authorization code, and no longer supports `UIWebView`; which can improve the user experience and security.
 
 By default, MSAL on iOS uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides Single Sign-On (SSO) benefits through cookie sharing between apps and the Safari browser.
 
 You can choose to use a different web component depending on app requirements and the end-user experience you want. See [supported web view types](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Customizing-Browsers-and-WebViews) for more options.
 
-When migrating from ADAL to MSAL, WKWebView provides the user experience most similar to ADAL on iOS and macOS. You're encouraged to migrate to ASWebAuthenticationSession on iOS if possible. For macOS, it's recommended to use WKWebView. 
+When migrating from ADAL to MSAL, `WKWebView` provides the user experience most similar to ADAL on iOS and macOS. We encourage you to migrate to `ASWebAuthenticationSession` on iOS, if possible. For macOS, we encourage you to use `WKWebView`.
 
 ### Account management API differences
 
 When you call the ADAL methods `acquireToken()` or `acquireTokenSilent()`, you receive an `ADUserInformation` object containing a list of claims from the `id_token` that represents the account being authenticated. Additionally, `ADUserInformation` returns a `userId` based on the `upn` claim. After initial interactive token acquisition, ADAL expects developer to provide `userId` in all silent calls.
 
-ADAL does not provide an API to retrieve known user identities. It relies on the app to save and manage those accounts.
+ADAL doesn't provide an API to retrieve known user identities. It relies on the app to save and manage those accounts.
 
-MSAL provides a set of APIs to list all accounts known to MSAL without having to do a token acquisition.
+MSAL provides a set of APIs to list all accounts known to MSAL without having to acquire a token.
 
-Like ADAL, MSAL returns account information that holds a list of claims from the `id_token`. It is returned as part of the `MSALAccount` object inside  MSAL's result object `MSALResult`.
+Like ADAL, MSAL returns account information that holds a list of claims from the `id_token`. It is part of the `MSALAccount` object inside the `MSALResult` object.
 
 MSAL provides a set of APIs to remove accounts, making the removed accounts inaccessible to the app. After the account is removed, later token acquisition calls will prompt the user to do interactive token acquisition. Account removal only applies to the client application that initiated it, and doesn't remove the account from the other apps running on the device or from the system browser. This ensures that the user continues to have a SSO experience on the device even after signing out of an individual app.
 
@@ -106,7 +106,7 @@ Additionally, MSAL also returns an account identifier that can be used to reques
 
 ### Migrating the account cache
 
-When migrating from ADAL, apps normally store ADAL's `userId`, which doesn't have the `identifier` required by MSAL. As a onetime migration step, an app can query an MSAL account using ADAL's userId with the following API:
+When migrating from ADAL, apps normally store ADAL's `userId`, which doesn't have the `identifier` required by MSAL. As a one-time migration step, an app can query an MSAL account using ADAL's userId with the following API:
 
 `- (nullable MSALAccount *)accountForUsername:(nonnull NSString *)username error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
@@ -135,7 +135,7 @@ MSAL provides more clarity between errors that can be handled by your app and th
 * `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused for various reasons such as an expired authentication session, conditional access policy has changed, a refresh token expired or was revoked, there are no valid tokens in the cache, and so on.
 * `MSALErrorServerDeclinedScopes`: The request wasn't fully completed and some scopes weren't granted access. This can be caused by a user declining consent to one or more scopes.
 
-All other errors in the [`MSALError` list](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) are optional to handle and developer can use additional error information for improved user experience. 
+Handling all other errors in the [`MSALError` list](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) is optional. You could use the information in those errors to improve the user experience.
 
 See [Handling exceptions and errors using MSAL](msal-handling-exceptions.md) for more about MSAL error handling.
 
@@ -180,7 +180,7 @@ In ADAL, you create separate instances of `ADAuthenticationContext` for each ten
 
 ## SSO in partnership with other SDKs
 
-MSAL for iOS can achieve SSO via a unified cache with following SDKs:
+MSAL for iOS can achieve SSO via a unified cache with the following SDKs:
 
 - ADAL Objective-C 2.7.x+
 - MSAL.NET for Xamarin 2.4.x+
@@ -205,7 +205,10 @@ The [Intune MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) supp
 
 ADAL version 2.7.0, and above, can't coexist with MSAL in the same application. The main reason is because of the shared submodule common code. Because Objective-C doesn't support namespaces, if you add both ADAL and MSAL frameworks to your application, there will be two instances of the same class. And there is no guarantee for which one gets picked at runtime. If both SDKs are using same version of the conflicting class, your app may still work. However, if it's a different version, your app might experience unexpected crashes that are difficult to diagnose.
 
-Running ADAL and MSAL in the same production application isn't supported. However, if you're just testing and migrating your users from ADAL Objective-C to MSAL for iOS and macOS, you can continue using [ADAL Objective-C 2.6.10](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases/tag/2.6.10). It's the only version that works with MSAL in the same application. There will be no new feature updates for this ADAL version, so it should be only used for migration and testing purposes. Your app shouldn't rely on ADAL and MSAL coexistence long term. ADAL and MSAL coexistence in the same application isn't supported. On the other hand, ADAL and MSAL coexistence between multiple applications is fully supported.
+Running ADAL and MSAL in the same production application isn't supported. However, if you're just testing and migrating your users from ADAL Objective-C to MSAL for iOS and macOS, you can continue using [ADAL Objective-C 2.6.10](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases/tag/2.6.10). It's the only version that works with MSAL in the same application. There will be no new feature updates for this ADAL version, so it should be only used for migration and testing purposes. Your app shouldn't rely on ADAL and MSAL coexistence long term.
+
+ADAL and MSAL coexistence in the same application isn't supported.
+ADAL and MSAL coexistence between multiple applications is fully supported.
 
 ## Practical migration steps
 

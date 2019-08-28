@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: jak
 ms.custom: aaddev
@@ -76,7 +76,7 @@ When migrating code that used the Azure AD Authentication Library (ADAL) to MSAL
     
 MSAL will verify if your redirect URI registers correctly, and return an error if it's not.
     
-* If you want to use universal links as a redirect URI, the `<scheme>` must be `https` and it doesn't need to be declared in CFBundleURLSchemes. Instead, configure the app and domain per Apple's instructions at [Universal Links for Developers](https://developer.apple.com/ios/universal-links/) and call `handleMSALResponse:sourceApplication:` method of `MSALPublicClientApplication` when your application is opened through a universal link. 
+* If you want to use universal links as a redirect URI, the `<scheme>` must be `https` and doesn't need to be declared in `CFBundleURLSchemes`. Instead, configure the app and domain per Apple's instructions at [Universal Links for Developers](https://developer.apple.com/ios/universal-links/) and call the `handleMSALResponse:sourceApplication:` method of `MSALPublicClientApplication` when your application is opened through a universal link.
 
 ## Use a custom redirect URI
 
@@ -92,9 +92,9 @@ MSALPublicClientApplication *application =
         [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&redirectURIError];
 ```
 
-## Handle URL opened event
+## Handle the URL opened event
 
-Your application should call MSAL when it receives any response through URL schemes or universal links. You need to call `handleMSALResponse:sourceApplication:` method of `MSALPublicClientApplication` when your application is opened. For example for custom schemes:
+Your application should call MSAL when it receives any response through URL schemes or universal links. Call the `handleMSALResponse:sourceApplication:` method of `MSALPublicClientApplication` when your application is opened. Here's an example for custom schemes:
 
 ```objc
 - (BOOL)application:(UIApplication *)app

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev
@@ -71,8 +71,6 @@ App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`
 App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`
 App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
 
-These Redirect URIs are then grouped under the same client ID/application ID and are looked up based on the redirect URI that you return in your SDK configuration.
-
 > [!IMPORTANT]
 > The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris.md#msal-redirect-uri-format-requirements).
 
@@ -115,8 +113,7 @@ That's it! The Microsoft identity SDK will now share credentials across all your
 
 ## SSO through Authentication broker on iOS
 
-MSAL provides support for brokered authentication with Microsoft Authenticator starting with version 0.3.0.
-Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow conditional access policies.
+MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow conditional access policies.
 
 The following steps are how you enable SSO using an authentication broker for your app:
 
