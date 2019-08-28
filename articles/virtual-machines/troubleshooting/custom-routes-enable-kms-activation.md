@@ -23,7 +23,7 @@ This article describes how to resolve the KMS activation problem that you might 
 
 ## Symptom
 
-You enable [forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) on Azure virtual network subnets to direct all Internet-bound traffic back to your on-premises network. In this scenario, the Azure virtual machines (VMs) that run Windows Server 2012 R2 (or later versions of Windows) can successfully activate Windows. However, VMs that run earlier version of Windows fail to activate Windows.
+You enable [forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) on Azure virtual network subnets to direct all Internet-bound traffic back to your on-premises network. In this scenario, the Azure virtual machines (VMs) that run Windows fail to activate Windows.
 
 ## Cause
 
