@@ -16,6 +16,7 @@ ms.date: 03/01/2019
 > - Authenticate your client application using an application or user identity, instead of storage account credentials. 
 > - Use an [Azure AD managed identity](/azure/active-directory/managed-identities-azure-resources/) when running on Azure. Managed identities remove the need for client authentication all together, and storing credentials in or with your application.
 > - Use Role Based Access Control (RBAC) for managing authorization, which is also supported by Key Vault.
+> - AAD access to Storage Account does not work for accessing tables as of yet.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
