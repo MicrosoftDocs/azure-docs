@@ -128,11 +128,13 @@ To create your secondary managed instance, follow these steps:
 
 
 ## 4 - Create primary gateway 
-For two managed instances to participate in a failover group, there must be a gateway configured between the virtual networks of the two managed instances to allow network communication. You can create the gateway for the primary managed instance using the Azure portal, PowerShell, and Az CLI. 
+For two managed instances to participate in a failover group, there must be a gateway configured between the virtual networks of the two managed instances to allow network communication. You can create the gateway for the primary managed instance using the Azure portal. 
 
+<!-- PowerShell, and Az CLI. 
 # [Portal](#tab/azure-portal)
 
 Create the gateway for the virtual network of your primary managed instance using the Azure portal. 
+-->
 
 1. In the [Azure portal](https://portal.azure.com), go to your resource group and select the **Virtual network** resource for your primary managed instance. 
 1. Select **Subnets** under **Settings** and then select to add a new **Gateway subnet**. Leave the default values. 
@@ -167,6 +169,7 @@ Create the gateway for the virtual network of your primary managed instance usin
 
 1. Select **Create** to create your new virtual network gateway. 
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 
 Create the gateway for the virtual network of your primary managed instance using PowerShell. 
@@ -197,19 +200,23 @@ Create the gateway for the virtual network of your primary managed instance usin
         -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
     $gw1
     ```
-
+<!--
 # [Azure CLI](#tab/azure-cli)
 
 Create the gateway for the virtual network of your primary managed instance using the Az CLI. 
 
 !!!!!! Need Az CLI commands !!!!
-
 ---
+-->
 
 ## 5 - Create secondary gateway 
-In this step, create the gateway for the virtual network of your secondary managed instance using the Azure Portal, PowerShell, or Az CLI. 
+In this step, create the gateway for the virtual network of your secondary managed instance using the Azure Portal, 
+
+<!-- PowerShell, or Az CLI. 
 
 # [Portal](#tab/azure-portal)
+-->
+
 Using the Azure portal, repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary managed instance. Fill out the required fields to configure the gateway for your secondary managed instance. 
 
    The following table shows the values necessary for the gateway for the secondary managed instance:
@@ -230,6 +237,7 @@ Using the Azure portal, repeat the steps in the previous section to create the v
 
    ![Secondary gateway settings](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 
 Create the gateway for the virtual network of the secondary managed instance using PowerShell. 
@@ -260,6 +268,7 @@ Create the gateway for the virtual network of the secondary managed instance usi
     
     $gw2
     ```
+
 # [Azure CLI](#tab/azure-cli)
 
 Create the gateway for the virtual network of the secondary managed instance using Az CLI. 
@@ -267,13 +276,16 @@ Create the gateway for the virtual network of the secondary managed instance usi
 !!!!!! Need Az CLI commands !!!!!!!
 
 ---
+-->
 
 ## 6 - Connect the gateways
 In this step, create a connection between gateways. A connection must be established from the primary to the secondary gateway, and then a separate connection must be established between the secondary to the primary gateway. Be sure to use the same **Shared key** when configuring connectivity between both gateways. 
 
+<!--
 # [Portal](#tab/azure-portal)
 
 Connect the two gateways using the Azure portal. 
+-->
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com) and select the primary gateway you created in Step 4. 
 1. Select **Connections** under **Settings** and then select **Add** to create a new connection. 
@@ -290,6 +302,7 @@ Connect the two gateways using the Azure portal.
 
    ![Create secondary to primary connection](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 
 Connect the two gateways using PowerShell. 
@@ -330,13 +343,15 @@ Connect the two gateways using the Az CLI.
 
 
 ---
-
+-->
 
 ## 7 - Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
 
+<!--
 # [Portal](#tab/azure-portal)
 Create the failover group using the Azure portal. 
+-->
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the primary managed instance you created in the first section, such as `sql-mi-primary`. 
@@ -350,6 +365,7 @@ Create the failover group using the Azure portal.
 
 1. Once failover group deployment is complete, you will be taken back to the **Failover group** page. 
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 Create the failover group using PowerShell. 
 
@@ -376,13 +392,16 @@ Create the failover group using the Az CLI.
 !!!!!!! Need AZ CLI commands to create the failover group
 
 ---
+-->
 
 
 ## 8 - Test failover
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
+<!--
 # [Portal](#tab/azure-portal)
 Test failover using the Azure portal. 
+-->
 
 1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
 1. Review which managed instance is the primary, and which managed instance is the secondary. 
@@ -396,6 +415,7 @@ Test failover using the Azure portal.
 
 1. Select **Failover** once again to fail the primary instance back to the primary role. 
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 Test failover using PowerShell. 
 
@@ -443,7 +463,7 @@ Create the failover group using the Az CLI.
 !!!!!! Need Az CLI commands  !!!!!!!!!!!!
 
 ---
-
+-->
 
 ## Clean up resources
 Clean up resources by first deleting the managed instance, then the virtual cluster, then any remaining resources, and finally the resource group. 

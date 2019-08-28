@@ -36,8 +36,11 @@ To complete this tutorial, make sure you have:
 ## 2 - Add single database to elastic pool
 In this step, you will create an elastic pool, and add your single database to it. 
 
+<!--
 # [Portal](#tab/azure-portal)
+
 Create your elastic pool using the Azure portal. 
+-->
 
 1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting Show details on the Databases tile.
@@ -61,6 +64,7 @@ Create your elastic pool using the Azure portal.
 
 1. Select **Review + create** to review your elastic pool settings and then select **Create** to create your elastic pool. 
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 Create your elastic pool using PowerShell. 
 
@@ -77,13 +81,17 @@ Fail your failover group over to the secondary server, and then fail back using 
 !!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!!
 
 ---
+-->
 
 ## 3 - Create the failover group 
 In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the elastic pool to the failover group. 
 
+<!--
 # [Portal](#tab/azure-portal)
 
+
 Create your failover group using the Azure Portal. 
+-->
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the elastic pool created in the previous section, such as `myElasticPool`. 
@@ -114,7 +122,7 @@ Create your failover group using the Azure Portal.
         
 1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. Adding the elastic pool to the failover group will automatically start the geo-replication process.
 
-
+<!--
 # [PowerShell](#tab/azure-powershell)
 
 Create your failover group using PowerShell. 
@@ -132,14 +140,17 @@ Fail your failover group over to the secondary server, and then fail back using 
 !!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!! 
  
 ---
+-->
+
 
 ## 4 - Test failover 
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
-
+<!--
 # [Portal](#tab/azure-portal)
-
 Test failover of your failover group using the Azure portal. 
+-->
+
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the elastic pool created in the previous section, such as `myElasticPool`. 
@@ -160,6 +171,7 @@ Test failover of your failover group using the Azure portal.
 1. Review which server is primary, which server is secondary. If failover succeeded, the two servers should have swapped roles. 
 1. Select **Failover** again to fail the failover group back to the original settings. 
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 
 Test failover of your failover group using PowerShell. 
@@ -177,19 +189,23 @@ Fail your failover group over to the secondary server, and then fail back using 
 !!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!!
 
 ---
+-->
 
 ## Clean up resources 
 
 Clean up resources by deleting the resource group. 
 
+<!--
 # [Portal](#tab/azure-portal)
 
 Clean up your resources using the Azure portal. 
+-->
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
 1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself. 
 1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group. 
 
+<!--
 # [PowerShell](#tab/azure-powershell)
 
 Clean up your resources using PowerShell. 
@@ -199,6 +215,7 @@ Clean up your resources using PowerShell.
 Clean up your resources using the Az CLI. 
 
 ---
+-->
 
 ## Next steps
 

@@ -95,6 +95,7 @@ Create your failover group and add your single database to it using PowerShell.
    Write-host "Successfully added the database to the failover group..." 
    ```
 
+<!--
 # [Azure CLI](#tab/azure-cli)
 Create your failover group and add your single database to it using the Azure CLI.
 
@@ -131,6 +132,7 @@ Create your failover group and add your single database to it using the Azure CL
       --add-db $databaseName
       --failover-policy Automatic
    ```
+-->
 ---
 
 ### Test failover 
@@ -208,6 +210,7 @@ Revert failover group back to the primary server:
    Write-host "Failed failover group successfully to back to" $serverName
    ```
 
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 
 Test failover of your failover group using the Azure CLI. 
@@ -259,6 +262,7 @@ Revert failover group back to the primary server:
       --server $serverName
    echo "Successfully failed failover group back to" $serverName
    ```
+-->
 
 ---
 
@@ -303,10 +307,12 @@ Create your failover group and add your elastic pool to it using PowerShell.
 
 !!!!!! Need PowerShell commands to create a failover group for an elastic pool !!!!!!!!
 
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 Create your failover group and add your elastic pool to it using AZ CLI. 
 
 !!!!!! Need Az CLI commands to create a failover group for an elastic pool !!!!!!!!
+-->
 
 ---
 
@@ -338,11 +344,13 @@ Fail your failover group over to the secondary server, and then fail back using 
 
 !!!!!! Need PowerShell commands to test failover for an elastic pool !!!!!!!!
 
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 
 Fail your failover group over to the secondary server, and then fail back using the Az CLI. 
 
 !!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!!
+-->
 
 ---
 
@@ -432,12 +440,13 @@ Create the primary virtual network gateway using PowerShell.
    $gw1
    ```
 
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 
 Create the primary virtual network gateway using the Az CLI.
 
 !!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
-
+-->
 
 ---
 
@@ -497,11 +506,13 @@ Create the secondary virtual network gateway using PowerShell.
    $gw2
    ```
 
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 
 Create the secondary virtual network gateway using the Az CLI. 
 
 !!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
+-->
 
 ---
 
@@ -562,12 +573,14 @@ Create connections between the two gateways using PowerShell.
    $secondaryGWConnection 
    ```
 
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 
 Create connections between the two gateways using the Az CLI. 
 
 
 !!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
+-->
 
 ---
 
@@ -612,12 +625,13 @@ Create the failover group for your managed instances using PowerShell.
    $failoverGroup
    ```
 
-
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 
 Create the failover group for your managed instances using the Az CLI. 
 
 !!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
+-->
 
 ---
 
@@ -679,19 +693,24 @@ Test failover of your failover group using PowerShell.
        -Location $secondaryLocation -Name $failoverGroupName
    ```
 
+<!-- commenting out CLI until CLI commands are ready for all three services
 # [Azure CLI](#tab/azure-cli)
 
 Test failover of your failover group using the Az CLI. 
 
 !!!!! Need AZ CLI code for testing failover for an MI !!!!!!!!!!!!
+-->
 
 ---
 
-## Update connection string
+## Locate listener endpoint
 
-Once your failover group is configured, update the connection string so that your application connects to the failover group listener rather than the primary database, elastic pool, or managed instance. That way, you don"t have to manually update the connection string every time your Azure SQL database entity fails over, and traffic is routed to whichever entity is currently primary. 
+Once your failover group is configured, update the connection string for your application to the listener endpoint. This will keep your application connected to the failover group listener, rather than the primary database, elastic pool, or managed instance. That way, you don't have to manually update the connection string every time your Azure SQL database entity fails over, and traffic is routed to whichever entity is currently primary. 
 
-The connection string to the failover group is in the form of `fog-name.?????????????.?????????????.??????????????`
+The listener endpoint is in the form of `fog-name.database.windows.net`, and is visible in the Azure portal, when viewing the failover group:
+
+![Failover group connection string](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
+
 
 ## Next steps
 
