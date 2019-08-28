@@ -16,259 +16,210 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 
 ## Azure Data Lake Storage
 
-### [ADLS Gen1] The remote server returned an error: (403) Forbidden
+### Error message: The remote server returned an error: (403) Forbidden
 
-**Symptom**
+**Symptom**: Copy activity fail with the following error: 
 
-Copy activity fail with the following error: 
+```
+Message: The remote server returned an error: (403) Forbidden.. Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
+```
 
-*"Message: **The remote server returned an error: (403) Forbidden**.. Response details: {\"RemoteException\":{\"exception\":\"AccessControlException\"&#44;\"message\":\"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [f4e9a19e-af48-4b85-b8f4-1cf32544dab5] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)."*
+**Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
 
-**Cause**
+**Resolution**: Grant corresponding permissions on all the folders and subfolders you need to copy. Refer to [this doc](connector-azure-data-lake-store.md#linked-service-properties).
 
-One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
+### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
 
-**Resolution**
+**Symptom**:Copy activity fail with the following error:
 
-Grant corresponding permissions on all the folders and subfolders you need to copy. Refer to [this doc](connector-azure-data-lake-store.md#linked-service-properties).
+```
+Failed to get access token by using service principal. ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
+```
 
-### [ADLS Gen1/Gen2] Failed to get access token by using service principal. ADAL Error: service_unavailable
-
-**Symptom**
-
-Copy activity fail with the following error:
-
-*"**Failed to get access token by using service principal. ADAL Error: service_unavailable,** The remote server returned an error: (503) Server Unavailable."*
-
-**Cause**
-
-When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
+**Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
 busy to handle requests, it returns an HTTP error 503. 
 
-**Resolution**
-
-Re-run the copy activity after several minutes.
+**Resolution**: Re-run the copy activity after several minutes.
 
 ## Azure SQL Data Warehouse
 
-### [SQL DW] Polybase error: Conversion failed when converting from a character string to uniqueidentifier
+### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
-**Symptom**
+**Symptom**: When you copy data from tabular data source (such as SQL Server) into Azure SQL Data Warehouse using staged copy and PolyBase, you hit the following error:
 
-When you copy data from tabular data source (such as SQL Server) into Azure SQL Data Warehouse using staged copy and PolyBase, you hit the following error:
+```
+ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Error happened when loading data into SQL Data Warehouse.,Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,Message=Conversion failed when converting from a character string to uniqueidentifier...
+```
 
-*"ErrorCode=FailedDbOperation,&#39;Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Error happened when loading data into SQL Data Warehouse.,Source=Microsoft.DataTransfer.ClientLibrary,&#39;&#39;Type=System.Data.SqlClient.SqlException,Message=**Conversion failed when converting from a character string to uniqueidentifier**.,Source=.Net*
-*SqlClient Data Provider,SqlErrorNumber=8169,Class=16,ErrorCode=-2146232060,State=2,Errors=[{Class=16,Number=8169,State=2,Message=Conversion failed when converting from a character string to*
-*uniqueidentifier.,},],&#39;. "*
+**Cause**: Azure SQL Data Warehouse PolyBase cannot convert empty string to GUID.
 
-**Cause**
+**Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
 
-Azure SQL Data Warehouse PolyBase cannot convert empty string to GUID.
+### Error message: Expected data type: DECIMAL(x,x), Offending value
 
-**Resolution**
+**Symptom**: When you copy data from tabular data source (such as SQL Server) into SQL DW using staged copy and PolyBase, you hit the following error:
 
-In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
+```
+ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Error happened when loading data into SQL Data Warehouse.,Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
+```
 
-### [SQL DW] Polybase error: Expected data type: DECIMAL(x,x), Offending value
+**Cause**: Azure SQL Data Warehouse Polybase cannot insert empty string (null value) into decimal column.
 
-**Symptom**
+**Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
 
-When you copy data from tabular data source (such as SQL Server) into SQL DW using staged copy and PolyBase, you hit the following error:
+### Error message: Java exception message:HdfsBridge::CreateRecordReader
 
-*"Database operation failed. Error message from database execution : ErrorCode=FailedDbOperation,&#39;Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Error happened when loading data into SQL Data Warehouse.,Source=Microsoft.DataTransfer.ClientLibrary,&#39;&#39;Type=System.Data.SqlClient.SqlException,Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) **Column ordinal: 18,** **Expected data type: DECIMAL(x,x)**, Offending value: "*
+**Symptom**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
 
-**Cause**
+```
+Message=110802;An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, Message: Java exception raised on call to HdfsBridge_CreateRecordReader. Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
+```
 
-Azure SQL Data Warehouse Polybase cannot insert empty string (null value) into decimal column.
+**Cause**: The possible cause is that the schema (total column width) being too large (larger than 1MB). Check the schema of the target SQL DW table by adding the size of all columns:
 
-**Resolution**
+- Int -> 4 bytes
+- Bigint -> 8 bytes
+- Varchar(n),char(n),binary(n), varbinary(n) -> n bytes
+- Nvarchar(n), nchar(n) -> n*2 bytes
+- Date -> 6 bytes
+- Datetime/(2), smalldatetime -> 16 bytes
+- Datetimeoffset -> 20 bytes
+- Decimal -> 19 bytes
+- Float -> 8 bytes
+- Money -> 8 bytes
+- Smallmoney -> 4 bytes
+- Real -> 4 bytes
+- Smallint -> 2 bytes
+- Time -> 12 bytes
+- Tinyint -> 1 bytes
 
-In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
+**Resolution**: Reduce column width to be less than 1 MB
 
-### [SQL DW] Polybase Java exception: HdfsBridge::CreateRecordReader
-
-**Symptom**
-
-You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
-
-.*"Message=110802;An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, Message: Java exception raised on call to HdfsBridge_CreateRecordReader. **Java exception message:HdfsBridge::CreateRecordReader** - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file [/199cae0a-dd40-40d7-ab23-b7697a8d0e45/Data.ba8e383e-7881-4ced-82bb-00a0509b93de.txt][0].,Source=.Net SqlClient Data Provider,SqlErrorNumber=110802,Class=16,ErrorCode=-2146232060,State=1,Errors=[{Class=16,Number=110802,State=1,Message=....."*
-
-**Cause**
-
-The possible cause is that the schema (total column width) being too large (larger than 1MB). Check the schema of the target SQL DW table by adding the size of all columns:
-
-- Int -> 4 byte
-- Bigint -> 8 byte
-- Varchar(n),char(n),binary(n), varbinary(n) -> n byte
-- Nvarchar(n), nchar(n) -> n*2 byte
-- Date -> 6 byte
-- Datetime/(2), smalldatetime -> 16 byte
-- Datetimeoffset -> 20 byte
-- Decimal -> 19 byte
-- Float -> 8 byte
-- Money -> 8 byte
-- Smallmoney -> 4 byte
-- Real -> 4 byte
-- Smallint -> 2 byte
-- Time -> 12 byte
-- Tinyint -> 1 byte
-
-**Resolution**
-
-- Reduce column width to be less than 1 MB
 - Or use bulk insert approach by disabling Polybase
 
-### [SQL DW] Query from SQL DW gets StorageException
+### Error message: The condition specified using HTTP conditional header(s) is not met
 
-**Symptom**
+**Symptom**: You use SQL query to pull data from Azure SQL Data Warehouse and hit the following error:
 
-You use SQL query to pull data from Azure SQL Data Warehouse and hit error "*com.microsoft.azure.storage.**StorageException**: **The condition specified using HTTP conditional header(s) is not met**.*"
+```
+...com.microsoft.azure.storage.StorageException: The condition specified using HTTP conditional header(s) is not met...
+```
 
-**Cause**
+**Cause**: Azure SQL Data Warehouse hit issue querying the external table in Azure Storage.
 
-Azure SQL Data Warehouse hit issue querying the external table in Azure Storage.
-
-**Resolution**
-
-Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
+**Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
 
 ## Azure Cosmos DB
 
-### [CosmosDB] Request size is too large
+### Error message: Request size is too large
 
-**Symptom**
+**Symptom**: You copy data into Azure Cosmos DB with default write batch size, and hit error *"**Request size is too large**"*.
 
-You copy data into Azure Cosmos DB with default write batch size, and hit error *"**Request size is too large**"*.
+**Cause**: Cosmos DB limits one single request's size to 2MB. The formula is, Request Size = Single Document Size * Write Batch Size. If your document size is large, the default behavior will result in too large request size. You can tune the write batch size.
 
-**Cause**
+**Resolution**: In copy activity sink, reduce the 'Write batch size' value (default value is 10000).
 
-Cosmos DB limits one single request's size to 2MB. The formula is, Request Size = Single Document Size * Write Batch Size. If your document size is large, the default behavior will result in too large request size. You can tune the write batch size.
+### Error message: Unique index constraint violation
 
-**Resolution**
+**Symptom**: When copying data into Cosmos DB, you hit the following error:
 
-In copy activity sink, reduce the 'Write batch size' value (default value is 10000).
+```
+...Message=Partition range id 0 | Failed to import mini-batch. Exception was Message: {"Errors":["Encountered exception while executing function. Exception  Error: {"Errors":["Unique index constraint violation."]}...
+```
 
-### [Cosmos DB] Unique index constraint violation
+**Cause**: There are two possible causes:
 
-**Symptom**
+- If you use **Insert** as write behavior, this error means you source data have rows/objects with same ID.
 
-When copying data into Cosmos DB, you hit the following error: 
+- If you use **Upsert** as write behavior and you set another unique key to the container, this error means you source data have rows/objects with different IDs but same value for the defined unique key.
 
-*"Microsoft.Azure.Documents.DocumentClientException,Message=**Partition range id 0 | Failed to import mini-batch**. Exception was Message: {"Errors":["Encountered exception while executing function. Exception &#61; Error: {\"Errors\":[\"**Unique index constraint violation.**\"]}\r\nStack trace: Error: {\"Errors\":[\"Unique index constraint violation.\"]}\n at createCallback (__.sys.commonBulkInsert.js:6236:26)\n at Anonymous function"*
+**Resolution**: 
 
-**Cause**
+- For cause1, set **Upsert** as write behavior.
+- For cause 2, make sure each document has different value for defined unique key.
 
-There are two possible causes:
+### Error message: Request rate is large
 
-1. If you use **Insert** as write behavior, this error means you source data have rows/objects with same id.
+**Symptom**: When copying data into Cosmos DB, you hit the following error:
 
-2. If you use **Upsert** as write behavior and you set another unique key to the container, this error means you source data have rows/objects with different ids but same value for the defined unique key .
+```
+Copy failed with error: 'Type=Microsoft.Azure.Documents.DocumentClientException,Message=Message:
+{"Errors":["Request rate is large"]}
+```
 
-**Resolution**
+**Cause**: The request units used is bigger than the available RU configured in Cosmos DB. Learn how
+Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-considerations).
 
-For cause1, set **Upsert** as write behavior.
-
-For cause 2, make sure each document has different value for defined unique key.
-
-### [Cosmos DB] Request rate is large
-
-**Symptom**
-
-When copying data into Cosmos DB, you hit the following error:
-
-*"Copy failed with error: **'Type=Microsoft.Azure.Documents.DocumentClientException,Message=Message:
-{"Errors":["Request rate is large"]}**"*
-
-**Cause**
-
-The request units used is bigger than the available RU configured in Cosmos DB. Learn how
-Cosmos DB calculate RU from [here](../cosmos-db/request-units.md#request-unit-considerations).
-
-**Resolution**
-
-Here are two solutions:
+**Resolution**: Here are two solutions:
 
 1. **Increase the container RU** to bigger value in Cosmos DB, which will improve the copy activity performance, though incur more cost in Cosmos DB. 
 
 2. Decrease **writeBatchSize** to smaller value (such as 1000) and set **parallelCopies** to smaller value such as 1, which will make copy run performance worse than current but will not incur more cost in Cosmos DB.
 
-### [Cosmos DB] Column missing in column mapping
+### Column missing in column mapping
 
-**Symptom**
+**Symptom**: When you import schema for Cosmos DB for column mapping, some columns are missing. 
 
-When you import schema for Cosmos DB for column mapping, some columns are missing. 
+**Cause**: ADF infers the schema from the first 10 Cosmos DB documents. If some columns/properties don't have value in those documents, they won't be detected by ADF thus won't show up.
 
-**Cause**
+**Resolution**: You can tune the query as below to enforce column to show up in result set with empty value: (assume: "impossible" column is missing in first 10 documents). Alternatively, you can manually add the column for mapping.
 
-ADF infer the schema from the first 10 Cosmos DB documents. If some columns/properties don't have value in those documents, they won't be detected by ADF thus won't show up.
+```sql
+select c.company, c.category, c.comments, (c.impossible??'') as impossible from c
+```
 
-**Resolution**
+### Error message: The GuidRepresentation for the reader is CSharpLegacy
 
-You can tune the query as below to enforce column to show up in result set with empty value: (assume: "impossible" column is missing in first 10 documents):
+**Symptom**: When copying data from Cosmos DB MongoAPI/MongoDB with UUID field, you hit the following error:
 
-​	select c.company, c.category, c.comments, **(c.impossible??'') as impossible** from c
+```
+Failed to read data via MongoDB client.,Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException,Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,
+```
 
-Alternatively, you can manually add the column for mapping.
+**Cause**: There are two ways to represent UUID in BSON - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
 
-### [MongoDB/MongoAPI] The GuidRepresentation for the reader is CSharpLegacy
-
-**Symptom**
-
-When copying data from Cosmos DB MongoAPI/MongoDB with UUID field, you hit the following error:
-
-*"Failed to read data via MongoDB client.,Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,‘’Type=System.FormatException,Message=**The GuidRepresentation for the reader is CSharpLegacy&#44; which requires the binary sub type to be UuidLegacy**&#44; not UuidStandard.,Source=MongoDB.Bson,’“,"*
-
-**Cause**
-
-There are two ways to represent UUID in Bson - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
-
-**Resolution**
-
-In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, refer to [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+**Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, refer to [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
 ## SFTP
 
-### [SFTP] Invalid Sftp credential provided for 'SshPublicKey' authentication type
+### Error message: Invalid SFTP credential provided for 'SshPublicKey' authentication type
 
-**Symptom**
+**Symptom**: You use `SshPublicKey` authentication and hit the following error:
 
-You use `SshPublicKey` authentication and hit error "***Invalid Sftp credential provided for 'SshPublicKey'
-authentication type***".
+```
+Invalid Sftp credential provided for 'SshPublicKey' authentication type
+```
 
-**Cause**
+**Cause**: There are 3 possible causes:
 
-There are 3 possible causes:
-
-1. If you use ADF authoring UI to author SFTP linked service, this error means the private key you choose to use is of wrong format. You may use a PKCS#8 format of SSH private key, while note that ADF only support the traditional SSH Key format. More specifically, the difference between PKCS#8 format and traditional Key format is PKCS#8 key content starts with “*-----BEGIN ENCRYPTED PRIVATE KEY-----*” whereas traditional key format starts with “*-----BEGIN RSA PRIVATE KEY-----*”.
-2. If you use Azure Key Vault to stored the private key content or use programmatical way to author the SFTP linked service, this error means the private key content there is incorrect, likely it's not base64 encoded.
+1. If you use ADF authoring UI to author SFTP linked service, this error means the private key you choose to use is of wrong format. You may use a PKCS#8 format of SSH private key, while note that ADF only supports the traditional SSH Key format. More specifically, the difference between PKCS#8 format and traditional Key format is PKCS#8 key content starts with “*-----BEGIN ENCRYPTED PRIVATE KEY-----*” whereas traditional key format starts with “*-----BEGIN RSA PRIVATE KEY-----*”.
+2. If you use Azure Key Vault to store the private key content or use programmatical way to author the SFTP linked service, this error means the private key content there is incorrect, likely it's not base64 encoded.
 3. Invalid credential or private key content.
 
-**Resolution**
+**Resolution**: 
 
-For cause #1, run the following commands to convert the key to traditional key format, then use it in ADF authoring UI.
+- For cause #1, run the following commands to convert the key to traditional key format, then use it in ADF authoring UI.
 
-```
-# Decrypt the pkcs8 key and convert the format to traditional key format
-openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+    ```
+    # Decrypt the pkcs8 key and convert the format to traditional key format
+    openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
 
-chmod 600 traditional_format_key_file
+    chmod 600 traditional_format_key_file
 
-# Re-encrypte the key file using passphrase
-ssh-keygen -f traditional_format_key_file -p
-```
+    # Re-encrypte the key file using passphrase
+    ssh-keygen -f traditional_format_key_file -p
+    ```
 
-For cause #2, To generate such string, customer can use below 2 ways:
+- For cause #2, To generate such string, customer can use below 2 ways:
+  - Using 3rd party base64 convert tool: paste the whole private key content to tools like [Base64 Encode and Decode](https://www.base64encode.org/), encode it to a base64 format string, then paste this string to key vault or use this value for authoring SFTP linked service programmatically.
+  - Using C# code:
 
-- Using 3rd party base64 convert tool: paste the whole private key content to tools like [Base64 Encode and Decode](https://www.base64encode.org/), encode it to a base64 format string, then paste this string to key vault or use this value for authoring SFTP linked service programmtically.
+    ```c#
+    byte[] keyContentBytes = File.ReadAllBytes(privateKeyPath);
+    string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
+    ```
 
-- Using C# code:
-
-  ```c#
-  byte[] keyContentBytes = File.ReadAllBytes(privateKeyPath);
-  string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-  ```
-
-For cause #3, please double check if the key file or password is correct using other tools to validate if you can use it to access the SFTP server properly.
+- For cause #3, please double check if the key file or password is correct using other tools to validate if you can use it to access the SFTP server properly.
 
 ## Next steps
 
