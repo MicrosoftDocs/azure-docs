@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with IQNavigator VMS, perform the following
     `https://<subdomain>.iqnavigator.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Relay State. Contact [IQNavigator VMS Client support team](https://www.beeline.com/iqn-product-support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Relay State. Contact [IQNavigator VMS Client support team](https://www.beeline.com/support-iqn/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. IQNavigator application expect the unique user identifier value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case we have mapped the user.UserPrincipalName for the demo purpose. But according to your organization settings you should map the correct value for it.
 
@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with IQNavigator VMS, perform the following
 
 ### Configure IQNavigator VMS Single Sign-On
 
-To configure single sign-on on **IQNavigator VMS** side, you need to send the **App Federation Metadata Url** to [IQNavigator VMS support team](https://www.beeline.com/iqn-product-support/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **IQNavigator VMS** side, you need to send the **App Federation Metadata Url** to [IQNavigator VMS support team](https://www.beeline.com/support-iqn/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -180,7 +180,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create IQNavigator VMS test user
 
-In this section, you create a user called Britta Simon in IQNavigator VMS. Work with [IQNavigator VMS support team](https://www.beeline.com/iqn-product-support/) to add the users in the IQNavigator VMS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in IQNavigator VMS. Work with [IQNavigator VMS support team](https://www.beeline.com/support-iqn/) to add the users in the IQNavigator VMS platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
