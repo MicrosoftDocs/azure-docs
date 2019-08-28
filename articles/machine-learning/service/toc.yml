@@ -348,6 +348,8 @@
         href: ../algorithm-module-reference/multiclass-neural-network.md
       - name: Multiclass Decision Forest
         href: ../algorithm-module-reference/multiclass-decision-forest.md
+      - name: Multiclass Boosted Decision Tree
+        href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
       - name: Two-Class Averaged Perceptron
         href: ../algorithm-module-reference/two-class-averaged-perceptron.md
       - name: Two-Class Decision Forest
