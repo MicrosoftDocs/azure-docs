@@ -147,9 +147,6 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 1. Print the shipping label and attach onto the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
-
-        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Affix the label on the device. Make sure that the label is visible.
 
 2. To request pickup:
