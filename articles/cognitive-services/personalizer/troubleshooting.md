@@ -7,7 +7,7 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/15/2019
 ms.author: diberry
 ---

@@ -135,6 +135,7 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 ### Outbound connectivity for IP address ranges
 
 To control outbound connectivity for VMs using IP addresses, allow these addresses.
+Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
 
 #### Source region rules
 

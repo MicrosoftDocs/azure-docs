@@ -19,7 +19,7 @@ ms.custom: seodec18
 In this article, you learn different methods of transforming data using the `azureml-dataprep` package. The package offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. See full reference documentation for the [azureml-dataprep package](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) to transform your data, snapshot data, and store versioned dataset definitions. Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions. 
+> If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) to transform your data, snapshot data, and store versioned dataset definitions. Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions.
 > If you use the `azureml-dataprep` package to create a dataflow with your transformations instead of using the `azureml-datasets` package to create a dataset, you won't be able to use snapshots or versioned datasets later.
 
 This how-to shows examples for the following tasks:
@@ -341,7 +341,7 @@ Use the expression builder `col`, specify the column name as a string argument `
 
 In this example, `dflow.filter(col('Tip_amount') > 0)` returns a new data flow with the rows in which the value of `Tip_amount` is greater than 0.
 
-> [!NOTE] 
+> [!NOTE]
 > `Tip_amount` is first converted to numeric, which allows us to build an expression comparing it against other numeric values.
 
 ```python
@@ -513,4 +513,4 @@ dflow.head(2)
 
 ## Next steps
 
-* See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario
+* See the Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) for more detail.

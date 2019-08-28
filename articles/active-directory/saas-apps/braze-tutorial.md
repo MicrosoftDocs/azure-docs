@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with Braze, perform the following steps:
     `https://<SUBDOMAIN>.braze.com/sign_in`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Braze Client support team](mailto:support@braze.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> For the subdomain, use the coordinating subdomain listed in your Braze instance URL. For example, if your instance is US-01, your URL is https://dashboard-01.braze.com. This means that your subdomain will be dashboard-01.
 
 6. Braze application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -162,7 +162,7 @@ To configure Azure AD single sign-on with Braze, perform the following steps:
 
 ### Configure Braze Single Sign-On
 
-To configure single sign-on on **Braze** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Braze support team](mailto:support@braze.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Braze** side, you will need to ensure that a Braze Account Manager has enabled SAML SSO for your account. Once enabled, you can then go to Company Settings > Security Settings and toggle the SAML SSO section to ON. Within this section, you will need to copy and paste the downloaded **Certificate (Base64)**, along with adding a SAML Name . 
 
 ### Create an Azure AD test user
 
@@ -216,7 +216,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Braze test user
 
-In this section, you create a user called Britta Simon in Braze. Work with [Braze support team](mailto:support@braze.com) to add the users in the Braze platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Braze. You can add the users in the Braze platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 

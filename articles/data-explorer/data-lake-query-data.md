@@ -40,8 +40,11 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    This query creates daily partitions *container1/yyyy/MM/dd/all_exported_blobs.csv*. Increased performance is expected with more granular partitioning. For example, queries over external tables with daily partitions, such as the one above, will have better performance than those queries with monthly partitioned tables.
+    
+    > [!NOTE]
+    > * Increased performance is expected with more granular partitioning. For example, queries over external tables with daily partitions, will have better performance than those queries with monthly partitioned tables.
+    > * When you define an external table with partitions, the storage structure is expected to be identical.
+For example, if the table is defined with a DateTime partition in yyyy/MM/dd format (default), the URI storage file path should be *container1/yyyy/MM/dd/all_exported_blobs*. 
 
 1. The external table is visible in the left pane of the Web UI
 

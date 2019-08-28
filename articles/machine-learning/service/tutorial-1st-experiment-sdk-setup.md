@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Set up environment and workspace."
+title: "Tutorial: Create your first ML experiment: Setup"
 titleSuffix: Azure Machine Learning service
 description: In this tutorial series, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  Part one covers creating a cloud notebook server environment as well as creating a workspace to manage your experiments and machine learning models.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: trbye
 ms.date: 07/20/2019
 ---
 
-# Tutorial: Set up environment and workspace
+# Tutorial: Get started creating your first ML experiment
 
 In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure portal and the SDK.
 
@@ -68,7 +68,12 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
     > [!TIP]
     > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
-1. Open the `samples-*` subdirectory, then open `tutorials/tutorial-1st-experiment-sdk-train.ipynb` to run **part two** of the tutorial.
+1. Open the `samples-*` subdirectory, then open `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+> [!Warning]
+> Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
+
+In **part two** of the tutorial you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model.
 
 ## <a name="end"></a> Clean up resources
 
