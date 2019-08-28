@@ -276,7 +276,7 @@ If you do not complete these steps before September 25, 2019, your Azure Active 
 
 Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards. Specifically, spaces and double-quotes (“) will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
 
-For more details and examples, see the Azure AD Breaking Changes notice page.
+For more details and examples, see the Azure AD breaking changes notices. (https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-breaking-changes#post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored)
 
 ---
 
