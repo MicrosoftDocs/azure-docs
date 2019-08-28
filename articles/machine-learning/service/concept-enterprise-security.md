@@ -14,15 +14,15 @@ ms.date: 08/07/2019
 
 # Enterprise security for Azure Machine Learning
 
-In this article, you'll learn about security features available with Azure Machine Learning.
+In this article, you'll learn about security features available for Azure Machine Learning.
 
-When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while the data moves between services. Finally, you need to be able to monitor the service and produce an audit log of all activity.
+When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. Finally, you need to be able to monitor the service and produce an audit log of all activity.
 
 ## Authentication
 
 Multi-factor authentication is supported if Azure Active Directory (Azure AD) is configured to use it. Here's the authentication process:
 
-1. The client logs into Azure AD and gets an Azure Resource Manager token.  Users and service principals are fully supported.
+1. The client signs in to Azure AD and gets an Azure Resource Manager token.  Users and service principals are fully supported.
 1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning services.
 1. Machine Learning provides a Machine Learning token to the user compute target (for example, Machine Learning Compute). This token is used by the user compute target to call back into Machine Learning after the run is complete. Scope is limited to the workspace.
 
@@ -58,10 +58,10 @@ print(primary)
 
 #### Authentication with tokens
 
-When you enable token authentication for a web service, a user must present an Azure Machine Learning JSON Web Token to the web service to access it.
+When you enable token authentication for a web service, users must present an Azure Machine Learning JSON Web Token to the web service to access it.
 
 * Token authentication is disabled by default when you deploy to Azure Kubernetes Service.
-* Token authentication is not supported when you deploy to Azure Container Instances.
+* Token authentication isn't supported when you deploy to Azure Container Instances.
 
 To control token authentication, use the `token_auth_enabled` parameter when you create or update a deployment.
 
@@ -98,7 +98,7 @@ The following table lists some of the major Azure Machine Learning operations an
 | Create compute target | ✓ | ✓ | |
 | Attach compute target | ✓ | ✓ | |
 | Attach data stores | ✓ | ✓ | |
-| Run an experiment | ✓ | ✓ | |
+| Run experiment | ✓ | ✓ | |
 | View runs/metrics | ✓ | ✓ | ✓ |
 | Register model | ✓ | ✓ | |
 | Create image | ✓ | ✓ | |
@@ -125,7 +125,7 @@ For more information on managed identities, see [Managed identities for Azure re
 | Resource group that contains the workspace | Contributor |
 | Resource group that contains the key vault (if different from the one that contains the workspace) | Contributor |
 
-We recommend that administrators don't revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the resync keys operation.
+We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the resync keys operation.
 
 Azure Machine Learning creates an additional application (the name starts with `aml-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and another workspace in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
 
@@ -159,7 +159,7 @@ All container images in your registry (Azure Container Registry) are encrypted a
 
 #### Machine Learning Compute
 
-The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when there are no runs queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk.
+The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no runs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk.
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. The disk isn't encrypted.
 For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
@@ -198,11 +198,11 @@ For more information, see [Metrics in Azure Monitor](/azure/azure-monitor/platfo
 
 You can view the activity log of a workspace to see various operations that are performed on the workspace. The log includes basic information like the operation name, event initiator, and timestamp.
 
-The following screenshot shows the activity log of a workspace:
+This screenshot shows the activity log of a workspace:
 
 [![Screenshot showing the activity log of a workspace](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
-Scoring request details are stored in Application Insights, which is created in your subscription when you create a workspace. Logged information includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, and Duration.
+Scoring request details are stored in Application Insights. Application Insights is created in your subscription when you create a workspace. Logged information includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, and Duration.
 
 > [!IMPORTANT]
 > Some actions in the Azure Machine Learning workspace don't log information to the activity log. For example, the start of a training run and the registration of a model aren't logged.
@@ -261,7 +261,7 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
 
 #### Querying runs and metrics
 
-In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning, which will in turn pull metrics from the Cosmos DB database and return them back to the client.
+In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Cosmos DB database and return them back to the client.
 
 [![Training workflow](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
