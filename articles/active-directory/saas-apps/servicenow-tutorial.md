@@ -44,7 +44,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow supports **SP** initiated SSO, and [**Automated** user provisioning](servicenow-provisioning-tutorial.md).
+In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow supports **SP** initiated SSO, and [Automated user provisioning](servicenow-provisioning-tutorial.md).
 
 You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
@@ -117,7 +117,7 @@ In this section, you'll create a test user, called B.Simon, in the Azure portal.
 1. In the **User** properties, follow these steps:
    1. For **Name**, enter `B.Simon`.  
    1. For **User name**, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
+   1. Select **Show password**, and then write down the value that's shown in the **Password** box.
    1. Select **Create**.
 
 ### Assign the Azure AD test user
@@ -201,7 +201,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot of Multi-Provider SSO section, with Multi-Provider SSO and Properties highlighted](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
-4. On the **Multiple Provider SSO Properties** dialog box, perform the following steps:
+4. In the **Multiple Provider SSO Properties** dialog box, perform the following steps:
 
 	![Screenshot of Multiple Provider SSO Properties dialog box](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
 
@@ -215,7 +215,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
   
 	* Select **Save**.
 
-6. You can configure **ServiceNow** automatically or manually. For configuring **ServiceNow** automatically, follow these steps:
+6. You can configure ServiceNow automatically or manually. To configure ServiceNow automatically, follow these steps:
 
 	1. Return to the **ServiceNow** Single-Sign on page in the Azure portal.
 
@@ -274,7 +274,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		     ![Screenshot of Test Results page](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
   
-7. To configure **ServiceNow** manually, follow these steps:
+6. To configure **ServiceNow** manually, follow these steps:
 
 	1. Sign on to your ServiceNow application as an administrator.
 
@@ -328,7 +328,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create ServiceNow test user
 
-The objective of this section is to create a user called Britta Simon in ServiceNow. ServiceNow supports automatic user provisioning, which is enabled by default.
+The objective of this section is to create a user called B.Simon in ServiceNow. ServiceNow supports automatic user provisioning, which is enabled by default.
 
 > [!NOTE]
 > If you need to create a user manually, contact the [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html).
@@ -419,7 +419,7 @@ The objective of this section is to create a user called Britta Simon in Service
 	e. For **User Field**, type **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
 
 	> [!NOTE]
-	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name)
+	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
 
 	f. Select **Save**.
 
