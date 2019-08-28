@@ -146,17 +146,17 @@ import com.microsoft.aad.msal4j.*;
 
 Learn more about permissions and consent:
 
-[!div class="nextstepaction"]
-[Permissions and Consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+> [!div class="nextstepaction"]
+> [Permissions and Consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
 
 To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
 
-[!div class="nextstepaction"]
-[Authorization Code Oauth flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [!div class="nextstepaction"]
+> [Authorization Code Oauth flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
-[!div class="nextstepaction"]
-[Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
