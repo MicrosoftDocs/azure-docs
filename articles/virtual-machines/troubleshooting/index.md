@@ -11,7 +11,7 @@ layout: LandingPage
 ms.assetid:
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli

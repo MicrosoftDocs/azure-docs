@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
