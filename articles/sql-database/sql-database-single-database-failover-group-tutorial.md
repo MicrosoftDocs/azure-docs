@@ -56,7 +56,7 @@ Create your failover group and add your single database to it using the Azure po
 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
-1. Select the single database created in the section 2, such as `mySampleDatbase`. 
+1. Select the single database created in section 1, such as `mySampleDatabase`. 
 1. Select the name of the server under **Server name** to open the settings for the server.
 
    ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)

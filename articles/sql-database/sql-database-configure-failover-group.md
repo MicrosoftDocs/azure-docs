@@ -30,13 +30,16 @@ Consider the following prerequisites:
 # [Portal](#tab/azure-portal)
 Create your failover group and add your single database to it using the Azure portal.
 
-1. Select **All Services** on the upper-left hand corner of the [Azure portal](https://portal.azure.com). 
-1. Type `sql servers` in the search box.
-1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
-    
-    ![Locate SQL Servers](media/sql-database-single-database-failover-group-tutorial/all-services-sql-servers.png)
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the single database you want to add to the failover group. 
+1. Select the name of the server under **Server name** to open the settings for the server.
 
-1. Select **SQL servers** and choose the SQL Server where your single database is hosted.
+   ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
+1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
+
+    ![Add new failover group](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
+
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
     ![Add new failover group](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
@@ -282,13 +285,12 @@ Create the failover group for your elastic pool using the Azure portal, PowerShe
 # [Portal](#tab/azure-portal)
 Create your failover group and add your elastic pool to it using the Azure portal.
 
-1. Select **All Services** on the upper-left hand corner of the [Azure portal](https://portal.azure.com). 
-1. Type `sql servers` in the search box. 
-1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
-    
-    ![Locate SQL Servers](media/sql-database-single-database-failover-group-tutorial/all-services-sql-servers.png)
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the elastic pool you want to add to the failover group. 
+1. On the **Overview** pane, select the name of the server under **Server name** to open the settings for the server.
+  
+    ![Open server for elastic pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 
-1. Select **SQL servers** and choose the server that hosts the elastic pool you want to add to your failover group. 
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
     ![Add new failover group](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
@@ -297,7 +299,7 @@ Create your failover group and add your elastic pool to it using the Azure porta
 
 1. Select **Databases within the group** then select the elastic pool you want to add to the failover group. If an elastic group does not already exist on the secondary server, a warning should appear prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server. 
         
-    ![Add elastic pool to failover group](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Add elastic pool to failover group](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. Adding the elastic pool to the failover group will automatically start the geo-replication process. 
 
@@ -661,9 +663,8 @@ Create the failover group for your managed instances using the Azure portal, Pow
 
 Create the failover group for your managed instances using Azure portal. 
 
-1. In the [Azure portal](https://portal.azure.com), go to **All services** and type in `managed instance` in the search box. 
-1. (Optional) Select the star next to **SQL managed instances** to add managed instances as shortcut to your left-hand navigation bar. 
-1. Select **SQL managed instances** and select the  managed instance you want to be the primary in your failover group. 
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the primary managed instance you want to add to the failover group.  
 1. Under **Settings**, navigate to **Instance Failover Groups** and then choose to **Add group** to open the **Instance Failover Group** page. 
 
    ![Add a failover group](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)
