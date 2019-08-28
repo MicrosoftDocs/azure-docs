@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: juliako
 ---
 
@@ -23,6 +23,40 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## August 2019
+ 
+### Video Indexer deployed in UK South
+
+You can now create a Video Indexer paid account in the UK south region.
+ 
+### News Shot Type insights available
+
+New tags added to shots instances, to identify them as: extreme closeup, closeup, wide, medium, two shot, outdoor, indoor, left face and right face (available in the JSON).
+ 
+### New People and Locations entities extraction available
+
+Video indexer identifies names locations and people via NLP from the video’s OCR and transcription.
+ 
+### Keyframes extraction in native resolution
+
+Keyframes extracted by Video Indexer are available in the original resolution of the video.
+ 
+### GA for training custom face models from images
+
+Training faces from images moved from Preview mode to GA (available via API and in the portal).
+ 
+### Hide gallery toggle option
+
+User can choose to hide the gallery tab from the portal (similar to hiding the samples tab).
+ 
+### Maximum URL size increased
+
+Support for URL query string of 4096 (instead of 2048) on indexing a video.
+ 
+### Support for multi-lingual projects
+
+Projects can now be created based on videos indexed in different languages (API only).
 
 ## July 2019
 
