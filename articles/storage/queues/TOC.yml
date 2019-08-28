@@ -1,5 +1,5 @@
 - name: Azure Queues storage documentation
-  href: /azure/storage/queues/index
+  href: /azure/storage/queues/
 - name: Overview
   expanded: true
   items:
