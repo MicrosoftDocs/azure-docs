@@ -173,12 +173,12 @@ Follow the tutorial to create a deprovisioned Ubuntu image with NGINX installed.
 ## Edit the infrastructure to add the virtual machine scale set
 
 In this step, you create the following resources on the network that was previously deployed:
-- Azure load balancer to serve the application and attach it to the public IP address that was deployed in step 4
+- Azure load balancer to serve the application and attach it to the public IP address deployed earlier.
 - One Azure load balancer and rules to serve the application and attach it to the public IP address configured earlier.
-- Azure backend address pool and assign it to the load balancer 
-- A health probe port used by the application and configured on the load balancer 
-- A virtual machine scale set sitting behind the load balancer, running on the vnet deployed earlier
-- [Nginx](https://nginx.org/) on the nodes of the virtual machine scale installed from custom image
+- Azure backend address pool and assign it to the load balancer.
+- A health probe port used by the application and configured on the load balancer.
+- A virtual machine scale set sitting behind the load balancer, running on the VNET deployed earlier.
+- [Nginx](https://nginx.org/) on the nodes of the virtual machine scale installed from custom image.
 
 
 Add the following code to the end of the `vmss.tf` file.
