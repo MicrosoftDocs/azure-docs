@@ -27,7 +27,7 @@ The default distribution mode for Azure Load Balancer is a 5-tuple hash. The tup
 
 ## Source IP affinity mode
 
-Load Balancer can also be configured by using the source IP affinity distribution mode. This distribution mode is also known as session affinity or client IP affinity. The mode uses a 2-tuple (source IP and destination IP) or 3-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. By using source IP affinity, connections that are initiated from the same client computer go to the same DIP endpoint.
+Load Balancer can also be configured by using the source IP affinity distribution mode. This distribution mode is also known as session affinity or client IP affinity. The mode uses a 2-tuple (source IP and destination IP) or 3-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. By using source IP affinity, connections that are started from the same client computer go to the same DIP endpoint.
 
 The following figure illustrates a 2-tuple configuration. Notice how the 2-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is then backed up by VM2 and VM3.
 
@@ -37,7 +37,7 @@ Source IP affinity mode solves an incompatibility between Azure Load Balancer an
 
 Another use case scenario is media upload. The data upload happens through UDP, but the control plane is achieved through TCP:
 
-* A client initiates a TCP session to the load-balanced public address and is directed to a specific DIP. The channel is left active to monitor the connection health.
+* A client starts a TCP session to the load-balanced public address and is directed to a specific DIP. The channel is left active to monitor the connection health.
 * A new UDP session from the same client computer is initiated to the same load-balanced public endpoint. The connection is directed to the same DIP endpoint as the previous TCP connection. The media upload can be executed at high throughput while maintaining a control channel through TCP.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ Another use case scenario is media upload. The data upload happens through UDP, 
 
 ### Azure portal
 
-You can change the configuration of the distribution mode by modifying the load balancing rule in the portal.
+You can change the configuration of the distribution mode by modifying the load-balancing rule in the portal.
 
 1. Sign in to the Azure portal and locate the Resource Group containing the load balancer you wish to change by clicking on **Resource Groups**.
 2. In the load balancer overview blade, click on **Load balancing rules** under **Settings**.
@@ -62,7 +62,7 @@ You can change the configuration of the distribution mode by modifying the load 
 
 ### Azure PowerShell
 
-For virtual machines deployed with Resource Manager, use PowerShell to change the load balancer distribution settings on an existing load balancing rule. This updates the distribution mode: 
+For virtual machines deployed with Resource Manager, use PowerShell to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode: 
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
@@ -100,7 +100,7 @@ Retrieve an endpoint load balancer distribution mode configuration by using thes
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-When the `LoadBalancerDistribution` element is not present, Azure Load Balancer uses the default 5-tuple algorithm.
+When the `LoadBalancerDistribution` element isn't present, Azure Load Balancer uses the default 5-tuple algorithm.
 
 ### Configure distribution mode on load-balanced endpoint set
 
