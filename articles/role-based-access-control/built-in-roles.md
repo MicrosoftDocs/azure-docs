@@ -954,7 +954,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Blueprint/blueprints/* | Create or manage blueprint definitions or blueprint artifacts. |
+> | Microsoft.Blueprint/blueprints/* | Create and manage blueprint definitions or blueprint artifacts. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Support/* | Create and manage support tickets |
@@ -973,7 +973,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Blueprint/blueprintAssignments/* | Create or manage blueprint assignments. |
+> | Microsoft.Blueprint/blueprintAssignments/* | Create and manage blueprint assignments. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Support/* | Create and manage support tickets |
