@@ -781,6 +781,10 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 
 ![Failover group connection string](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
+## Remarks
+
+- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after its been removed. 
+
 
 ## Next steps
 
