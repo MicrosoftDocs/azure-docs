@@ -55,7 +55,7 @@ This step may take several minutes to complete.
 
 ## Create ACR integration for existing AKS clusters
 
-Integrate ACR with existing ACR clusters by supplying valid values for **acr-name** and **acr-resource-id** below.
+Integrate an existing ACR with existing AKS clusters by supplying valid values for **acr-name** or **acr-resource-id** as below.
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
