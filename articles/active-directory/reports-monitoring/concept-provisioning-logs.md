@@ -38,7 +38,7 @@ This topic gives you an overview of the provisioning report.
 ## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Administrator, Security Reader, Report Reader, Application Administrator, and Cloud Application Adminstrator roles
+* Users in the Security Administrator, Security Reader, Report Reader, Application Administrator, and Cloud Application Administrator roles
 * Global Administrators
 
 
@@ -175,10 +175,10 @@ The **Steps** tab outlines the steps taken to provision an object. Provisioning 
 ![Filter](./media/concept-provisioning-logs/steps.png "Filter")
 
 
-### Troubleshoot and recomendations
+### Troubleshoot and recommendations
 
 
-The **troubleshoot and recomendations** tab provides the error code and reason. The error information is only available in the case of a failure. 
+The **troubleshoot and recommendations** tab provides the error code and reason. The error information is only available in the case of a failure. 
 
 
 ### Modified properties
