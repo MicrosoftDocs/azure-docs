@@ -1,5 +1,5 @@
 ---
-title: Technical overview - Azure Active Directory B2C
+title: Technical and feature overview - Azure Active Directory B2C
 description: An in-depth introduction to the features and technologies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -13,7 +13,7 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Technical overview of Azure Active Directory B2C
+# Technical and feature overview of Azure Active Directory B2C
 
 A companion to [About Azure Active Directory B2C](active-directory-b2c-overview.md), this article provides a more in-depth introduction to the service. Discussed here are the primary resources you work with in the service, its features, and how these enable you to provide a fully custom identity experience for your customers in your applications.
 
@@ -203,13 +203,15 @@ Sessions are modeled as encrypted data, with the decryption key known only to th
 
 ### Access to user data
 
-Azure AD B2C tenants share many characteristics with Azure Active Directory tenants that are used for employees and partners. Shared aspects include the mechanisms for viewing roles, assigning roles, and auditing activities. The following set of roles is relevant to Azure AD B2C:
+Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities.
 
-* Who can create and manage all aspects of user flows.
-* Who can create and manage the attribute schema available to all user flows.
-* Who can configure identity providers for use in direct federation.
-* Who can create and manage trust framework policies in the Identity Experience Framework (IEF, a.k.a. custom policy).
-* Who can manage secrets for federation and encryption in the Identity Experience Framework (IEF)
+You can assign roles to control who can perform certain administrative actions in Azure AD B2C, including:
+
+* Create and manage all aspects of user flows
+* Create and manage the attribute schema available to all user flows
+* Configure identity providers for use in direct federation
+* Create and manage trust framework policies in the Identity Experience Framework (custom policies)
+* Manage secrets for federation and encryption in the Identity Experience Framework (custom policies)
 
 For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
