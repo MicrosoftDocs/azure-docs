@@ -39,7 +39,7 @@ landingContent:
             url: user-help-auth-app-sign-in.md
   
   # Card
-  - title: Set up and use two-step verification
+  - title: Choose your two-step verification methods
     linkLists:
       - linkListType: overview
         links:
@@ -55,7 +55,7 @@ landingContent:
             url: multi-factor-authentication-end-user-troubleshoot.md
  
    # Card
-  - title: Set up and use My Apps portal
+  - title:  Update your info in the My Apps portal
     linkLists:
       - linkListType: overview
         links:
@@ -69,7 +69,7 @@ landingContent:
             url: my-apps-portal-end-user-troubleshoot.md
 
   # Card
-  - title: Set up and use security info (preview)
+  - title: Set up and manage your security info (preview)
     linkLists:
       - linkListType: overview
         links:
@@ -83,7 +83,7 @@ landingContent:
             url: security-info-setup-signin.md
   
   # Card
-  - title: Set up and use My Profile (preview)
+  - title: Manage your info on the My Profile portal (preview)
     linkLists:
       - linkListType: overview
         links:
