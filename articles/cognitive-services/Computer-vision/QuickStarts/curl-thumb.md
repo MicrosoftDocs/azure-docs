@@ -50,7 +50,7 @@ To create and run the sample, do the following steps:
     1. Replace the value of `<subscriptionKey>` with your subscription key.
     1. Replace the value of `<thumbnailFile>` with the path and name of the file in which to save the thumbnail.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
-    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Optionally, change the image URL in the request body (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) to the URL of a different image from which to generate a thumbnail.
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
