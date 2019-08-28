@@ -8,7 +8,6 @@ manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
