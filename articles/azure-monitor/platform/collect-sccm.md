@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: magoedte
 ---
 
@@ -129,7 +129,7 @@ If a password or client secret key expires or is lost, you'll need to manually u
 
 After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, the next step is to import collections from Configuration Manager in Azure Monitor as computer groups.
 
-After you have completed initial configuration to import device collections from your hierarchy, the collection membership information is retrieved every 3 hours to keep the membership current. You can choose to disable this at any time.
+After you have completed initial configuration to import device collections from your hierarchy, the collection information is retrieved every 3 hours to keep the membership current. You can choose to disable this at any time.
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 2. In your list of Log Analytics workspaces, select the workspace Configuration Manager is registered with.  
@@ -147,7 +147,7 @@ After the collections are imported, you can see how many computers with collecti
 
 ![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups02.png)
 
-When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../../azure-monitor/log-query/log-query-overview.md), you can start in-depth analysis of Configuration Manager data.
+When you click either one, log query editor opens displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../../azure-monitor/log-query/log-query-overview.md), you can peform further in-depth analysis the collection membership data.
 
 ## Next steps
 
