@@ -1,6 +1,6 @@
 ---
 title: Azure Government Data + Analytics
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 author: jglixon
