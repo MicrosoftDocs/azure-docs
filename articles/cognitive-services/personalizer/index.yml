@@ -12,16 +12,25 @@ metadata:
   ms.subservice: personalizer
   services: cognitive-services
   title: Personalizer Documentation
-  description:  Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior. . 
-
+  description:  Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 landingContent:
-  - title: About Personalzier
+  - title: About Personalizer
     linkLists:
       - linkListType: overview
         links:
           - text: What is Personalizer?
             url: what-is-personalizer.md
+          - text: How Personalizer works
+            url: how-personalizer-works.md 
+          - text: How to create and configure Personalizer resource
+            url: how-to-settings.md    
           - text: "Quickstart: Personalize client library for .NET"
             url: csharp-quickstart-commandline-feedback-loop.md
+          - text: Choosing features and actions to personalize
+            url: concepts-features.md
+          - text: How to calculate a reward
+            url: concept-rewards.md
+          - text: Analyze success with offline evaluation
+            url: how-to-offline-evaluation.md
