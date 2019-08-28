@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 08/28/2019
 ms.author: assafi
 ---
 # Quickstart: Text analytics client library for .NET
