@@ -1,54 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure HPC Cache Documentation (PUBLIC PREVIEW)
+### YamlMime:Landing
+
+title: Azure HPC Cache Preview Documentation
+summary: Use Azure HPC Cache to expedite read-intensive high-performance computing (HPC) tasks
+
 metadata:
-  title: Azure HPC Cache Documentation 
-  description: Use Azure HPC Cache to expedite read-intensive high-performance computing (HPC) tasks
+  title: Microsoft Azure HPC Cache 
+  description: Learn how to create and use Azure HPC Cache to solve the latency problem between your compute resources and storage. Azure HPC Cache is for file-based read-heavy workloads, and can create an aggregated virtual fileystem that incorporates Azure Blob storage and on-premises hardware filers.
+  ms.service: hpc-cache 
+  ms.topic: landing-page 
+  ms.collection: collection
   author: ekpgh
-  ms.service: hpc-cache
-  ms.topic: landing-page
-  ms.date: 08/26/2019
   ms.author: v-erkell
-abstract:
-  description: The Azure HPC Cache is a high performance cache for file-based workloads. It solves the latency problem between compute and storage for read-heavy workloads. Customers can use show a single virtual filesystem that includes data located in an on-premises datacenter, in Azure, or from both locations. The Azure HPC Cache provides scale into tens of thousands of cores. <p>Azure HPC Cache is in <em>Public Preview</em>. Additional product changes might be made during this phase and before the general availability release.
-sections:
-- title: Step-by-step tutorials
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="fxt-install">Install Azure FXT Edge Filer hardware</a>
-    - html: <a href="fxt-network-power">Make network connections for the Azure FXT Edge Filer</a>
-    - html: <a href="fxt-node-password">Set root passwords on the hardware nodes</a>
-    - html: <a href="fxt-cluster-create">Create the hybrid storage cache cluster</a>
-    - html: <a href="fxt-add-nodes">Add cluster nodes</a>
-    - html: <a href="fxt-add-storage">Add back-end storage and configure virtual namespace</a>
-    - html: <a href="fxt-configure-network">Configure the cluster's network settings</a>
+  ms.date: 08/30/2019
 
-- title: Concepts
-  items: 
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="hpc-cache-prereqs">Prerequisites</a>
-    - html: <a href="hpc-cache-namespace">Use the aggregated namespace</a>
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
-- title: How-to guides
-  items:
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="hpc-cache-mount">Connect to the Azure HPC Cache</a> 
-    - html: <a href="hpc-cache-monitor">Monitor the Azure HPC Cache</a>
-    - html: <a href="hpc-cache-ingest">Populate new Azure Blob storage</a>
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure HPC Cache
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure HPC Cache?
+            url: hpc-cache-overview.md
+          - text: Region availability
+            url: hpc-cache-regions.md
 
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure prerequisites for Azure HPC Cache
+            url: hpc-cache-prereqs.md
+          - text: Create the cache 
+            url: hpc-cache-create.md
+          - text: Add storage
+            url: hpc-cache-add-storage.md
+          - text: Mount clients
+            url: hpc-cache-mount.md
+      - linkListType: concept
+        links:
+          - text: Configure an aggregated namespace
+            url: hpc-cache-namespace.md
+          - text: Populate new Blob storage
+            url: hpc-cache-ingest.md         # where to put the other articles? collapsible heading??
 
-- title: Resources
-  items: 
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="fxt-specs">Hardware specifications</a>
-    - html: <a href="fxt-additional-doc">Additional documentation</a>
-    - html: <a href="fxt-support-ticket">Open a support ticket</a>
-  
+  # Card
+  - title: Troubleshoot 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Open a support ticket
+            url: hpc-cache-open-ticket.md
