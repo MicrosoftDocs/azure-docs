@@ -312,8 +312,6 @@
         href: storage-blob-properties-metadata.md
       - name: Copy a blob (.NET)
         href: storage-blob-copy.md
-      - name: Abort a blob copy operation (.NET)
-        href: storage-blob-copy-abort.md
       - name: Create and manage blob snapshots (.NET)
         href: storage-blob-snapshots.md
     - name: Secure blob data
