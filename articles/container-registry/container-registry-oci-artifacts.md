@@ -23,8 +23,8 @@ To demonstrate this capability, this article shows how to use the [OCI Registry 
 * **Azure CLI** - You need a local installation of the Azure CLI to run the examples in this article. Version 2.0.71 or later is recommended. Run `az --version `to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **Docker** - You must also have Docker installed locally, to authenticate with the registry. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-* **ORAS tool** - Download and install a current `oras` release for your operating system from the [GitHub repo](https://github.com/deislabs/oras/releases). The tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using stand procedures for your operating system.
-* **Azure Active Directory service principal (optional)** - Optionally create a [service principal](container-registry-auth-service-principal.md) to access your registry. Ensure that the service principal is assigned at least the AcrPush role so that it has permissions to push and pull artifacts.
+* **ORAS tool** - Download and install a current `oras` release for your operating system from the [GitHub repo](https://github.com/deislabs/oras/releases). The tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using standard procedures for your operating system.
+* **Azure Active Directory service principal (optional)** - Optionally create a [service principal](container-registry-auth-service-principal.md) to access your registry. Ensure that the service principal is assigned a role such as AcrPush so that it has permissions to push and pull artifacts.
 
 ## Sign in to a registry
 
@@ -102,7 +102,7 @@ oras pull myregistry.azurecr.io/samples/artifact:v1
 Verify that the pull was successful:
 
 ```bash
-$ cat hi.txt
+$ cat artifact.txt
 Here is an artifact!
 ```
 
