@@ -110,6 +110,19 @@
       href: tutorial-deploy-ssis-packages-azure.md
     - name: Azure PowerShell
       href: tutorial-deploy-ssis-packages-azure-powershell.md
+  - name: Load Data Lake Storage Gen2
+    href: load-azure-data-lake-storage-gen2.md
+    items:
+    - name: Copy from Data Lake Storage Gen1
+      href: load-azure-data-lake-storage-gen2-from-gen1.md
+  - name: Load SQL Data Warehouse
+    href: load-azure-sql-data-warehouse.md
+  - name: Load Data Lake Storage Gen1
+    href: load-azure-data-lake-store.md
+  - name: Load SAP BW data
+    href: load-sap-bw-data.md
+  - name: Load Office 365 data
+    href: load-office-365-data.md
 - name: Samples
   items:
   - name: Code samples
@@ -358,29 +371,14 @@
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
-    - name: Load Data Lake Storage Gen2
-      href: load-azure-data-lake-storage-gen2.md
-      items:
-      - name: Copy from Data Lake Storage Gen1
-        href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: Load SQL Data Warehouse
-      href: load-azure-sql-data-warehouse.md
-    - name: Load Data Lake Storage Gen1
-      href: load-azure-data-lake-store.md
-    - name: Load SAP BW data
-      href: load-sap-bw-data.md
-    - name: Load Office 365 data
-      href: load-office-365-data.md
-    - name: Read or write partitioned data
-      href: how-to-read-write-partitioned-data.md
+    - name: Performance and tuning
+      href: copy-activity-performance.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
     - name: Schema and type mapping
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
   - name: Transform data
     href: transform-data.md
     items:

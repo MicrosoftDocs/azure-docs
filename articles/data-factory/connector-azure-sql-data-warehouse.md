@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
 
 ---
@@ -397,7 +397,7 @@ Learn more about how to use PolyBase to efficiently load SQL Data Warehouse in t
 
 ## Use PolyBase to load data into Azure SQL Data Warehouse
 
-Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [Performance reference](copy-activity-performance.md#performance-reference) for a detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
+Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
 * If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure SQL Data Warehouse pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 * If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format. And it stores the data in Azure Blob storage. It then loads the data into SQL Data Warehouse.
@@ -427,13 +427,15 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
-   1. Folder path don't contain wildcard filter.
-   2. File name points to a single file or is `*` or `*.*`.
-   3. `rowDelimiter` must be **\n**.
-   4. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
-   5. `encodingName` is set to **utf-8**, which is the default value.
+   1. Folder path doesn't contain wildcard filter.
+   2. File name is empty, or points to a single file. If you specify wildcard file name in copy activity, it can only be `*` or `*.*`.
+   3. `rowDelimiter` is **default**, **\n**, **\r\n**, or **\r**.
+   4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
+   5. `encodingName` is left as default or set to **utf-8**.
    6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    7. `compression` can be **no compression**, **GZip**, or **Deflate**.
+
+3. If your source is a folder, `recursive` in copy activity must be set to true.
 
 ```json
 "activities":[
@@ -442,7 +444,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -454,7 +456,11 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",

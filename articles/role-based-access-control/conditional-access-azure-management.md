@@ -35,6 +35,7 @@ The policy you create applies to all Azure management endpoints, including the f
 - Azure PowerShell
 - Visual Studio subscriptions administrator portal
 - Azure DevOps
+- Azure Data Factory portal
 
 Note that the policy applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), which calls Microsoft Graph.
 

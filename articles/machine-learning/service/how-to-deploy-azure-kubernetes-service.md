@@ -55,6 +55,9 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
+> [!TIP]
+> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
+
 If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, you can specify the __cluster purpose__ to __dev test__.
 
 > [!WARNING]
@@ -110,6 +113,8 @@ If you already have AKS cluster in your Azure subscription, and it is version 1.
 
 > [!TIP]
 > The existing AKS cluster can be in a Azure region than your Azure Machine Learning service workspace.
+>
+> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
 > When attaching an AKS cluster to a workspace, you can define how you will use the cluster by setting the `cluster_purpose` parameter.
@@ -177,6 +182,9 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 ### Using the SDK
 
 ```python
+from azureml.core.webservice import AksWebservice, Webservice
+from azureml.core.model import Model
+
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by
@@ -216,7 +224,7 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 
 ## Web service authentication
 
-When deploying to Azure Kubernetes Service, __key-based__ authentication is enabled by default. You can also enable __token__ authentication. Token authentication requires clients to use an Azure Active Directory account to request an authentication token, which is used to make requests to the deployed service.
+When deploying to Azure Kubernetes Service, __key-based__ authentication is enabled by default. You can also enable __token-based__ authentication. Token-based authentication requires clients to use an Azure Active Directory account to request an authentication token, which is used to make requests to the deployed service.
 
 To __disable__ authentication, set the `auth_enabled=False` parameter when creating the deployment configuration. The following example disables authentication using the SDK:
 
@@ -256,7 +264,7 @@ print(token)
 > [!IMPORTANT]
 > You will need to request a new token after the token's `refresh_by` time.
 >
-> Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in Azure AD Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
+> Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in Token-based Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
 
 ## Update the web service
 
@@ -264,6 +272,7 @@ print(token)
 
 ## Next steps
 
+* [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md)
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)

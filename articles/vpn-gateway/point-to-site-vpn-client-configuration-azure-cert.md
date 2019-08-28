@@ -121,20 +121,20 @@ If you have not already generated certificates, use the following steps:
 
 ### <a name="install"></a>Install and configure
 
-The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the [command line](#linuxinstallcli). The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
+The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the [command line](#linuxinstallcli). The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
 
-1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example. If you receive an error that's related to *libcharon-extra-plugins*, replace it with 'strongswan-plugin-eap-mschapv2'.
+1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example.
 
    ```
-   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   sudo apt install network-manager-strongswan
    ```
-2. Select the **Network Manager** icon (up-arrow/down-arrow), then select **Edit Connections**.
+2. Select **Settings** , then select **Network**.
 
    ![edit connections](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Click the **Add** button to create a new connection.
+3. Click the **+** button to create a new connection.
 
    ![add a connection](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Select **IPsec/IKEv2 (strongswan)** from the drop-down menu, and then click **Create**. You can rename your connection in this step.
+4. Select **IPsec/IKEv2 (strongSwan)** from the  menu, and double-click. You can name your connection in this step.
 
    ![choose a connection type](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Open the **VpnSettings.xml** file from the **Generic** folder contained in the downloaded client configuration files. Find the tag called **VpnServer** and copy the name, beginning with 'azuregateway' and ending with '.cloudapp.net'.
@@ -143,8 +143,8 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 6. Paste this name into the **Address** field of your new VPN connection in the **Gateway** section. Next, select the folder icon at the end of the **Certificate** field, browse to the **Generic** folder, and select the **VpnServerRoot** file.
 7. In the **Client** section of the connection, for **Authentication**, select **Certificate/private key**. For **Certificate** and **Private key**, choose the certificate and the private key that were created earlier. In **Options**, select **Request an inner IP address**. Then, click **Add**.
 
-   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Click the **Network Manager** icon (up-arrow/down-arrow) and hover over **VPN Connections**. You see the VPN connection that you created. Click to initiate the connection.
+   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. Turn the connection **On**.
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 

@@ -19,14 +19,14 @@ In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows 
 This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS. Node pools for Windows Server are currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]
 
 ## Limitations for Windows Server in Kubernetes
 
-Windows Server containers must run on a Windows-based container host. To run Windows Server containers in AKS, you can [create a node pool that runs Windows Server][windows-node-cli] as the guest OS. Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see [Windows Server containers in Kubernetes limitations](https://docs.microsoft.com/azure/aks/windows-node-limitations).
+Windows Server containers must run on a Windows-based container host. To run Windows Server containers in AKS, you can [create a node pool that runs Windows Server][windows-node-cli] as the guest OS. Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see [Windows Server containers in Kubernetes limitations](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations).
 
 The following upstream limitations for Windows Server containers in Kubernetes are relevant to AKS:
 

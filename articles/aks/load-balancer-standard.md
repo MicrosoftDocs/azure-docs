@@ -37,7 +37,7 @@ The AKS cluster service principal needs permission to manage network resources i
 You must create an AKS cluster that sets the SKU for the load balancer to *Standard* instead of the default *Basic*. Creating an AKS cluster is covered in a later step, but you first need to enable a few preview features.
 
 > [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]
@@ -90,11 +90,11 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 * When using the *Standard* SKU for a load balancer, you must allow public addresses and avoid creating any Azure Policy that bans IP creation. The AKS cluster automatically creates a *Standard* SKU public IP in same resource group created for the AKS cluster, which usually named with *MC_* at the beginning. AKS assigns the public IP to the *Standard* SKU load balancer. The public IP is required for allowing egress traffic from the AKS cluster. This public IP is also required to maintain connectivity between the control plane and agent nodes as well as to maintain compatibility with previous versions of AKS.
 * When using the *Standard* SKU for a load balancer, you must use Kubernetes version 1.13.5 or greater.
-* If using the [Node Public IP feature](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) with Standard load balancers, you can set either an SLB outbound rule or a public IP for the node. You must select one or the other because one VM cannot be attached to both an SLB outbound rule and a public IP simultaneously.
 
 While this feature is in preview, the following additional limitations apply:
 
 * When using the *Standard* SKU for a load balancer in AKS, you cannot set your own public IP address for egress for the load balancer. You must use the IP address AKS assigns to your load balancer.
+* This cannot be used with the [Node Public IP feature](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
 
 ## Create a resource group
 
@@ -164,7 +164,7 @@ The following example output shows the single node created in the previous steps
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
 ```
 
 ## Verify your cluster uses the *Standard* SKU
