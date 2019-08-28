@@ -13,7 +13,7 @@ ms.subservice: common
 
 # Build highly available Azure Storage applications with geo-zone-redundant storage (GZRS) (preview)
 
-Geo-zone-redundant storage (GZRS) (preview) marries the high availability of [zone-redundant storage (ZRS)](storage-redundancy-zrs.md) with protection from regional outages as provided by [geo-redundant storage (GRS)](storage-redundancy-grs.md). Data in a GZRS storage account is replicated across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and also replicated to a secondary geographic region for protection from regional disasters.
+Geo-zone-redundant storage (GZRS) (preview) marries the high availability of [zone-redundant storage (ZRS)](storage-redundancy-zrs.md) with protection from regional outages as provided by [geo-redundant storage (GRS)](storage-redundancy-grs.md). Data in a GZRS storage account is replicated across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and also replicated to a secondary geographic region for protection from regional disasters. Each Azure region is paired with another region within the same geography, together making a regional pair. For more details and exceptions refer to the [documentation](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. GZRS also offers the same [scalability targets](storage-scalability-targets.md) as LRS, ZRS, GRS, or RA-GRS. You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
 
@@ -26,7 +26,6 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 GZRS and RA-GZRS are currently available for preview in the following regions:
 
 - US East
-- Europe West
 
 Microsoft continues to enable GZRS and RA-GZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about supported regions.
 
@@ -67,7 +66,7 @@ When an availability zone becomes unavailable, Azure undertakes networking updat
 If a failure affects the entire primary region, then Microsoft will first attempt to restore the primary region. If restoration is not possible, then Microsoft will fail over to the secondary region, so that the secondary region becomes the new primary region. If the storage account has RA-GZRS enabled, then applications designed for this scenario can read from the secondary region while waiting for failover. If the storage account does not have RA-GZRS enabled, then applications will not be able to read from the secondary until the failover is complete.
 
 > [!NOTE]
-> GZRS and RA-GZRS are currently in preview in the US East 2 region only. Customer-managed account failover (preview) is not yet available in US East 2, so customers cannot currently manage account failover events with GZRS and RA-GZRS accounts. During the preview, Microsoft will manage any failover events affecting GZRS and RA-GZRS accounts.
+> GZRS and RA-GZRS are currently in preview in the US East region only. Customer-managed account failover (preview) is not yet available in US East 2, so customers cannot currently manage account failover events with GZRS and RA-GZRS accounts. During the preview, Microsoft will manage any failover events affecting GZRS and RA-GZRS accounts.
 
 Because data is replicated to the secondary region asynchronously, a failure that affects the primary region may result in data loss if the primary region cannot be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. Azure Storage typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
 

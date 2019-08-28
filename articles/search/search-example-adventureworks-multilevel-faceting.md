@@ -2,7 +2,7 @@
 title: 'Example: Multi-level facets - Azure Search'
 description: Learn how to build faceting structures for multi-level taxonomies, creating a nested navigation structure that you can include on application pages.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
