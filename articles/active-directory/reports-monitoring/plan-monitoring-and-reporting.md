@@ -3,16 +3,10 @@
 title: Plan an Azure Active Directory reporting and monitoring deployment
 description: Describes how to plan and execute implmentation of reporting and monitoring.
 services: active-directory
-documentationcenter: ''
 author: BarbaraSelden
 manager: daveba
-editor: ''
-
-ms.assetid:
 ms.service: active-directory
-ms.devlang: na
-ms.topic: plan
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018

@@ -70,11 +70,11 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
 1. Select **SQL servers** and choose the server you created in section 1.
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
-    ![Add new failover group](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Add new failover group](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. On the **Failover Group** page, enter or select the following values, and then select **Create**:
     - **Failover group name**: Type in a unique failover group name, such as `failovergrouptutorial`. 
-    - **Secondary server**: Select the option to *configure required settings* and then choose to **Create a new server**. Alternatively, you can choose an already-existing server as the secondary server. After entering the following values, select **Select**. 
+    - **Secondary server**: Select the option to *configure required settings* and then choose to **Create a new server**. Alternatively, you can choose an already-existing server as the secondary server. After entering the following values for your new secondary server, select **Select**. 
         - **Server name**: Type in a unique name for the secondary server, such as `mysqlsecondary`. 
         - **Server admin login**: Type `azureuser`
         - **Password**: Type a complex password that meets password requirements.
@@ -85,9 +85,9 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
     
        ![Create a secondary server for the failover group](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. Once a secondary server is selected, the **Databases within the group** option becomes unlocked. Select it to **Select databases to add** and then select the elastic pool you created in section 2. A warning should appear, prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server. 
+1. Select **Databases within the group** then select the elastic pool you created in section 2. A warning should appear, prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server. 
         
-    ![Add SQL DB to failover group](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Add elastic pool to failover group](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. Adding the elastic pool to the failover group will automatically start the geo-replication process. 
 

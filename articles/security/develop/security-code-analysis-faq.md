@@ -137,12 +137,12 @@ Valid Suppression Rules:
 #### What are recommended Secrets management guidelines? 
 While detecting hard coded secrets in a timely manner and mitigating the risks is helpful, it is even better if one could prevent secrets from getting checked in altogether. In this regard, Microsoft has released CredScan Code Analyzer as part of [Microsoft DevLabs extension](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) for Visual Studio. While in early preview, it provides developers an inline experience for detecting potential secrets in their code, giving them the opportunity to fix those issues in real-time. For more information, please refer to [this](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/) blog on Managing Secrets Securely in the Cloud. 
 Below are few additional resources to help you manage secrets and access sensitive information from within your applications in a secure manner: 
- - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
- - [Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+ - [Azure Key Vault](../../key-vault/index.yml)
+ - [Azure Active Directory](../../sql-database/sql-database-aad-authentication.md)
  - [Azure AD Managed Service Identity](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Managed Service Identity (MSI) for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
- - [Azure Managed Service Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
- - [AppAuthentication Library](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+ - [Managed Service Identity (MSI) for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Azure Managed Service Identity](../../app-service/overview-managed-identity.md)
+ - [AppAuthentication Library](../../key-vault/service-to-service-authentication.md)
 
 #### Can I write my own custom searchers?
 

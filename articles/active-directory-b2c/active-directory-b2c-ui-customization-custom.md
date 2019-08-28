@@ -48,6 +48,9 @@ Create HTML content with your product's brand name in the title.
 
 2. Paste the copied snippet in a text editor, and then save the file as *customize-ui.html*.
 
+> [!NOTE]
+> HTML form elements will be removed due to security restrictions if you use login.microsoftonline.com. Please use b2clogin.com if you want to use HTML form elements in your custom HTML content. See [Use b2clogin.com](b2clogin.md) for other benefits.
+
 ## Create an Azure Blob storage account
 
 >[!NOTE]

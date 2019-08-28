@@ -24,12 +24,11 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 
 Use VNets to:
 
-* Create a dedicated private cloud-only VNet
-Sometimes you don't require a cross-premises configuration for your solution. When you create a VNet, your services and VMs within your VNet can communicate directly and securely with each other in the cloud. You can still configure endpoint connections for the VMs and services that require Internet communication, as part of your solution.
-* Securely extend your data center
-With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity. S2S VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.
-* Enable hybrid cloud scenarios
-VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
+* Create a dedicated private cloud-only VNet. Sometimes you don't require a cross-premises configuration for your solution. When you create a VNet, your services and VMs within your VNet can communicate directly and securely with each other in the cloud. You can still configure endpoint connections for the VMs and services that require Internet communication, as part of your solution.
+
+* Securely extend your data center. With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity. S2S VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.
+
+* Enable hybrid cloud scenarios. VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
 
 ### How do I get started?
 Visit the [Virtual network documentation](https://docs.microsoft.com/azure/virtual-network/) to get started. This content provides overview and deployment information for all of the VNet features.
@@ -66,9 +65,11 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
-Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet.    
-- x.x.x.0 and the last address of the subnet is reserved for protocol conformance.
-- x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.
+Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet. x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.   
+- x.x.x.0: Network address
+- x.x.x.1: Reserved by Azure for the default gateway
+- x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
+- x.x.x.255: Network broadcast address
 
 ### How small and how large can VNets and subnets be?
 The smallest supported subnet is /29, and the largest is /8 (using CIDR subnet definitions).

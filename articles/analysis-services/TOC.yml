@@ -97,13 +97,13 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.analysisservices/servers
   - name: DAX
-    href: https://msdn.microsoft.com/library/gg413422.aspx
+    href: https://docs.microsoft.com/dax/data-analysis-expressions-dax-reference
   - name: Power Query M
-    href: https://msdn.microsoft.com/library/mt211003.aspx
+    href: https://docs.microsoft.com/powerquery-m/power-query-m-reference
   - name: Tabular Model Scripting Language (TMSL)
     href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
   - name: Tabular Object Model (TOM)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
+    href: https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
   - name: Resource and object limits
     href: analysis-services-capacity-limits.md
 - name: Resources

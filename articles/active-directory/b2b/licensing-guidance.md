@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 08/15/2019
 
 ms.author: mimart
 author: msmimart
@@ -18,7 +18,10 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory B2B collaboration licensing guidance
 
-With Azure Active Directory (Azure AD) business-to-business (B2B) collaboration, you can invite External Users (or "guest users") to use your paid Azure AD services. For each paid Azure AD license that you assign to a user, you can invite up to five guest users under the External User Allowance.
+With Azure Active Directory (Azure AD) business-to-business (B2B) collaboration, you can invite External Users (or "guest users") to use your paid Azure AD services. Some features are free, but for any paid Azure AD features, you can invite up to five guest users for each Azure AD edition license that you own for an employee or a non-guest user in your tenant.
+
+> [!NOTE]
+> Refer to [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) for details about Azure AD pricing and B2B collaboration features.
 
 B2B guest user licensing is automatically calculated and reported based on the 1:5 ratio. Currently, it’s not possible to assign B2B guest user licenses directly to guest users.
 

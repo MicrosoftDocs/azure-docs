@@ -73,7 +73,7 @@ One important task that deep learning can perform is e-discovery. Companies are 
 
 ## What are artificial neural networks?
 
-An artificial neural network is a deep learning model inspired by the way biological neural networks in the human brain process information. There are multiple types of artificial neural networks that are currently being used. The most popular artificial neural network typologies are discussed below.
+Artificial neural networks are formed by layers of connected nodes. Deep learning models use neural networks with a very large number of layers. The most popular artificial neural network typologies are discussed below.
 
 ### Feedforward neural network
 

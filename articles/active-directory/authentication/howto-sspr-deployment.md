@@ -36,9 +36,6 @@ Before deploying SSPR, organizations may want to determine how many password res
 
 Azure Active Directory is license per-user meaning each user has to have an appropriate license for the features they utilize.
 
-- Self-service password reset for cloud-only users is available with Azure AD Basic or above.
-- Self-service password reset with on-premises writeback for hybrid environments requires Azure AD Premium P1 or above.
-
 More information about licensing can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
 
 ## Enable combined registration for SSPR and MFA

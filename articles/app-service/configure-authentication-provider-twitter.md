@@ -47,6 +47,10 @@ To complete the procedure in this topic, you must have a Twitter account that ha
    
    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 4. (Optional) To restrict access to your site to only users authenticated by Twitter, set **Action to take when request is not authenticated** to **Twitter**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Twitter for authentication.
+
+> [!CAUTION]
+> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
+
 5. Click **Save**.
 
 You are now ready to use Twitter for authentication in your app.

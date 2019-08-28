@@ -33,6 +33,8 @@ The key difference for an Availability Group in Azure Virtual Machines is that t
 
 Additionally, on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
 
+To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](virtual-machines-windows-portal-sql-availability-group-prereq.md#create-availability-sets), or different [availability zones](/azure/availability-zones/az-overview). 
+
 |  | Windows Server Version | SQL Server Version | SQL Server Edition | WSFC Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | Dist-AG support with no AD domain | Dist-AG support with no cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
@@ -54,7 +56,7 @@ The Azure Quickstart Templates utilize the SQL VM resource provider to deploy th
 For more information, see [Use Azure Quickstart Template to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
-## Automatically with an Azure Portal Template
+## Automatically with an Azure portal template
 
 [Configure Always On availability group in Azure VM automatically - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 

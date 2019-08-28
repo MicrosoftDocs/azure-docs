@@ -1,13 +1,13 @@
 ---
 title: Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
 description: Upgrade your solution to use Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
+ms.reviewer: rugopala
 ---
 
 # Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
@@ -79,7 +79,7 @@ This section describes which Data Lake Storage Gen1 platform capabilities that a
 | |Optimized performance for parallel analytics workloads. High Throughput and IOPS. | Optimized performance for parallel analytics workloads. High Throughput and IOPS. | *Available now* |
 | Virtual Network (VNet) support  | [Using Virtual Network integration](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Using Service Endpoint for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *Available now* |
 | Size limits | No limits on account sizes, file sizes or number of files | No limits on account sizes or number of files. File size limited to 5TB. | *Available now*|
-| Geo-redundancy| Locally-redundant (LRS) | Locally redundant (LRS) Zone redundant (ZRS) Globally redundant (GRS) Read-access globally redundant (RA-GRS) See [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy) for more information| *Available now* |
+| Geo-redundancy| Locally-redundant (LRS) | Locally redundant (LRS) Zone redundant (ZRS) geo-redundant (GRS) Read-access geo-redundant (RA-GRS) See [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy) for more information| *Available now* |
 | Regional availability | See [here](https://azure.microsoft.com/regions/) | All [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *Available now*                                                                                                                           |
 | Price                                       | See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | See [Pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | Availability SLA                            | [See SLA](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [See SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *Available now*                                                                                                                           |

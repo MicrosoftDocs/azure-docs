@@ -52,7 +52,7 @@ sections:
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" alt="">
               <br><b>Xamarin</b></a>
               <p>Learn how these services empower data scientists to develop AI solutions using Python tools and libraries with a variety of Azure data and compute services.</p>
-      - html: <a href="/go/azure/">
+      - html: <a href="/azure/go/">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
               <br><b>Go SDK</b></a>
               <p>Get the Azure libraries for Go</p>

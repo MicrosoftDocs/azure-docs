@@ -4,7 +4,7 @@ description: Deploy your first Python hello world app in Azure App Service on Li
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
@@ -197,7 +197,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](how-to-configure-python.md)

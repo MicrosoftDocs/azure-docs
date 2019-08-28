@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks | Microsoft Docs'
 description: Learn to run a Spark job on Azure Databricks by using the Azure portal and an Azure Data Lake Storage Gen2 storage account.
-services: storage
 author: normesta
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
+ms.reviewer: jeking
 ---
 
 # Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks

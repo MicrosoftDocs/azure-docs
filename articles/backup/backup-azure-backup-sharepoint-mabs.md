@@ -38,7 +38,7 @@ Azure Backup Server runs as a LocalSystem account. To back up SQL Server databas
 If the SharePoint farm has SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
 
 ### SharePoint Server
-While performance depends on many factors such as size of SharePoint farm, as general guidance one MABS can protect a 25 TB SharePoint farm.
+While performance depends on many factors such as size of SharePoint farm, as general guidance one MABS can protect a 25-TB SharePoint farm.
 
 ### What's not supported
 * MABS that protects a SharePoint farm does not protect search indexes or application service databases. You will need to configure the protection of these databases separately.

@@ -86,7 +86,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
 
 ### Configure Windows Defender
 
@@ -222,5 +222,5 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
-- [Set up a user profile share for a host pool](create-host-pools-user-profile.md)
+- [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)

@@ -131,7 +131,7 @@ Complete the planning process before you execute the deployment. Planning builds
 | Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer are being deployed. Can be existing or newly created. |
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address. |
 | Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name that's used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
-| Azure fencing | Azure fencing or SBD fencing (highly recommended). Method to avoid split brain situations is prevented. |
+| Azure fencing | Azure fencing or SBD fencing (highly recommended). Method to avoid split brain situations. |
 | SBD VM | SBD virtual machine size, storage, network. |
 | Azure Load Balancer | Usage of Basic or Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |

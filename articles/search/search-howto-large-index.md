@@ -3,7 +3,7 @@ title: Index large data set using built-in indexers - Azure Search
 description: Learn strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: search
 ms.topic: conceptual

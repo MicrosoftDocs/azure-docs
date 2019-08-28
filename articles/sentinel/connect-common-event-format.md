@@ -36,7 +36,6 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
  ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
 
-
 The connection between Azure Sentinel and your CEF appliance takes place in three steps:
 - Connect to your security solution 
 

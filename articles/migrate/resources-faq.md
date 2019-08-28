@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
 ---
 
@@ -66,7 +66,8 @@ The appliance connects to the vCenter Server (port 443) using the credentials pr
 
 ### Can I connect the same appliance to multiple vCenter servers?
 
-Yes, a single Azure Migrate appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run discoveries one after another.
+No. There's a one-to-one mapping between an appliance and vCenter Server. If you have to discover VMs on multiple vCenter Servers, you need to deploy multiple appliances. 
+
 
 ### I changed my machine size. Can I rerun an assessment?
 

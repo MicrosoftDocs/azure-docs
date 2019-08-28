@@ -109,7 +109,7 @@ Azure is an evergreen service where new services and capabilities are being adde
 
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA"> Microsoft Trust Center - DoD web page </a>
 
-<a href="https://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
+<a href="https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
 
 <a href="https://azure.microsoft.com/offers/azure-government/"> Azure Government Reseller Channels
 

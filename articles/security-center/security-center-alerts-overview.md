@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
-ms.author: "v-mohabe"
+ms.date: 8/20/2019
+ms.author: v-mohabe
 ---
 # Security Alerts in Azure Security Center
 
@@ -44,7 +44,7 @@ The following topics explain how Security Center leverages the different telemet
 
 ## What are alert incidents?
 
-A security incident is a collection of related alerts, instead of listing each alert individually. Security Center uses fusion to correlate different alerts and low fidelity signals into security incidents.
+A security incident is a collection of related alerts, instead of listing each alert individually. Security Center uses [Cloud Smart Alert Correlation](security-center-alerts-cloud-smart.md) to correlate different alerts and low fidelity signals into security incidents.
 
 Using incidents, Security Center provides you with a single view of an attack campaign and all of the related alerts. This view enables you to quickly understand what actions the attacker took and what resources were impacted. For more information, see [Cloud Smart Alert Correlation](security-center-alerts-cloud-smart.md).
 

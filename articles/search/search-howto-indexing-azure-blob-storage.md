@@ -4,7 +4,7 @@ description: Learn how to index Azure Blob Storage and extract text from documen
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 
 services: search

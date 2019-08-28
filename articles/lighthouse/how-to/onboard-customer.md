@@ -103,7 +103,7 @@ Locations         : {}
 # Log in first with az login if you're not using Cloud Shell
 
 az account set –subscription <subscriptionId>
-az provider show –namespace "Microsoft.ManagedServices" –-output table
+az provider show --namespace "Microsoft.ManagedServices" --output table
 ```
 
 This should return results similar to the following:
@@ -151,16 +151,16 @@ In order to define authorizations, you'll need to know the ID values for each us
 # Log in first with az login if you're not using Cloud Shell
 
 # To retrieve the objectId for an Azure AD group
-az ad group list –-query "[?displayName == '<yourGroupName>'].objectId" –-output tsv
+az ad group list --query "[?displayName == '<yourGroupName>'].objectId" --output tsv
 
 # To retrieve the objectId for an Azure AD user
-az ad user show –-upn-or-object-id "<yourUPN>" –-query "objectId" –-output tsv
+az ad user show --upn-or-object-id "<yourUPN>" –-query "objectId" --output tsv
 
 # To retrieve the objectId for an SPN
-az ad sp list –-query "[?displayName == '<spDisplayName>'].objectId" –-output tsv
+az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output tsv
 
 # To retrieve role definition IDs
-az role definition list –-name "<roleName>" | grep name
+az role definition list --name "<roleName>" | grep name
 ```
 
 ## Create an Azure Resource Manager template

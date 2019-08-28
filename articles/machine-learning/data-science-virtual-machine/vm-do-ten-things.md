@@ -51,7 +51,7 @@ In this article, you will learn how to use your DSVM to perform various data sci
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## 1. Explore data and develop models using Microsoft ML Server or Python
+## 1. Explore data & develop models with Microsoft ML Server
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
 For R, you can use an IDE like RStudio that can be found on the start menu or the desktop OR R Tools for Visual Studio. Microsoft has provided additional libraries on top of the Open-source/CRAN-R to enable scalable analytics and the ability to analyze data larger than the memory size allowed by doing parallel chunked analysis. 
@@ -70,7 +70,7 @@ See the [PTVS documentation](https://aka.ms/ptvsdocs) for additional details on 
 
 Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](https://aka.ms/ptvsdocs).
 
-## 2. Using a Jupyter Notebook to explore and model your data with Python or R
+## 2. Use Jupyter Notebooks
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
 
 To launch the Jupyter Notebook, click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or want to create new notebooks.  
@@ -89,7 +89,7 @@ Once you have started Jupyter, you should see a directory that contains a few ex
 
 Once you are in the notebook you can explore your data, build the model, test the model using your choice of libraries.
 
-## 3. Build models using R or Python and Operationalize them using Azure Machine Learning
+## 3. Train & deploy models with Azure Machine Learning
 Once you have built and validated your model the next step is usually to deploy it into production. This allows your client applications to invoke the model predictions on a real-time or on a batch mode basis. Azure Machine Learning provides a mechanism to operationalize a model built in either R or Python.
 
 When you operationalize your model in Azure Machine Learning, a web service is exposed that allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.   
@@ -207,21 +207,20 @@ ans = consume(ep, sleepstudy)$ans
 
 More information about the Azure Machine Learning R library can be found [here](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
 
-## 4. Administer your Azure resources using Azure portal or Powershell
+## 4. Manage Azure resources
 The DSVM not only allows you to build your analytics solution locally on the virtual machine, but also allows you to access services on Microsoft's Azure cloud. Azure provides several compute, storage, data analytics services, and other services that you can administer and access from your DSVM.
 
-To administer your Azure subscription and cloud resources you can use your browser and point to the
-[Azure portal](https://portal.azure.com). You can also use Azure Powershell to administer your Azure subscription and resources via a script.
-You can run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell." Refer to
-[Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
+To administer your Azure subscription and cloud resources, you have two options:
++ **Azure portal**: use your browser and point to the [Azure portal](https://portal.azure.com)
 
-## 5. Extend your storage space with a shared file system
++ **Azure Powershell**: use Windows Powershell scripts. Run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell." See the 
+[Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for full details. 
+
+## 5. Extend storage with shared file systems
 Data scientists can share large datasets, code, or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
 
 > [!NOTE]
 > The maximum space of the Azure File Service share is 5 TB and individual file size limit is 1 TB. 
-> 
-> 
 
 You can use Azure Powershell to create an Azure File Service share. Here is the script to run under Azure PowerShell to create an Azure File service share.
 
@@ -257,7 +256,7 @@ net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
 
 Now you can access this drive as you would any normal drive on the VM.
 
-## 6. Share code with your team using GitHub
+## 6. Share code in GitHub
 GitHub is a code repository where you can find many sample code and sources for different tools using various technologies shared by the developer community. It uses Git as the technology to track and store versions of the code files. GitHub is also a platform where you can create your own repository to store your team's shared code and documentation, implement version control and also control who have access to view and contribute code. Visit the [GitHub help pages](https://help.github.com/) for more information on using Git. You can use GitHub as one of the ways to collaborate with your team, use code developed by the community and contribute code back to the community.
 
 The DSVM already comes loaded with client tools on both command-line as well GUI to access GitHub repository. The command-line tool to work with Git and GitHub is called Git Bash. Visual Studio installed on the DSVM has the Git extensions. You can find start-up icons for these tools on the start menu and the desktop.
@@ -272,7 +271,7 @@ In Visual Studio, you can do the same clone operation. The  following screenshot
 
 You can find more information on using Git to work with your GitHub repository from several resources available on github.com. The [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is a useful reference.
 
-## 7. Access various Azure data and analytics services
+## 7. Access many Azure data & analytics services
 ### Azure Blob
 Azure blob is a reliable, economical cloud storage for data big and small. This section describes how you can move data to Azure Blob and access data stored in an Azure Blob.
 
@@ -850,8 +849,8 @@ The following are the per-requisites steps to access Azure Cosmos DB from the DS
 
 Once you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*  that contains python code to access Azure Cosmos DB and do some basic querying. You can learn more about Cosmos DB by visiting the service [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
-## 8. Build reports and dashboard using the Power BI Desktop
-You can visualize the Volcano JSON file from the preceding Cosmos DB example in Power BI to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
+## 8. Power BI reports & dashboards 
+You can visualize the Volcano JSON file from the preceding Cosmos DB example in Power BI desktop to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
 
 1. Open Power BI Desktop and do "Get Data." Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You should see the JSON records imported as a list
@@ -883,7 +882,7 @@ You can start building reports and visualizations using the data model. You can 
 
 ![Power BI Desktop Report View - Power BI connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
-## 9. Dynamically scale your DSVM to meet your project needs
+## 9. Dynamic DSVM scaling 
 You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shut down the VM from the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
@@ -897,10 +896,23 @@ Similarly, if your need for VM processing capacity reduces (for example: you mov
 
 ![VM instance settings](./media/vm-do-ten-things/VMScaling.PNG)
 
-## 10. Install additional tools on your virtual machine
+## 10. Add more tools
 There are several tools pre-built into the DSVM that can address many of the common data analytics needs. This saves you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
 
 You can utilize other Azure data and analytics services profiled in this article to enhance your analytics environment. In some cases your needs may require additional tools, including some proprietary third-party tools. You have full administrative access on the virtual machine to install new tools you need. You can also install additional packages in Python and R that are not pre-installed. For Python you can use either ```conda``` or ```pip```. For R you can use the ```install.packages()``` in the R console or use the IDE and choose "**Packages** -> **Install Packages...**".
+
+## Deep Learning
+
+In addition to the framework-based samples, a set of comprehensive walkthroughs is also provided that have been validated on the DLVM. These walkthroughs help you jump-start your development of deep learning applications in domains like image and text/language understanding. More end-to-end tutorials across different domains and technology will continue to be added.   
+
+
+- [Running neural networks across different frameworks](https://github.com/ilkarman/DeepLearningFrameworks): A comprehensive walkthrough that shows how to migrate code from one framework to another. It also demonstrates how to compare model and run time performance across frameworks. 
+
+- [A how-to guide to build an end-to-end solution to detect products within images](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Image detection is a technique that can locate and classify objects within images. This technology has the potential to bring huge rewards in many real life business domains. For example, retailers can use this technique to determine which product a customer has picked up from the shelf. This information in turn helps stores manage product inventory. 
+
+- [Deep learning for audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) This tutorial shows how to train a deep learning model for audio event detection on the [urban sounds dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) and provide an overview of how to work with audio data.
+
+- [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two different neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM) network. These neural networks use the Keras API for deep learning to classify text documents. Keras is a front end to three of the most popular deep learning frameworks: Microsoft Cognitive Toolkit, TensorFlow, and Theano.
 
 ## Summary
 These are just some of the things you can do on the Microsoft Data Science Virtual Machine. There are many more things you can do to make it an effective analytics environment.

@@ -9,7 +9,6 @@
     href: quickstart-onboard.md
   - name: Get visibility into alerts
     href: quickstart-get-visibility.md
-  
 - name: Tutorials
   items:
   - name: Detect suspicious threats
@@ -28,12 +27,13 @@
   items:
   - name: Assign permissions using roles
     href: roles.md
+  - name: Advanced multi-stage attack detection
+    href: fusion.md
 - name: How-to guides
   items:
   - name: Connect data sources
     href: connect-data-sources.md
     items:
-
     - name: Connect Microsoft services
       items:
       - name: Connect Azure AD
@@ -60,7 +60,6 @@
         href: connect-windows-firewall.md
       - name: Connect Windows security events
         href: connect-windows-security-events.md  
-
     - name: Connect external solutions
       items:
       - name: Connect generic CEF
@@ -96,9 +95,6 @@
       href: notebooks.md
     - name: Use bookmarks to hunt
       href: bookmarks.md
-  - name: Enable fusion
-    href: connect-fusion.md
-
 - name: Resources
   items:
   - name: Useful resources

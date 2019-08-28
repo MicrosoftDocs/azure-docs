@@ -11,12 +11,14 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Load and query an index
+    - name: Create and use an index
       href: search-get-started-portal.md
-    - name: Enrich with AI (cognitive search)
+    - name: Enrich with cognitive search (AI)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     href: search-get-started-dotnet.md
+  - name : Node.js
+    href: search-get-started-nodejs.md
   - name: Postman
     href: search-get-started-postman.md
   - name: PowerShell
@@ -57,6 +59,8 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp
   - name: Java samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java
+  - name: JavaScript samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript
   - name: Python samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python
   - name: REST samples
@@ -113,8 +117,6 @@
       href: search-api-versions.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Develop in Node.js
-      href: search-get-started-nodejs.md
     - name: Develop in Java
       href: search-get-started-java.md
     - name: Upgrade the SDK

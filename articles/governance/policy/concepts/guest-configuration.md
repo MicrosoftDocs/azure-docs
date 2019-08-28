@@ -17,6 +17,9 @@ Configuration extension and client. The extension, through the client, validates
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
 
+At this time, Azure Policy Guest Configuration only performs an audit of setings inside the machine.
+It is not yet possible to apply configurations.
+
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Extension and client

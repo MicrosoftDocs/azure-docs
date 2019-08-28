@@ -265,7 +265,7 @@ sudo gpg --generate-key
 
 GPG will guide you through the steps to create the keypair. You'll need to provide a name, an email address, expiration time, passphrase, and wait for enough entropy on the machine for the key to be generated.
 
-Because the GPG directory was generated with sudo, you need to change its owner to `nxautomation`. 
+Because the GPG directory was generated with sudo, you need to change its owner to `nxautomation`.
 
 Run the following command to change the owner.
 
@@ -306,3 +306,4 @@ The signed runbook can now be uploaded to Azure Automation, and can be executed 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
 * To understand the different ways to work with PowerShell runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
 * If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
