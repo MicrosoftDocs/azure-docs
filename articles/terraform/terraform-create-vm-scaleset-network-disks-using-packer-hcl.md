@@ -42,7 +42,7 @@ Create three new files in an empty directory with the following names:
 - ```output.tf``` 
   This file describes the settings that display after deployment.
 - ```vmss.tf``` 
-  This file contains the code of the infrastructure that you are deploying.
+  This file contains the code of the infrastructure that you're deploying.
 
 ##  Create the variables 
 
