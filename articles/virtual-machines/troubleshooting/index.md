@@ -19,7 +19,7 @@ ms.author: genli
 
 # Troubleshooting Azure virtual machines
 
-## Troubleshoot Tools and process
+## Tools for troubleshooting
 
 - [Serial Console](serial-console-windows.md)
 - [Boot diagnostics](boot-diagnostics.md)
@@ -56,7 +56,6 @@ ms.author: genli
 
 **Other**
 - [Reset VM password for Windows VM offline](reset-local-password-without-agent.md)
-- [Reset VM password for Linux VM offline](reset-password.md)
 - [Reset NIC after misconfiguration](reset-network-interface.md)
 
 ### Linux
@@ -64,7 +63,8 @@ ms.author: genli
 - [SSH troubleshooting](troubleshoot-ssh-connection.md)
 - [Detailed SSH troubleshooting](detailed-troubleshoot-ssh-connection.md)
 - [Common error messages](error-messages.md)
-- 
+- [Reset VM password for Linux VM offline](reset-password.md)
+
 ## VM deployment issues
 
 - [Allocation failures](allocation-failure.md)
@@ -76,7 +76,6 @@ ms.author: genli
 	- [Windows](troubleshoot-deploy-vm-windows.md)
 - [Device names are changed](troubleshoot-device-names-problems.md)
 - [Install Windows VM agent offline](install-vm-agent-offline.md)
-- [Reset NIC](reset-network-interface.md)
 - [Restarting or resizing a VM](restart-resize-error-troubleshooting.md)
 
 ## VM performance Issue
