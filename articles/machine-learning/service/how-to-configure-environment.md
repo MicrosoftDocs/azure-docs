@@ -187,8 +187,10 @@ When you're using a local computer (which might also be a remote virtual machine
     ```
 
    > [!NOTE]
-   > * If you get a message that PyYAML can't be uninstalled, use the following command instead: `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
-   > * Starting with macOS Catalina, zsh (Z shell) is the default login shell and interactive shell. In zsh, use the command shown above to install packages with brackets escaped with "\" (backslash): `pip install --upgrade azureml-sdk\[notebooks,automl\]`.
+   > * If you get a message that PyYAML can't be uninstalled, use the following command instead:
+   >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   > * Starting with macOS Catalina, zsh (Z shell) is the default login shell and interactive shell. In zsh, use the command shown above to install packages with brackets escaped with "\\" (backslash):
+   >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`.
 
 
    It will take several minutes to install the SDK. For more information on installation options, see the [install guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
