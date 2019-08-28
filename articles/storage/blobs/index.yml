@@ -32,7 +32,7 @@ landingContent:
           - text: Azure Data Lake Storage Gen2
             url: data-lake-storage-introduction.md
   # Card
-  - title: Create and manage an account
+  - title: Set up an account
     linkLists:
       - linkListType: concept
         links:
@@ -42,8 +42,6 @@ landingContent:
             url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Access tiers 
             url: storage-blob-storage-tiers.md
-          - text: Manage the Blob storage lifecycle 
-            url: storage-lifecycle-management-concepts.md
       - linkListType: how-to-guide
         links:
           - text: Create a storage account
@@ -64,7 +62,7 @@ landingContent:
             url: data-lake-storage-data-scenarios.md
       - linkListType: whats-new
         links:
-          - text: Known issues with Azure Data Lake Storage Gen2
+          - text: Known issues
             url: data-lake-storage-known-issues.md
       - linkListType: quickstart
         links:
@@ -110,11 +108,11 @@ landingContent:
             url: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 
   # Card
-  - title: Upload and download data
+  - title: Work with blobs
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Use the Portal
+          - text: Use Azure portal
             url: storage-quickstart-blobs-portal.md
           - text: Use Storage Explorer
             url: storage-quickstart-blobs-storage-explorer.md
@@ -146,7 +144,7 @@ landingContent:
             url: storage-https-custom-domain-cdn.md
 
   # Card
-  - title: Handle Blob Storage Events
+  - title: Handle events
     linkLists:
       - linkListType: concept
         links:
