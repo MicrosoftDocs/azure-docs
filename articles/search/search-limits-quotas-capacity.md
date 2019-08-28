@@ -125,8 +125,8 @@ The maximum number of synonym maps allowed varies by pricing tier. Each rule can
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
-| Maximum synonym maps |3 |3|5 |10 |20 |20 | 5 | 5 |
-| Maximum number of rules per map |5000 |10000|10000 |10000 |10000 |10000 | 10000 | 10000  |
+| Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
+| Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## Queries per second (QPS)
 
