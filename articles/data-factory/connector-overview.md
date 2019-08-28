@@ -20,8 +20,8 @@ Azure Data Factory support the following data stores via Copy activity, Data Flo
 
 ## Next steps
 
-- [Copy activity](../articles/data-factory/copy-activity-overview.md)
-- [Mapping Data Flow](../articles/data-factory/concepts-data-flow-overview.md)
-- [Lookup Activity](../articles/data-factory/control-flow-lookup-activity.md)
-- [Get Metadata Activity](../articles/data-factory/control-flow-get-metadata-activity.md)
-- [Delete Activity](../articles/data-factory/delete-activity.md) 
+- [Copy activity](copy-activity-overview.md)
+- [Mapping Data Flow](concepts-data-flow-overview.md)
+- [Lookup Activity](control-flow-lookup-activity.md)
+- [Get Metadata Activity](control-flow-get-metadata-activity.md)
+- [Delete Activity](delete-activity.md)
