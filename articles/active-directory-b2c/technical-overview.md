@@ -25,12 +25,12 @@ The primary resources you work with in an Azure AD B2C tenant are:
 
 * **Directory** - The *directory* is where Azure AD B2C stores your users’ credentials and their profile data.
 * **Applications** - You register your web, mobile, and native applications with Azure AD B2C to enable identity management. Also, any APIs you want to protect with Azure AD B2C.
-* **User flows** and **custom policies** - These provide the built-in (user flows) and fully customizable (custom policies) identity experiences for your applications.
+* **User flows** and **custom policies** - The built-in (user flows) and fully customizable (custom policies) identity experiences for your applications.
   * Use *user flows* for quick configuration and enablement of common identity tasks like sign up, sign in, and profile editing.
   * Use *custom policies* to enable user experiences not only for the common identity tasks, but also for crafting support for complex identity workflows unique to your organization, customers, employees, partners, and citizens.
-* **Identity providers** - These are the federation settings for:
-  * The *social* identity providers like Facebook, LinkedIn, or Twitter that you want to support in your applications.
-  * Any *external* identity providers that support standard identity protocols like OAuth 2.0, OpenID Connect, and more.
+* **Identity providers** - Federation settings for:
+  * *Social* identity providers like Facebook, LinkedIn, or Twitter that you want to support in your applications.
+  * *External* identity providers that support standard identity protocols like OAuth 2.0, OpenID Connect, and more.
   * *Local* accounts that enable users to sign up and sign in with a username (or email address or other ID) and password.
 * **Keys** - Add and manage encryption keys for signing and validating tokens.
 
@@ -52,7 +52,7 @@ With a *consumer* account, users can sign in to the applications that you've sec
 
 A consumer account can be associated with these identity types:
 
-* **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these as as "local accounts."
+* **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these identities as as "local accounts."
 * **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider like Facebook, Microsoft, Twitter, or Google.
 
 A user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
@@ -83,7 +83,7 @@ The extensible policy framework of Azure AD B2C is its core strength. Policies d
 
 In Azure AD B2C, there are two primary paths you can take to provide these identity experiences: user flows and custom policies.
 
-* **User flows** are predefined, built-in, configurable policies that we provide so you can create sign up, sign in, and policy editing experiences in minutes.
+* **User flows** are predefined, built-in, configurable policies that we provide so you can create sign-up, sign-in, and policy editing experiences in minutes.
 
 * **Custom policies** enable you create your own user journeys for complex identity experience scenarios.
 
@@ -152,7 +152,7 @@ When a user wants to sign in to your application, whether it's a web, mobile, de
 
 Multiple applications can use the same user flow or custom policy. A single application can use multiple user flows or custom policies.
 
-For example, to sign in to an application, the application uses the *sign up or sign in* user flow. After the user has signed in, they may want to edit their profile, so the application initiates another authorization request, this time using the the *profile edit* user flow.
+For example, to sign in to an application, the application uses the *sign up or sign in* user flow. After the user has signed in, they may want to edit their profile, so the application initiates another authorization request, this time using the *profile edit* user flow.
 
 ## Seamless user experiences
 
@@ -181,7 +181,7 @@ If you choose to use custom policies, you can integrate with a RESTful API in a 
 
 Loyalty programs are another scenario enabled by Azure AD B2C's support for calling REST APIs. For example, your RESTful service can receive a user's email address, query your customer database, then return the user's loyalty number to Azure AD B2C. The return data can be stored in the user's directory account in Azure AD B2C, then be further evaluated in subsequent steps in the policy, or be included in the access token.
 
-![Line of business integration in a mobile application](media/technical-overview/lob-integration.png)
+![Line-of-business integration in a mobile application](media/technical-overview/lob-integration.png)
 
 You can add a REST API call at any step in the user journey defined by a custom policy. For example, you can call a REST API:
 
@@ -239,7 +239,7 @@ You can configure password complexity requirements in both [user flows](active-d
 
 Azure AD B2C emits audit logs containing activity information about its resources, issued tokens, and administrator access. You can use these audit logs to understand platform activity and  diagnose issues. Audit log entries are available minutes after the activity that generated the event occurs.
 
-In an audit log, which is is available for your Azure AD B2C tenant or for a particular user, you can find information including:
+In an audit log, which is available for your Azure AD B2C tenant or for a particular user, you can find information including:
 
 * Activities concerning the authorization of a user to access B2C resources (for example, an administrator accessing a list of B2C policies)
 * Activities related to directory attributes retrieved when an administrator signs in using the Azure portal
@@ -248,7 +248,7 @@ In an audit log, which is is available for your Azure AD B2C tenant or for a par
 * CRUD operations on B2C resources (for example, policies and identity providers)
 * Validation of user credentials and token issuance
 
-![Individual user audit log in the Azure portal](media/technical-overview/audit-log.png)
+![Individual user audit log shown in the Azure portal](media/technical-overview/audit-log.png)
 
 For additional details on audit logs, see [Accessing Azure AD B2C audit logs](active-directory-b2c-reference-audit-logs.md).
 
