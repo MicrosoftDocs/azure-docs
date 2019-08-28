@@ -167,10 +167,10 @@ Configure and enable or disable MFA policy| Security Administrator |
 Configure and enable or disable sign-in risk policy| Security Administrator | 
 Configure and enable or disable user risk policy | Security Administrator | 
 Configure weekly digests | Security Administrator| 
-Dismiss all risk events | Security Administrator | 
+Dismiss all risk detections | Security Administrator | 
 Fix or dismiss vulnerability | Security Administrator | 
 Read all configuration | Security Reader | 
-Read all risk events | Security Reader | 
+Read all risk detections | Security Reader | 
 Read vulnerabilities | Security Reader | 
 
 ## Licenses
