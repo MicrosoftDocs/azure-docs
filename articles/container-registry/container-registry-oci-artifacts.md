@@ -12,25 +12,25 @@ ms.author: danlep
 ms.custom: 
 ---
 
-# Push and pull OCI artifacts using an Azure container registry
+# Push and pull an OCI artifact using an Azure container registry
 
 You can use an Azure container registry to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and Docker-compatible container images.
 
-This article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) tool to push a sample artifact -  a text file - to an Azure container registry. Then, pull the image from the registry. This example is only for demonstration purposes, but you can manage a variety of OCI artifacts in an Azure container registry using different command-line tools.
+To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) tool to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage a variety of OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
 
 ## Prerequisites
 
 * **Azure CLI** - You need a local installation of the Azure CLI to run the examples in this article. Version 2.0.71 or later is recommended. Run `az --version `to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **Docker** - You must also have Docker installed locally, to authenticate with the registry. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-* **ORAS tool** - Download and install a current `oras` release for your operating system from the [GitHub repo](https://github.com/deislabs/oras/releases). Currently the tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using stand procedures for your operating system.
+* **ORAS tool** - Download and install a current `oras` release for your operating system from the [GitHub repo](https://github.com/deislabs/oras/releases). The tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using stand procedures for your operating system.
 * **Azure Active Directory service principal (optional)** - Optionally create a [service principal](container-registry-auth-service-principal.md) to access your registry. Ensure that the service principal is assigned at least the AcrPush role so that it has permissions to push and pull artifacts.
 
 ## Sign in to a registry
 
 [Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with an identity (your own, or a service principal) that has permissions to push and pull artifacts from the container registry.
 
-Then, use the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) to access the registry. For example, to log in to a registry named *myregistry*:
+Then, use the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
 
 ```azurecli
 az acr login --name myregistry
@@ -58,7 +58,7 @@ Pushed myregistry.azurecr.io/samples/artifact:v1
 Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 ```
 
-To manage artifacts in your registry, use standard `az acr` commands that you use to manage images. For example, get the attributes of the artifact using the [az acr repository show][az-acr-repository-show] command:
+To manage artifacts in your registry, use standard `az acr` commands for managing images. For example, get the attributes of the artifact using the [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
 az acr repository show --name myregistry --repository samples/artifact
@@ -106,10 +106,17 @@ $ cat hi.txt
 Here is an artifact!
 ```
 
+## Remove the artifact (optional)
+
+To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete]. The following example removes the repository and any artifact you stored:
+
+```azurecli
+az acr repository delete --name myregistry --repository samples/artifact
+```
 
 ## Next steps
 
-* Learn more about [advanced features](https://github.com/deislabs/oras/tree/master/docs) of the ORAS library, including how to configure an image manifest.
+* Learn more about [the ORAS Library](https://github.com/deislabs/oras/tree/master/docs), including how to configure a manifest for an artifact.
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types.
 
 
@@ -118,3 +125,7 @@ Here is an artifact!
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
+
+[az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
+
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
