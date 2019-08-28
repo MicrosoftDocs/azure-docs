@@ -64,7 +64,7 @@ landingContent:
         links:
           - text: Azure CLI
             url: /cli/azure/ext/virtual-wan/network
-          - text: Azure Powershell
-            url: /powershell/module/az.network.md#networking
+          - text: Azure PowerShell
+            url: /powershell/module/az.network#networking
           - text: REST
             url: /rest/api/virtualwan
