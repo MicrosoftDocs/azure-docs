@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 
@@ -19,16 +19,16 @@ LUIS gives you the ability to get information from a user's natural language utt
 The hardest data to extract is the machine-learned data because it isn't an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.
 
 ## Data location and key usage
-LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments.
+LUIS provides the data from the published [prediction endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you're editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you're learning LUIS, it is important to change the endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
+The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you're editing that LUIS app. The `subscription-key` is the prediction endpoint key used for querying your app. While you can use your free authoring/starter key while you're learning LUIS, it is important to change the prediction endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
-The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS](luis-reference-regions.md) website, in the **Manage** section, on the **Azure Resources** page.
+The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production prediction endpoint. The prediction endpoint URL is found on the [LUIS](luis-reference-regions.md) website, in the **Manage** section, on the **Azure Resources** page.
 
 ## Data from intents
-The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the endpoint response is:
+The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the prediction endpoint response is:
 
 ```JSON
 {
@@ -45,7 +45,7 @@ The primary data is the top scoring **intent name**. Using the `MyStore` [quicks
 |--|--|--|--|
 |Intent|String|topScoringIntent.intent|"GetStoreInfo"|
 
-If your chatbot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores by setting the querystring parameter, `verbose=true`. The endpoint response is:
+If your chatbot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores by setting the querystring parameter, `verbose=true`. The prediction endpoint response is:
 
 ```JSON
 {
@@ -113,7 +113,7 @@ Most chatbots and applications need more than the intent name. This additional, 
 
 A single word or phrase in an utterance can match more than one entity. In that case, each matching entity is returned with its score.
 
-All entities are returned in the **entities** array of the response from the endpoint:
+All entities are returned in the **entities** array of the response from the prediction endpoint:
 
 ```JSON
 "entities": [
@@ -151,7 +151,7 @@ A [composite entity](reference-entity-composite.md) is made up of other entities
 
 ## List entity data
 
-[List entities](reference-entity-list.md) represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
+[List entities](reference-entity-list.md) represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the prediction endpoint query. 
 
 ## Prebuilt entity data
 [Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following text is an example utterance with the returned prebuilt entities:
@@ -252,7 +252,7 @@ Getting names from an utterance is difficult because a name can be almost any co
 
 People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md#simple-entity)** with [roles](luis-concept-roles.md) of first and last name. 
 
-If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) prediction endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ### Names of places
 
@@ -260,7 +260,7 @@ Location names are set and known such as cities, counties, states, provinces, an
 
 ### New and emerging names
 
-Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md#simple-entity)** and add a [phrase list](luis-concept-feature.md). [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md#simple-entity)** and add a [phrase list](luis-concept-feature.md). [Review](luis-how-to-review-endoint-utt.md) prediction endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern roles data
 Roles are contextual differences of entities.
@@ -393,7 +393,7 @@ LUIS returns all entities discovered in the utterance. As a result, your chatbot
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-The LUIS endpoint can discover the same data in different entities:
+The LUIS prediction endpoint can discover the same data in different entities:
 
 ```JSON
 {
@@ -521,9 +521,9 @@ The LUIS endpoint can discover the same data in different entities:
 
 ## Data matching multiple list entities
 
-If a word or phrase matches more than one list entity, the endpoint query returns each List entity.
+If a word or phrase matches more than one list entity, the prediction endpoint query returns each List entity.
 
-For the query `when is the best time to go to red rock?`, and the app has the word `red` in more than one list, LUIS recognizes all the entities and returns an array of entities as part of the JSON endpoint response: 
+For the query `when is the best time to go to red rock?`, and the app has the word `red` in more than one list, LUIS recognizes all the entities and returns an array of entities as part of the JSON prediction endpoint response: 
 
 ```JSON
 {

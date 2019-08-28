@@ -23,8 +23,8 @@ Users have full control over [exporting](luis-how-to-start-new-app.md#export-app
 
 Utterances can be stored in two different places. 
 
-* During **the authoring process**, utterances are created and stored in the Intent. Utterances in intents are required for a successful LUIS app. Once the app is published and receives queries at the endpoint, the endpoint request's querystring, `log=false`, determines if the endpoint utterance is stored. If the endpoint is stored, it becomes part of the active learning utterances found in the **Build** section of the portal, in the **Review endpoint utterances** section. 
-* When you **review endpoint utterances**, and add an utterance to an intent, the utterance is no longer stored as part of the endpoint utterances to be reviewed. It is added to the app's intents. 
+* During **the authoring process**, utterances are created and stored in the Intent. Utterances in intents are required for a successful LUIS app. Once the app is published and receives queries at the prediction endpoint, the prediction endpoint request's querystring, `log=false`, determines if the prediction endpoint utterance is stored. If the prediction endpoint is stored, it becomes part of the active learning utterances found in the **Build** section of the portal, in the **Review endpoint utterances** section. 
+* When you **review endpoint utterances**, and add an utterance to an intent, the utterance is no longer stored as part of the prediction endpoint utterances to be reviewed. It is added to the app's intents. 
 
 <a name="utterances-in-an-intent"></a>
 

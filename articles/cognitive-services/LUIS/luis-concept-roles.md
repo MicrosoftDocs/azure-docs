@@ -9,12 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 # Entity roles for contextual subtypes
 
-Roles allow entities to have named subtypes. A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
+You, as the app author, create a role as a way to categorize the entity by how it is used in the utterance. 
+
+For example, a **location** for a plane ticket may include an location type of **origin** and **destination** for the flight. 
+
+Each location:
+
+* Can appear in a single, same utterance
+* Is a location
+* Is a different **type of location**. That difference is important to capture and is determined through the context of the utterance. 
+
+If an utterance has a location, but the type of location is unclear, it is still important that the location is found. If an entity has a role, the role doesn't have to be determined, in order for the entity to be found.
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
@@ -85,11 +95,9 @@ In a pattern's template utterance, roles are used within the utterance:
 ## Role syntax in patterns
 The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 
 
-## Entity roles versus collaborator roles
+## Entity roles versus contributor roles
 
-Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concept-keys.md) roles apply to levels of authoring access. 
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+Entity roles apply to the data model of the LUIS app. [Contributor](luis-concept-keys.md) roles apply to levels of authoring access. 
 
 ## Next steps
 
