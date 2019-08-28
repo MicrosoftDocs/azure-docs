@@ -40,7 +40,7 @@ landingContent:
             url: analysis-services-qs-firewall.md
 
   # Card
-  - title: Concepts
+  - title: Understand
     linkLists:
       - linkListType: concept
         links:
@@ -52,19 +52,19 @@ landingContent:
             url: analysis-services-gateway.md
 
   # Card
-  - title: Tutorials
+  - title: Manage and connect
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Configure server administrator and user roles 
+            url: tutorials/analysis-services-tutorial-roles.md
           - text: Add a sample model from the portal
             url: analysis-services-create-sample-model.md
-          - text: Configure server administrator and user roles 
-            url: analysis-services-tutorial-roles.md
           - text: Connect with Power BI Desktop
-            url: analysis-services-tutorial-pbid.md
+            url: tutorials/analysis-services-tutorial-pbid.md
 
   # Card
-  - title: Reference
+  - title: Scripting and APIs
     linkLists:
       - linkListType: reference
         links:
