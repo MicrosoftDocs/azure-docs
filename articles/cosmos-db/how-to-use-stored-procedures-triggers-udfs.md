@@ -3,7 +3,7 @@ title: How to call stored procedures, triggers, and user-defined functions using
 description: Learn how to register and call stored procedures, triggers, and user-defined functions using the Azure Cosmos DB SDKs
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mjbrown
 ---
