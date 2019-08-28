@@ -102,7 +102,7 @@ landingContent:
         links:
           - text: Azure CLI
             url: /cli/azure/network/vnet-gateway
-          - text: Azure Powershell
+          - text: Azure PowerShell
             url: /powershell/module/az.network#vpn
           - text: REST
             url: /rest/api/network-gateway
