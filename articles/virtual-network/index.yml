@@ -54,8 +54,6 @@ landingContent:
             url: security-overview.md
           - text: Application security groups
             url: security-overview.md#application-security-groups 
-          - text: Route tables
-            url: virtual-networks-udr-overview.md
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
       - linkListType: tutorial
