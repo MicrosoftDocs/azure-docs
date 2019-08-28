@@ -44,11 +44,14 @@ Create a text file in a local working working directory with some sample text. F
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Use the `oras` tool to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo in *myregistry*. The artifact is tagged `v1`. Note that you push the artifact using the fully qualified registry name *myregistry.azurecr.io* (all lowercase):
+Use the `oras` tool to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo in *myregistry*. The artifact is tagged `v1`. Note that you push the artifact using the fully qualified registry name *myregistry.azurecr.io* (all lowercase). 
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:v1 artifact.txt
 ```
+
+> [!TIP]
+> This example pushes the file with the default *media type* `application/vnd.oci.image.layer.v1.tar`. To push a custom media type, use the format `filename:type`, for example, `artifact.txt:application/application/vnd.oci.unknown.layer.v1+txt`. See the artifacts [quick guide](https://stevelasker.blog/2019/05/11/authoring-oci-registry-artifacts-quick-guide/).
 
 Output for a successful push is similar to the following:
 
@@ -61,7 +64,7 @@ Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 To manage artifacts in your registry, use standard `az acr` commands for managing images. For example, get the attributes of the artifact using the [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
-az acr repository show --name myregistry --repository samples/artifact
+az acr repository show --name myregistry --image samples/artifact:v1
 ```
 
 Output is similar to the following:
@@ -74,12 +77,11 @@ Output is similar to the following:
     "readEnabled": true,
     "writeEnabled": true
   },
-  "createdTime": "2019-08-28T18:01:01.4205711Z",
-  "imageName": "samples/artifact",
-  "lastUpdateTime": "2019-08-28T18:01:01.5363713Z",
-  "manifestCount": 1,
-  "registry": "myregistry.azurecr.io",
-  "tagCount": 1
+  "createdTime": "2019-08-28T20:43:31.0001687Z",
+  "digest": "sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx",
+  "lastUpdateTime": "2019-08-28T20:43:31.0001687Z",
+  "name": "v1",
+  "signed": false
 }
 ```
 
@@ -108,7 +110,7 @@ Here is an artifact!
 
 ## Remove the artifact (optional)
 
-To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the repository and any artifact you stored:
+To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the repository and any artifact you stored there:
 
 ```azurecli
 az acr repository delete --name myregistry --repository samples/artifact
