@@ -84,7 +84,7 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using Microsoft.Rest;
 ```
 
-In the application's `Program` class, create variables for your resource's Azure endpoint and subscription key. In a static constructor, obtain these values from the environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT`. If you create these environment variable after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
+In the application's `Program` class, create variables for your resource's Azure endpoint and subscription key. In a static constructor, obtain these values from the environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT`. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 
 ```csharp
 private const string key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
