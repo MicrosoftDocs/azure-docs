@@ -710,15 +710,61 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | The updated JSON object with the specified property |
 ||||
 
-*Example*
-
-This example adds the `middleName` property to a `customerName` object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the new property and returns the updated object:
+To add a child property to an existing property, use this syntax:
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'middleName', 'Anne')
+addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
-Here's the current `customerName` object:
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | Yes | Object | The JSON object where you want to add a property |
+| <*parent-property*> | Yes | String | The name for parent property where you want to add the child property |
+| <*child-property*> | Yes | String | The name for the child property to add |
+| <*value*> | Yes | Any | The value to set for the specified property |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | The updated JSON object whose property you set |
+||||
+
+*Example 1*
+
+This example adds the `middleName` property to a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The object already includes the `firstName` and `surName` properties. The function assigns the specified value to the new property and returns the updated object:
+
+```
+addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+*Example 2*
+
+This example adds the `middleName` child property to the existing `customerName` property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the new property and returns the updated object:
+
+```
+addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+```
+
+Here's the current JSON object:
 
 ```json
 {
@@ -729,7 +775,7 @@ Here's the current `customerName` object:
 }
 ```
 
-Here's the updated `customerName` object:
+Here's the updated JSON object:
 
 ```json
 {
@@ -3316,29 +3362,72 @@ removeProperty(<object>, '<property>')
 | <*updated-object*> | Object | The updated JSON object without the specified property |
 ||||
 
-*Example*
-
-This example removes the `accountLocation` property from a `customerProfile` object, which is converted from a string to JSON by using the [JSON()](#json) function, and returns the updated object:
+To remove a child property from an existing property, use this syntax:
 
 ```
-removeProperty(json('{ "customerProfile": { "customerName": { "firstName": "Sophia", "surName": "Owen" }, "accountLocation": "Canada" } }'), 'accountLocation')
+removeProperty(<object>['<parent-property>'], '<child-property>')
 ```
 
-Here's the current `customerProfile` object:
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | Yes | Object | The JSON object whose property you want to remove |
+| <*parent-property*> | Yes | String | The name for parent property with the child property that you want to remove |
+| <*child-property*> | Yes | String | The name for the child property to remove |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | The updated JSON object whose child property that you removed |
+||||
+
+*Example 1*
+
+This example removes the `middleName` property from a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function, and returns the updated object:
+
+```
+removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
+```
+
+Here's the current JSON object:
 
 ```json
 {
-   "customerProfile": {
-      "customerName": {
-         "firstName": "Sophia",
-         "surName": "Owen"
-      },
-      "accountLocation": "Canada"
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+*Example 2*
+
+This example removes the `middleName` child property from a `customerName` parent property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function, and returns the updated object:
+
+```
+removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
    }
 }
 ```
 
-Here's the updated `customerProfile` object:
+Here's the updated JSON object:
 
 ```json
 {
@@ -3509,70 +3598,56 @@ setProperty(<object>['<parent-property>'], '<child-property>', <value>)
 
 *Example 1*
 
-This example sets the `surName` property in a `customerName` object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the property and returns the updated object:
+This example sets the `surName` property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the property and returns the updated object:
 
 ```
-setProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }'), 'surName', 'Hartnett')
+setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
 ```
 
-Here's the current `customerName` object:
+Here's the current JSON object:
 
 ```json
 {
-   "customerName": {
-      "firstName": "Sophie",
-      "middleName": "Anne",
-      "surName": "Owen"
-   }
+   "firstName": "Sophia",
+   "surName": "Owen"
 }
 ```
 
-Here's the updated `customerName` object:
+Here's the updated JSON object:
 
 ```json
 {
-   "customerName": {
-      "firstName": "Sophie",
-      "middleName": "Anne",
-      "surName": "Hartnett"
-   }
+   "firstName": "Sophia",
+   "surName": "Hartnett"
 }
 ```
 
 *Example 2*
 
-This example sets the `suffix` child property for the `lastName` parent property and returns the updated object:
+This example sets the `surName` child property for the `customerName` parent property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the property and returns the updated object:
 
 ```
-setProperty(json('{ "customerName": { "firstName": "Jamal", "middleName": "", "lastName": { "surName": "Hartnett", "suffix": ""} } }')['lastName'], 'suffix', 'Jr')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett')
 ```
 
-Here's the current `customerName` object:
+Here's the current JSON object:
 
 ```json
 {
    "customerName": {
-      "firstName": "Jamal",
-      "middleName": "",
-      "lastName": {
-         "surName": "Hartnett",
-         "suffix": ""
-      }
+      "firstName": "Sophie",
+      "surName": "Owen"
    }
 }
 ```
 
-Here's the updated `customerName` object:
+Here's the updated JSON object:
 
 ```json
 {
    "customerName": {
-      "firstName": "Jamal",
-      "middleName": "",
-      "lastName": {
-         "surName": "Hartnett",
-         "suffix": "Jr"
-      }
+      "firstName": "Sophie",
+      "surName": "Hartnett"
    }
 }
 ```
