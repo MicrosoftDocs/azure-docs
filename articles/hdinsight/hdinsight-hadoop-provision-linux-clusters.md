@@ -78,7 +78,7 @@ HDInsight cluster names have the following restrictions:
 - Allowed characters: a-z, 0-9, A-Z 
 - Max length: 59
 - Reserved names: apps
-- Must be unique
+- The cluster naming scope is for all Azure, across all subscriptions. So the cluster name must be unique worldwide.
 - First 6 characters must be unique within a VNET
 
 ## Cluster login and SSH username
