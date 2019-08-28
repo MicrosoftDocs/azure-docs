@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart 
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -19,7 +19,7 @@ Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to
 
 ::: zone target="chromeless"
 
-# Get started with Azure Data Box Disk using Azure portal
+# Get started with Azure Data Box Disk 
 
 ::: zone-end
 
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ::: zone target="chromeless"
 
-This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include review prerequisites, unlock the disks, connect and copy data to disks so that uploads to Azure.
+This guide describes how to deploy the Azure Data Box Disk in the Azure portal. The steps include review prerequisites, unlock the disks, and connect and copy data to disks so that it uploads to Azure.
 
 ::: zone-end
 
