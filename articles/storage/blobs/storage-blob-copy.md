@@ -107,6 +107,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 ## Next steps
 
-The following topics contain information about copying blobs using the Azure REST API and aborting an ongoing copy operation.
+The following topics contain information about copying blobs and aborting ongoing copy operations by using the Azure REST APIs.
 
-- [Copy a blob with REST](/rest/api/storageservices/copy-blob)
+- [Copy Blob](/rest/api/storageservices/copy-blob)
+- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)
