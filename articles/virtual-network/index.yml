@@ -26,7 +26,11 @@ landingContent:
         links:
           - text: What is Azure Virtual Network?
             url: virtual-networks-overview.md
-
+      - linkListType: reference
+        links:
+          - text: Virtual network FAQ
+            url: virtual-networks-overview.md
+ 
   # Card (optional)
   - title: Get started
     linkLists:
@@ -58,14 +62,20 @@ landingContent:
         links:
           - text: Filter network traffic using network security groups
             url: tutorial-filter-network-traffic.md
-          - text: Route network traffic using route tables
-            url: tutorial-create-route-table-portal.md
           - text: Restrict network access using service endpoints
             url: tutorial-restrict-network-access-to-resources.md
           - text: Work with application security groups
             url: manage-network-security-group.md#work-with-application-security-groups
+      - linkListType: reference
+        links:
+          - text: Virtual network security FAQ
+            url: virtual-networks-faq.md#security.md
+      - linkListType: learn
+        links:
+          - text: Secure and isolate access to Azure resources
+            url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
 
-
+         
   # Card
   - title: Connect virtual networks
     linkLists:
@@ -87,6 +97,26 @@ landingContent:
             url: create-peering-different-deployment-models.md
           - text: Different deployment models - different subscriptions
             url: create-peering-different-deployment-models-subscriptions.md
+      - linkListType: reference
+        links:
+          - text: Virtual network peering FAQ
+            url: virtual-networks-faq.md#vnet-peering.md
+      - linkListType: learn
+        links:
+          - text: Communicate across virtual network with peering
+            url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering      
+
+  # Card
+  - title: Route network traffic
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Route network traffic with route tables
+            url: virtual-networks-udr-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Route network traffic - Portal
+            url: tutorial-create-route-table-portal.md
 
   # Card
   - title: Create IP addresses 
@@ -126,12 +156,16 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Virtual network TAP
+          - text: Virtual network Terminal Access Point (TAP)
             url: virtual-network-tap-overview.md
       - linkListType: how-to-guide
         links:
           - text: Create a virtual network TAP
             url: tutorial-tap-virtual-network-cli.md
+      - linkListType: reference
+        links:
+          - text: Virtual network TAP FAQ
+            url: virtual-networks-faq.md#virtual-network-tap  .md
 
   # Card
   - title: Manage IP services
@@ -151,7 +185,19 @@ landingContent:
           - text: Deploy an IPV6 dual stack application
             url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
           - text: Create, change, or delete a public IP address prefix
-            url: manage-public-ip-address-prefix.md  
+            url: manage-public-ip-address-prefix.md
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network
+          - text: Azure PowerShell
+            url: /powershell/module/az.network
+          - text: REST
+            url: /rest/api/virtual-network      
+          
     
 
 
