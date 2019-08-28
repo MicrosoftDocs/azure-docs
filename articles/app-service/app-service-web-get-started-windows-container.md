@@ -58,9 +58,9 @@ Create an ASP.NET web app by following these steps:
 
 1. You need to use a [supported parent image](#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
-```Dockerfile
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
-```
+   ```Dockerfile
+   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
+   ```
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
@@ -149,12 +149,12 @@ The streamed logs looks like this:
 
 1. Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire element with the following code:
 
-```HTML
-<div class="jumbotron">
-    <h1>ASP.NET in Azure!</h1>
-    <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
-</div>
-```
+   ```HTML
+   <div class="jumbotron">
+       <h1>ASP.NET in Azure!</h1>
+       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+   </div>
+   ```
 
 1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and choose **Publish**.
 

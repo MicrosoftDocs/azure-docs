@@ -71,9 +71,9 @@ Create an ASP.NET Core web app by following these steps:
 
 1. In **App Service Create new**, your options depend on whether you are signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
-> [!NOTE]
-> If you're already signed in, don't select **Create** yet.
->
+   > [!NOTE]
+   > If you're already signed in, don't select **Create** yet.
+   >
 
    ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure-vs2019.png)
 
@@ -89,11 +89,11 @@ Create an ASP.NET Core web app by following these steps:
 
 1. In the **Configure Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
 
-| Setting | Suggested Value | Description |
-|-|-|-|
-|App Service Plan| myAppServicePlan | Name of the App Service plan. |
-| Location | West Europe | The datacenter where the web app is hosted. |
-| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
+   | Setting | Suggested Value | Description |
+   |-|-|-|
+   |App Service Plan| myAppServicePlan | Name of the App Service plan. |
+   | Location | West Europe | The datacenter where the web app is hosted. |
+   | Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
    ![Create App Service plan](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)
 
@@ -101,13 +101,13 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Configure app name](./media/app-service-web-get-started-dotnet/web-app-name-vs2019.png)
 
- 1. Select **Create** to start creating the Azure resources.
+1. Select **Create** to start creating the Azure resources.
 
 Once the wizard completes, it publishes the ASP.NET Core web app to Azure, and then launches the app in the default browser.
 
 ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-The app name specified in the [create and publish step](#create-and-publish-the-web-app) is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`.
+The app name specified in the **App Service Create new** page is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`.
 
 Congratulations, your ASP.NET Core web app is running live in Azure App Service.
 
@@ -117,12 +117,12 @@ Congratulations, your ASP.NET Core web app is running live in Azure App Service.
 
 1. Replace the two `<div>` tags with the following code:
 
-```HTML
-<div class="jumbotron">
-    <h1>ASP.NET in Azure!</h1>
-    <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
-</div>
-```
+   ```HTML
+   <div class="jumbotron">
+       <h1>ASP.NET in Azure!</h1>
+       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+   </div>
+   ```
 
 1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 
