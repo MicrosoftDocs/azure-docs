@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 08/28/2019
 ms.author: tasharm
 ---
 # Quickstart: Call the Text Analytics service using the Ruby SDK
