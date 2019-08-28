@@ -1,3 +1,23 @@
+---
+title: Configure and validate VNet or VPN connections
+description: Step-by-step guidance to configure and validate various Azure VPN and VNet deployments
+services: virtual-network
+documentationcenter: na
+author: v-miegge
+manager: dcscontentpm
+editor: ''
+
+ms.assetid: 0433a4f4-b5a0-476d-b398-1506c57eafa2
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: troubleshooting
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/28/2019
+ms.author: v-miegge
+
+---
+
 # Configure and validate VNet or VPN connections
 
 This guided walkthrough provides you step-by-step guidance to configure and validate various Azure VPN and VNet deployments, in scenarios, such as, Transit Routing, VNet-to-VNet, BGP, Multi-Site, Point-to-Site and so on.
