@@ -178,6 +178,9 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     }
     ```
 
+    > [!IMPORTANT]
+    > At this point, the web app has been created. However, since you haven't provided the credentials to the Azure Container Registry that contains the image, the web app is not active. In the next step, you provide the authentication information for the container registry.
+
 1. To provide the web app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
 
     ```azurecli-interactive
@@ -223,6 +226,8 @@ At this point, the web app begins loading the image.
 > ```azurecli-interactive
 > az webapp log tail --name <app-name> --resource-group myresourcegroup
 > ```
+>
+> Once the image has been loaded and the site is active, the log displays a message that states `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
 
 Once the image is deployed, you can find the hostname by using the following command:
 
@@ -243,7 +248,7 @@ import json
 scoring_uri = "https://mywebapp.azurewebsites.net/score"
 
 headers = {'Content-Type':'application/json'}
-    
+
 test_sample = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]
