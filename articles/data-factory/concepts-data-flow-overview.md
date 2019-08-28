@@ -22,6 +22,8 @@ You will then schedule and monitor your data flow activities by using Azure Data
 
 The Debug Mode toggle switch on the Data Flow design surface allows interactive building of data transformations. Debug Mode provides a data prep and data preview environment for data flow construction.
 
+# Begin building your data flow logical graph
+
 Start building data flows by using the + sign under Factory Resources to create a new data flow.
 
 ![new data flow](media/data-flow/newdataflow2.png "new data flow")
@@ -29,6 +31,8 @@ Start building data flows by using the + sign under Factory Resources to create 
 Start by configuring your Source Transformation and then add data transformation to each subsequent step using the + sign. As you build out your logical graph, you can switch between graph and configuration modes using the "Show graph" and "Hide graph" button.
 
 ![Show graph](media/data-flow/showg.png "Show graph")
+
+# Configure transformation logic
 
 ![Hide graph](media/data-flow/hideg.png "Hide Graph")
 
