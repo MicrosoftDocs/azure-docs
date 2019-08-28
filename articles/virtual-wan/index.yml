@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/13/2019
+  ms.date: 08/28/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,7 +29,7 @@ landingContent:
         links:
           - text: Working with locations and partners
             url: virtual-wan-locations-partners.md
-      - linkListType: reference
+      - linkListType: concept
         links:
           - text: FAQ
             url: virtual-wan-faq.md
@@ -65,8 +65,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/network/virtual-wan.md
+            url: /cli/azure/network/virtual-wan
           - text: Azure Powershell
             url: /powershell/module/az.network.md#networking
           - text: REST
-            url: /rest/api/virtualwan.md
+            url: /rest/api/virtualwan
