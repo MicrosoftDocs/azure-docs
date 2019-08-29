@@ -29,56 +29,73 @@ landingContent:
             url: whatis-hybrid-identity.md
  
   # Card
-  - title: Get started with hybrid identity
+  - title: Determine the best solution to manage the lifecycle of your users and groups
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD Connect and Azure AD Connect Health?
+          - text: What is Azure AD Connect and Connect Health?
             url: whatis-azure-ad-connect.md
+      - linkListType: tutorial
+        links:
+          - text: Integrate a single AD forest using password hash sync (PHS)
+            url: tutorial-password-hash-sync.md
+          - text: Integrate a single AD forest using pass-through authentication (PTA)
+            url: tutorial-passthrough-authentication.md
+          - text: Integrate a single AD forest using federation
+            url: tutorial-federation.md
+
+  
+  # Card
+  - title: Choose the authentication method that works best for your organization
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is password hash sync?
+            url: whatis-phs.md
+          - text: What is passthrough authentication?
+            url: how-to-connect-pta.md
+          - text: What is federtation?
+            url: whatis-fed.md
+          - text: What is single sign-on?
+            url: how-to-connect-sso.md
+      - linkListType: concept
+        links:
+          - text: Determine which authetication method is right for you
+            url: /security/fundamentals/choose-ad-authn.md
+
+
+
+  # Card
+  - title: Get started with hybrid identity
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Install Azure AD Connect with express settings
             url: how-to-connect-install-express.md
           - text: Install Azure AD Connect with custom settings
             url: how-to-connect-install-custom.md
-
-  
-  # Card
-  - title: Manage the lifecycle of users and groups that use password hash sync 
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is password hash sync?
-            url: whatis-phs.md
-      - linkListType: tutorial
-        links:
-          - text: Integrate a single AD forest using password hash sync (PHS)
-            url: tutorial-password-hash-sync.md
-
-  # Card
-  - title: Manage the lifecycle of users and groups that use passthrough authentication
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is passthrough authentication?
-            url: whatis-phs.md
-      - linkListType: tutorial
-        links:
-          - text: Integrate a single AD forest using pass-through authentication (PTA)
-            url: tutorial-passthrough-authentication.md
  
   # Card
-  - title: Manage the lifecycle of users and groups that use federation
+  - title: Manage Azure AD Connect
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: What is federation?
-            url: whatis-fed.md
-      - linkListType: tutorial
+          - text: Configure the AD DS Connector account
+            url: how-to-connect-configure-ad-ds-connector-account.md
+          - text: Change the ADSync service account password
+            url: how-to-connect-sync-change-serviceacct-pass.md
+          - text: Change the Azure AD Connector account password
+            url: how-to-connect-azureadaccount.md   
+          - text: Change the AD DS account password
+            url: how-to-connect-sync-change-addsacct-pass.md
+      - linkListType: reference
         links:
-          - text: Integrate a single AD forest using federation
-            url: tutorial-federation.md
-
+          - text: Required ports and protocols
+            url: reference-connect-ports.md
+          - text: Accounts and permissions
+            url: reference-connect-accounts-permissions.md
+          - text: Azure AD Connect version history
+            url: reference-connect-version-history.md
 
 
 
