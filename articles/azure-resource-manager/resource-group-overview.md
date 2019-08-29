@@ -106,6 +106,6 @@ This resiliency applies to services that receive requests through Resource Manag
 
 * To learn about tagging resources, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
 
-* To learn about locking resources, see [Lock resources to prevent unexpected changes](resource-group-lock-resources).
+* To learn about locking resources, see [Lock resources to prevent unexpected changes](resource-group-lock-resources.md).
 
 * For information about creating templates for deployments, see [Template deployment overview](template-deployment-overview.md).
