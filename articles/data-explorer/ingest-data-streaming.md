@@ -17,8 +17,8 @@ The classic (bulk) ingestion is advised when the amount of data grows to more th
 
 > [NOTE]
 > Streaming ingestion doesn't support the following features:
-> * [Database cursors](../databasecursor.md).
-> * [Data mapping](../../management/mappings.md). Only [pre-created](../../management/ tables.md#create-ingestion-mapping) data mappings are supported. 
+> * [Database cursors](/azure/kusto/management/databasecursor).
+> * [Data mapping](/azure/kusto/management/mappings). Only [pre-created](/azure/kusto/management/tables#create-ingestion-mapping) data mappings are supported. 
 
 ## Prerequisites
 
@@ -31,41 +31,47 @@ The classic (bulk) ingestion is advised when the amount of data grows to more th
 You can enable streaming ingestion on your own cluster.
 
 1. In the Azure portal, go to your Azure Data Explorer cluster. In **Settings**, select **Configurations**. 
-1. In the **Configurations** window, select **On** for **Streaming ingestion**.
+1. In the **Configurations** pane, select **On** to enable **Streaming ingestion**.
 1. Select **Save**.
  
     ![streaming ingestion on](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. In the [Web UI](https://dataexplorer.azure.com/), define [streaming ingestion policy](../../concepts/streamingingestionpolicy.md) on table(s) or database(s) that will receive streaming data. If the policy is defined at the database level, all tables in the database are enabled for streaming ingestion.
+1. In the [Web UI](https://dataexplorer.azure.com/), define [streaming ingestion policy](/azure/kusto/concepts/streamingingestionpolicy) on table(s) or database(s) that will receive streaming data. 
 
-## Supported ingestion methods
+    > [!TIP]
+    > If the policy is defined at the database level, all tables in the database are enabled for streaming ingestion.
 
-* **Event Hub** 
-    * Establish [Event Hub as a data source](/azure/data-explorer/ingest-data-event-hub). 
-    * Data delay is longer than custom ingestion.
-    * Many aspects of the data ingestion are handled by Azure Data Explorer Data Management service.
+## Supported streaming ingestion types
 
-* **Custom ingestion**
-    * Write an application that uses one of Azure Data Explorer client libraries. See [streaming ingestion sample](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) for a simple application.
-    * Achieves the shortest delay between initiating the ingestion and the data being available for query. 
-    * Incurs the most development overhead since the application for custom ingestion must handle errors and ensure data consistency.
+There are two supported streaming ingestion types:
+
+* [Event Hub](/azure/data-explorer/ingest-data-event-hub) as a data source
+* Custom ingestion requires you to write an application that uses one of Azure Data Explorer client libraries. See [streaming ingestion sample](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) for a sample application.
+
+### Choose the appropriate streaming ingestion type
+
+
+|   |Event Hub  |Custom Ingestion  |
+|---------|---------|---------|
+|Data delay between ingestion initiation and the data available for query   |    longer delay     |   shorter delay      |
+|Development overhead    |   fast and easy setup, no development overhead    |   high development overhead for application to handle errors and ensure data consistency     |
 
 ## Disable streaming ingestion on your cluster
 
 > [!WARNING]
 > Disabling streaming ingestion may take few hours.
 
-1. Drop all [streaming ingestion policy](../../concepts/streamingingestionpolicy.md) from all tables and databases. Streaming ingestion policy removal might be from several GBs to several hundreds of GBs of data stored in the rowstore (the initial storage of the data that comes via streaming ingestion). This data should be moved to extents. Usually it would take up to several minutes to move the data, but if the cluster is under CPU or memory pressure, it might take much longer.
-1. Only after all streaming ingestion policies were dropped, go to your Azure Data Explorer cluster resource in Azure portal.
-1. In the Configurations window, select Off for the Streaming ingestion.
-1. Select Save.
+1. Drop [streaming ingestion policy](/azure/kusto/concepts/streamingingestionpolicy) from all relevant tables and databases. The streaming ingestion policy removal process triggers movement of the streaming ingestion data from its initial storage to the permanent storage in the column store (extents or shards). The data movement may last a few seconds to a few hours depending the amount of data in the initial storage and the CPU and memory utilization of the cluster.
+1. In the Azure portal, go to your Azure Data Explorer cluster. In **Settings**, select **Configurations**. 
+1. In the **Configurations** pane, select **Off** to disable **Streaming ingestion**.
+1. Select **Save**.
 
-    ![Streaming ingestion off](media/ingest-data-streaming/streaming-ingestion-off.PNG)
-
+    ![Streaming ingestion off](media/ingest-data-streaming/streaming-ingestion-off.png)
 
 ## Limitations
 
+* Streaming ingestion performance and capacity scales with increased VM and cluster sizes. For a single D11 node the recommended load is up to 20 requests per second and for a single D14 node, the recommended load is up to 150 requests per second.
+* Currently, support is only for 8 and 16 core SKUs (D13, D14, L8 and L16).
 * The data size limitation per ingestion request is 4MB.
 * Schema updates, such as creation and modification of tables and ingestion mappings, may take up to 5 minutes for the streaming ingestion service.
-* Enabling streaming ingestion on a cluster allocates part of the local SSD disk of the cluster machines for streaming ingestion data and reduces the storage available for the hot cache
-(even if no data is actually ingested via streaming).
+* Enabling streaming ingestion on a cluster allocates part of the local SSD disk of the cluster machines for streaming ingestion data and reduces the storage available for the hot cache (even if no data is actually ingested via streaming).
