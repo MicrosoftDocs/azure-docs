@@ -29,6 +29,8 @@ LUIS uses two types of Azure resources, each type has keys:
 |[Authoring key](#programmatic-key)|Authoring, training, publishing, testing.|`LUIS.Authoring`|`Cognitive Services`|
 |[Prediction endpoint runtime key](#prediction-endpoint-runtime-key)| Query prediction endpoint runtime with a user utterance to determine intents and entities.|`LUIS`|`Cognitive Services`|
 
+LUIS also provides a [starter key](luis-how-to-azure-subscription.md#starter-key) with a 1000 transactions per month prediction endpoint quota. 
+
 While you don't need to create both keys at the same time, it is much easier if you do.
 
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.

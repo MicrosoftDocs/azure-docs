@@ -9,12 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 
 # Create a new LUIS app in the LUIS portal
 There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+
+## Prerequisites
+
+When you first sign in to LUIS portal, you are prompted to create a [LUIS authoring key](luis-concept-keys.md), associated with your Azure account and subscription. 
 
 ## Using the LUIS portal
 You can create a new app in the LUIS portal in several ways:
