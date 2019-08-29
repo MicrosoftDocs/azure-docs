@@ -784,7 +784,7 @@ Users assigned to this role are added to the local administrators group on Azure
 | microsoft.aad.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
 | microsoft.aad.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
 
-### Directory Readers
+### Directory Readers permissions
 Can read basic directory information. For granting access to applications, not intended for users.
 
 | **Actions** | **Description** |
@@ -927,7 +927,7 @@ Configure identity providers for use in direct federation.
 | --- | --- |
 | microsoft.aad.b2c/identityProviders/allTasks | Read and configure identity providers in  Azure Active Directory B2C. |
 
-### Guest Inviter
+### Guest Inviter permissions
 Can invite guest users independent of the ‘members can invite guests’ setting.
 
 | **Actions** | **Description** |
@@ -1056,7 +1056,7 @@ Can read Message Center posts, data privacy messages, groups, domains and subscr
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | Read securityMessages in microsoft.office365.messageCenter. |
 
-### Message Center Reader
+### Message Center Reader permissions
 Can read messages and updates for their organization in Office 365 Message Center only. 
 
 > [!NOTE]
@@ -1178,7 +1178,9 @@ Allowed to view, set and reset authentication method information for any user (a
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.aad.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
-### Privileged Role Administrator
+
+### Privileged Role Administrator permissions
+
 Can manage role assignments in Azure AD,and all aspects of Privileged Identity Management.
 
 > [!NOTE]
