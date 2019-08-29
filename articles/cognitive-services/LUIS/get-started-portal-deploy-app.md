@@ -59,7 +59,7 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 1. To add the LUIS, select **Add prediction resource**.
 
-    <!-- TBD: get screenshot>
+    <!-- TBD: get screenshot-->
 
 1. Select your tenant, subscription, and resource name. Select **Assign resource**.
 
