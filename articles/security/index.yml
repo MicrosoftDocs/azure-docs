@@ -60,7 +60,7 @@ conceptualContent:
           text: Microsoft Threat Modeling tool 
       footerLink: 
         url: ./develop/index.yml
-        text: See More
+        text: See more
 
     - title: Benchmarks and recommendations
       links: 
