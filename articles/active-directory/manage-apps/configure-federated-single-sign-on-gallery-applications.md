@@ -103,7 +103,7 @@ To configure single sign-on for an application, follow these steps:
 
     1. Select **Save.** You see the new attribute in the table.
 
-13. Select **Configure &lt;application name&gt;** to access documentation on how to configure single sign-on in the application. Also, you have the metadata URLs and certificate required to setup SSO with the application.
+13. Select **Configure &lt;application name&gt;** to access documentation on how to configure single sign-on in the application. Also, you have the necessary metadata URLs and certificate to set up SSO with the application.
 
 14. Select **Save** to save the configuration.
 
