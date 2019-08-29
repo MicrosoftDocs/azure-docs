@@ -65,6 +65,18 @@ Historically, privileged access has been described by other vendors as a separat
 
 Azure AD Privileged Identity Management (PIM) provides additional controls tailored to securing access rights for resources, across Azure AD, Azure, and other Microsoft Online Services.  The just-in-time access, and role change alerting capabilities provided by Azure AD PIM, in addition to multi-factor authentication and Conditional Access, provide a comprehensive set of governance controls to help secure your company's resources (directory, Office 365, and Azure resource roles). As with other forms of access, organizations can use access reviews to configure recurring access recertification for all users in administrator roles.
 
+## Least privileged roles
+
+Using PIM allows a user's administrative permissions to be restricted for additional security. The following are the least privileged directory roles for configuration in Azure AD identity governance features: 
+
+| Capability | Least privileged role |
+| ---------- | --------------------- |
+| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires global administrator) |
+| Terms of use | Security administrator or conditional access administrator |
+| Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires privileged role administrator) |
+|Privileged Identity Management | Privileged role administrator |
+
+
 ## Getting started
 
 While there is no perfect solution or recommendation for every customer, the following configurations provide a guide to what baseline policies Microsoft recommends you follow to ensure a more secure and productive workforce.
