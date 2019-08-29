@@ -132,8 +132,6 @@
       href: security-center-install-endpoint-protection.md
     - name: Vulnerability assessment not installed
       href: security-center-vulnerability-assessment-recommendations.md
-    - name: Enable Network Security Groups
-      href: security-center-enable-network-security-groups.md
     - name: Threat reports
       href: security-center-threat-report.md
     - name: Custom alerts
@@ -148,8 +146,6 @@
       href: security-center-investigation-user-data.md
     - name: Logic Apps playbooks
       href: security-center-playbooks.md
-    - name: View events
-      href: security-center-events-dashboard.md
     - name: Search
       href: security-center-search.md    
     - name: Planning and operations

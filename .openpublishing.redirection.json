@@ -26020,6 +26020,16 @@
       "redirect_document_id": false
     },  
     {
+      "source_path": "articles/security-center/security-center-enable-network-security-groups.md",
+      "redirect_url": "/azure/security-center/security-center-security-center-network-recommendations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-events-dashboard.md",
+      "redirect_url": "/azure/security-center/security-center-security-center-features-retirement-july2019#events-dashboard---the-new-experience",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
