@@ -106,10 +106,10 @@ Network Watcher capabilities also require the following actions:
 | Microsoft.Authorization/\*/Read                                     | Used to fetch RBAC role assignments and policy definitions          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Used to enumerate all the resource groups in a subscription    |
 | Microsoft.Storage/storageAccounts/Read                              | Used to get the properties for the specified storage account   |
-| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) and subsequently write to the storage account |
-| Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Used to log in to the VM, perform packet capture and upload capture to storage account|
+| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) and write to the storage account |
+| Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Used to log in to the VM, do a packet capture and upload it to storage account|
 | Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Used to check if Network Watcher extension is present, and install if required |
-| Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Used to access VM scale sets, perform packet captures and upload captures to storage account|
+| Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Used to access virtual machine scale sets, do packet captures and upload them to storage account|
 | Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Used to check if Network Watcher extension is present, and install if required |
-| Microsoft.Insights/alertRules/*                                     | Used to setup metric alerts                                     |
+| Microsoft.Insights/alertRules/*                                     | Used to set up metric alerts                                     |
 | Microsoft.Support/*                                                 | Used to create and update support tickets from Network Watcher |
