@@ -9,11 +9,11 @@ manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 08/19/2019
 ms.author: genli
 
 ---
@@ -24,13 +24,16 @@ If your Linux virtual machine (VM) encounters a boot or disk error, you may need
 ## Recovery process overview
 The troubleshooting process is as follows:
 
-1. Delete the VM encountering issues, keeping the virtual hard disks.
-2. Attach and mount the virtual hard disk to another Linux VM for troubleshooting purposes.
-3. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
-4. Unmount and detach the virtual hard disk from the troubleshooting VM.
-5. Create a VM using the original virtual hard disk.
+1. Stop the affected VM.
+1. Take a snapshot for the OS disk of the VM.
+1. Create a virtual hard disk from the snapshot.
+1. Attach and mount the virtual hard disk to another Windows VM for troubleshooting purposes.
+1. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
+1. Unmount and detach the virtual hard disk from the troubleshooting VM.
+1. Swap the OS disk for the VM.
 
-For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+> [!NOTE]
+> This article does not apply to the VM with unmanaged disk.
 
 ## Determine boot issues
 Examine the boot diagnostics and VM screenshot to determine why your VM is not able to boot correctly. A common example would be an invalid entry in `/etc/fstab`, or an underlying virtual hard disk being deleted or moved.
@@ -41,58 +44,62 @@ Select your VM in the portal and then scroll down to the **Support + Troubleshoo
 
 You can also click **Screenshot** across the top of the boot diagnostics log to download a capture of the VM screenshot.
 
+## Take a snapshot of the OS Disk
+A snapshot is a full, read-only copy of a virtual hard drive (VHD). We recommend that you cleanly shut down the VM before taking a snapshot, to clear out any processes that are in progress. To take a snapshot of an OS disk, follow these steps:
 
-## View existing virtual hard disk details
-Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD). 
+1. Go to [Azure portal](https://portal.azure.com). Select **Virtual machines** from the sidebar, and then select the VM that has problem.
+1. On the left pane, select **Disks**, and then select the name of the OS disk.
+    ![Image about the name of the OS disk](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. On the **Overview** page of the OS disk, and then select **Create snapshot**.
+1. Create a snapshot in the same location as the OS disk.
 
-Select your resource group from the portal, then select your storage account. Click **Blobs**, as in the following example:
+## Create a disk from the snapshot
+To create a disk from the snapshot, follow these steps:
 
-![Select storage blobs](./media/troubleshoot-recovery-disks-portal-linux/storage-account-overview.png)
+1. Select **Cloud Shell** from the Azure portal.
 
-Typically you have a container named **vhds** that stores your virtual hard disks. Select the container to view a list of virtual hard disks. Note the name of your VHD (the prefix is usually the name of your VM):
+    ![Image about Open Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. Run the following PowerShell commands to create a managed disk from the snapshot. You should replace these sample names with the appropriate names.
 
-![Identify VHD in storage container](./media/troubleshoot-recovery-disks-portal-linux/storage-container.png)
+    ```powershell
+    #Provide the name of your resource group
+    $resourceGroupName ='myResourceGroup'
+    
+    #Provide the name of the snapshot that will be used to create Managed Disks
+    $snapshotName = 'mySnapshot' 
+    
+    #Provide the name of theManaged Disk
+    $diskName = 'newOSDisk'
+    
+    #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
+    $diskSize = '128'
+    
+    #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+    $storageType = 'Standard_LRS'
+    
+    #Provide the Azure region (e.g. westus) where Managed Disks will be located.
+    #This location should be same as the snapshot location
+    #Get all the Azure location using command below:
+    #Get-AzLocation
+    $location = 'westus'
+    
+    $snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+     
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+     
+    New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+    ```
+3. If the commands run successfully, you will see the new disk in the resource group that you provided.
 
-Select your existing virtual hard disk from the list and copy the URL for use in the following steps:
+## Attach disk to another VM
+For the next few steps, you use another VM for troubleshooting purposes. After you attach the disk to the troubleshooting VM,  you can browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files. To attach the disk to another VM, follow these steps:
 
-![Copy existing virtual hard disk URL](./media/troubleshoot-recovery-disks-portal-linux/copy-vhd-url.png)
+1. Select your resource group from the portal, then select your troubleshooting VM. Select **Disks**, select **Edit**, and then click **Add data disk**:
 
+    ![Attach existing disk in the portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-## Delete existing VM
-Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard disk is where the operating system itself, applications, and configurations are stored. The VM itself is just metadata that defines the size or location, and references resources such as a virtual hard disk or virtual network interface card (NIC). Each virtual hard disk has a lease assigned when attached to a VM. Although data disks can be attached and detached even while the VM is running, the OS disk cannot be detached unless the VM resource is deleted. The lease continues to associate the OS disk with a VM even when that VM is in a stopped and deallocated state.
-
-The first step to recover your VM is to delete the VM resource itself. Deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
-
-Select your VM in the portal, then click **Delete**:
-
-![VM boot diagnostics screenshot showing boot error](./media/troubleshoot-recovery-disks-portal-linux/stop-delete-vm.png)
-
-Wait until the VM has finished deleting before you attach the virtual hard disk to another VM. The lease on the virtual hard disk that associates it with the VM needs to be released before you can attach the virtual hard disk to another VM.
-
-
-## Attach existing virtual hard disk to another VM
-For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to be able to browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
-
-1. Select your resource group from the portal, then select your troubleshooting VM. Select **Disks** and then click **Attach existing**:
-
-    ![Attach existing disk in the portal](./media/troubleshoot-recovery-disks-portal-linux/attach-existing-disk.png)
-
-2. To select your existing virtual hard disk, click **VHD File**:
-
-    ![Browse for existing VHD](./media/troubleshoot-recovery-disks-portal-linux/select-vhd-location.png)
-
-3. Select your storage account and container, then click your existing VHD. Click the **Select** button to confirm your choice:
-
-    ![Select your existing VHD](./media/troubleshoot-recovery-disks-portal-linux/select-vhd.png)
-
-4. With your VHD now selected, click **OK** to attach the existing virtual hard disk:
-
-    ![Confirm attaching existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-linux/attach-disk-confirm.png)
-
-5. After a few seconds, the **Disks** pane for your VM lists your existing virtual hard disk connected as a data disk:
-
-    ![Existing virtual hard disk attached as a data disk](./media/troubleshoot-recovery-disks-portal-linux/attached-disk.png)
-
+2. In the **Data disks** list, select the OS disk of the VM that you identified. If you do not see the OS disk, make sure that troubleshooting VM and the OS disk is in the same region (location). 
+3. Select **Save** to apply the changes.
 
 ## Mount the attached data disk
 
@@ -152,31 +159,20 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
 2. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
 
-    ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-linux/detach-disk.png)
+    ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Wait until the VM has successfully detached the data disk before continuing.
 
-## Create VM from original hard disk
-To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
+## Swap the OS disk for the VM
 
-![Deploy VM from template from GitHub](./media/troubleshoot-recovery-disks-portal-linux/deploy-template-from-github.png)
+Azure portal now supports change the OS disk of the VM. To do this, follow these steps:
 
-The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
+1. Go to [Azure portal](https://portal.azure.com). Select **Virtual machines** from the sidebar, and then select the VM that has problem.
+1. On the left pane, select **Disks**, and then select **Swap OS disk**.
+        ![The image about Swap OS disk in Azure portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-![Deploy VM from template](./media/troubleshoot-recovery-disks-portal-linux/deploy-from-image.png)
-
-
-## Re-enable boot diagnostics
-When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:
-
-![Update boot diagnostics settings](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
-
-## Troubleshoot a Managed Disk VM by attaching a new OS disk
-1. Stop the effected VM.
-2. [Create a managed disk snapshot](../windows/snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
-3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attach the managed disk as a data disk of the VM](../windows/attach-disk-ps.md).
-5. [Change the data disk from step 4 to OS disk](../windows/os-disk-swap.md).
+1. Choose the new disk that you repaired, and then type the name of the VM to confirm the change. If you do not see the disk in the list, wait 10 ~ 15 minutes after you detach the disk from the troubleshooting VM. Also make sure that the disk is in the same location as the VM.
+1. Select OK.
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

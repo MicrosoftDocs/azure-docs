@@ -6,16 +6,13 @@ documentationcenter: ''
 author: jodoglevy
 manager: timlt
 editor: ''
-
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-
 ---
 # Managing Azure Cloud Services using Azure Automation
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure cloud services.

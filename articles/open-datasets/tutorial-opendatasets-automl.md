@@ -32,7 +32,7 @@ This tutorial requires the following prerequisites.
 
 ### Create a workspace
 
-Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription ID.
+Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription ID.
 
 ### Create a Python environment
 

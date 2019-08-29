@@ -10,19 +10,6 @@
  ms.custom: include file
 ---
 
-Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
-
-> [!IMPORTANT]
-> Azure Dedicated Hosts is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Known preview limitations**
-> - Virtual machine scale sets are not currently supported on dedicated hosts.
-> - The preview initial release supports the following VM series: DSv3 and ESv3. 
-> - During the preview, you won't be able to resize a virtual machine deployed to a dedicated host.
-> - Control over maintenance capabilities is in a limited preview. Start by taking this [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) to try them out.  
-> During the preview we won't be offering the option for reserved capacity. 
 
 ## Benefits 
 

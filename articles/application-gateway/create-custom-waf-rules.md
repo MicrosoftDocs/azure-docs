@@ -223,7 +223,7 @@ Here's the corresponding JSON:
             { 
               "matchVariable": "RemoteAddr", 
               "operator": "IPMatch", 
-              "negateCondition": true, 
+              "negateCondition": false, 
               "matchValues": [ 
                 "192.168.5.4/24" 
               ] 

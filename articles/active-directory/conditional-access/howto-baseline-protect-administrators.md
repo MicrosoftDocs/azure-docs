@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA).
 
-**Require MFA for admins (preview)** is a [baseline policy](concept-baseline-protection.md) that requires MFA every time one of the following privileged administrator roles signs in:
+**Require MFA for admins (preview)** is a [baseline policy](concept-baseline-protection.md) that requires MFA every time one of the following privileged administrator roles signs in:
 
 * Global administrator
 * SharePoint administrator
@@ -49,11 +49,11 @@ The policy **Baseline policy: Require MFA for admins (preview)** comes pre-confi
 
 To enable this policy and protect your administrators:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Require MFA for admins (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Click **Save**.
+1. Click **Save**.
 
 > [!WARNING]
 > There was an option **Automatically enable policy in the future** when this policy was in preview. We removed this option to minimize sudden user impact. If you selected this option when it was available, **Do not use policy** is automatically now selected. If they want to use this baseline policy, see steps above to enable it.

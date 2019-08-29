@@ -112,6 +112,10 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * You can control how many partitions that ADF will use. On each Source & Sink transformation, as well as each individual transformation, you can set a partitioning scheme. For smaller files, you may find selecting "Single Partition" can sometimes work better and faster than asking Spark to partition your small files.
 * If you do not have enough information about your source data, you can choose "Round Robin" partitioning and set the number of partitions.
 * If you explore your data and find that you have columns that can be good hash keys, use the Hash partitioning option.
+* When debugging in data preview and pipeline debug, note that the limit and sampling sizes for file-based source datasets only apply to the number of rows returned, not the number of rows read. This is important to note because it can effect the performance of your debug executions and possibly cause the flow to fail.
+* Remember that debug clusters are small single-node clusters by default, so use temporary small files for debugging. Go to Debug Settings and point to a small subset of your data using a temporary file.
+
+![Debug Settings](media/data-flow/debugsettings3.png "Debug Settings")
 
 ### File naming options
 

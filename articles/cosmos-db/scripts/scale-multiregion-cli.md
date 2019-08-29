@@ -10,9 +10,9 @@ ms.date: 10/26/2018
 ms.reviewer: sngun
 ---
 
-# Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using the Azure CLI
+# Replicate an Azure Cosmos database account in multiple regions and configure failover priorities using the Azure CLI
 
-This sample replicates any kind of Azure Cosmos DB database account in multiple regions and configures failover priorities using the Azure CLI.
+This sample replicates any kind of Azure Cosmos database account in multiple regions and configures failover priorities using the Azure CLI.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

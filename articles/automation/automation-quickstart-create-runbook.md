@@ -40,7 +40,7 @@ First, create a runbook. The sample runbook created in this quickstart outputs `
     ![Author PowerShell script in the runbook editor](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
 1. Type or copy and paste the following code into the edit pane. It creates an optional input parameter called "Name" with a default value of "World", and outputs a string that uses this input value:
-   
+
    ```powershell-interactive
    param
    (
@@ -97,4 +97,3 @@ In this quickstart, you’ve created, edited, tested, and published a runbook an
 
 > [!div class="nextstepaction"]
 > [Automation How To - Runbook Types](./automation-runbook-types.md)
-

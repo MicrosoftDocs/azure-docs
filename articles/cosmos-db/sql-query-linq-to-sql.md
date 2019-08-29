@@ -194,8 +194,8 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
 - **LINQ lambda expression**
   
   ```csharp
-      input.Select(family=>family.parents[0])
-          .Where(familyName == "Wakefield");
+      input.Select(family => family.parents[0])
+          .Where(parent => parent.familyName == "Wakefield");
   ```
 
 - **SQL**

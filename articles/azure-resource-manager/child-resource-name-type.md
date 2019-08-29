@@ -4,21 +4,21 @@ description: Describes how to set the name and type for child resources in an Az
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/26/2019
 ms.author: tomfitz
 ---
 # Set name and type for child resources
 
-Child resources are resources that exist only within the context of another resource. For example, a [virtual machine extension](/templates/microsoft.compute/virtualmachines/extensions) can't exist without a [virtual machine](/templates/microsoft.compute/virtualmachines). The extension resource is a child of the virtual machine.
+Child resources are resources that exist only within the context of another resource. For example, a [virtual machine extension](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) can't exist without a [virtual machine](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). The extension resource is a child of the virtual machine.
 
 In a Resource Manger template, you can specify the child resource either within the parent resource or outside of the parent resource. The following example shows the child resource included within the resources property of the parent resource.
 
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
     "resources": [
-      // child resource
+      <child-resource>
     ]
   }
 ]
@@ -29,10 +29,10 @@ The next example shows the child resource outside of the parent resource. You mi
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
   },
   {
-    // child resource
+    <child-resource>
   }
 ]
 ```

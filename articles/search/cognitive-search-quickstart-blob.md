@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Build an AI-enriched index in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills in an Azure Search indexing portal, using the Azure portal and sample data. 
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Quickstart: Create an AI indexing pipeline using cognitive skills in Azure Search
 
