@@ -3,7 +3,7 @@ title: Configure and validate VNet or VPN connections
 description: Step-by-step guidance to configure and validate various Azure VPN and VNet deployments
 services: virtual-network
 documentationcenter: na
-author: v-miegge
+author: v-miegge, kaushika-msft
 manager: dcscontentpm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
-ms.author: v-miegge
+ms.author: v-miegge, kaushika
 
 ---
 
