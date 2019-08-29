@@ -115,22 +115,6 @@ Now let's add the models, the views, and the controllers to this MVC application
    
    The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET, you can use the **JsonProperty** attribute as demonstrated in the **Item** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Completed** property. 
 
-### <a name="add-a-controller"></a>Add a controller
-
-1. From the **Solution Explorer**, right-click the **Controllers** folder, select **Add**, and then select **Controller**. The **Add Scaffold** dialog box appears.
-
-1. Select **MVC Controller - Empty** and select **Add**.
-
-   ![Screenshot of the Add Scaffold dialog box with the MVC Controller - Empty option highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. Name your new controller, **ItemController**, and replace the code in that file with the following code:
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
-
-   The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views should work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
-
-   We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details, please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
-
 ### <a name="add-views"></a>Add views
 
 Next, let's create the following three views: 
@@ -186,6 +170,22 @@ And finally, add a view to edit an item with the following steps:
 
 Once this is done, close all the cshtml documents in Visual Studio as you return to these views later.
 
+### <a name="add-a-controller"></a>Add a controller
+
+1. From the **Solution Explorer**, right-click the **Controllers** folder, select **Add**, and then select **Controller**. The **Add Scaffold** dialog box appears.
+
+1. Select **MVC Controller - Empty** and select **Add**.
+
+   ![Screenshot of the Add Scaffold dialog box with the MVC Controller - Empty option highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. Name your new controller, **ItemController**, and replace the code in that file with the following code:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+
+   The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views should work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
+
+   We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details, please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+
 ## <a name="connect-to-cosmosdb"></a>Step 5: Connect to Azure Cosmos DB 
 
 Now that the standard MVC stuff is taken care of, let's turn to adding the code to connect to Azure Cosmos DB and perform CRUD operations. 
@@ -214,24 +214,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
 1. Within the same file, we define our helper method **InitializeCosmosClientInstanceAsync**, which will read the configuration and initialize the client.
 
-    ```csharp
-    private static async Task<CosmosDbService> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
-    {
-        string databaseName = configurationSection.GetSection("DatabaseName").Value;
-        string containerName = configurationSection.GetSection("ContainerName").Value;
-        string account = configurationSection.GetSection("Account").Value;
-        string key = configurationSection.GetSection("Key").Value;
-        CosmosClientBuilder clientBuilder = new CosmosClientBuilder(account, key);
-        CosmosClient client = clientBuilder
-                            .WithConnectionModeDirect()
-                            .Build();
-        CosmosDbService cosmosDbService = new CosmosDbService(client, databaseName, containerName);
-        Database database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-        await database.CreateContainerIfNotExistsAsync(containerName, "/id");
-
-        return cosmosDbService;
-    }
-    ```
+    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)] 
 
 1. The configuration is defined in the project's **appsettings.json** file. Open it and add a section called **CosmosDb**:
 

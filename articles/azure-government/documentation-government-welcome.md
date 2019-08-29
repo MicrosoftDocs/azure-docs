@@ -40,7 +40,6 @@ To start using Azure Government, first check out [Guidance for developers](docum
 * [Connect with the Azure Government portal](documentation-government-get-started-connect-with-portal.md)
 * [Connect with the Azure CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
-* [Connect with Visual Studio](documentation-government-get-started-connect-with-vs.md)
 * [Deploy with Azure DevOps Services](connect-with-azure-pipelines.md)
 * [Connect with SQL Server Management Studio](documentation-government-connect-ssms.md)
 * [Connect to Storage in Azure Government](documentation-government-get-started-connect-to-storage.md)

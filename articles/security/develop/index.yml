@@ -43,6 +43,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/security/develop/secure-web-app">Web app in a Linux container</a>
+    - html: <a href="/azure/security/develop/secure-pci-web-app">Payment card industry</a>
 
 - title: Concepts
   items:

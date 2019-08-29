@@ -8,7 +8,7 @@ ms.custom: experiment-luis-0519
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: diberry
 ---

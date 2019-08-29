@@ -6,9 +6,9 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
+
 ---
 
 # How to create an index for multiple languages in Azure Search
@@ -30,7 +30,7 @@ A language analyzer is specified when a field is created. Adding an analyzer to 
 
 ![Assign language analyzers during field definition](media/search-language-support/select-analyzer.png "Assign language analyzers during field definition")
 
-By default, all searchable fields use the [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language-agnostic. To view the full list of supported analyzers, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
+By default, all searchable fields use the [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language-agnostic. To view the full list of supported analyzers, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
 
 In the portal, analyzers are intended to be used as-is. If you require customization or a specific configuration of filters and tokenizers, you should [create a custom analyzer](index-add-custom-analyzers.md) in code. The portal does not support selecting or configuring custom analyzers.
 

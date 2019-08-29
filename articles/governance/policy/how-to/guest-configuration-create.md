@@ -15,6 +15,10 @@ create the configuration for auditing of the Azure virtual machines. The DSC con
 the condition that the virtual machine should be in. If the evaluation of the configuration fails,
 the Policy effect **audit** is triggered and the virtual machine is considered **non-compliant**.
 
+[Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
+can only be used to audit settings inside virtual machines. Remediation
+of settings inside virtual machines is not yet available.
+
 Use the following actions to create your own configuration for validating the state of an Azure
 virtual machine.
 
@@ -389,6 +393,18 @@ there are two fields that must be updated if you would like to publish a new rel
 The easiest way to release an updated package is to repeat the process described in this article
 and provide an updated version number.
 That will guarantee all properties have been correctly updated.
+
+## Converting Windows Group Policy content to Azure Policy Guest Configuration
+
+Guest Configuration, when auditing Windows machines,
+is an implementation of the PowerShell Desired State Configuration syntax.
+The DSC community has published tooling to convert exported Group Policy templates to DSC format.
+By using this tool together with the Guest Configuration cmdlets described above,
+you can convert Windows Group Policy content and package/publish it for Azure Policy to audit.
+For details about using the tool, see the article
+[Quickstart: Convert Group Policy into DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+Once the content has been converted, the steps above to create a pakcage and publish it
+as Azure Policy will be the same as for any DSC content.
 
 ## OPTIONAL: Signing Guest Configuration packages
 

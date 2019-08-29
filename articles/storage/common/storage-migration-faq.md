@@ -309,7 +309,7 @@ To give other people access to the storage resources:
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-sas-overview.md).
 
 **How do I use an HTTPS custom domain with my storage account? For example, how do I make "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https:\//www.contoso.com/images/image.gif"?**
 
@@ -321,7 +321,7 @@ see [Configure a custom domain name for your Blob storage endpoint](../blobs/sto
 
 There is no way to access a storage account directly by using FTP. However, you can set up an Azure virtual machine, and then install an FTP server on the virtual machine. You can have the FTP server store files on an Azure Files share or on a data disk that is available to the virtual machine.
 
-If you want only to download data without having to use Storage Explorer or a similar application, you might be able to use an SAS token. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
+If you want only to download data without having to use Storage Explorer or a similar application, you might be able to use an SAS token. For more information, see [Using shared access signatures](storage-sas-overview.md).
 
 **How do I migrate Blobs from one storage account to another?**
 

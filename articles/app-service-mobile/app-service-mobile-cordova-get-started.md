@@ -52,6 +52,7 @@ the command line is not covered by this tutorial.
 
 ## Download and run the Apache Cordova app
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
+
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 

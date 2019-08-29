@@ -53,7 +53,7 @@ Supports:
 The following features are not supported in a managed instance in Azure SQL Database:
 
 - [Updatable subscriptions](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
-- [Active geo replication](sql-database-active-geo-replication.md) and [Auto-failover groups](sql-database-auto-failover-group.md) should not be used if the Transactional Replication is configured.
+- [Active geo-replication](sql-database-active-geo-replication.md) with Transactional replication. Instead of active geo-replication, use [Auto-failover groups](sql-database-auto-failover-group.md), but note that the publication has to be [manually deleted](sql-database-managed-instance-transact-sql-information.md#replication) from the primary managed instance and recreated on the secondary managed instance after failover.  
  
 ## 1 - Create a resource group
 

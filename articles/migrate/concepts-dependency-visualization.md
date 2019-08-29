@@ -40,7 +40,7 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
 
 - While associating a workspace, you will get the option to create a new workspace or attach an existing one:
   - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
+  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
 
   > [!NOTE]
   > Once you have attached a workspace to a project, you cannot change it later.
@@ -53,7 +53,7 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
 To use dependency visualization, you need to download and install agents on each on-premises machine that you want to analyze.  
 
 - [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) about how to install the MMA agent.
-- The [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
+- The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
 - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
 You don't need these agents on machines you want to assess unless you're using dependency visualization.

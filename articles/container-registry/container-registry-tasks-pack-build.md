@@ -5,7 +5,7 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
 ---
 
@@ -39,11 +39,13 @@ The following example builds a container image from the Node.js app in the [Azur
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 This example builds the `node-app` image with the `1.0` tag and pushes it to the *myregistry* container registry. Here, the target registry name is explicitly prepended to the image name. If not specified, the registry URL is automatically prepended to the image name.
+
+The `--pull` parameter specifies that the command pulls the latest builder image.
 
 Command output shows the progress of building and pushing the image. 
 
@@ -75,7 +77,7 @@ az acr pack build \
 
 This example builds the `java-app` image tagged with the run ID of the command and pushes it to the *myregistry* container registry.
 
-The `--pull` parameter specifies that the command pulls the latest builder image, which is necessary because the Heroku builder image isn't cached by ACR Tasks.
+The `--pull` parameter specifies that the command pulls the latest builder image.
 
 Command output shows the progress of building and pushing the image. 
 
