@@ -1,30 +1,29 @@
 ---
 title: What is Conditional Access in Azure Active Directory?
-description: Learn how Conditional Access in Azure Active Directory helps gather signals to make policy enforcement decisions.
+description: Learn how Conditional Access in Azure Active Directory helps gather signals to make decisions on policy enforcement decisions.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 08/23/2019
+ms.date: 08/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 
-#Customer intent: As an IT admin, I want to understand Conditional Access well enough so that I can control how users are accessing my resources.
 ms.collection: M365-identity-device-management
 ---
 # What is Conditional Access?
 
-The modern security perimeter now extends beyond the organization's network to include user and device identity. Organizations can utilize these identity signals as part of their access control decisions. 
+The modern security perimeter now extends beyond an organization's network to include user and device identity. Organizations can utilize these identity signals as part of their access control decisions. 
 
-Conditional Access is the tool used to bring signals together to make decisions and enforce organizational policies.
+Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies.
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-Conditional Access policies at their simplest are if-then statements, if a user "x" wants to access resource "y", then they must do "z". Example: A payroll manager wants to access the payroll application and is required to perform multi-factor authentication to access it.
+Conditional Access policies at their simplest are if-then statements, if a user wants to access a resource, then they must complete an action. Example: A payroll manager wants to access the payroll application and is required to perform multi-factor authentication to access it.
 
 Administrators are faced with two primary goals:
 
@@ -44,15 +43,16 @@ Common signals that Conditional Access can take in to account when making a poli
 - User or group membership
    - Policies can be targeted to specific users and groups giving administrators fine-grained control over access.
 - IP Location information
-   - Organizations can create trusted IP address ranges that can be used when making policy decisions. Additionally administrators can specify entire countries IP ranges to block or allow traffic from.
+   - Organizations can create trusted IP address ranges that can be used when making policy decisions. 
+   - Administrators can specify entire countries IP ranges to block or allow traffic from.
 - Device
    - Users with devices of specific platforms or marked with a specific state can be used when enforcing Conditional Access policies.
 - Application
-   - Users attempting to access specific applications can trigger different Conditional Access policies. For Example, you may not care who accesses the lunch menu or from where, but you want to ensure anyone accessing your HR or Payroll systems has performed MFA and is using a compliant device inside the corporate network.
-- Real-time and calculated risk events
-   - Signals integration with Azure AD Identity Protection allows Conditional Access policies to identify risky sign-in behavior. Policies can then force users to perform password changes or multi-factor authentication to reset their risk level or be blocked from access until an administrator takes manual action.
+   - Users attempting to access specific applications can trigger different Conditional Access policies. 
+- Real-time and calculated risk detection
+   - Signals integration with Azure AD Identity Protection allows Conditional Access policies to identify risky sign-in behavior. Policies can then force users to perform password changes or multi-factor authentication to reduce their risk level or be blocked from access until an administrator takes manual action.
 - Microsoft Cloud App Security (MCAS)
-   - Enables user app access and sessions to be monitored and controlled in real time based on access and session policies.
+   - Enables user application access and sessions to be monitored and controlled in real time, increasing visibility and control over access to and activities performed within your cloud environment.
 
 ## Common decisions
 
@@ -90,6 +90,6 @@ To learn how to implement Conditional Access in your environment, see [Plan your
 
 [Learn about Identity Protection](../identity-protection/overview-v2.md)
 
-[Learn about Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Learn about Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
 
 [Learn about Microsoft Intune](https://docs.microsoft.com/intune/index)
