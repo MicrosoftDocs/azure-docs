@@ -64,7 +64,7 @@ The previous examples demonstrated how to customize drawing options while instan
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="LYPyrxR" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=310&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="600" title="LYPyrxR" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=310&theme-id=0&default-tab=result" style="width: 100%;" scrolling="no"  frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>LYPyrxR</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
