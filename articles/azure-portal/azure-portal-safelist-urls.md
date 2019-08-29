@@ -20,7 +20,7 @@ For good performance and connectivity between your local- or wide-area network a
 The URL endpoints to safelist for the Azure portal differ, depending on the Azure cloud where your organization is deployed. This article lists the URLs to safelist for the following clouds:
 
 * [Worldwide Cloud](#worldwide-cloud)
-* [U.S. Government Cloud](#u.s.-government-cloud)
+* [U.S. Government Cloud](#us-government-cloud)
 * [China Government Cloud](#china-government-cloud)
 
 Add the following list of URLs to your proxy server or firewall to allow network traffic to these endpoints to bypass restrictions:
