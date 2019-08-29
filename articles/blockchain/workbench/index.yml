@@ -26,7 +26,7 @@ landingContent:
             url: architecture.md
           - text: Integration patterns
             url: integration-patterns.md
-      - linkListType: Video
+      - linkListType: video
         links:
           - text: Introduction to Azure Blockchain Workbench
             url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
