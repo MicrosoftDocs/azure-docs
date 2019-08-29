@@ -66,62 +66,21 @@ After a managed instance is deployed in a pool, you *can* use the Azure portal t
 Resources required and steps for creating instance pool include:
 
 1. [Create a virtual network with subnet](#create-a-virtual-network-with-subnet)
-2. [Preparing the Virtual Network and subnet for an instance pool](#preparing-the-virtual-network-and-subnet)
-3. [Create the instance pool](#create-the-instance-pool)
+2. [Creating an instance pool](#create-an-instance-pool)
 
 
 
 ### Create a virtual network with subnet 
 
-If you consider placing multiple instance pools inside the same virtual network, refer to following articles:
+If you consider placing multiple instance pools inside the same virtual network, refer to the following articles:
 
 - [Determine VNet subnet size for Azure SQL Database managed instance](sql-database-managed-instance-determine-size-vnet-subnet.md)
-- [Create a virtual network for an Azure SQL Database managed instance](sql-database-managed-instance-create-vnet-subnet.md)
 
-This step can be achieved either using the Azure portal or PowerShell. 
-
-Example of PowerShell command that can be used (change the names of the virtual network and subnet, and adjust the IP ranges associated with your networking resources):
-
-```powershell
-$virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName myResourceGroup `
-  -Location EastUS `
-  -Name miPoolVirtualNetwork`
-  -AddressPrefix 10.0.0.0/16
-```
-
-After creating Virtual Network add a subnet inside it:
-
-```powershell
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name miPoolSubnet`
-  -AddressPrefix 10.0.0.0/24 `
-  -VirtualNetwork $virtualNetwork
-```
-
-For details, see create new virtual network and subnet using [Azure portal template](sql-database-managed-instance-create-vnet-subnet.md) or use instructions for [preparing an existing virtual network](sql-database-managed-instance-configure-vnet-subnet.md).
+Create new virtual network and subnet using the [Azure portal template](NEED LINK) or follow the instructions for [preparing an existing virtual network](sql-database-managed-instance-configure-vnet-subnet.md).
+ 
 
 
-### Preparing the virtual network and subnet
-
-Instance pools must be deployed within an Azure virtual network and the subnet dedicated for managed instances pools only. The same guidelines are applied for single instance and instance pools.
-
-To prepare a virtual network and subnet run the following command with your subscription id, and names for resource group, virtual network, and subnet used in the previous step.
-
-```powershell
-$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
-  
-$parameters = @{
-    subscriptionId = '<subscriptionId>'
-    resourceGroupName = '<resourceGroupName>'
-    virtualNetworkName = '<virtualNetworkName>'
-    subnetName = '<subnetName>'
-    }
-
-Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
-```
-
-### Create the instance pool 
+### Create an instance pool 
 
 After completing the previous steps, you are ready to create an instance pool.
 
@@ -138,14 +97,14 @@ The following restrictions apply to instance pools:
 To create an instance pool:
 
 ```powershell
-$instancePool = New-AzSqlInstancePool `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
-  -LicenseType "LicenceIncluded" `
-  -VCore 80 `
-  -Edition "GeneralPurpose" `
-  -ComputeGeneration "Gen5" `
+$instancePool = New-AzSqlInstancePool ` 
+  -ResourceGroupName "myResourceGroup" ` 
+  -Name "mi-pool-name" ` 
+  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" ` 
+  -LicenseType "LicenceIncluded" ` 
+  -VCore 80 ` 
+  -Edition "GeneralPurpose" ` 
+  -ComputeGeneration "Gen5" ` 
   -Location "westeurope"
 ```
 
@@ -163,6 +122,7 @@ $instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -
 ```
 
 Deploying instance inside the pool is an operation that takes a couple of minutes. After the first instance has been created, we can create the second one:
+
 ```powershell
 $instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -StorageSizeInGB 512
 ```
@@ -238,10 +198,12 @@ $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-n
 
 Two steps are required for achieving this:
 
-1. Enabling public endpoint for the instance.
-2. Adding inbound rule to network security group.
+1. Enable the public endpoint for the instance.
+2. Add an inbound rule to the network security group (NSG).
 
-After both steps are completed, you can connect to the instance by using a public endpoint address, port, and credentials provided during instance creation. 
+After both steps are complete, you can connect to the instance by using a public endpoint address, port, and credentials provided during instance creation. 
+
+## Enable the public endpoint for the instance
 
 Enabling public endpoint for instance can be done through the Azure portal or by using the following PowerShell command:
 
@@ -252,47 +214,47 @@ $instanceOne | Set-AzSqlInstance -PublicDataEndpointEnabled true
 
 This parameter can be set during instance creation as well.
 
-## Add an inbound rule to NSG 
+## Add an inbound rule to the network security group 
  
-This step can also be achieve through portal or using PowerShell commands:
+This step can be done through portal or using PowerShell commands and can be done any time after the subnet is prepared for managed instance.
+
+For details, see [Allow public endpoint traffic on the network security group](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
 
-```powershell
-$RGname="myResourceGroup" 
-$port=3342 
-$rulename="public_endpoint_inbound" 
-$nsgname="nsg-mi-pool-name"
-```
+## Move an existing single instance inside the instance pool 
+ 
+Moving instances to and from the pool is one of the public preview limitations. Workaround that can be used relies on point-in-time restore of databases from instance outside the pool to the instance created in the pool.
 
-## Get the NSG resource
+Note: This is process with downtime period. 
 
+To move existing databases:
 
-```powershell
-$resource = Get-AzResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/networkSecurityGroups"}
-$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
-```
+1. Pause workloads on the managed instance you are migrating from.
+2. Script system databases and execute them on the instance that's inside the instance pool.
+3. Do a point-in-time restore of each database from the single instance to the instance in the pool.
 
+  $resourceGroupName = "my resource group name" 
+  $managedInstanceName = "my managed instance name" 
+  $databaseName = "my source database name" 
+  $pointInTime = "2019-08-21T08:51:39.3882806Z" 
+  $targetDatabase = "name of the new database that will be created" 
+  $targetResourceGroupName "resource group of instance pool" 
+  $targetInstanceName = "pool instance name" 
+   
+  Restore-AzSqlInstanceDatabase -FromPointInTimeBackup ` 
+    -ResourceGroupName $resourceGroupName ` 
+    -InstanceName $managedInstanceName ` 
+    -Name $databaseName ` 
+    -PointInTime $pointInTime ` 
+    -TargetInstanceDatabaseName $targetDatabase ` 
+    -TargetResourceGroupName $targetResourceGroupName ` 
+    -TargetInstanceName $targetInstanceName 
 
-## Add the inbound security rule
+  Both instances must be in the same subscription and region. Cross-region and cross-subscription restores are still not supported.
 
+4. Point your application to the new instance and resume workloads.
 
-```powershell
-$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
-    -Protocol * -Direction Inbound -Priority 1300 -SourceAddressPrefix "*" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange $port
-```
-
-
-## Update the NSG
-
-
-```powershell
-$nsg | Set-AzNetworkSecurityGroup
-```
-
-> [!NOTE]
-> Adding inbound rule can be done at any time after the subnet is prepared for managed instance as described previously in this article.
-
+If there are multiple databases, repeat process for each of them 
 
 
 ## Next steps
@@ -303,4 +265,3 @@ $nsg | Set-AzNetworkSecurityGroup
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [managed instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - For advanced monitoring of managed instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - For pricing information, see [SQL Database managed instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-
