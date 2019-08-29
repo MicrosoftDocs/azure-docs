@@ -3,7 +3,7 @@ title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including VMSS capacity, listing all tags used, and matching virtual machines with regular expressions.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
@@ -109,13 +109,9 @@ Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and nam
 
 ## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
 
-This query uses the new **Include** parameter with option _DisplayNames_ to instruct Azure Resource
-Graph to return **subscriptionDisplayName** and **tenantDisplayName** with the Azure resources
-properties.
-
-```kusto
-limit 1
-```
+This query uses the new **Include** parameter with option _DisplayNames_ to add
+**subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
+available for Azure CLI and Azure PowerShell.
 
 ```azurecli-interactive
 az graph query -q "limit 1" --include displayNames
