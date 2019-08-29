@@ -226,7 +226,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 myMSALObj.acquireTokenRedirect(request);
 ```
 
-The methods for pop-up experience (`loginPopup`, `acquireTokenPopup`) return promises, so you can use the promise pattern (.then and.catch) to handle them as shown:
+The methods for pop-up experience (`loginPopup`, `acquireTokenPopup`) return promises, so you can use the promise pattern (.then and .catch) to handle them as shown:
 
 ```javascript
 myMSALObj.acquireTokenPopup(request).then(
@@ -239,7 +239,7 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### Interaction required, errors
 
-An error is returned when you attempt to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`) and MSAL could not do it silently.
+An error is returned when you attempt to use a non-interactive method of acquiring a token such as `acquireTokenSilent`, but MSAL couldn't do it silently.
 
 Possible reasons are:
 
