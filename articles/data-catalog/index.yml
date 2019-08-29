@@ -1,12 +1,3 @@
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="/rest/api/datacatalog/">REST API Reference</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Search syntax reference</a></p>
-      
 ### YamlMime:Landing
 title: Azure Data Catalog documentation
 summary: "Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation."
