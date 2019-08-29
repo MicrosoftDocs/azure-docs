@@ -29,4 +29,4 @@ ms.author: lahugh
 
 |Element|Type|Notes|
 |-------------|----------|-----------|
-|id|String|The id of the pool.|
+|`id`|String|The id of the pool.|
