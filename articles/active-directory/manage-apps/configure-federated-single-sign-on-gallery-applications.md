@@ -22,7 +22,7 @@ ROBOTS: NOINDEX
 
 # How to configure federated single sign-on for an Azure AD Gallery application
 
-There's a step-by-step tutorial available for all applications in an Azure Active Directory (Azure AD) gallery that has Enterprise single sign-on capability. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for detailed step-by-step guidance.
+There's a step-by-step tutorial available for all applications in the Azure Active Directory (Azure AD) gallery that have Enterprise single sign-on capability. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for detailed step-by-step guidance.
 
 ## Overview of steps required
 To configure an application from the Azure AD gallery you need to:
@@ -67,7 +67,7 @@ After a short period, you should be able to see the application’s configuratio
 
 To configure single sign-on for an application, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
 
 2. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-side navigation menu.
 
@@ -113,7 +113,7 @@ To configure single sign-on for an application, follow these steps:
 
 To select the User Identifier or add user attributes, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
 2. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-side navigation menu.
 
@@ -148,7 +148,7 @@ To select the User Identifier or add user attributes, follow these steps:
 
 To download the application metadata or certificate from Azure AD, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
 2. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-side navigation menu.
 
@@ -172,7 +172,7 @@ Azure AD also provides a URL to access the metadata. Use the following model to 
 
 To assign one or more users to an application directly, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
 2. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-side navigation menu.
 
