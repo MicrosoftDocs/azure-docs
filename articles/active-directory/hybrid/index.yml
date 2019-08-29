@@ -1,4 +1,4 @@
-### YamlMime:YamlDocument
+### YamlMime:Landing
 
 title: Hybrid identity documentation
 summary:  Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.
@@ -16,6 +16,8 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent: 
   # Card
