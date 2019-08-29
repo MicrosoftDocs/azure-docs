@@ -63,17 +63,6 @@ landingContent:
           - text: Advanced marketplace with multiple workflows
             url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/bazaar-item-listing
 
-  - title: Manage
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Manage application users
-            url: manage-users.md
-          - text: Application configuration
-            url: configuration.md
-          - text: Application versioning
-            url: version-app.md
-
   - title: Integrate 
     linkLists:
       - linkListType: concept
@@ -90,6 +79,17 @@ landingContent:
             url: data-powerbi.md
           - text: Use data in SQL Management Studio
             url: data-sql-management-studio.md
+
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage application users
+            url: manage-users.md
+          - text: Application configuration
+            url: configuration.md
+          - text: Application versioning
+            url: version-app.md
 
   - title: Reference
     linkLists:
