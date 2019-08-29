@@ -169,6 +169,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+Additionally, if you trained a custom model that you want to delete from your account, use the following method:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
+
 ## Next steps
 
 In this quickstart, you used the Form Recognizer .NET client library to train a custom model and analyze forms. Next, learn tips to create a better training data set and produce more accurate models.

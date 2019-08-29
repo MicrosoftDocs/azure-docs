@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.subservice: develop
+ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
@@ -75,7 +75,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Next steps
 
-- [Developing for Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-develop.md)
+- [Developing for Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
 
 <!--Image references-->
 
