@@ -141,7 +141,7 @@ Begin by following the same steps in the section above for viewing policy compli
 
 1. In the **Compliance details** pane view click the link **Last evaluated resource**.
 
-   ![View audit definition details](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
+   ![View auditIfNotExists definition details](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
 
 The **Guest Assignment** page displays all available compliance details. Each row in the view
 represents an evaluation that was performed inside the machine. In the **Reason** column, a
