@@ -42,12 +42,9 @@ Next, verify that you have Docker installed and running. The following command w
 docker --version
 ```
 
-Finally, ensure that your Azure Container Registry is connected. To do this, select the Docker logo in the Activity Bar, then navigate to **Registries**.
+Finally, ensure that your Azure Container Registry is connected. To do this, select the Docker logo in the Activity Bar, then navigate to **REGISTRIES**.
 
 ![Registries](./media/quickstart-docker/registries.png)
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=check-prerequisites)
 
 ## Deploy the image to Azure App Service
 
@@ -59,7 +56,7 @@ Find the image under the **Registries** node in the **DOCKER** explorer, and exp
 
 From here, follow the prompts to choose a subscription, a globally unique app name, a Resource Group, and an App Service Plan. Choose **B1 Basic** for the pricing tier, and a region.
 
-Once created, your app is accessible via `http://<app name>.azurewebsites.net`.
+After deployment, your app is available at `http://<app name>.azurewebsites.net`.
 
 > [!IMPORTANT]
 > If you are using the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image mentioned in the Prerequisites, you must navigate to `http://<app name>.azurewebsites.net/hello` to see the app.
