@@ -85,7 +85,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
 
 - Sample implementation for [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### For testing purposes only
 

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 08/22/2019
 ms.author: victorh
 ---
 
@@ -90,6 +90,10 @@ The following metrics are available for Azure Firewall:
 
     Unit: count
 
+- **Network rules hit count** - The number of times a network rule has been hit.
+
+    Unit: count
+
 - **Data processed** - Amount of data traversing the firewall.
 
     Unit: bytes
@@ -104,9 +108,7 @@ The following metrics are available for Azure Firewall:
 
 
 
-- **Network rules hit count** - The number of times a network rule has been hit.
 
-    Unit: count
 
 - **SNAT port utilization** - The percentage of SNAT ports that have been utilized by the firewall.
 

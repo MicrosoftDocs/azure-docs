@@ -266,7 +266,7 @@ And [here's a list of Linux operating systems supported by MMA](https://docs.mic
 
 ### What operating systems does the dependency agent support?
 
-[Here's a list of Windows operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). And [here's a list of Linux operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+[Here's a list of of [Windows and Linux operating systems that Azure Monitor for VMs supports](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### I can't visualize dependencies in Azure Migrate for more than a one-hour duration.
 In Azure Migrate, you can visualize dependencies for up to a one-hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
