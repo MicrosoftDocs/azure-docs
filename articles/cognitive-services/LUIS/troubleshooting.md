@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -72,7 +72,7 @@ Read more about [version import errors](luis-how-to-manage-versions.md#import-er
 
 <a name="luis-collaborating"></a>
 
-## Collaborating
+## Collaborating and contributing
 
 ### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Role-based access control (RBAC)?
 
@@ -81,6 +81,31 @@ See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-d
 <a name="luis-endpoint"></a>
 
 ## Endpoint
+
+### I received an HTTP 403 error status code. How do I fix it?
+
+You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier. Increase your pricing tier, or use Language Understanding [containers](luis-container-howto.md).
+
+When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code. 
+
+To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Solutions for this error include:
+
+* In the [Azure portal](https://portal.azure.com), on your Language Understanding resource, on the **Resource Management -> Pricing tier**, change your pricing tier to a higher TPS tier. You don't need to do anything in the Language Understanding portal if your resource is already assigned to your Language Understanding app.
+*  If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
+
+### I received an HTTP 429 error status code. How do I fix it?
+
+You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier. Increase your pricing tier, or use Language Understanding [containers](luis-container-howto.md).
+
+This status code is returned when your transactions per second exceeds your pricing tier.  
+
+Solutions include:
+
+* You can [increase your pricing tier](#change-pricing-tier), if you are not at the highest tier.
+* If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
+* You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code. 
 
 ### My endpoint query returned unexpected results. What should I do?
 

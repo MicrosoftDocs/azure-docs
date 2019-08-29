@@ -131,33 +131,6 @@ See [Data storage and removal](luis-concept-data-storage.md#accounts) for inform
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
 1. Remember to [assign this endpoint key](#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
-### Troubleshooting errors
-
-### Fix HTTP status code 403 and 429
-
-You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier. Increase your pricing tier, or use Language Understanding [containers](luis-container-howto.md). 
-
-### When you receive an HTTP 403 error status code
-
-When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code. 
-
-To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
-
-Solutions for this error include:
-
-* In the [Azure portal](https://portal.azure.com), on your Language Understanding resource, on the **Resource Management -> Pricing tier**, change your pricing tier to a higher TPS tier. You don't need to do anything in the Language Understanding portal if your resource is already assigned to your Language Understanding app.
-*  If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
-
-### When you receive an HTTP 429 error status code
-
-This status code is returned when your transactions per second exceeds your pricing tier.  
-
-Solutions include:
-
-* You can [increase your pricing tier](#change-pricing-tier), if you are not at the highest tier.
-* If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
-* You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code. 
-
 ## Viewing Azure resource metrics
 
 ### Viewing Azure resource summary usage
