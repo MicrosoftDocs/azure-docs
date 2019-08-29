@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 08/29/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -43,9 +43,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Envoy supports **SP** initiated SSO
 
-
 * Envoy supports **Just In Time** user provisioning
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Envoy from the gallery
 
