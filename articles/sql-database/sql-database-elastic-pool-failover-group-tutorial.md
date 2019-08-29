@@ -108,36 +108,16 @@ Create your elastic pools and secondary server using PowerShell.
        -DatabaseName $databaseName `
        -ElasticPoolName $poolName
    $addDatabase
-   
-   # Create a secondary server in the failover region
-   Write-host "Creating a secondary logical server in the failover region..."
-   New-AzSqlServer -ResourceGroupName $resourceGroupName `
-      -ServerName $drServerName `
-      -Location $drLocation `
-      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   Write-host "Secondary logical server =" $drServerName
-   
-   # Create a server firewall rule that allows access from the specified IP range
-   Write-host "Configuring firewall for secondary logical server..."
-   New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
-      -ServerName $drServerName `
-      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
-   Write-host "Firewall configured" 
-   
-   # Create secondary Gen5 elastic 2 vCore pool
-   Write-host "Creating secondary elastic pool..."
-   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
-       -ServerName $drServerName `
-       -ElasticPoolName $poolName `
-       -Edition "GeneralPurpose" `
-       -vCore 2 `
-       -ComputeGeneration Gen5
-   $elasticPool
    ```
 
----
+This script uses the following commands. Each command in the table links to command specific documentation.
 
+| Command | Notes |
+|---|---|
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) Creates an elastic database pool for a an Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) Sets properties for a database, or moves an existing database into an elastic pool. | 
+
+---
 
 ## 3 - Create the failover group 
 In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the elastic pool to the failover group. 
@@ -146,7 +126,6 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
 # [Portal](#tab/azure-portal)
 
 Create your failover group using the Azure Portal. 
-
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the elastic pool created in the previous section, such as `myElasticPool`. 
@@ -195,6 +174,32 @@ Create your failover group using PowerShell.
    # $drLocation = "West US"
    # $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+
+   # Create a secondary server in the failover region
+   Write-host "Creating a secondary logical server in the failover region..."
+   New-AzSqlServer -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -Location $drLocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   Write-host "Secondary logical server =" $drServerName
+   
+   # Create a server firewall rule that allows access from the specified IP range
+   Write-host "Configuring firewall for secondary logical server..."
+   New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   Write-host "Firewall configured" 
+   
+   # Create secondary Gen5 elastic 2 vCore pool
+   Write-host "Creating secondary elastic pool..."
+   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
+       -ServerName $drServerName `
+       -ElasticPoolName $poolName `
+       -Edition "GeneralPurpose" `
+       -vCore 2 `
+       -ComputeGeneration Gen5
+   $elasticPool
    
    # Create a failover group between the servers
    Write-host "Creating failover group..." 
@@ -222,7 +227,18 @@ Create your failover group using PowerShell.
                                      -Database $databases 
    $failoverGroup
    ```
- 
+
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| Command | Notes |
+|---|---|
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) Creates an elastic database pool for a an Azure SQL Database.| 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
+
 ---
 
 
@@ -320,6 +336,14 @@ Fail your failover group over to the secondary server, and then fail back using 
    Write-host "Failover group failed over to" $serverName 
    ```
 
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| Command | Notes |
+|---|---|
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executes a failover of an Azure SQL Database failover group. |
+
+
 ---
 
 ## Clean up resources 
@@ -349,6 +373,39 @@ Clean up your resources using PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 ---
+
+| Command | Notes |
+|---|---|
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group | 
+
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+## Full script
+
+# [PowerShell](#tab/azure-powershell)
+
+[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic to a failover group")]
+
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| Command | Notes |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database single database. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) Creates an elastic database pool for a an Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) Sets properties for a database, or moves an existing database into an elastic pool. | 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Gets one or more SQL databases. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executes a failover of an Azure SQL Database failover group. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group | 
+
+
+# [Portal](#tab/azure-portal)
+There are no scripts available for the Azure portal.
 
 
 ## Next steps
