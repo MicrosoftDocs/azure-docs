@@ -52,4 +52,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Open a support ticket
-            url: hpc-cache-open-ticket.md
+            url: hpc-cache-support-ticket.md

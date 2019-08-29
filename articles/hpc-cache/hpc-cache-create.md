@@ -54,9 +54,9 @@ For step-by-step instructions to add a storage target, read [Add storage](hpc-ca
 
 For both types of storage, you must specify the back-end storage system's address or container name and the client-facing namespace path to show for it.
 
-When creating a Blob storage target, make sure the cache has access permissions to the storage account, as described in [Add the access control role](hpc-add-storage.md#add-the-access-control-role-to-your-account). 
+When creating a Blob storage target, make sure the cache has access permissions to the storage account, as described in [Add the access control role](hpc-cache-add-storage.md#add-the-access-control-role-to-your-account).
 
-When creating an NFS storage target, specify a [usage model](hpc-add-storage.md#choose-a-usage-model). The usage model tells the cache how to optimize cache utilization for your workflow.
+When creating an NFS storage target, specify a [usage model](hpc-cache-add-storage.md#choose-a-usage-model). The usage model tells the cache how to optimize cache utilization for your workflow.
 
 <!-- ## Storage target details 
 

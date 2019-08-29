@@ -17,4 +17,4 @@ When you add a storage target, you set the client-facing filepath. Client machin
 
 ## Next steps
 
-After you have decided how to set up your virtual filesystem, [create storage targets](hpc-cache-add-storage) to map your back-end storage to your client-facing virtual filepaths.
+After you have decided how to set up your virtual filesystem, [create storage targets](hpc-cache-add-storage.md) to map your back-end storage to your client-facing virtual filepaths.

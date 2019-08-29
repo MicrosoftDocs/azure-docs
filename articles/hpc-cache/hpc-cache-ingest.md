@@ -86,7 +86,6 @@ The data ingestor VM is part of a tutorial for the Avere vFXT for Azure, but it 
 
 ## Next steps
 
-After you set up your storage, you might want to have clients mount the cache, or learn more about monitoring the system.
+After you set up your storage, learn how clients can mount the cache.
 
 * [Access the Azure HPC Cache system](hpc-cache-mount.md)
-* [Monitor the Azure HPC Cache](hpc-cache-monitor.md)
