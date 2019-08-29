@@ -45,7 +45,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * EBSCO supports **Just In Time** user provisioning
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
 
 ## Adding EBSCO from the gallery
 
