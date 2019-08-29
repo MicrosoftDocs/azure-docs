@@ -14,7 +14,7 @@ ms.author: mlearned
 
 # Preview - Limit egress traffic for cluster nodes and control access to required ports and services in Azure Kubernetes Service (AKS)
 
-By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is configured by default to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR), not external public repositories. You must configure your preferred firewall and security rules to allow these required ports and addresses.
+By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is configured by default to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR). You must configure your preferred firewall and security rules to allow these required ports and addresses.
 
 This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.  This feature is currently in preview.
 
