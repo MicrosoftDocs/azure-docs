@@ -121,9 +121,9 @@ The following FQDN / application rules are required for AKS clusters that have G
 | nvidia.github.io | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 | us.download.nvidia.com | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 
-## Required addresses and ports for AKS clusters with the monitoring add on enabled
+## Required addresses and ports for AKS clusters with Azure Monitor for containers enabled
 
-The following FQDN / application rules are required for AKS clusters that have the monitoring add on enabled:
+The following FQDN / application rules are required for AKS clusters that have the Azure Monitor for containers enabled:
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
@@ -131,9 +131,9 @@ The following FQDN / application rules are required for AKS clusters that have t
 | *.opinsights.azure.com	| HTTPS:443	| Recommended for correct metrics and monitoring using Azure Monitor. |
 | *.monitoring.azure.com	| HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
 
-## Required addresses and ports for AKS clusters with the Azure Policy (in private preview) add on enabled
+## Required addresses and ports for AKS clusters with Azure Policy (in private preview) enabled
 
-The following FQDN / application rules are required for AKS clusters that have the Azure policy add on enabled.  This is subject to change as the feature moves to public preview and future release stages.
+The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.  This is subject to change as the feature moves to public preview and future release stages.
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
