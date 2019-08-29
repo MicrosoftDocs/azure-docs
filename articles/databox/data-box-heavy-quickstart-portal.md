@@ -7,16 +7,31 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 08/29/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
 
+::: zone target = "docs"
+
 # Quickstart: Deploy Azure Data Box Heavy using the Azure portal
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+Get started with Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 This quickstart describes how to deploy the Azure Data Box Heavy using the Azure portal. The steps include how to cable, configure, and copy data to Data Box Heavy so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
+
+::: zone-end
+
 
 ## Prerequisites
 
@@ -51,6 +66,8 @@ Before you begin, make sure that:
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 - The power cables are included in a tray at the back of the device.
+
+::: zone target = "docs"
 
 ## Sign in to Azure
 
@@ -154,3 +171,5 @@ In this quickstart, you’ve deployed a Data Box Heavy to help import your data 
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Heavy](data-box-portal-admin.md)
+
+::: zone-end
