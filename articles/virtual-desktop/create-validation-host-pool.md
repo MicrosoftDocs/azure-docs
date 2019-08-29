@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Tutorial: Create a host pool to validate service updates
@@ -20,7 +20,11 @@ You can debug issues in the validation host pool with either [the diagnostics fe
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), if you haven't already.
+Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), if you haven't already. After that, run the following cmdlet to sign in to your account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## Create your host pool
 
