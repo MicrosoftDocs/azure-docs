@@ -98,7 +98,7 @@ To learn more about using virtual network integration, see [Integrate a function
 ### Restricting your storage account to a virtual network
 
 > [!note] 
-> Temporarily, it may take up to 12 hours for your storage account to become available to your function app once you configure access restrictions on that storage account. During this time your application will be completley offline.
+> Temporarily, it may take up to 12 hours for your storage account to become available to your function app once you configure access restrictions on that storage account. During this time your application will be completely offline.
 
 In order to provide a higher level of security, you can restrict your application's storage account to a virtual network. You must then integrate your site with that virtual network to access your storage account. This configuration is supported on all plans that support virtual network integration.
 
