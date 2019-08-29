@@ -147,7 +147,7 @@ After the collections are imported, you can see how many computers with collecti
 
 ![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups02.png)
 
-When you click either one, log query editor opens displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../../azure-monitor/log-query/log-query-overview.md), you can peform further in-depth analysis the collection membership data.
+When you click either one, log query editor opens displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../../azure-monitor/log-query/log-query-overview.md), you can perform further in-depth analysis the collection membership data.
 
 ## Next steps
 
