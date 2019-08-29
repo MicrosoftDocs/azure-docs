@@ -200,7 +200,7 @@ To change the password for a cloud-only user, the user must complete the followi
 1. On the **Change password** page, enter your existing (old) password, then enter and confirm a new password.
 1. Select **Submit**.
 
-It takes a few minutes after you've changed your password for the new password to be usable in Azure AD DS. After about 20 minutes, you can use the new password to sign in to computers joined to the managed domain.
+It takes a few minutes after you've changed your password for the new password to be usable in Azure AD DS and to successfully sign in to computers joined to the managed domain.
 
 ## Next steps
 
