@@ -1,7 +1,7 @@
 ---
 title: Samples - CAF Foundation blueprint - Deploy steps
 description: Deploy steps of the CAF Foundation blueprint sample.
-author: dacoulte
+author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample

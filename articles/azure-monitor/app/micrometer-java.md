@@ -58,7 +58,7 @@ Steps
 Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
-* Azure-spring-boot-metrics-starters 2.0.7 or above  
+* Azure-spring-boot-metrics-starters 2.1.5 or above  
 * [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
 
 Steps:
@@ -69,12 +69,12 @@ Steps:
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
-          <version>2.0.7</version>
+          <version>2.1.6</version>
     </dependency>
     ```
 1. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
 
-     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
+     `management.metrics.export.azuremonitor.instrumentation-key=<your-instrumentation-key-here>`
 3. Build your application and run
 4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 

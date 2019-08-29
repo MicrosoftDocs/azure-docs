@@ -144,7 +144,7 @@ featureFlags:
                                                             .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/python/azure/">
+                                                        <a class="barLink" href="/azure/python/">
                                                             <img src="media/index/logo_python.svg" alt="">
                                                             Python</a>
                                                     </li>
@@ -1151,6 +1151,12 @@ featureFlags:
                                             <a href="/azure/iot-edge/">
                                                 <img src="media/index/iot-edge-alt.svg" alt="" />
                                                 <p>IoT Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-pnp/">
+                                                <img src="media/index/cloud-check.svg" alt="" />
+                                                <p>IoT Plug and Play</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3950,6 +3956,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-pnp/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cloud-check.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Plug and Play</h3>
+                                                    <p>Connect devices to your IoT solution without writing any device code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -6295,10 +6320,10 @@ featureFlags:
                                                     Azure for Python Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/python/azure">Get started</a>
+                                                    <a href="/azure/python">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API reference</a>
+                                                    <a href="/python/api/?view=azure-python">API reference</a>
                                                 </p>
                                             </div>
                                         </div>

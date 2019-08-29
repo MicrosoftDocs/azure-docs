@@ -2,7 +2,8 @@
 documentType: LandingData
 title: Computer Vision API Documentation 
 metadata:
-  title: API Documentation - Computer Vision - Azure Cognitive Services  | Microsoft Docs
+  title: API Documentation - Computer Vision
+  titleSuffix: Azure Cognitive Services
   description: Learn how to use Computer Vision to process images and return information. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: nitinme
@@ -10,8 +11,6 @@ metadata:
 
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/26/2019
   ms.author: nitinme

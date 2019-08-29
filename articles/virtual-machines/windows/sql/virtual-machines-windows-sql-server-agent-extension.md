@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -141,10 +141,10 @@ The full mode for the SQL Server IaaS extension offers full manageability for a 
 Install the SQL Server IaaS agent with full mode by using PowerShell:
 
   ```powershell-interactive
-     #Get the existing compute VM
+     # Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     #Register the SQL Server VM with 'Full' SQL Server IaaS agent
+     # Install 'Full' SQL Server IaaS agent extension
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
