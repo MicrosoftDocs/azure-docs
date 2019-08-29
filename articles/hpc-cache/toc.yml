@@ -29,8 +29,6 @@
     href: hpc-cache-create.md  
   - name: Add storage
     href: hpc-cache-add-storage.md
-  - name: Mount clients
-    href: hpc-cache-mount.md
   - name: Connect to the cache 
     href: hpc-cache-mount.md
 
