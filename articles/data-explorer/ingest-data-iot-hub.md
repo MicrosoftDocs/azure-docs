@@ -65,7 +65,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
 	
     ![Select test database](media/ingest-data-iot-hub/select-database.png)
 
-1. Select **Data ingestion** and **Add data connection**. Then fill out the form with the following information. Select **Create** when you are finished.
+1. Select **Data ingestion** and **Add data connection**. Then fill out the form with the following information. Select **Create** when you're finished.
 
     ![IoT Hub connection](media/ingest-data-iot-hub/iot-hub-connection.png)
 
@@ -104,19 +104,19 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
-2. In a local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
+1. In a local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
 
-3. Open the **SimulatedDevice.cs** file in a text editor of your choice.
+1. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
     Replace the value of the `s_connectionString` variable with the device connection string from [Register a device to the IoT Hub](#register-a-device-to-the-iot-hub). Then save your changes to **SimulatedDevice.cs** file.
 
-4. In the local terminal window, run the following commands to install the required packages for simulated device application:
+1. In the local terminal window, run the following commands to install the required packages for simulated device application:
 
     ```cmd/sh
     dotnet restore
     ```
 
-5. In the local terminal window, run the following command to build and run the simulated device application:
+1. In the local terminal window, run the following command to build and run the simulated device application:
 
     ```cmd/sh
     dotnet run
@@ -128,7 +128,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Review the data flow
 
-With the app generating data, you can now see the flow of that data from the Iot hub to the table in your cluster.
+With the app generating data, you can now see the data flow from the IoT hub to the table in your cluster.
 
 1. In the Azure portal, under your IoT hub, you see the spike in activity while the app is running.
 
@@ -147,7 +147,7 @@ With the app generating data, you can now see the flow of that data from the Iot
     TestTable
     ```
 
-    The result set should look like the following:
+    The result set:
 	
     ![Show ingested data results](media/ingest-data-iot-hub/show-ingested-data.png)
 
