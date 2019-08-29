@@ -159,7 +159,6 @@ You can use recommendation engines with Personalizer:
 ## Adding content safeguards to your application
 
 If your application allows for large variances in content shown to users, and some of that content may be unsafe or inappropriate for some users, you should plan ahead to make sure that the right safeguards are in place to prevent your users from seeing unacceptable content. The best pattern to implement safeguards is:
-The best pattern to implement safeguards is:
     * Obtain the list of actions to rank.
     * Filter out the ones that are not viable for the audience.
     * Only rank these viable actions.

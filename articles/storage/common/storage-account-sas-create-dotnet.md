@@ -90,7 +90,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-## See also
+## Next steps
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)

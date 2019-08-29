@@ -121,7 +121,7 @@ To get started with shared access signatures, see the following articles for eac
 
 - [Create an account SAS with .NET](storage-account-sas-create-dotnet.md)
 
-## See also
+## Next steps
 
 - [Delegate access with a shared access signature (REST API)](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 - [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

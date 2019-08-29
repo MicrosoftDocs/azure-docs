@@ -26,6 +26,11 @@ Before enabling the new experience, review the article [Combined security inform
 | Combined security information registration for Azure Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
+> [!NOTE]
+> Organizations who enabled the previous preview for registering and managing security info should complete the steps below to enable the enhanced preview experience. For organizations who do not make the switch, on September 25, 2019, Microsoft will switch users of the previous preview for registering and managing security info to the enhanced experience. 
+> 
+> If you have not enabled any version of the preview your organization will not be impacted.
+
 ## Enable combined registration
 
 Complete these steps to enable combined registration:

@@ -10,7 +10,7 @@
     href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Assign licenses to users    
     href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Assign a role with resource scope
+  - name: Grant permission for unlimited app registrations
     href: roles-quickstart-app-registration-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
@@ -102,7 +102,9 @@
       items: 
       - name: Create a dynamic group    
         href: groups-create-rule.md
-      - name: Dynamic group rules    
+      - name: Update a membership rule
+        href: groups-update-rule.md  
+      - name: Dynamic group rules & syntax  
         href: groups-dynamic-membership.md
       - name: Change group membership type  
         href: groups-change-type.md
@@ -114,7 +116,7 @@
       href: licensing-groups-resolve-problems.md
     - name: Change users to group licensing    
       href: licensing-groups-migrate-users.md
-    - name: Changes licenses for a user    
+    - name: Change licenses for a user    
       href: licensing-groups-change-licenses.md
     - name: Additional scenarios    
       href: licensing-group-advanced.md

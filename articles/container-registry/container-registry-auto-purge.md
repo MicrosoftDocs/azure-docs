@@ -158,7 +158,7 @@ After you've verified the dry run, create a scheduled task to automate the purge
 PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
   --registry {{.Run.Registry}} \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
-  --ago 0d --untagged --dry-run"
+  --ago 0d --untagged"
 
 az acr task create --name weeklyPurgeTask \
   --cmd "$PURGE_CMD" \
