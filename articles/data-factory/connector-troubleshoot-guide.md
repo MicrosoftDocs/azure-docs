@@ -18,10 +18,11 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 
 ### Error message: The remote server returned an error: (403) Forbidden
 
-- **Symptom**: Copy activity fail with the following error: 
+- **Symptoms**: Copy activity fail with the following error: 
 
     ```
-    Message: The remote server returned an error: (403) Forbidden.. Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
+    Message: The remote server returned an error: (403) Forbidden.. 
+    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
 - **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
@@ -30,10 +31,11 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 
 ### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
 
-- **Symptom**:Copy activity fail with the following error:
+- **Symptoms**:Copy activity fail with the following error:
 
     ```
-    Failed to get access token by using service principal. ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
+    Failed to get access token by using service principal. 
+    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
     ```
 
 - **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
@@ -45,10 +47,13 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
-- **Symptom**: When you copy data from tabular data source (such as SQL Server) into Azure SQL Data Warehouse using staged copy and PolyBase, you hit the following error:
+- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure SQL Data Warehouse using staged copy and PolyBase, you hit the following error:
 
     ```
-    ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Error happened when loading data into SQL Data Warehouse.,Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,Message=Conversion failed when converting from a character string to uniqueidentifier...
+    ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
+    Message=Error happened when loading data into SQL Data Warehouse.,
+    Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
+    Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
 - **Cause**: Azure SQL Data Warehouse PolyBase cannot convert empty string to GUID.
@@ -57,10 +62,14 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Expected data type: DECIMAL(x,x), Offending value
 
-- **Symptom**: When you copy data from tabular data source (such as SQL Server) into SQL DW using staged copy and PolyBase, you hit the following error:
+- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into SQL DW using staged copy and PolyBase, you hit the following error:
 
     ```
-    ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Error happened when loading data into SQL Data Warehouse.,Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
+    ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
+    Message=Error happened when loading data into SQL Data Warehouse.,
+    Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
+    Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
+    Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
 - **Cause**: Azure SQL Data Warehouse Polybase cannot insert empty string (null value) into decimal column.
@@ -69,10 +78,13 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Java exception message:HdfsBridge::CreateRecordReader
 
-- **Symptom**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
+- **Symptoms**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
 
     ```
-    Message=110802;An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, Message: Java exception raised on call to HdfsBridge_CreateRecordReader. Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
+    Message=110802;An internal DMS error occurred that caused this operation to fail. 
+    Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, 
+    Message: Java exception raised on call to HdfsBridge_CreateRecordReader. 
+    Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
 - **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1 MB). Check the schema of the target SQL DW table by adding the size of all columns:
@@ -99,10 +111,10 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: The condition specified using HTTP conditional header(s) is not met
 
-- **Symptom**: You use SQL query to pull data from Azure SQL Data Warehouse and hit the following error:
+- **Symptoms**: You use SQL query to pull data from Azure SQL Data Warehouse and hit the following error:
 
     ```
-    ...com.microsoft.azure.storage.StorageException: The condition specified using HTTP conditional header(s) is not met...
+    ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
 - **Cause**: Azure SQL Data Warehouse hit issue querying the external table in Azure Storage.
@@ -113,7 +125,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Request size is too large
 
-- **Symptom**: You copy data into Azure Cosmos DB with default write batch size, and hit error *"**Request size is too large**"*.
+- **Symptoms**: You copy data into Azure Cosmos DB with default write batch size, and hit error *"**Request size is too large**"*.
 
 - **Cause**: Cosmos DB limits one single request's size to  2 MB. The formula is, Request Size = Single Document Size * Write Batch Size. If your document size is large, the default behavior will result in too large request size. You can tune the write batch size.
 
@@ -121,10 +133,11 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Unique index constraint violation
 
-- **Symptom**: When copying data into Cosmos DB, you hit the following error:
+- **Symptoms**: When copying data into Cosmos DB, you hit the following error:
 
     ```
-    ...Message=Partition range id 0 | Failed to import mini-batch. Exception was Message: {"Errors":["Encountered exception while executing function. Exception  Error: {"Errors":["Unique index constraint violation."]}...
+    Message=Partition range id 0 | Failed to import mini-batch. 
+    Exception was Message: {"Errors":["Encountered exception while executing function. Exception &#61; Error: {\"Errors\":[\"Unique index constraint violation.\"]}... 
     ```
 
 - **Cause**: There are two possible causes:
@@ -140,11 +153,11 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Request rate is large
 
-- **Symptom**: When copying data into Cosmos DB, you hit the following error:
+- **Symptoms**: When copying data into Cosmos DB, you hit the following error:
 
     ```
-    Copy failed with error: 'Type=Microsoft.Azure.Documents.DocumentClientException,Message=Message:
-    {"Errors":["Request rate is large"]}
+    Type=Microsoft.Azure.Documents.DocumentClientException,
+    Message=Message: {"Errors":["Request rate is large"]}
     ```
 
 - **Cause**: The request units used is bigger than the available RU configured in Cosmos DB. Learn how
@@ -158,7 +171,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 ### Column missing in column mapping
 
-- **Symptom**: When you import schema for Cosmos DB for column mapping, some columns are missing. 
+- **Symptoms**: When you import schema for Cosmos DB for column mapping, some columns are missing. 
 
 - **Cause**: ADF infers the schema from the first 10 Cosmos DB documents. If some columns/properties don't have value in those documents, they won't be detected by ADF thus won't show up.
 
@@ -170,10 +183,12 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 ### Error message: The GuidRepresentation for the reader is CSharpLegacy
 
-- **Symptom**: When copying data from Cosmos DB MongoAPI/MongoDB with UUID field, you hit the following error:
+- **Symptoms**: When copying data from Cosmos DB MongoAPI/MongoDB with UUID field, you hit the following error:
 
     ```
-    Failed to read data via MongoDB client.,Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException,Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,
+    Failed to read data via MongoDB client.,
+    Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException,
+    Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,
     ```
 
 - **Cause**: There are two ways to represent UUID in BSON - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
@@ -184,7 +199,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 ### Error message: Invalid SFTP credential provided for 'SshPublicKey' authentication type
 
-- **Symptom**: You use `SshPublicKey` authentication and hit the following error:
+- **Symptoms**: You use `SshPublicKey` authentication and hit the following error:
 
     ```
     Invalid Sftp credential provided for 'SshPublicKey' authentication type
