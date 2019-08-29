@@ -136,7 +136,7 @@ The following table shows connectivity locations and the service providers for e
 ### National cloud environments
 
 ### US Government cloud
-| **Location** | **Service Providers** |
+| **Location** | **Service providers** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
@@ -163,7 +163,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **Berlin** |e-shelter, Megaport+, T-Systems |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
-## <a name="c1partners"></a>Connectivity Through Exchange Providers
+## <a name="c1partners"></a>Connectivity through Exchange providers
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
@@ -180,8 +180,8 @@ If your connectivity provider is not listed in previous sections, you can still 
 * Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
-## <a name="c1partners"></a>Connectivity Through Additional Service Providers
-| **Location** | **Exchange** | **Connectivity Providers** |
+## <a name="c1partners"></a>Connectivity through additional service providers
+| **Location** | **Exchange** | **Connectivity providers** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Interxion, Level 3 Communications, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Luxembourg, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Crown Castle
