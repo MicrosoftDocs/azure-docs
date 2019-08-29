@@ -57,7 +57,7 @@ To configure the integration of ContractWorks into Azure AD, you need to add Con
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add new application, click the **New application** button on the top of the dialog and select the **Security** category.
 
 	![The New application button](common/add-new-app.png)
 
@@ -97,50 +97,25 @@ To configure Azure AD single sign-on with ContractWorks, perform the following s
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
+4. On the **Basic SAML Configuration** section, perform the following step:
 
     ![ContractWorks Domain and URLs single sign-on information](common/idp-identifier.png)
 
-    In the **Identifier** text box, type a URL:
+    In the **Identifier** text box, type the URL:
     `https://login.securedocs.com/saml/metadata`
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    ![image](common/both-preintegrated-signon.png)
-
-    In the **Sign-on URL** text box, type a URL:
-    `https://login.securedocs.com/saml/hint`
-
-6. ContractWorks application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. ContractWorks application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
+6. In the **User Attributes & Claims** section, remove all the existing items under **Additional claims** and instead add the two claims needed by ContractWorks. Add these new claims by clicking **Add new claim** at the top of the page and fill out the form for each of the following claims.
 
-	| Name | Source Attribute|
-	| ---------------| --------------- |
-	| mail | user.mail |
-	| displayName | user.displayname |
+	| Name           | Namespace | Source    | Source Attribute |
+	| ---------------| --------- | --------- | ---------------- |
+	| mail           |           | Attribute | user.mail        |
+	| displayName    |           | Attribute | user.displayname |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
-
-8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -148,7 +123,7 @@ To configure Azure AD single sign-on with ContractWorks, perform the following s
 
 To configure single sign-on on **ContractWorks** side, you need to send the **App Federation Metadata Url** to [ContractWorks support team](mailto:support@contractworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -165,8 +140,8 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -203,7 +178,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you create a user called Britta Simon in ContractWorks. Work with [ContractWorks support team](mailto:support@contractworks.com) to add the users in the ContractWorks platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
