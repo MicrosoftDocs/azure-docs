@@ -32,8 +32,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + This release improves the execution performance of automated machine learning local runs.
   + **azureml-automl-core**
     + AutoArima is now a suggestable pipeline for preview only.
     + Improved error reporting for forecasting.
