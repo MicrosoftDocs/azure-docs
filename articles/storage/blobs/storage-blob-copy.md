@@ -13,11 +13,11 @@ ms.topic: conceptual
 
 # Copy a blob with .NET
 
-This article shows how to copy a blob with an Azure Storage account. The example code uses the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+This article demonstrates how to copy a blob with an Azure Storage account. It also shows how to abort an asynchronous copy operation. The example code uses the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 
 ## About copying blobs
 
-Copying a blob is an asynchronous operation. The [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) and [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) methods return a copy ID value that is used to check status or abort the copy operation.
+When you copy a blob within the same storage account, it is a synchronous operation. When you copy across accounts it is an asynchronous operation. The [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) and [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) methods return a copy ID value that is used to check status or abort the copy operation.
 
 The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. Any existing destination blob will be overwritten. 
 
@@ -100,6 +100,26 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
             }
         }
     }
+}
+```
+
+## Abort a blob copy operation
+
+Aborting a copy operation results in a destination blob of zero length for block blobs, append blobs, and page blobs. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly in the [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) or [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) call. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling `StartCopy` or `StartCopyAsync`.
+
+When you abort an ongoing blob copy operation, the destination blob’s [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
+
+The [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) and [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) methods cancel an ongoing blob copy operation, and leave a destination blob with zero length and full metadata.
+
+```csharp
+// Fetch the destination blob's properties before checking the copy state.
+await destBlob.FetchAttributesAsync();
+
+// Check the copy status. If it is still pending, abort the copy operation.
+if (destBlob.CopyState.Status == CopyStatus.Pending)
+{
+    await destBlob.AbortCopyAsync(copyId);
+    Console.WriteLine("Copy operation {0} has been aborted.", copyId);
 }
 ```
 
