@@ -31576,7 +31576,7 @@
     },
     {
       "source_path": "articles/storage/blobs/storage-unstructured-search.md",
-      "redirect_url": "/azure/storage/search/search-howto-indexing-azure-blob-storage",
+      "redirect_url": "/azure/search/search-howto-indexing-azure-blob-storage",
       "redirect_document_id": false
     },
     {
