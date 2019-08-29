@@ -245,7 +245,7 @@
     - name: Authoring and runtime keys
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
-    - name: Manage authors and collaborators
+    - name: Authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: Migrate your authoring key
@@ -254,10 +254,10 @@
           href: luis-migration-authoring.md
         - name: How to Migrate
           href: luis-migration-authoring-steps.md
-    - name: Manage versions
+    - name: Versions
       href: luis-how-to-manage-versions.md
       diplayName: import, export, container
-    - name: Spread endpoint quota across keys with Traffic Manager
+    - name: With Traffic Manager
       href: luis-traffic-manager.md
   - name: Migrate API
     items: 
