@@ -31580,6 +31580,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-unstructured-search.md",
+      "redirect_url": "/azure/search/search-howto-indexing-azure-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/data-lake-storage/index.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
       "redirect_document_id": false
@@ -38898,6 +38903,16 @@
       "redirect_url": "https://github.com/Microsoft/Cognitive-Vision-Python",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/cognitive-services/Computer-vision/Tutorials/java-tutorial.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial",
+      "redirect_document_id": false
+    },
+	{
+		"source_path": "articles/cognitive-services/Computer-vision/Tutorials/javascript-tutorial.md",
+		"redirect_url": "https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/media-services/previous/media-services-hyperlapse-content.md",
       "redirect_url": "/azure/media-services/previous/media-services-analytics-overview",
