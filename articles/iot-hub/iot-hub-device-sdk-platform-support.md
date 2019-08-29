@@ -11,15 +11,17 @@ ms.author: robinsh
 
 # Azure IoT Device SDKs Platform Support
 
-Microsoft publishes open source device SDKs on GitHub for a variety of popular languages to help connect devices to Azure IoT Hub and the Device Provisioning Service. Microsoft publishes device SDKs for C, .NET (C#), Node.js, Java, and Python. These SDKs are continually tested by Microsoft on a variety of platforms. A platform is defined by a combination of operating system, microprocessor architecture, compiler or framework version, and transport layer security (TLS) library.
+Microsoft strives to continually expand the universe of Azure IoT Hub capable devices. For this reason, Microsoft publishes open source device SDKs on GitHub to help connect devices to Azure IoT Hub and the Device Provisioning Service. The device SDKs are available for C, .NET (C#), Java, Node.js, and Python, and Microsoft performs testing to ensure their operation on a variety of popular platforms. A platform is defined by a combination of operating system, microprocessor architecture, compiler or framework version, and transport layer security (TLS) library.
 
-In addition, to Microsoft supported device SDKs:
+In addition to the device SDKs, Microsoft provides several other avenues to empower customers and developers to connect their devices to Azure IoT:
 
-* Several partners collaborate with Microsoft to publish semiconductor development kits based on the Azure IoT C SDK for their hardware platforms.
+* Microsoft collaborates with several partner companies to publish semiconductor development kits, based on the Azure IoT C SDK, for their hardware platforms.
 
 * Microsoft works with Microsoft Trusted Partners to provide an ever-expanding set of devices that have been tested and certified for Azure IoT.
 
-* Developers can port the C SDK to their hardware.
+* Microsoft provides a platform abstraction layer (PAL) in the Azure IoT Hub Device C SDK that helps developers to easily port the SDK to their platform.
+
+This topic provides information about the Microsoft SDKs and the platforms they are tested against, as well as each of the other options listed above.
 
 ## Microsoft supported platforms
 
@@ -117,11 +119,11 @@ To learn more about Microsoft trusted partners or to learn how to become a Micro
 
 ## Porting the Microsoft Azure IoT C SDK
 
-If your device or its architecture is not covered by one of the previous sections, you can consider porting the Azure IoT C SDK. Porting the C SDK primarily consists in implementing the platform abstraction layer (PAL) of the SDK. The PAL defines several primitives that provide the glue between your device and the higher-level functions provided in the SDK. For more information, see [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
+If your device or its architecture is not covered by one of the previous sections, you can consider porting the Azure IoT C SDK. Porting the C SDK primarily involves implementing the platform abstraction layer (PAL) of the SDK. The PAL defines several primitives that provide the glue between your device and the higher-level functions provided in the SDK. For more information, see [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
 ## Support and other resources
 
-If you experience problems while using the Azure IoT device SDKs, there are several ways to seek support. Try one of the following channels for support:
+If you experience problems while using the Azure IoT device SDKs, there are several ways to seek support. You can try one of the following channels:
 
 **Reporting bugs** – Bugs in the device SDKs can be reported on the issues page of the relevant GitHub project. Fixes rapidly make their way from the project in to product updates.
 
@@ -141,7 +143,7 @@ If you experience problems while using the Azure IoT device SDKs, there are seve
 
 ## NOT SURE WHERE THIS BIT GOES
 
-(I know we discussed putting this information somewhere -- not sure where tho. I think some of them like Arduino will be folded into the Microsoft supported platforms section)
+(I know we discussed putting this information somewhere -- not sure where tho. I think some of them like Arduino will be folded into the Microsoft supported platforms section or maybe a Microsoft Supported Device Kit section)
 
 The SDKs also regularly build on these platforms, with limited testing and support:
 
