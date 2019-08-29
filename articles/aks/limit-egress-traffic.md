@@ -59,7 +59,7 @@ You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance t
 
 > [!IMPORTANT]
 > When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs because the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
->
+> You can lock down the traffic for TCP port 9000 using a network rule between the egress worker node IP(s) and the tunnelend IP, which is running behind the same IP as the API server.
 
 In AKS, there are two sets of ports and addresses:
 
