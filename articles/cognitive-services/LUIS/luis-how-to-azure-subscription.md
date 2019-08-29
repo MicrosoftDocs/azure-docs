@@ -63,7 +63,7 @@ You can assign a single resource, authoring or prediction endpoint runtime, to a
 1. Select the Prediction or Authoring resource tab then select the **Add prediction resource** or **Add authoring resource** button. 
 1. Select the fields in the form to find the correct resource, then select **Save**.  
 
-## Assign runtime resource without using LUIS portal
+### Assign runtime resource without using LUIS portal
 
 For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS runtime resource to a LUIS app. In order to do that, you need to perform the following steps:
 
