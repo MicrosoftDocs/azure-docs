@@ -25,6 +25,8 @@ After the disks are connected and unlocked, you can copy data from your source d
 
 ::: zone-end
 
+::: zone target="docs"
+
 This tutorial describes how to copy data from your host computer and then generate checksums to verify data integrity.
 
 In this tutorial, you learn how to:
@@ -328,6 +330,6 @@ Take the following steps to verify your data.
 1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
 2. Use option 2 to validate your files and generate checksums. Depending upon your data size, this step may take a while. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
-    For more information on data validation, see [Validate data](data-box-disk-deploy-copy-data.md#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
+    For more information on data validation, see [Validate data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). If you experience errors during validation, see [troubleshoot validation errors](https://docs.microsoft.com/en-us/azure/databox/data-box-disk-troubleshoot){:target="_blank"}.
 
 ::: zone-end

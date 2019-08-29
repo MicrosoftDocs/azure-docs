@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/22/2019
+  ms.date: 08/28/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: What is Azure Virtual Network?
             url: virtual-networks-overview.md
-      - linkListType: reference
+      - linkListType: concept
         links:
           - text: Virtual network FAQ
             url: virtual-networks-overview.md
@@ -56,6 +56,8 @@ landingContent:
             url: security-overview.md#application-security-groups 
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
+          - text: Virtual network security FAQ
+            url: virtual-networks-faq.md#security            
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups
@@ -64,10 +66,6 @@ landingContent:
             url: tutorial-restrict-network-access-to-resources.md
           - text: Work with application security groups
             url: manage-network-security-group.md#work-with-application-security-groups
-      - linkListType: reference
-        links:
-          - text: Virtual network security FAQ
-            url: virtual-networks-faq.md#security
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
@@ -81,6 +79,8 @@ landingContent:
         links:
           - text: Virtual network peering
             url: virtual-network-peering-overview.md
+          - text: Virtual network peering FAQ
+            url: virtual-networks-faq.md#vnet-peering            
       - linkListType: tutorial
         links:
           - text: Connect VNets with virtual network peering
@@ -95,10 +95,6 @@ landingContent:
             url: create-peering-different-deployment-models.md
           - text: Different deployment models - different subscriptions
             url: create-peering-different-deployment-models-subscriptions.md
-      - linkListType: reference
-        links:
-          - text: Virtual network peering FAQ
-            url: virtual-networks-faq.md#vnet-peering
       - linkListType: learn
         links:
           - text: Communicate across virtual network with peering
@@ -156,14 +152,12 @@ landingContent:
         links:
           - text: Virtual network Terminal Access Point (TAP)
             url: virtual-network-tap-overview.md
+          - text: Virtual network TAP FAQ
+            url: virtual-networks-faq.md#virtual-network-tap    
       - linkListType: how-to-guide
         links:
           - text: Create a virtual network TAP
             url: tutorial-tap-virtual-network-cli.md
-      - linkListType: reference
-        links:
-          - text: Virtual network TAP FAQ
-            url: virtual-networks-faq.md#virtual-network-tap
 
   # Card
   - title: Manage IP services
@@ -185,7 +179,7 @@ landingContent:
           - text: Create, change, or delete a public IP address prefix
             url: manage-public-ip-address-prefix.md
   # Card
-  - title: References
+  - title: Reference
     linkLists:
       - linkListType: reference
         links:
