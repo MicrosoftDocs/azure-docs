@@ -97,6 +97,8 @@ The following FQDN / application rules are required:
 
 ## Optional recommended addresses and ports for AKS clusters
 
+* UDP port *53* for DNS
+
 The following FQDN / application rules are recommended for AKS clusters to function correctly:
 
 | FQDN                                    | Port      | Use      |
