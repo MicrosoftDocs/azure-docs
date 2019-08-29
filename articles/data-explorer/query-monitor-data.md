@@ -55,7 +55,7 @@ You can use Kusto Explorer, ADX web Explorer, Jupyter Kqlmagic, or REST API to q
 > * Database name should have the same name as the resource specified in the proxy cluster. Names are case sensitive.
 > * In cross cluster queries, make sure that the naming of Application Insights apps and Log Analytics workspaces is correct.
 >     * If names contain special characters, they're replaced by URL encoding in the proxy cluster name. 
->     * If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), the are replaced by the dash **-** character.
+>     * If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), they are replaced by the dash **-** character.
 
 ### Query against the native Azure Data Explorer cluster 
 
