@@ -90,7 +90,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### Create a service principal
 
-The simpliest way to authenticate an cloud-based .NET application is with a managed identity; see [Service-to-service authentication to Azure Key Vault using .NET](service-to-service-authentication.md) for details. For the sake of simplicity however, this quickstarts creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal.
+The simplest way to authenticate an cloud-based .NET application is with a managed identity; see [Service-to-service authentication to Azure Key Vault using .NET](service-to-service-authentication.md) for details. For the sake of simplicity however, this quickstarts creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal.
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
@@ -186,7 +186,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### Retrieve a secret
 
-You can now retrtieve the previously set value with the [GetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync)
+You can now retrieve the previously set value with the [GetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync)
 
 [!code-csharp[Get secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=getsecret)]
 
@@ -206,5 +206,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Next steps
 
-- See the [entire console app in Github](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet)
+- See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet)
 - [Learn more about Key Vault](key-vault-whatis.md)
