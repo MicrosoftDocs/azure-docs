@@ -50,9 +50,9 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 |    1 TiB to 2 TiB    |    40 million                                      |
 |    2 TiB to 3 TiB    |    60 million                                      |
 |    3 TiB to 4 TiB    |    80 million                                      |
-|    4 TiB to 5 TiB    |    100 million                                     |
+|    4 TiB or more     |    100 million*                                     |
 
-You can adjust the maxfiles limit beyond 100 million through a support request.
+*You can adjust the maxfiles limit beyond 100 million through a support request.
 
 ## Request limit increase 
 
