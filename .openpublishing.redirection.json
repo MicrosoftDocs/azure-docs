@@ -16,6 +16,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-load-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-transform-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-write-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview.md",
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
       "redirect_document_id": false
@@ -7186,6 +7201,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/paloaltoglobalprotect-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/palo-alto-networks-globalprotect-tutorial",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-alcumus-info-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/alcumus-info-tutorial",
       "redirect_document_id": true
@@ -8718,11 +8738,6 @@
     {
       "source_path": "articles/active-directory/active-directory-saas-paloaltoadmin-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/paloaltoadmin-tutorial",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-saas-paloaltoglobalprotect-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/paloaltoglobalprotect-tutorial",
       "redirect_document_id": true
     },
     {
@@ -26013,6 +26028,21 @@
       "source_path": "articles/security-center/security-center-incident-response.md",
       "redirect_url": "/azure/security-center/tutorial-security-incident",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/security-center/security-center-detection-capabilities.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-enable-network-security-groups.md",
+      "redirect_url": "/azure/security-center/security-center-network-recommendations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-events-dashboard.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#events-dashboard---the-new-experience",
+      "redirect_document_id": false
     },  
     {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
@@ -31542,21 +31572,6 @@
     {
       "source_path": "articles/hdinsight/storm/index.md",
       "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/blobs/index.md",
-      "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/files/index.md",
-      "redirect_url": "/azure/storage/files/storage-files-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/queues/index.md",
-      "redirect_url": "/azure/storage/queues/storage-queues-introduction",
       "redirect_document_id": false
     },
     {
@@ -41478,8 +41493,28 @@
     },
     {
       "source_path": "articles/machine-learning/service/tutorial-data-prep.md",
-			"redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
-			"redirect_document_id": false
+      "redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/deploy-sentiment-analysis-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances?tabs=sentiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=language",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/use-sentiment-analysis-on-aks.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=sentiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-paas.yml",
+      "redirect_url": "/azure/sql-database/sql-database-paas-index",
+      "redirect_document_id": false
     }
   ]
 }
