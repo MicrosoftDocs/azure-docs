@@ -1,0 +1,29 @@
+---
+title: Run container example of docker run command
+titleSuffix: Azure Cognitive Services
+description: Docker run command for Language Detection container
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include 
+ms.date: 08/20/2019
+ms.author: dapine
+---
+
+### Run container example of docker run command
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+mcr.microsoft.com/azure-cognitive-services/language \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+This command:
+
+* Runs a *Language Detection* container from the container image
+* Allocates one CPU core and 4 gigabytes (GB) of memory
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Automatically removes the container after it exits. The container image is still available on the host computer.

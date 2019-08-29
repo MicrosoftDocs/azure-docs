@@ -52,7 +52,7 @@ Learn how to use quick tasks in the first ACR Tasks tutorial, [Build container i
 
 ## Automatic build on source code commit
 
-Use ACR Tasks to automatically trigger a container image build when code is committed to a Git repository. Build tasks, configurable with the Azure CLI command [az acr task][az-acr-task], allow you to specify a Git repository and optionally a branch and Dockerfile. When your team commits code to the repository, an ACR Tasks-created webhook triggers a build of the container image defined in the repo.
+Use ACR Tasks to automatically trigger a container image build when code is committed to a Git repository in GitHub or Azure DevOps. Build tasks, configurable with the Azure CLI command [az acr task][az-acr-task], allow you to specify a Git repository and optionally a branch and Dockerfile. When your team commits code to the repository, an ACR Tasks-created webhook triggers a build of the container image defined in the repo.
 
 > [!IMPORTANT]
 > If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
@@ -69,10 +69,14 @@ When an OS or app framework image is updated by the upstream maintainer, for exa
 
 Because ACR Tasks dynamically discovers base image dependencies when it builds a container image, it can detect when an application image's base image is updated. With one preconfigured [build task](container-registry-tutorial-base-image-update.md#create-a-task), ACR Tasks then **automatically rebuilds every application image** for you. With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
-Learn about OS and framework patching in the third ACR Tasks tutorial, [Automate image builds on base image update with Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+An ACR task tracks a base image update when the base image is in one of the following locations:
 
-> [!NOTE]
-> Currently, base image updates trigger builds only when both the base and application images reside in the same Azure container registry, or the base resides in a public Docker Hub or Microsoft Container Registry repository.
+* The same Azure container registry where the task runs
+* Another Azure container registry in the same region 
+* A public repo in Docker Hub
+* A public repo in Microsoft Container Registry
+
+Learn more about OS and framework patching in the third ACR Tasks tutorial, [Automate image builds on base image update with Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
 
 ## Multi-step tasks
 
