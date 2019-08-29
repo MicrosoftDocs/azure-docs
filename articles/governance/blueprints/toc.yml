@@ -156,6 +156,9 @@
   - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
+  - name: Configure your environment for a Blueprint Operator
+    displayName: rbac, user-assigned, managed, identity, management group
+    href: ./how-to/configure-for-blueprint-operator.md
   - name: Manage Blueprints as Code (community)
     href: https://github.com/Azure/azure-blueprints/blob/master/README.md
 - name: Troubleshoot

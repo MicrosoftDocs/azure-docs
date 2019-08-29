@@ -586,6 +586,8 @@
     items:
     - name: Activity troubleshooting
       href: data-factory-troubleshoot-guide.md
+    - name: Connector troubleshooting
+      href: connector-troubleshoot-guide.md
     - name: Troubleshooting Azure-SSIS IR Management
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
