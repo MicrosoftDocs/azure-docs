@@ -22,12 +22,12 @@ ms.author: diberry
 LUIS uses two types of Azure resources, each type has keys: 
  
 * [Authoring](#programmatic-key) to create intents, entities, and label utterances, train, and publish. When you are ready to publish your LUIS app, you need a [prediction endpoint key for the runtime](luis-how-to-azure-subscription.md) assigned to the app.
-* [Prediction endpoint key for the runtime](#runtime-key). Client-applications, such as a chat bot, need access to the runtime's **query prediction endpoint** through this key. 
+* [Prediction endpoint key for the runtime](#prediction-endpoint-runtime-key). Client-applications, such as a chat bot, need access to the runtime's **query prediction endpoint** through this key. 
 
 |Key|Purpose|Cognitive service `kind`|Cognitive service `type`|
 |--|--|--|--|
 |[Authoring key](#programmatic-key)|Authoring, training, publishing, testing.|`LUIS.Authoring`|`Cognitive Services`|
-|[Prediction endpoint runtime key](#runtime-key)| Query prediction endpoint runtime with a user utterance to determine intents and entities.|`LUIS`|`Cognitive Services`|
+|[Prediction endpoint runtime key](#prediction-endpoint-runtime-key)| Query prediction endpoint runtime with a user utterance to determine intents and entities.|`LUIS`|`Cognitive Services`|
 
 While you don't need to create both keys at the same time, it is much easier if you do.
 
@@ -46,7 +46,7 @@ To find the authoring Key, sign in to [LUIS](luis-reference-regions.md#luis-webs
 When you want to make **runtime queries**, create the Azure [LUIS resource](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
 > [!CAUTION]
-> For convenience, many of the samples use the [Starter key](#starter-key) because it provides a few free prediction endpoint calls in its [quota](luis-boundaries.md#key-limits).  
+> For convenience, many of the samples use the [Starter key](#starter-prediction-endpoint-runtime-key) because it provides a few free prediction endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
 <a name="endpoint-key"></a>
 
@@ -122,7 +122,7 @@ You can move your LUIS app. Use the following documentation resources in the Azu
 
 ## Access for private and public apps
 
-For a **private** app, runtime access is available for owners and contributors. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal) runtime resource, and has the public app's ID. 
+For a **private** app, runtime access is available for owners and contributors. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) runtime resource, and has the public app's ID. 
 
 Currently, there isn't a catalog of public apps.
 
