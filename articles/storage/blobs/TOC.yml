@@ -583,8 +583,6 @@
       items:
       - name: .NET
         href: storage-quickstart-blobs-dotnet.md
-      - name: Java
-        href: storage-quickstart-blobs-java-v10.md
       - name: Python
         href: storage-quickstart-blobs-python.md
   - name: Tutorials
