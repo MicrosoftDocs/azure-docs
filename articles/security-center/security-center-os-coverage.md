@@ -71,7 +71,7 @@ To learn more about the supported features for the above list of Windows operati
 
 ### Managed virtual machine services <a name="virtual-machine"></a>
 
-Virtual machines are also created in a customer subscription as part of some Azure managed services as well, such as Azure Kubernetes (AKS), Azure Databricks and more. Such virtual machines are also discovered by Azure Security Center, and the Log analytics agent can be installed and configured according to the above list of supported [Windows/Linux operating systems](#data-agent-platforms).
+Virtual machines are also created in a customer subscription as part of some Azure managed services as well, such as Azure Kubernetes (AKS), Azure Databricks and more. Such virtual machines are also discovered by Azure Security Center, and the Log analytics agent can be installed and configured according to the above list of supported [Windows/Linux operating systems](#os-windows).
 
 ### Cloud Services <a name="cloud-services"></a>
 
