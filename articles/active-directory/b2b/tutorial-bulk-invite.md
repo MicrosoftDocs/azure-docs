@@ -49,14 +49,20 @@ You need two or more test email accounts that you can send the invitations to. T
     
     ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5.	Open the .csv file and add a line for each guest user. Then save the file.
+5.	Open the .csv file and add a line for each guest user (required values are **Email address to invite** and **Redirection url**). Then save the file.
    
     ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
 6. On the **Bulk invite users (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
 7.	When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
-8.	When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section.
-1. When the job completes, you'll see a notification that the bulk operation succeeded. 
+8.	When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
+9. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section.
+   
+    ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-operation-results.png)
+
+   For details about each line item within the the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
+
+10. When the job completes, you'll see a notification that the bulk operation succeeded. 
 
 
 ## Verify guest users in the directory
