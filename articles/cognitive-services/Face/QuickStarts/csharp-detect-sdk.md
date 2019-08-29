@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Detect faces in an image with the Azure Face .NET SDK"
+title: "Quickstart: Detect and frame faces in an image with the Azure Face .NET SDK"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will use the Azure Face SDK with C# to detect faces in an image.
+description: In this quickstart, you will use the Azure Face SDK with C# to detect and draw frames around faces in an image.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
