@@ -69,7 +69,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
 
     ![IoT Hub connection](media/ingest-data-iot-hub/iot-hub-connection.png)
 
-    Data Source:
+    **Data Source**:
 
     **Setting** | **Field description**
     |---|---|
@@ -80,7 +80,10 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
 	| Event system properties | The IoT Hub event system properties |
     | | 
 
-    Target table:
+    > [!NOTE]
+    > In case of a [manual failover](/azure/iot-hub/iot-hub-ha-dr#manual-failover), you must recreate the data connection.
+
+    **Target table**:
 
     There are two options for routing the ingested data: *static* and *dynamic*. 
     For this article, you use static routing, where you specify the table name, data format, and mapping. Therefore, leave **My data includes routing info** unselected.
@@ -93,10 +96,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     | | |
 
     > [!TIP]
-    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
-
-> [!NOTE]
-> In case of a [manual failover](/azure/iot-hub/iot-hub-ha-dr#manual-failover), you must recreate the data connection.
+    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
 
 ## Generate sample data for testing
 
