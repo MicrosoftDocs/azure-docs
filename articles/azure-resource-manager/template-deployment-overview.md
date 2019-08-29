@@ -23,7 +23,6 @@ Resource Manager provides several benefits:
 * You can manage your infrastructure through declarative templates rather than scripts.
 * You can define the dependencies between resources so they're deployed in the correct order.
 
-
 ## Guidance
 
 The following suggestions help you take full advantage of Resource Manager when working with your solutions.
@@ -31,9 +30,9 @@ The following suggestions help you take full advantage of Resource Manager when 
 * Define and deploy your infrastructure through the declarative syntax in Resource Manager templates, rather than through imperative commands.
 * Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
 * Run imperative commands to manage your resources, such as to start or stop an app or machine.
+* Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
 
 For recommendations on creating Resource Manager templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-
 
 To learn about the format of the template and how you construct it, see [Understand the structure and syntax of Azure Resource Manager Templates](resource-group-authoring-templates.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/azure/templates/).
 

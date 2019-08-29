@@ -17,7 +17,11 @@ ms.author: tomfitz
 
 # Azure resource providers and types
 
-When deploying resources, you frequently need to retrieve information about the resource providers and types. In this article, you learn how to:
+When deploying resources, you frequently need to retrieve information about the resource providers and types. Each resource provider offers a set of resources and operations for working with those resources. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault.
+
+The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
+
+In this article, you learn how to:
 
 * View all resource providers in Azure
 * Check registration status of a resource provider
