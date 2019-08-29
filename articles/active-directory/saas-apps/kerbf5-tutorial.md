@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 08/29/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,13 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * F5 supports **SP and IDP** initiated SSO
-* F5 SSO can be configured in three different ways of configurations. For more details refer **Additional resources** section.
+* F5 SSO can be configured in three different ways.
+
+- [Configure F5 single sign-on for Kerberos application](#configure-f5-single-sign-on-for-kerberos-application)
+
+- [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
+
+- [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
 
 ## Adding F5 from the gallery
 
@@ -134,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure F5 SSO
 
-- [Configure F5 SSO in Header Based](headerf5-tutorial.md)
+- [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
 
-- [Configure F5 SSO in Advanced Kerberos](advance-kerbf5-tutorial.md)
+- [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
 
-### Configure F5 SSO in Kerberos
+### Configure F5 single sign-on for Kerberos application
 
 1. Open a new web browser window and sign into your F5 (Kerberos) company site as an administrator and perform the following steps:
 
@@ -213,7 +219,7 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [Try F5 with Azure AD](https://aad.portal.azure.com/)
 
-- [Configure F5 SSO in Header Based](headerf5-tutorial.md)
+- [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
 
-- [Configure F5 SSO in Advanced Kerberos](advance-kerbf5-tutorial.md)
+- [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
 
