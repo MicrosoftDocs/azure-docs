@@ -25,10 +25,10 @@ The system requirements include the supported platforms for clients connecting t
 
 ## Prerequisites
 
-You have a client computer available from which you can copy the data. Your client computer:
+You have a client computer available from which you can copy the data. Your client computer must:
 
 - Run a supported operating system.
-- Have other required software installed if it is a Windows client.
+- Have other required software installed.
 
 ::: zone-end
 
