@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 08/29/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -53,8 +53,8 @@ The length and acceptable characters for metadata name and value are listed in t
 
 |Item|Allowed chars|Regex pattern match|Max chars|
 |--|--|--|--|
-|Name|alphanumeric (letters and digits)<br>`_` (underscore)|`^[a-zA-Z0-9_]+$`|100|
-|Value|`:` (colon)<br>`|` (vertical pipe)|`^[^:|]+$`|500|
+|Name|Allows<br>alphanumeric (letters and digits)<br>`_` (underscore)|`^[a-zA-Z0-9_]+$`|100|
+|Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)|`^[^:|]+$`|500|
 |||||
 
 ## Knowledge Base content limits
