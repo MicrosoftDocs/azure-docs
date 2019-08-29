@@ -48,8 +48,6 @@ At the end of this tutorial, you have two Java console apps:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
-
 * Java SE 8. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) describes how to install Java for this tutorial on either Windows or Linux.
 
 * Maven 3. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) describes how to install [Maven](https://maven.apache.org/what-is-maven.html) for this tutorial on either Windows or Linux.

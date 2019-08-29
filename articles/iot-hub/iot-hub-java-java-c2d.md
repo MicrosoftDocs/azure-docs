@@ -38,7 +38,7 @@ At the end of this tutorial, you run two Java console apps:
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
 * A complete working version of the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md) quickstart or the [Configure message routing with IoT Hub](tutorial-routing.md) tutorial.
 
