@@ -18,7 +18,11 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 ## Soft Delete
 
-### Soft Delete for VMs
+### Supported regions
+
+Soft delete is currently supported in the West Central US region.
+
+### Soft delete for VMs
 
 1. In order to delete the backup data of a VM, the backup must be stopped. In the Azure portal, go to your recovery services vault, right-click on the backup item and choose **Stop backup**.
 
