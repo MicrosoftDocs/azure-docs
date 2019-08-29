@@ -21,37 +21,37 @@ landingContent:
             url: overview.md
       - linkListType: quickstart
         links:
-          - text: Learn how to deploy your first Azure Data Catalog
+          - text: Learn how to deploy your first Data Catalog
             url: data-catalog-get-started.md
       - linkListType: concept
         links:
           - text: Frequently asked questions
             url: data-catalog-frequently-asked-questions.md
   # Card
-  - title: Register data assets in Azure Data Catalog
+  - title: Register data assets
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Learn how to register, search, annotate, manage, and delete assets in Azure Data Catalog
+          - text: Learn how to register, search, annotate, manage, and delete assets
             url: register-data-assets-tutorial.md
       - linkListType: concept
         links:
-          - text: Support data sources
+          - text: Supported data sources
             url: data-catalog-dsr.md
       - linkListType: how-to-guide
         links:
           - text: Register data sources
             url: data-catalog-how-to-register.md
   # Card
-  - title: Azure Data Catalog REST API programming
+  - title: Data Catalog REST API programming
     linkLists:
       - linkListType: get-started
         links:
-          - text: Get started creating a Data Catalog app 
+          - text: Create a Data Catalog app using REST
             url: /rest/api/datacatalog/get-started-creating-a-data-catalog-app
       - linkListType: reference
         links:
-          - text: Azure Data Catalog REST API reference
+          - text: REST API reference
             url: /rest/api/datacatalog/
       - linkListType: how-to-guide
         links:
