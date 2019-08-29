@@ -19,7 +19,7 @@ ms.author: alkohli
 
 ::: zone target = "chromeless"
 
-Copy data to Azure Data Box Heavy
+## Copy data to Azure Data Box Heavy
 
 ::: zone-end
 
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 You can copy data from your source server to your Data Box via SMB, NFS, REST, data copy service or to managed disks.
 
-In each case, make sure that the share and folder names, and the data size follow guidelines described in the Azure Storage and Data Box service limits.
+In each case, make sure that the share and folder names, and the data size follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).
 
 ::: zone-end
 
@@ -295,13 +295,13 @@ For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via 
 
 ### Copy data via NFS
 
-1. If using an NFS host, use the following command to mount the NFS shares on your Data Box:
+1. If using an NFS host, use the following command to mount the NFS shares:
 
     `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
 
-2. To get the share access credentials, go to the **Connect & copy page** in the local web UI of the Data Box.
-
-3. Use `cp` or `rsync` command to copy your data.
+2. To get the share access credentials, go to the **Connect & copy page** in the local web UI of the Data Box Heavy.
+3. Use `cp` or `rsync` command to copy your data. 
+4. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
 
 For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
 
@@ -309,23 +309,26 @@ For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via 
 
 1. To copy data using Data Box Blob storage via REST APIs, you can connect over *http* or *https*.
 2. To copy data to Data Box Blob storage, you can use AzCopy.
+3. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
 
 For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box Blob storage via REST APIs](data-box-heavy-deploy-copy-data-via-rest.md).
 
 ### Copy data via data copy service
 
-1. To copy data by using the data copy service, you need to create a job. In the local web UI of your Data Box, go to **Manage > Copy data > Create**.
+1. To copy data by using the data copy service, you need to create a job. In the local web UI of your Data Box Heavy, go to **Manage > Copy data > Create**.
 2. Fill out the parameters and create a job.
+3. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
 
-For step-by-step instructions, go to [Tutorial: Use the data copy service to copy data into Azure Data Box](data-box-heavy-deploy-copy-data-via-copy-service.md).
+For step-by-step instructions, go to [Tutorial: Use the data copy service to copy data into Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
 
 ### Copy data to managed disks
 
-1. When ordering the Data Box device, you should have selected managed disks as your storage destination.
-2. You can connect to Data Box via SMB or NFS shares.
+1. When ordering the Data Box Heavy device, you should have selected managed disks as your storage destination.
+2. You can connect to Data Box Heavy via SMB or NFS shares.
 3. You can then copy data via SMB or NFS tools.
+4. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
 
-For step-by-step instructions, go to [Tutorial: Use Data Box to import data as managed disks in Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+For step-by-step instructions, go to [Tutorial: Use Data Box to Heavy import data as managed disks in Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 
