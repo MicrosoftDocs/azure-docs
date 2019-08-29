@@ -19,18 +19,21 @@ App Service on Linux provides pre-defined application stacks on Linux with suppo
 * [Visual Studio Code](https://code.visualstudio.com/)
 * The [Azure App Service extension for VS Code](vscode:extension/ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
 * The [Docker extension for VS Code](vscode:extension/ms-azuretools.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
-* A suitable web app image stored in an [Azure Container Registry](/azure/container-registry). If you do not already have one, you can use the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image with the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
+
+## Create an image
+
+To complete this quickstart, you will need a suitable web app image stored in an [Azure Container Registry](/azure/container-registry). Follow the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal), but use the `mcr.microsoft.com/azuredocs/go` image instead of the `hello-world` image.
 
     > [!IMPORTANT]
     > Be sure to set the **Admin User** option to **Enable** when you create the container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access.
 
-### Sign in
+## Sign in
 
-After you install the prerequisites, launch VS Code and log into your Azure account using the App Service extension. To do this, select the Azure logo in the Activity Bar, navigate to the **APP SERVICE** explorer, then select **Sign in to Azure** and follow the instructions.
+Next, launch VS Code and log into your Azure account using the App Service extension. To do this, select the Azure logo in the Activity Bar, navigate to the **APP SERVICE** explorer, then select **Sign in to Azure** and follow the instructions.
 
 ![sign in to Azure](./media/quickstart-docker/sign-in.png)
 
-### Check prerequisites
+## Check prerequisites
 
 Now you can check whether you have all the prerequisites installed and configured properly.
 
@@ -59,7 +62,7 @@ From here, follow the prompts to choose a subscription, a globally unique app na
 After deployment, your app is available at `http://<app name>.azurewebsites.net`.
 
 > [!IMPORTANT]
-> If you are using the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image mentioned in the Prerequisites, you must navigate to `http://<app name>.azurewebsites.net/hello` to see the app.
+> With the `mcr.microsoft.com/azuredocs/go` image, you must navigate to `http://<app name>.azurewebsites.net/hello` to see the app.
 
 A **Resource Group** is a named collection of all your application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
 
@@ -70,7 +73,7 @@ An **App Service Plan** defines the physical resources that will be used to host
 The **Output** panel will open during deployment to indicate the status of the operation. When the operation completes, find the app you created in the **APP SERVICE** explorer, right-click it, then select **Browse Website** to open the site in your browser.
 
 > [!IMPORTANT]
-> If you are using the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image, be sure to add  `/hello` to the URL in the address bar in order to see the app.
+> With the `mcr.microsoft.com/azuredocs/go` image, remember to add  `/hello` to the URL in the address bar in order to see the app.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
