@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Secure an Azure API Management API with Azure AD B2C
 
-Ensure only authenticated callers can access your API by creating an inbound policy in Azure API Management (APIM) that restricts access to requests that include a valid Azure AD B2C-issued access token.
+Learn how to restrict access your Azure API Management (APIM) API to clients that have authenticated with Azure Active Directory B2C (Azure AD B2C). Follow the steps in this article to create and test an inbound policy in APIM that restricts access to only those requests that include a valid Azure AD B2C-issued access token.
 
 ## Prerequisites
 
@@ -25,6 +25,7 @@ You need the following resources in place before continuing with the steps in th
 * [Application registered](tutorial-register-applications.md) in your tenant
 * [User flows created](tutorial-create-user-flows.md) in your tenant
 * [Published API](../api-management/import-and-publish.md) in Azure API Management
+* [Postman](https://www.getpostman.com/) to test secured access (optional)
 
 ## Get Azure AD B2C application ID
 
@@ -38,7 +39,7 @@ When you secure an API in Azure API Management with Azure AD B2C, you need sever
 
 ## Get token issuer endpoint
 
-Next, get the well-known config URL for one of your Azure AD B2C user flows. You also need the token issuer endpoint URI for the issuer you want to support in Azure API Management.
+Next, get the well-known config URL for one of your Azure AD B2C user flows. You also need the token issuer endpoint URI you want to support in Azure API Management.
 
 1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com)
 1. Under **Policies**, select **User flows (policies)**
@@ -100,7 +101,7 @@ You're now ready to add the inbound policy in Azure API Management that validate
 
 To ensure only authenticated callers can access your API, you can validate your Azure API Management configuration by calling the API with [Postman](https://www.getpostman.com/).
 
-To call the API, you need an access token issued by Azure AD B2C and an APIM subscription key.
+To call the API, you need both an access token issued by Azure AD B2C, and an APIM subscription key.
 
 ### Get an access token
 
@@ -116,7 +117,7 @@ You first need a token issued by Azure AD B2C to use in the `Authorization` head
     ![Run user flow page for sign up sign in user flow in Azure portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
 
 1. Complete the sign-in process. You should be redirected to `https://jwt.ms`.
-1. Record encoded token value displayed in your browser. You use this token value for the Authorization header in Postman.
+1. Record the encoded token value displayed in your browser. You use this token value for the Authorization header in Postman.
 
     ![Encoded token value displayed on jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
 
@@ -194,7 +195,7 @@ Now that you've made a successful request, test the failure case to ensure that 
     }
     ```
 
-Congratulations! You've verified that only callers with a valid access token issued by Azure AD B2C can make successful requests to your Azure API Management API.
+If you see the `401` status code, you've verified that only callers with a valid access token issued by Azure AD B2C can make successful requests to your Azure API Management API.
 
 ## Support multiple applications and issuers
 
@@ -228,7 +229,7 @@ You can follow this general process to perform a staged migration:
 1. Update your applications one at a time to obtain tokens from the b2clogin.com endpoint.
 1. Once all of your applications are correctly obtaining tokens from b2clogin.com, remove support for login.microsoftonline.com-issued tokens from the API.
 
-The following example APIM inbound policy illustrates how to accept tokens issued by both b2clogin.com login.microsoftonline.com. Additionally, it supports API requests from two applications.
+The following example APIM inbound policy illustrates how to accept tokens issued by both b2clogin.com and login.microsoftonline.com. Additionally, it supports API requests from two applications.
 
 ```XML
 <policies>
