@@ -78,7 +78,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |Header|Value|
     |--|--|
     |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.| 
-    |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-azure-subscription.md#authoring-key).|
+    |`Ocp-Apim-Subscription-Key`|Your authoring key.|
 
     This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. Find the one item in the array that is the LUIS resource to assign to the LUIS app. 
 
@@ -89,7 +89,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |Type|Setting|Value|
     |--|--|--|
     |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.|
-    |Header|`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-azure-subscription.md#authoring-key).|
+    |Header|`Ocp-Apim-Subscription-Key`|Your authoring key.|
     |Header|`Content-type`|`application/json`|
     |Querystring|`appid`|The LUIS app ID. 
     |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
@@ -129,7 +129,7 @@ See [Data storage and removal](luis-concept-data-storage.md#accounts) for inform
     ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
 1.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
-1. Remember to [assign this endpoint key](#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
+1. Remember to [assign this endpoint key](#assign-a-resource-to-an-app) on the **Publish** page and use it in all endpoint queries. 
 
 ## Viewing Azure resource metrics
 
@@ -157,6 +157,6 @@ Add a metric alert for the **total calls** metric for a certain time period. Add
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](/luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys#contributions-from-other-authors) on that resource.
+* Understand the concepts including the [authoring resource](/luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md) 
