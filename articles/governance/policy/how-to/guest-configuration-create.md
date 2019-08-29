@@ -13,7 +13,7 @@ manager: carmonm
 Guest Configuration uses a [Desired State Configuration](/powershell/dsc) (DSC) resource module to
 create the configuration for auditing of the Azure machines. The DSC configuration defines
 the condition that the machine should be in. If the evaluation of the configuration fails,
-the Policy effect **audit** is triggered and the machine is considered **non-compliant**.
+the Policy effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
 
 [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
 can only be used to audit settings inside machines. Remediation
