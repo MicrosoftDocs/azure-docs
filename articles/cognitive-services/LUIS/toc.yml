@@ -1,3 +1,4 @@
+
 - name: LUIS Documentation
   href: index.yml
 - name: Overview
@@ -247,17 +248,17 @@
     - name: Manage authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
+    - name: Migrate your authoring key
+      items: 
+        - name: Overview   
+          href: luis-migration-authoring.md
+        - name: How to Migrate
+          href: luis-migration-authoring-steps.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
       diplayName: import, export, container
     - name: Spread endpoint quota across keys with Traffic Manager
       href: luis-traffic-manager.md
-    - name: Migrate your authoring key
-    items: 
-      - name: Overview   
-        href: luis-migration-authoring.md
-      - name: How to Migrate
-        href: luis-migration-authoring-steps.md
   - name: Migrate API
     items: 
     - name: Migrate to V2 REST API
