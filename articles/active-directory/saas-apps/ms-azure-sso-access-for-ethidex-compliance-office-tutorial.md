@@ -63,8 +63,8 @@ To configure and test Azure AD SSO with MS Azure SSO Access for Ethidex Complian
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure MS Azure SSO Access for Ethidex Compliance Office™ SSO](#configure-ms-azure-sso-access-for-ethidex-compliance-office™-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create MS Azure SSO Access for Ethidex Compliance Office™ test user](#create-ms-azure-sso-access-for-ethidex-compliance-office™-test-user)** - to have a counterpart of B.Simon in MS Azure SSO Access for Ethidex Compliance Office™ that is linked to the Azure AD representation of user.
+1. **[Configure MS Azure SSO Access for Ethidex Compliance Office SSO](#configure-ms-azure-sso-access-for-ethidex-compliance-office-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create MS Azure SSO Access for Ethidex Compliance Office test user](#create-ms-azure-sso-access-for-ethidex-compliance-office-test-user)** - to have a counterpart of B.Simon in MS Azure SSO Access for Ethidex Compliance Office™ that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -122,11 +122,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure MS Azure SSO Access for Ethidex Compliance Office™ SSO
+## Configure MS Azure SSO Access for Ethidex Compliance Office SSO
 
 To configure single sign-on on **MS Azure SSO Access for Ethidex Compliance Office™** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [MS Azure SSO Access for Ethidex Compliance Office™ support team](mailto:support@ethidex.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create MS Azure SSO Access for Ethidex Compliance Office™ test user
+### Create MS Azure SSO Access for Ethidex Compliance Office test user
 
 In this section, you create a user called B.Simon in MS Azure SSO Access for Ethidex Compliance Office™. Work with [MS Azure SSO Access for Ethidex Compliance Office™ support team](mailto:support@ethidex.com) to add the users in the MS Azure SSO Access for Ethidex Compliance Office™ platform. Users must be created and activated before you use single sign-on.
 
