@@ -39,7 +39,7 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 - **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
 busy to handle requests, it returns an HTTP error 503. 
 
-- **Resolution**: Re-run the copy activity after several minutes.
+- **Resolution**: Rerun the copy activity after several minutes.
 
 ## Azure SQL Data Warehouse
 
@@ -75,7 +75,7 @@ busy to handle requests, it returns an HTTP error 503.
     Message=110802;An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, Message: Java exception raised on call to HdfsBridge_CreateRecordReader. Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1MB). Check the schema of the target SQL DW table by adding the size of all columns:
+- **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1 MB). Check the schema of the target SQL DW table by adding the size of all columns:
 
     - Int -> 4 bytes
     - Bigint -> 8 bytes
@@ -91,7 +91,7 @@ busy to handle requests, it returns an HTTP error 503.
     - Real -> 4 bytes
     - Smallint -> 2 bytes
     - Time -> 12 bytes
-    - Tinyint -> 1 bytes
+    - Tinyint -> 1 byte
 
 - **Resolution**: Reduce column width to be less than 1 MB
 
@@ -115,7 +115,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Symptom**: You copy data into Azure Cosmos DB with default write batch size, and hit error *"**Request size is too large**"*.
 
-- **Cause**: Cosmos DB limits one single request's size to 2MB. The formula is, Request Size = Single Document Size * Write Batch Size. If your document size is large, the default behavior will result in too large request size. You can tune the write batch size.
+- **Cause**: Cosmos DB limits one single request's size to  2 MB. The formula is, Request Size = Single Document Size * Write Batch Size. If your document size is large, the default behavior will result in too large request size. You can tune the write batch size.
 
 - **Resolution**: In copy activity sink, reduce the 'Write batch size' value (default value is 10000).
 
@@ -178,7 +178,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: There are two ways to represent UUID in BSON - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
 
-- **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, refer to [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+- **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
 ## SFTP
 
@@ -211,7 +211,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
         ```
 
     - For cause #2, To generate such string, customer can use below 2 ways:
-    - Using 3rd party base64 convert tool: paste the whole private key content to tools like [Base64 Encode and Decode](https://www.base64encode.org/), encode it to a base64 format string, then paste this string to key vault or use this value for authoring SFTP linked service programmatically.
+    - Using third party base64 convert tool: paste the whole private key content to tools like [Base64 Encode and Decode](https://www.base64encode.org/), encode it to a base64 format string, then paste this string to key vault or use this value for authoring SFTP linked service programmatically.
     - Using C# code:
 
         ```c#
@@ -219,7 +219,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
         string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
         ```
 
-    - For cause #3, please double check if the key file or password is correct using other tools to validate if you can use it to access the SFTP server properly.
+    - For cause #3, double check if the key file or password is correct using other tools to validate if you can use it to access the SFTP server properly.
 
 ## Next steps
 
