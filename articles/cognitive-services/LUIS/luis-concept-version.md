@@ -43,7 +43,7 @@ You can import a version at the app level. That version becomes the active versi
 
 You can export a version at the app level or you can export a version at the version level. The only difference is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
 
-The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you need to add these back once the version is imported into the new app.
+The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain contributor information.
 
 ## Export each version as app backup
 In order to back up your LUIS app, export each version on the **[Settings](luis-how-to-manage-versions.md)** page.
@@ -68,8 +68,9 @@ This method allows you to have one active version, one stage version, and one pu
 
 Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
 
-## Collaborators
-Learn more about authoring [collaborators](luis-how-to-collaborate.md).
+## Contributions from collaborators
+
+Learn more about authoring contributions from [collaborators](luis-how-to-collaborate.md).
 
 ## Next steps
 

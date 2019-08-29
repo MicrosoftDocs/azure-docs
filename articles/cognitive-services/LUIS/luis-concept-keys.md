@@ -97,6 +97,8 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 
 ## Contributions from other authors
 
+
+
 Management of contributions from collaborators depends on the current status of the app.
 
 **For [authoring resource migrated](luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role. 
@@ -170,6 +172,12 @@ Once an app is configured as public, _any_ valid LUIS authoring key or LUIS endp
 A user who is not an owner or contributor, can only access a public app's runtime if given the app ID. LUIS doesn't have a public _market_ or other way to search for a public app.  
 
 A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
+
+## Transfer of ownership
+
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: 
+
+**For apps that have not migrated yet**: Export your app as a JSON file. Another LUIS user can import the app, thereby becoming the app owner. The new app will have a different app ID.  
 
 ## Securing the endpoint 
 
