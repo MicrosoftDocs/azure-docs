@@ -11,7 +11,6 @@ ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender

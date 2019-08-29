@@ -48,10 +48,10 @@ You can find out more about the various tiers on the [pricing page](https://azur
 
 A solution built on Azure Search can incur costs in the following ways:
 
-+ Base cost of service at minimal configuration
-+ Incremental cost when scaling up (adding replicas or partitions)
-+ Bandwidth charges for outbound data transfer
-+ Cognitive search leveraging Cognitive Services resources
++ Base cost of service at minimum configuration (create a service)
++ Incremental cost when scaling up (add replicas or partitions)
++ Bandwidth charges (outbound data transfer) 
++ Cognitive search (attach Cognitive Services for AI enrichment, Azure storage for knowledge store)
 
 ### Service costs
 
