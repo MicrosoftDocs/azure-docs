@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 # What's new in Language Understanding
@@ -18,7 +18,7 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ## Release notes 
 
-### August 25, 2019
+### September 3, 2019
 
 * Azure authoring resource - [migrate now](luis-migration-authoring.md).
 * Turkish support for prebuilt entities

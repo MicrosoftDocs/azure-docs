@@ -7,12 +7,6 @@
     href: what-is-luis.md
   - name: What's new
     href: whats-new.md
-  - name: Migrate your authoring key
-    items: 
-    - name: Overview   
-      href: luis-migration-authoring.md
-    - name: How to Migrate
-      href: luis-migration-authoring-steps.md
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -246,7 +240,7 @@
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
-    items:
+    items:    
     - name: Authoring and runtime keys
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
@@ -258,6 +252,12 @@
       diplayName: import, export, container
     - name: Spread endpoint quota across keys with Traffic Manager
       href: luis-traffic-manager.md
+    - name: Migrate your authoring key
+    items: 
+      - name: Overview   
+        href: luis-migration-authoring.md
+      - name: How to Migrate
+        href: luis-migration-authoring-steps.md
   - name: Migrate API
     items: 
     - name: Migrate to V2 REST API
