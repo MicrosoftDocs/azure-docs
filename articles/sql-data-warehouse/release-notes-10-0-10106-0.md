@@ -26,7 +26,7 @@ Example output:
 
 Use the date identified to confirm which release has been applied to your Azure SQL DW.
 
-## Sept 2019
+## September 2019
 
 | Service improvements | Details |
 | --- | --- |
