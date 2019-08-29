@@ -67,7 +67,7 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
 
 AKS can be configured to use Azure Active Directory (AD) for user authentication. If you are configuring it for the first time, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md). During the steps to create the [client application](../../aks/azure-ad-integration.md#create-the-client-application), specify the following:
 
-- **Redirect URI (optional)**: This is a **Web** application type and the base URL value should be `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+-  **Redirect URI**: Two **Web** application types need to be created. The first base URL value should be `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 - After registering the application, from the **Overview** page select **Authentication** from the left-hand pane. On the **Authentication** page, under **Advanced settings** implicitly grant **Access tokens** and **ID tokens** and then save your changes.
 
 >[!NOTE]

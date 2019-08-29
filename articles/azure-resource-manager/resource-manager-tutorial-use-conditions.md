@@ -82,7 +82,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 Make two changes to the existing template:
 
 * Add a storage account name parameter. Users can specify either a new storage account name or an existing storage account name.
-* Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine where to create a new storage account or use an existing storage account.
+* Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine whether to create a new storage account or use an existing storage account.
 
 Here is the procedure to make the changes:
 
@@ -134,7 +134,7 @@ Here is the procedure to make the changes:
 
 ## Deploy the template
 
-Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud shell and upload the revised template, and then run the follow PowerShell script to deploy the template.
+Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud shell and upload the revised template, and then run the following PowerShell script to deploy the template.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -159,7 +159,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.
 
-Try making another deployment with **newOrExisting** set to "existing" and specify an exiting storage account. To create a storage account beforehand, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+Try making another deployment with **newOrExisting** set to "existing" and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 ## Clean up resources
 

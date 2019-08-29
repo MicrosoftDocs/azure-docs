@@ -285,5 +285,5 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 > [!div class="nextstepaction"]
 > [Storage SDK V10 for Java source code](https://github.com/Azure/azure-storage-java/)
-> [API Reference](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
+> [API Reference](https://docs.microsoft.com/java/api/overview/azure/storage)
 > [Learn more about RxJava](https://github.com/ReactiveX/RxJava)
