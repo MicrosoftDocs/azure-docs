@@ -75,7 +75,7 @@ The following table shows connectivity locations and the service providers for e
 
 
 ### Production Azure
-| **Location** | **Owner and Address** | **Local Azure Regions** | **Service Providers** |
+| **Location** | **Owner and address** | **Local Azure regions** | **Service providers** |
 | --- | --- | --- | --- |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | West Europe | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | West Europe | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
@@ -148,7 +148,7 @@ The following table shows connectivity locations and the service providers for e
 | **Washington DC** |AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### China
-| **Location** | **Service Providers** |
+| **Location** | **Service providers** |
 | --- | --- |
 | **Beijing** |China Telecom |
 | **Beijing2** | China Telecom, GDS |
@@ -158,7 +158,7 @@ The following table shows connectivity locations and the service providers for e
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### Germany
-| **Location** | **Service Providers** |
+| **Location** | **Service providers** |
 | --- | --- |
 | **Berlin** |e-shelter, Megaport+, T-Systems |
 | **Frankfurt** |Colt, Equinix, Interxion |
