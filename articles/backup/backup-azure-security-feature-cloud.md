@@ -28,9 +28,6 @@ Soft delete is currently supported in the West Central US region.
 
     ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-> [!NOTE]
-> Support for these operations in PowerShell and CLI will be added in the next release.
-
 2. In the following window, you will be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM backup will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. If **Delete backup data** is chosen, a delete email alert is sent to the configured email ID informing the user that 14 days remain of extended retention for backup data. Also, an email alert is sent on the 12th day informing that there are two more days left to resurrect the deleted data. The deletion is deferred until the 15th day, when permanent deletion will occur and a final email alert is sent informing about the permanent deletion of the data.
 
     ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
@@ -64,9 +61,6 @@ At this point, you can also restore the VM by selecting **Restore VM** from the 
 This flow chart shows the different steps and states of a backup item:
 
    ![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
-
-> [!NOTE]
-> Soft delete functionality for other cloud workloads like SQL server in Azure VMs and SAP HANA in Azure VMs is coming soon!
 
 For more information, see the [Frequently Asked Questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) section below.
 
@@ -125,6 +119,14 @@ Recovery Services vault cannot be deleted if there are backup items in soft-dele
 #### How can I delete the data earlier than the 14 days soft-delete period after deletion?
 
 There is no way to purge the data before the 14 days after deletion. If it is a blocker or a compliance issue, please contact Microsoft support.
+
+#### Can soft delete operations be performed in PowerShell or CLI?
+
+No, support for PowerShell or CLI is not currently available.
+
+#### Is soft delete supported for other cloud workloads, like SQL Server in Azure VMs and SAP HANA in Azure VMs?
+
+No. Currently soft delete is only supported for Azure virtual machines.
 
 ## Next steps
 
