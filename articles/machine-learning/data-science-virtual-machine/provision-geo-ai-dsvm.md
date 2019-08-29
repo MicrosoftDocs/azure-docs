@@ -37,11 +37,11 @@ The AI tools that are included in the Geo-DSVM include the following:
 To create an instance of the Geo AI Data Science VM, follow these steps:
 
 1. Go to the virtual machine listing on the [Azure portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
-2. Select **Create** at the bottom to generate a wizard:
+1. Select **Create** at the bottom to generate a wizard:
 
    ![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 
-3. The wizard requires input for each of the four steps, as shown here:
+1. The wizard requires input for each of the four steps, as shown here:
 
 
    **Basics**
@@ -59,11 +59,11 @@ To create an instance of the Geo AI Data Science VM, follow these steps:
           1. **Location**: Select the data center that is most appropriate. Typically, it's the one that has most of your data or that's closest to your physical location for fastest network access. If you plan to run deep learning on a GPU, you must choose one of the locations in Azure that has NC-Series GPU VM instances. Currently those locations are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) and look for **NC-Series** under **Compute**. 
     
     
-         - **Settings**: Select one of the NC-Series GPU virtual machine sizes if you plan to run deep learning on a GPU on your Geo DSVM. Otherwise, you can choose one of the CPU-based instances. Create a storage account for your VM. 
+   **Settings**: Select one of the NC-Series GPU virtual machine sizes if you plan to run deep learning on a GPU on your Geo DSVM. Otherwise, you can choose one of the CPU-based instances. Create a storage account for your VM. 
        
-         - **Summary**: Verify that all the information you entered is correct.
+   **Summary**: Verify that all the information you entered is correct.
     
-         - **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the service. The VM doesn't have any additional charges beyond the compute charges for the server size you chose in the **Size** step. 
+   **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the service. The VM doesn't have any additional charges beyond the compute charges for the server size you chose in the **Size** step. 
  
         >[!NOTE]
         > The provisioning should take about 20 to 30 minutes. The status of the provisioning is displayed on the Azure portal.
