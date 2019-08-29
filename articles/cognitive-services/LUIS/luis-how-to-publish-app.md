@@ -22,9 +22,13 @@ When you finish building and testing your active LUIS app, make it available to 
 
 ## Publishing
 
-To publish to the endpoint, select **Publish** in the top, right panel. 
+1. To publish to the endpoint, select **Publish** in the top, right panel. 
 
-![Top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+    ![Publish button in top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+
+1. Select your settings for the published prediction endpoint, then select **Publish**.
+
+    ![Select publish settings then select Publish button](./media/luis-how-to-publish-app/publish-pop-up.png)
 
 ### Publishing slots
 

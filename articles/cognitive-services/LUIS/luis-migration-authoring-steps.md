@@ -25,7 +25,7 @@ From the Language Understanding (LUIS) portal, migrate all the apps you own to u
 
 If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/en-us/free/). 
 
-## Find the migration process
+## Access the migration process
 
 On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
 
@@ -69,6 +69,8 @@ The migration process is available if you are the owner of any LUIS apps.
 ## After the migration process, add contributors to your authoring resource
 
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
+
+Learn [how to add contributors](luis-how-to-collaborate). 
 
 ## Next steps
 

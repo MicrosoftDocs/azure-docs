@@ -23,8 +23,6 @@ Using an Azure resource for authoring allows you, as the owner of the resource, 
 
 For example, if you have 2 types of LUIS apps you are authoring, with different members, you can create two different authoring resources and assign contributors. The Azure authoring resource controls the authorization. 
 
-Assign the authoring resource to the apps. Assign contributors to authoring resources.
-
 > [!Note]
 > Before migration, co-authors are known as _collaborators_. After migration, the Azure role of _contributor_ is used for the same functionality.
 
@@ -38,7 +36,7 @@ Migrate apps to use Azure authoring resources by:
 
 Migration includes:
 
-* **All** the user's apps.
+* **All** the owner's apps.
 * A **one-way** migration.
 
 The owner can't choose a subset of apps to migrate and the process isn't reversible. 
@@ -50,7 +48,9 @@ The migration is not:
 
 ## How are the apps migrating?
 
-The [LUIS portal](https://www.luis.ai) provides the migration process. You will be asked to migrate if:
+The [LUIS portal](https://www.luis.ai) provides the migration process. 
+
+You will be asked to migrate if:
 
 * You have apps on the email authentication system for authoring.
 * And you are the app owner. 
@@ -73,7 +73,7 @@ Follow [these migration steps](luis-migration-authoring-steps.md).
 
 ### After you migrate 
 
-After the migration process, all your LUIS apps, which you own, are now assigned to a single LUIS authoring resource.
+After the migration process, all your LUIS apps are now assigned to a single LUIS authoring resource.
 
 You can create more authoring resources and assign from the **Manage -> Azure resources** page in the _LUIS portal_. 
 
@@ -88,11 +88,11 @@ You can add contributors to the authoring resource from the _Azure portal_, on t
 
 ### Before the app is migrated
 
-After the migration, if you are not added as a contributor, you will not have authoring access. You may choose to export an app you are a contributor on, then import the app back into LUIS. The import process creates a new app with a new app ID, for which you are the owner.
+You may choose to export an app you are a collaborator on, then import the app back into LUIS. The import process creates a new app with a new app ID, for which you are the owner.
 
 ### After the app is migrated
 
-After the migration process, you need to be added to the app's Azure authoring resource by the app owner. Make sure that your account's main or primary email is used. If your account has more than one email associated with it, make sure that only the primary account is connected to the app. 
+After the migration process, you need to be added to the Azure authoring resource by the app owner.  
 
 ## Next steps
 
