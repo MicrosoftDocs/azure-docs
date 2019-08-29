@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev, identityplatformtop40
@@ -25,16 +25,21 @@ ms.collection: M365-identity-device-management
 
 This article explains the differences in functionality between the Microsoft Authentication Library (MSAL) for iOS and macOS.
 
+> [!NOTE]
+> On the Mac, MSAL only supports macOS apps.
+
 ## General differences
 
 MSAL for macOS is a subset of the functionality available for iOS.
 
 MSAL for macOS doesn't support:
 
-- different authentication types such as `ASWebAuthenticationSession`, `SFAuthenticationSession`, `SFSafariViewController`.
-- brokered authentication flows. Conditional access scenarios that invoke Microsoft authenticator app aren't supported on macOS.
+- different browser types such as `ASWebAuthenticationSession`, `SFAuthenticationSession`, `SFSafariViewController`.
+- brokered authentication through Microsoft Authenticator app is not supported for macOS.
 
-MSAL Keychain support in macOS is more limited than on iOS. The keychain isn't shared with other devices nor between apps from the same publisher. Use the legacy access control list to specify the paths to the apps that should share the keychain. The user may see more authentication prompts on macOS when you use keychain to cache tokens.
+Keychain sharing between apps from the same publisher is more limited on macOS. Use [access control lists](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) to specify the paths to the apps that should share the keychain.
+
+On macOS, the user may see additional keychain prompts.
 
 ### Conditional access authentication differences
 
@@ -44,9 +49,12 @@ For conditional access scenarios, there will be fewer user prompts when you use 
 
 **macOS**
 
-- When you set up your project on macOS, ensure that your application is signed with a valid development certificate. MSAL will still work in the unsigned mode, but it will behave differently with regards to cache persistence.
+- When you set up your project on macOS, ensure that your application is signed with a valid development or production certificate. MSAL still works in the unsigned mode, but it will behave differently with regards to cache persistence. The app should only be run unsigned for debugging purposes. If you distribute the app unsigned, it will prompt the user for a keychain password every time they restart the app.
+
+- macOS apps don't need t implement the AppDelegate call.
 
 **iOS**
 
 - There are additional steps to set up your project to support authentication broker flow. The steps are called out in the tutorial.
-- iOS projects need to register custom schemes in the pinfo.list. This isn't required on macOS.
+- iOS projects need to register custom schemes in the info.plist. This isn't required on macOS.
+- Keychain groups don't need to be configured for iOS.
