@@ -74,7 +74,9 @@ Once the order is created, the device is prepared for shipment.
 
 ::: zone target = "chromeless"
 
-After you have reviewed the prerequisites, you'll cable and connect your device.
+# Cable and connect to your device
+
+After you have reviewed the prerequisites, you'll cable and connect to your device.
 
 ::: zone-end
 
