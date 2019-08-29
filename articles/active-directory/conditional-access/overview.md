@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The modern security perimeter now extends beyond an organization's network to include user and device identity. Organizations can utilize these identity signals as part of their access control decisions. 
 
-Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies.
+Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane.
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/overview/conditional-access-signal-decision-enforcement.png)
 
