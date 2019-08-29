@@ -45,19 +45,19 @@ To create an instance of the Geo AI Data Science VM, follow these steps:
 
 ### Wizard details ###
 
-**Basics**
+**Basics**:
 
-        - **Name**: The name of the data science server you're creating.
+- **Name**: The name of the data science server you're creating.
     
-        - **User Name**: Admin account sign-in ID.
+- **User name**: Admin account sign-in ID.
     
-        - **Password**: Admin account password.
+- **Password**: Admin account password.
     
-        - **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
+- **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
     
-        - **Resource Group**: You can create a new one or use an **empty** existing Azure resource group in your subscription.
+- **Resource group**: You can create a new one or use an **empty** existing Azure resource group in your subscription.
     
-        - **Location**: Select the data center that is most appropriate. Typically, it's the one that has most of your data or that's closest to your physical location for fastest network access. If you plan to run deep learning on a GPU, you must choose one of the locations in Azure that has NC-Series GPU VM instances. Currently those locations are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region](https://azure.microsoft.com/regions/services/) page and look for **NC-Series** under **Compute**. 
+- **Location**: Select the data center that is most appropriate. Typically, it's the one that has most of your data or that's closest to your physical location for fastest network access. If you plan to run deep learning on a GPU, you must choose one of the locations in Azure that has NC-Series GPU VM instances. Currently those locations are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region](https://azure.microsoft.com/regions/services/) page and look for **NC-Series** under **Compute**. 
     
     
 **Settings**: Select one of the NC-Series GPU virtual machine sizes if you plan to run deep learning on a GPU on your Geo DSVM. Otherwise, you can choose one of the CPU-based instances. Create a storage account for your VM. 
