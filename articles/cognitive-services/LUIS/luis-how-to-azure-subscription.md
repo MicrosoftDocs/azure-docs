@@ -15,15 +15,10 @@ ms.author: diberry
 
 # Using authoring and runtime resource keys
 
-The two key pieces of authentication information for a LUIS app are:
-
-* The authoring resource and its key(s) - for managing your LUIS app and its prediction model.
-* The prediction endpoint runtime resource and its key(s) - for using the prediction model with a user's utterance.
-
-For testing and prototype only, use the free runtime (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) runtime tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
+Authoring and runtime resources provide authentication to your LUIS app and prediction endpoint.
 
 <a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
 ## Create resources in the Azure portal
 
@@ -62,6 +57,9 @@ You can assign a single resource, authoring or prediction endpoint runtime, to a
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), then select an app from the **My apps** list.
 1. Navigate to the **Manage -> Azure resources** page.
+
+    ![Select the Manage -> Azure resources in the LUIS portal to assign a resource to the app.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+
 1. Select the Prediction or Authoring resource tab then select the **Add prediction resource** or **Add authoring resource** button. 
 1. Select the fields in the form to find the correct resource, then select **Save**.  
 
