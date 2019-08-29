@@ -31,19 +31,25 @@ If you're new to Azure Resource Manager, there are some terms you might not be f
 * **resource** - A manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources.
 * **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
 * **resource provider** - A service that supplies Azure resources. For example, a common resource provider is Microsoft.Compute, which supplies the virtual machine resource. Microsoft.Storage is another common resource provider. See [Resource providers and types](resource-manager-supported-services.md).
-* **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group or subscription. The template can be used to deploy the resources consistently and repeatedly. [Template deployment overview](template-deployment-overview.md).
-* **declarative syntax** - Syntax that lets you state "Here is what I intend to create" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.
+* **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group or subscription. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](template-deployment-overview.md).
+* **declarative syntax** - Syntax that lets you state "Here is what I intend to create" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.  See [Template deployment overview](template-deployment-overview.md).
 
 ## The benefits of using Resource Manager
 
 With Resource Manager, you can:
 
 * Manage your infrastructure through declarative templates rather than scripts.
+
 * Deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.
+
 * Redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.
+
 * Define the dependencies between resources so they're deployed in the correct order.
+
 * Apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.
+
 * Apply tags to resources to logically organize all the resources in your subscription.
+
 * Clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
 ## Understand scope
@@ -61,11 +67,17 @@ You can deploy templates to management groups, subscriptions, or resource groups
 There are some important factors to consider when defining your resource group:
 
 * All the resources in your group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
+
 * Each resource can only exist in one resource group.
+
 * You can add or remove a resource to a resource group at any time.
+
 * You can move a resource from one resource group to another group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
 * A resource group can contain resources that are located in different regions.
+
 * A resource group can be used to scope access control for administrative actions.
+
 * A resource can interact with resources in other resource groups. This interaction is common when the two resources are related but don't share the same lifecycle (for example, web apps connecting to a database).
 
 When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
@@ -89,3 +101,11 @@ This resiliency applies to services that receive requests through Resource Manag
 ## Next steps
 
 * For all the operations offered by resource providers, see the [Azure REST APIs](/rest/api/azure/).
+
+* To learn about moving resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
+* To learn about tagging resources, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
+
+* To learn about locking resources, see [Lock resources to prevent unexpected changes](resource-group-lock-resources).
+
+* For information about creating templates for deployments, see [Template deployment overview](template-deployment-overview.md).

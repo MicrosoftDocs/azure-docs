@@ -4,7 +4,7 @@ description: Describes how to use Azure Resource Manager templates for deploymen
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
 
 ---
@@ -14,27 +14,27 @@ With Azure Resource Manager, you can create templates that define what you want 
 
 The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
 
-## The benefits of using Resource Manager
+## The benefits of using Resource Manager templates
 
-Resource Manager provides several benefits:
+Resource Manager templates provide several benefits:
 
 * You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.
-* You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.
-* You can manage your infrastructure through declarative templates rather than scripts.
-* You can define the dependencies between resources so they're deployed in the correct order.
 
-## Guidance
+* You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.
+
+* You can manage your infrastructure through declarative templates rather than scripts.
+
+* You can define the dependencies between resources so they're deployed in the correct order.
 
 The following suggestions help you take full advantage of Resource Manager when working with your solutions.
 
 * Define and deploy your infrastructure through the declarative syntax in Resource Manager templates, rather than through imperative commands.
+
 * Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
+
 * Run imperative commands to manage your resources, such as to start or stop an app or machine.
-* Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
 
-For recommendations on creating Resource Manager templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-
-To learn about the format of the template and how you construct it, see [Understand the structure and syntax of Azure Resource Manager Templates](resource-group-authoring-templates.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/azure/templates/).
+* Follow [Azure Resource Manager template best practices](template-best-practices.md).
 
 ## Template deployment process
 
@@ -100,6 +100,10 @@ When you create a solution from the portal, the solution automatically includes 
 
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
+## Next steps
+
+For more information about template files, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+
 After defining your template, you're ready to deploy the resources to Azure. To deploy the resources, see:
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md)
@@ -107,9 +111,3 @@ After defining your template, you're ready to deploy the resources to Azure. To 
 * [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md)
 * [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md)
 
-## Next steps
-
-In this article, you learned how to use Azure Resource Manager for deployment, management, and access control of resources on Azure. Proceed to the next article to learn how to create your first Azure Resource Manager template.
-
-> [!div class="nextstepaction"]
-> [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md)
