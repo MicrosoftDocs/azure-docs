@@ -71,8 +71,8 @@ Refer to the following list to configure managed identity for Azure App Service 
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| System assigned | Preview | Not available | Not available | Not available |
-| User assigned | Preview | Not available | Not available | Not available |
+| System assigned | Available | Available | Not available | Not available |
+| User assigned | Available | Available | Not available | Not available |
 
 Refer to the following list to use a managed identity with [Azure Blueprints](../../governance/blueprints/overview.md):
 
