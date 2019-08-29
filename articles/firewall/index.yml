@@ -5,7 +5,7 @@ summary: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, 
 
 metadata:
   title: Azure Firewall documentation
-  description: Learn how to deploy Azure Firewall, a cloud-based network security service. Tutorials, API references, and other documentation show you how to set up application-level and network-level policies to protect your Azure virtual network resources.
+  description: Learn how to deploy Azure Firewall, a cloud-based network security service.
   services: firewall
   ms.service: firewall
   ms.topic: landing-page
