@@ -57,14 +57,12 @@ Now that everything is configured, you can deploy your image to [Azure App Servi
 
 Find the image under the **Registries** node in the **DOCKER** explorer, and expand it to show its tags. Right-click a tag and then select **Deploy Image to Azure App Service**.
 
-![Registries](./media/quickstart-docker/registries.png)
-
 From here, follow the prompts to choose a subscription, a globally unique app name, a Resource Group, and an App Service Plan. Choose **B1 Basic** for the pricing tier, and a region.
 
-Once created, your app is accessible via `http://&lt;app name&gt;.azurewebsites.net`.
+Once created, your app is accessible via `http://<app name>.azurewebsites.net`.
 
 > [!IMPORTANT]
-> If you are using the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image mentioned in the Prerequisites, you must navigate to `http://&lt;app name&gt;.azurewebsites.net/hello` to see the app.
+> If you are using the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image mentioned in the Prerequisites, you must navigate to `http://<app name>.azurewebsites.net/hello` to see the app.
 
 A **Resource Group** is a named collection of all your application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
 
