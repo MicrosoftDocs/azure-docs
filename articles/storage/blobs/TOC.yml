@@ -27,8 +27,6 @@
       items:
       - name: .NET
         href: storage-quickstart-blobs-dotnet.md
-      - name: Java
-        href: storage-quickstart-blobs-java-v10.md
       - name: Node.js
         href: storage-quickstart-blobs-nodejs-v10.md
       - name: Python
