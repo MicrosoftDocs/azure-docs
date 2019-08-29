@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: steve.lasker
+ms.author: stevelas
 ms.custom: 
 ---
 
@@ -33,7 +33,7 @@ This section shows two suggested workflows to sign into the registry, depending 
 
 ### Sign in with ORAS
 
-Using a service principal with push rights, run the `oras login` command to sign in to the registry using the service principal application ID and password. Specify the fully qualified registry name (all lowercase), in this case *myregistry.azurecr.io*. The service principal application ID is passed in the environment variable `$SP_APP_ID`, and the password in the variable `$SP_PASSWD`.
+Using a [service principal](container-registry-auth-service-principal.md) with push rights, run the `oras login` command to sign in to the registry using the service principal application ID and password. Specify the fully qualified registry name (all lowercase), in this case *myregistry.azurecr.io*. The service principal application ID is passed in the environment variable `$SP_APP_ID`, and the password in the variable `$SP_PASSWD`.
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
@@ -82,7 +82,9 @@ Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 To manage artifacts in your registry, if you are using the Azure CLI, run standard `az acr` commands for managing images. For example, get the attributes of the artifact using the [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
-az acr repository show --name myregistry --image samples/artifact:1.0
+az acr repository show \
+    --name myregistry \
+    --image samples/artifact:1.0
 ```
 
 Output is similar to the following:
@@ -132,7 +134,9 @@ Here is an artifact!
 To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the repository and any artifact you stored there:
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/artifact
+az acr repository delete \
+    --name myregistry \
+    --repository samples/artifact
 ```
 
 ## Next steps
@@ -147,6 +151,6 @@ az acr repository delete --name myregistry --repository samples/artifact
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
+<!-- LINKS - internal -->
 [az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
-
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
