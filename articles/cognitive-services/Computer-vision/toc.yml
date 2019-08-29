@@ -133,12 +133,6 @@
     href: concept-detecting-adult-content.md
 - name: How-to guides
   items:
-  - name: Use Computer Vision
-    items:
-    - name: Java
-      href: Tutorials/java-tutorial.md
-    - name: JavaScript
-      href: Tutorials/javascript-tutorial.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Use containers
