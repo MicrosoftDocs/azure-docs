@@ -26021,12 +26021,12 @@
     },  
     {
       "source_path": "articles/security-center/security-center-enable-network-security-groups.md",
-      "redirect_url": "/azure/security-center/security-center-security-center-network-recommendations",
+      "redirect_url": "/azure/security-center/security-center-network-recommendations",
       "redirect_document_id": false
     },  
     {
       "source_path": "articles/security-center/security-center-events-dashboard.md",
-      "redirect_url": "/azure/security-center/security-center-security-center-features-retirement-july2019#events-dashboard---the-new-experience",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#events-dashboard---the-new-experience",
       "redirect_document_id": false
     },  
     {
