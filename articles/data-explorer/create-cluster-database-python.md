@@ -66,7 +66,7 @@ pip install azure-mgmt-kusto
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 	
-1. Set [*your credentials*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+1. Set [*your credentials*](/azure/python/python-sdk-azure-authenticate)
 
 1. Run the following command to check whether your cluster was successfully created:
 

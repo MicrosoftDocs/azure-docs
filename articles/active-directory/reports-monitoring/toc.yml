@@ -42,7 +42,7 @@
     href: concept-usage-insights-report.md
   - name: Risky sign-ins
     href: concept-risky-sign-ins.md
-  - name: Risk events
+  - name: Risk detections
     href: concept-risk-events.md
   - name: Users at risk
     href: concept-user-at-risk.md
