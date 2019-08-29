@@ -30,6 +30,8 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 * The [.NET Core 2.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/2.1).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
+This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and Windows commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
+
 ## Setting up
 
 ### Create new .NET console app
@@ -92,7 +94,7 @@ The simpliest way to authenticate an cloud-based .NET application is with a mana
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "mySP"--sdk-auth
+az ad sp create-for-rbac -n "mySP" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 
@@ -150,7 +152,7 @@ Add the following directives to the top of your code:
 
 This .NET quickstart relies on environment variables to store credentials that should not but put in code. 
 
-Before you build and run your app, use the `setx` comand to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
+Before you build and run your app, use the `setx` command to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
 
 ```console
 setx akvClientId <your-clientID>
@@ -198,10 +200,6 @@ az group delete -g "myResourceGroup" -l "EastUS"
 
 ```azurepowershell
 Remove-AzResourceGroup -Name "myResourceGroup"
-```
-
-
-## Next steps
 ```
 
 ## Next steps

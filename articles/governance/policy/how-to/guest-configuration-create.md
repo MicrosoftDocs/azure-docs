@@ -168,7 +168,7 @@ access secrets stored in Key Vault. For detailed steps, see
 Next, create a Key Vault instance. For detailed steps, see [Set and retrieve a secret - PowerShell](../../../key-vault/quick-create-powershell.md).
 Assign permissions to the instance to give the user-assigned identity access to secrets stored in
 Key Vault. For detailed steps, see
-[Set and retrieve a secret - .NET](../../../key-vault/quick-create-net.md#assign-permissions-to-your-application-to-read-secrets-from-key-vault).
+[Set and retrieve a secret - .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
 Then, assign the user-assigned identity to your virtual machine. For detailed steps, see
 [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
