@@ -1,5 +1,5 @@
 ---
-title: Monitoring & performance tuning - Azure SQL Database | Microsoft Docs
+title: Monitoring and performance tuning - Azure SQL Database | Microsoft Docs
 description: Tips for performance tuning in Azure SQL Database through evaluation and improvement.
 services: sql-database
 ms.service: sql-database
@@ -14,23 +14,23 @@ ms.date: 01/25/2019
 ---
 # Monitoring and performance tuning
 
-Azure SQL Database provides tools and methods to easily monitor usage, and add or remove resources (CPU, memory, I/O), troubleshoot potential issues, and make recommendations for improving performance of a database. Azure SQL Database has features that can automatically fix issues in the databases. Automatic tuning enables a database to adapt to the workload and automatically optimize performance. However, there are some custom issues that might need troubleshooting. This article explains some best practices and tools that can be used to troubleshoot the performance issues.
+Azure SQL Database provides tools and methods you can use to easily monitor usage, add or remove resources (such as CPU, memory, or I/O), troubleshoot potential issues, and make recommendations to improve the performance of a database. Features in Azure SQL Database can automatically fix issues in the databases. Automatic tuning enables a database to adapt to the workload and automatically optimize performance. However, some custom issues might need troubleshooting. This article explains some best practices and some tools you can use to troubleshoot performance issues.
 
-There are two main activities that should be done to ensure that a database is running without issues:
-- [Monitor database performance](#monitoring-database-performance) to make sure that the resources assigned to the database can handle the workload. If you see that a database is hitting resource limits consider:
-   - identifying and optimizing top resource consuming queries.
-   - adding more resources by upgrading the service tier.
-- [Troubleshoot performance issues](#troubleshoot-performance-issues) to identify why a potential issue occurred, identify the root cause of the issue. Once the root cause is determined implement steps to fix the issue.
+To ensure that a database runs without issues, you should:
+- [Monitor database performance](#monitoring-database-performance) to make sure that the resources assigned to the database can handle the workload. If the database is hitting resource limits, consider:
+   - Identifying and optimizing the top resource-consuming queries.
+   - Adding more resources by upgrading the service tier.
+- [Troubleshoot performance issues](#troubleshoot-performance-issues) to identify why a potential issue occurred and to identify the root cause of the issue. After you identify the root cause, take steps to fix the issue.
 
-## Monitoring database performance
+## Monitor database performance
 
-Monitoring the performance of a SQL database in Azure starts with monitoring the resources used relative to the chosen level of database performance. The following resources should be monitored:
- - **CPU usage** - Check if the database is reaching 100% of CPU usage for an extended period of time. High CPU usage might indicate that queries using the most compute power should be identified and tuned. Or, high CPU usage might indicate that the database or instance should be upgraded to a higher service tier. 
- - **Wait statistics** - Use [sys.dm_os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) to determine the waits that queries are experiencing. Queries can be waiting on resources, queue waits or external waits. 
- - **IO usage** - Check if the database is reaching the IO limits of the underlying storage.
- - **Memory usage** - The amount of memory available for the database or instance is proportional to the number of vCores. Verify the memory is enough for the workload. Page life expectancy is one of the parameters that can indicate how quickly the pages are removed from the memory.
+To monitor the performance of a SQL database in Azure, start by monitoring the resources used relative to the level of database performance you chose. Monitor the following resources:
+ - **CPU usage**: Check to see if the database is reaching 100% of CPU usage for an extended period of time. High CPU usage might indicate that you need to identify and tune queries that use the most compute power. High CPU usage might also indicate that the database or instance should be upgraded to a higher service tier. 
+ - **Wait statistics**: Use [sys.dm_os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) to determine how long queries are waiting. Queries can be waiting on resources, queue waits, or external waits. 
+ - **IO usage**: Check to see if the database is reaching the IO limits of the underlying storage.
+ - **Memory usage**: The amount of memory available for the database or instance is proportional to the number of vCores. Make sure the memory is enough for the workload. Page life expectancy is one of the parameters that can indicate how quickly the pages are removed from the memory.
 
-Azure SQL Database service **includes the tools and resources to help troubleshoot and fix potential performance issues**. Opportunities can be identified to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. These tuning recommendations can be applied to improve performance of the workload. We can also let Azure SQL database [automatically optimize performance of the queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying the recommendations improved database performance.
+The Azure SQL Database service includes tools and resources to help you troubleshoot and fix potential performance issues. You can identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. These tuning recommendations can be applied to improve performance of the workload. You can also let Azure SQL Database [automatically optimize performance of the queries](sql-database-automatic-tuning.md) by applying all identified recommendations and later making sure that the recommendations improved database performance.
 
 The following options are available for monitoring and troubleshooting database performance:
 
@@ -65,7 +65,7 @@ The causes for **waiting-related** issues might be:
  
  The following sections will explain how to identify and troubleshoot some of these issues.
 
-## Running-related performance issues
+## Performance issues related to running
 
 As a general guideline, if the CPU utilization is consistently at or above 80%, there is a running-related performance issue. If there is a running-related issue, it may be caused by insufficient CPU resources or it may be related to one of the following conditions:
 
@@ -105,7 +105,7 @@ For more information about resolving these types of issues, see the blog posts:
 - [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
 - [SQL Query Optimization Techniques in SQL Server: Parameter Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
-### Troubleshooting compile activity due to improper parameterization
+### Troubleshoot compile activity caused by improper parameterization
 
 When a query has literals, either the database engine chooses to automatically parameterize the statement or a user can explicitly parameterize it in order to reduce number of compiles. A high number of compiles for a query using the same pattern but different literal values can result in high CPU utilization. Similarly, if you only partially parameterize a query that continues to have literals, the database engine does not parameterize it further.  Below is an example of a partially parameterized query:
 
@@ -139,7 +139,7 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
-### Factors influencing query plan changes
+### Factors that affect query plan changes
 
 A query execution plan recompilation may result in a generated query plan that differs from what was originally cached. There are various reasons why an existing original plan might be automatically recompiled:
 - Changes in the schema being referenced by the query
@@ -162,7 +162,7 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 Once you identify the issue, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your Azure SQL database to absorb the CPU requirements. For information on scaling resources for single databases, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and for scaling resources for elastic pools, see [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information on scaling a managed instance, see [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 
-### Determine if running issues due to increase workload volume
+### Determine if running issues are caused by increased workload volume
 
 An increase in application traffic and workload can account for increased CPU utilization, but you must be careful to properly diagnose this issue. In a high-CPU scenario, answer these questions to determine if indeed a CPU increase is due to workload volume changes:
 
@@ -188,7 +188,7 @@ It is not always easy to conclude there is a workload volume change that is driv
 
    This scenario is the most obvious measure of workload. The number of queries doesn't always correspond to more resource utilization. However, this metric is still a significant signal assuming other factors are unchanged.
 
-## Waiting-related performance issues
+## Performance issues related to waiting 
 
 Once you are certain that you are not facing a high-CPU, running-related performance issue, you are facing a waiting-related performance issue. Namely, your CPU resources are not being used efficiently because the CPU is waiting on some other resource. In this case, your next step is to identify what your CPU resources are waiting on. The most common methods for showing the top wait type categories are:
 
@@ -219,7 +219,7 @@ As shown in the previous chart, the most common waits are:
 > - [TigerToolbox - Waits and Latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
-## Improving database performance with more resources
+## Improve database performance with more resources
 
 Finally, if there are no actionable items that can improve performance of your database, you can change the amount of resources available in Azure SQL Database. Assign more resources by changing the [DTU service tier](sql-database-service-tiers-dtu.md) of a single database or increase the eDTUs of an elastic pool at any time. Alternatively, if you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), change either the service tier or increase the resources allocated to your database.
 
