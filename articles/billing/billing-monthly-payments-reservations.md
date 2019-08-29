@@ -71,4 +71,4 @@ A. This feature is in development. Until complete, requests to exchange and refu
 ## Next steps
 
 - To learn more about reservations, see [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- To learn about tasks you should accomplish before buying a reservation, see [Determine the right VM size before you buy](../windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)
+- To learn about tasks you should accomplish before buying a reservation, see [Determine the right VM size before you buy](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)
