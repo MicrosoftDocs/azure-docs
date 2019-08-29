@@ -140,6 +140,8 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-servi
 
 The Azure Key Vault client library for .NET allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to set a secret and retrieve a secret.
 
+The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet.
+
 ## Code examples
 
 ### Add directives
@@ -204,5 +206,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Key Vault](key-vault-whatis.md)
+- See the [entire console app in Github](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet)
+- [Learn more about Key Vault](key-vault-whatis.md)
