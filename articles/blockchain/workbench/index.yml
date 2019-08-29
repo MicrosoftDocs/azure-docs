@@ -24,7 +24,7 @@ landingContent:
         links:
           - text: Architecture
             url: architecture.md
-          - text: Integration patterns
+          - text: Smart contract integration patterns
             url: integration-patterns.md
       - linkListType: video
         links:
@@ -39,7 +39,7 @@ landingContent:
             url: deploy.md
       - linkListType: tutorial
         links:
-          - text: Build a Blockchain Workbench application
+          - text: Create a Blockchain Workbench application
             url: create-app.md
           - text: Use a Blockchain Workbench application
             url: use.md
