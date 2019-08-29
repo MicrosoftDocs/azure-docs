@@ -55,36 +55,19 @@ For more information about the workbooks, see [How to use Azure Monitor workbook
 **Service category:** RBAC  
 **Product capability:** Access Control
 
-New custom roles are available (with an Azure AD Premium P1 subscription) for app registration management. These custom roles are built on the previous work done for delegating app management, giving you more fine-grained control over what your administrators can see and do, including the ability to create a role to assign permissions for managing your organization's app registrations.
+Custom roles (available with an Azure AD P1 or P2 subscription) can now help provide you with fine-grained access, by letting you create role definitions with specific permissions and then to assign those roles to specific resources. Currently, you create custom roles by using permissions for managing app registrations and then assigning the role to a specific app. For more information about custom roles, see [Custom administrator roles in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-custom-overview).
 
-For more information, see [Custom administrator roles in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-custom-overview).
-
----
-
-### Improved groups-related search, filtering, and sorting are available in the Azure AD portal (Public Preview)
-
-**Type:** New feature  
-**Service category:** Group Management  
-**Product capability:** Collaboration
-
-We're pleased to announce public preview availability of the enhanced groups-related experiences in the Azure AD portal. These enhancements help you better manage groups and member lists, by providing:
-
-- Advanced search capabilities, such as substring search on groups lists.
-- Advanced filtering and sorting options on member and owner lists.
-- New search capabilities for member and owner lists.
-- More accurate group counts for large groups.
-
-For more information, see [Manage groups in the Azure portal (Preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-members-owners-search).
+If you need additional permissions or resources supported, which you don’t currently see, you can send feedback to our [Azure feedback site](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) and we’ll add your request to our update road map.
 
 ---
 
-### New provisioning logs can help you monitor and troubleshoot your app provisioning process (Public Preview)
+### New provisioning logs can help you monitor and troubleshoot your app provisioning deployment (Public Preview)
 
 **Type:** New feature  
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
 
-New provisioning logs are available to help you monitor and troubleshoot the user and group provisioning process. These new log files include information about:
+New provisioning logs are available to help you monitor and troubleshoot the user and group provisioning deployment. These new log files include information about:
 
 - What groups were successfully created in [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)
 - What roles were imported from [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on)
@@ -94,15 +77,15 @@ For more information, see [Provisioning reports in the Azure Active Directory po
 
 ---
 
-### New security reports are available for all Azure AD administrators (General Availability)
+### New security reports for all Azure AD administrators (General Availability)
 
 **Type:** New feature  
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
-By default, all Azure AD administrators can now access modern security reports within Azure AD. Until the end of September, you can use the banner at the top of the modern security reports to return to the old reports.
+By default, all Azure AD administrators will soon be able to access modern security reports within Azure AD. Until the end of September, you will be able to use the banner at the top of the modern security reports to return to the old reports.
 
-The modern security reports provide additional capabilities from the older versions, including:
+The modern security reports will provide additional capabilities from the older versions, including:
 
 - Advanced filtering and sorting
 - Bulk actions, such as dismissing user risk
@@ -110,7 +93,7 @@ The modern security reports provide additional capabilities from the older versi
 - Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
 - New risk-related detections (available to Azure AD Premium subscribers)
 
-For more information, see [Risk detection reports](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins) and the blog post, [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935).
+For more information, see [Risky users](https://aka.ms/RiskyUsersDocs), [Risky sign-ins](https://aka.ms/RiskySigninsDocs), and [Risk detections](https://aka.ms/RiskDetectionsDocs).
 
 ---
 
@@ -183,15 +166,15 @@ New updates to the AzureAD and AzureAD Preview PowerShell modules are available:
 
 ---
 
-### New updates to the design of the dynamic membership rules builder in the Azure portal
+### Improvements to the UI of the dynamic group rule builder in the Azure Portal
 
 **Type:** Changed feature  
 **Service category:** Group Management  
 **Product capability:** Collaboration
 
-We've made some design improvements to the rule builder, available in the Azure portal, to help you more easily set up or change existing dynamic membership rules. These design improvements help you to create rules with up to five expressions, instead of just one. We've also updated the device property list to remove deprecated device properties.
+We've made some UI improvements to the dynamic group rule builder, available in the Azure portal, to help you more easily set up a new rule, or change existing rules. This design improvement allows you to create rules with up to five expressions, instead of just one. We've also updated the device property list to remove deprecated device properties.
 
-For more information, see [Manage dynamic membership rules](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-update-rule)
+For more information, see [Manage dynamic membership rules](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-update-rule).
 
 ---
 
@@ -207,13 +190,13 @@ For more information, see the [Example how to create Azure AD access reviews usi
 
 ---
 
-### Consolidated Security menu item is now available in the Azure portal
+### Consolidated Security menu item in the Azure portal
 
 **Type:** Changed feature  
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
-You can access all of the available Azure AD security features from the new **Security** menu item, and from the **Search** bar, in the Azure portal. Additionally, the new **Security** landing page, called **Security - Getting started**, provides links to our public documentation, security guidance, and deployment guides.
+You will soon be able to access all of the available Azure AD security features from the new **Security** menu item, and from the **Search** bar, in the Azure portal. Additionally, the new **Security** landing page, called **Security - Getting started**, will provide links to our public documentation, security guidance, and deployment guides.
 
 The new **Security** menu includes:
 
