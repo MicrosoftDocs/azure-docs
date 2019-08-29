@@ -22,7 +22,7 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Azure Blockchain Workbench architecture
+          - text: Architecture
             url: architecture.md
           - text: Integration patterns
             url: integration-patterns.md
@@ -64,16 +64,16 @@ landingContent:
             url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer
           - text: Advanced marketplace with multiple workflows
             url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/bazaar-item-listing
-            
+
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Blockchain Workbench users
+          - text: Manage application users
             url: manage-users.md
-          - text: Blockchain Workbench application configuration
+          - text: Application configuration
             url: configuration.md
-          - text: Version blockchain applications
+          - text: Application versioning
             url: version-app.md
 
   - title: Reference
