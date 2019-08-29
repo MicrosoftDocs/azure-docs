@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure delegated resource managem
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/28/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
 ---
