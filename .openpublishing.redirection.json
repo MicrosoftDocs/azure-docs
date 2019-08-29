@@ -31580,6 +31580,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-unstructured-search.md",
+      "redirect_url": "/azure/search/search-howto-indexing-azure-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/data-lake-storage/index.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
       "redirect_document_id": false
