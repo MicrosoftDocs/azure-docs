@@ -100,7 +100,7 @@ Most of the APIs that return collections, such as a GET call on /spaces, support
 
 ### Examples
 
-The following list depicts several valid OData queries:
+The following list depicts several queries with valid OData syntax:
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
