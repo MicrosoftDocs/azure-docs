@@ -22,7 +22,7 @@ ms.author: vijetaj
 
 # Provision a Geo Artificial Intelligence Virtual Machine on Azure
 
-The Geo AI Data Science Virtual Machine (Geo-DSVM) is an extension of the popular [Azure Data Science Virtual Machine](https://aka.ms/dsvm) that's specifically configured to combine AI and geospatial analytics. The geospatial analytics in the VM are powered by [ArcGIS Pro](https://www.arcgis.com/features/index.html). The Data Science Virtual Machine (DSVM) enables the rapid training of machine-learning and even deep-learning models. To develop these models, it uses data that's enriched with geographic information. The Geo-DSVM is supported on Windows 2016 DSVM only. ​
+The Geo AI Data Science Virtual Machine (Geo-DSVM) is an extension of the popular [Azure Data Science Virtual Machine](https://aka.ms/dsvm) that's specially configured to combine AI and geospatial analytics. The geospatial analytics in the VM are powered by [ArcGIS Pro](https://www.arcgis.com/features/index.html). The Data Science Virtual Machine (DSVM) enables the rapid training of machine-learning and even deep-learning models. To develop these models, it uses data that's enriched with geographic information. The Geo-DSVM is supported on Windows 2016 DSVM only. ​
 
 The AI tools that are included in the Geo-DSVM include the following:
 
@@ -71,7 +71,7 @@ To create an instance of the Geo AI Data Science VM, follow these steps:
  
 ## How to access the Geo AI Data Science Virtual Machine
 
- After your VM is created, you're ready to start using the tools that are installed and preconfigured on it. There are Start menu tiles and desktop icons for many of the tools. You can access it by remote desktop by using the Admin account credentials that you configured in the **Basics** section.
+ After your VM is created, you're ready to start using the tools that are installed and preconfigured on it. There are Start menu tiles and desktop icons for many of the tools. You can access the VM by remote desktop by using the Admin account credentials that you configured in the **Basics** section.
 
  
 ## Using ArcGIS Pro installed in the VM
