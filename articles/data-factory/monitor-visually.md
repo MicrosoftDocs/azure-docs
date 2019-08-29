@@ -3,19 +3,16 @@ title: Visually monitor Azure data factories | Microsoft Docs
 description: Learn how to visually monitor Azure data factories
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: shlo
-
 ---
+
 # Visually monitor Azure data factories
 Azure Data Factory is a cloud-based data integration service. You can use it to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. By using Azure Data Factory, you can:
 

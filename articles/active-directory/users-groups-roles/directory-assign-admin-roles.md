@@ -51,6 +51,7 @@ Users in this role can create and manage all aspects of enterprise applications,
 <b>Important</b>: This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to Azure Active Directory, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments in Azure AD. It is important to understand that assigning a user to the Application Administrator role gives them the ability to impersonate an application’s identity.
 
 ### [Application Developer](#application-developer)
+
 Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also grants permission to consent on one's own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Users assigned to this role are added as owners when creating new application registrations or enterprise applications.
 
 ### [Authentication Administrator](#authentication-administrator)
@@ -71,7 +72,7 @@ The Authentication administrator role is currently in public preview. This previ
 * Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
 * Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
-*	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 ### [Azure Information Protection Administrator](#azure-information-protection-administrator)
 
@@ -82,19 +83,25 @@ Users with this role have all permissions in the Azure Information Protection se
 Users with this role can create and manage B2C User Flows (aka "built-in" policies) in Azure Portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (aka Custom) policies is also outside the scope of this role.
 
 ### [B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator)
+
 Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
 
 ### [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator)
 
 User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can rollover secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
-	
-<b>Important:</b> This is a sensitive role. The keyset administrator role should be carefully audited and assigned with care during preproduction and production.
 
-### [B2C IEF Policy Administrator](#b2c-ief-policy-administrator)Users in this role have the ability to create, read, update, and delete all custom policies in Azure AD B2C and therefore have full control over the Identity Experience Framework in the relevant Azure AD B2C tenant. By editing policies, this user can establish direct federation with external identity providers, change the directory schema, change all user-facing content (HTML, CSS, JavaScript), change the requirements to complete an authentication, create new users, send user data to external systems including full migrations, and edit all user information including sensitive fields like passwords and phone numbers. Conversely, this role cannot change the encryption keys or edit the secrets used for federation in the tenant.
+> [!IMPORTANT]
+> This is a sensitive role. The keyset administrator role should be carefully audited and assigned with care during pre-production and production.
+
+### [B2C IEF Policy Administrator](#b2c-ief-policy-administrator)
+
+Users in this role have the ability to create, read, update, and delete all custom policies in Azure AD B2C and therefore have full control over the Identity Experience Framework in the relevant Azure AD B2C tenant. By editing policies, this user can establish direct federation with external identity providers, change the directory schema, change all user-facing content (HTML, CSS, JavaScript), change the requirements to complete an authentication, create new users, send user data to external systems including full migrations, and edit all user information including sensitive fields like passwords and phone numbers. Conversely, this role cannot change the encryption keys or edit the secrets used for federation in the tenant.
 
 <b>Important:</b> The B2 IEF Policy Administrator is a highly sensitive role which should be assigned on a very limited basis for tenants in production. Activities by these users should be closely audited, especially for tenants in production.
 
-### [Billing Administrator](#billing-administrator)Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
+### [Billing Administrator](#billing-administrator)
+
+Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
 ### [Cloud Application Administrator](#cloud-application-administrator)
 
@@ -139,7 +146,6 @@ Users with this role have the ability to manage Azure Active Directory Condition
 ### [Customer Lockbox access approver](#customer-lockbox-access-approver)
 
 Manages [Customer Lockbox requests](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only global admins can reset the passwords of people assigned to this role.
-<!--This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
 ### [Desktop Analytics Administrator](#desktop-analytics-administrator)
 
@@ -319,7 +325,6 @@ Windows Defender ATP and EDR | All permissions of the Security Reader role<br>Vi
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | All permissions of the Security Reader role
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | All permissions of the Security Reader role
 [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
-<!--### [Security Operator](#security-operator)Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management.-->
 
 ### [Security Reader](#security-reader)
 
@@ -1470,7 +1475,7 @@ Security Administrator | Security administrator | 194ae4cb-b126-40b2-bd5b-6091b3
 Security Operator | Security operator | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
 Service Support Administrator | Service administrator | f023fd81-a637-4b56-95fd-791ac0226033
-SharePoint Service Administrator | Sharepoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+SharePoint Service Administrator | SharePoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Teams Communications Administrator | Teams Communications Administrator | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Teams Communications Support Engineer | Teams Communications Support Engineer | f70938a0-fc10-4177-9e90-2178f8765737
 Teams Communications Support Specialist | Teams Communications Support Specialist | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
@@ -1478,7 +1483,6 @@ Teams Service Administrator | Teams Service Administrator | 69091246-20e8-4a56-a
 User | User | a0b1b346-4d3e-4e8b-98f8-753987be4970
 User Account Administrator | User administrator | fe930be7-5e62-47db-91af-98c3a49a38b1
 Workplace Device Join | Workplace device join | c34f683f-4d5a-4403-affd-6615e00e3a7f
-
 
 ## Deprecated roles
 

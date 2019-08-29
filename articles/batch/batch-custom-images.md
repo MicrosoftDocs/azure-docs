@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: batch
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: lahugh
 ---
 
@@ -19,7 +19,7 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 When you use the Shared Image Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
 
-You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM. 
+You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM.
 
 Using a Shared Image saves time in preparing your pool's compute nodes to run your Batch workload. It's possible to use an Azure Marketplace image and install software on each compute node after provisioning, but using a Shared Image is typically more efficient. Additionally, you can specify multiple replicas for the Shared Image so when you create pools with many VMs (more than 600 VMs), you'll save time on pool creation.
 
@@ -87,6 +87,19 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     ...
 }
 ```
+
+## Create a pool from a Shared Image using the Azure portal
+
+Use the following steps to create a pool from a Shared Image in the Azure portal.
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Go to **Batch accounts** and select your account.
+1. Select **Pools** and then **Add** to create a new pool.
+1. In the **Image Type** section, select **Shared Image Gallery**.
+1. Complete the remaining sections with information about your managed image.
+1. Select **OK**.
+
+![Create a pool with from a Shared image with the portal.](media/batch-custom-images/create-custom-pool.png)
 
 ## Considerations for large pools
 

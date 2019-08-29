@@ -58,6 +58,9 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You do 
 ### Can guest users invited to my directory use Azure AD Domain Services?
 No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users are not stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to sync NTLM and Kerberos hashes for these users into your managed domain. As a result, such users cannot log in to the managed domain or join computers to the managed domain.
 
+### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
+No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+
 ## Administration and Operations
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
 No. You do not have permissions to connect to domain controllers for the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
