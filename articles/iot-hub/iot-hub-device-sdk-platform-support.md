@@ -11,11 +11,11 @@ ms.author: robinsh
 
 # Azure IoT Device SDKs Platform Support
 
-Microsoft strives to continually expand the universe of Azure IoT Hub capable devices. For this reason, Microsoft publishes open source device SDKs on GitHub to help connect devices to Azure IoT Hub and the Device Provisioning Service. The device SDKs are available for C, .NET (C#), Java, Node.js, and Python, and Microsoft performs testing to ensure their operation on a variety of popular platforms. A platform is defined by a combination of operating system, microprocessor architecture, compiler or framework version, and transport layer security (TLS) library.
+Microsoft strives to continually expand the universe of Azure IoT Hub capable devices. Microsoft publishes open source device SDKs on GitHub to help connect devices to Azure IoT Hub and the Device Provisioning Service. The device SDKs are available for C, .NET (C#), Java, Node.js, and Python, and Microsoft performs testing to ensure their operation on a variety of popular platforms. A platform is typically defined by a combination of operating system, microprocessor architecture, compiler or framework version, and transport layer security (TLS) library.
 
 In addition to the device SDKs, Microsoft provides several other avenues to empower customers and developers to connect their devices to Azure IoT:
 
-* Microsoft collaborates with several partner companies to publish semiconductor development kits, based on the Azure IoT C SDK, for their hardware platforms.
+* Microsoft collaborates with several partner companies to help them publish semiconductor development kits, based on the Azure IoT C SDK, for their hardware platforms.
 
 * Microsoft works with Microsoft Trusted Partners to provide an ever-expanding set of devices that have been tested and certified for Azure IoT.
 
@@ -25,11 +25,11 @@ This topic provides information about the Microsoft SDKs and the platforms they 
 
 ## Microsoft supported platforms
 
-Microsoft publishes open source SDKs on GitHub for the following languages: C, .NET, Node.js, Java, and Python. The SDKs and the platforms against which they are tested are listed in this section.
+Microsoft publishes open source SDKs on GitHub for the following languages: C, .NET (C#), Node.js, Java, and Python. The SDKs and the platforms that they are tested against are listed in this section.
 
-For each of the platforms listed below, Microsoft:
+For each of the listed platforms, Microsoft:
 
-* Continuously builds and runs end-to-end tests against the master branch in GitHub and the specified platform.  To provide test coverage across different versions, we generally test against the latest LTS version and the most popular version.  Other versions of the same platform may be supported via platform version compatibility.
+* Continuously builds and runs end-to-end tests against the master branch of the relevant SDK in GitHub and the specified platform.  To provide test coverage across different versions, we generally test against the latest LTS version and the most popular version.  Other versions of the same platform may be supported via platform version compatibility.
 
 * Provides installation guidance or installation packages if applicable.
 
@@ -111,15 +111,15 @@ Microsoft works with various partners to provide semiconductor development kits 
 
 ## Microsoft partners and certified Azure IoT devices
 
-Microsoft collaborates with a variety of partners to continually expand the Azure IoT universe with Azure IoT tested and certified devices.
+Microsoft works with a number of partners to continually expand the Azure IoT universe with Azure IoT tested and certified devices.
 
-To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/).
+* To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/).
 
-To learn more about Microsoft trusted partners or to learn how to become a Microsoft trusted partner, see [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+* To learn more about Microsoft trusted partners or to learn how to become a Microsoft trusted partner, see [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
 
 ## Porting the Microsoft Azure IoT C SDK
 
-If your device or its architecture is not covered by one of the previous sections, you can consider porting the Azure IoT C SDK. Porting the C SDK primarily involves implementing the platform abstraction layer (PAL) of the SDK. The PAL defines several primitives that provide the glue between your device and the higher-level functions provided in the SDK. For more information, see [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
+If your device platform is not covered by one of the previous sections, you can consider porting the Azure IoT C SDK. Porting the C SDK primarily involves implementing the platform abstraction layer (PAL) of the SDK. The PAL defines primitives that provide the glue between your device and higher-level functions in the SDK. For more information, see [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
 ## Support and other resources
 
