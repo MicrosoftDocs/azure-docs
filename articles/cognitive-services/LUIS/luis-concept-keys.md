@@ -186,3 +186,4 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 ## Next steps
 
 * Understand [versioning](luis-concept-version.md) concepts. 
+* Learn [how to create keys](luis-how-to-azure-subscription.md).
