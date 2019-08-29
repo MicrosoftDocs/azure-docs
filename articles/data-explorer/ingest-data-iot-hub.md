@@ -21,7 +21,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * Create [a test cluster and database](create-cluster-database-portal.md) with database name *testdb*.
 
-* [A sample app](https://github.com/Azure-Samples/azure-iot-samples-csharp) and documentation for simulating a device
+* [A sample app](https://github.com/Azure-Samples/azure-iot-samples-csharp) and documentation for simulating a device.
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
