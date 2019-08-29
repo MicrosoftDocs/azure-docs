@@ -79,6 +79,10 @@ landingContent:
             url: data-powerbi.md
           - text: Use data in SQL Management Studio
             url: data-sql-management-studio.md
+      - linkListType: reference
+        links:
+          - text: Database views
+            url: database-views.md
 
   - title: Manage
     linkLists:
@@ -91,7 +95,7 @@ landingContent:
           - text: Application versioning
             url: version-app.md
 
-  - title: Reference
+  - title: API
     linkLists:
       - linkListType: reference
         links:
@@ -99,6 +103,4 @@ landingContent:
             url: messages-overview.md
           - text: REST API
             url: use-api.md
-          - text: Database views
-            url: database-views.md
 
