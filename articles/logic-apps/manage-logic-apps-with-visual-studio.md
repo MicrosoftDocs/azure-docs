@@ -138,7 +138,7 @@ select **Open with Logic App Editor**.
    If you want to create a deployment template for the logic app, 
    learn [how to download an Azure Resource Manager template](#download-logic-app) 
    for that logic app. Learn more about 
-   [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment).
+   [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md).
 
 <a name="download-logic-app"></a>
 
@@ -150,7 +150,7 @@ and save them as [Azure Resource Manager](../azure-resource-manager/resource-gro
 templates. You can then locally edit the templates with Visual Studio 
 and customize logic apps for different deployment environments. 
 Downloading logic apps automatically *parameterizes* their 
-definitions inside [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment), 
+definitions inside [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md), 
 which also use JavaScript Object Notation (JSON).
 
 1. In Visual Studio, open Cloud Explorer, 

@@ -15,6 +15,8 @@
     href: ./interactive-query-tutorial-analyze-flight-data.md
 - name: Concepts
   items:
+  - name: Compare storage options
+    href: ../hdinsight-hadoop-compare-storage-options.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Capacity planning
@@ -279,6 +281,8 @@
       maintainContext: true 
 - name: Reference
   items:
+  - name: Supported node configurations
+    href: ../hdinsight-supported-node-configuration.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
