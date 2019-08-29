@@ -65,6 +65,26 @@ landingContent:
             url: connection-monitor.md          
   
   # Card (optional)
+  - title: Log VM network traffic
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Log VM network traffic
+            url: network-watcher-nsg-flow-logging-overview.md
+      - linkListType: tutorial  
+        links:
+          - text: Log VM network traffic
+            url: network-watcher-nsg-flow-logging-portal.md
+      - linkListType: tutorial 
+        links:
+          - text: Configure NSG flow logs
+            url: network-watcher-nsg-flow-logging-portal.md
+          - text: Analyze NSG flow logs using Traffic Analytics
+            url: traffic-analytics.md
+          - text: Log VM network traffic
+            url: network-watcher-nsg-flow-logging-portal.md              
+
+  # Card (optional)
   - title: Reference
     linkLists:
       - linkListType: reference  
