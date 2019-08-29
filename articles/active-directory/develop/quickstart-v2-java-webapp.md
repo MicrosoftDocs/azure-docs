@@ -32,10 +32,9 @@ When you've completed the guide, your application will accept sign-ins of person
 
 > ## Prerequisites
 > To run this sample you will need: 
-> - An internet connection.
-> - A working installation of Java and Maven.
-> - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [how to get an Azure AD tenant.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
-
+> - Java Development Kit (JDK) 8 or greater and Maven.
+> - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [how to get an Azure AD tenant.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)
+>
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
@@ -142,5 +141,22 @@ You can add the reference to MSAL4J by adding the following code to the top of t
 ```
 import com.microsoft.aad.msal4j.*;
 ```
+
+## Next Steps
+
+Learn more about permissions and consent:
+
+> [!div class="nextstepaction"]
+> [Permissions and Consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+
+To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
+
+> [!div class="nextstepaction"]
+> [Authorization Code Oauth flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

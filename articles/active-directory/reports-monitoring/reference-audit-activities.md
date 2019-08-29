@@ -345,10 +345,10 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 |Audit Category|Activity|
 |---|---|
-|Administrative Unit Management|Download a single risk event type|
+|Administrative Unit Management|Download a single risk detection type|
 |Administrative Unit Management|Download admins and status of weekly digest opt-in|
-|Administrative Unit Management|Download all risk event types|
-|Administrative Unit Management|Download free user risk events|
+|Administrative Unit Management|Download all risk detection types|
+|Administrative Unit Management|Download free user risk detections|
 |Administrative Unit Management|Download users flagged for risk|
 |Application Management|Batch invites processed|
 |Application Management|Batch invites uploaded|
