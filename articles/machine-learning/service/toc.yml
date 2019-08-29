@@ -146,17 +146,6 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
-    - name: 'Prepare with azureml.dataprep'
-      items:
-      - name: Load data
-        displayName: data, etl, data prep, dataprep
-        href: how-to-load-data.md
-      - name: Transform data
-        displayName: data, etl, dataprep, data prep
-        href: how-to-transform-data.md
-      - name: Write data
-        displayName: data, etl, data prep, dataprep
-        href: how-to-write-data.md
   - name: Train models
     items:
     - name: Set up training environments

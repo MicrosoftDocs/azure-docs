@@ -259,6 +259,8 @@
         href: sql-data-warehouse-install-visual-studio.md
       - name: Source control integration
         href: sql-data-warehouse-source-control-integration.md
+      - name: Continuous integration and deployment
+        href: sql-data-warehouse-continuous-integration-and-deployment.md
     - name: Connect and query
       items:
       - name: Visual Studio SSDT
