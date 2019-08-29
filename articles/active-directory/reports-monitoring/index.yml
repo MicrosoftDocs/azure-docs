@@ -5,7 +5,7 @@ summary: Learn how to use reports in Azure AD.
 
 metadata:
   title: Azure Active Directory reports and monitoring documentation
-  description: Learn how to use reports in Azure AD.
+  description: Learn how to use reports and monitoring in Azure AD.
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
