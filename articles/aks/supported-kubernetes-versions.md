@@ -52,13 +52,13 @@ AKS supports four minor versions of Kubernetes:
 
 This is known as "N-3" - (N (Latest release) - 3 (minor versions)).
 
-For example, if AKS introduces *1.13.x* today, support is provided for the following versions:
+For example, if AKS introduces *1.13.a* today, support is provided for the following versions:
 
 New minor version    |    Supported Version List
 -----------------    |    ----------------------
-1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+1.13.a               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
-Where "x" and ".a" and ".b" are representative patch versions.
+Where ".a" and ".b" are representative patch versions."a" from 1.13.a can be different from 1.12.a. For example, 1.13.9 and 1.12.8.
 
 For details on communications regarding version changes and expectations, see "Communications" below.
 
@@ -76,7 +76,7 @@ removed. For example if the current supported version list is:
 1.9.b
 ```
 
-And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) will be removed and out of support.
+And AKS releases 1.13.*, this means that the 1.9.* versions (all 1.9 versions) will be removed and out of support.
 
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
@@ -140,7 +140,7 @@ Specific patch releases may be skipped, or rollout accelerated depending on the 
 ### Azure portal and CLI default versions
 
 When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is always set to the N-1 minor version
-and latest patch. For example, if AKS supports *1.13.x*, *1.12.a* + *1.12.b*, *1.11.a* + *1.11.b*, *1.10.a* + *1.10b*,
+and latest patch. For example, if AKS supports *1.13.a*, *1.12.a* + *1.12.b*, *1.11.a* + *1.11.b*, *1.10.a* + *1.10b*,
 the default version for new clusters is *1.12.b*.
 
 AKS defaults to N-1 (minor.latestPatch, eg 1.12.b) to provide customers a known, stable and patched version by default.
@@ -180,9 +180,9 @@ KubernetesVersion    Upgrades
 If you are on the *n-4* version, you are outside of support and will be asked to upgrade. If your upgrade from version
 n-4 to n-3 succeeds, you are now within our support policies. For example:
 
-- If the supported AKS versions are *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c* + *1.11d*, and *1.10.e* + *1.10f* and you
-  are on *1.9.g* or *1.9.h*, you are outside of support.
-- If the upgrade from *1.9.g* or *1.9.h* to *1.10.e* or *1.10.f* succeeds, you are back in the within our support policies.
+- If the supported AKS versions are *1.13.a*, *1.12.b* + *1.12.c*, *1.11.d* + *1.11.e*, and *1.10.f* + *1.10.g* and you
+  are on *1.9.h* or *1.9.i*, you are outside of support.
+- If the upgrade from *1.9.h* or *1.9.i* to *1.10.f* or *1.10.g* succeeds, you are back in the within our support policies.
 
 Upgrades to versions older than *n-4* are not supported. In such cases, we recommend customers create new AKS clusters
 and redeploy their workloads.

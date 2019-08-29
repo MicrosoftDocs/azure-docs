@@ -5,19 +5,30 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
 
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
 
-If you have suggestions for Site Recovery features, we'd love to [hear your feedback](https://feedback.azure.com/forums/256299-site-recovery).
+You can follow and subscribe to Site Recovery update notifications in the [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) channel.
 
+## Supported updates
 
-## Installing updates
+For Site Recovery components, we support N-4 versions, where N is the latest released version. These are summarized in the following table.
 
-[Review this article](service-updates-how-to.md) for Site Recovery update support and instructions.
+**Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent** 
+--- | --- | --- | --- | ---
+[Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[Rollup 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[Rollup 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[Rollup 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
+[Rollup 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0	
+		
+
+[Learn more](service-updates-how-to.md) about update installation and support.
+
 
 ## Updates (August 2019)
 
