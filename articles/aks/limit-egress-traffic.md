@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 08/29/2019
 ms.author: mlearned
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -90,6 +90,8 @@ The following FQDN / application rules are required:
 | management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
+| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations. |
+| acs-mirror.azureedge.net 	 | HTTPS:443 | This address is used by CSE to install CNI kubenet binaires. |
 
 ## Optional recommended addresses and ports for AKS clusters
 
@@ -100,13 +102,54 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
 | security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
-| packages.microsoft.com                  | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations. |
 | dc.services.visualstudio.com            | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
 | *.opinsights.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
 | *.monitoring.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
 | apt.dockerproject.org                   | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 | nvidia.github.io                        | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+| *.oms.opinsights.azure.com              | HTTPS:443 | This address is used by omsagent, which is to monitor VM status |
+
+## Required addresses and ports for GPU enabled AKS clusters
+
+The following FQDN / application rules are required for AKS clusters that have GPU enabled:
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| nvidia.github.io | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+| us.download.nvidia.com | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+
+## Required addresses and ports for AKS clusters with the monitoring add on enabled
+
+The following FQDN / application rules are required for AKS clusters that have the monitoring add on enabled:
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| dc.services.visualstudio.com | HTTPS:443	| Recommended for correct metrics and monitoring using Azure Monitor. |
+| *.opinsights.azure.com	| HTTPS:443	| Recommended for correct metrics and monitoring using Azure Monitor. |
+| *.monitoring.azure.com	| HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
+
+## Required addresses and ports for AKS clusters with the Azure Policy (in private preview) add on enabled
+
+The following FQDN / application rules are required for AKS clusters that have the Azure policy add on enabled.  This is subject to change as the feature moves to public preview and future release stages.
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
+| raw.githubusercontent.com | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
+| *.gk.<location>.azmk8s.io | HTTPS:443	| Azure policy add-on talks to Gatekeeper audit endpoint running in master server to get the audit results. |
+| dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on sends telemetry data to applications insights endpoint. |
+
+## Required by Windows Server based nodes (in public preview) enabled
+
+The following FQDN / application rules are required for Windows server based AKS clusters:
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| *. microsoft.com, onegetcdn.azureedge.net | HTTPS:443 | To install windows related binaries |
+| mp.microsoft.com ,www.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows related binaries |
+| kms.core.windows.net | TCP:1688 | To install windows related binaries |
+
 
 ## Next steps
 
