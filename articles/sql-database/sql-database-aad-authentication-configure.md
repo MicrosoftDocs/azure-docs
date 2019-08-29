@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
@@ -412,6 +411,9 @@ For more information, see [SQL Server Security Blog](https://blogs.msdn.microsof
 ### sqlcmd
 
 The following statements, connect using version 13.1 of sqlcmd, which is available from the [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+
+> [!NOTE]
+> `sqlcmd` with the `-G` command does not work with system identities, and requires a user principal login.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

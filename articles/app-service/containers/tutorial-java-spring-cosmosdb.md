@@ -9,7 +9,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-july2019
 ---
 
 # Tutorial: Build a Java web app using Spring and Azure Cosmos DB

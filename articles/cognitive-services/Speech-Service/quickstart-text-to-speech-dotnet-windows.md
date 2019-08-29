@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, .NET Framework (Windows) - Speech Services'
+title: 'Quickstart: Synthesize speech, .NET Framework (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a text-to-speech console application using the .NET framework for Windows and the Speech SDK. When finished, you can synthesize speech from text, and hear the speech on your speaker in real time.
 services: cognitive-services
@@ -26,7 +26,7 @@ Get the latest [Cognitive Services Speech SDK Samples](https://github.com/Azure-
 
 To complete this project, you'll need:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
 * A speaker (or headset) available.
 

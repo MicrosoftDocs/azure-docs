@@ -1,6 +1,6 @@
 ---
 title: "Perform image operations - Java"
-titlesuffix: "Azure Cognitive Services"
+titleSuffix: "Azure Cognitive Services"
 description: Explore a basic Java Swing app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
@@ -40,7 +40,7 @@ This tutorial has been developed using the NetBeans IDE. Specifically, the **Jav
 
 ### Subscribe to Computer Vision API and get a subscription key
 
-Before creating the example, you must subscribe to Computer Vision API which is part of Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial.
+Before creating the example, you must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Take note of the service endpoint URL as well.
 
 ## Acquire incomplete tutorial project
 

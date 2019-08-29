@@ -6,7 +6,7 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
 ---
 
@@ -56,15 +56,11 @@ For example, assume your total consumption of SQL Data Warehouse is DW3000c. You
 8. Select **Purchase**.
 9. Select **View this Reservation** to see your purchase status.
 
-## Cancellations and exchanges
+## Cancel, exchange, or refund reservations
 
-If you need to cancel your SQL Data Warehouse reserved capacity, there might be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000.00 per year. The refund you receive is the remaining prorated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
 
-If you need to change your SQL Data Warehouse reserved capacity to another region or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The one or three-year term starts when you create the new reservation. To exchange, open the reservation in the Azure portal, and select **Exchange**.
-
-For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-The reservation discount is applied automatically to the number of SQL Data Warehouse instances that match the SQL Data Warehouse reserved capacity scope and region. You can update the scope of the SQL Data Warehouse reserved capacity with the [Azure portal](https://portal.azure.com/), PowerShell, CLI or through the API.
+A reservation discount is applied automatically to the number of SQL Data Warehouse instances that match the SQL Data Warehouse reserved capacity scope and region. You can update the scope of the SQL Data Warehouse reserved capacity with the [Azure portal](https://portal.azure.com/), PowerShell, CLI or through the API.
 
 ## Need help? Contact us
 

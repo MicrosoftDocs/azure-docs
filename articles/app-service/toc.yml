@@ -63,12 +63,12 @@
     href: samples-resource-manager-templates.md
 - name: Concepts
   items:
-  - name: How App Service works
-    href: app-service-how-works-readme.md
   - name: App Service plans
     href: overview-hosting-plans.md
   - name: OS functionality
     href: operating-system-functionality.md
+  - name: Deployment best practices
+    href: deploy-best-practices.md
   - name: Security
     items:
     - name: Recommendations
@@ -170,7 +170,7 @@
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: web-sites-scale.md
+      href: manage-scale-up.md
     - name: Configure PremiumV2 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
@@ -219,6 +219,8 @@
     href: /azure/templates/microsoft.web/allversions
 - name: Resources
   items:
+  - name: App Service Blog
+    href: https://aka.ms/appserviceblog
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/
   - name: Azure Roadmap
@@ -229,6 +231,8 @@
     href: ../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Migration Assistant guides
+    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples

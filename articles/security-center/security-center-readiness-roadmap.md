@@ -63,9 +63,8 @@ Use the following resources to assist you to manage security alerts and protect 
 
 Articles	
 * [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protecting your virtual machines in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Protecting your applications in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-application-recommendations)
 * [Protecting Azure SQL service and data in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
@@ -110,8 +109,8 @@ Articles
 * [Security Center REST API Documentation Page](https://msdn.microsoft.com/library/mt704034.aspx)
 * [Azure Security Center frequently asked questions (FAQ)](https://docs.microsoft.com/azure/security-center/security-center-faq)
 * [Security Center Pricing Page](https://azure.microsoft.com/pricing/details/security-center/)
-* [Identity security best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
-* [Network security best practices](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+* [Identity security best practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+* [Network security best practices](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)

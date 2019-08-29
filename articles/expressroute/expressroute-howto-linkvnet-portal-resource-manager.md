@@ -117,7 +117,7 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
    ![Basics page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. In the **Settings** page, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
-6. Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**.
+6. Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**. The **Peer Circuit URI** is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
 
    ![Settings page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Review the information in the **Summary** page and click **OK**.

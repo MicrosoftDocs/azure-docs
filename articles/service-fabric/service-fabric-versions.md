@@ -3,7 +3,7 @@ title: Supported cluster versions in Azure Service Fabric | Microsoft Docs
 description: Learn about cluster versions in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: 
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2019
-ms.author: aljo
+ms.date: 08/21/2019
+ms.author: atsenthi
 
 ---
 # Supported Service Fabric versions
@@ -103,3 +103,5 @@ The following table lists the version names of Service Fabric and their correspo
 | 6.4 CU8 | 6.4.670.9590 | NA |
 | 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
 | 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
+| 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
+| 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |

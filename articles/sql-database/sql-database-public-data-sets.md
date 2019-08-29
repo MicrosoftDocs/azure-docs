@@ -10,7 +10,6 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 10/01/2018
 ---
 # Public data sets for testing and prototyping

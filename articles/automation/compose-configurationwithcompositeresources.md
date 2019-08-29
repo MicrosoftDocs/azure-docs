@@ -21,7 +21,8 @@ the creation of complex configurations while allowing the underlying composite r
 (parameterized configurations) to be individually managed and built.
 
 Azure Automation enables the [import and compilation of composite
-resources](automation-dsc-compile.md#composite-resources). Once composite resources have been
+resources](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Once composite resources have been
 imported into your Automation account, you are able to use the **Compose configuration** experience
 in the **State Configuration (DSC)** page.
 
@@ -39,7 +40,7 @@ page while on either the **Configurations** or **Compiled configurations** tabs.
    ![Screenshot of the basics step of the compose configuration page](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. The **Source code** step shows what the composed configuration of the selected composite resources looks like. You can see the merging of all parameters and how they are passed to the composite resource. When you are done reviewing the new source code, click **Next** or click the **Parameters** step.
    ![Screenshot of the source code step of the compose configuration page](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
-1. On the **Parameters** step, the parameter that each composite resource has is exposed so that they can be provided. If a parameter has a description, it is displayed next to the parameter field. If a field is a **PSCredential** type parameter, the drop-down to configure provides a list of **Credential** objects in the current Automation account. A **+ Add a credential** option is also be available. Once all required parameters have been provided, click **Save and compile**.
+1. On the **Parameters** step, the parameter that each composite resource has is exposed so that they can be provided. If a parameter has a description, it is displayed next to the parameter field. If a field is a **PSCredential** type parameter, the drop-down to configure provides a list of **Credential** objects in the current Automation account. A **+ Add a credential** option is also available. Once all required parameters have been provided, click **Save and compile**.
    ![Screenshot of the parameters step of the compose configuration page](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 Once the new configuration is saved, it is submitted for compilation. Status of the

@@ -1,7 +1,7 @@
 ---
-title: Train and register PyTorch models
+title: Train deep learning neural network with PyTorch
 titleSuffix: Azure Machine Learning service
-description: This article shows you how to train and register a PyTorch model using Azure Machine Learning service.
+description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's PyTorch estimator class.  The example scripts classify chicken and turkey images to build a deep learning neural network based on PyTorch's transfer learning tutorial. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/18/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
+
+#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
-# Train and register PyTorch models at scale with Azure Machine Learning service
+# Train Pytorch deep learning models at scale with Azure Machine Learning
 
-This article shows you how to train and register a PyTorch model using Azure Machine Learning service. It's based on  [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) that builds a deep neural network (DNN) classifier for images of chickens and turkeys.
+In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning's [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class.  
 
-[PyTorch](https://pytorch.org/) is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network based on PyTorch's transfer learning [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). 
 
-Whether you're developing a PyTorch model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
+Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning. 
+
+Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
 
 ## Prerequisites
 
@@ -27,13 +31,13 @@ Run this code on either of these environments:
 
  - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-    - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch** folder. 
+    - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch** folder. 
  
  - Your own Jupyter Notebook server
 
-    - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-    - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
+    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
@@ -68,7 +72,7 @@ Create a workspace object from the `config.json` file created in the [prerequisi
 ws = Workspace.from_config()
 ```
 
-### Create an experiment
+### Create a deep learning experiment
 
 Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "pytorch-birds".
 
@@ -215,10 +219,11 @@ To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your tra
 
 ## Next steps
 
-In this article, you trained and registered a PyTorch model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
 > [!div class="nextstepaction"]
 > [How and where to deploy models](how-to-deploy-and-where.md)
 * [Track run metrics during training](how-to-track-experiments.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
+* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

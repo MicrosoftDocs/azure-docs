@@ -61,7 +61,7 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
    ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
 ## Link a cluster
-You can link a normal cluster by using the Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as user1@contoso.com.
+You can link a normal cluster by using the Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as `user1@contoso.com`.
 
 1. Select **Link a cluster** from **Azure Explorer**.
 

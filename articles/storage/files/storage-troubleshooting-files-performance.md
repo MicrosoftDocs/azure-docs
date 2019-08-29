@@ -1,10 +1,9 @@
 ---
 title: Azure Files performance troubleshooting guide
 description: Known performance issues with Azure file shares and associated workarounds.
-services: storage
 author: gunjanj
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
@@ -19,7 +18,7 @@ This article lists some common problems related to Azure file shares. It provide
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 

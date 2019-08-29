@@ -31,5 +31,5 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/open-datasets-api">API reference</a>
+    - html: <a href="https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py">API reference</a>
   

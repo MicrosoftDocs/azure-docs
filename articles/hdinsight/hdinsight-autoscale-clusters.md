@@ -180,9 +180,25 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
 
 ### Enable and disable Autoscale for a running cluster
 
+#### Using the Azure portal
 To enable Autoscale on a running cluster, select **Cluster size** under **Settings**. Then click **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, click **Save**.
 
 ![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+#### Using the REST API
+To enable or disable Autoscale on a running cluster using the REST API, make a POST request to the Autoscale endpoint as shown in the code snippet below:
+
+```
+https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
+```
+
+Use the appropriate parameters in the request payload. The json payload below could be used to enable Autoscale. Use the payload `{autoscale: null}` to disable Autoscale.
+
+```json
+{ autoscale: { capacity: { minInstanceCount: 1, maxInstanceCount: 2 } } }
+```
+
+See the previous section on [enabling load-based autoscale](#load-based-autoscaling) for a full description of all payload parameters.
 
 ## Best practices
 

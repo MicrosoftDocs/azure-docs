@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Security Center for IoT Preview Documentation
+title: Azure Security Center for IoT Documentation
 metadata:
-  title: Azure Security Center for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: Azure Security Center for IoT Documentation - Tutorials, Quickstarts | Microsoft Doc
+  meta.description: Azure Security Center for IoT unifies your device security management and enables advanced threat detection and security posture management across your IoT solution.
   services: asc-for-iot
   author: mlottner
   manager: rkarlin
@@ -11,25 +11,25 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/26/19
+  ms.date: 07/23/19
   ms.author: rkarlin
 abstract:
-  description: Use Azure Security Center (ASC) for IoT Preview to extend your existing cybersecurity view to your entire IoT solution. Gain a true panoramic view of the security of all your Azure-related resources. Fast deployment options and full integration with IoT Hub module twins give you a wide range of customization options and easy integration with your current device management tools. 
+  description: Use Azure Security Center for IoT to extend your existing cybersecurity view to your entire IoT solution. Gain a true panoramic view of the security of all your Azure-related resources. Fast deployment options and full integration with IoT Hub module twins give you a wide range of customization options and easy integration with your current device management tools. 
 sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Learn how to enable your IoT Hub to ASC for IoT, install ASC for IoT agents, and get visibility into your data and potential threats.
+    text: Learn how to enable your IoT Hub to Azure Security Center for IoT, install security agents, and get visibility into your potential threats.
   - type: list
     style: icon48
     items: 
     - image: 
         src: media/index/deploy.svg
-      text: Enable ASC for IoT
+      text: Enable Azure Security Center for IoT
       href: /azure/asc-for-iot/quickstart-onboard-iot-hub
     - image: 
         src: media/index/get-started.svg
-      text: Get started with ASC for IoT
+      text: Get started with Azure Security for IoT
       href: /azure/asc-for-iot/getting-started
 - title: How-to guides
   items:
@@ -38,7 +38,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detect threats with ASC for IoT</a>
+    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detect threats with Azure Security Center for IoT</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
@@ -50,10 +50,17 @@ sections:
       image: 
         src: media/index/tutorial.svg
         href: https://docs.microsoft.com/learn/azure
-
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
-
+- title: Azure Security Center for IoT Videos 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Microsoft Azure Security Center for IoT - Overview
+      href: https://youtu.be/pq5uSp9u_x0
+      image: 
+        src: https://docs.microsoft.com/media/common/i_video.svg
+        href: https://youtu.be/pq5uSp9u_x0
 - title: Reference
   items:
   - type: list
