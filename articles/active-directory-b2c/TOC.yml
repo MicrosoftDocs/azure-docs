@@ -310,9 +310,6 @@
     - name: Migrate web API to b2clogin.com
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
-    - name: Migrate APIM API to b2clogin.com
-      href: multiple-token-endpoints-apim.md
-      displayName: migrate, b2clogin, apim, api management
   - name: Automation
     items:
     - name: Export usage report
@@ -321,6 +318,9 @@
       href: active-directory-b2c-devquickstarts-graph-dotnet.md
   - name: Audit logs
     href: active-directory-b2c-reference-audit-logs.md
+  - name: Secure API Management API
+    href: secure-api-management.md
+    displayName: apim, api management, migrate, b2clogin.com
   - name: Compliance
     items:
     - name: User access
