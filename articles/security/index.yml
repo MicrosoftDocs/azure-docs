@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/28/2019
+  ms.date: 08/29/2019
 
 highlightedContent: 
   items: 
@@ -27,7 +27,7 @@ highlightedContent:
       url: ./fundamentals/best-practices-and-patterns.md
     - title: What is Azure Security Center?
       itemType: overview
-      url: https://docs.microsoft.com/azure/security-center/security-center-intro
+      url: ../security-center/security-center-intro.md
 
 
 conceptualContent:
@@ -45,7 +45,7 @@ conceptualContent:
           text: Security controls for Azure services
       footerLink: 
         url: ./fundamentals/index.md
-        text: See More
+        text: See more
 
     - title: Developers
       links: 
@@ -67,23 +67,23 @@ conceptualContent:
         - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
           itemType: download
           text: Azure cloud security benchmark
-        - url: https://docs.microsoft.com/azure/security-center/security-center-using-recommendations
+        - url: ../security-center/security-center-using-recommendations.md
           itemType: overview
           text: Azure Security Center recommendations
 
     - title: Secrets and keys
       links: 
-        - url: https://docs.microsoft.com/azure/key-vault/key-vault-overview
+        - url: ../key-vault/key-vault-overview.md
           itemType: overview
           text:  What is Azure Key Vault?
-        - url: https://docs.microsoft.com/azure/key-vault/quick-create-cli
+        - url: ../key-vault/quick-create-cli.md
           itemType: quickstart
           text:  Set and retrieve a secret
-        - url: https://docs.microsoft.com/azure/dedicated-hsm/overview
+        - url: ../dedicated-hsm/overview.md
           itemType: overview
           text:  What is Azure Dedicated HSM?
       footerLink: 
-        url: https://docs.microsoft.com/azure/key-vault/
+        url: /azure/key-vault/
         text: See more
 
     - title: Data protection
@@ -94,7 +94,7 @@ conceptualContent:
         - url: ./fundamentals/data-encryption-best-practices.md
           itemType: concept
           text:  Data security and encryption best practices
-        - url: https://docs.microsoft.com/azure/storage/common/storage-security-guide
+        - url: ../storage/common/storage-security-guide.md
           itemType: concept
           text:  Storage security
       footerLink: 
@@ -118,59 +118,59 @@ conceptualContent:
 
     - title: Security monitoring
       links: 
-        - url: https://docs.microsoft.com/azure/security-center/security-center-get-started
+        - url: ../security-center/security-center-get-started.md
           itemType: quickstart
           text:  Onboard your subscription to Security Center
-        - url: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
+        - url: ../security-center/security-center-just-in-time.md
           itemType: how-to-guide
           text:  Just-in-time virtual machine access
-        - url: https://docs.microsoft.com/azure/security-center/tutorial-security-policy
+        - url: ../security-center/tutorial-security-policy.md
           itemType: how-to-guide
           text:  Working with security policies
       footerLink: 
-        url: https://docs.microsoft.com/azure/security-center/
+        url: /azure/security-center/
         text: See more
 
     - title: IoT security monitoring
       links: 
-        - url: https://docs.microsoft.com/azure/asc-for-iot/overview
+        - url: ../asc-for-iot/overview.md
           itemType: overview
           text:  Introducing Azure Security Center for IoT
-        - url: https://docs.microsoft.com/azure/asc-for-iot/architecture
+        - url: ../asc-for-iot/architecture.md
           itemType: how-to-guide
           text:  Azure Security Center for IoT architecture
-        - url: https://docs.microsoft.com/azure/asc-for-iot/getting-started
+        - url: ../asc-for-iot/getting-started.md
           itemType: how-to-guide
           text:  Get started with Azure Security Center for IoT
       footerLink: 
-        url: https://docs.microsoft.com/azure/asc-for-iot/
+        url: /azure/asc-for-iot/
         text: See more
 
     - title: Security analytics
       links: 
-        - url: https://docs.microsoft.com/azure/sentinel/overview
+        - url: ../sentinel/overview.md
           itemType: overview
           text:  What is Azure Sentinel preview?
-        - url: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+        - url: ../sentinel/quickstart-onboard.md
           itemType: quickstart
           text:  Onboard Azure Sentinel preview
-        - url: https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility
+        - url: ../sentinel/quickstart-get-visibility.md
           itemType: quickstart
           text:  Get started with Azure Sentinel preview
       footerLink: 
-        url: https://docs.microsoft.com/azure/sentinel/
+        url: /azure/sentinel/
         text: See more
 
     - title: Threat protection
       links: 
-        - url: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
-          itemType: overview
+        - url: ../security-center/security-center-alerts-overview.md
+          itemType: concept
           text:  Security alerts in Azure Security Center
-        - url: https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection
-          itemType: overview
+        - url: ../storage/common/storage-advanced-threat-protection.md
+          itemType: concept
           text:  Advanced Threat Protection for Azure Storage
-        - url: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
-          itemType: quickstart
+        - url: ../sql-database/sql-database-threat-detection-overview.md
+          itemType: concept
           text:  Advanced Threat Protection for Azure SQL Database
       footerLink: 
         url: ./fundamentals/threat-detection.md
@@ -247,12 +247,12 @@ conceptualContent:
         - url: ./blueprints/au-protected-iaaswa-overview.md
           itemType: tutorial
           text:  Compliance solutions
-        - url: https://docs.microsoft.com/azure/governance/policy/
+        - url: ../governance/policy/overview.md
           itemType: overview
           text:  Azure Policy service
-        - url: https://docs.microsoft.com/azure/governance/blueprints/
+        - url: ../governance/blueprints/overview.md
           itemType: overview
           text:  Azure Blueprints service
       footerLink: 
-        url: https://docs.microsoft.com/azure/governance/
+        url: /azure/governance/
         text: See more
