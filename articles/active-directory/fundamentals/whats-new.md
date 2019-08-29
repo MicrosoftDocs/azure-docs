@@ -230,53 +230,56 @@ For more information, see the [Identity protection blog](https://aka.ms/Security
 
 ---
 
-[797480](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=797480&triage=true&fullScreen=false&_a=edit)
-
-### Azure AD log files are now available in Azure Monitor for government cloud instances
+### Azure AD activity logs are now available for government cloud instances in Azure Monitor
 
 **Type:** Changed feature  
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
 
-We are excited to announce the availability of Azure AD Logs in Azure Monitor for gov cloud instances. You can now route Azure AD logs to your storage account or to event hub to integrate with your SIEM tools like Sumologic, Splunk and ArcSight.  For more information on how to setup Azure Monitor, check out our documentation.  
+We're excited to announce that Azure AD activity logs are now available for government cloud instances in Azure Monitor. You can now send Azure AD logs to your storage account or to an event hub to integrate with your SIEM tools, like [Sumologic](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic), [Splunk](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), and [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight). 
 
-Note: Azure AD logs integration with Log Analytics is not available in gov clouds. This will be available soon. Watch out for this space for more updates.
+For more information about setting up Azure Monitor, see [Azure AD activity logs in Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor#cost-considerations).
 
 ---
 
-[791257](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=791257&triage=true&fullScreen=false&_a=edit)
-
-### Enable enhanced security info experience by September 25, 2019
+### Update your users to the new, enhanced security info experience
 
 **Type:** Changed feature  
 **Service category:** Microsoft Authenticator App  
 **Product capability:** User Authentication
 
-On February 21, 2019, we released an enhanced experience for registering and managing security info. The enhanced experience makes it easier than ever for you and your users to register their security info in a single experience. To learn more about the enhanced security info experience, please read our admin documentation and user documentation.
+On September 25, 2019, we'll be turning off the old, non-enhanced security info experience for registering and managing user security info and only turning on the new, [enhanced version](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). This means that your users will no longer be able to use the old experience.
 
-On September 25, 2019, we will be enabling the enhanced experience for register and managing security info for the users you have enabled for the non-enhanced experience. This means that the users who are enabled for the preview features for registering and managing security info will see the enhanced experience. You and your users will no longer have access to non-enhanced experience.  
+For more information about the enhanced security info experience, see our [admin documentation](https://aka.ms/securityinfodocs) and our [user documentation](https://aka.ms/securityinfoguide).
 
-To enable the enhanced experience and disable the non-enhanced experience, complete the following steps:
-Sign into the Azure portal as a global administrator or user administrator.
-Browse to Azure Active Directory > User settings > Manage settings for access panel preview features.
-Under Users can use preview features for registering and managing security info - enhanced, set the control to Selected and select a group of users or All to enable for all users in the tenant.
-Under Users can use preview features for registering and managing security info, set the control to None.
-Save your settings. Note: When you save your settings, you will no longer have access to the control for the old security info experience.
-If you do not complete these steps before September 25, 2019, your Azure Active Directory tenant will be automatically enabled for the enhanced experience. If you have questions, please contact us at registrationpreview@microsoft.com.
+#### To turn on this new experience, you must:
+
+1. Sign in to the Azure portal as a Global Administrator or User Administrator.
+
+2. Go to **Azure Active Directory > User settings > Manage settings for access panel preview features**.
+
+3. In the **Users can use preview features for registering and managing security info - enhanced** area, select **Selected**, and then either choose a group of users or choose **All** to turn this feature on for all users in the tenant.
+
+4. In the **Users can use preview features for registering and managing security **info**** area, select **None**.
+
+5. Save your settings.
+
+    After you save your settings you'll no longer have access to the old security info experience.
+
+>[!Important]
+>If you don't complete these steps before September 25, 2019, your Azure Active Directory tenant will be automatically enabled for the enhanced experience. If you have questions, please contact us at registrationpreview@microsoft.com.
 
 ---
 
-[795768](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=795768&triage=true&fullScreen=false&_a=edit)
-
-### POST logins will now be strictly validated
+### Authentication requests using POST logins will be more strictly validated
 
 **Type:** Changed feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** Standards
 
-Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards. Specifically, spaces and double-quotes (“) will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
+Starting on September 2, 2019, authentication requests using the POST method will be more strictly validated against the HTTP standards. Specifically, spaces and double-quotes (") will no longer be removed from request form values. These changes aren't expected to break any existing clients, and will help to make sure that requests sent to Azure AD are reliably handled every time.
 
-For more details and examples, see the Azure AD breaking changes notices. (https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-breaking-changes#post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored)
+For more information, see the [Azure AD breaking changes notices](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored).
 
 ---
 
