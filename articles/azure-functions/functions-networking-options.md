@@ -47,8 +47,10 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 ## Private site access
 
 Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
-* Private site access is available in the [Premium](./functions-premium-plan.md) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
+* Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. 
+    * Service endpoints can be configured on a per-app basis under Platform features > Networking > Configure Access Restrictions > Add Rule. Virtual networks can be selected now as the "type" of a rule.
+    * For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+        * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
 * Private site access is also available with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## Virtual network integration
