@@ -14,7 +14,7 @@ ms.author: mlearned
 
 # Preview - Limit egress traffic for cluster nodes and control access to required ports and services in Azure Kubernetes Service (AKS)
 
-By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is then configured to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR), not external public repositories. You must configure your preferred firewall and security rules to allow these required ports and addresses.
+By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is configured by default to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR), not external public repositories. You must configure your preferred firewall and security rules to allow these required ports and addresses.
 
 This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.  This feature is currently in preview.
 
@@ -74,6 +74,8 @@ In AKS, there are two sets of ports and addresses:
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
+* UDP port *53* is optional, but recommended for DNS
+* TCP [IPAddrOfYourAPIServer]:443 is recommended if you have app that needs to talk to an API server.  This can be set after the cluster is created. <!--TODO need to wordsmith this-->
 * TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
     * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
 
