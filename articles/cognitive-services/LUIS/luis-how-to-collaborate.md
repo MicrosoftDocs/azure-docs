@@ -83,4 +83,9 @@ If the tenant admin only wants certain users to use LUIS, there are a couple of 
 Learn more about Azure active directory users and consent: 
 * [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) to a set of users
 
+## Next steps
 
+* Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
+* Understand the concepts including the [authoring resource](/luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys#contributions-from-other-authors) on that resource.
+* Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
+* Migrate to the new [authoring resource](luis-migration-authoring.md) 
