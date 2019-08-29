@@ -132,7 +132,7 @@ To select the User Identifier or add user attributes, follow these steps:
 8. Under the **User attributes** section, select the unique identifier for your users in the **User Identifier** dropdown. The selected option needs to match the expected value in the application to authenticate the user.
 
    >[!NOTE] 
-   >Azure AD selects the format for the NameID attribute (user Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information see [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) in the NameIDPolicy section.
+   >Azure AD selects the format for the NameID attribute (user Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information, see [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) in the NameIDPolicy section.
    >
    >
 
@@ -208,7 +208,7 @@ After a short period of time, the users you have selected be able to launch thes
 
 ## Customizing the SAML claims sent to an application
 
-To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
 ## Next steps
 [Provide single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
