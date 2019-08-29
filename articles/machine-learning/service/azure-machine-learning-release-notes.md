@@ -79,6 +79,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Allow AutoML users to drop training series that are not long enough when forecasting.
     + Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
     + Now AutoMLStep passes through automl config to backend to avoid any issues on changes or additions of new config parameters.
+    + AutoML Data Guardrail is not in public preview. User would see a Data Guardrail report after training and also be able to access it through SDK API.
   + **azureml-train-core**
     + Added torch 1.2 support in PyTorch Estimator.
   + **azureml-widgets**
