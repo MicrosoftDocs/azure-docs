@@ -124,13 +124,13 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](media/ingest-data-iot-hub/SimulatedDevice.png)
+    ![Run the simulated device](media/ingest-data-iot-hub/simulated-device.png)
 
 ## Review the data flow
 
 With the app generating data, you can now see the flow of that data from the Iot hub to the table in your cluster.
 
-1. In the Azure portal, under your Iot hub, you see the spike in activity while the app is running.
+1. In the Azure portal, under your IoT hub, you see the spike in activity while the app is running.
 
     ![IoT Hub metrics](media/ingest-data-iot-hub/iot-hub-metrics.png)
 
