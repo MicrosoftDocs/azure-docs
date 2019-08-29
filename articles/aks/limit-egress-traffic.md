@@ -107,14 +107,7 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
-| dc.services.visualstudio.com            | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
-| *.opinsights.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
-| *.monitoring.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
-| apt.dockerproject.org                   | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
-| nvidia.github.io                        | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
-| *.oms.opinsights.azure.com              | HTTPS:443 | This address is used by omsagent, which is to monitor VM status |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
 
 ## Required addresses and ports for GPU enabled AKS clusters
 
@@ -124,6 +117,7 @@ The following FQDN / application rules are required for AKS clusters that have G
 |-----------------------------------------|-----------|----------|
 | nvidia.github.io | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 | us.download.nvidia.com | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+| apt.dockerproject.org | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 
 ## Required addresses and ports for AKS clusters with Azure Monitor for containers enabled
 
@@ -133,7 +127,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 |-----------------------------------------|-----------|----------|
 | dc.services.visualstudio.com | HTTPS:443	| Recommended for correct metrics and monitoring using Azure Monitor. |
 | *.opinsights.azure.com	| HTTPS:443	| Recommended for correct metrics and monitoring using Azure Monitor. |
-| *.monitoring.azure.com	| HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
+| *.oms.opinsights.azure.com | HTTPS:443 | This address is used by omsagent, which is to monitor VM status |
 
 ## Required addresses and ports for AKS clusters with Azure Policy (in private preview) enabled
 
@@ -152,7 +146,7 @@ The following FQDN / application rules are required for Windows server based AKS
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| *. microsoft.com, onegetcdn.azureedge.net | HTTPS:443 | To install windows related binaries |
+| *.microsoft.com, onegetcdn.azureedge.net | HTTPS:443 | To install windows related binaries |
 | mp.microsoft.com ,www.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows related binaries |
 | kms.core.windows.net | TCP:1688 | To install windows related binaries |
 
