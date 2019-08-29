@@ -189,7 +189,7 @@ This administrator manages federation between Azure Active Directory tenants and
 * Azure Active Directory tenants for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
 * Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end user flows until the identity provider is added as an option in a user flow (aka built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
-### [Global Administrator / Company Administrator](#company-administrator)
+### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
 Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
@@ -599,7 +599,7 @@ Full access to manage devices in Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
-### Company Administrator
+### Company Administrator permissions
 
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
 
