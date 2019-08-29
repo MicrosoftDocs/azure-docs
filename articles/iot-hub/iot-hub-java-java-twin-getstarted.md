@@ -25,7 +25,7 @@ In this tutorial, you create two Java console apps:
 
 ## Prerequisites
 
-* The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+* The LTS version of [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/install.html)
 
