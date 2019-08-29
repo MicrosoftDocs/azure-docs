@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
+ms.date: 08/28/2019
 ---
 
 # Tutorial: Get started creating your first ML experiment
@@ -73,32 +73,6 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 > [!Warning]
 > Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
 
-In **part two** of the tutorial you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model.
-
-## <a name="end"></a> Clean up resources
-
-Do not complete this section if you plan on continuing to **part 2** of the tutorial.
-
-### Stop the notebook VM
-
-If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
-
-1. In your workspace, select **Notebook VMs**.
-
-   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. From the list, select the VM.
-
-1. Select **Stop**.
-
-1. When you're ready to use the server again, select **Start**.
-
-### Delete everything
-
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
-
 ## Next steps
 
 In this tutorial, you completed these tasks:
@@ -106,7 +80,10 @@ In this tutorial, you completed these tasks:
 * Created an Azure Machine Learning service workspace.
 * Created and configured a cloud notebook server in your workspace.
 
-Continue with **part 2** of this tutorial to train a simple machine learning model.
+In **part two** of the tutorial you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md)
+
+> [!IMPORTANT]
+> If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the cloud notebook server VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
