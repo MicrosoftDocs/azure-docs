@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 08/09/2019
 ms.author: atsenthi
 ---
-# Deploy Service Fabric application with a User-Assigned Managed Identity
+# Deploy Service Fabric application with a User-Assigned Managed Identity (preview)
 
 To deploy a Service Fabric application with managed identity, the application needs to be deployed through Azure Resource Manager, typically with an Azure Resource Manager template. For more information on how to deploy Service Fabric application through Azure Resource Manager, see [Manage applications and services as Azure Resource Manager resources](service-fabric-application-arm-resource.md).
 
 > [!NOTE] 
 > 
-> Applications created and deployed with native Service Fabric API **cannot** have Managed Identities. 
+> Applications which are not deployed as an Azure resource **cannot** have Managed Identities. 
 >
 > Service Fabric application deployment with Managed Identity is supported with API version `"2019-06-01-preview"`. You can also use the same API version for application type, application type version and service resources.
 >
 
 ## User-Assigned Identity
 
-To enable application with User-Assigned identity, first add **identity** property to the application resource with type **userAssigned** and the referenced user-assigned identities, then add a **managedIdentities** section inside the **properties** section for the **application** resource which contains a list of friendly name to principalId mapping for each of the user-assigned identities.
+To enable application with User-Assigned identity, first add the **identity** property to the application resource with type **userAssigned** and the referenced user-assigned identities. Then add a **managedIdentities** section inside the **properties** section for the **application** resource which contains a list of friendly name to principalId mapping for each of the user-assigned identities.
 
 ### Application template
 
@@ -61,7 +61,7 @@ In the example above the resource name of the user assigned identity is being us
 
 ### Application package
 
-1. For each identity defined in the `managedIdentities` section in the Azure Resource Manager template, add a `<ManagedIdentity>` in the application manifest under **Principals** section. The `Name` attribute needs to match the `name` property defined in the `managedIdentities` section.
+1. For each identity defined in the `managedIdentities` section in the Azure Resource Manager template, add a `<ManagedIdentity>` tag in the application manifest under **Principals** section. The `Name` attribute needs to match the `name` property defined in the `managedIdentities` section.
 
     **ApplicationManifest.xml**
 
@@ -73,7 +73,7 @@ In the example above the resource name of the user assigned identity is being us
       </Principals>
     ```
 
-2. In the **ServiceManifestImport** section, for the service that uses the Managed Identity add a **IdentityBindingPolicy**, which maps the `AdminUser` identity to a service-specific identity name that needs to be added into the service manifest later on.
+2. In the **ServiceManifestImport** section, add a **IdentityBindingPolicy** for the service that uses the Managed Identity. This policy maps the `AdminUser` identity to a service-specific identity name that needs to be added into the service manifest later on.
 
     **ApplicationManifest.xml**
 

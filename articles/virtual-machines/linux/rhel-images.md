@@ -3,16 +3,16 @@ title: Red Hat Enterprise Linux images in Azure | Microsoft Docs
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: asinn826
+manager: BorisB2015
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 6/6/2019
+ms.date: 8/14/2019
 ms.author: borisb
 
 ---
@@ -96,13 +96,15 @@ The following table will apply for RHEL images that contain a minor version in t
 
 >[!NOTE]
 > At the time of writing, only RHEL 7.4 and later minor versions have EUS support. EUS is no longer supported for RHEL <= 7.3.
+>
+> More details about RHEL EUS availability can be found [here](https://access.redhat.com/support/policy/updates/errata).
 
 Minor version |EUS Image example              |EUS status                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Images published April 2019 and later will be EUS by default|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Images published June 2019 and later will be EUS by default |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Images published May 2019 and later will be EUS by default  |
-RHEL 8.0      |N/A                            | No EUS currently images currently available                 |
+RHEL 8.0      |N/A                            | No EUS available from Red Hat                               |
 
 
 ## List of RHEL images available

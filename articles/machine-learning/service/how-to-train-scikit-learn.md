@@ -189,12 +189,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## Next steps
 
-In this article, you trained and registered a machine learning, classification model using scikit-learn on Azure Machine Learning service.
 
-* To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
+In this article, you trained and registered a Keras model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
-* [Tune hyperparameters](how-to-tune-hyperparameters.md).
-
-* [Track run metrics during training](how-to-track-experiments.md).
-
-* Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
+> [!div class="nextstepaction"]
+> [How and where to deploy models](how-to-deploy-and-where.md)
+* [Track run metrics during training](how-to-track-experiments.md)
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

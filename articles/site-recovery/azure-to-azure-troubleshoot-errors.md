@@ -398,6 +398,7 @@ The device names should be replaced with the corresponding UUID.<br>
    ```blkid /dev/sda2```<br>
    ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```<br>
+   ```
 
 
 

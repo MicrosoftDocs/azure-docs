@@ -1,5 +1,5 @@
 ---
-title: 'Intro to deep learning vs. machine learning'
+title: 'Deep learning vs. machine learning'
 titleSuffix: Azure Machine Learning service
 description: Learn about the relationship between deep learning vs. machine learning and how they fit into the category of artificial intelligence. This article describes how deep learning solves scenarios, such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
 services: machine-learning
@@ -11,7 +11,7 @@ author: FrancescaLazzeri
 ms.date: 08/07/2019
 ---
 
-# Introduction to deep learning vs. machine learning
+# Deep learning vs. machine learning
 
 This article helps you understand the relationship between deep learning vs. machine learning. You'll learn how the two concepts compare and how they fit into the broader category of artificial intelligence. Finally, the article describes how deep learning can be applied to real-world scenarios, such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
 

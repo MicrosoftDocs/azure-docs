@@ -29,7 +29,7 @@ In this document, you will learn how to:
 ## Deploy application resources using Azure Resource Manager  
 To deploy an application and its services using the Azure Resource Manager application resource model, you need to package application code, upload the package, and then reference the location of package in an Azure Resource Manager template as an application resource. For more information, view [Package an application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here
+Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples [here](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### Create a Storage account 
 Deploying an application from a Resource Manager template requires a storage account to stage the application image. You can re-use an existing storage account or create a new storage account to stage your applications. If you would like to use an existing storage account, you can skip this step. 
@@ -105,10 +105,29 @@ To deploy the application, run the New-AzResourceGroupDeployment to deploy to th
 New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParameterFile ".\UserApp.Parameters.json" -TemplateFile ".\UserApp.json" -Verbose
 ```
 
-## Upgrade application resources
+## Upgrade Service Fabric application using Azure Resource Manager
 Applications already deployed to a Service Fabric cluster will be upgraded for the following reasons:
-* A new service is added to the application. 
-* A new version of an existing service is added to the application.
+
+1. A new service is added to the application. A service definition must be added to service-manifest.xml and application-manifest.xml file. Then to reflect new version of application, you need to update the application type version from 1.0.0 to 1.0.1 [UserApp.parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json).
+
+    ```
+    "applicationTypeVersion": {
+        "value": "1.0.1"
+    },
+    "serviceName2": {
+        "value": "Voting~VotingData"
+    },
+    "serviceTypeName2": {
+        "value": "VotingDataType"
+    }
+    ```
+2. A new version of an existing service is added to the application. This involves application code changes and updates to app type version and name.
+
+    ```
+     "applicationTypeVersion": {
+        "value": "1.0.1"
+    },
+    ```
 
 ## Delete application resources
 Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below steps

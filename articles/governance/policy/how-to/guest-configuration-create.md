@@ -15,6 +15,10 @@ create the configuration for auditing of the Azure virtual machines. The DSC con
 the condition that the virtual machine should be in. If the evaluation of the configuration fails,
 the Policy effect **audit** is triggered and the virtual machine is considered **non-compliant**.
 
+[Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
+can only be used to audit settings inside virtual machines. Remediation
+of settings inside virtual machines isn't yet available.
+
 Use the following actions to create your own configuration for validating the state of an Azure
 virtual machine.
 
@@ -164,7 +168,7 @@ access secrets stored in Key Vault. For detailed steps, see
 Next, create a Key Vault instance. For detailed steps, see [Set and retrieve a secret - PowerShell](../../../key-vault/quick-create-powershell.md).
 Assign permissions to the instance to give the user-assigned identity access to secrets stored in
 Key Vault. For detailed steps, see
-[Set and retrieve a secret - .NET](../../../key-vault/quick-create-net.md#assign-permissions-to-your-application-to-read-secrets-from-key-vault).
+[Set and retrieve a secret - .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
 Then, assign the user-assigned identity to your virtual machine. For detailed steps, see
 [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
@@ -380,15 +384,15 @@ and [Azure PowerShell](../assign-policy-powershell.md).
 
 ## Policy lifecycle
 
-After you have published a custom Azure Policy using your custom content package,
+After you've published a custom Azure Policy using your custom content package,
 there are two fields that must be updated if you would like to publish a new release.
 
-- **Version**: When you run the cmdlet `New-GuestConfigurationPolicy` cmdlet you must specify a version number greater than what is currently published.  This will update the version of the Guest Configuration assignment in the new policy file so the extension will recognize that the package has been updated.
-- **contentHash**: This is updated automatically by the `New-GuestConfigurationPolicy` cmdlet.  It is a hash value of the package created by `New-GuestConfigurationPackage`.  This must be correct for the `.zip` file you publish.  If only the `contentUri` property is updated, such as in the case where someone could make a manual change to the Policy definition from the portal, the Extension will not accept the content package.
+- **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet you must specify a version number greater than what is currently published.  The property updates the version of the Guest Configuration assignment in the new policy file so the extension will recognize that the package has been updated.
+- **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy` cmdlet.  It's a hash value of the package created by `New-GuestConfigurationPackage`.  The property must be correct for the `.zip` file you publish.  If only the `contentUri` property is updated, such as in the case where someone could make a manual change to the Policy definition from the portal, the Extension won't accept the content package.
 
 The easiest way to release an updated package is to repeat the process described in this article
 and provide an updated version number.
-That will guarantee all properties have been correctly updated.
+That process guarantees all properties have been correctly updated.
 
 ## Converting Windows Group Policy content to Azure Policy Guest Configuration
 
@@ -399,7 +403,7 @@ By using this tool together with the Guest Configuration cmdlets described above
 you can convert Windows Group Policy content and package/publish it for Azure Policy to audit.
 For details about using the tool, see the article
 [Quickstart: Convert Group Policy into DSC](/powershell/dsc/quickstarts/gpo-quickstart).
-Once the content has been converted, the steps above to create a pakcage and publish it
+Once the content has been converted, the steps above to create a package and publish it
 as Azure Policy will be the same as for any DSC content.
 
 ## OPTIONAL: Signing Guest Configuration packages

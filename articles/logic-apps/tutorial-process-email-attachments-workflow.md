@@ -3,10 +3,11 @@ title: Tutorial - Automate processing emails and attachments - Azure Logic Apps
 description: Tutorial - Create automated workflows that handle emails and attachments with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
-manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
@@ -74,9 +75,9 @@ with these settings on the **Basics** tab in the Azure portal:
    | Setting | Value | Description |
    |---------|-------|-------------|
    | **Subscription** | <*Azure-subscription-name*> | The name for your Azure subscription |  
-   | **Resource group** | LA-Tutorial-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. |
-   | **Storage account name** | attachmentstorageacct | The name for your storage account |
-   | **Location** | West US | The region where to store information about your storage account |
+   | **Resource group** | <*Azure-resource-group*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. This example uses "LA-Tutorial-RG". <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. |
+   | **Storage account name** | <*Azure-storage-account-name*> | Your storage account name, which must have 3-24 characters and can contain only lowercase letters and numbers. This example uses "attachmentstorageacct". |
+   | **Location** | <*Azure-region*> | The region where to store information about your storage account. This example uses "West US". |
    | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Account kind** | General purpose | The [storage account type](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../storage/common/storage-redundancy-lrs.md). |

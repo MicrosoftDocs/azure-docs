@@ -126,7 +126,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|[Preview]: Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
+|\[Preview\] Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
 |Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.| 
 |Allowed Locations for resource groups|Policy Assignment |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.| 
 |Deploy Auditing on SQL servers|Policy Assignment|Retention days|Data rentention in number of days. Default value is 180 but PCI requires 365.| 

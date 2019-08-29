@@ -38,6 +38,9 @@ The steps to complete this task are summarized as follows:
 
 4. Deploy Azure Monitor for VMs.
 
+>[!NOTE]
+>The information described in this article for deploying the Dependency agent is also applicable to the [Service Map solution](service-map.md).  
+
 ## Install the Dependency agent on Windows
 
 You can install the Dependency agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively.

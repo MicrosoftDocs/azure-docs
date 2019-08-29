@@ -86,7 +86,7 @@ provide this information for your gateway resource:
 
    | Property | Description | 
    |----------|-------------|
-   | **Name** | The name for your gateway resource | 
+   | **Resource Name** | Your gateway resource name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). | 
    | **Subscription** | Your Azure subscription's name, which should be the same subscription as your logic app. The default subscription is based on the Azure account you used to sign in. | 
    | **Resource group** | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) for organizing related resources | 
    | **Location** | Azure restricts this location to the same region that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). <p>**Note**: Make sure this gateway resource location matches the gateway cloud service location. Otherwise, your gateway installation might not appear in the installed gateways list for you to select in the next step. You can use different regions for your gateway resource and for your logic app. | 

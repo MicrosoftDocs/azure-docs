@@ -1,15 +1,15 @@
 ---
 title: "Immersive Reader iOS SDK reference"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Reference for the Immersive Reader iOS SDK
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
-ms.author: t-meroa
+ms.author: metan
 ---
 
 # Immersive Reader SDK reference
@@ -98,5 +98,5 @@ The Immersive Reader iOS SDK is supported for iOS 9.0 or higher, on iPad and iPh
 
 ## Next steps
 
-* Explore the [Immersive Reader iOS SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk/iOS)
+* Explore the [Immersive Reader iOS SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS)
 * [Quickstart: Create an iOS app that launches the Immersive Reader (Swift)](./ios-quickstart.md)
