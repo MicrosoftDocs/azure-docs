@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure DNS documentation
-summary: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
+title: Azure Firewall documentation
+summary: Learn how to deploy Azure Firewall, a cloud-based network security service.
 
 metadata:
   title: Azure Firewall documentation
