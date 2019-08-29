@@ -112,7 +112,7 @@ This guide uses the following library:
 
 ## Use the Microsoft Authentication Library (MSAL) to sign in the user
 
-1. Add the following code to your `index.html` file within the `<script></script>` tags:
+Add the following code to your `index.html` file within the `<script></script>` tags:
 
     ```javascript
     var msalConfig = {
