@@ -2,12 +2,12 @@
 title: Document formats and naming conventions - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This is a guide on document formats and naming convention in Custom Translator. This concept helps to manage documents names better abd avoid naming conflicts.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to format and name my documents.
 ---
@@ -33,7 +33,7 @@ This table includes all supported file formats that you can use to build your tr
 
 ## Dictionary formats
 
-For dictionaries, Custom Translator supports all file formats those are supported for training set. If you are using Excel dictionary, please make sure the first line/ row of the spreadsheet should be language codes.
+For dictionaries, Custom Translator supports all file formats that are supported for training sets. If you are using an Excel dictionary, the first line/ row of the spreadsheet should be language codes.
 
 ## Zip file formats
 

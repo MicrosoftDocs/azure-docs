@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2019
+ms.date: 06/18/2019
 ms.author: pepogors
 ---
 
 # Azure Service Fabric application and cluster best practices
 
-To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform to optimize for the reliability of your production environment; please perform operations defined in this document and select one of our [Azure Samples Service Fabric Cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin designing your production solution or modify your existing template to incorporate these practices.
+This article provides links to best practices for managing Azure Service Fabric applications and clusters. We highly recommend that you implement these practices to optimize the reliability of your production environment. Use one of the [Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin designing your production solution, or update your existing template to incorporate these practices.
 
-## Security 
+## Security
 
 * [Best practices for security](service-fabric-best-practices-security.md)
 
@@ -47,11 +47,11 @@ To manage Azure Service Fabric applications and clusters successfully, there are
 
 ## Checklist
 
-Once you have completed all of the sections above, ensure that you have integrated all of the best practices in the production readiness checklist:
-* [Azure Service Fabric Production Readiness Checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+After you implement the practices suggested in the previous sections, ensure that you've integrated all the best practices in the production readiness checklist:
+* [Azure Service Fabric production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
 
 ## Next steps
 
 * Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-cluster-creation-via-portal.md)
-* Troubleshooting: [Service Fabric troubleshooting guide](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* Troubleshoot Service Fabric: [Troubleshooting guides](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

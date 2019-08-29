@@ -27,6 +27,8 @@ In this documentation, you'll go over each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## How does Resource Graph complement Azure Resource Manager
 
 Azure Resource Manager currently supports queries over basic resource fields, specifically -
@@ -75,6 +77,14 @@ group, results won't be returned.
 > new subscription added during an active session, the principal must refresh the context. This
 > action happens automatically when logging out and back in.
 
+Azure CLI and Azure PowerShell use subscriptions that the user has access to. When using REST API
+directly, the subscription list is provided by the user. If the user has access to any of the
+subscriptions in the list, the query results are returned for the subscriptions the user has access
+to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list)
+\- you get resource groups you've access to without any indication that the result may be partial.
+If there are no subscriptions in the subscription list that the user has appropriate rights to, the
+response is a _403_ (Forbidden).
+
 ## Throttling
 
 As a free service, queries to Resource Graph are throttled to provide the best experience and
@@ -92,7 +102,7 @@ headers:
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
 
 For more information, see
-[Throttling Resource Manager requests](../../azure-resource-manager/resource-manager-request-limits.md).
+[Guidance for throttled requests](./concepts/guidance-for-throttled-requests.md).
 
 ## Running your first query
 

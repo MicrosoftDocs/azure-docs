@@ -3,7 +3,7 @@ title: Monitor your devices in Azure IoT Central | Microsoft Docs
 description: As an operator, use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/01/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -12,6 +12,8 @@ manager: philmea
 ---
 
 # Tutorial: Use Azure IoT Central to monitor your devices
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This tutorial shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
 

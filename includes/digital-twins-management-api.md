@@ -5,15 +5,15 @@
  author: kingdomofends
  ms.service: digital-twins
  ms.topic: include
- ms.date: 12/28/2018
- ms.author: adgera
+ ms.date: 08/12/2019
+ ms.author: v-adgera
  ms.custom: include file
 ---
 
 In the examples below, `YOUR_MANAGEMENT_API_URL` refers to the URI of the Digital Twins APIs:
 
 ```plaintext
-https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0
 ```
 
 | Name | Replace with |

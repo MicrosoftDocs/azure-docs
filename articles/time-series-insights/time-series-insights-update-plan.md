@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
 ---
 
@@ -83,5 +83,8 @@ For more information, see [Shape events](./time-series-insights-send-events.md#j
 
 ## Next steps
 
+- Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
+
 - Read more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Time Series Insights Preview.
+
 - Learn about [data modeling](./time-series-insights-update-tsm.md) in the Time Series Insights Preview.

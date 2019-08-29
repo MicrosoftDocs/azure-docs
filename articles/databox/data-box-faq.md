@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 05/23/2019
+ms.topic: article
+ms.date: 08/21/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -48,7 +48,7 @@ A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can t
 A.  For information on which countries/regions the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box?
-A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported. For more information, go to [Region availability](data-box-overview.md#region-availability).
+A. Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -154,7 +154,7 @@ A.  To speed up the copy process:
 - Use multiple streams of data copy. For instance, with Robocopy, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md).
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the Data Box is connected.
-- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://bluestop.org/fio/) to benchmark the performance of the server hardware.
+- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -165,7 +165,7 @@ A.  To speed up the copy process:
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
-A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the GA release, the storage accounts in all regions in US, West Europe, North Europe, France, and UK in the Azure public cloud are supported.
+A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. 
 
 
 ## Ship device
@@ -180,6 +180,9 @@ A. For Data Box service, Microsoft handles the shipping to and from the Azure da
 
 ### Q. Will my Data Box devices cross country borders during shipping?
 A. All Data Box devices are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country. This applies to both the Data Box and the Data Box Heavy devices.
+
+### Q. I ordered a Data Box in US East but I received a device that was shipped from a location in US West. Where should I return the device to?
+A. We try to get a Data Box device as fast as possible to you. We prioritize the shipment from a datacenter closest to your storage account location but will ship a device from any Azure datacenter that has available inventory. Your Data Box should be returned to the same location where it was shipped from as displayed in the shipping label.
 
 ### Q. E-ink display is not showing the return shipment label. What should I do?
 A. If the E-ink display doesn't show the return shipment label, perform the following steps:

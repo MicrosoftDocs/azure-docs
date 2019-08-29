@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Moderate Facebook content - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
 author: PatrickFarley
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As the moderator of a Facebook page, I want to use Azure's machine learning technology to automate and streamline the process of post moderation.
 ---
@@ -45,11 +45,11 @@ Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for i
 
 ## Configure image moderation workflow
 
-Refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide to create a custom image workflow. This will allow Content Moderator to automatically check images on Facebook and send some to the Review tool. Take note of the workflow **name**.
+Refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide to create a custom image workflow. Content Moderator will use this workflow to automatically check images on Facebook and send some to the Review tool. Take note of the workflow **name**.
 
 ## Configure text moderation workflow
 
-Again, refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide; this time create a custom text workflow. This will allow Content Moderator to automatically check text content. Take note of the workflow **name**.
+Again, refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide; this time, create a custom text workflow. Content Moderator will use this workflow to automatically check text content. Take note of the workflow **name**.
 
 ![Configure Text Workflow](images/text-workflow-configure.PNG)
 
@@ -74,7 +74,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
     | cm:TextWorkflow | Name of the workflow to run on Text |
     | cm:CallbackEndpoint | Url for the CMListener Function App that you will create later in this guide |
     | fb:VerificationToken | A secret token that you create, used to subscribe to the Facebook feed events |
-    | fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. You will get this at a later step. |
+    | fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. You will get this token at a later step. |
 
     Click the **Save** button at the top of the page.
 

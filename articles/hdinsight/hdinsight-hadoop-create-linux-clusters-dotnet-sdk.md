@@ -387,7 +387,6 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ### Run jobs
 * [Run Apache Hive jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Run Apache Pig jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Run Apache Sqoop jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Run Apache Oozie jobs in HDInsight](hdinsight-use-oozie-linux-mac.md)
 

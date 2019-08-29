@@ -1,22 +1,17 @@
 ---
 title: Windows 10 roaming settings reference | Microsoft Docs
 description: A complete list of all the settings that will be roamed or backed up in Windows 10.
+
 services: active-directory
-keywords: enterprise state roaming, windows cloud
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-
-ms.subservice: devices
-ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/30/2019
-ms.author: joflore
+ms.reviewer: na
 
 ms.collection: M365-identity-device-management
 ---
@@ -180,4 +175,3 @@ Minimum supported OS version of Windows Creators Update (Build 15063).
 ## Next steps
 
 For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md).
-

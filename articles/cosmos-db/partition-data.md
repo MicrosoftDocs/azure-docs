@@ -5,7 +5,7 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/01/2019
 
 ---
 
@@ -23,7 +23,7 @@ A logical partition also defines the scope of database transactions. You can upd
 
 ## Physical partitions
 
-An Azure Cosmos container is scaled by distributing data and throughput across a large number of logical partitions. Internally, one or more logical partitions are mapped to a physical partition that consists of a set of replicas, also referred to as a [*replica set*](global-dist-under-the-hood.md). Each replica set hosts an instance of the Azure Cosmos DB database engine. A replica set makes the data stored within the physical partition durable, highly available, and consistent. A physical partition supports the maximum amount of storage and request units (RUs). Each replica that makes up the physical partition inherits the partition's storage quota. All replicas of a physical partition collectively support the throughput that's allocated to the physical partition. 
+An Azure Cosmos container is scaled by distributing data and throughput across a large number of logical partitions. Internally, one or more logical partitions are mapped to a physical partition that consists of a set of replicas, also referred to as a [*replica set*](global-dist-under-the-hood.md). Each replica set hosts an instance of the Azure Cosmos database engine. A replica set makes the data stored within the physical partition durable, highly available, and consistent. A physical partition supports the maximum amount of storage and request units (RUs). Each replica that makes up the physical partition inherits the partition's storage quota. All replicas of a physical partition collectively support the throughput that's allocated to the physical partition. 
 
 The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
 

@@ -11,7 +11,6 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
@@ -144,7 +143,7 @@ You also see the selected hostnames in the **Custom domains** page, in the **Cus
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> A **Note Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To configure SSL binding, see [Buy and configure an SSL certificate for Azure App Service](web-sites-purchase-ssl-web-site.md).
+> A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To configure SSL binding, see [Buy and configure an SSL certificate for Azure App Service](web-sites-purchase-ssl-web-site.md).
 >
 
 To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www\.kontoso.net_.

@@ -3,7 +3,7 @@ title: Azure PowerShell script - Account key and connection string operations fo
 description: Azure PowerShell script sample - Account key and connection string operations for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/20/2019
 ms.author: mjbrown
 ---

@@ -3,7 +3,7 @@ title: Azure Container Registry - roles and permissions
 description: Use Azure role-based access control (RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -19,7 +19,7 @@ The Azure Container Registry service supports a set of Azure roles that provide 
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Owner | X | X | X | X | X | X |  |  
 | Contributor | X | X | X |  X | X | X |  |  
-| Reader | X |  |  | X |  |  |  |
+| Reader | X |  |  |  |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |

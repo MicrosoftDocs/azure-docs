@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about security best practices so I can integrate my application with Microsoft identity platform.
 ---
 
@@ -90,7 +90,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 |   |   |
 |---|---|
-| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Test for [conditional access policies](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) that may affect your users’ ability to use your application. |
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Test for [Conditional Access policies](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) that may affect your users’ ability to use your application. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Test your application with all possible accounts that you plan to support (for example, work or school accounts, personal Microsoft accounts, child accounts, and sovereign accounts). |
 
 ## Additional resources

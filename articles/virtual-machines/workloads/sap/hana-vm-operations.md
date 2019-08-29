@@ -10,11 +10,11 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -63,6 +63,11 @@ Deploy the VMs in Azure by using:
 - The Azure CLI.
 
 You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) or with the automation released [here](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+
+>[!IMPORTANT]
+> In order to use M208xx_v2 VMs , you need to be careful selecting your SUSE Linux image from the Azure VM image gallery. In order to read the details, read the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). Red Hat is not yet supported for using HANA on Mv2 family VMs. Current planning is to provide support for Red Hat versions running HANA on the Mv2 VM family in Q4/CY2019 
+> 
+
 
 ### Storage configuration for SAP HANA
 For storage configurations and storage types to be used with SAP HANA in Azure, read the document [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
@@ -165,7 +170,7 @@ In the document [SAP HANA TDI Storage Requirements](https://www.sap.com/document
 Assuming you take the SAP HANA scale-out certified M128s Azure VM with roughly 2 TB memory, the SAP recommendations can be summarized like:
 
 - One master node and up to four worker node, the **/hana/shared** volume would need to be 2 TB of size. 
-- One master node and five and eight worker nodes, the size of **/hana/shared** should be 4 TB. 
+- One master node and five to eight worker nodes, the size of **/hana/shared** should be 4 TB. 
 - One master node and 9 to 12 worker nodes, a size of 6 TB for **/hana/shared** would be required. 
 - One master node and using between 12 and 15 worker nodes, you are required to provide a **/hana/shared** volume that is 8 TB in size.
 
@@ -208,7 +213,7 @@ If you want to share the highly available NFS cluster between SAP HANA configura
 ### Installing SAP HANA scale-out n Azure
 Installing a scale-out SAP configuration, you need to perform rough steps of:
 
-- Deploying new or adapting new Azure VNet infrastructure
+- Deploying new or adapting an existing Azure VNet infrastructure
 - Deploying the new VMs using Azure Managed Premium Storage volumes
 - Deploying a new or adapt an existing highly available NFS cluster
 - Adapt network routing to make sure that, for example, intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.

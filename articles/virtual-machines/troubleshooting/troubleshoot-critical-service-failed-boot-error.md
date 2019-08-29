@@ -8,7 +8,7 @@ manager: cshepard
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -27,7 +27,7 @@ This article describes the "CRITICAL SERVICE FAILED" error that you may experien
 
 A Windows VM doesn't start. When you check the boot screenshots in [Boot diagnostics](./boot-diagnostics.md), you see one of the following error messages on a blue screen:
 
-- "Your PC ran into a problem and needs to restart. You can restart. For more information about this issue and possible fixes, visit http://windows.com/stopcode. If you call a support person, give them this info: Stop code: CRITICAL SERVICE FAILED" 
+- "Your PC ran into a problem and needs to restart. You can restart. For more information about this issue and possible fixes, visit https://windows.com/stopcode. If you call a support person, give them this info: Stop code: CRITICAL SERVICE FAILED" 
 - "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you. 
 If you'd like to know more, you can search online later for this error: CRITICAL_SERVICE_FAILED"
 

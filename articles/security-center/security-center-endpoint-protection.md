@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 08/08/2019
 ms.author: v-mohabe
 ---
 
@@ -112,8 +112,8 @@ The **"Resolve endpoint protection health issues on your machines"** recommendat
 
 Registry Paths:
 
-**"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
-**"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+* **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
+* **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
 ## McAfee endpoint protection for Windows
 
@@ -132,6 +132,42 @@ The **"Resolve endpoint protection health issues on your machines"** recommendat
 * Find Signature date: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
 
 * Find Scan date: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
+
+## McAfee Endpoint Security for Linux Threat Prevention 
+
+The **Install endpoint protection solutions on virtual machine** recommendation is generated if one or both of the following checks aren't met:  
+
+- File **/opt/isec/ens/threatprevention/bin/isecav** exits 
+
+- **"/opt/isec/ens/threatprevention/bin/isecav --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
+
+The **Resolve endpoint protection health issues on your machines** recommendation is generated if one or more of the following checks aren't met:
+
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
+
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
+
+- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** returns **On Access Scan** status
+
+## Sophos Antivirus for Linux 
+
+The **Install endpoint protection solutions on virtual machine** recommendation is generated if  one or both of the following checks aren't met:
+
+- File **/opt/sophos-av/bin/savdstatus** exits or search for customized location **"readlink $(which savscan)"**
+
+- **"/opt/sophos-av/bin/savdstatus --version"** returns Sophos name = **Sophos Anti-Virus and Sophos version >= 9**
+
+The **Resolve endpoint protection health issues on your machines** recommendation is generated if one or more of the following checks aren't met:
+
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"**, returns a value   
+
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", returns a value   
+
+- **"/opt/sophos-av/bin/savdstatus --lastupdate"** returns lastUpdate which should be <= 7 days 
+
+- **"/opt/sophos-av/bin/savdstatus -v"** is equal to **"On-access scanning is running"** 
+
+- **"/opt/sophos-av/bin/savconfig get LiveProtection"** returns enabled  
 
 ## Troubleshoot and support
 

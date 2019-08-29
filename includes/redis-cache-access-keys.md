@@ -16,7 +16,7 @@ When connecting to an Azure Cache for Redis instance, cache clients need the hos
 
 #### To retrieve the access keys and host name
 
-1. To retrieve the access keys by using the [Azure portal](https://portal.azure.com), browse to your cache and select **Access keys**. 
+1. To retrieve the access keys by using the [Azure portal](https://portal.azure.com), go to your cache and select **Access keys**. 
 
     ![Azure Cache for Redis keys](media/redis-cache-access-keys/redis-cache-keys.png)
 

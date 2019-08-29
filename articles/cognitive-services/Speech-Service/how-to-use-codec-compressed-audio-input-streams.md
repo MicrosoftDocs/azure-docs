@@ -1,5 +1,5 @@
 ---
-title: Stream codec compressed audio with the Speech SDK - Speech Services
+title: Stream codec compressed audio with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK. Available for C++, C#, and Java for Linux.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: amishu
 ---
 
@@ -18,6 +18,7 @@ The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream 
 
 > [!IMPORTANT]
 > Streaming compressed audio is only supported for C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9).
+> Speech SDK version 1.4.0 or higher is required.
 
 For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the following codec compressed input formats are supported:
 

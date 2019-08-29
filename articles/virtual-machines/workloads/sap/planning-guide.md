@@ -4,14 +4,14 @@ description: Azure Virtual Machines planning and implementation for SAP NetWeave
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -519,7 +519,7 @@ Microsoft Azure Virtual Machines utilize different storage types. When implement
 
 Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reboot, all content on those drives will be wiped out. Hence, it is a given that data files and log/redo files of databases should under no circumstances be located on those non-persisted drives. There might be exceptions for some of the databases, where these non-persisted drives could be suitable for tempdb and temp tablespaces. However, avoid using those drives for A-Series VMs since those non-persisted drives are limited in throughput with that VM family. For further details, read the article [Understanding the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 > 
 > Drive D:\ in an Azure VM is a non-persisted drive, which is backed by some local disks on the Azure compute node. Because it is non-persisted, this means that any changes made to the content on the D:\ drive is lost when the VM is rebooted. By "any changes",  like files stored, directories created, applications installed, etc.
@@ -530,7 +530,7 @@ Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reb
 > 
 > 
 
-- - -
+---
 
 Microsoft Azure Storage provides persisted storage and the typical levels of protection and redundancy seen on SAN storage. Disks based on Azure Storage are virtual hard disk (VHDs) located in the Azure Storage Services. The local OS-Disk (Windows C:\, Linux /dev/sda1) is stored on the Azure Storage, and additional Volumes/Disks mounted to the VM get stored there, too.
 
@@ -838,7 +838,7 @@ You plan to move a specific SAP system from on-premises to Azure. This can be do
 
 Due to specific patch requirements of your OS or DBMS version, the provided images in the Azure Marketplace might not fit your needs. Therefore, you might need to create a VM using your own private OS/DBMS VM image, which can be deployed several times afterwards. To prepare such a private image for duplication, the following items have to be considered:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > See more details here: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>
@@ -851,7 +851,7 @@ Due to specific patch requirements of your OS or DBMS version, the provided imag
 >
 >
 
-- - -
+---
 If you have already installed SAP content in your on-premises VM (especially for 2-Tier systems), you can adapt the SAP system settings after the deployment of the Azure VM through the instance rename procedure supported by the SAP Software Provisioning Manager (SAP Note [1619720]). See chapters [Preparation for deploying a VM with a customer-specific image for SAP][planning-guide-5.2.2] and [Uploading a VHD from on-premises to Azure][planning-guide-5.3.2] of this document for on-premises preparation steps and upload of a generalized VM to Azure. Read chapter [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
 
 #### Deploying a VM out of the Azure Marketplace
@@ -874,7 +874,7 @@ Requirements when preparing your own Azure VM Disk are:
 * Add another local account with administrator privileges, which can be used by Microsoft support or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
 * Add other local accounts as those might be needed for the specific deployment scenario.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > In this scenario no generalization (sysprep) of the VM is required to upload and deploy the VM on Azure.
@@ -888,7 +888,7 @@ Requirements when preparing your own Azure VM Disk are:
 >
 >
 
-- - -
+---
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Preparation for deploying a VM with a customer-specific image for SAP
 
 VHD files that contain a generalized OS are stored in containers on Azure Storage Accounts or as Managed Disk images. You can deploy a new VM from such an image by referencing the VHD or Managed Disk image as a source in your deployment template files as described in chapter [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3] of the [Deployment Guide][deployment-guide].
@@ -901,7 +901,7 @@ Requirements when preparing your own Azure VM Image are:
 * Add other local accounts as those might be needed for the specific deployment scenario.
 * If the image contains an installation of SAP NetWeaver and renaming of the host name from the original name at the point of the Azure deployment is likely, it is recommended to copy the latest versions of the SAP Software Provisioning Manager DVD into the template. This will enable you to easily use the SAP provided rename functionality to adapt the changed hostname and/or change the SID of the SAP system within the deployed VM image as soon as a new copy is started.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Make sure that drive D:\ is not used
@@ -913,14 +913,14 @@ Requirements when preparing your own Azure VM Image are:
 >
 >
 
-- - -
+---
 * SAP GUI (for administrative and setup purposes) can be pre-installed in such a template.
 * Other software necessary to run the VMs successfully in cross-premises scenarios can be installed as long as this software can work with the rename of the VM.
 
 If the VM is prepared sufficiently to be generic and eventually independent of accounts/users not available in the targeted Azure deployment scenario, the last preparation step of generalizing such an image is conducted.
 
 ##### Generalizing a VM
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > The last step is to sign in to a VM with an Administrator account. Open a Windows command window as *administrator*. Go to %windir%\windows\system32\sysprep and execute sysprep.exe.
@@ -933,7 +933,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 >
 >
 
-- - -
+---
 ### Transferring VMs and VHDs between on-premises to Azure
 Since uploading VM images and disks to Azure is not possible via the Azure portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
@@ -1090,7 +1090,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 Professional editions of Azure Storage Explorers can be found here:
 
 * <https://www.cerebrata.com/>
-* <http://clumsyleaf.com/products/cloudxplorer>
+* <https://clumsyleaf.com/products/cloudxplorer>
 
 The copy of a VHD itself within a storage account is a process, which takes only a few seconds (similar to SAN hardware creating snapshots with lazy copy and
 copy on write). After you have a copy of the VHD file, you can attach it to a virtual machine or use it as an image to attach copies of the VHD to virtual machines.
@@ -1194,7 +1194,7 @@ Ideally the handling of the structure of a VM and the associated disks should be
 ![Reference Configuration of Azure IaaS VM for SAP][planning-guide-figure-1300]
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > With many customers we saw configurations where, for example, SAP and DBMS binaries were not installed on the c:\ drive where the OS was installed. There were various reasons
@@ -1223,14 +1223,14 @@ sudo service waagent restart
 
 Please read SAP Note [1597355] for more details on the recommended swap file size
 
-- - -
+---
 The number of disks used for the DBMS data files and the type of Azure Storage these disks are hosted on should be determined by the IOPS requirements and the latency required. Exact quotas are described in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows].
 
 Experience of SAP deployments over the last two years taught us some lessons, which can be summarized as:
 
 * IOPS traffic to different data files is not always the same since existing customer systems might have differently sized data files representing their SAP database(s). As a result it turned out to be better using a RAID configuration over multiple disks to place the data files LUNs carved out of those. There were situations, especially with Azure Standard Storage where an IOPS rate hit the quota of a single disk against the DBMS transaction log. In such scenarios, the use of Premium Storage is recommended or alternatively aggregating multiple Standard Storage disks with a software stripe.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > * [Performance best practices for SQL Server in Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices]
@@ -1243,7 +1243,7 @@ Experience of SAP deployments over the last two years taught us some lessons, wh
 >
 >
 
-- - -
+---
 * Premium Storage is showing significant better performance, especially for critical transaction log writes. For SAP scenarios that are expected to deliver production like performance, it is highly recommended to use VM-Series that can leverage Azure Premium Storage.
 
 Keep in mind that the disk, which contains the OS, and as we recommend, the binaries of SAP and the database (base VM) as well, is not anymore limited to 127GB. It now can have
@@ -1265,7 +1265,7 @@ Next, you need to decide whether you want to create a new and empty disk or whet
 
 **IMPORTANT**: You **DO NOT** want to use Host Caching with Azure Standard Storage. You should leave the Host Cache preference at the default of NONE. With Azure Premium Storage, you should enable Read Caching if the I/O characteristic is mostly read like typical I/O traffic against database data files. In case of database transaction log file, no caching is recommended.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [How to attach a data disk in the Azure portal][virtual-machines-linux-attach-disk-portal]
@@ -1278,7 +1278,7 @@ Next, you need to decide whether you want to create a new and empty disk or whet
 >
 >
 
-- - -
+---
 If the new disk is an empty disk, you need to format the disk as well. For formatting, especially for DBMS data and log files the same recommendations as for bare-metal deployments of the DBMS apply.
 
 As already mentioned in chapter [The Microsoft Azure Virtual Machine Concept][planning-guide-3.2], an Azure Storage account does not provide infinite resources in terms of I/O volume, IOPS, and data volume. Usually DBMS VMs are most affected by this. It might be best to use a separate Storage Account for each VM if you have few high I/O volume VMs to deploy in order to stay within the limit of the Azure Storage Account volume. Otherwise, you need to see how you can balance these VMs between different Storage accounts without hitting the limit of each single Storage Account. More details are discussed in the [DBMS Deployment Guide][dbms-guide]. You should also keep these limitations in mind for pure SAP application server VMs or other VMs, which eventually might require additional VHDs. These restrictions do not apply if you use Managed Disk. If you plan to use Premium Storage, we recommend using Managed Disk.
@@ -1288,7 +1288,7 @@ Another topic, which is relevant for Storage Accounts is whether the VHDs in a S
 Azure Geo-replication works locally on each VHD in a VM and does not replicate the IOs in chronological order across multiple VHDs in a VM. Therefore, the VHD that represents the base VM as well as any additional VHDs attached to the VM are replicated independent of each other. This means there is no synchronization between the changes in the different VHDs. The fact that the IOs are replicated independently of the order in which they are written means that geo-replication is not of value for database servers that have their databases distributed over multiple VHDs. In addition to the DBMS, there also might be other applications where processes write or manipulate data in different VHDs and where it is important to keep the order of changes. If that is a requirement, geo-replication in Azure should not be enabled. Dependent on whether you need or want geo-replication for a set of VMs, but not for another set, you can already categorize VMs and their related VHDs into different Storage Accounts that have geo-replication enabled or disabled.
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Setting automount for attached disks
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > For VMs, which are created from own Images or Disks, it is necessary to check and possibly set the automount parameter. Setting this parameter will allow the VM after a restart or redeployment in Azure to mount the attached/mounted drives again automatically.
@@ -1310,7 +1310,7 @@ Azure Geo-replication works locally on each VHD in a VM and does not replicate t
 >
 >
 
-- - -
+---
 ### Final Deployment
 
 For the final deployment and exact steps, especially with regards to the deployment of SAP Extended Monitoring, refer to the [Deployment Guide][deployment-guide].
@@ -1339,7 +1339,7 @@ Please see this article, which describes details to this topic:
 
 It might be necessary to configure the firewall on your virtual machines to allow inbound traffic to your SAP system.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > By default, the Windows Firewall within an Azure deployed VM is turned on. You now need to allow the SAP Port to be opened, otherwise the SAP GUI will not be able to connect.
@@ -1363,7 +1363,7 @@ It might be necessary to configure the firewall on your virtual machines to allo
 >
 >
 
-- - -
+---
 #### Security recommendations
 
 The SAP GUI does not connect immediately to any of the SAP instances (port 32xx) which are running, but first connects via the port opened to the SAP message server
@@ -1671,7 +1671,7 @@ Microsoft added many more VM types that differ either in number of vCPUs, memory
 
 Setting up your on-premises TCP/IP based network printers in an Azure VM is overall the same as in your corporate network, assuming you do have a VPN Site-To-Site tunnel or ExpressRoute connection established.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > To do this:
@@ -1690,7 +1690,7 @@ Setting up your on-premises TCP/IP based network printers in an Azure VM is over
 >
 >
 
-- - -
+---
 ![Network printing][planning-guide-figure-2200]
 
 ##### Host-based printer over SMB (shared printer) in Cross-Premises scenario
@@ -1706,7 +1706,7 @@ The printer share is identified by a unique name in the network:
 
 How to:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Share your local printer.
@@ -1724,19 +1724,19 @@ How to:
 >
 >
 
-- - -
+---
 ##### USB Printer (printer forwarding)
 
 In Azure the ability of the Remote Desktop Services to provide users the access to their local printer devices in a remote session is not available.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > More details on printing with Windows can be found here: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
-- - -
+---
 #### Integration of SAP Azure Systems into Correction and Transport System (TMS) in Cross-Premises
 
 The SAP Change and Transport System (TMS) needs to be configured to export and import transport request across systems in the landscape. We assume that the development instances of an SAP system (DEV) are located in Azure whereas the quality assurance (QA) and productive systems (PRD) are on-premises. Furthermore, we assume that there is a central transport directory.

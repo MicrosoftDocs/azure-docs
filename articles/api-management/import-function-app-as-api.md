@@ -10,9 +10,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 06/28/2019
 ms.author: apimpm
 
 ---
@@ -66,7 +65,7 @@ Follow the steps below to create a new API from an Azure Function App.
     ![Add from Function App](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*. At this moment, Linux Function Apps are not supported.
+    > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
 
 7. Switch to the **Full** view and assign **Product** to your new API. If needed, edit other pre-populated fields.
 

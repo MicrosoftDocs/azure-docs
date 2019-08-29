@@ -4,14 +4,14 @@ description: Learn how to install the Azure VM Agent in offline mode.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
@@ -32,27 +32,17 @@ Install the VM Agent in offline mode in the following scenarios:
 
 Use the following steps to install the VM Agent in offline mode.
 
-> [!NOTE]
-> You can automate the process of installing the VM Agent in offline mode.
-> To do this, use the [Azure VM Recovery Scripts](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). If you choose to use the Azure VM Recovery Scripts, you can use the following process:
-> 1. Skip step 1 by using the scripts to attach the OS disk of the affected VM to a recovery VM.
-> 2. Follow steps 2–10 to apply the mitigations.
-> 3. Skip step 11 by using the scripts to rebuild the VM.
-> 4. Follow step 12.
-
 ### Step 1: Attach the OS disk of the VM to another VM as a data disk
 
-1.  Delete the VM. Be sure to select the **Keep the disks** option when you delete the VM.
+1. Take a snapshot for the OS disk of the affected VM,  create a disk from the snapshot, and then attach the disk to a troubleshoot VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal](troubleshoot-recovery-disks-portal-windows.md). For the classic VM, delete the VM and keep the OS disk, and then attach the OS disk to the troubleshoot VM.
 
-2.  Attach the OS disk as a data disk to another VM (known as a _troubleshooter_ VM). For more information, see [Attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md).
-
-3.  Connect to the troubleshooter VM. Open **Computer management** > **Disk management**. Confirm that the OS disk is online and that drive letters are assigned to the disk partitions.
+2.  Connect to the troubleshooter VM. Open **Computer management** > **Disk management**. Confirm that the OS disk is online and that drive letters are assigned to the disk partitions.
 
 ### Step 2: Modify the OS disk to install the Azure VM Agent
 
 1.  Make a remote desktop connection to the troubleshooter VM.
 
-2.  On the OS disk that you attached, browse to the \windows\system32\config folder. Copy all of the files in this folder as a backup, in case a rollback is required.
+2.  In the troubleshooter VM, browse to the OS disk that you attached, open the \windows\system32\config folder. Copy all of the files in this folder as a backup, in case a rollback is required.
 
 3.  Start the **Registry Editor** (regedit.exe).
 
@@ -105,7 +95,7 @@ Use the following steps to install the VM Agent in offline mode.
 
 10.  Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive**​.
 
-11.  Detach the OS disk, and then recreate the VM by using the OS disk.
+11.  Detach the OS disk, and then [change the OS disk for the affected VM](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). For the classic VM, create a new VM by using the repaired OS disk.
 
 12.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
 

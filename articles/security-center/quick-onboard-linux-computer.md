@@ -19,9 +19,9 @@ ms.author: rkarlin
 
 ---
 # Quickstart: Onboard Linux computers to Azure Security Center
-After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Linux Agent.
+After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning an Agent. The Agent is called the Microsoft Monitoring Agent (MMA), but it is also known as the OMS agent.
 
-This quickstart shows you how to install the Linux Agent on a Linux computer.
+This quickstart shows you how to install the Agent on a Linux computer.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -54,7 +54,7 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
    ![Install the agent][5]
 
-The logs for the Security Center Agent for Linux can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
+The logs for the Agent can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Logs for agent][6]
 

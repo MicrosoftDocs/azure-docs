@@ -4,7 +4,7 @@ title: Azure Active Directory (Azure AD) audit activity reference | Microsoft Do
 description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -345,10 +345,10 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 |Audit Category|Activity|
 |---|---|
-|Administrative Unit Management|Download a single risk event type|
+|Administrative Unit Management|Download a single risk detection type|
 |Administrative Unit Management|Download admins and status of weekly digest opt-in|
-|Administrative Unit Management|Download all risk event types|
-|Administrative Unit Management|Download free user risk events|
+|Administrative Unit Management|Download all risk detection types|
+|Administrative Unit Management|Download free user risk detections|
 |Administrative Unit Management|Download users flagged for risk|
 |Application Management|Batch invites processed|
 |Application Management|Batch invites uploaded|

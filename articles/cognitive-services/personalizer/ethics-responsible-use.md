@@ -2,13 +2,14 @@
 title: Ethics and responsible use - Personalizer
 titleSuffix: Azure Cognitive Services
 description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
-author: edjez
+services: cognitive-services
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
-ms.author: edjez
+ms.topic: conceptual
+ms.date: 06/12/2019
+ms.author: diberry
 ---
      
 # Guidelines for responsible implementation of Personalizer
@@ -177,7 +178,7 @@ Consider creating methods for team members, users and business owners to report 
 
 Any person thinking about side effects of use of any technology is limited by their perspective and life experience. Expand the range of opinions available by bringing in more diverse voices into your teams, users, or advisory boards; such that it is possible and encouraged for them to speak up. Consider training and learning materials to further expand the team knowledge in this domain, and to add capability to discuss complex and sensitive topics.
 
-Consider treating tasks regarding responsible use just like other crosscutting tasks in the application lifecycle, such as tasks related to user experience, security, or devops. These tasks and their requirements can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle.
+Consider treating tasks regarding responsible use just like other crosscutting tasks in the application lifecycle, such as tasks related to user experience, security, or DevOps. These tasks and their requirements can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle.
  
 ## Questions and feedback
 
@@ -191,7 +192,7 @@ Microsoft is continuously putting effort into tools and documents to help you ac
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) by DJ Patil, Hilary Mason, Mike Loukides.
 * [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 * [Genetic Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## Next steps

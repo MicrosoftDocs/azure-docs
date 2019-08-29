@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
 ---
 # Set up compute targets for model training 
 
-With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
 You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
@@ -31,18 +31,8 @@ In this article, you learn how to use various compute targets for model training
 
 Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|Training &nbsp;targets| GPU support |Automated ML | ML pipelines | Visual interface
-|----|:----:|:----:|:----:|:----:|
-|[Local computer](#local)| maybe | yes | &nbsp; | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| yes | yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
-|[Remote VM](#vm) |yes | yes & <br/>hyperparameter tuning | yes | &nbsp; |
-|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | yes | yes | &nbsp; |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | yes | &nbsp; |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | yes | &nbsp; |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | yes | &nbsp; |
-
-**All compute targets can be reused for multiple training jobs**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.
 
 > [!NOTE]
 > Azure Machine Learning Compute can be created as a persistent resource or created dynamically when you request a run. Run-based creation removes the compute target after the training run is complete, so you cannot reuse compute targets created this way.
@@ -51,7 +41,7 @@ Azure Machine Learning service has varying support across different compute targ
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
-All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. 
+All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute.
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
@@ -78,8 +68,27 @@ For a user-managed environment, you're responsible for setting up your environme
 The following code shows an example of configuring training runs for a user-managed environment:
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
-## Set up compute targets with Python
+
+## What's an estimator?
+
+To facilitate model training using popular frameworks, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class. This class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
+
+For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
+
+For more information, see [Train ML Models with estimators](how-to-train-ml-models.md).
+
+## What's an ML Pipeline?
+
+With ML pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on your expertise, machine learning, rather than on infrastructure and automation.
+
+ML pipelines are constructed from multiple **steps**, which are distinct computational units in the pipeline. Each step can run independently and use isolated compute resources. This allows multiple data scientists to work on the same pipeline at the same time without over-taxing compute resources, and also makes it easy to use different compute types/sizes for each step.
+
+> [!TIP]
+> ML Pipelines can use run configuration or estimators when training models.
+
+While ML pipelines can train models, they can also prepare data before training and deploy models after training. One of the primary use cases for pipelines is batch scoring. For more information, see [Pipelines: Optimize machine learning workflows](concept-ml-pipelines.md).
+
+## Set up in Python
 
 Use the sections below to configure these compute targets:
 
@@ -255,19 +264,23 @@ The following code demonstrates how to attach Azure Batch as a compute target:
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -275,7 +288,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## Set up compute in the Azure portal
+## Set up in Azure portal
 
 You can access the compute targets that are associated with your workspace in the Azure portal.  You can use the portal to:
 
@@ -298,7 +311,7 @@ To see the compute targets for your workspace, use the following steps:
 1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. 
 1. Under __Applications__, select __Compute__.
 
-    ![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Create a compute target
 
@@ -317,8 +330,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form. Provide values for the required properties, especially **VM Family**, and the **maximum nodes** to use to spin up the compute.  
 
-    ![Fill out form](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. Select __Create__.
 
 
@@ -329,8 +340,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 1. You then see the details for the compute target: 
 
     ![View the computer target details](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>Attach compute targets
 
@@ -362,7 +371,7 @@ Follow the steps described earlier to view the list of compute targets. Then use
 1. Select __Attach__. 
 1. View the status of the attach operation by selecting the compute target from the list.
 
-## Set up compute with the CLI
+## Set up with CLI
 
 You can access the compute targets that are associated with your workspace using the [CLI extension](reference-azure-machine-learning-cli.md) for Azure Machine Learning service.  You can use the CLI to:
 
@@ -372,7 +381,7 @@ You can access the compute targets that are associated with your workspace using
 
 For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
-## Set up compute with VS Code
+## Set up with VS Code
 
 You can access, create and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning service.
 
@@ -389,7 +398,7 @@ After you create a run configuration, you use it to run your experiment.  The co
 >
 > To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
 > 
-> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### Create an experiment
 
@@ -419,7 +428,9 @@ Or you can:
 * Submit an experiment [using the CLI extension](reference-azure-machine-learning-cli.md#experiments).
 * Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
 
-## GitHub tracking and integration
+<a id="gitintegration"></a>
+
+## Git tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 

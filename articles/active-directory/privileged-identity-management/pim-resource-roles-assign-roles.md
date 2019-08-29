@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manag
 - Security Manager, and more
 
 > [!NOTE]
-> Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure resources. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+> Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure resources. That is, the account won't have the rights to manage PIM for Resources if the user doesn't have a Resource Administrator role. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 ## Assign a role
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/26/2019
-ms.author: kumud,steveesp, mareat
-
+ms.author: steveesp
+ms.reviewer: kumud, mareat
 ---
 
 # Virtual machine network bandwidth
