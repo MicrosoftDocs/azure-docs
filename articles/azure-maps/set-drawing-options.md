@@ -3,7 +3,7 @@ title: Set drawing options in Azure Maps| Microsoft Docs
 description: How to set drawing options data using Azure Maps Web SDK
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/28/2019
+ms.date: 08/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -52,7 +52,7 @@ Below is the code sample implementing the functionality that lets you draw on th
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Free-hand drawing" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Free-hand drawing" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>Free-hand drawing</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -60,7 +60,7 @@ Below is the code sample implementing the functionality that lets you draw on th
 
 ## Customizing drawing options
 
-The previous examples demonstrated how to customize drawing options in the code by setting the Drawing Manager options. You can also set the Drawing Manager options by using the **drawingManager.setOptions()** function. Below is a tool to test out customization of all options for the drawing manager using the setOptions function.
+The previous examples demonstrated how to customize drawing options while instantiating the Drawing Manager. You can also set the Drawing Manager options by using the **drawingManager.setOptions()** function. Below is a tool to test out customization of all options for the drawing manager using the setOptions function.
 
 <br/>
 
