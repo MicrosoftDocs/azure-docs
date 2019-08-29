@@ -21,7 +21,7 @@ Building an app is free and doesn't require an Azure subscription. When you're r
 
 ## Create an app
 
-1. Open the [LUIS portal](https://www.luis.ai) in a browser and sign in. If it's your first time signing in, you need to create a free LUIS portal user account.
+1. Open the [LUIS portal](https://www.luis.ai) in a browser and sign in. If it's your first time signing in, you need to create an Azure Language Understanding authoring resource.
 
 1. Select **Create new app** from the context toolbar.
 
