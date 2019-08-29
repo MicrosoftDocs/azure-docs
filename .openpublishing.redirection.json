@@ -4871,6 +4871,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
@@ -31572,6 +31577,11 @@
     {
       "source_path": "articles/hdinsight/storm/index.md",
       "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-unstructured-search.md",
+      "redirect_url": "/azure/search/search-howto-indexing-azure-blob-storage",
       "redirect_document_id": false
     },
     {
