@@ -45,7 +45,7 @@ To create an instance of the Geo AI Data Science VM, follow these steps:
 
 ### Wizard details ###
 
- - **Basics**
+**Basics**
 
         - **Name**: The name of the data science server you're creating.
     
@@ -57,23 +57,17 @@ To create an instance of the Geo AI Data Science VM, follow these steps:
     
         - **Resource Group**: You can create a new one or use an **empty** existing Azure resource group in your subscription.
     
-        - **Location**: Select the data center that is most appropriate. Typically, it's the one that has most of your data or that's closest to your physical location for fastest network access. If you plan to run deep learning on a GPU, you must choose one of the locations in Azure that has NC-Series GPU VM instances. Currently those locations are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) and look for **NC-Series** under **Compute**. 
+        - **Location**: Select the data center that is most appropriate. Typically, it's the one that has most of your data or that's closest to your physical location for fastest network access. If you plan to run deep learning on a GPU, you must choose one of the locations in Azure that has NC-Series GPU VM instances. Currently those locations are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region](https://azure.microsoft.com/regions/services/) page and look for **NC-Series** under **Compute**. 
     
     
-- **Settings**
-
-  Select one of the NC-Series GPU virtual machine sizes if you plan to run deep learning on a GPU on your Geo DSVM. Otherwise, you can choose one of the CPU-based instances. Create a storage account for your VM. 
+**Settings**: Select one of the NC-Series GPU virtual machine sizes if you plan to run deep learning on a GPU on your Geo DSVM. Otherwise, you can choose one of the CPU-based instances. Create a storage account for your VM. 
        
- - **Summary**
-
-   Verify that all the information you entered is correct.
+**Summary**: Verify that all the information you entered is correct.
     
-- **Buy**
-
-  Click **Buy** to start the provisioning. A link is provided to the terms of the service. The VM doesn't have any additional charges beyond the compute charges for the server size you chose in the **Size** step. 
+**Buy**: To start the provisioning process, click **Buy**. A link is provided to the terms of the service. The VM doesn't have any additional charges beyond the compute charges for the server size you chose in the **Size** step. 
  
-  >[!NOTE]
-   > The provisioning should take about 20 to 30 minutes. The status of the provisioning is displayed on the Azure portal.
+ >[!NOTE]
+ > Provisioning should take about 20 to 30 minutes. The status of the provisioning is displayed on the Azure portal.
 
  
 ## How to access the Geo AI Data Science Virtual Machine
