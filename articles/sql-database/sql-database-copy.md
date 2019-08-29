@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 08/27/2019
+ms.date: 08/29/2019
 ---
 # Copy a transactionally consistent copy of an Azure SQL database
 
@@ -62,17 +62,19 @@ The database copy is a asynchronous operation but the target database is created
 
 To create a database copy, you will need to be in the following roles
 
-•	Subscription Owner or
-•	SQL Server Contributor role or
-•	Custom role on the source and target databases with following permission:
+- Subscription Owner or
+- SQL Server Contributor role or
+- Custom role on the source and target databases with following permission:
+
    Microsoft.Sql/servers/databases/read
    Microsoft.Sql/servers/databases/write
 
 To cancel a database copy, you will need to be in the following roles
 
-•	Subscription Owner or
-•	SQL Server Contributor role or
-•	Custom role on the source and target databases with following permission:
+- Subscription Owner or
+- SQL Server Contributor role or
+- Custom role on the source and target databases with following permission:
+
    Microsoft.Sql/servers/databases/read
    Microsoft.Sql/servers/databases/write
 
