@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 08/20/2019
 ms.author: diberry
 ---
 
@@ -75,7 +75,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 ## Publish the app so the trained model is queryable from the endpoint
 
-[!INCLUDE [LUIS How to Publish steps](./includes/how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Get intent and entity prediction from endpoint
 

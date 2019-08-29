@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/25/2019
+ms.date: 07/16/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
@@ -95,7 +95,7 @@ Use the following steps:
 
 ## Publish
 
-[!INCLUDE [LUIS How to Publish steps](./includes/how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Get intent and entities from endpoint
 

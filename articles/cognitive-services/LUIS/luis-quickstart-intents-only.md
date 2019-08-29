@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/25/2019
+ms.date: 07/16/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---
@@ -96,7 +96,7 @@ This app has a few intents.
 
 ## Publish the app to query from the endpoint
 
-[!INCLUDE [LUIS How to Publish steps](./includes/how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## Get intent prediction from the endpoint
 
@@ -175,7 +175,7 @@ Return to the LUIS portal and create a new intent to determine if the user utter
 
 ## Publish again
 
-[!INCLUDE [LUIS How to Publish steps](./includes/how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## Get intent prediction again
 

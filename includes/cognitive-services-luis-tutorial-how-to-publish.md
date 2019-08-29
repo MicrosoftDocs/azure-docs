@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 08/25/2018
+ms.date: 08/17/2018
 ms.author: diberry
 ---
 

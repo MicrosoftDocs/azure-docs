@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/25/2019
+ms.date: 06/03/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
@@ -110,7 +110,7 @@ Add a new intent to capture employee feedback from members of the company.
 
 ## Publish the app so the trained model is queryable from the endpoint
 
-[!INCLUDE [LUIS How to Publish steps](./includes/how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Get the sentiment of an utterance from the endpoint
 

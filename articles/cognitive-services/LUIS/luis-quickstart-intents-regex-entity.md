@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/25/2019
+ms.date: 06/03/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 ---
@@ -115,7 +115,7 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
 ## Publish the app to query from the endpoint
 
-[!INCLUDE [LUIS How to Publish steps](./includes/how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Get intent and entity prediction from endpoint
 
