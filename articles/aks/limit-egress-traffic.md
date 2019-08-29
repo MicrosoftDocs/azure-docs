@@ -94,7 +94,7 @@ The following FQDN / application rules are required:
 | management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
-| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations. |
+| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | acs-mirror.azureedge.net 	 | HTTPS:443 | This address is used to install CNI kubenet binaries. |
 
 ## Optional recommended addresses and ports for AKS clusters
@@ -141,8 +141,8 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
-| raw.githubusercontent.com | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
+| raw.githubusercontent.com | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
 | *.gk.<location>.azmk8s.io | HTTPS:443	| Azure policy add-on talks to Gatekeeper audit endpoint running in master server to get the audit results. |
 | dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on sends telemetry data to applications insights endpoint. |
 
