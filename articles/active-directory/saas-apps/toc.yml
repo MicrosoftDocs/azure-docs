@@ -445,6 +445,8 @@
         href: expiration-reminder-tutorial.md
     - name: F - G
       items:
+      - name: F5
+        href: headerf5-tutorial.md
       - name: FactSet
         href: factset-tutorial.md
       - name: Fidelity NetBenefits
@@ -920,7 +922,7 @@
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
-        href: paloaltoglobalprotect-tutorial.md
+        href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
         href: pandadoc-tutorial.md
       - name: Panopto
