@@ -23,7 +23,8 @@ We'll walk through the following advanced queries:
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+before you begin.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -39,8 +40,8 @@ validate your shell environment of choice.
 
 This query looks for virtual machine scale set resources and gets various details including the
 virtual machine size and the capacity of the scale set. The query uses the `toint()` function to
-cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into
-custom named properties.
+cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into custom
+named properties.
 
 ```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -77,8 +78,9 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Virtual machines matched by regex
 
-This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference) (known as _regex_).
-The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`. That regex definition is explained as:
+This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference)
+(known as _regex_). The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`.
+That regex definition is explained as:
 
 - `^` - Match must start at the beginning of the string.
 - `Contoso` - The case-sensitive string.
@@ -104,6 +106,31 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell-interactive
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
+
+This query uses the new **Include** parameter with option _DisplayNames_ to instruct Azure Resource
+Graph to return **subscriptionDisplayName** and **tenantDisplayName** with the Azure resources
+properties.
+
+```kusto
+limit 1
+```
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> If the query doesn't use **project** to specify the returned properties,
+> **subscriptionDisplayName** and **tenantDisplayName** are automatically included in the results.
+> If the query does use **project**, each of the _DisplayName_ fields must be explicitly included in
+> the **project** or they won't be returned in the results, even when the **Include** parameter is
+> used.
 
 ## Next steps
 
