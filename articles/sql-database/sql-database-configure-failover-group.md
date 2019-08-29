@@ -94,44 +94,6 @@ Create your failover group and add your single database to it using PowerShell.
    Write-host "Successfully added the database to the failover group..." 
    ```
 
-<!--
-# [Azure CLI](#tab/azure-cli)
-Create your failover group and add your single database to it using the Azure CLI.
-
-   ```azurecli-interactive
-   #!/bin/bash
-   Set variables
-   subscriptionID=<SubscriptionID>
-   resourceGroupName=<Resource-Group-Name>
-   location=<Region>
-   adminLogin=<Admin-Login>
-   password=<Complex-Password>
-   serverName=<Primary-Server-Name>
-   databaseName=<Database-Name>
-   drLocation=<DR-Region>
-   drServerName=<Secondary-Server-Name>
-   failoverGroupName=<Failover-Group-Name>
-
-   # Create a secondary server in the failover region
-   echo "Creating a secondary logical server in the DR region..."
-   az sql server create \
-      --name $drServerName \
-      --resource-group $resourceGroupName \
-      --location $drLocation  \
-      --admin-user $adminLogin\
-      --admin-password $password
-   
-   # Create a failover group between the servers and add the database
-   echo "Creating a failover group between the two servers..."
-   az sql failover-group create \
-      --name $failoverGroupName  \
-      --partner-server $drServerName \
-      --resource-group $resourceGroupName \
-      --server $serverName \
-      --add-db $databaseName
-      --failover-policy Automatic
-   ```
--->
 ---
 
 ### Test failover 
@@ -213,60 +175,6 @@ Revert failover group back to the primary server:
    Write-host "Failed failover group successfully to back to" $serverName
    ```
 
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-
-Test failover of your failover group using the Azure CLI. 
-
-Verify which server is the secondary:
-
-   
-   ```azurecli-interactive
-   # Set variables
-   resourceGroupName=<Resource-Group-Name>
-   serverName=<Primary-Server-Name>
-   
-   # Verify which server is secondary
-   echo "Verifying which server is in the secondary role..."
-   az sql failover-group list \
-      --server $serverName \
-      --resource-group $resourceGroupName
-   ```
-
-Fail over to the secondary server: 
-
-   ```azurecli-interactive
-   # Set variables
-   resourceGroupName=<Resource-Group-Name>
-   drServerName=<Secondary-Server-Name>
-   failoverGroupName=<Failover-Group-Name>
-
-   
-   echo "Failing over group to the secondary server..."
-   az sql failover-group set-primary \
-      --name $failoverGroupName \
-      --resource-group $resourceGroupName \
-      --server $drServerName
-   echo "Successfully failed failover group over to" $drServerName
-   ```
-
-Revert failover group back to the primary server:
-
-   ```azurecli-interactive
-   # Set variables
-   resourceGroupName=<Resource-Group-Name>
-   serverName=<Primary-Server-Name>
-   failoverGroupName=<Failover-Group-Name>
-   
-   echo "Failing over group back to the primary server..."
-   az sql failover-group set-primary \
-      --name $failoverGroupName \
-      --resource-group $resourceGroupName \
-      --server $serverName
-   echo "Successfully failed failover group back to" $serverName
-   ```
--->
-
 ---
 
 ## Elastic pool
@@ -347,15 +255,6 @@ Create your failover group and add your elastic pool to it using PowerShell.
    Write-host "Databases added to failover group successfully." 
   ```
 
-
-
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-Create your failover group and add your elastic pool to it using AZ CLI. 
-
-!!!!!! Need Az CLI commands to create a failover group for an elastic pool !!!!!!!!
--->
-
 ---
 
 ### Test failover
@@ -420,14 +319,6 @@ Fail over to the secondary server:
       -FailoverGroupName $failoverGroupName
    Write-host "Failed failover group to successfully to" $drServerName 
    ```
-
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-
-Fail your failover group over to the secondary server, and then fail back using the Az CLI. 
-
-!!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!!
--->
 
 ---
 
@@ -516,14 +407,6 @@ Create the primary virtual network gateway using PowerShell.
    $gw1
    ```
 
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-
-Create the primary virtual network gateway using the Az CLI.
-
-!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
--->
-
 ---
 
 ### Create secondary virtual network gateway
@@ -582,14 +465,6 @@ Create the secondary virtual network gateway using PowerShell.
    $gw2
    ```
 
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-
-Create the secondary virtual network gateway using the Az CLI. 
-
-!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
--->
-
 ---
 
 
@@ -631,7 +506,7 @@ Create connections between the two gateways using PowerShell.
     
    $secondaryResourceGroupName = "<Secondary-Resource-Group>"
    $secondaryGWConnection = "<Secondary-connection-name>"
-   $secondaryLocation = "<Secondary-Region>"    
+   $secondaryLocation = "<Secondary-Region>"
   
    # Connect the primary to secondary gateway
    Write-host "Connecting the primary gateway"
@@ -646,17 +521,8 @@ Create connections between the two gateways using PowerShell.
    New-AzVirtualNetworkGatewayConnection -Name $secondaryGWConnection -ResourceGroupName $secondaryResourceGroupName `
        -VirtualNetworkGateway1 $gw2 -VirtualNetworkGateway2 $gw1 -Location $secondaryLocation `
        -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
-   $secondaryGWConnection 
+   $secondaryGWConnection
    ```
-
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-
-Create connections between the two gateways using the Az CLI. 
-
-
-!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
--->
 
 ---
 
@@ -699,15 +565,6 @@ Create the failover group for your managed instances using PowerShell.
         -FailoverPolicy Automatic -GracePeriodWithDataLossHours 1
    $failoverGroup
    ```
-
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-
-Create the failover group for your managed instances using the Az CLI. 
-
-!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
--->
-
 ---
 
 ### Test failover
@@ -767,14 +624,6 @@ Test failover of your failover group using PowerShell.
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
        -Location $secondaryLocation -Name $failoverGroupName
    ```
-
-<!-- commenting out CLI until CLI commands are ready for all three services
-# [Azure CLI](#tab/azure-cli)
-
-Test failover of your failover group using the Az CLI. 
-
-!!!!! Need AZ CLI code for testing failover for an MI !!!!!!!!!!!!
--->
 
 ---
 

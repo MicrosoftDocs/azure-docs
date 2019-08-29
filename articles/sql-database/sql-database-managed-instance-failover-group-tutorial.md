@@ -200,12 +200,8 @@ Create the gateway for the virtual network of your primary managed instance usin
         -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
     $gw1
     ```
-<!--
-# [Azure CLI](#tab/azure-cli)
 
-Create the gateway for the virtual network of your primary managed instance using the Az CLI. 
 
-!!!!!! Need Az CLI commands !!!!
 ---
 -->
 
@@ -269,11 +265,6 @@ Create the gateway for the virtual network of the secondary managed instance usi
     $gw2
     ```
 
-# [Azure CLI](#tab/azure-cli)
-
-Create the gateway for the virtual network of the secondary managed instance using Az CLI. 
-
-!!!!!! Need Az CLI commands !!!!!!!
 
 ---
 -->
@@ -334,13 +325,6 @@ Connect the two gateways using PowerShell.
     $secondaryGWConnection 
     ```
 
-# [Azure CLI](#tab/azure-cli)
-
-Connect the two gateways using the Az CLI. 
-
-!!!!!! Need Az CLI commands  !!!!!!!!!!!!
-
-
 
 ---
 -->
@@ -385,11 +369,6 @@ Create the failover group using PowerShell.
          -FailoverPolicy Automatic -GracePeriodWithDataLossHours 1
     $failoverGroup
     ```
-
-# [Azure CLI](#tab/azure-cli)
-Create the failover group using the Az CLI. 
-
-!!!!!!! Need AZ CLI commands to create the failover group
 
 ---
 -->
@@ -457,13 +436,9 @@ Revert failover group back to the primary server:
         -Location $secondaryLocation -Name $failoverGroupName
     ```
 
-# [Azure CLI](#tab/azure-cli)
-Create the failover group using the Az CLI. 
-
-!!!!!! Need Az CLI commands  !!!!!!!!!!!!
-
 ---
 -->
+
 
 ## Clean up resources
 Clean up resources by first deleting the managed instance, then the virtual cluster, then any remaining resources, and finally the resource group. 

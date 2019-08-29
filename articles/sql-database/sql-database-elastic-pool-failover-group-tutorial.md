@@ -19,7 +19,7 @@ Configure a failover group for an Azure SQL Database elastic pool and test failo
 > [!div class="checklist"]
 > - Create an Azure SQL Database single database.
 > - Add the single database into an elastic pool. 
-> - Create a [failover group](sql-database-auto-failover-group.md) for an elastic pool between two logical SQL servers.
+> - Create a [failover group](sql-database-auto-failover-group.md) for two elastic pools between two logical SQL servers.
 > - Test failover.
 
 ## Prerequisites
@@ -36,11 +36,11 @@ To complete this tutorial, make sure you have:
 ## 2 - Add single database to elastic pool
 In this step, you will create an elastic pool, and add your single database to it. 
 
-<!--
+
 # [Portal](#tab/azure-portal)
 
 Create your elastic pool using the Azure portal. 
--->
+
 
 1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting Show details on the Databases tile.
@@ -64,34 +64,89 @@ Create your elastic pool using the Azure portal.
 
 1. Select **Review + create** to review your elastic pool settings and then select **Create** to create your elastic pool. 
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
-Create your elastic pool using PowerShell. 
+Create your elastic pools and secondary server using PowerShell. 
 
-Fail your failover group over to the secondary server, and then fail back using the PowerShell. 
-
-!!!!!! Need PowerShell commands to test failover for an elastic pool !!!!!!!!
-
-# [Azure CLI](#tab/azure-cli)
-
-Create your elastic pool using the Az cli. 
-
-Fail your failover group over to the secondary server, and then fail back using the Az CLI. 
-
-!!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!!
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   $poolName = "myElasticPool"
+   $databaseName = "mySampleDatabase"
+   $drLocation = "West US"
+   $drServerName = "mysqlsecondary-$(Get-Random)"
+   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   
+   # The ip address range that you want to allow to access your server 
+   # Leaving at 0.0.0.0 will prevent outside-of-azure connections
+   # $startIp = "0.0.0.0"
+   # $endIp = "0.0.0.0"
+   
+   # Show randomized variables
+   Write-host "DR Server name is" $drServerName 
+   Write-host "Failover group name is" $failoverGroupName
+   
+   # Create primary Gen5 elastic 2 vCore pool
+   Write-host "Creating elastic pool..."
+   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
+       -ServerName $serverName `
+       -ElasticPoolName $poolName `
+       -Edition "GeneralPurpose" `
+       -vCore 2 `
+       -ComputeGeneration Gen5
+   $elasticPool
+   
+   # Add single db into elastic pool
+   Write-host "Creating elastic pool..."
+   $addDatabase = Set-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+       -ServerName $serverName `
+       -DatabaseName $databaseName `
+       -ElasticPoolName $poolName
+   $addDatabase
+   
+   # Create a secondary server in the failover region
+   Write-host "Creating a secondary logical server in the failover region..."
+   New-AzSqlServer -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -Location $drLocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   Write-host "Secondary logical server =" $drServerName
+   
+   # Create a server firewall rule that allows access from the specified IP range
+   Write-host "Configuring firewall for secondary logical server..."
+   New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   Write-host "Firewall configured" 
+   
+   # Create secondary Gen5 elastic 2 vCore pool
+   Write-host "Creating secondary elastic pool..."
+   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
+       -ServerName $drServerName `
+       -ElasticPoolName $poolName `
+       -Edition "GeneralPurpose" `
+       -vCore 2 `
+       -ComputeGeneration Gen5
+   $elasticPool
+   ```
 
 ---
--->
+
 
 ## 3 - Create the failover group 
 In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the elastic pool to the failover group. 
 
-<!--
+
 # [Portal](#tab/azure-portal)
 
-
 Create your failover group using the Azure Portal. 
--->
+
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the elastic pool created in the previous section, such as `myElasticPool`. 
@@ -122,35 +177,62 @@ Create your failover group using the Azure Portal.
         
 1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. Adding the elastic pool to the failover group will automatically start the geo-replication process.
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 
 Create your failover group using PowerShell. 
 
-Fail your failover group over to the secondary server, and then fail back using the PowerShell. 
-
-!!!!!! Need PowerShell commands to test failover for an elastic pool !!!!!!!!
-
-# [Azure CLI](#tab/azure-cli)
-
-Create your failover group using Az CLI. 
-
-Fail your failover group over to the secondary server, and then fail back using the Az CLI. 
-
-!!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!! 
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   
+   # Create a failover group between the servers
+   Write-host "Creating failover group..." 
+   New-AzSqlDatabaseFailoverGroup `
+     –ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -PartnerServerName $drServerName  `
+      –FailoverGroupName $failoverGroupName `
+      –FailoverPolicy Automatic `
+      -GracePeriodWithDataLossHours 2
+   Write-host "Failover group created successfully." 
+   
+   # Add elastic pool to the failover group
+   Write-host "Enumerating databases in elastic pool...." 
+   $FailoverGroup = Get-AzSqlDatabaseFailoverGroup `
+                    -ResourceGroupName $resourceGroupName `
+                    -ServerName $serverName `
+                    -FailoverGroupName $failoverGroupName
+   $databases = Get-AzSqlElasticPoolDatabase `
+                  -ResourceGroupName $resourceGroupName `
+                  -ServerName $serverName `
+                  -ElasticPoolName $poolName
+   Write-host "Adding databases to failover group..." 
+   $failoverGroup = $failoverGroup | Add-AzSqlDatabaseToFailoverGroup `
+                                     -Database $databases 
+   $failoverGroup
+   ```
  
 ---
--->
 
 
 ## 4 - Test failover 
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
-<!--
-# [Portal](#tab/azure-portal)
-Test failover of your failover group using the Azure portal. 
--->
 
+# [Portal](#tab/azure-portal)
+
+Test failover of your failover group using the Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the elastic pool created in the previous section, such as `myElasticPool`. 
@@ -171,60 +253,112 @@ Test failover of your failover group using the Azure portal.
 1. Review which server is primary, which server is secondary. If failover succeeded, the two servers should have swapped roles. 
 1. Select **Failover** again to fail the failover group back to the original settings. 
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 
 Test failover of your failover group using PowerShell. 
 
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   
+   # Check role of secondary replica
+   Write-host "Confirming the secondary server is secondary...." 
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   
+   # Failover to secondary server
+   Write-host "Failing over failover group to the secondary..." 
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failover group failed over to" $drServerName 
+   ```
+
 Fail your failover group over to the secondary server, and then fail back using the PowerShell. 
 
-!!!!!! Need PowerShell commands to test failover for an elastic pool !!!!!!!!
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
-# [Azure CLI](#tab/azure-cli)
-
-Test failover of your failover group using Az CLI. 
-
-Fail your failover group over to the secondary server, and then fail back using the Az CLI. 
-
-!!!!!! Need Az CLI commands to test  failover for an elastic pool !!!!!!!!
+   # Check role of secondary replica
+   Write-host "Confirming the secondary server is now primary" 
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   
+   # Revert failover to primary server
+   Write-host "Failing over failover group to the primary...." 
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failover group failed over to" $serverName 
+   ```
 
 ---
--->
 
 ## Clean up resources 
 
 Clean up resources by deleting the resource group. 
 
-<!--
+
 # [Portal](#tab/azure-portal)
 
-Clean up your resources using the Azure portal. 
--->
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
 1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself. 
 1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group. 
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 
 Clean up your resources using PowerShell. 
 
-# [Azure CLI](#tab/azure-cli)
-
-Clean up your resources using the Az CLI. 
-
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   
+   # Clean up resources by removing the resource group
+   Write-host "Removing resource group..."
+   Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+   Write-host "Resource group removed =" $resourceGroupName
+   ```
 ---
--->
+
 
 ## Next steps
 
-In this tutorial, you added an Azure SQL Database single database to a failover group, and tested failover. You learned how to:
+In this tutorial, you added an Azure SQL Database elastic pool to a failover group, and tested failover. You learned how to:
 
 > [!div class="checklist"]
 > - Create an Azure SQL Database single database.
 > - Add the single database into an elastic pool. 
-> - Create a [failover group](sql-database-auto-failover-group.md) for an elastic pool between two logical SQL servers.
+> - Create a [failover group](sql-database-auto-failover-group.md) for two elastic pools between two logical SQL servers.
 > - Test failover.
 
 Advance to the next tutorial on how to migrate using DMS.

@@ -101,6 +101,11 @@ Create your failover group and add your single database to it using PowerShell.
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
+   # The ip address range that you want to allow to access your server 
+   # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
+   $startIp = "0.0.0.0"
+   $endIp = "0.0.0.0"
+
    # Show randomized variables
    Write-host "DR Server name is" $drServerName 
    Write-host "Failover group name is" $failoverGroupName
@@ -113,6 +118,13 @@ Create your failover group and add your single database to it using PowerShell.
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $drServer
+
+   # Create a server firewall rule that allows access from the specified IP range
+   Write-host "Configuring firewall for secondary logical server..."
+   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $drserverName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   $serverFirewallRule
    
    
    # Create a failover group between the servers
