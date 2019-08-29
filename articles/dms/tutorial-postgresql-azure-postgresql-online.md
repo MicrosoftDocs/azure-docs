@@ -263,7 +263,7 @@ To complete all the database objects like table schemas, indexes and stored proc
    * Target platform: AzureDbForPostgreSql
 
      ```
-     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
 6. Create a PostgreSQL migration task using the following steps.
