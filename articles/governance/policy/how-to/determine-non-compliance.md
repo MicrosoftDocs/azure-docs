@@ -139,7 +139,7 @@ _Non-compliant_.
 
 Begin by following the same steps in the section above for viewing policy compliance details.
 
-1. In the **Compliance details** pane view click the link **Last evaluated resource**.
+In the **Compliance details** pane view click the link **Last evaluated resource**.
 
    ![View auditIfNotExists definition details](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
 
