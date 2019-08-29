@@ -4,11 +4,11 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/30/2019
 ms.author: v-erkell
 ---
 
-# Tutorial: Create a cache
+# Create a cache
 
 Use the Azure portal to create the cache instance.
 
@@ -22,7 +22,7 @@ In **Project Details**, select the subscription and resource group that will hos
 
 In **Service Details**, set the cache name and these other attributes:
 
-* Location - Select one of the [supported regions](hpc-cache-prereqs.md#supported-regions).
+* Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24) that will be used only for the Azure HPC Cache. 
 
@@ -46,11 +46,19 @@ Storage targets are the long-term storage for the contents of your cache. You ca
 
 ![screenshot of storage targets page](media/create-targets.png)
 
-Click the **Add storage target link** to define your back-end storage systems. The storage can be Azure Blob containers or on-premises NFS systems.
+Click the **Add storage target link** to define your back-end storage systems. The storage can be Azure Blob containers or on-premises NFS systems. 
 
 You can define up to ten different storage targets.
 
-## Storage target details 
+For step-by-step instructions to add a storage target, read [Add storage](hpc-cache-add-storage.md). The procedure is different for Blob storage or for NFS exports.
+
+For both types of storage, you must specify the back-end storage system's address or container name and the client-facing namespace path to show for it.
+
+When creating a Blob storage target, make sure the cache has access permissions to the storage account, as described in [Add the access control role](hpc-add-storage.md#add-the-access-control-role-to-your-account). 
+
+When creating an NFS storage target, specify a [usage model](hpc-add-storage.md#choose-a-usage-model). The usage model tells the cache how to optimize cache utilization for your workflow.
+
+<!-- ## Storage target details 
 
 Slightly different information is used for Blob storage targets than for NFS storage targets.
 
@@ -64,7 +72,8 @@ Both NFS and Blob storage targets require this *common information*:
 
 * **Hostname:Export** - Provide the fully qualified domain name (FQDN) and export that the storage target will point to. You can create multiple storage targets to represent different exports on the same NFS storage system.
 
-  **Note:** Although the example in a screenshot below uses an IP address, FQDN is preferred. An IP address can be used if necessary.
+> [!NOTE] 
+> Although the example in a screenshot below uses an IP address, FQDN is preferred. An IP address can be used if necessary.
 
 * **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model, below](#choose-a-usage-model-nfs-storage-targets-only).
 
@@ -73,7 +82,7 @@ Both NFS and Blob storage targets require this *common information*:
 * **Storage account** - The account that hosts the container
 * **Storage container** - The name of the empty container to reference
 
-  You can move data to the Blob storage target after the cache is created. Consult your Azure HPC Cache support representative for more information.
+  You can move data to the Blob storage target after the cache is created. Consult your Azure HPC Cache support representative for instructions.
 * If you have not already done it, add the access role permission to the storage account as explained [below](#add-the-access-control-role-to-your-account-blob-storage-only).
 
 ![screenshot of blob storage target creation form](media/create-add-blob.png)
@@ -92,13 +101,14 @@ Steps to add the RBAC role:
 1. Click the **+** at the top of the page and choose **Add a role assignment**.
 1. Select the role "Storage Account Contributor" from the list.
 1. In the **Assign access to** field, leave the default value selected ("Azure AD user, group, or service principal").  
-1. In the **Select** field, search for "storagecache". This should match one security principal, named HPC Cache Resource Provider. Click that principal to select it. 
+1. In the **Select** field, search for "storagecache".  This string should match one security principal, named HPC Cache Resource Provider. Click that principal to select it. 
 1. Click the **Save** button to add the role assignment to the storage account. 
 
 ![screenshot of add role assignment GUI](media/add-role.png)
 
 ### Choose a usage model (NFS storage targets only)
-<!-- link in GUI to this heading -->
+<!-- link in GUI to this heading --> 
+<!-- 
 
 When you create a storage target that points to an NFS storage system, you need to choose the *usage model* for that target. This model determines how your data is cached.
 
@@ -106,7 +116,7 @@ When you create a storage target that points to an NFS storage system, you need 
 * Read/write - If clients use the cache to read and write, choose this option.
 * Clients bypass the cache - Choose this option if your clients write data directly to the storage system without first writing to the cache.
 
-![screenshot of NFS storage target creation form](media/create-add-nfs.png)
+![screenshot of NFS storage target creation form](media/create-add-nfs.png)  -->
 
 ## Finished cache
 

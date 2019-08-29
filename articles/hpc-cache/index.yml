@@ -25,8 +25,6 @@ landingContent:
         links:
           - text: What is Azure HPC Cache?
             url: hpc-cache-overview.md
-          - text: Region availability
-            url: hpc-cache-regions.md
 
   # Card (optional)
   - title: Get started

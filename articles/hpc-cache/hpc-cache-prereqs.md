@@ -4,28 +4,20 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 08/30/2019
 ms.author: v-erkell
 ---
 
 # Prerequisites for Azure HPC Cache
 
-Before using the Azure Portal to create a new Azure HPC Cache, make sure your environment meets these requirements.
-
-## Supported regions
-
-Azure HPC Cache is available in these Azure regions: 
-
-* East US 
-* East US 2 
-* North Europe
-* West Europe
-* Southeast Asia
-* West US 2
+Before using the Azure portal to create a new Azure HPC Cache, make sure your environment meets these requirements.
 
 ## Azure subscription
 
 A paid subscription is recommended. <!-- [ xxx Have we tested this with free subscriptions or partner subscriptions yet? Will we? xxx ] -->
+
+> [!NOTE]
+> During the public preview release, the Azure HPC Cache team must whitelist your subscription before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their test caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
 ## Network infrastructure
 
@@ -49,7 +41,7 @@ The best practice is to create a new subnet for the cache. You can create a new 
 The Azure HPC Cache needs DNS to access resources outside its virtual network. Depending on which resources you are using, you might need to set up a customized DNS server and configure forwarding between that server and Azure DNS servers: 
 
 * To access Azure Blob storage endpoints and other internal resources, you need the Azure-based DNS server.
-* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostames.
+* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames.
 
 If you only need access to Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to other resources, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server. (A simple DNS server also can be used to load balance client connections among all the available cache mount points.)
 
@@ -76,8 +68,12 @@ Check these permission-related prerequisites before starting to create your cach
   * Replication: **Locally redundant storage (LRS)**
   * Access tier (default): **Hot**
 
-  It is a good practice to use a storage account in the same location as your cache.
+  It's a good practice to use a storage account in the same location as your cache.
 
 * Authorize the cache to access your Azure storage account by assigning it the Storage Account Contributor role as described in [Create the cache](hpc-cache-create.md#add-the-access-control-role-to-your-account-blob-storage-only). If you are not the storage account owner, have the owner do this step.
 
 * On-premises NFS storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
+
+## Next steps
+
+* [Create an Azure HPC Cache instance](hpc-cache-create.md) from the Azure portal

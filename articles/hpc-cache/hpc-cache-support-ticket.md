@@ -4,7 +4,7 @@ description: How to open a help request for Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 08/30/2019
 ms.author: v-erkell
 ---
 

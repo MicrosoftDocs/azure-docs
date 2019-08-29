@@ -4,7 +4,7 @@ description: How to use cp commands to move data to a Blob storage target in Azu
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 08/30/2019
 ms.author: v-erkell
 ---
 

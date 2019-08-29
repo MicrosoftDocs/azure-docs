@@ -4,7 +4,7 @@ description: How to use msrsync to move data to a Blob storage target in Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 08/30/2019
 ms.author: v-erkell
 ---
 
@@ -29,7 +29,7 @@ Follow these instructions to use ``msrsync`` to populate Azure Blob storage with
 
    For example, use the utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
 
-   If not using ``prime.py``, you can calculate the number of items with the Gnu ``find`` tool as follows:
+   If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)

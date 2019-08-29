@@ -4,7 +4,7 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 08/26/2019
+ms.date: 08/30/2019
 ms.author: v-erkell
 ---
 
@@ -35,6 +35,19 @@ Azure HPC Cache can let researchers run their secondary analysis workflows in Az
 ### Financial services analytics
 
 An Azure HPC Cache can help speed up quantitative analysis calculations, which gives financial services companies better insight to make strategic decisions.
+
+## Region availability
+
+Azure HPC Cache is available in these Azure regions: 
+
+* East US 
+* East US 2 
+* North Europe
+* West Europe
+* Southeast Asia
+* West US 2
+
+Check the [Azure HPC Cache product page](<https://azure.microsoft.com/services/hpc-cache>) for the latest availability information.
 
 ## Next steps
 
