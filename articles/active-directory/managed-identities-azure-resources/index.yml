@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure AD managed identities for Azure resources documentation
+title: Azure AD-managed identities for Azure resources documentation
 summary: Learn how to use managed identities in Azure AD.
 
 metadata:
@@ -28,7 +28,7 @@ landingContent:
           - text: What is managed identities for Azure resources?
             url: overview.md
   # Card
-  - title: Configure managed identitees on Azure virtual machines
+  - title: Configure managed identities on Azure virtual machines
     linkLists:
       - linkListType: how-to-guide
         links:
