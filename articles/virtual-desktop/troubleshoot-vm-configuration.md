@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Tenant and host pool creation

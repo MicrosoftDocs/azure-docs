@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Tutorial: Create a host pool to validate service updates
