@@ -23,8 +23,8 @@ In Azure Active Directory B2C (Azure AD B2C), a *tenant* represents your organiz
 
 The primary resources you work with in an Azure AD B2C tenant are:
 
-* **Directory** - The *directory* is where Azure AD B2C stores your users’ credentials and their profile data.
-* **Applications** - You register your web, mobile, and native applications with Azure AD B2C to enable identity management. Also, any APIs you want to protect with Azure AD B2C.
+* **Directory** - The *directory* is where Azure AD B2C stores your users' credentials and profile data, as well as your application registrations.
+* **Application registrations** - You register your web, mobile, and native applications with Azure AD B2C to enable identity management. Also, any APIs you want to protect with Azure AD B2C.
 * **User flows** and **custom policies** - The built-in (user flows) and fully customizable (custom policies) identity experiences for your applications.
   * Use *user flows* for quick configuration and enablement of common identity tasks like sign up, sign in, and profile editing.
   * Use *custom policies* to enable user experiences not only for the common identity tasks, but also for crafting support for complex identity workflows unique to your organization, customers, employees, partners, and citizens.
@@ -53,7 +53,7 @@ With a *consumer* account, users can sign in to the applications that you've sec
 A consumer account can be associated with these identity types:
 
 * **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these identities as as "local accounts."
-* **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider like Facebook, Microsoft, Twitter, or Google.
+* **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
 A user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
 
@@ -85,7 +85,7 @@ In Azure AD B2C, there are two primary paths you can take to provide these ident
 
 * **User flows** are predefined, built-in, configurable policies that we provide so you can create sign-up, sign-in, and policy editing experiences in minutes.
 
-* **Custom policies** enable you create your own user journeys for complex identity experience scenarios.
+* **Custom policies** enable you to create your own user journeys for complex identity experience scenarios.
 
 Both user flows and custom policies are powered by the *Identity Experience Framework*, Azure AD B2C's policy orchestration engine.
 
@@ -237,7 +237,7 @@ You can configure password complexity requirements in both [user flows](active-d
 
 ## Auditing and logs
 
-Azure AD B2C emits audit logs containing activity information about its resources, issued tokens, and administrator access. You can use these audit logs to understand platform activity and  diagnose issues. Audit log entries are available minutes after the activity that generated the event occurs.
+Azure AD B2C emits audit logs containing activity information about its resources, issued tokens, and administrator access. You can use these audit logs to understand platform activity and  diagnose issues. Audit log entries are available soon after the activity that generated the event occurs.
 
 In an audit log, which is available for your Azure AD B2C tenant or for a particular user, you can find information including:
 
