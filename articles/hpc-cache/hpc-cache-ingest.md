@@ -22,7 +22,7 @@ Keep these facts in mind:
 
 A Python-based utility is available to load content onto a Blob storage container. Read [Pre-load data in Blob storage](#pre-load-data-in-blob-storage-with-clfsload) to learn more.
 
-If you don't want to use the loading utility, or if you want to add content to an existing storage target, follow the parallel data ingest instructions to write the data through the Azure HPC Cache.
+If you don't want to use the loading utility, or if you want to add content to an existing storage target, follow the parallel data ingest tips in [Copy data through the Azure HPC Cache](#copy-data-through-the-azure-hpc-cache). 
 
 ## Pre-load data in Blob storage with CLFSLoad
 
@@ -49,13 +49,13 @@ The requirements are explained in detail in the [Avere CLFSLoad readme](https://
 
 ## Copy data through the Azure HPC Cache
 
-Because the Azure HPC Cache is designed to serve multiple clients simultaneously, the most efficient way to write data to a Blob storage target is with parallel writes from multiple clients.
+Because Azure HPC Cache is designed to serve multiple clients simultaneously, the most efficient way to write data to a Blob storage target is with parallel writes from multiple clients.
 
 ![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Azure HPC Cache. From the Azure HPC Cache, multiple arrows point to Blob storage.](media/hpc-cache-parallel-ingest.png) 
 
 The ``cp`` or ``copy`` commands that are commonly used to using to transfer data from one storage system to another are single-threaded processes that copy only one file at a time. This means that the file server is ingesting only one file at a time - which is a waste of the cluster’s resources.
 
-This section explains strategies for creating a multi-client, multi-threaded file copying system to move data to Blob storage with the Azure HPC Cache. It explains file transfer concepts and decision points that can be used for efficient data copying using multiple clients and simple copy commands.
+This section explains strategies for creating a multi-client, multi-threaded file copying system to move data to Blob storage with Azure HPC Cache. It explains file transfer concepts and decision points that can be used for efficient data copying using multiple clients and simple copy commands.
 
 It also explains some utilities that can help. The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using rsync commands. The ``parallelcp`` script is another utility that reads the source directory and issues copy commands automatically.
 
@@ -75,14 +75,6 @@ Strategies for parallel data ingest with Azure HPC Cache include:
 * Partially automated copying with ``msrsync`` - ``msrsync`` is a wrapper utility that runs multiple parallel ``rsync`` processes. For details, read [Azure HPC Cache data ingest - msrsync method](hpc-cache-ingest-msrsync.md).
 
 * Scripted copying with ``parallelcp`` - Learn how to create and run a parallel copy script in [Azure HPC Cache data ingest - parallel copy script method](hpc-cache-ingest-parallelcp.md).
-
-<!-- ### Data ingestor VM template
-
-A data ingestor Resource Manager template is available on GitHub to automatically create a VM with the parallel data ingestion tools mentioned in this article.
-
-![diagram showing multiple arrows each from blob storage, hardware storage, and Azure file sources. The arrows point to a "data ingestor vm" and from there, multiple arrows point to the Avere vFXT](media/avere-vfxt-ingestor-vm.png)
-
-The data ingestor VM is part of a tutorial for the Avere vFXT for Azure, but it applies to testing the Azure HPC Cache as well. In this tutorial, where the newly created VM mounts the Avere vFXT cluster and downloads its bootstrap script from the cluster. Read [Bootstrap a data ingestor VM](https://github.com/Azure/Avere/blob/master/docs/data_ingestor.md) for details. -->
 
 ## Next steps
 
