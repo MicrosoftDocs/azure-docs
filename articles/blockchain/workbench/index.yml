@@ -89,7 +89,7 @@ landingContent:
           - text: Use data in Power BI
             url: data-powerbi.md
           - text: Use data in SQL Management Studio
-            url: data-sql-managment-studio.md
+            url: data-sql-management-studio.md
 
   - title: Reference
     linkLists:
