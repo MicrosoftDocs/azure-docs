@@ -52,10 +52,10 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|cognitive-services-form-recognizer | 2 core, 4-GB memory | 4 core, 8-GB memory |
+| Form Recognizer | 2 core, 4-GB memory | 4 core, 8-GB memory |
+| Recognize Text | 1 core, 8-GB memory | 2 cores, 8-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!Note]
@@ -65,7 +65,7 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 
 Container images for both the **Form Recognizer** and **Recognize Text** offerings are available in the following container registry:
 
-| Container | Fully qualified image name  |
+| Container | Fully qualified image name |
 |-----------|------------|
 | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
 | Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
