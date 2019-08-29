@@ -6,7 +6,7 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ---
 # Service limits in Azure Search
@@ -109,7 +109,7 @@ Maximum running times exist to provide balance and stability to the service as a
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4&nbsp;million |4&nbsp;million |4&nbsp;million |N/A |4&nbsp;million |4&nbsp;million |
 
-<sup>1</sup> Free services have indexer maximum execution time of 3 minutes for blob sources and 1 minute for all other data sources. For AI indexing that calls into Cognitive Services, free services are limited to 20 free transactions per indexer per day, where a transaction is defined as a document that successfully passes through the enrichment pipeline. 
+<sup>1</sup> Free services have indexer maximum execution time of 3 minutes for blob sources and 1 minute for all other data sources. For AI indexing that calls into Cognitive Services, free services are limited to 20 free transactions per day, where a transaction is defined as a document that successfully passes through the enrichment pipeline.
 
 <sup>2</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexers, data sources, and skillsets.
 
@@ -125,8 +125,8 @@ The maximum number of synonym maps allowed varies by pricing tier. Each rule can
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
-| Maximum synonym maps |3 |3|5 |10 |20 |20 | 5 | 5 |
-| Maximum number of rules per map |5000 |10000|10000 |10000 |10000 |10000 | 10000 | 10000  |
+| Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
+| Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## Queries per second (QPS)
 
