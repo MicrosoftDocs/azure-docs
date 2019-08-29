@@ -12,7 +12,7 @@ ms.author: banders
 
 # Purchase reservations with monthly payments
 
-You can purchase Azure reservations with monthly payments. Unlike an upfront purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of upfront and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
+You can purchase Azure reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
 
 Monthly payments are available for:
 
@@ -34,7 +34,7 @@ To view the payments schedule after purchase, select a reservation, click the **
 
 ## View payments made
 
-You can view payments that were made using APIs, usage data, and in cost analysis. For reservations paid for monthly, the frequency value is shown as **recurring** in usage data and Reservation Charges API. For reservations paid upfront, the value is shown as **onetime**. For more information about reservations and usage data, see [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md).
+You can view payments that were made using APIs, usage data, and in cost analysis. For reservations paid for monthly, the frequency value is shown as **recurring** in usage data and Reservation Charges API. For reservations paid up front, the value is shown as **onetime**. For more information about reservations and usage data, see [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md).
 
 Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter for **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
@@ -48,7 +48,7 @@ When you renew a reservation, you can change the billing frequency to monthly.
 
 Like other reservations, you can refund or exchange reservations purchased with monthly billing. Currently, you can submit a support request to start an exchange or refund for a reservation purchased with monthly billing.
 
-When you exchange a reservation that's paid for monthly, the total lifetime cost of the new purchase should be greater than the leftover payments that are canceled for the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that's paid for upfront to purchase a new reservation that's billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
+When you exchange a reservation that's paid for monthly, the total lifetime cost of the new purchase should be greater than the leftover payments that are canceled for the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that's paid for up front to purchase a new reservation that's billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
 
 If canceling a reservation that's paid for monthly, Microsoft might apply a cancellation fee to the future committed payments that are canceled. The remaining committed payments accrue towards the $50,000 USD refund limit.
 
@@ -56,8 +56,8 @@ For more information about exchange and refunds, see [Self-service exchanges and
 
 ## FAQ
 
-Q. Does Azure offer "Partial upfront reservations?"
-A. No. Because the costs for reservations paid upfront and monthly are the same, Microsoft doesn't support partial upfront payments.
+Q. Does Azure offer "Partial up-front reservations?"
+A. No. Because the costs for reservations paid up front and monthly are the same, Microsoft doesn't support partial up-front payments.
 
 Q. Are monthly payments available for the Microsoft Cloud Solution Provider (CSP) program?
 A. Yes, partners can purchase reservations for their CSP customers in the Azure portal. The ability to purchase reservations with monthly billing will be available soon in the Partner center.
