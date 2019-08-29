@@ -70,7 +70,7 @@ The migration process is available if you are the owner of any LUIS apps.
 
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
 
-Learn [how to add contributors](luis-how-to-collaborate). 
+Learn [how to add contributors](luis-how-to-collaborate.md). 
 
 ## Next steps
 

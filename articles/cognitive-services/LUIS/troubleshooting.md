@@ -103,7 +103,7 @@ This status code is returned when your transactions per second exceeds your pric
 
 Solutions include:
 
-* You can [increase your pricing tier](#change-pricing-tier), if you are not at the highest tier.
+* You can [increase your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier), if you are not at the highest tier.
 * If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
 * You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code. 
 
@@ -204,11 +204,11 @@ If your app existed before LUIS was generally available (GA), LUIS endpoint keys
 
 ### How do I know what key I need, where I get it, and what I do with it? 
 
-See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the [authoring key](luis-how-to-azure-subscription.md#authoring-key) and the [endpoint prediction key](luis-how-to-azure-subscription.md). 
+See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the authoring key and the prediction runtime key. 
 
 ### I got an error about being out of quota. How do I fix it? 
 
-See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
+See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
 
 ### I need to handle more endpoint queries. How do I do that? 
 

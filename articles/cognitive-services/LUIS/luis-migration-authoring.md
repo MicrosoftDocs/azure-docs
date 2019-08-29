@@ -77,7 +77,7 @@ After the migration process, all your LUIS apps are now assigned to a single LUI
 
 You can create more authoring resources and assign from the **Manage -> Azure resources** page in the _LUIS portal_. 
 
-You can add contributors to the authoring resource from the _Azure portal_, on the **Access Control (IAM)** page for that resource. See [add contributor access](luis-migration-authoring-steps.md#after-migration-process) for more information.
+You can add contributors to the authoring resource from the _Azure portal_, on the **Access Control (IAM)** page for that resource. See [add contributor access](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) for more information.
 
 |Portal|Purpose|
 |--|--|

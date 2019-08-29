@@ -20,6 +20,17 @@ Authoring and runtime resources provide authentication to your LUIS app and pred
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
+## Starter key
+
+The starter key is provided for you, when you first sign into the LUIS portal. It is used as your authentication key to:
+
+* Authoring your app, in the LUIS portal or with the APIs
+* Query the prediction endpoint runtime, up to 1000 queries a month. 
+
+It is visible on both the **User Settings** page and the **Manage -> Azure resources** pages in the LUIS portal. 
+
+When you are ready to publish your prediction endpoint, create and assign authoring and prediction runtime keys, to replace the starter key functionality. 
+
 ## Create resources in the Azure portal
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/en-us/free/). 
