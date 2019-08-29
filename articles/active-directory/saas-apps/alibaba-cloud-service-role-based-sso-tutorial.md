@@ -131,8 +131,8 @@ To configure Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO)
 
 	| Name | Namespace | Source Attribute|
 	| ---------------| ------------| --------------- |
-	| Role | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
-	| RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
+	| Role | https:\//www.aliyun.com/SAML-Role/Attributes | user.assignedroles |
+	| RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attributes | user.userprincipalname |
 
 	> [!NOTE]
 	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
