@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 08/29/2019
 ms.author: juliako
 ---
 
@@ -29,15 +29,15 @@ To stay up-to-date with the most recent developments, this article provides you 
 ### Video Indexer deployed in UK South
 
 You can now create a Video Indexer paid account in the UK south region.
- 
-### News Shot Type insights available
 
-New tags added to shots instances, to identify them as: extreme closeup, closeup, wide, medium, two shot, outdoor, indoor, left face and right face (available in the JSON).
- 
+### New Editorial Shot Type insights available
+
+New tags added to video shots provides editorial “shot types” to identify them with common editorial phrases used in the content creation workflow such as: extreme closeup, closeup, wide, medium, two shot, outdoor, indoor, left face and right face (Available in the JSON)
+  
 ### New People and Locations entities extraction available
 
-Video indexer identifies names locations and people via NLP from the video’s OCR and transcription.
- 
+Video Indexer identifies names of locations and people via natural language processing (NLP) from the video’s OCR and transcription.
+
 ### Keyframes extraction in native resolution
 
 Keyframes extracted by Video Indexer are available in the original resolution of the video.
@@ -45,7 +45,10 @@ Keyframes extracted by Video Indexer are available in the original resolution of
 ### GA for training custom face models from images
 
 Training faces from images moved from Preview mode to GA (available via API and in the portal).
- 
+
+> [!NOTE]
+> There is no pricing impact related to the "Preview to GA" transition.
+
 ### Hide gallery toggle option
 
 User can choose to hide the gallery tab from the portal (similar to hiding the samples tab).
