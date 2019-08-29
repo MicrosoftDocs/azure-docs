@@ -82,10 +82,10 @@ The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-
 
 The [Azure IoT Hub Node.js device SDK](https://github.com/Azure/azure-iot-sdk-node) is built and tested against the following platforms.
 
-| OS                                           | Arch | Node version |
-|----------------------------------------------|------|--------------|
-| Ubuntu 16.04 LTS (using node 6 docker image) | X64  | Node 6       |
-| Windows Server 2016                          | X64  | Node 6       |
+| OS                                           | Arch | Node version    |
+|----------------------------------------------|------|-----------------|
+| Ubuntu 16.04 LTS (using node 6 docker image) | X64  | LTS and Current |
+| Windows Server 2016                          | X64  | LTS and Current |
 
 ### Java SDK
 
