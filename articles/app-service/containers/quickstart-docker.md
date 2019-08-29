@@ -15,14 +15,14 @@ App Service on Linux provides pre-defined application stacks on Linux with suppo
 ## Prerequisites
 
 * An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-* [Docker](https://www.docker.com/community-edition).
+* [Docker](https://www.docker.com/community-edition)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * The [Azure App Service extension for VS Code](vscode:extension/ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
 * The [Docker extension for VS Code](vscode:extension/ms-azuretools.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
-* A suitable web app image stored in an [Azure Container Registry](/azure/container-registry). If necessary, you can use the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image with the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
+* A suitable web app image stored in an [Azure Container Registry](/azure/container-registry). If you do not already have one, you can use the [azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart) image with the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
 
-> [!IMPORTANT]
-> Be sure to set the **Admin User** option to **Enable** when you create the container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access.
+    > [!IMPORTANT]
+    > Be sure to set the **Admin User** option to **Enable** when you create the container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access.
 
 ### Sign in
 
@@ -56,6 +56,8 @@ Now that everything is configured, you can deploy your image to [Azure App Servi
 ### Deploy the image
 
 Find the image under the **Registries** node in the **DOCKER** explorer, and expand it to show its tags. Right-click a tag and then select **Deploy Image to Azure App Service**.
+
+![Registries](./media/quickstart-docker/registries.png)
 
 From here, follow the prompts to choose a subscription, a globally unique app name, a Resource Group, and an App Service Plan. Choose **B1 Basic** for the pricing tier, and a region.
 
