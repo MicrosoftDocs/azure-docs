@@ -1,6 +1,6 @@
 ---
 title: What is Conditional Access in Azure Active Directory?
-description: Learn how Conditional Access in Azure Active Directory helps gather signals to make decisions on policy enforcement decisions.
+description: Learn how Conditional Access is at the heart of the new identity driven control plane.
 
 services: active-directory
 ms.service: active-directory
