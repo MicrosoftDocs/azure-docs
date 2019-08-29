@@ -1,17 +1,29 @@
+---
+title:  "Extract N-Gram: Module Reference"
+titleSuffix: Azure Machine Learning service
+description: Learn how to use the Extract N-Gram module in Azure Machine Learning service to featurize text data.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
 
+author: xiaoharper
+ms.author: zhanxia
+ms.date: 09/30/2019
+---
 # Extract N-Gram Features from Text
 
 This article explains how to use the **Extract N-Gram Features from Text** module, to *featurize* text.
   
 The module works by creating a dictionary of n-grams from a column of free text that you specify as input. 
 
-If you have already created a vocabulary of n-grams, you can using the existing vocabulary as well. 
+If you have already created a vocabulary of n-grams, you can use the existing vocabulary as well. 
  
 Because this module supports featurization from n-grams, it can also be used when scoring.
 
 ## How to configure Extract N-Gram Features from Text
 
-Those module supports the following scenarios for creating, updating, or applying an n-gram dictionary:
+This module supports the following scenarios for creating, updating, or applying an n-gram dictionary:
   
 + You are developing a new model using a column of free text column and want to extract text features based purely on the input data. [See instructions.](#bkmk_create)
   
@@ -25,7 +37,7 @@ Those module supports the following scenarios for creating, updating, or applyin
   
 2.  For **Text column**, choose a column of type **string** that contains the text you want to extract. 
 
-    Because the result are verbose, you need to process a single column at a time.
+    Because the results are verbose, you need to process a single column at a time.
 
 3. For **Vocabulary mode**, select **Create** to indicate that you are creating a new list of n-gram features. 
 
@@ -37,7 +49,7 @@ Those module supports the following scenarios for creating, updating, or applyin
     + **Binary Weight**: Assigns a binary presence value to the extracted n-grams.  In other words, the value for each n-gram is 1 when it exists in the given document, and 0 otherwise.  
     + **TF Weight**: Assigns a term-frequency score (**TF**) to the extracted n-grams.  The value for each n-gram is its occurrence frequency in the given document.  
     + **IDF Weight**: Assigns an inverse document frequency score (**IDF**) to the extracted n-grams.  The value for each n-gram is the log of corpus size divided by its occurrence frequency in the whole corpus. That is: `IDF = log of corpus_size / document_frequency` 
-    +  **TF-IDF Weight**: Assigns an term frequency/inverse document frequency score (**TF/IDF**) to the extracted n-grams. The value for each n-gram is its TF score multiplied by its IDF score.  
+    +  **TF-IDF Weight**: Assigns a term frequency/inverse document frequency score (**TF/IDF**) to the extracted n-grams. The value for each n-gram is its TF score multiplied by its IDF score.  
   
 6. For **Minimum word length**, type the minimum number of letters that can be used in any _single word_ in an n-gram.
 
@@ -112,11 +124,11 @@ The **Extract N-Gram Features from Text** module creates two types of output:
 
   - **Matrix of n-gram occurrences**: The module generates a column for each n-gram found in the total corpus and adds a score in each column to indicate the weight of the n-gram for that row. 
 
-+ **Result vocabulary**: The vocabulary contains the actual n-gram dictionary, together with the term frequency scores that are generated as part of the analysis.  You can save the dataset for re-use with a different set of inputs, or for later update. You can also reuse the vocabulary for modeling and scoring.
++ **Result vocabulary**: The vocabulary contains the actual n-gram dictionary, together with the term frequency scores that are generated as part of the analysis.  You can save the dataset for reuse with a different set of inputs, or for later update. You can also reuse the vocabulary for modeling and scoring.
 
 ### Sample results
 
-To illustrate how you can use the results, the following short example uses the Amazon Book Review dataset available in visual interface. The dataaset was filtered to show only reviews with a score of 4 or 5, and reviews with a string length of under 300 characters. 
+To illustrate how you can use the results, the following short example uses the Amazon Book Review dataset available in visual interface. The dataset was filtered to show only reviews with a score of 4 or 5, and reviews with a string length of under 300 characters. 
 
 From this dataset, a short review was selected. Here the author's name has been replaced with `Xxx` and the book title replaced with `Yyy`, and the review was processed by the Preprocess Text Module: 
 
@@ -142,9 +154,9 @@ For this sample, the module generated these columns:
 
 #### Result vocabulary for sample review text
 
-The vocabulary contains the actual n-gram dictionary, together with the term frequency scores that are generated as part of the analysis. You can save the dataset for re-use with a different set of inputs, or for later update. The scores **DF** and **IDF** are generated regardless of other options.
+The vocabulary contains the actual n-gram dictionary, together with the term frequency scores that are generated as part of the analysis. You can save the dataset for reuse with a different set of inputs, or for later update. The scores **DF** and **IDF** are generated regardless of other options.
 
-+ **Id**: An identifier generated for each unique n-gram.
++ **ID**: An identifier generated for each unique n-gram.
 + **NGram**: The n-gram. Spaces or other word separators are replaced by the underscore character.
 + **DF**: The term frequency score for the n-gram in the original corpus.
 + **IDF**: The inverse document frequency score for the n-gram in the original corpus.
