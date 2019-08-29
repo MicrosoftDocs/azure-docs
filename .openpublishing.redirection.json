@@ -16,6 +16,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-load-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-transform-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-write-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview.md",
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
       "redirect_document_id": false
@@ -26017,6 +26032,16 @@
     {
       "source_path": "articles/security-center/security-center-detection-capabilities.md",
       "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-enable-network-security-groups.md",
+      "redirect_url": "/azure/security-center/security-center-network-recommendations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-events-dashboard.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#events-dashboard---the-new-experience",
       "redirect_document_id": false
     },  
     {
