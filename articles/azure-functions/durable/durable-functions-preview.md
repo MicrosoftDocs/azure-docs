@@ -349,7 +349,7 @@ The [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.Durabl
     "durableTask": {
       "hubName": <string>,
       "storageProvider": {
-        "emulator": { }
+        "emulator": { "enabled": true }
       }
     }
   }
