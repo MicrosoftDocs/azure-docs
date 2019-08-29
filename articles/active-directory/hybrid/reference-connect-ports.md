@@ -97,8 +97,9 @@ This table describes the following outbound ports and protocols that are require
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-| HTTPS |443(TCP/UDP) |Outbound |
-| Azure Service Bus |5671 (TCP/UDP) |Outbound |
+| HTTPS |443(TCP) |Outbound |
+| Azure Service Bus |5671 (TCP) |Outbound |
+Note that Azure Service Bus port 5671 is no longer required for the latest version of agent. The latest Azure AD Connect Health agent version only required port 443.
 
 ### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](how-to-connect-health-agent-install.md#requirements).
