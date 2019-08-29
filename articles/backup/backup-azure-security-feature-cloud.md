@@ -44,11 +44,12 @@ Soft delete is currently supported in the West Central US region.
 
 4. In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**.
 
- ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+     ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a “stop protection with retain data” state with backups paused and backup data retained forever with no backup policy effective.
 
-   ![Screenshot of Azure portal, Confirm undelete VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+ ![Screenshot of Azure portal, Confirm undelete VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
 At this point, you can also restore the VM by selecting **Restore VM** from the chosen restore point.  
 
    ![Screenshot of Azure portal, Restore VM option](./media/backup-azure-security-feature-cloud/restore-vm.png)
