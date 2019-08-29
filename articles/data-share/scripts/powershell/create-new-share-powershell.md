@@ -17,11 +17,6 @@ ms.author: t-roupa
 
 This PowerShell script creates a new Data Share within an existing Data Share account.
 
-## Prerequisites
-* **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) page on creating one.
-* **Azure Data Share Account**. If you don't have an Azure data share account, see the [Create a Data Share account](/create-new-share-account-powershell.md) page on creating one.
-
-
 ## Sample script
 
 ```powershell
@@ -50,4 +45,4 @@ This script uses the following commands:
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../samples-powershell.md).
+Additional Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).
