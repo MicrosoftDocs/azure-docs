@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on integration with ServiceNow
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow
 
 In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Directory (Azure AD). When you integrate ServiceNow with Azure AD, you can:
 
