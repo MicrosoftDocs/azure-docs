@@ -16,22 +16,9 @@ ms.author: alkohli
 
 # Quickstart: Deploy Azure Data Box Heavy using the Azure portal
 
-::: zone-end
-
-::: zone target = "chromeless"
-
-Get started with Azure Data Box Heavy
-
-::: zone-end
-
-::: zone target = "docs"
-
 This quickstart describes how to deploy the Azure Data Box Heavy using the Azure portal. The steps include how to cable, configure, and copy data to Data Box Heavy so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
-
-::: zone-end
-
 
 ## Prerequisites
 
@@ -84,6 +71,14 @@ This step takes roughly 5 minutes.
 
 Once the order is created, the device is prepared for shipment.
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+After you have reviewed the prerequisites, you'll cable and connect your device.
+
+::: zone-end
+
 ## Cable for power
 
 This step takes about 5 minutes.
@@ -119,6 +114,9 @@ This step takes about 5-7 minutes to complete.
 This step takes about 15-20 minutes to complete.
 
 Follow the steps used for the first node to cable and configure the second node on the device.  
+
+
+::: zone target = "docs"
 
 ## Copy data
 
