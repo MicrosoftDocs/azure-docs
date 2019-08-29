@@ -24,8 +24,6 @@ landingContent:
         links:
           - text: Architecture
             url: architecture.md
-          - text: Smart contract integration patterns
-            url: integration-patterns.md
       - linkListType: video
         links:
           - text: Introduction to Azure Blockchain Workbench
@@ -76,6 +74,23 @@ landingContent:
           - text: Application versioning
             url: version-app.md
 
+  - title: Integrate 
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Smart contract integration patterns
+            url: integration-patterns.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to off-chain database
+            url: getdb-details.md
+          - text: Use data in Excel
+            url: data-excel.md
+          - text: Use data in Power BI
+            url: data-powerbi.md
+          - text: Use data in SQL Management Studio
+            url: data-sql-managment-studio.md
+
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -84,4 +99,6 @@ landingContent:
             url: messages-overview.md
           - text: REST API
             url: use-api.md
+          - text: Database views
+            url: database-views.md
 
