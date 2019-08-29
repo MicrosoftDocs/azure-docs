@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin    
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: dalek
 
 ---
@@ -143,6 +143,9 @@ To discover the actual sampling rate, no matter where it's been applied, use an 
 In each retained record, `itemCount` indicates the number of original records that it represents. It's equal to 1 + the number of previous discarded records. 
 
 ## Change the data retention period
+
+> [!NOTE]
+> We've temporarily removed this feature while we address a possible issue.  We'll have it back by mid-September 2019.
 
 The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
 
