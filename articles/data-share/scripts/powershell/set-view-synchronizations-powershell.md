@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Set and view share sychronization settings| Microsoft Docs"
+title: "PowerShell script: Set and view share synchronization settings| Microsoft Docs"
 description: This PowerShell script sets and gets share synchronization settings.
 services: data-share
 author: t-roupa
