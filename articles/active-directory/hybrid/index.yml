@@ -74,12 +74,6 @@ landingContent:
             url: how-to-connect-install-express.md
           - text: Install Azure AD Connect with custom settings
             url: how-to-connect-install-custom.md
- 
-  # Card
-  - title: Manage Azure AD Connect
-    linkLists:
-      - linkListType: how-to-guide
-        links:
           - text: Configure the AD DS Connector account
             url: how-to-connect-configure-ad-ds-connector-account.md
           - text: Change the ADSync service account password
@@ -96,6 +90,8 @@ landingContent:
             url: reference-connect-accounts-permissions.md
           - text: Azure AD Connect version history
             url: reference-connect-version-history.md
+ 
+
 
 
 
