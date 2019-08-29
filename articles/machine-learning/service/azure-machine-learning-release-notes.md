@@ -65,8 +65,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Optimized memory usage when batching explanations
     + AutoML models now return AutoMLExceptions
   + **azureml-pipeline-core**
-    + Added support to create, update and use PipelineDrafts.
-    + Handling missing optional params
+    + Added support to create, update and use PipelineDrafts - can be used to maintain mutable pipeline definitions and use them interactively to run
   + **azureml-train-automl**
     + Created feature to install specific versions of gpu-capable pytorch v1.1.0, cuda toolkit 9.0, pytorch-transformers which is required to enable BERT/ XLNet in the remote python runtime environment.
   + **azureml-train-core**
