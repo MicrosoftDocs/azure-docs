@@ -20,7 +20,7 @@ First, [download and import the Windows Virtual Desktop PowerShell module](https
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Next, run this cmdlet to create a new host pool in your Windows Virtual Desktop tenant:
