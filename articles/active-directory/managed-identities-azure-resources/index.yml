@@ -55,3 +55,14 @@ landingContent:
             url: how-to-use-vm-sdk.md
           - text: Stop using VM extensions
             url: howto-migrate-vm-extension.md
+  # Card
+  - title: Assign a managed identity access to another Azure resource
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Portal
+            url: howto-assign-access-portal.md
+          - text: CLI
+            url: howto-assign-access-cli.md
+          - text: PowerShell
+            url: howto-assign-access-powershell.md
