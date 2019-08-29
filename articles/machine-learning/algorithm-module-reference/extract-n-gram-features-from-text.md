@@ -19,7 +19,7 @@ The module works by creating a dictionary of n-grams from a column of free text 
 
 If you have already created a vocabulary of n-grams, you can use the existing vocabulary as well. 
  
-Because this module supports featurization from n-grams, it can also be used when scoring.
+Because this module supports featurization from n-grams, it can also be used for scoring.
 
 ## How to configure Extract N-Gram Features from Text
 
