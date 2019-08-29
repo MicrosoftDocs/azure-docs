@@ -14,7 +14,7 @@ With Azure Resource Manager, you can create templates that define what you want 
 
 The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
 
-## The benefits of using Resource Manager templates
+## Benefits of Resource Manager templates
 
 Resource Manager templates provide several benefits:
 
