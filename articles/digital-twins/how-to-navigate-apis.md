@@ -111,6 +111,8 @@ The following list depicts several valid OData queries:
  
 ## Next steps
 
-To learn some common API query patterns, read [How to query Azure Digital Twins APIs for common tasks](how-to-query-common-apis.md).
+To learn some common API query patterns, read [How to query Azure Digital Twins APIs for common tasks](./how-to-query-common-apis.md).
 
 To learn more about your API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).
+
+To review OData syntax and available comparison operators, read [OData comparison operators in Azure Search](../search/search-query-odata-comparison-operators).
