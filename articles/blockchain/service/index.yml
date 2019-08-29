@@ -37,7 +37,7 @@ landingContent:
             url: create-member-cli.md
       - linkListType: quickstart
         links:
-          - text: Use MetaMask to connect and deploy a smart contract
+          - text: Use MetaMask to connect and Remix to deploy a smart contract
             url: connect-metamask.md
           - text: Use Geth to connect to a transaction node
             url: connect-geth.md
