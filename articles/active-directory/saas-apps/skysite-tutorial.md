@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Single sign-on properties](./media/skysite-tutorial/config05.png)
 
-	a. Copy the **User access URL** and you have to paste it in **Configure SKYSITE SSO section**, which is explained later in the tutorial.
+	* Copy the **User access URL** and you have to paste it in **Configure SKYSITE SSO section**, which is explained later in the tutorial.
 
 1. On the **SKYSITE** application integration page, navigate to **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
