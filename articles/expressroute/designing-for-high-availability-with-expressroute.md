@@ -39,7 +39,7 @@ For geo-redundant design considerations, see [Designing for disaster recovery wi
 
 ### Active-active connections
 
-Microsoft's network is configured to operate the primary and secondary connections of ExpressRoute circuits in active-active mode. However, through your route advertisements, you  can force the redundant connections of an ExpressRoute circuit to operate in active-passive mode. Advertising more specific routes and BGP AS path prepending  are the common techniques used to make one path preferred over the other.
+The Microsoft network is configured to operate the primary and secondary connections of ExpressRoute circuits in active-active mode. However, through your route advertisements, you  can force the redundant connections of an ExpressRoute circuit to operate in active-passive mode. Advertising more specific routes and BGP AS path prepending  are the common techniques used to make one path preferred over the other.
 
 To improve high availability, it's recommended to operate both the connections of an ExpressRoute circuit in active-active mode. If you let the connections operate in active-active mode, Microsoft network will load balance the traffic across the connections on per-flow basis.
 
