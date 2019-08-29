@@ -106,17 +106,7 @@ az configure --defaults ascapp=<app name>
 >[!NOTE]
 > Application names have to be exactly "account-service" and "auth-service" for the provided configuration server to work properly.
 > 
-> 
 
-
-- Application Name: Use "gateway" as the application name.
-- Artifact Type: Only JAR file is supported at this time.
-- Select Artifact: Upload the JAR file from your local machine. Choose JAR file from PiggyMetrics\gateway\target\gateway.jar.
-- Java Environment: The Java Runtime version. Only Java 8 is supported at this time.
--	Port: Specify the port number of your application. Use 80 here.
--	vCPU: Specify the maximum CPU resource for your application. Use 0.5 here.
--	Memory: Specify the maximum memory resource for your application. Use 1000 MB here.
--	App Instance Count: Specify the instance count of your application. You can specify more than 2 instances for more capacity and high availability. The instance count can be updated after creation. Use 1 here. 
 
 ## Deploy applications and set environment variables
 
