@@ -71,7 +71,7 @@ The notebook VM is:
 
 + **Customizable**. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
 
-To stop incurring notebook VM charges, [stop the notebook VM](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm). 
+To stop incurring notebook VM charges, [stop the notebook VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources). 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
