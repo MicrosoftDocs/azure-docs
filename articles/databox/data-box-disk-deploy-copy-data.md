@@ -25,6 +25,8 @@ After the disks are connected and unlocked, you can copy data from your source d
 
 ::: zone-end
 
+::: zone target="docs"
+
 This tutorial describes how to copy data from your host computer and then generate checksums to verify data integrity.
 
 In this tutorial, you learn how to:
