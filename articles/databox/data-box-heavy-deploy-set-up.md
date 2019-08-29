@@ -19,7 +19,7 @@ ms.author: alkohli
 
 ::: zone target = "chromeless"
 
-Get started with Azure Data Box Heavy
+## Get started with Azure Data Box Heavy
 
 ::: zone-end
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ::: zone target = "chromeless"
 
-This guide provides instructions on how to get started with your Azure Data Box Heavy. The guide includes information on how to review prerequisites, cable and connect your device, copy data, upload to Azure and then verify the uploaded data.
+This guide provides instructions on how to review prerequisites, cable and connect your device, copy data, upload to Azure and then verify the uploaded data.
 
 ::: zone-end
 
@@ -57,7 +57,6 @@ Before you begin, make sure that:
     - Choose cables that are compatible with the [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) network interface.
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-Gbps switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
-
 
 ::: zone target = "docs"
 
