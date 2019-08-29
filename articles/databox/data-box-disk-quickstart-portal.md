@@ -6,9 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: quickstart
-ms.localizationpriority: high 
-ms.date: 02/26/2019
+ms.topic: quickstart 
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -20,7 +19,7 @@ Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to
 
 ::: zone target="chromeless"
 
-# Get started with Azure Data Box Disk using Azure portal
+## Get started with Azure Data Box Disk 
 
 ::: zone-end
 
@@ -36,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ::: zone target="chromeless"
 
-This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include review prerequisites, unlock the disks, connect and copy data to disks so that uploads to Azure.
+This guide describes how to deploy the Azure Data Box Disk in the Azure portal. The steps include review prerequisites, unlock the disks, and connect and copy data to disks so that it uploads to Azure.
 
 ::: zone-end
 
@@ -56,10 +55,11 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 
 ::: zone target="chromeless"
 
-## Prerequisites
+### Prerequisites
 
 - You have placed your order for Data Box Disk using the [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 - You have received your disks and the job status in the portal is updated to **Delivered**.
+- You have checked the number of disks you've received and that you have one connecting cable per disk.
 - You have a client computer available from which you can copy the data. Your client computer must:
 
     - Run a [supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
