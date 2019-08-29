@@ -24,7 +24,7 @@ ROBOTS: NOINDEX
 
 When you add an application from the [Azure AD application gallery](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), you can choose how you want your users to sign in to that application. You can configure this choice at any time by selecting **Single Sign-on** on an Enterprise application in the [Azure portal](https://portal.azure.com/).
 
-One of the available single sign-on options is [password-sased single sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). This is a great way to start quickly integrating applications into Azure Active Directory (Azure AD). It enables the following:
+One of the available single sign-on options is [password-based single sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). This is a great way to start quickly integrating applications into Azure Active Directory (Azure AD). It enables the following:
 
 -   **Single Sign-on for your users** by securely storing and replaying usernames and passwords for the application you’ve integrated with Azure AD
 
