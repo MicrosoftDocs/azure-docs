@@ -54,7 +54,6 @@ Before you begin, make sure that:
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 - The power cables are included in a tray at the back of the device.
 
-::: zone target = "docs"
 
 ## Sign in to Azure
 
