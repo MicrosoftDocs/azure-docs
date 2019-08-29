@@ -25,7 +25,7 @@ Before you start, you must have the following:
 
 + Install [Python 3.6](https://www.python.org/downloads/).
 
-+ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.1071 or a later version.
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1575 or a later version.
 
 + Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.x or a later version.
 
@@ -74,8 +74,6 @@ Navigate to the new MyFunctionProj folder:
 ```console
 cd MyFunctionProj
 ```
-
-Next, you update the host.json file to enable extension bundles.  
 
 ## Create a function
 

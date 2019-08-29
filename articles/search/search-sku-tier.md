@@ -48,16 +48,16 @@ You can find out more about the various tiers on the [pricing page](https://azur
 
 A solution built on Azure Search can incur costs in the following ways:
 
-+ Base cost of service at minimal configuration
-+ Incremental cost when scaling up (adding replicas or partitions)
-+ Bandwidth charges for outbound data transfer
-+ Cognitive search leveraging Cognitive Services resources
++ Base cost of service at minimum configuration (create a service)
++ Incremental cost when scaling up (add replicas or partitions)
++ Bandwidth charges (outbound data transfer) 
++ Cognitive search (attach Cognitive Services for AI enrichment, Azure storage for knowledge store)
 
 ### Service costs
 
 Unlike virtual machines or other resources that can be "paused" to avoid charges, an Azure Search service is always available on hardware dedicated for your exclusive use. As such, creating a service is a billable event that starts when you create the service, and ends when you delete the service. 
 
-The minimum charge is the first search unit (one replica x one partition). This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: [(replicas x partitions x rate)](#search-units), where the rate you're charged depends on the pricing tier you select.
+The minimum charge is the first search unit (one replica x one partition) at the billable rate. This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: [(replicas x partitions x rate)](#search-units), where the rate you're charged depends on the pricing tier you select.
 
 When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear. (Doubling capacity more than doubles the cost.) For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
@@ -152,7 +152,7 @@ L2 offers twice the overall storage capacity of L1.  Choose your tier based on t
 
 ### Evaluating capacity
 
-Capacity and the costs of running the service are directly related. Tiers impose limits on two levels: storage and resources. You should think about both because whichever limit you reach first is the effective limit.
+Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and resources. You should think about both because whichever limit you reach first is the effective limit.
 
 Business requirements typically dictate the number of indexes you'll need. For example, you might need a global index for a large repository of documents. Or you might need  multiple indexes based on region, application, or business niche.
 
@@ -162,25 +162,25 @@ To determine the size of an index, you have to [build one](search-create-index-p
 > Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one SKU to another.
 >
 
-### Step 1: Develop rough estimates by using the Free tier
+### Estimate with the Free tier
 
-One approach for estimating capacity is to start with the Free tier. Remember that the Free service offers up to three indexes, 50 MB of storage, and 2 minutes of indexing time. It can be challenging to estimate a projected index size with these constraints. Here's an approach that you can take:
+One approach for estimating capacity is to start with the Free tier. Remember that the Free service offers up to three indexes, 50 MB of storage, and 2 minutes of indexing time. It can be challenging to estimate a projected index size with these constraints, but these are the steps:
 
 + [Create a free service](search-create-service-portal.md).
-+ Prepare a small, representative dataset (for example, 5,000 documents and 10 percent sample size).
-+ [Build an initial index](search-create-index-portal.md) and note its size in the portal (for example, 30 MB).
++ Prepare a small, representative dataset.
++ [Build an initial index in the portal](search-create-index-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (typeahead) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#storage-implications).
 
-If the sample is representative and 10 percent of the entire data source, a 30-MB index becomes approximately 300 MB if all documents are indexed. Armed with this preliminary number, you might double that amount to budget for two indexes (development and production). This gives you a total of 600 MB in storage requirements. This requirement is easily satisfied by the Basic tier, so you would start there.
+With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 
-### Step 2: Develop refined estimates by using a billable tier
+### Estimate with a billable tier
 
-Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate. Then, as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads.
+Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
 1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 
-    + Start low, at Basic or S1, if you're at the beginning of your learning curve.
+    + Start low, at Basic or S1, if you're not sure about the projected load.
     + Start high, at S2 or even S3, if you know you're going to have large-scale indexing and query loads.
     + Start with Storage Optimized, at L1 or L2, if you're indexing a large amount of data and query load is relatively low, as with an internal business application.
 

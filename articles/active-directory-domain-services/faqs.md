@@ -28,6 +28,9 @@ Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common is
 ### Can I create multiple managed domains for a single Azure AD directory?
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
+### Can I enable Azure AD Domain Services in a Classic virtual network?
+Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported.
+
 ### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer supported for creating new managed domains.
 
@@ -54,6 +57,9 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You do 
 
 ### Can guest users invited to my directory use Azure AD Domain Services?
 No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users are not stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to sync NTLM and Kerberos hashes for these users into your managed domain. As a result, such users cannot log in to the managed domain or join computers to the managed domain.
+
+### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
+No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
 
 ## Administration and Operations
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
