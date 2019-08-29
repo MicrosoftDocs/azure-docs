@@ -51,6 +51,9 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Egress traffic overview
 
+> [!CAUTION]
+> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
+
 For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. By default, egress (outbound) internet traffic is not restricted for nodes in an AKS cluster. The cluster may pull base system container images from external repositories.
 
 To increase the security of your AKS cluster, you may wish to restrict egress traffic. The cluster is configured to pull base system container images from MCR or ACR. If you lock down the egress traffic in this manner, you must define specific ports and FQDNs to allow the AKS nodes to correctly communicate with required external services. Without these authorized ports and FQDNs, your AKS nodes can't communicate with the API server or install core components.
@@ -59,7 +62,7 @@ You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance t
 
 > [!IMPORTANT]
 > When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs because the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
-> You can lock down the traffic for TCP port 9000 using a network rule between the egress worker node IP(s) and the tunnelend IP, which is running behind the same IP as the API server.
+> You can lock down the traffic for TCP port 9000 and TCP port 22 using a network rule between the egress worker node IP(s) and the tunnelend IP, which is running behind the same IP as the API server.
 
 In AKS, there are two sets of ports and addresses:
 
@@ -74,8 +77,7 @@ In AKS, there are two sets of ports and addresses:
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* UDP port *53* is optional, but recommended for DNS
-* TCP [IPAddrOfYourAPIServer]:443 is recommended if you have an app that needs to talk to the API server.  This can be set after the cluster is created. <!--TODO need to wordsmith this-->
+* TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This can be set after the cluster is created. <!--TODO need to wordsmith this-->
 * TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
     * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
 
@@ -93,11 +95,13 @@ The following FQDN / application rules are required:
 | login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
 | packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations. |
-| acs-mirror.azureedge.net 	 | HTTPS:443 | This address is used by CSE to install CNI kubenet binaires. |
+| acs-mirror.azureedge.net 	 | HTTPS:443 | This address is used to install CNI kubenet binaries. |
 
 ## Optional recommended addresses and ports for AKS clusters
 
-* UDP port *53* for DNS
+The following outbound ports / network rules are optional for an AKS cluster:
+
+* UDP port *53* for DNS is optional but recommended
 
 The following FQDN / application rules are recommended for AKS clusters to function correctly:
 
@@ -133,7 +137,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 ## Required addresses and ports for AKS clusters with Azure Policy (in private preview) enabled
 
-The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.  This is subject to change as the feature moves to public preview and future release stages.
+The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
