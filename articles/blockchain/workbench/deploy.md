@@ -31,7 +31,7 @@ Blockchain Workbench allows you to deploy a blockchain ledger along with a set o
 * Azure Storage account (Standard LRS)
 * Virtual machine scale set with capacity of 1
 * Virtual Network resource group (with Load Balancer, Network Security Group, Public IP Address, Virtual Network)
-* Azure Blockchain Service. Note: For Microsoft Support of transaction and validator nodes, Azure Blockchain Service is required. If you are using a previous Blockchain Workbench deployment, consider redeploying Azure Blockchain Workbench to use Azure Blockchain Service.  
+* Azure Blockchain Service. For Microsoft Support of transaction and validator nodes, Azure Blockchain Service is required. If you are using a previous Blockchain Workbench deployment, consider redeploying Azure Blockchain Workbench to use Azure Blockchain Service.  
 
 The following is an example deployment created in **myblockchain** resource group.
 
