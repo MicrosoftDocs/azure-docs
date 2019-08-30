@@ -737,7 +737,7 @@
     },   
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/upgrade-qnamaker-service.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/set-up-qnamaker-service-azure#upgrade-qna-maker-sku",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#upgrade-qna-maker-sku",
       "redirect_document_id": false
     },         
     {
