@@ -69,7 +69,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `password` | Required | The user's password. |
 | `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. In an interactive flow, the admin or the user must consent to these scopes ahead of time. |
 | `client_secret`| Sometimes required | If your app is a public client, then the `client_secret` or `client_assertion` cannot be included.  If the app is a confidential client, then it must be included. | 
-| `client_assertion` | Sometimes required | A different form of `client_secret`, generated using a certificate.  See [certificate credentials](active-directory-certificate-credentials) for more details. | 
+| `client_assertion` | Sometimes required | A different form of `client_secret`, generated using a certificate.  See [certificate credentials](active-directory-certificate-credentials.md) for more details. | 
 
 ### Successful authentication response
 
