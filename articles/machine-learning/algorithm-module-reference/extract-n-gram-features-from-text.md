@@ -25,7 +25,7 @@ This module supports the following scenarios for using an n-gram dictionary:
 
 * [Score or publish a model](#score-or-publish-a-model-that-uses-n-grams) that uses n-grams.
 
-## How to configure Extract N-Gram Features from Text
+## Configure Extract N-Gram Features from Text
 
 ### Create a new n-gram dictionary
 

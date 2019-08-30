@@ -66,7 +66,7 @@ Feature hashing lets you represent text documents of variable-length as numeric 
 
 Numeric outputs also make it possible to use common machine learning methods including classification, clustering, and information retrieval. Because lookup operations can use integer hashes rather than string comparisons, getting the feature weights is also much faster.
 
-## How to configure Feature Hashing
+## Configure Feature Hashing
 
 1.  Add the **Feature Hashing** module to your experiment in visual interface.
 
