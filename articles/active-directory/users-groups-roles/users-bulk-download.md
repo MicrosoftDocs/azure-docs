@@ -18,13 +18,21 @@ ms.collection: M365-identity-device-management
 
 # Download a list of users (preview) in Azure Active Directory portal
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD) supports bulk user import (create)) operations.
+
+## Bulk download service limits
+
+Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of at least 500,000 users.
+
+## Required permissions
+
+To download the list of users from the Azure AD admin center, you must be signed in with a user assigned to one or more organization-level administrator roles in Azure AD. Guest inviter and application developer are not considered administrator roles.
 
 ## To download a list of users
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with a User administrator account in the organization.
 1. In Azure AD, select **Users** > **Download users**.
-1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties.
+1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
 

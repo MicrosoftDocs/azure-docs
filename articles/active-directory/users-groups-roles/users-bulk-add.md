@@ -5,8 +5,8 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
-ms.topic: conceptual
+ms.date: 08/30/2019
+ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -19,6 +19,14 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
+## Bulk import service limits
+
+Each bulk activity to create users can run for up to one hour. This enables bulk creation of at least 50,000 users.
+
+## Required permissions
+
+In order to bulk create users in the administration portal, you must be signed in as a Global administrator or User administrator.
+
 ## To bulk import users
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
@@ -29,7 +37,7 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
 1. When the file contents are validated, you must fix any errors before you can start the upload job.
-1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information.
+1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
 
 ## Check status
 
