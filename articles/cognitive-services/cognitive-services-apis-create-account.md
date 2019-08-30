@@ -30,16 +30,21 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. You can find available Cognitive Services with in the following ways:
-    * Use the search bar and enter the name of the service you want to subscribe to.
-        * To create a multi-service resource, enter **Cognitive Services** in the search bar, and select the **Cognitive Services** resource.
+2. You can create a Cognitive Services resource in two ways - using a multi-service key or a single-service key. A multi-service key approach lets you create a single key that can be used with different cognitive services. A single-service key approach lets you create a key for a specific cognitive service that you want to use.
+    #### [Multi-service key](#tab/multiservice)
 
-        ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+    Use the search bar and enter the name of the service you want to subscribe to.
+    To create a multi-service resource, enter **Cognitive Services** in the search bar, and select the **Cognitive Services** resource.
 
-    * To see all available cognitive services, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **More** to view the entire catalog of Cognitive Services APIs.
+    ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+
+    #### [Single-service key](#tab/singleservice)
+
+    To see all available cognitive services, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **More** to view the entire catalog of Cognitive Services APIs.
     
-        ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azureMarketplace.png)
+    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
+    ***
 3. On the **Create** page, provide the following information:
 
     > [!IMPORTANT]
