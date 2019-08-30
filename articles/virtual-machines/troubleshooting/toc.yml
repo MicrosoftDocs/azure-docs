@@ -98,7 +98,7 @@
   href: restart-resize-error-troubleshooting.md
 - name: Serial Console
   items:
-  - name: Serial Console Overview
+  - name: Serial Console overview
     href: serial-console-overview.md
   - name: Serial Console for Linux
     href: serial-console-linux.md
