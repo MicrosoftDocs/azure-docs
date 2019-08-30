@@ -30,17 +30,17 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 ### Step 1: Create a flow
 
 1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and then select **My Flows**.
-2. Click **New** then **Scheduled--from blank**.
+2. Click **New** then **Scheduled——from blank**.
 
     ![Create new flow from scheduled blank](./media/automate-with-flow/1-create.png)
 
 ### Step 2: Create a trigger for your flow
 
-1. In the popup **Build a scheduled flow** fill out the name of your flow and how often you want your flow to run.
+1. In the popup **Build a scheduled flow**, fill out the name of your flow and how often you want your flow to run.
 
     ![Set up schedule recurrence with entering frequency and interval](./media/automate-with-flow/2-schedule.png)
 
-1. Click **Create**
+1. Click **Create**.
 
 ### Step 3: Add an Application Insights action
 
@@ -49,7 +49,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
     ![Choose an action: Azure Application Insights Visualize Analytics query](./media/automate-with-flow/3-visualize.png)
 
-3. Click **New step**
+3. Select **New step**.
 
 ### Step 4: Connect to an Application Insights resource
 
@@ -65,7 +65,7 @@ Provide a name for your connection, along with the application ID and API key.
 
 If the connection box does not show up right away and instead goes straight to entering the query, click the ellipses at the top right of the box. Then select my connections or use an existing one.
 
-Click **Create**
+Click **Create**.
 
 ### Step 5: Specify the Analytics query and chart type
 This example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates them based on the operation_Id identifier. The query then segments the results by using the autocluster algorithm.
@@ -120,6 +120,8 @@ When you create your own queries, verify that they are working properly in Analy
 Click **Save**.
 
 You can wait for the trigger to run this action, or can click on ![beaker test icon](./media/automate-with-flow/testicon.png) **Test** in the top.
+
+After selecting **Test**, do the following:
 
 1. Select **I'll perform the trigger action**.
 2. Select **Run Flow**.
