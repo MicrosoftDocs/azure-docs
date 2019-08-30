@@ -291,6 +291,10 @@
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
+      - name: Feature Hashing
+        href: ../algorithm-module-reference/feature-hashing.md
+      - name: Extract N-Gram Features from Text
+        href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
         href: ../algorithm-module-reference/add-columns.md
       - name: Add Rows
@@ -351,10 +355,6 @@
         href: ../algorithm-module-reference/two-class-support-vector-machine.md
       - name: K-Means Clustering
         href: ../algorithm-module-reference/k-means-clustering.md
-      - name: Feature Hashing
-        href: ../algorithm-module-reference/feature-hashing.md
-      - name: Extract N-Gram Features from Text
-        href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
     - name: Python and R language modules
       items:
       - name: Execute Python Script
