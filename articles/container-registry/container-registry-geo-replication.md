@@ -94,6 +94,17 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 * After you push an image or tag update to the closest region, it takes some time for Azure Container Registry to replicate the manifests and layers to the remaining regions you opted into. Larger images take longer to replicate than smaller ones. Images and tags are synchronized across the replication regions with an eventual consistency model.
 * To manage workflows that depend on push updates to a geo-replicated registry, we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. You can set up regional webhooks within a geo-replicated registry to track push events as they complete across the geo-replicated regions.
 
+## Remove a replica
+
+After you've configured a replica for your registry, you can remove it any time if it's no longer need. Remove a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) command in the Azure CLI.
+
+To remove a replica in the Azure portal:
+
+1. Navigate to your Azure Container Registry, and select **Replications**.
+1. Select the name of a replica, and select **Delete**. Confirm that you want to delete the replica.
+
+> [!NOTE]
+> You can't delete the registry replica in the *home region* of the registry, that is, the location where you created the registry. You can only delete the home replica by deleting the registry itself.
 
 ## Geo-replication pricing
 
