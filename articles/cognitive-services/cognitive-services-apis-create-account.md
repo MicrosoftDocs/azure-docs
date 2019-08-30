@@ -39,6 +39,8 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
     On the Cognitive Services page, select **Create**.
 
+    ![Create Cognitive Services accout](media/cognitive-services-apis-create-account/azureCogServSearchMulti-2.png)
+
     #### [Single-service key](#tab/singleservice)
 
     To see all available cognitive services, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **More** to view the entire catalog of Cognitive Services APIs.
