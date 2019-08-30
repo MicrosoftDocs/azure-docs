@@ -28,9 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create virtual machines
 
@@ -66,7 +66,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Install IIS
 
-1. Open the interactive shell and make sure that it is set to **PowerShell**.
+1. Open the interactive shell and make sure that it's set to **PowerShell**.
 
     ![Install custom extension](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
 
@@ -170,7 +170,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 10. For **HTTP setting**, select **myHTTPSetting**
 11. For **Backend target**, select **Images**.
 12. Select **Add** to save the path rule and return to the **Add a routing rule** tab.
-13. Repeat to add a another rule for Video.
+13. Repeat to add another rule for Video.
 14. Select **Add** to add the routing rule and return to the **Configuration** tab.
 15. Select **Next: Tags** and then **Next: Review + create**.
 
@@ -194,13 +194,13 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
    The listener on port 8080 routes this request to the default backend pool.
 
-3. Change the URL to *http://&lt;ip-address&gt;:8080/images/test.htm*, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+3. Change the URL to *http://&lt;ip-address&gt;:8080/images/test.htm*, replacing &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    The listener on port 8080 routes this request to the *Images* backend pool.
 
-4. Change the URL to *http://&lt;ip-address&gt;:8080/video/test.htm*, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+4. Change the URL to *http://&lt;ip-address&gt;:8080/video/test.htm*, replacing &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test video URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
