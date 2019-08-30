@@ -34,7 +34,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create virtual machines
 
-In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
+In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway works as expected.
 
 1. On the Azure portal, select **Create a resource**.
 2. Select **Windows Server 2016 Datacenter** in the Popular list.
@@ -49,7 +49,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 4. Select **Next:Disks**.
 5. Select **Next:Networking**
-6. Select **Create new** and then type these values for the virtual network:
+6. For **Virtual network**, select **Create new** and then type these values for the virtual network:
 
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.
@@ -74,6 +74,7 @@ In this example, you create three virtual machines to be used as backend servers
 
     ```azurepowershell
          $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+
         Set-AzVMExtension `
          -ResourceGroupName myResourceGroupAG `
          -Location eastus `
@@ -97,7 +98,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 1. On the **Basics** tab, enter these values for the following application gateway settings:
 
-   - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
+   - **Resource group**: Select **myResourceGroupAG** for the resource group.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
    - **Region** - Select **(US) East US**.
 
@@ -111,14 +112,10 @@ In this example, you create three virtual machines to be used as backend servers
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**.
 
-   You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
    > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
 
 2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
-
-        ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
-
 3. Select **Next: Backends**.
 
 ### Backends tab
@@ -130,11 +127,12 @@ The backend pool is used to route requests to the backend servers that serve the
 2. In the **Add a backend pool** window that opens, enter the following values to create an empty backend pool:
 
     - **Name**: Enter *myBackendPool* for the name of the backend pool.
-3. Under **Backend Targets**, select **Virtual machine** from the drop-down list.
+3. Under **Backend Targets**, **Target type**, select **Virtual machine** from the drop-down list.
 
-5. Under **Target** select the network interface for **myVM1** 
-6. Repeat to add an *Images* backend pool with *myVM2* as the target, and a *Video* backend pool with *myVM3* as the target.
-3. Select **Add** to save the backend pool configuration and return to the **Backends** tab.
+5. Under **Target** select the network interface for **myVM1**.
+6. Select **Add**.
+7. Repeat to add an *Images* backend pool with *myVM2* as the target, and a *Video* backend pool with *myVM3* as the target.
+8. Select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
 4. On the **Backends** tab, select **Next: Configuration**.
 
@@ -159,9 +157,6 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. 
 
 6. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window.
-
-        ![Create new application gateway: HTTP setting](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
-
 7. Under **Path-based routing**, select **Add multiple targets to create a path-based rule**.
 8. For **Path**, type */images/*\*.
 9. For **Path rule name**, type *Images*.
