@@ -9,7 +9,6 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: glenga
