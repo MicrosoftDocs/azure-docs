@@ -9,6 +9,7 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 ---
 
 ::: zone target="docs"
