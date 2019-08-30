@@ -186,7 +186,7 @@ If your application uses managed instance as the data tier, follow these general
 
   To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. You can do it by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API. 
 
-  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with managed instances (preview)](#powershell-managing-failover-groups-with-managed-instances-preview).
+  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with managed instances (preview)](#powershell-managing-sql-database-failover-groups-with-managed-instances-preview).
 
 - **Enable replication traffic between two instances**
 
