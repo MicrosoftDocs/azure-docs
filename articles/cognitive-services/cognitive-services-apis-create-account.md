@@ -45,6 +45,8 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
     #### [Single-service resource](#tab/singleservice)
 
     To see all available cognitive services, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
+
+    Once you are on the service you are interested in, click **Create**.
     
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
@@ -59,7 +61,7 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
     | **Subscription** | Select one of your available Azure subscriptions. |
     | **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. Remember your Azure location, as you may need it when calling the Azure Cognitive Services. |
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
+    | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
     ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
@@ -73,7 +75,7 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
     | **Subscription** | Select one of your available Azure subscriptions. |
     | **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. Remember your Azure location, as you may need it when calling the Azure Cognitive Services. |
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
+    | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
     ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
