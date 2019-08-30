@@ -19,10 +19,10 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * An organizational email account that is a member of Azure Active directory, so you can connect to the [Azure Data Explorer help cluster](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
-or
+<br>or</br>
 * Create [a test cluster and database](create-cluster-database-portal.md) and sign in to [the Azure Data Explorer Web UI application](https://dataexplorer.azure.com/).
 
-## Define Kusto query as Excel data source
+## Define Kusto query as an Excel data source
 
 1. In [Azure Data Explorer Web UI](https://dataexplorer.azure.com/clusters/help/databases/Samples), run the query and check the results.
 
@@ -36,7 +36,7 @@ or
 
 1. Open **Microsoft Excel**.
 
-1. In the **Data** tab, select **Get Data** > **From Other Sources** > **Blank Query**
+1. In the **Data** tab, select **Get Data** > **From Other Sources** > **Blank Query**.
 
     ![Get data and select blank query](media/excel-blank-query/get-data-blank-query.png)
 
@@ -52,7 +52,7 @@ or
 
     ![Edit credentials](media/excel-blank-query/edit-credentials.png)
 
-1. Select **Organizational account** and then select **Sign in**. Complete the sign-in process and then select **Connect**.
+1. Select **Organizational account** and **Sign in**. Complete the sign-in process and then select **Connect**.
 
     ![Complete sign-in](media/excel-blank-query/complete-sign-in.png)
 
@@ -62,6 +62,6 @@ or
 
     ![Select close and load](media/excel-blank-query/close-and-load.png)
 
-1. Now your data is in Excel. Select the **Refresh** button to refresh the query
+1. Now your data is in Excel. Select the **Refresh** button to refresh the query.
 
     ![View data in excel](media/excel-blank-query/data-in-excel.png)

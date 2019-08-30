@@ -98,7 +98,7 @@
       items:
       - name: connector
         href: excel-connector.md
-      - name: imported query
+      - name: blank query
         href: excel-blank-query.md
     - name: Grafana
       href: grafana.md

@@ -13,14 +13,14 @@ ms.date: 08/30/2019
 
 # Visualize data using the Azure Data Explorer connector for Excel
 
-Azure Data Explorer offers the ability to export query results to Excel using the Excel native connector. You can also add a KQL query as an Excel data source for additional calculations or visualizations.
-
 Azure Data Explorer provides two options for connecting to data in Excel: use the native connector or import a query from Azure Data Explorer. This article shows you how to use the native connector in Excel and connect to the Azure Data Explorer cluster to get and visualize data.
 
-## Define Kusto query as Excel data source and load data to Excel
+The Azure Data Explorer Excel native connector offers the ability to export query results to Excel. You can also add a KQL query as an Excel data source for additional calculations or visualizations.
+
+## Define Kusto query as an Excel data source and load the data to Excel
 
 1. Open **Microsoft Excel**.
-1. In the **Data** tab, select **Get Data** > **From Azure** > **From Azure Data Explorer**
+1. In the **Data** tab, select **Get Data** > **From Azure** > **From Azure Data Explorer**.
 
     ![Get data from Azure Data Explorer](media/excel-connector/get-data-from-adx.png)
 
