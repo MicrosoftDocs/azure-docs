@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
@@ -400,6 +400,15 @@ When you're ready to run your test, use an Azure AD account (work or school acco
 <br/><br/>
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
+<!--start-collapse-->
+> ###  Permissions and consent in the Microsoft identity platform endpoint
+>  Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with Azure AD to access this application, they will be prompted to consent to the permissions requested by the application ("View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
+>  > - The application developer adds any additional permissions that require **Admin consent**.
+>  > - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
+>
+> For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+<!--end-collapse-->
+
 #### View application results
 
 After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that's specified in your application registration info in the Microsoft Application Registration Portal. The home page includes a *"Hello \<user>"* welcome message, a link to sign out, and a link to view the user’s claims. The link for the user's claims connects to the Claims controller that you created earlier.
@@ -472,8 +481,15 @@ Learn about how web apps can call web APIs.
 
 ### Learn how to create the application used in this quickstart guide
 
+Learn more about Web apps calling web APIs with the Microsoft identity platform:
+
 > [!div class="nextstepaction"]
-> [Web apps calling Web APIs]( https://aka.ms/msal-net-authorization-code)
+> [Web apps calling Web APIs](scenario-web-app-sign-user-overview.md)
+
+Learn how to build Web apps calling Microsoft Graph:
+
+> [!div class="nextstepaction"]
+> [Microsoft Graph ASP.NET tutorial](https://docs.microsoft.com/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
