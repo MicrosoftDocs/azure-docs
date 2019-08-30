@@ -133,7 +133,7 @@ First, view the public IP address of your VM with [az vm show](/cli/azure/vm#az-
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Replace the example accoung with your own. Account addresses should be entered in all lowercase. Replace the example IP address with the public IP address of your VM from the previous command.
+Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Replace the example account with your own. Account addresses should be entered in all lowercase. Replace the example IP address with the public IP address of your VM from the previous command.
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
@@ -141,9 +141,13 @@ ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 
 You are prompted to sign in to Azure AD with a one-time use code at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copy and paste the one-time use code into the device login page.
 
-When prompted, enter your Azure AD login credentials at the login page. The following message is shown in the web browser when you have successfully authenticated: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+When prompted, enter your Azure AD login credentials at the login page. 
 
-Close the browser window, return to the SSH prompt, and press the **Enter** key. You are now signed in to the Azure Linux virtual machine with the role permissions as assigned, such as *VM User* or *VM Administrator*. If your user account is assigned the *Virtual Machine Administrator Login* role, you can use `sudo` to run commands that require root privileges.
+The following message is shown in the web browser when you have successfully authenticated: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+
+Close the browser window, return to the SSH prompt, and press the **Enter** key. 
+
+You are now signed in to the Azure Linux virtual machine with the role permissions as assigned, such as *VM User* or *VM Administrator*. If your user account is assigned the *Virtual Machine Administrator Login* role, you can use `sudo` to run commands that require root privileges.
 
 ## Sudo and AAD login
 

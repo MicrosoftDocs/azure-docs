@@ -81,8 +81,6 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
-    - name: Search unstructured data
-      href: storage-unstructured-search.md
   - name: Samples
     items:
     - name: .NET
