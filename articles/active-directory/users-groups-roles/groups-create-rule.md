@@ -31,8 +31,8 @@ Here are some examples of advanced rules or syntax for which we recommend that y
 
 - Rule with more than five expressions
 - The Direct reports rule
-- Setting operator precedence
-- Rules with complex expressions; for example `(user.proxyAddresses -any (_ -contains "contoso"))`
+- Setting [operator precedence](groups-dynamic-membership.md#operator-precedence)
+- [Rules with complex expressions](groups-dynamic-membership.md#rules-with-complex-expressions); for example `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
