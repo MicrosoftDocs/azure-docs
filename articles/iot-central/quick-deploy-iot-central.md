@@ -3,21 +3,23 @@ title: Create an Azure IoT Central application | Microsoft Docs
 description: Create a new Azure IoT Central application. Create a Trial or Pay-As-You-Go application using an application template.
 author: viv-liu
 ms.author: viviali
-ms.date: 06/07/2019
+ms.date: 08/02/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
+manager: corywink
 ---
 
 # Create an Azure IoT Central application
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure IoT Central application. This quickstart shows you how to create an Azure IoT Central application that contains a sample _device template_ and simulated _devices_.
 
 ## Create an application
 
-Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. You will need to sign in with a Microsoft personal or work or school account.
+Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. You will need to sign in with a Microsoft personal or work or school account.
 
 To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
@@ -34,8 +36,6 @@ To create a new Azure IoT Central application:
 
       Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
-1. Choose a friendly application name, such as **Contoso IoT**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
-
 1. Choose an application template. An application template can contain predefined items such as device templates and dashboards to help you get started.
 
     | Application template | Description |
@@ -44,11 +44,13 @@ To create a new Azure IoT Central application:
     | Sample Devkits       | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you are a device developer experimenting with any of these devices. |
     | Custom application   | Creates an empty application for you to populate with your own device templates and devices. |
 
-1. Select **Create**.
+1. Enter a friendly application name, such as **Contoso IoT**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
+
+1. Click **Create**.
 
 ## Next steps
 
 In this quickstart, you created an IoT Central application. Here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Take a tour of IoT Central](overview-iot-central-tour.md)
+> [Define a new device type in your Azure IoT Central application](./tutorial-define-device-type.md)

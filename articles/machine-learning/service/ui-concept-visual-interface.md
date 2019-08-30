@@ -50,9 +50,8 @@ An experiment consists of datasets and analytical modules, which you connect tog
 * All input ports for modules must have some connection to the data flow.
 * All required parameters for each module must be set.
 
-For an example of a simple experiment, see [Quickstart: Prepare and visualize data without writing code in Azure Machine Learning](ui-quickstart-run-experiment.md).
 
-For a more complete walkthrough of a predictive analytics solution, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
+To learn how to get started with the visual interface, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
 ## Dataset
 
@@ -90,7 +89,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Quickstart: Prepare and visualize data without writing code in Azure Machine Learning](ui-quickstart-run-experiment.md).
+* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md)
 * Use one of the samples and modify to suite your needs:
     * [Sample 1 - Regression: Predict price](ui-sample-regression-predict-automobile-price-basic.md)
     * [Sample 2 - Regression: Predict price and compare algorithms](ui-sample-regression-predict-automobile-price-compare-algorithms.md)

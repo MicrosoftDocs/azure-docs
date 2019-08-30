@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -310,4 +309,4 @@ In this tutorial, you configured, reviewed, and managed updates for a VM. You le
 Advance to the next tutorial to learn about Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](./tutorial-azure-security.md)
+> [Manage VM security](../../security/fundamentals/overview.md)

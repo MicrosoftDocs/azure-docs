@@ -50,7 +50,7 @@ There are two primary ways in which you can enable your users to single sign-on 
 ### Considerations for federation-based SSO
 
 - **Using OpenID Connect and OAuth** - If the application you're connecting to supports it, use the OIDC/OAuth 2.0 method to enable your SSO to that application. This method requires less configuration and enables a richer user experience. For more information, see [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1.0](../develop/v2-protocols-oidc.md), and [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Endpoint Configurations for SAML-based SSO** - If you use SAML, your developers will need specific information prior to configuring the application. For more info, see [Configure basic SAML Options](configure-single-sign-on-portal.md).
+- **Endpoint Configurations for SAML-based SSO** - If you use SAML, your developers will need specific information prior to configuring the application. For more info, see [Edit the Basic SAML Configuration](configure-single-sign-on-non-gallery-applications.md).
 - **Certificate management for SAML-based SSO** - When you enable Federated SSO for your application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if needed. Ensure that you have processes in place to renew certificates prior to their expiration. To learn more, see [Azure AD Managing Certificates](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### Considerations for password-based SSO
@@ -91,7 +91,7 @@ From the sign-in perspective, applications with shared accounts aren't different
 
 Choosing the correct authentication method is a crucial first decision in setting up an Azure AD hybrid identity solution. Implement the authentication method that is configured by using Azure AD Connect, which also provisions users in the cloud.
 
-To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. You should choose the one that most closely matches your specific scenario. For more information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. You should choose the one that most closely matches your specific scenario. For more information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 
 ## Plan your security and governance 
 

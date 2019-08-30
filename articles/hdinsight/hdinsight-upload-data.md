@@ -51,12 +51,12 @@ In order to use the Hadoop command, you must first connect to the headnode using
 Once connected, you can use the following syntax to upload a file to storage.
 
 ```bash
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
+hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Because the default file system for HDInsight is in Azure Storage, /example/data.txt is actually in Azure Storage. You can also refer to the file as:
+Because the default file system for HDInsight is in Azure Storage, /example/data/data.txt is actually in Azure Storage. You can also refer to the file as:
 
     wasbs:///example/data/data.txt
 

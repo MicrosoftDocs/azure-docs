@@ -44,7 +44,7 @@ If a risky B2B user in your directory is blocked by your risk-based policy, the 
 
 ### How do I prevent B2B collaboration users from being impacted by risk-based policies?
 
-Excluding B2B users from your organization's risk-based Conditional Access policies will prevent B2B users from being impacted or blocked by their risk evaluation. To exclude these B2B users, create a group in Azure AD that contains all of your organization's guest users. Then, add this group as an exclusion for your built-in Identity Protection user risk and sign-in risk policies, as well as any Conditional Access policies that user sign-in risk as a condition.
+Excluding B2B users from your organization's risk-based Conditional Access policies will prevent B2B users from being impacted or blocked by their risk evaluation. To exclude these B2B users, create a group in Azure AD that contains all of your organization's guest users. Then, add this group as an exclusion for your built-in Identity Protection user risk and sign-in risk policies, as well as any Conditional Access policies that use sign-in risk as a condition.
 
 ## Next steps
 

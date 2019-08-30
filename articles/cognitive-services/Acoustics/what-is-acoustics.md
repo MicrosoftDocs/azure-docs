@@ -3,14 +3,15 @@ title: Project Acoustics Overview
 titlesuffix: Azure Cognitive Services
 description: Project Acoustics is an acoustics engine for 3D interactive experiences, integrating baked wave physics simulation with interactive design controls.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 # Customer intent: As a sound designer, I want an occlusion, reverb, and portaling system to manage the mix and anchor sounds in a virtual world.
 ---
 
@@ -36,11 +37,17 @@ Project Acoustics' key innovation is to couple acoustic simulation with traditio
 * **Bake:** An analysis step is run locally, which does voxelization and other geometric analysis on the scene based on selections above. Results are visualized in editor to verify scene setup. On bake submission, voxel data is sent off to Azure and you get back an acoustics game asset.
 * **Runtime:** Load the asset into your level, and you're ready to listen to acoustics in your level. Design the acoustics live in editor using granular per-source controls. The controls can also be driven from level scripting.
 
-## Platforms
+## Runtime platforms
 The Project Acoustics runtime plugins can currently be deployed to the following platforms:
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## Editor platforms
+The Project Acoustics editor plugin is available for the following platforms:
+* Windows
+* MacOS (Unity only)
 
 ## Download
 * [Project Acoustics Unity plugin and samples](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

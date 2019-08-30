@@ -57,5 +57,5 @@ The Immersive Reader is a standalone web app that, when invoked using the Immers
 Get started with Immersive Reader:
 
 * Jump into the [quickstart](./quickstart.md)
-* Explore the [Immersive Reader SDK on GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Read the [Immersive Reader SDK Reference](./reference.md)

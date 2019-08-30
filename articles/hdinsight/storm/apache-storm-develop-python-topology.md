@@ -29,7 +29,7 @@ The code for this project is available at [https://github.com/Azure-Samples/hdin
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](https://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
+* (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 ## Storm multi-language support
 

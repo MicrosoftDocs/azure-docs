@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -47,6 +47,10 @@ Generally, SAP ECC exposes entities via OData services through SAP Gateway. To u
 
 - **Activate and configure the SAP OData service**. You can activate the OData service through TCODE SICF in seconds. You can also configure which objects need to be exposed. For more information, see the [step-by-step guidance](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -63,7 +67,7 @@ The following properties are supported for the SAP ECC linked service:
 | `url` | The URL of the SAP ECC OData service. | Yes |
 | `username` | The username used to connect to SAP ECC. | No |
 | `password` | The plaintext password used to connect to SAP ECC. | No |
-| `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use a self-hosted integration runtime or the Azure integration runtime (if your data store is publicly accessible). If you don't specify a runtime, `connectVia` uses the default Azure integration runtime. | No |
+| `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If you don't specify a runtime, the default Azure integration runtime is used. | No |
 
 ### Example
 
@@ -110,6 +114,7 @@ The following properties are supported:
         "typeProperties": {
             "path": "<entity path, e.g., dd04tentitySet>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP ECC linked service name>",
             "type": "LinkedServiceReference"

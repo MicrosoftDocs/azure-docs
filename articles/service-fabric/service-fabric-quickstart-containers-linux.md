@@ -3,7 +3,7 @@ title: Create a Linux container app on Service Fabric in Azure | Microsoft Docs
 description: In this quickstart, you will build a Docker image with your application, push the image to a container registry, and then deploy your container to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: linux
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 

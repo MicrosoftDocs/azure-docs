@@ -24,8 +24,7 @@ Security state monitoring and recommendations are available for virtual machines
 >
 
 ## Platforms that support the data collection agent 
-
-This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
+This section lists the platforms on which the Log Analytics Agent, which is used by Azure Security Center, can run.
 
 ### Supported platforms for Windows computers and VMs
 The following Windows operating systems are supported:
@@ -106,14 +105,17 @@ For information about when recommendations are generated for each of these prote
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
-| Trend Micro – All version | Windows Server Family  | No | Yes |
+| Trend Micro – All versions* | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
-| Kaspersky| Windows Server Family  | No | No  |
-| Sophos| Windows Server Family  | No | No  |
+| McAfee v10+ | Linux Server Family  | No | Yes **\*** |
+| Sophos V9+| Linux Server Family  | No | Yes  **\***  |
+
+ **\*** The coverage state and supporting data is currently available only in the Log Analytics workspace associated to your protected subscriptions, and is not reflected in Azure Security Center portal.
 
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+> - Detection of Trend Micro protection is supported for Deep Security agents.  OfficeScan agents are not supported.
 
 ## Supported PaaS features
 
@@ -157,6 +159,6 @@ For information about when recommendations are generated for each of these prote
 ## Next steps
 
 - Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
-- Learn more about [virtual machine behavioral analysis and crash dump memory analysis in Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Learn more about [Threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
 - Find [frequently asked questions about using Azure Security Center](security-center-faq.md).
 - Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).

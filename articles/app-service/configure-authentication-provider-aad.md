@@ -11,7 +11,6 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
@@ -38,6 +37,10 @@ This article shows you how to configure Azure App Services to use Azure Active D
    Click the app registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings page.
    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 5. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
+
+> [!CAUTION]
+> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
+
 6. Click **Save**.
 
 ## <a name="advanced"> </a>Configure with advanced settings

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 # Data science with a Linux Data Science Virtual Machine on Azure
@@ -32,8 +32,8 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 
 * An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 * A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
-* [X2Go](https://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* For a smoother scrolling experience, toggle the gfx.xrender.enabled flag in about:config in VMs FireFox browser. [See more here.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider toggling *mousewheel.enable_pixel_scrolling* to False. [Instructions here.](https://support.mozilla.org/en-US/questions/981140)
+* [X2Go](https://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Install and configure the X2Go client](linux-dsvm-intro.md#install-and-configure-the-x2go-client).
+* For a smoother scrolling experience, toggle the gfx.xrender.enabled flag in about:config in VMs FireFox browser. [See more here.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider toggling *mousewheel.enable_pixel_scrolling* to False. [Instructions here.](https://support.mozilla.org/questions/981140)
 * An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
 ## Download the spambase dataset
@@ -225,6 +225,20 @@ To try it out on the first 10 rows of the test set:
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
+## Deep Learning tutorials and walkthroughs
+
+In addition to the framework-based samples, a set of comprehensive walkthroughs is also provided that have been validated on the DLVM. These walkthroughs help you jump-start your development of deep learning applications in domains like image and text/language understanding. More end-to-end tutorials across different domains and technology will continue to be added.   
+
+
+- [Running neural networks across different frameworks](https://github.com/ilkarman/DeepLearningFrameworks): A comprehensive walkthrough that shows how to migrate code from one framework to another. It also demonstrates how to compare model and run time performance across frameworks. 
+
+- [A how-to guide to build an end-to-end solution to detect products within images](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Image detection is a technique that can locate and classify objects within images. This technology has the potential to bring huge rewards in many real life business domains. For example, retailers can use this technique to determine which product a customer has picked up from the shelf. This information in turn helps stores manage product inventory. 
+
+- [Deep learning for audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) This tutorial shows how to train a deep learning model for audio event detection on the [urban sounds dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) and provide an overview of how to work with audio data.
+
+- [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two different neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM) network. These neural networks use the Keras API for deep learning to classify text documents. Keras is a front end to three of the most popular deep learning frameworks: Microsoft Cognitive Toolkit, TensorFlow, and Theano.
 
 ## Use other tools available
 The remaining sections show how to use some of the tools installed on the Linux Data Science VM.Here is the list of tools discussed:

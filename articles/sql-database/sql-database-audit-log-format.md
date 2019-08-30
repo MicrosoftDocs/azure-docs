@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 01/03/2019
 ---
 # SQL Database Audit Log Format

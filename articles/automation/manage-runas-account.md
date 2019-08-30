@@ -363,11 +363,15 @@ To renew the certificate, do the following:
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
-To renew certificates using PowerShell, use the following script on [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1).
+## <a name="auto-cert-renewal"></a>Set up automatic certificate renewal with an automation runbook
+
+To renew certificates automatically, you can use an automation runbook. The following script on [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) enables this functionality in your
+automation account.
 
 - The `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` script creates a weekly schedule to renew Run As Account certificates.
 - The script adds an **Update-AutomationRunAsCredential** runbook to your automation account.
   - You can also view the runbook code on GitHub, in the script: [Update-AutomationRunAsCredential.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
+  - You can also use the PowerShell code in the file to renew certificates manually as needed.
 
 To test the renewal process immediately, use the following steps:
 

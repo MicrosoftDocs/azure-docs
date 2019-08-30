@@ -36,7 +36,7 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 
 To decide whether you want to use agentless or agent-based migration, review these articles:
 
-- [Learn how](server-migrate-overview.md) agentless migration works, and [review the limitations](server-migrate-overview.md#agentless-migration-limitations).
+- [Learn how](server-migrate-overview.md) agentless migration works, and [compare migration methods](server-migrate-overview.md#compare-migration-methods).
 - [Read this article](tutorial-migrate-vmware-agent.md) if you want to use the agent-based method.
 
 ## Prerequisites
@@ -88,7 +88,7 @@ Follow the instructions in [this article](how-to-set-up-appliance-vmware.md) to 
 
 Azure Migrate requires some VM changes to ensure that VMs can be migrated to Azure.
 
-- For some [operating systems](server-migrate-overview.md#agentless-migration-limitations), Azure Migrate makes these changes automatically.
+- For some operating systems, Azure Migrate makes these changes automatically. [Learn more](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - If you're migrating a VM that doesn't have one of these operating systems, follow the instructions to prepare the VM.
 - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 - Configuration changes you make on on-premises VMs are replicated to Azure after replication for the VM is enabled. To ensure that changes are replicated, make sure that the recovery point you migrate to is later than the time at which the configuration changes were made on-premises.

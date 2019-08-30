@@ -1,22 +1,16 @@
 ---
-title: Data platforms for the Data Science Virtual Machine - Azure | Microsoft Docs
-description: Learn about the data platforms and tools supported on the Data Science Virtual Machine.
+title: Supported data platforms
+titleSuffix: Azure Data Science Virtual Machine 
+description: Learn about the supported data platforms and tools for the Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: gopitk
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
 
 ---
 

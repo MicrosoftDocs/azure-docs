@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 02/22/2019
 ---
 # Determine VNet subnet size for Azure SQL Database Managed Instance

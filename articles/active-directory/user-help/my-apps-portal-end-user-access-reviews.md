@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Perform an access review from the My Apps portal
+
 You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
@@ -24,6 +25,7 @@ You can use your work or school account with the web-based **My Apps** portal, t
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## Manage access reviews
+
 If your administrator has given you permission to perform your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
 
 >[!Note]
@@ -31,9 +33,9 @@ If your administrator has given you permission to perform your own access review
 
 ### To perform your access reviews
 
-1.	Sign in to your work or school account.
+1. Sign in to your work or school account.
 
-2.	Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
@@ -63,7 +65,7 @@ If your administrator has given you permission to perform your own access review
     Your access review is complete and you return to the **My Apps** portal.
 
     >[!Note]
-    >You can change your access at any time until your access review period ends. If you remove your access to an app or group, it's not removed immediately. The removal happens when the access review period ends or when an administrator closes the review. 
+    >You can change your access at any time until your access review period ends. If you remove your access to an app or group, it's not removed immediately. The removal happens when the access review period ends or when an administrator closes the review.
 
 ## Next steps
 

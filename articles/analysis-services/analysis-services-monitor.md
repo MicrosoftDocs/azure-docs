@@ -5,16 +5,16 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/26/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Monitor server metrics
 
-Analysis Services provides metrics to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Analysis Services provides metrics in Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
 
-To perform more in-depth diagnostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](https://azure.microsoft.com/services/monitor/). Azure Monitor (service) may result in a billable service.
+To perform more in-depth diagnostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](../azure-monitor/overview.md). Azure Monitor (service) may result in a billable service.
 
 
 ## To monitor metrics for an Analysis Services server
@@ -80,6 +80,6 @@ Use this table to determine which metrics are best for your monitoring scenario.
 |TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. |
 
 ## Next steps
-[Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
-[Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
+[Azure Monitor overview](../azure-monitor/overview.md)      
+[Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)      
 [Metrics in Azure Monitor REST API](/rest/api/monitor/metrics)

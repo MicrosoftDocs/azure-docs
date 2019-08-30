@@ -3,13 +3,14 @@ title: Create automated workflows with Visual Studio - Azure Logic Apps
 description: Automate tasks, business processes, and workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ms.date: 04/25/2019
 ---
 
@@ -102,6 +103,10 @@ for example:
    ![Create Azure Resource Group project](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > Resource group names can contain only letters, numbers, 
+   > periods (`.`), underscores (`_`), hyphens (`-`), and 
+   > parentheses (`(`, `)`), but can't *end* with periods (`.`).
+   >
    > If **Cloud** or **Azure Resource Group** doesn't appear, 
    > make sure you install the Azure SDK for Visual Studio.
 
@@ -237,6 +242,22 @@ resource name for your logic app. Save your settings.
 Congratulations, you've successfully built and deployed your logic app with 
 Visual Studio. To manage your logic app and review its run history, see 
 [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+
+## Add new logic app
+
+When you have an existing Azure Resource Group project, you can add a new blank logic app to that project by using the JSON Outline window.
+
+1. In Solution Explorer, open the `<logic-app-name>.json` file.
+
+1. From the **View** menu, select **Other Windows** > **JSON Outline**.
+
+1. To add a resource to the template file, choose **Add Resource** at the top of the JSON Outline window. Or in the JSON Outline window, right-click **resources**, and select **Add New Resource**.
+
+   ![JSON Outline window](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+
+1. In the **Add Resource** dialog box, find and select **Logic App**. Name your logic app, and choose **Add**.
+
+   ![Add resource](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
 
 ## Clean up resources
 
