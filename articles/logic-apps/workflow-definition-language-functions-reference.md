@@ -3579,7 +3579,7 @@ setProperty(<object>, '<property>', <value>)
 To set a child property for an existing property, use this syntax:
 
 ```
-setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>[`parentProperty'], '<child-property>', <value>))
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
 ```
 
 | Parameter | Required | Type | Description |
