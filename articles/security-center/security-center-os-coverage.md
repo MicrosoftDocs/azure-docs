@@ -49,6 +49,7 @@ To learn more about the supported features for the above list of Windows operati
 ### Linux operating systems <a name="os-linux"></a>
 
 64-bit
+
 * CentOS 6 and 7
 * Amazon Linux 2017.09
 * Oracle Linux 6 and 7
