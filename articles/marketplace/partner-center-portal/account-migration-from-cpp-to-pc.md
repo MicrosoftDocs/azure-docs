@@ -11,17 +11,17 @@ ms.date: 08/30/2019
 
 # Account migration from Cloud Partner Portal to Partner Center
 
-When your offers are migrated over from the Cloud Partner Portal (CPP) to Partner Center (PC), they get locked for editing in CPP. At this point, your account settings need to be migrated over to Partner Center.  Both your account settings, as well as your offers, can be managed in Partner Center.
+When your offers are migrated from Cloud Partner Portal (CPP) to Partner Center (PC), they get locked for editing in CPP. At this point, your account settings need to be migrated over to Partner Center. Both your account settings, as well as your offers, can be managed in Partner Center.
 
 ## Account migration process
 
-When offers are migrated over from the CPP, your account is configured for migration. 
+When offers are migrated over from CPP, your account is configured for migration. 
  
-If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page.  You are asked to move your account settings over to the Partner Center. 
+If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You are asked to move your account settings over to Partner Center. 
 
 Click on the banner to initiate your account migration process. You are expected to enter the following items:
 
-### **Work e-mail address**
+### Work e-mail address
 
 In most cases, sign in with the e-mail address that you use to sign into CPP. In certain cases, a different e-mail address must be used:
 
@@ -33,13 +33,13 @@ In most cases, sign in with the e-mail address that you use to sign into CPP. In
 
 In the event that your CPP account does not have a Microsoft Partner Network ID, or has one that is invalid, you will have to sign up for the Microsoft Partner Network program as part of the activation process.
 
-## Account activation is complete
+## After account migration is complete
 
-The account migration needs to happen only once for a given account. Once a given partner has completed the migration for the account, all Owners will see this behavior on their Publisher Profile page:
+Migration needs to happen only once for a given account. Once a given partner has completed the migration for the account, all Owners will see this behavior on their Publisher Profile page:
 
-1. You are going to see the Partner Settings page in Microsoft Partner Network, where you can manage the Microsoft Partner’s account settings. 
-2. Once the account migration is complete, a yellow banner on your Publisher Profile page pops up to users belonging to the Owner role in CPP for a given account, asking them to manage their account settings in Partner Center. 
-3. The account settings page in CPP is then converted to read-only mode. 
+1. You will see the Partner Settings page in Microsoft Partner Network, where you can now manage account settings. 
+2. A yellow banner on your Publisher Profile page in CPP will be shown to users who have the Owner role, asking them to manage their account settings in Partner Center. 
+3. The account settings page in CPP is converted to read-only mode. 
 
 ## Move Dynamics 365-based solutions to Partner Center
 

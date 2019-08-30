@@ -310,7 +310,7 @@ Your company's users can be assigned the following roles and permissions for the
 |Financial Contributor|- Not relevant for commercial marketplace|
 |Marketer|- Not relevant for commercial marketplace|
 
-For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV),Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
+For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
 
 ## Manage tenants
