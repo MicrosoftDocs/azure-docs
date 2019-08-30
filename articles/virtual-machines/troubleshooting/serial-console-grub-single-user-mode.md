@@ -1,6 +1,6 @@
 ---
-title: Azure Serial Console for GRUB and single-user mode | Microsoft Docs
-description: This article describes how to use Serial Console for GRUB in Azure virtual machines.
+title: Azure Serial console for GRUB and single-user mode | Microsoft Docs
+description: This article describes how to use Serial console for GRUB in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -18,16 +18,16 @@ ms.author: alsin
 ---
 
 # Use Serial console to access GRUB and single-user mode
-GRand Unified Bootloader (GRUB) is likely the first thing you see when you boot up a virtual machine (VM). Because it's displayed before the operating system has started, GRUB isn't accessible via SSH. From GRUB, you can modify your boot configuration to boot into single-user mode, among other things.
+GRand Unified Bootloader (GRUB) is likely the first thing you see when you boot a virtual machine (VM). Because it's displayed before the operating system has started, GRUB isn't accessible via SSH. In GRUB, you can modify your boot configuration to boot into single-user mode, among other things.
 
 Single-user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues, file system issues, or network issues. Fewer services can run in the background and, depending on the runlevel, a file system might not even be automatically mounted.
 
 Single-user mode is also useful in situations where your VM might be configured to accept only SSH keys for sign-in. In this case, you might be able to use single-user mode to create an account with password authentication. 
 
 > [!NOTE]
-> The Serial console service allows only users with *contributor* level access or higher to access the serial console of a VM.
+> The Serial console service allows only users with *contributor* level or higher permissions to access the serial console of a VM.
 
-To enter single-user mode, enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. See detailed instructions for entering GRUB in the next section. In general, you can use the restart button within the VM serial console to restart your VM and show GRUB if your VM has been configured to show GRUB.
+To enter single-user mode, enter GRUB when your VM is booting, and modify the boot configuration in GRUB. See detailed instructions for entering GRUB in the next section. In general, you can use the restart button within the VM serial console to restart your VM and show GRUB if your VM has been configured to show GRUB.
 
 ![The Linux Serial console Restart button](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
