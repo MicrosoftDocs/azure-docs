@@ -24,7 +24,7 @@ ms.author: jingwang
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!NOTE]
->To copy data from or to [Azure Database for MySQL](./mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
+>To copy data from or to [Azure Database for MySQL](../mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
 
 ## Supported capabilities
 
