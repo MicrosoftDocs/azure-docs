@@ -23,7 +23,7 @@ This article shows you how to install Consul. The Consul components are installe
 
 In this article, you learn how to:
 
-[!div class="checklist"]
+> [!div class="checklist"]
 > * Install the Consul components on AKS
 > * Validate the Consul installation
 > * Uninstall Consul from AKS
@@ -45,7 +45,7 @@ git clone https://github.com/hashicorp/consul-helm.git
 cd consul-helm
 ```
 
-We wil then need to create a custom Helm values file for the Consul install. Create the following custom values file before installing Consul.
+We will then need to create a custom Helm values file for the Consul install. Create the following custom values file before installing Consul.
 
 ```bash
 vim consul-values.yaml
