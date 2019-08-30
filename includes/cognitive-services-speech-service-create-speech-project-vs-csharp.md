@@ -2,9 +2,13 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/05/2019
+ms.date: 08/30/2019
 ms.author: wolfma
 ---
+
+To create a Visual Studio project for Universal Windows Platform (UWP) development, you need to set up Visual Studio development options, create the project, select the target architecture, and install the Speech SDK.
+
+### Set up Visual Studio development options
 
 1. Open Visual Studio 2019.
 
