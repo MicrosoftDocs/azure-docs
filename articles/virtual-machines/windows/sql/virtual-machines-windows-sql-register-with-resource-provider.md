@@ -224,7 +224,7 @@ Run the following PowerShell code snippet:
   $SqlVm.Properties.sqlManagement="Full"
   $SqlVm | Set-AzResource -Force
   ```
-
+---
 
 ## Register the SQL VM resource provider with a subscription 
 
