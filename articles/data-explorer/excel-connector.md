@@ -22,11 +22,11 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
 1. Open **Microsoft Excel**.
 1. In **Data** tab, select **Get Data** > **From Azure** > **From Azure Data Explorer**
 
-    ![Get data from Azure Data Explorer](media/excel/get-data-from-adx.png)
+    ![Get data from Azure Data Explorer](media/excel-connector/get-data-from-adx.png)
 
 1. In the **Azure Data Explorer (Kusto)** window, complete the following fields and select **OK**.
 
-    ![Azure Data Explorer (Kusto) window](media/excel/adx-connection-window.png)
+    ![Azure Data Explorer (Kusto) window](media/excel-connector/adx-connection-window.png)
     
     |Field   |Description |
     |---------|---------|
@@ -45,7 +45,7 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
 
 1.	In the **Navigator** pane, navigate to correct table. In the table preview pane, select **Transform Data** to make changes to your data or select **Load** to load it to Excel.
 
-![Table preview window](media/excel/navigate-table-preview-window.png)
+![Table preview window](media/excel-connector/navigate-table-preview-window.png)
 
    > [!TIP]
    > If **Database** and/or **Table name or Azure Data Explorer query** are already specified, the correct table preview pane will open automatically. 
@@ -56,15 +56,15 @@ Once the data loads to excel and is available in your Excel sheet, you can analy
 
 1.	In the **Table Design** tab, select **Summarize with PivotTable**. In the **Create PivotTable** window, select the relevant table and then select **OK**.
 
-    ![Create pivot table](media/excel/create-pivot-table.png)
+    ![Create pivot table](media/excel-connector/create-pivot-table.png)
 
 1. In the **PivotTable Fields** pane, select the relevant table columns to create summary tables. In the example below,  **EventId** and **State** are selected.
     
-    ![Select PivotTable fields](media/excel/pivot-table-pick-fields.png)
+    ![Select PivotTable fields](media/excel-connector/pivot-table-pick-fields.png)
 
 1. In the **PivotTable Analyze** tab, select **PivotChart** to create visuals based on the table. In the example below use **Event Id**, **StartTime**, and **EventType** to view additional information about the weather events.
 
-    ![Visualize data](media/excel/visualize-excel-data.png)
+    ![Visualize data](media/excel-connector/visualize-excel-data.png)
 
 1. Create full dashboards to monitor your data.
 

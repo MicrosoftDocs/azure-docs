@@ -92,6 +92,12 @@
         href: power-bi-imported-query.md
       - name: SQL query
         href: power-bi-sql-query.md
+    - name: Excel
+      items:
+      - name: connector
+        href: excel-connector.md
+      - name: imported query
+        href: excel-imported-query.md
     - name: Grafana
       href: grafana.md
     - name: ODBC connector
