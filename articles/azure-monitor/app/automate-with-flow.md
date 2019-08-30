@@ -17,20 +17,20 @@ ms.author: mbullwin
 
 Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector for Microsoft Flow is the right tool for these purposes.
 
-With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query. 
+With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query.
 
-You can add additional actions as well. Microsoft Flow makes hundreds of actions available. For example, you can use Microsoft Flow to automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many [templates](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) that are available for the connector for Microsoft Flow. These templates speed up the process of creating a flow.
+You can add additional actions as well. Microsoft Flow makes hundreds of actions available. For example, you can use Microsoft Flow to automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many [templates](https://ms.flow.microsoft.com/connectors/shared_applicationinsights/?slug=azure-application-insights) that are available for the connector for Microsoft Flow. These templates speed up the process of creating a flow.
 
-<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). -->
+<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). -->
 
 ## Create a flow for Application Insights
 
-In this tutorial, you will learn how to create a flow that uses the Analytics auto-cluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email, just one example of how you can use Microsoft Flow and Application Insights Analytics together.
+In this tutorial, you will learn how to create a flow that uses the Analytics autocluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email, just one example of how you can use Microsoft Flow and Application Insights Analytics together.
 
 ### Step 1: Create a flow
 
 1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and then select **My Flows**.
-2. Click **New** then **Scheduled——from blank**.
+2. Click **New** then **Scheduled—from blank**.
 
     ![Create new flow from scheduled blank](./media/automate-with-flow/1-create.png)
 
@@ -94,7 +94,7 @@ When you create your own queries, verify that they are working properly in Analy
 
     ![Office 365 Outlook selection window](./media/automate-with-flow/6-outlook.png)
 
-1. In the **Send an email** window, do the following:
+1. In the **Send an email** window:
 
    a. Type the email address of the recipient.
 
@@ -104,7 +104,7 @@ When you create your own queries, verify that they are working properly in Analy
 
    e. Select **Show advanced options**
 
-1. On the dynamic content menu, do the following:
+1. On the dynamic content menu:
 
     a. Select **Attachment Name**.
 
@@ -114,19 +114,18 @@ When you create your own queries, verify that they are working properly in Analy
 
     ![Office 365 Outlook configuration](./media/automate-with-flow/7-email.png)
 
-
 ### Step 7: Save and test your flow
 
 Click **Save**.
 
 You can wait for the trigger to run this action, or can click on ![beaker test icon](./media/automate-with-flow/testicon.png) **Test** in the top.
 
-After selecting **Test**, do the following:
+After selecting **Test**:
 
 1. Select **I'll perform the trigger action**.
 2. Select **Run Flow**.
 
-When the flow runs, the recipients you have specified in the email list receive an email message that looks like the following:
+When the flow runs, the recipients you have specified in the email list receive an email message like the one below.
 
 ![Sample email](./media/automate-with-flow/flow9.png)
 
