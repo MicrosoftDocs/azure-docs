@@ -32,7 +32,7 @@ The following data platform tools are supported on the DSVM.
 | ------------- | ------------- |
 | What is it?   | A local relational database instance      |
 | Supported DSVM editions      | Windows      |
-| Typical uses      | Rapid development locally with smaller dataset <br/> Run In-database Machine Learning Server   |
+| Typical uses      | Rapid development locally with smaller dataset <br/> Run In-database R   |
 | Links to samples      |    A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi` <br/> Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Related tools on the DSVM       | SQL Server Management Studio <br/> ODBC/JDBC drivers<br/> pyodbc, RODBC<br />Apache Drill      |
 
