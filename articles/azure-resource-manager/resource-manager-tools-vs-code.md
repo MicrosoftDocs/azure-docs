@@ -5,14 +5,13 @@ author: mumian
 
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 08/30/2019
 ms.author: jgao
 ---
 
 # Use Visual Studio Code to create Azure Resource Manager templates
 
-Visual Studio Code is a lightweight, multiplatform, open-source editor. The Azure Resource Manager Template Tools extension is a plugin for Resource Manager template development. The extension adds language support for  templates to give you intellisense, syntax highlighting, in-line help, and many other language functions.
-Together, they provide all the base template editing experience.
+Visual Studio Code is a lightweight, multiplatform, open-source editor. The Azure Resource Manager Template Tools extension is a plugin for Resource Manager template development. The extension adds language support for  templates to give you intellisense, syntax highlighting, in-line help, and many other language functions. Together, they provide recommended template development experience.
 
 ## Install Visual Studio Code
 
@@ -101,7 +100,6 @@ To rename all references for variables and parameters, use the context menu as s
 Matching brackets is highlighted as soon as the cursor is near one of them. When you click a brace, the matching brace is also highlighted as shown in the following screenshot:
 
 ![Visual Studio Code Resource Manager tools extensions brace matching](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-brace-matching.png)
-
 
 ### Show errors and warnings
 
