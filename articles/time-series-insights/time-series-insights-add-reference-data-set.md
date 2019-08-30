@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 08/28/2019
 ms.custom: seodec18
 ---
 

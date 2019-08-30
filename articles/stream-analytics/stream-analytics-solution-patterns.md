@@ -1,6 +1,6 @@
 ---
 title: Azure Stream Analytics solution patterns
-description: Learn about solution patterns for Azure Stream Analytics.
+description: Learn about the different  common solution patterns for Azure Stream Analytics.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea

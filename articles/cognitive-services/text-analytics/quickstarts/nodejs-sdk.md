@@ -30,7 +30,7 @@ Use the Text Analytics client library for Node.js to perform:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
+* The current version of [Node.js](https://nodejs.org/).
 
 ## Setting up
 
