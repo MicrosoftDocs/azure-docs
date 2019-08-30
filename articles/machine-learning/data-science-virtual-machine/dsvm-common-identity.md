@@ -6,7 +6,6 @@ keywords: deep learning, AI, data science tools, data science virtual machine, g
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
