@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/14/2019
+ms.date: 08/30/2019
 ms.author: jmprieur
-ms.reviewer: brandwe
+ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
 ---
