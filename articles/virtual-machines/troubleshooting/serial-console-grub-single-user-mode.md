@@ -101,12 +101,12 @@ If you have set up GRUB and root access by using the preceding instructions, you
 1. To enter GRUB, press Esc as you restart the VM.
 1. In GRUB, press E to edit the OS that you want to boot into. The OS is usually listed on the first line.
 1. Find the kernel line. In Azure, it starts with *linux16*.
-1. Press Ctrl + E to go to the end of the line.
+1. Press Ctrl+E to go to the end of the line.
 1. At the end of the line, add *systemd.unit=rescue.target*.
     
     This action boots you into single-user mode. If you want to use emergency mode, add *systemd.unit=emergency.target* to the end of the line (instead of *systemd.unit=rescue.target*).
 
-1. Press Ctrl + X to exit and reboot with the applied settings.
+1. Press Ctrl+X to exit and reboot with the applied settings.
 
    You'll be prompted for the administrator password before you can enter single-user mode. This password is the one you created in the previous instructions.
 
@@ -125,7 +125,7 @@ If you didn't enable the root user by following the earlier instructions, you ca
 1. At the end of the line, add *rd.break* to the end of the line. Leave a space between the kernel line and *rd.break*.
 
     This action interrupts the boot process before control is passed from `initramfs` to `systemd`, as described in the [Red Hat documentation](https://aka.ms/rhel7rootpassword).
-1. Press Ctrl + X to exit and reboot with the applied settings.
+1. Press Ctrl+X to exit and reboot with the applied settings.
 
    After you've reboot, you're dropped into emergency mode with a read-only file system. 
    
@@ -169,7 +169,7 @@ If Ubuntu can't boot normally, it drops you into single-user mode automatically.
 1. In GRUB, press E to edit your boot entry (the Ubuntu entry).
 1. Look for the line that starts with *linux*, and then look for *ro*.
 1. Add *single* after *ro*, ensuring there is a space before and after *single*.
-1. Press Ctrl + X to reboot with these settings and enter single-user mode.
+1. Press Ctrl+X to reboot with these settings and enter single-user mode.
 
 ### Use GRUB to invoke bash in Ubuntu
 After you've tried the preceding instructions, there might be a situation (such as a forgotten root password) where you're still unable to access single-user mode in your Ubuntu VM. You can also tell the kernel to run `/bin/bash` as init, rather than the system init. This action gives you a bash shell and allows for system maintenance. Use the following instructions:
@@ -180,7 +180,7 @@ After you've tried the preceding instructions, there might be a situation (such 
 1. Replace *ro* with *rw init=/bin/bash*.
 
     This action mounts your file system as read-write and uses `/bin/bash` as the init process.
-1. Press Ctrl + X to reboot with these settings.
+1. Press Ctrl+X to reboot with these settings.
 
 ## Access for CoreOS
 Single-user mode in CoreOS requires GRUB to be enabled.
@@ -195,7 +195,7 @@ If CoreOS can't boot normally, it drops you into single-user mode automatically.
 
 1. Look for the line that starts with *linux$*. There should be two instances of the line, each encapsulated in a different if/else clause.
 1. Append *coreos.autologin=ttyS0* to the end of each *linux$* line.
-1. Press Ctrl + X to reboot with these settings and enter single-user mode.
+1. Press Ctrl+X to reboot with these settings and enter single-user mode.
 
 ## Access for SUSE SLES
 Newer images of SLES 12 SP3+ allow access via the serial console if the system boots into emergency mode.
@@ -221,7 +221,7 @@ If SLES can't boot normally, you're automatically dropped into the emergency she
 
 1. Look for the kernel line that starts with *linux*.
 1. Append *systemd.unit=emergency.target* to the end of the kernel line.
-1. Press Ctrl + X to reboot with these settings and enter the emergency shell.
+1. Press Ctrl+X to reboot with these settings and enter the emergency shell.
 
    > [!NOTE]
    > This action drops you into the emergency shell with a read-only file system. To edit any files, remount the file system with read-write permissions. To do so, enter `mount -o remount,rw /` in the shell.
