@@ -19,7 +19,7 @@ Use the **Feature Hashing** module to transform a stream of English text into a 
 
 The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see from [nimbusml ngramhash](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
-## Feature hashing
+## What is feature hashing
 
 Feature hashing works by converting unique tokens into integers. It operates on the exact strings that you provide as input and does not perform any linguistic analysis or preprocessing. 
 
