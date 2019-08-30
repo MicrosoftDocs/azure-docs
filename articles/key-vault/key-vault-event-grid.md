@@ -78,7 +78,7 @@ This procedure assumes that you have the following prerequisites.
 
 1.  Click Add 
 
-![](media/image2.png)
+    ![](media/image2.png)
 
 1.  Fill the required information in the "Add Automation Account" Blade and select Create
 
@@ -127,7 +127,7 @@ write-Error "No input data found."
 
 1.  Click "Add Webhook"
 
-![](media/image5.png)
+    ![](media/image5.png)
 
 1.  Select "Create new Webhook"
 
@@ -139,7 +139,7 @@ write-Error "No input data found."
 
     a.  You may need to click into the "parameters and run settings" option and select ok before the Create button will be enabled. You don't need to enter any parameters.
 
-![](media/image6.png)
+    ![](media/image6.png)
 
 ### Step 4: Create an Event Grid Subscription
 
@@ -149,7 +149,7 @@ write-Error "No input data found."
 
     a.  If you cannot see the Events tab, make sure that you are using the preview version of the portal (see the link above).
 
-![](media/image7.png)
+    ![](media/image7.png)
 
 1.  Click the "+ Event Subscription" button
 
@@ -169,7 +169,7 @@ write-Error "No input data found."
 
 1.  Select Create
 
-![](media/image8.png)
+    ![](media/image8.png)
 
 ### Step 5: Testing and Verification
 
@@ -197,7 +197,7 @@ write-Error "No input data found."
 
     1.  This validates that event grid successfully captured the status change of the key in your key vault.
 
-![](media/image11.png)
+    ![](media/image11.png)
 
 1.  Now go to your azure automation account on the Azure Portal
 
@@ -207,7 +207,7 @@ write-Error "No input data found."
 
     1.  This validates that event grid made a POST to the webhook with the event details of the status change in your key vault, and the webhook was triggered.
 
-![](media/image12.png)
+    ![](media/image12.png)
 
 1. Now go back to your Runbook, and select the "Overview" Tab.
 
@@ -215,13 +215,13 @@ write-Error "No input data found."
 
     1.  This validates that the webhook triggered the runbook to start executing its script.
 
-![](media/image13.png)
+    ![](media/image13.png)
 
 1. You can drill down even further by selecting the recent job and looking at the actual POST request that was sent from event grid to the webhook.
 
 1. Examine the JSON and make sure that the parameters for your key vault and event type are correct.
 
-![](media/image14.png)
+    ![](media/image14.png)
 
 1. If the "event type" parameter in the JSON object matches the event which occurred in the key vault (in this example, Microsoft.KeyVault.KeyNewVersionCreated) the test was successful.
 
@@ -243,6 +243,6 @@ Reregister Event Grid and Key Vault is registered in your subscription resource 
 
 ## Next steps
 
-- Learn more about [Azure Key Vault](key-vault-overview.md>
+- Learn more about [Azure Key Vault](key-vault-overview.md]
 - Learn more about [Event Grid](../event-grid/overview.md)
 - Learn more about [Azure Automation](../automation/index.yml)
