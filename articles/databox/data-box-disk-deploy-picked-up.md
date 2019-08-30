@@ -47,17 +47,6 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 The next steps are determined by where you are returning the device. The instructions are different for US/Canada, Australia, or countries in Asia.
 
-- [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-- [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
-- [Schedule a pickup in Australia](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up#pick-up-in-australia).
-- [Schedule a pickup for countries in Asia](data-box-disk-deploy-picked-up.md#pick-up-in-asia) such as Japan, Korea, and Singapore.
-
-::: zone target="chromeless"
-
-After the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
-
-::: zone-end
-
 ### Pick up in US, Canada
 
 Take the following steps if returning the device in US or Canada.
@@ -147,9 +136,6 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 1. Print the shipping label and attach onto the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
-
-        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Affix the label on the device. Make sure that the label is visible.
 
 2. To request pickup:

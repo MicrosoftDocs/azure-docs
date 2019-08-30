@@ -1,27 +1,19 @@
 ---
 title: Deep Learning & AI frameworks
-titleSuffix: Azure Data Science Virtual Machines
-description: Deep learning frameworks and tools on Azure Data Science Virtual Machine, including TensorFlow, PyTorch,  Keras, Caffe, MXNet, Horovod, Theano, Chainer and more.
+titleSuffix: Azure Data Science Virtual Machine 
+description: Available deep learning frameworks and tools on Azure Data Science Virtual Machine, including TensorFlow, PyTorch,  Keras, Caffe, MXNet, Horovod, Theano, Chainer and more.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 08/11/2019
-ms.author: vijetaj
-
 ---
 
-# Deep Learning and AI frameworks
+# Deep Learning and AI frameworks for Azure Data Science VM
 The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding.
 
 Deep learning frameworks available on the DSVM include:
