@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 08/11/2019
 ---
 
-# Deep Learning and AI frameworks for Azure Data Science VM
+# Deep learning and AI frameworks for Azure Data Science VM
 The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) supports a number of deep-learning frameworks to help build artificial intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding.
 
 Deep-learning frameworks available through DSVM include:
@@ -36,7 +36,7 @@ Deep-learning frameworks available through DSVM include:
 + TensorRT
 + Microsoft Cognitive Toolkit
 
-|DL&nbsp;tools&nbsp;on&nbsp;DSVM|Windows|Linux|Usage&nbsp;notes|
+|Deep-learning&nbsp;tools&nbsp;on&nbsp;DSVM|Windows|Linux|Usage&nbsp;notes|
 |---------|-------------------|------------------|-----|
 |[TensorFlow](https://www.tensorflow.org/) | Yes (Windows 2016) | Yes |Installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Sample Jupyter notebooks are included on DSVM.<br/><br/>**To run it**:<br/>* Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), and then open the TensorFlow directory for samples.  |
 |[PyTorch](https://pytorch.org/)| No | Yes |Installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch.    <br/><br/>**To run it**:<br/>* Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux): Connect, and then open the PyTorch directory for samples.  |
