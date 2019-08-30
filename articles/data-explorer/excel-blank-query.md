@@ -13,7 +13,7 @@ ms.date: 08/30/2019
 
 # Visualize data using an Azure Data Explorer Kusto query imported into Microsoft Excel
 
-Azure Data Explorer provides two options for connecting to data in Excel: use the native connector or import a query from Azure Data Explorer. This article shows you how to import a query from Azure Data Explorer to Excel to visualize data. Add Kusto query as an Excel data source to perform additional calculations or visualizations on the data.
+Azure Data Explorer provides two options for connecting to data in Excel: use the native connector or import a query from Azure Data Explorer. This article shows you how to import a query from Azure Data Explorer to Excel to visualize data. Add Kusto query as an Excel data source to do additional calculations or visualizations on the data.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ or
 
 ## Define Kusto query as Excel data source
 
-1. In [Azure Data Explorer Web UI]((https://dataexplorer.azure.com/clusters/help/databases/Samples)) run the query and check the results.
+1. In [Azure Data Explorer Web UI](https://dataexplorer.azure.com/clusters/help/databases/Samples), run the query and check the results.
 
 1. Select the **Share** tab and select **Query to Power BI**.
 
@@ -44,7 +44,7 @@ or
 
     ![Power query editor window](media/excel-blank-query/power-query-editor.png)
 
-1. In the **Advanced Editor** window, paste the query you exported and then select **Done**.
+1. In the **Advanced Editor** window, paste the query you exported to the clipboard and select **Done**.
 
     ![Advanced editor query](media/excel-blank-query/advanced-editor-query.png)    
 
@@ -54,7 +54,7 @@ or
 
 1. Select **Organizational account** and then select **Sign in**. Complete the sign-in process and then select **Connect**.
 
-    ![Complete sign in](media/excel-blank-query/complete-sign-in.png)
+    ![Complete sign-in](media/excel-blank-query/complete-sign-in.png)
 
     Repeat the previous steps to add more queries. You can rename the queries to more meaningful names.
 

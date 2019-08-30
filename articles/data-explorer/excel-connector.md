@@ -54,7 +54,7 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
 
 Once the data loads to excel and is available in your Excel sheet, you can analyze, summarize, and visualize the data by creating relationships and visuals. 
 
-1.	In the **Table Design** tab, select **Summarize with PivotTable**. In the **Create PivotTable** window, select the relevant table and then select **OK**.
+1.	In the **Table Design** tab, select **Summarize with PivotTable**. In the **Create PivotTable** window, select the relevant table, and select **OK**.
 
     ![Create pivot table](media/excel-connector/create-pivot-table.png)
 
