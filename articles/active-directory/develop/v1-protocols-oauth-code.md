@@ -22,6 +22,10 @@ ms.collection: M365-identity-device-management
 
 # Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
 
+> [!NOTE]
+>  If you don't tell the server what resource you plan to call, then the server will not trigger the conditional access policies for that resource. So in order to have MFA trigger, you will need to include a resource in your URL. 
+>
+
 Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our [open-source libraries](active-directory-authentication-libraries.md).
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
@@ -274,6 +278,8 @@ The RFC 6750 specification defines the following errors for resources that use t
 Access Tokens are short-lived and must be refreshed after they expire to continue accessing resources. You can refresh the `access_token` by submitting another `POST` request to the `/token` endpoint, but this time providing the `refresh_token` instead of the `code`.  Refresh tokens are valid for all resources that your client has already been given consent to access - thus, a refresh token issued on a request for `resource=https://graph.microsoft.com` can be used to request a new access token for `resource=https://contoso.com/api`. 
 
 Refresh tokens do not have specified lifetimes. Typically, the lifetimes of refresh tokens are relatively long. However, in some cases, refresh tokens expire, are revoked, or lack sufficient privileges for the desired action. Your application needs to expect and handle errors returned by the token issuance endpoint correctly.
+
+[!NOTE] Access token lifetimes can be found here : https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes#configurable-token-lifetime-properties The default for access tokens is 1 hour and the default for refresh tokens is 90 days. These lifetimes can be changed by configuring the token lifetimes accordingly. 
 
 When you receive a response with a refresh token error, discard the current refresh token and request a new authorization code or access token. In particular, when using a refresh token in the Authorization Code Grant flow, if you receive a response with the `interaction_required` or `invalid_grant` error codes, discard the refresh token and request a new authorization code.
 

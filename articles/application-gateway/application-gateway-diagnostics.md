@@ -100,7 +100,7 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 You have three options for storing your logs:
 
 * **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-* **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
+* **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
 * **Azure Monitor logs**: Azure Monitor logs is best used for general real-time monitoring of your application or looking at trends.
 
 ### Enable logging through PowerShell
