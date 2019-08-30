@@ -58,6 +58,8 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
+  - name: Template deployments
+    href: template-deployment-overview.md
   - name: Template file structure
     displayName: parameters,variables,resources,outputs,condition
     href: resource-group-authoring-templates.md
