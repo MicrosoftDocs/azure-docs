@@ -219,9 +219,9 @@ Datastores currently support storing connection information to the storage servi
 
 ### Accessing source code during training
 
-Configure your experiment's run configuration to use blob storage for your source code. Azure blob storage has higher throughput speeds than Azure file share and will scale to large numbers of jobs started in parallel.
+Azure blob storage has higher throughput speeds than Azure file share and will scale to large numbers of jobs started in parallel. For this reason, we recommend configuring your runs to use blob storage for transferring source code files.
 
-The following code, specifies in the run configuration which blob datastore to use for source code.
+The following code example specifies in the run configuration which blob datastore to use for source code transfers.
 
 ```python 
 # workspaceblobstore is the default blob storage
