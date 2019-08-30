@@ -24,11 +24,9 @@ This article outlines some of the limitations and OS concepts for Windows Server
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]
 
-Windows Server containers must run on a Windows-based container host. To run Windows Server containers in AKS, you can [create a node pool that runs Windows Server][windows-node-cli] as the guest OS.
-
 ## Which Windows operating systems are supported?
 
-Windows Server containers can only use Windows Server 2019, which matches the underlying Windows Server node OS. Container images built using Windows Server 2016 as the base OS aren't supported.
+AKS uses Windows Server 2019 as the host OS version and only supports process isolation. Container images built using other Windows Server versions are not supported. [Windows container version compatibility][windows-container-compat]
 
 ## Is Kubernetes on Windows any different than on Linux?
 
@@ -40,19 +38,19 @@ Azure Disks and Azure Files are the supported volume types, accessed as NTFS vol
 
 ## Can I run Windows only clusters in AKS?
 
-An AKS cluster always master nodes (the control plane) are hosted by AKS the service, you will not be exposed to the operating system of the nodes hosting the master components. All AKS cluster are created with a default first node pool, which is Linux based. This node pool contains vital system services, which are needed for the cluster to function. It's recommended to run at least three nodes in the first node pool to ensure reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
+The master nodes (the control plane) in an AKS cluster are hosted by AKS the service, you will not be exposed to the operating system of the nodes hosting the master components. All AKS cluster are created with a default first node pool, which is Linux based. This node pool contains system services, which are needed for the cluster to function. It's recommended to run at least two nodes in the first node pool to ensure reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
 
 ## What network plug-ins are supported?
 
-AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. You can't create an AKS cluster that uses kubenet. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
 
 ## Can I change the minimum number of pods per node below 30?
 
-No, the minimum value in the table above is strictly enforced by the AKS service.
+No, this is currently a requirement to ensure the reliability of your clusters.
 
 ## How do I keep my Windows nodes up to date with patches?
 
-Windows Server nodes in AKS must be *upgraded* to a latest Windows Server 2019 release to maintain the latest patch fixes and updates. Windows Updates are not enabled in the base node image in AKS. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the Windows Server node pool(s) in your AKS cluster. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade]. These Windows Server node upgrades temporarily consume additional IP addresses in the virtual network subnet as a new node is deployed, before the old node is removed. vCPU quotas are also temporarily consumed in the subscription as a new node is deployed, then the old node removed. You can't automatically update and manage reboots using `kured` as with Linux nodes in AKS.
+Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and updates. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, it is the customers responsibility to upgrade node pools to stay current on patches and hotfix. This is also true for the Kubernetes version being used. AKS release notes will indicate when new versions are available. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 > [!NOTE]
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool
@@ -60,20 +58,19 @@ Windows Server nodes in AKS must be *upgraded* to a latest Windows Server 2019 r
 
 ## How many node pools can I create?
 
-The AKS cluster can have a maximum of eight node pools. You can have a maximum of 400 nodes across those eight node pools. [Node pool limitations][nodepool-limitations].
+The AKS cluster can have a maximum of eight (8) node pools. You can have a maximum of 400 nodes across those node pools. [Node pool limitations][nodepool-limitations].
 
 ## Can't I use more than 6 (six) characters in a Windows node pool name?
 
 No, this is a current limitation of AKS.
 
-## Are all AKS preview features support with Windows nodes?
+## Are all AKS features supported with Windows nodes?
 
-In general, don't expect preview features to work with Windows nodes, which in itself is a preview feature. For support policies around preview features, please see the [AKS preview support policy][preview-support].
-Network Policy and cluster autoscaler are currently not support with Windows nodes.
+Network policies and kubenet are currently not supported with Windows nodes. 
 
 ## Can I run ingress controllers on Windows nodes?
 
-Pods running on Windows nodes can use the Load Balancer service type as well as pods running on Linux. For ingress controllers, you can build your own and use as proxy on Windows nodes. Most eco-system supported ingress controllers, however only support Linux and have to be run on any Linux based node pool in the cluster.
+Yes, an ingress-controller which supports Windows Server containers can run on Windows nodes in AKS.
 
 ## Can I use Azure Dev Spaces with Windows nodes?
 
@@ -81,7 +78,7 @@ Azure Dev Spaces is currently only available for Linux-based node pools.
 
 ## Can my Windows Server containers use gMSA?
 
-Group managed service accounts (gMSA) support when the Windows Server nodes aren't joined to an Active Directory domain is not currently available in AKS.
+Group managed service accounts (gMSA) support is not currently available in AKS.
 
 ## What if I need a Windows Server container feature which is not support by AKS?
 
@@ -118,3 +115,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [preview-support]: support-policies.md#preview-features-or-feature-flags
+[windows-container-compat]: https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#windows-server-2019-host-os-compatibility

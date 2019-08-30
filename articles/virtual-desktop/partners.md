@@ -77,7 +77,7 @@ ThinPrint is a Windows Virtual Desktop value-added services provider that delive
 ThinPrint’s ezeep solution extends the value of Windows Virtual Desktop by enabling the connection to existing enterprise print infrastructure. ezeep gives users control over printing in the enterprise no matter where they are. Using ezeep, users can bridge the gap between Windows Virtual Desktop and printing hardware.
 
 - [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [Go to partner website.](http://www.ezeep.com/wvd-printing)
+- [Go to partner website.](https://www.ezeep.com/wvd-printing)
 
 ## Workspot
 

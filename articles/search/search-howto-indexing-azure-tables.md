@@ -4,7 +4,7 @@ description: Learn how to index data stored in Azure Table storage with an Azure
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
