@@ -16,7 +16,7 @@ Event Grid on IoT Edge integrates with the IoT Edge ecosystem and supports creat
 It also reports the current metadata state of what all topics and event subscriptions have been successfully created back to the Reported properties on the Module Twin.
 
 > [!CAUTION]
-Because of limitations in the IoT Edge ecosystem, all array elements in the json below have been encoded to json strings. See the EventSubscription.Filter.EventTypes and EventSubscription.Filter.AdvancedFilters keys below.
+> Because of limitations in the IoT Edge ecosystem, all array elements in the json below have been encoded to json strings. See the EventSubscription.Filter.EventTypes and EventSubscription.Filter.AdvancedFilters keys below.
 
 
 ## Desired Properties JSON
