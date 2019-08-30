@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
-ms.date: 08/22/2019
+ms.date: 09/04/2019
 ---
 # What are SQL Database instance pools (preview)?
 
@@ -45,7 +45,7 @@ For details, see [subnet size requirements for single instances](sql-database-ma
 
 ## Application scenarios for instance pools
 
-The following list are the main use cases where instance pools should be considered:
+The following list provides the main use cases where instance pools should be considered:
 
 - Migration of *a group of SQL instances* at the same time, where the majority is a smaller size (for example 2 or 4 vCores).
 
@@ -88,13 +88,13 @@ Total storage allocation and number of databases across all instances must be lo
   - 2 vCore instances support sizes between 32 GB and 640 GB
   - 4 vCore instances support sizes between 32 GB and 2 TB
 
-The [service tier property](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) (General Purpose or Business Critical) is associated with the instance pool resource so all instances in a pool must be the same service tier as the service tier of the pool. At this time, only the General Purpose service tier is available (see the following section on limitations in the current preview).
+The [service tier property](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) is associated with the instance pool resource so all instances in a pool must be the same service tier as the service tier of the pool. At this time, only the General Purpose service tier is available (see the following section on limitations in the current preview).
 
 ### Public preview limitations
 
 The public preview has the following limitations:
 
-- Only the General Purpose service tier is available at this time. The Business Critical service tier is planned to be added at GA time.
+- Currently, only the General Purpose service tier is available.
 
 - Instance pools cannot be scaled during the public preview so careful capacity planning before deployment is important.
 
@@ -113,7 +113,7 @@ Optional features or features that require you to choose specific values (such a
 
 ## Performance considerations
 
-Although managed instances within pools do have dedicated vCore and RAM memory, they share local disk (for tempdb usage) and network resources. It's not very likely, but it is possible to experience the *noisy neighbor* effect if multiple instances in the pool have high resource consumption at the same time. If you observe this behavior, consider deploying these instances to a bigger pool or as single instances.
+Although managed instances within pools do have dedicated vCore and RAM memory, they share local disk (for tempdb usage) and network resources. It's not likely, but it is possible to experience the *noisy neighbor* effect if multiple instances in the pool have high resource consumption at the same time. If you observe this behavior, consider deploying these instances to a bigger pool or as single instances.
 
 ## Security considerations
 

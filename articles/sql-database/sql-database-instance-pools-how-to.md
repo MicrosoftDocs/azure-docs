@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
-ms.date: 08/22/2019
+ms.date: 09/04/2019
 ---
 # Azure SQL Database instance pools (preview) how-to guide
 
@@ -76,7 +76,7 @@ If you consider placing multiple instance pools inside the same virtual network,
 
 - [Determine VNet subnet size for Azure SQL Database managed instance](sql-database-managed-instance-determine-size-vnet-subnet.md)
 
-Create new virtual network and subnet using the [Azure portal template](NEED LINK) or follow the instructions for [preparing an existing virtual network](sql-database-managed-instance-configure-vnet-subnet.md).
+Create new virtual network and subnet using the [Azure portal template](sql-database-managed-instance-create-vnet-subnet.md) or follow the instructions for [preparing an existing virtual network](sql-database-managed-instance-configure-vnet-subnet.md).
  
 
 
@@ -97,14 +97,14 @@ The following restrictions apply to instance pools:
 To create an instance pool:
 
 ```powershell
-$instancePool = New-AzSqlInstancePool ` 
-  -ResourceGroupName "myResourceGroup" ` 
-  -Name "mi-pool-name" ` 
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" ` 
-  -LicenseType "LicenceIncluded" ` 
-  -VCore 80 ` 
-  -Edition "GeneralPurpose" ` 
-  -ComputeGeneration "Gen5" ` 
+$instancePool = New-AzSqlInstancePool `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "mi-pool-name" `
+  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -LicenseType "LicenceIncluded" `
+  -VCore 80 `
+  -Edition "GeneralPurpose" `
+  -ComputeGeneration "Gen5" `
   -Location "westeurope"
 ```
 
@@ -115,7 +115,7 @@ $instancePool = New-AzSqlInstancePool `
 
 After the successful deployment of the instance pool, it's time to create an instance inside it. 
 
-To create a managed instance execute the following command:
+To create a managed instance, execute the following command:
 
 ```powershell
 $instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
@@ -174,8 +174,8 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 ## Scale a managed instance inside a pool 
 
 
-After populating a managed instance with databases, you may hit instance limits regarding storage or performance. In that case, if pool usage has not been exceeded, you can scale your instance. 
-Scaling a managed instance inside a pool is an operation that takes a couple of minutes. The prerequisite for scaling is available vCores and storage on the instance pool level. 
+After populating a managed instance with databases, you may hit instance limits regarding storage or performance. In that case, if pool usage has not been exceeded, you can scale your instance.
+Scaling a managed instance inside a pool is an operation that takes a couple of minutes. The prerequisite for scaling is available vCores and storage on the instance pool level.
 
 To update the number of vCores and storage size:
 
@@ -216,16 +216,16 @@ This parameter can be set during instance creation as well.
 
 ## Add an inbound rule to the network security group 
  
-This step can be done through portal or using PowerShell commands and can be done any time after the subnet is prepared for managed instance.
+This step can be done through portal or using PowerShell commands and can be done anytime after the subnet is prepared for managed instance.
 
 For details, see [Allow public endpoint traffic on the network security group](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
 
 ## Move an existing single instance inside the instance pool 
  
-Moving instances to and from the pool is one of the public preview limitations. Workaround that can be used relies on point-in-time restore of databases from instance outside the pool to the instance created in the pool.
+Moving instances in and out of a pool is one of the public preview limitations. A workaround that can be used relies on point-in-time restore of databases from an instance outside a pool to an instance that's already in a pool.
 
-Note: This is process with downtime period. 
+Note: This process has a period of downtime.
 
 To move existing databases:
 
@@ -233,28 +233,28 @@ To move existing databases:
 2. Script system databases and execute them on the instance that's inside the instance pool.
 3. Do a point-in-time restore of each database from the single instance to the instance in the pool.
 
-  $resourceGroupName = "my resource group name" 
-  $managedInstanceName = "my managed instance name" 
-  $databaseName = "my source database name" 
-  $pointInTime = "2019-08-21T08:51:39.3882806Z" 
-  $targetDatabase = "name of the new database that will be created" 
-  $targetResourceGroupName "resource group of instance pool" 
-  $targetInstanceName = "pool instance name" 
+  $resourceGroupName = "my resource group name"
+  $managedInstanceName = "my managed instance name"
+  $databaseName = "my source database name"
+  $pointInTime = "2019-08-21T08:51:39.3882806Z"
+  $targetDatabase = "name of the new database that will be created"
+  $targetResourceGroupName "resource group of instance pool"
+  $targetInstanceName = "pool instance name"
    
-  Restore-AzSqlInstanceDatabase -FromPointInTimeBackup ` 
-    -ResourceGroupName $resourceGroupName ` 
-    -InstanceName $managedInstanceName ` 
-    -Name $databaseName ` 
-    -PointInTime $pointInTime ` 
-    -TargetInstanceDatabaseName $targetDatabase ` 
-    -TargetResourceGroupName $targetResourceGroupName ` 
-    -TargetInstanceName $targetInstanceName 
+  Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
+    -ResourceGroupName $resourceGroupName `
+    -InstanceName $managedInstanceName `
+    -Name $databaseName `
+    -PointInTime $pointInTime `
+    -TargetInstanceDatabaseName $targetDatabase `
+    -TargetResourceGroupName $targetResourceGroupName `
+    -TargetInstanceName $targetInstanceName
 
-  Both instances must be in the same subscription and region. Cross-region and cross-subscription restores are still not supported.
+  Both instances must be in the same subscription and region. Cross-region and cross-subscription restore is not currently supported.
 
 4. Point your application to the new instance and resume workloads.
 
-If there are multiple databases, repeat process for each of them 
+If there are multiple databases, repeat the process for each database.
 
 
 ## Next steps
