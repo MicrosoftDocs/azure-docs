@@ -122,12 +122,12 @@ If you didn't enable the root user by following the earlier instructions, you ca
 
 1. In GRUB, press E to edit the OS that you want to boot into. The OS is usually listed on the first line.
 1. Find the kernel line. In Azure, it starts with *linux16*.
-1. At the end of the line, add *rd.break* to the end of the line. Leave a space between the kernel line and *rd.break* (see example below).
+1. At the end of the line, add *rd.break* to the end of the line. Leave a space between the kernel line and *rd.break*.
 
     This action interrupts the boot process before control is passed from `initramfs` to `systemd`, as described in the [Red Hat documentation](https://aka.ms/rhel7rootpassword).
 1. Press Ctrl + X to exit and reboot with the applied settings.
 
-   After you boot, you're dropped into emergency mode with a read-only file system. 
+   After you've reboot, you're dropped into emergency mode with a read-only file system. 
    
 1. In the shell, enter `mount -o remount,rw /sysroot` to remount the root file system with read/write permissions.
 1. After you boot into single-user mode, enter `chroot /sysroot` to switch into the `sysroot` jail.
