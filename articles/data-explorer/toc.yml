@@ -44,6 +44,8 @@
       href: ingest-data-event-hub.md
     - name: Event Grid
       href: ingest-data-event-grid.md
+    - name: IoT Hub
+      href: ingest-data-iot-hub.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Kafka
