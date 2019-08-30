@@ -11,7 +11,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -21,9 +21,7 @@ ms.custom: seodec18
 
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead.
 
-This quickstart shows how to deploy an ASP.NET app in a Windows image to [Docker Hub](https://hub.docker.com/) from Visual Studio. You run the app in a custom container in Azure App Service.
-
-![Web app running live](media/app-service-web-get-started-windows-container/app-running-vs.png)
+This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Docker Hub](https://hub.docker.com/) from Visual Studio. You run the app in a custom container in Azure App Service.
 
 ## Prerequisites
 
@@ -33,6 +31,7 @@ To complete this tutorial:
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
+
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
 
@@ -48,13 +47,11 @@ Create an ASP.NET web app by following these steps:
 
    ![Configure your web app project](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
-1. For this quickstart, choose the **MVC** template, and make sure authentication is set to **No Authentication**.
+1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 
-1. Select **Docker support**. Select **Create**.
+1. Select **Docker support**, and make sure authentication is set to **No Authentication**. Select **Create**.
 
    ![Create ASP.NET Web Application](./media/app-service-web-get-started-windows-container/select-mvc-template-for-container.png)
-
-   You can deploy any type of ASP.NET web app to Azure.
 
 1. If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
 

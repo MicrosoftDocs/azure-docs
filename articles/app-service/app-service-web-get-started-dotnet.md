@@ -12,7 +12,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
 ms.custom: seodec18
@@ -27,8 +27,6 @@ ms.custom: seodec18
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.
 
 This quickstart shows how to deploy your first ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
-
-![Web app running live](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -81,13 +79,13 @@ Create an ASP.NET Core web app by following these steps:
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-1. Next to **Resource group**, select **New**.
+1. For **Resource group**, select **New**.
 
 1. In **New resource group name**, enter *myResourceGroup* and select **OK**.
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. Next to **Hosting Plan**, select **New**.
+1. For to **Hosting Plan**, select **New**.
 
 1. In the **Configure Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
 
@@ -111,7 +109,7 @@ Once the wizard completes, it publishes the ASP.NET Core web app to Azure, and t
 
 The app name specified in the **App Service Create new** page is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`.
 
-Congratulations, your ASP.NET Core web app is running live in Azure App Service.
+**Congratulations!** Your ASP.NET Core web app is running live in Azure App Service.
 
 ## Update the app and redeploy
 
