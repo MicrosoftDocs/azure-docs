@@ -1,7 +1,7 @@
 ---
 title: 'REST Tutorial: Build an AI enrichment pipeline using cognitive search - Azure Search'
 description: Step through an example of text extraction and natural language processing over content in JSON blobs using Postman and the Azure Search REST APIs. 
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
