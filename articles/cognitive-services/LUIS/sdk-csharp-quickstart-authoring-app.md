@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library for .NET
@@ -184,7 +184,7 @@ Publish the LUIS app using the [PublishAsync](https://docs.microsoft.com/dotnet/
 
 Run the application with the dotnet `run` command from your application directory.
 
-```dotnet
+```csharp
 dotnet run
 ```
 
