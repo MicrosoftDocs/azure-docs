@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
-ms.author: v-miegge, kaushika
+ms.author: kaushika
 
 ---
 
