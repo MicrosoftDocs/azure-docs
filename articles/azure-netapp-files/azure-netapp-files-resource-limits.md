@@ -36,9 +36,9 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No       |
-|  Maximum number of files (inodes) per volume     |    50 million    |    No    |    
+|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes        |    
 
-## Maxfiles limits
+## Maxfiles limits <a name="maxfiles"></a> 
 
 Azure NetApp Files volumes have a limit called *maxfiles*. The maxfiles limit is the number of files a volume can contain. The maxfiles limit for an Azure NetApp Files volume is indexed based on the size (quota) of the volume. The maxfiles limit for a volume increases or decreases at the rate of 20 million files per TiB of provisioned volume size. 
 
@@ -52,9 +52,9 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 |    >= 3 TiB but < 4 TiB    |    80 million     |
 |    >= 4 TiB                |    100 million    |
 
-For any volume size, you can initiate a support request to increase the maxfiles limit beyond 100 million.
+For any volume size, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
 
-## Request limit increase 
+## Request limit increase <a name="limit_increase"></a> 
 
 You can create an Azure support request to increase the adjustable limits from the table above. 
 
