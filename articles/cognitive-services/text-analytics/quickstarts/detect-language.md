@@ -41,6 +41,12 @@ Get started with the Text Analytics client library. Follow these steps to instal
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [Go quickstart](../includes/quickstarts/detect-language-go.md)]
+
+::: zone-end
+
 
 ## Clean up resources
 
