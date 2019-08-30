@@ -295,7 +295,7 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 4.	If you want to create more keys, select **Add another key**.
 
 
-### Define user roles and permissions
+## Define user roles and permissions
 
 Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center. 
 
