@@ -44,7 +44,7 @@ The following sections list the supported server operating systems on which the 
 > [!NOTE]
 > Integration with Microsoft Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
 
-To learn more about the supported features for the above list of Windows operating systems, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
+To learn more about the supported features for the Windows operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
 
 ### Linux operating systems <a name="os-linux"></a>
 
@@ -68,11 +68,11 @@ To learn more about the supported features for the above list of Windows operati
 > [!NOTE]
 > Since the list of supported Linux operating systems is constantly changing, if you prefer, click [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) to view the most up-to-date list of supported versions, in case there have been changes since this topic was last published.
 
-To learn more about the supported features for the above list of Linux operating systems, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
+To learn more about the supported features for the Linux operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
 
 ### Managed virtual machine services <a name="virtual-machine"></a>
 
-Virtual machines are also created in a customer subscription as part of some Azure managed services as well, such as Azure Kubernetes (AKS), Azure Databricks and more. Such virtual machines are also discovered by Azure Security Center, and the Log analytics agent can be installed and configured according to the above list of supported [Windows/Linux operating systems](#os-windows).
+Virtual machines are also created in a customer subscription as part of some Azure managed services as well, such as Azure Kubernetes (AKS), Azure Databricks, and more. These virtual machines are also discovered by Azure Security Center, and the Log analytics agent can be installed and configured according the supported [Windows/Linux operating systems](#os-windows), listed above.
 
 ### Cloud Services <a name="cloud-services"></a>
 
