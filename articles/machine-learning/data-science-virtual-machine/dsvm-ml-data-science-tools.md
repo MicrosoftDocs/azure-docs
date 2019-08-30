@@ -1,5 +1,6 @@
 ---
-title: Machine learning and data science tools - Azure | Microsoft Docs
+title: Machine learning & data science tools
+titleSuffix: Azure Data Science Virtual Machine 
 description: Learn about the machine learning tools and frameworks pre-installed on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
@@ -10,16 +11,15 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-
-
 ---
 
-# Machine learning and data science tools
+# Machine learning and data science tools on Azure Data Science Virtual Machines
 Azure Data Science Virtual Machines has a rich set of tools and libraries for machine learning (ML) available in popular languages, such as Python, R, and Julia. 
 
 Here are some of the ML tools and libraries on Data Science Virtual Machines. 
 
-## [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
+## Azure Machine Learning SDK for Python
+See the full reference for the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml).
 |    |           |
 | ------------- | ------------- |
 | What is it?   |   Azure Machine Learning is a cloud service that you can use to develop and deploy ML models. You can track your models as you build, train, scale, and manage them by using the Python SDK. Deploy models as containers and run them in the cloud, on-premises, or on Azure IoT Edge.   |

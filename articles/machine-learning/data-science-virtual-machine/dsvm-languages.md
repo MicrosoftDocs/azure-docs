@@ -1,7 +1,7 @@
 ---
-title: Supported languages for the Data Science Virtual Machine
-titleSuffix: Azure
-description: Learn about the program languages and related tools that are pre-installed on the Data Science Virtual Machine.
+title: Supported languages
+titleSuffix: Azure Data Science Virtual Machine 
+description: The supported program languages and related tools pre-installed on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: machine-learning
