@@ -54,7 +54,7 @@ conceptualContent:
           text: Image Search     
         - url: /azure/cognitive-services/bing-local-business-search
           itemType: overview
-          text: Local Business Search
+          text: Local Business Search (Preview)
         - url: /azure/cognitive-services/bing-news-search/
           itemType: overview
           text: News Search     
@@ -74,18 +74,18 @@ conceptualContent:
       links: 
         - url: ./anomaly-detector/overview.md
           itemType: overview
-          text: Anomaly Detector 
+          text: Anomaly Detector (Preview)
         - url: ./content-moderator/overview.md
           itemType: overview
           text: Content Moderator
         - url: ./personalizer/what-is-personalizer.md
           itemType: overview
-          text: Personalizer    
+          text: Personalizer (Preview)   
     - title: Language
       links: 
         - url: /azure/cognitive-services/immersive-reader
           itemType: overview
-          text: Immersive Reader
+          text: Immersive Reader (Preview)
         - url: /azure/cognitive-services/luis/
           itemType: overview
           text: Language Understanding (LUIS)
@@ -105,13 +105,13 @@ conceptualContent:
           text: Speech Services 
         - url: /azure/cognitive-services/speaker-recognition/home
           itemType: overview
-          text: Speaker Recognition
+          text: Speaker Recognition (Preview)
         - url: /azure/cognitive-services/speech/home
           itemType: overview
-          text: Bing Speech    
+          text: Bing Speech (Retiring)   
         - url: /azure/cognitive-services/translator-speech/
           itemType: overview
-          text: Translator Speech    
+          text: Translator Speech (Retiring)   
     - title: Vision
       links: 
         - url: /azure/cognitive-services/computer-vision/
@@ -125,10 +125,10 @@ conceptualContent:
           text: Face
         - url: https://go.microsoft.com/fwlink/?linkid=2088514
           itemType: overview
-          text: Form Recognition
+          text: Form Recognition (Preview)
         - url: https://go.microsoft.com/fwlink/?linkid=2088323
           itemType: overview
-          text: Ink Recognizer
+          text: Ink Recognizer (Preview)
         - url: /azure/cognitive-services/video-indexer/video-indexer-overview
           itemType: overview
           text: Video Indexer         
