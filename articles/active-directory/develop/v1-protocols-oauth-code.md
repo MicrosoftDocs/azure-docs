@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -348,3 +348,6 @@ A sample error response could look like this:
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
 For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
+
+## Next steps
+To learn more about the Azure AD v1.0 endpoint and how to add authentication and authorization to your web applications and web APIs, see [sample applications](sample-v1-code.md).
