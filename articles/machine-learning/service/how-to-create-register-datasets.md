@@ -41,11 +41,9 @@ To create and work with datasets, you need:
 
 ## Dataset Types
 
-Datasets are categorized into various types based on how users consume them in training. List of Dataset types:
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
-* FileDataset references single or multiple files in your datastores or public urls. This provides you with the ability to download or mount the files to your compute. The files can be of any format, which enables a wider range of machine learning scenarios including deep learning.
+Datasets are categorized into various types based on how users consume them in training. Currently we support [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) which represent data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our documentation.
 
-To find out more about upcoming API changes, see [here](https://aka.ms/tabular-dataset).
+To find out more about upcoming API changes, see [What is Azure Machine Learning service?](https://aka.ms/tabular-dataset) 
 
 ## Create datasets 
 
