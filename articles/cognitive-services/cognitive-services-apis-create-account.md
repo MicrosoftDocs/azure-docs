@@ -33,7 +33,6 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 2. You can create a Cognitive Services resource in two ways - using a multi-service key or a single-service key. A multi-service key approach lets you create a single key that can be used with different cognitive services. A single-service key approach lets you create a key for a specific cognitive service that you want to use.
     #### [Multi-service key](#tab/multiservice)
 
-    Use the search bar and enter the name of the service you want to subscribe to.
     To create a multi-service resource, enter **Cognitive Services** in the search bar, and select the **Cognitive Services** resource.
 
     ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
@@ -59,7 +58,6 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
     | **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
     ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
-
 
 ## Get the keys for your resource
 
