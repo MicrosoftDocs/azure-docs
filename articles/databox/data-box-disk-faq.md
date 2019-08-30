@@ -86,7 +86,7 @@ A.  You can track the status of the Data Box Disk order in the Azure portal. Whe
 A.  Microsoft provides a shipping label with the Data Box Disks in the shipping package. Affix the label to the shipping box and drop off the sealed package at your shipping carrier location. If the label is damaged or lost, go to **Overview > Download shipping label** and download a new return shipping label.
 
 ### Can I pick up my Data Box Disk order myself? Can I return the disks via a carrier that I choose?
-A. Yes. Microsoft also offers self-managed shipping. When placing the Data Box Disk order, you can choose self-managed shipping option. To pick up your Data Box Disk order, take the following steps:
+A. Yes. Microsoft also offers self-managed shipping in US Gov region only. When placing the Data Box Disk order, you can choose self-managed shipping option. To pick up your Data Box Disk order, take the following steps:
     
 1. After you have placed the order, the order is processed and the disks are prepared. You will be notified via an email that your order is ready for pickup. 
 2. Once the order is ready for pickup, go to your order in the Azure portal and navigate to the **Overview** blade. 
