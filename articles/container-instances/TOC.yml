@@ -121,6 +121,8 @@
     href: /javascript/api/overview/azure/containerinstances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
+  - name: Connector
+    href: /connectors/aci
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
