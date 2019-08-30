@@ -60,8 +60,8 @@ limited to the top five results.
 
 The schema browser is located in the left pane of Resource Graph Explorer. This list of resources
 shows all the _resource types_ of Azure resources that are both supported by Azure Resource Graph
-and that exist in a subscription that you have access to. Expanding a resource type or subproperties
-show child properties that can be used to create a Resource Graph query. Selecting the resource type
+and that exist in a tenant that you have access to. Expanding a resource type or subproperties show
+child properties that can be used to create a Resource Graph query. Selecting the resource type
 places `where type =="<resource type>"` into the query box. Selecting one of the child properties
 adds `where <propertyName> == "INSERT_VALUE_HERE"` into the query box. The schema browser is a great
 way to discover properties for use in queries. Be sure to replace _INSERT\_VALUE\_HERE_ with your
