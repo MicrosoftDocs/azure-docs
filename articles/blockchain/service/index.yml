@@ -58,6 +58,19 @@ landingContent:
           - text: Publish events and ledger data
             url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
 
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage blockchain members using Azure CLI
+            url: manage-cli.md
+          - text: Manage consortium members - PowerShell
+            url: manage-consortium-powershell.md
+          - text: Configure transaction nodes
+            url: configure-transaction-nodes.md
+          - text: Configure Active Directory access
+            url: configure-aad.md
+
   - title: API
     linkLists:
       - linkListType: reference
