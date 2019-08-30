@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Create and view share snapshot triggers| Microsoft Docs"
+title: "PowerShell script: Create and view an Azure Data Share snapshot triggers| Microsoft Docs"
 description: This PowerShell script creates and gets share snapshot triggers.
 services: data-share
 author: t-roupa

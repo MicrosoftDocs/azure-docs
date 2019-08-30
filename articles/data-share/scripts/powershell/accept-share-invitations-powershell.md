@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Get invitations sent to a consumer | Microsoft Docs"
+title: "PowerShell script: Accept invitation from an Azure Data Share | Microsoft Docs"
 description: This PowerShell script accepts invitations from an existing data share.
 services: data-share
 author: t-roupa

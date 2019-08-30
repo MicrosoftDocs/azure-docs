@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Create a data share invitation| Microsoft Docs"
+title: "PowerShell script: Create an Azure Data Share invitation| Microsoft Docs"
 description: This PowerShell script sends a data share invitation.
 services: data-share
 author: t-roupa

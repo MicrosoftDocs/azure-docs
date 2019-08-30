@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Create new Data Share account | Microsoft Docs"
+title: "PowerShell script: Create new Azure Data Share account | Microsoft Docs"
 description: This PowerShell script creates a new Data Share account.
 services: data-share
 author: t-roupa

@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Monitor usage a sent share | Microsoft Docs"
+title: "PowerShell script: Monitor usage of an Azure Data Share | Microsoft Docs"
 description: This PowerShell script retrieves usage metrics of a sent data share.
 services: data-share
 author: t-roupa
