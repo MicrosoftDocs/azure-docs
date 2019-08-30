@@ -57,37 +57,44 @@ The following steps show how to prepare the public IP for the configuration move
 8. To edit the parameter of the public IP name, open the **parameters.json** file:
     
     ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "virtualNetworks_myVNET1_name": {
-                "value": "null"
-            }
+                {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "publicIPAddresses_myPubIP_name": {
+            "value": "null"
         }
     }
-    ```
-9. Change the **null** value in the .json file to a name of your choice for the target VNET. Save the parameters.json file. Ensure you enclose the name in quotes.
-
-10. To edit the target region where the VNET will be moved, open the **template.json** file:
-
-    ```json
-    "resources": [
-                {
-                    "type": "Microsoft.Network/virtualNetworks",
-                    "apiVersion": "2019-06-01",
-                    "name": "[parameters('virtualNetworks_myVNET1_name')]",
-                    "location": "TARGET REGION",
-                    "properties": {
-                        "provisioningState": "Succeeded",
-                        "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
-                        "addressSpace": {
-                            "addressPrefixes": [
-                                "10.0.0.0/16"
-                            ]
-                        },
 
     ```
+
+9. Change the **null** value in the .json file to a name of your choice for the target public IP. Save the parameters.json file. Ensure you enclose the name in quotes.
+
+10. To edit the target region where the public IP configuration will be moved, open the **template.json** file:
+
+         ```json
+           "resources": [
+           {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+            "location": "TARGET REGION",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
+                "ipAddress": "52.177.6.204",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+               }
+               }
+             ]             
+         ```
   
 11. Edit the location in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
