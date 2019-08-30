@@ -253,6 +253,10 @@
       href: virtual-network-public-ip-address.md
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
+  - name: Move
+    items:
+    - name: Virtual networks
+      href: virtual-network-azure-to-azure-migrate-vnet.md
   - name: Troubleshoot
     items:
     - name: Network security groups
