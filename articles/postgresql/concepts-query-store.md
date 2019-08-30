@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 08/21/2019
 ---
 # Monitor performance with the Query Store
 
@@ -169,6 +169,7 @@ Query_store.staging_data_reset() returns void
 ## Limitations and known issues
 - If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (>= 6000 bytes).
+- [Read replicas](concepts-read-replicas.md) replicate Query Store data from the master server. This means that a read replica's Query Store does not provide statistics about queries run on the read replica.
 
 
 ## Next steps

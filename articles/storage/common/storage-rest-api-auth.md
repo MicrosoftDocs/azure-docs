@@ -1,12 +1,12 @@
 ---
-title: Calling Azure Storage Services REST API operations including authentication | Microsoft Docs
-description: Calling Azure Storage Services REST API operations including authentication
+title: Calling Azure Storage Services REST API operations with Shared Key authorization | Microsoft Docs
+description: Use the Azure Storage REST API to make a request to Blob storage using Shared Key authorization.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -14,7 +14,7 @@ ms.subservice: common
 
 # Using the Azure Storage REST API
 
-This article shows you how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It's written from the point of view of a developer who knows nothing about REST and no idea how to make a REST call. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
+This article shows you how to use the Blob Storage Service REST APIs and how to authorize the call to the service. It's written from the point of view of a developer who knows nothing about REST and no idea how to make a REST call. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
 
 ## Prerequisites 
 
@@ -53,8 +53,7 @@ Knowing how to use REST is a useful skill. The Azure product team frequently rel
 
 The sample application lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, other REST calls are easier to figure out. 
 
-If you look at the [Blob Service REST
-API](/rest/api/storageservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
+If you look at the [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
 
 ## REST API Reference: List Containers API
 
@@ -269,12 +268,13 @@ Now that you understand how to create the request, call the service, and parse t
 ## Creating the authorization header
 
 > [!TIP]
-> Azure Storage now supports Azure Active Directory (Azure AD) integration for blobs and queues. Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authenticate with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
+> Azure Storage now supports Azure Active Directory (Azure AD) integration for blobs and queues. Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authorize with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
 
-There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+There is an article that explains conceptually (no code) how to [Authorize requests to Azure Storage](/rest/api/storageservices/authorize-requests-to-azure-storage).
+
 Let's distill that article down to exactly is needed and show the code.
 
-First, use a Shared Key authentication. The authorization header format looks like this:
+First, use Shared Key authorization. The authorization header format looks like this:
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -363,7 +363,7 @@ This part of the signature string represents the storage account targeted by the
 
 If you have query parameters, this example includes those parameters as well. Here's the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs. You want to include all possibilities, even if the ListContainers method doesn't need all of them.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -379,7 +379,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -574,3 +574,4 @@ In this article, you learned how to make a request to the blob storage REST API.
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api)
 * [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api)
+* [Table Service REST API](/rest/api/storageservices/table-service-rest-api)

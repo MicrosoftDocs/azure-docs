@@ -2,7 +2,7 @@
 title: 'C# Quickstart: Create, load, and query indexes using .NET SDK - Azure Search'
 description: Explains how to create an index, load data, and run queries using C# and the Azure Search .NET SDK.
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 tags: azure-portal
 services: search

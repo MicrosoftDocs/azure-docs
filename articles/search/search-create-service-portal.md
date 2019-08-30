@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Search service in the portal - Azure Search
 description: Provision an Azure Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search

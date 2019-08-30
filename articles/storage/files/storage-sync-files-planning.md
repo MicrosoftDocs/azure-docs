@@ -240,7 +240,7 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
-| Brazil South | Sao Paolo State |
+| Brazil South | Sao Paulo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |
@@ -249,12 +249,15 @@ Azure File Sync is available only in the following regions:
 | East US | Virginia |
 | East US2 | Virginia |
 | France Central | Paris |
-| Korea Central| Seoul |
-| Korea South| Busan |
+| France South* | Marseille |
+| Korea Central | Seoul |
+| Korea South | Busan |
 | Japan East | Tokyo, Saitama |
 | Japan West | Osaka |
 | North Central US | Illinois |
 | North Europe | Ireland |
+| South Africa North | Johannesburg |
+| South Africa West* | Cape Town |
 | South Central US | Texas |
 | South India | Chennai |
 | Southeast Asia | Singapore |
@@ -269,6 +272,8 @@ Azure File Sync is available only in the following regions:
 | West US 2 | Washington |
 
 Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+
+For the regions marked with asterisks, you must contact Azure Support to request access to Azure Storage in those regions. The process is outlined in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### Azure disaster recovery
 To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
@@ -291,12 +296,15 @@ To support the failover integration between geo-redundant storage and Azure File
 | East US             | West US            |
 | East US 2           | Central US         |
 | France Central      | France South       |
+| France South        | France Central     |
 | Japan East          | Japan West         |
 | Japan West          | Japan East         |
 | Korea Central       | Korea South        |
 | Korea South         | Korea Central      |
 | North Europe        | West Europe        |
 | North Central US    | South Central US   |
+| South Africa North  | South Africa West  |
+| South Africa West   | South Africa North |
 | South Central US    | North Central US   |
 | South India         | Central India      |
 | Southeast Asia      | East Asia          |
