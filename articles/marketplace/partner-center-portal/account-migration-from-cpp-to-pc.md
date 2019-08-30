@@ -46,7 +46,7 @@ The account migration needs to happen only once for a given account. Once a give
 If you have created Dynamics 365 for Customer Engagement or Dynamics 365 for Finance and Operations solutions in the One Commercial Partner GTM portal, **these solutions should now be managed in Partner Center**.
 
 **If you did not move your solutions by August 31, 2019**, complete the below steps as soon as possible. Until you do so: 
-0 ISVs won’t have access to marketing benefits
+- ISVs won’t have access to marketing benefits
 - Co-sell prioritized will lose their status
 - Those requiring Cloud Embed will be out of compliance
 
