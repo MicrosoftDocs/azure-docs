@@ -22,10 +22,12 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Private consortium blockchain network
+          - text: Private consortium blockchain networks
             url: consortium.md
           - text: Data access and security
             url: data-security.md
+          - text: Development tools
+            url: develop.md
 
   - title: Get started
     linkLists:
