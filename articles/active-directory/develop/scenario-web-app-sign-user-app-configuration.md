@@ -31,18 +31,29 @@ The libraries used to protect a Web App (and a Web API) are:
 | Platform | Library | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios) |
+| ![.NET](media/sample-v2-code/logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java |
 
-## ASP.NET Core configuration
+Code snippets in this article and the following are extracted from:
 
-Code snippets in this article and the following are extracted from the [ASP.NET Core Web app incremental tutorial, chapter 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). You might want to refer to that tutorial for full implementation details.
+- the [ASP.NET Core Web app incremental tutorial, chapter 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
+- the [ASP.NET Web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
+- the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) msal4j sample
 
-### Application configuration files
+You might want to refer to these tutorials and sample for full implementation details.
 
-In ASP.NET Core, a Web application signing-in users with the Microsoft identity platform is configured through the `appsettings.json` file. The settings that you need to fill in are:
+## Configuration files
 
-- the cloud `Instance` if you want your app to run in national clouds
+Web applications that sign-in users with the Microsoft identity platform are usually configured through configuration files. The settings that you need to fill in are:
+
+- the cloud `Instance` if you want your app to run (for instance in national clouds)
 - the audience in `tenantId`
 - the `clientId` for your application, as copied from the Azure portal.
+
+Sometimes, applications can be parametrized by the `authority`, which is the concatenation of the `instance` and the `tenantId`
+
+# [ASP.NET Core](#tab/aspnetcore)
+
+In ASP.NET Core, these settings are usually located in the `appsettings.json` file, in the "AzureAD" section.
 
 ```JSon
 {
@@ -69,7 +80,7 @@ In ASP.NET Core, a Web application signing-in users with the Microsoft identity 
 }
 ```
 
-In ASP.NET Core, there's another file that contains the URL (`applicationUrl`) and the SSL Port (`sslPort`) for your application as well as various profiles.
+In ASP.NET Core, there's another file (`properties\launchSettings.json`) that contains the URL (`applicationUrl`) and the SSL Port (`sslPort`) for your application as well as various profiles.
 
 ```JSon
 {
@@ -105,7 +116,53 @@ In the Azure portal, the reply URIs that you need to register in the **Authentic
   
 In the same way, the sign out URI would be set to `https://localhost:44321/signout-callback-oidc`.
 
-### Initialization code
+# [ASP.NET](#tab/aspnet)
+
+In ASP.NET, the application is configured through the `Web.Config` file
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  https://go.microsoft.com/fwlink/?LinkId=301880
+  -->
+<configuration>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="ida:ClientId" value="[Enter your client ID, as obtained from the app registration portal]" />
+    <add key="ida:ClientSecret" value="[Enter your client secret, as obtained from the app registration portal]" />
+    <add key="ida:AADInstance" value="https://login.microsoftonline.com/{0}{1}" />
+    <add key="ida:RedirectUri" value="https://localhost:44326/" />
+    <add key="vs:EnableBrowserLink" value="false" />
+  </appSettings>
+```
+
+In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match these URLs; that is `https://localhost:44326/`.
+
+# [Java](#tab/java)
+
+In Java, the configuration is located in the `application.properties` file located under `src/main/resources`
+
+```Java
+aad.clientId=Enter_the_Application_Id_here
+aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
+aad.secretKey=Enter_the_Client_Secret_Here
+aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
+aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
+```
+
+In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match the redirectUris defined by the application, that is `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/users`
+
+---
+
+## Initialization code
+
+The initialization code is different depending on the platform. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenIDConnect middleware. Given that today the ASP.NET / ASP.NET Core template generate web applications for the Azure AD v1.0 endpoint, a bit of configuration is required to adapt them to the Microsoft identity platform (v2.0) endpoint. In the case of Java, it's handled by spring
+
+# [ASP.NET Core](#tab/aspnetcore)
 
 In ASP.NET Core Web Apps (and Web APIs), the code doing the application initialization is located in the `Startup.cs` file, and, to add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
@@ -138,29 +195,7 @@ In ASP.NET Core Web Apps (and Web APIs), the code doing the application initiali
   ...
 ```
 
-## ASP.NET configuration
-
-In ASP.NET, the application is configured through the `Web.Config` file
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  For more information on how to configure your ASP.NET application, please visit
-  https://go.microsoft.com/fwlink/?LinkId=301880
-  -->
-<configuration>
-  <appSettings>
-    <add key="webpages:Version" value="3.0.0.0" />
-    <add key="webpages:Enabled" value="false" />
-    <add key="ClientValidationEnabled" value="true" />
-    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:ClientId" value="[Enter your client ID, as obtained from the app registration portal]" />
-    <add key="ida:ClientSecret" value="[Enter your client secret, as obtained from the app registration portal]" />
-    <add key="ida:AADInstance" value="https://login.microsoftonline.com/{0}{1}" />
-    <add key="ida:RedirectUri" value="https://localhost:44326/" />
-    <add key="vs:EnableBrowserLink" value="false" />
-  </appSettings>
-```
+# [ASP.NET](#tab/aspnet)
 
 The code related to authentication in ASP.NET Web app / Web APIs is located in the `App_Start/Startup.Auth.cs` file.
 
@@ -186,7 +221,41 @@ The code related to authentication in ASP.NET Web app / Web APIs is located in t
  }
 ```
 
+# [Java](#tab/java)
+
+The Java sample leverages spring, and the configuration is done in the `src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java` file in the following method:
+
+```Java
+String getRedirectUrl(String claims, String scope, String registeredRedirectURL, String state, String nonce)
+            throws UnsupportedEncodingException {
+
+String urlEncodedScopes = scope == null ?
+          URLEncoder.encode("openid offline_access profile", "UTF-8") :
+          URLEncoder.encode("openid offline_access profile" + " " + scope, "UTF-8");
+
+
+String redirectUrl = authority + "oauth2/v2.0/authorize?" +
+        "response_type=code&" +
+        "response_mode=form_post&" +
+        "redirect_uri=" +  URLEncoder.encode(registeredRedirectURL, "UTF-8") +
+        "&client_id=" + clientId +
+        "&scope=" + urlEncodedScopes +
+        (StringUtils.isEmpty(claims) ? "" : "&claims=" + claims) +
+        "&prompt=select_account" +
+        "&state=" + state
+        + "&nonce=" + nonce;
+
+        return redirectUrl;
+    }
+```
+
+See [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) for details about the authorization code flow triggered by this method
+
+---
+
 ## Next steps
+
+In the next article, you'll learn how to trigger the sign-in and sign-out.
 
 > [!div class="nextstepaction"]
 > [Sign in and sign out](scenario-web-app-sign-user-sign-in.md)

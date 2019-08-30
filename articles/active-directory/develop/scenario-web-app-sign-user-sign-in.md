@@ -25,7 +25,7 @@ Learn how to add sign-in to the code for your web app that signs-in users.
 
 ## Sign-in
 
-The code we've in the previous article [app's code configuration](scenario-web-app-sign-user-app-configuration.md) is all you need to implement sign-out.
+The code we've in the previous article [app's code configuration](scenario-web-app-sign-user-app-configuration.md) is all you need to implement sign-in.
 Once the user has signed-in to your app, you probably want to enable them to sign out. ASP.NET core handles sign-out for you.
 
 ## What sign out involves
