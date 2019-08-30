@@ -300,7 +300,7 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center. 
 
 |**Role**|**Permissions**|
-|----------------------------------|:---------------------------------|
+|----------------------------------|---------------------------------|
 |Manager|- Can access all Microsoft account features except tax and payout settings|
 |      |- Can manage users, roles, and work accounts (tenants)|
 |Developer|- Can manage and publish offers|
