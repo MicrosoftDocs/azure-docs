@@ -3,20 +3,13 @@ title: Data Science Virtual Machine pools - Azure | Microsoft Docs
 description: Deploying pools of DSVMs as a shared resource for a team
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/10/2018
+
+author: vijetajo
 ms.author: vijetaj
+ms.topic: conceptual
+ms.date: 12/10/2018
 
 ---
 

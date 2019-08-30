@@ -8,10 +8,6 @@
     items:
     - name: Web app in a Linux container
       href: secure-web-app.md
-  - name: Industry compliant solutions
-    items:
-    - name: Payment card industry
-      href: secure-pci-web-app.md
 
 - name: Concepts
   expanded: true

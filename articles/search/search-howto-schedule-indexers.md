@@ -4,7 +4,7 @@ description: Schedule Azure Search indexers to index content periodically or at 
 
 ms.date: 05/31/2019
 author: HeidiSteen
-manager: HeidiSteen
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
