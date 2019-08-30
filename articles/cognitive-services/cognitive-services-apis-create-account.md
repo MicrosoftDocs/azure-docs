@@ -40,7 +40,7 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
     On the Cognitive Services page, select **Create**.
 
-    ![Create Cognitive Services accout](media/cognitive-services-apis-create-account/azureCogServSearchMulti-2.jpg)
+    ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azureCogServSearchMulti-2.jpg)
 
     #### [Single-service resource](#tab/singleservice)
 
@@ -55,7 +55,7 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
     |    |    |
     |--|--|
-    | **Name** | A descriptive name for your cognitive services resource. For example *MyCognitiveServicesResource*. |
+    | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
     | **Subscription** | Select one of your available Azure subscriptions. |
     | **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. Remember your Azure location, as you may need it when calling the Azure Cognitive Services. |
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -69,7 +69,7 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
     |    |    |
     |--|--|
-    | **Name** | A descriptive name for your cognitive services resource. For example *TextAnalyticsResource*. |
+    | **Name** | A descriptive name for your cognitive services resource. For example, *TextAnalyticsResource*. |
     | **Subscription** | Select one of your available Azure subscriptions. |
     | **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. Remember your Azure location, as you may need it when calling the Azure Cognitive Services. |
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -98,7 +98,7 @@ From the quickstart pane that opens, you can access your endpoint and key.
 Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
 * maximum number of allowed transactions per second (TPS).
 * service features enabled within the pricing tier.
-* The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
+* The cost for a predefined number of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
 ## Clean up resources
 
@@ -113,6 +113,6 @@ To remove a resource group using the Azure portal:
 ## See also
 
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What are Azure Cognitive Services?](Welcome.md)
+* [What is Azure Cognitive Services?](Welcome.md)
 * [Natural language support](language-support.md)
 * [Docker container support](cognitive-services-container-support.md)
