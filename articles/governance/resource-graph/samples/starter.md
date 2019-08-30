@@ -103,7 +103,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"/>Show first five virtual machines by name and their OS type
 
-This query will use `limit` to only retrieve five matching records that are ordered by name. The type
+This query will use `top` to only retrieve five matching records that are ordered by name. The type
 of the Azure resource is `Microsoft.Compute/virtualMachines`. `project` tells Azure Resource Graph
 which properties to include.
 
