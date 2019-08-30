@@ -65,4 +65,4 @@ When you are done with the knowledge base, remove it in the QnA Maker portal.
 For cost savings measures, you can [share](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
 
 > [!div class="nextstepaction"]
-> [Add chit-chat personal](./chit-chat-knowledge-base.md)
+> [Add questions with metadata](../quickstarts/add-question-metadata-portal.md)
