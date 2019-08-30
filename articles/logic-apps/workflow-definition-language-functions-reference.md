@@ -691,8 +691,8 @@ And returns this result: `"2018-03-15T00:15:00.0000000Z"`
 ### addProperty
 
 Add a property and its value, or name-value pair, to a JSON object,
-and return the updated object. If the object already exists at runtime,
-the function throws an error.
+and return the updated object. If the property already exists at runtime,
+the function fails and throws an error.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -3345,7 +3345,7 @@ And returns this result: `"the new string"`
 
 ### removeProperty
 
-Remove a property from an object and return the updated object.
+Remove a property from an object and return the updated object. If the property that you try to remove doesn't exist, the function returns the original object.
 
 ```
 removeProperty(<object>, '<property>')
@@ -3563,8 +3563,7 @@ Here's how the example returned array might look where the outer `outputs` objec
 
 ### setProperty
 
-Set the value for JSON object's property and return the updated object.
-To add a new property, use the [addProperty()](#addProperty) function.
+Set the value for JSON object's property and return the updated object. If the property that you try to set doesn't exist, the property gets added to the object. To add a new property, use the [addProperty()](#addProperty) function.
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3580,7 +3579,7 @@ setProperty(<object>, '<property>', <value>)
 To set a child property for an existing property, use this syntax:
 
 ```
-setProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>[`parentProperty'], '<child-property>', <value>))
 ```
 
 | Parameter | Required | Type | Description |
@@ -3627,7 +3626,7 @@ Here's the updated JSON object:
 This example sets the `surName` child property for the `customerName` parent property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the property and returns the updated object:
 
 ```
-setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
 ```
 
 Here's the current JSON object:
