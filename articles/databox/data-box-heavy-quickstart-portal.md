@@ -9,6 +9,7 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 08/29/2019
 ms.author: alkohli
+ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
 
