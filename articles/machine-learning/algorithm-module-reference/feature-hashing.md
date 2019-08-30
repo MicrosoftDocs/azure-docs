@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 09/30/2019
+ms.date: 09/01/2019
 ---
 # Feature Hashing
 
