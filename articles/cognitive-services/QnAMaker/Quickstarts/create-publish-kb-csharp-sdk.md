@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 
@@ -177,7 +177,7 @@ The _loop_ and _Task.Delay_ in the following code block are used to simulate ret
 
 Run the application with the dotnet `run` command from your application directory.
 
-```dotnet
+```console
 dotnet run
 ```
 
