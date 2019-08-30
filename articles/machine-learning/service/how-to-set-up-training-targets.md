@@ -436,7 +436,7 @@ az ml run submit-script -e <experiment> -c <runconfig> my_train.py
 
 ### HyperDrive run
 
-You can use HyperDrive with Azure CLI to perform parameter tuning runs. Create a HyperDrive configuration file in following format. See [Tune hyperparameters for your model](how-to-tune-hyperparameters.md) article for details on hyperparameter tuning.
+You can use HyperDrive with Azure CLI to perform parameter tuning runs. First, create a HyperDrive configuration file in the following format. See [Tune hyperparameters for your model](how-to-tune-hyperparameters.md) article for details on hyperparameter tuning parameters.
 
 ```yml
 # hdconfig.yml
