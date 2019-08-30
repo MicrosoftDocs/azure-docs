@@ -15,7 +15,7 @@ Streaming ingestion is targeted for scenarios that require low latency with an i
 
 Use the classic (bulk) ingestion instead of streaming ingestion when the amount of data grows to more than 1 MB per second per table. Read [Data ingestion overview](/azure/data-explorer/ingest-data-overview) to learn more about the various methods of ingestion.
 
-> [NOTE]
+> [!NOTE]
 > Streaming ingestion doesn't support the following features:
 > * [Database cursors](/azure/kusto/management/databasecursor).
 > * [Data mapping](/azure/kusto/management/mappings). Only [pre-created](/azure/kusto/management/tables#create-ingestion-mapping) data mapping is supported. 
