@@ -69,11 +69,11 @@ Azure AD Privileged Identity Management (PIM) provides additional controls tailo
 
 Using PIM allows a user's administrative permissions to be restricted for additional security. The following are the least privileged directory roles for configuration in Azure AD identity governance features: 
 
-| Capability | Least privileged role |
-| ---------- | --------------------- |
-| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires global administrator) |
-| Terms of use | Security administrator or conditional access administrator |
-| Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires privileged role administrator) |
+| Feature | Least privileged role |
+| ------- | --------------------- |
+| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires Global administrator) |
+| Terms of use | Security administrator or Conditional access administrator |
+| Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires Privileged role administrator) |
 |Privileged Identity Management | Privileged role administrator |
 
 
