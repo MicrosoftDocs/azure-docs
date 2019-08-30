@@ -301,7 +301,6 @@ Your company's users can be assigned the following roles and permissions for the
 
 |**Role**|**Permissions**|
 |----------------------------------|:---------------------------------|
-
 |Manager|- Can access all Microsoft account features except tax and payout settings|
 |      |- Can manage users, roles, and work accounts (tenants)|
 |Developer|- Can manage and publish offers|
