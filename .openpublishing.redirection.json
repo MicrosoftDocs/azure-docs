@@ -8756,6 +8756,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/saas-apps/thefundingportal-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/the-funding-portal-tutorial",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-panopto-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/panopto-tutorial",
       "redirect_document_id": true
