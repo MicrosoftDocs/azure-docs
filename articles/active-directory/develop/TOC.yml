@@ -224,7 +224,9 @@
           - name: Migrate to MSAL.NET
             href: msal-net-migration.md
           - name: Migrate to MSAL.js
-            href: msal-compare-msal-js-and-adal-js.md
+            href: msal-compare-msal-js-and-adal-js.m
+          - name: Migrate to MSAL for Android
+            href: migrate-android-adal-msal.md
         - name: Supported authentication flows
           href: msal-authentication-flows.md
         - name: Acquire and cache tokens

@@ -5,13 +5,12 @@ services: active-directory
 author: tylermsft
 manager: CelesteDG
 
-ms.service: active directory
+ms.service: active-directory
 ms.subservice: develop
 ms.devlang: multiple
 ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: Android
-ms.prod: na
 ms.technology: vs-azure
 ms.custom: aaddev
 ms.workload: azure-vs
