@@ -35,7 +35,7 @@ Verify that you have met the following criteria before beginning configuration:
 * Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * Verify that you have an externally facing public IPv4 address for your VPN device.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-* Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator.
+* Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. To install the cmdlets, see [Service Management](/powershell/azure/servicemanagement/install-azure-ps). For more information about PowerShell installs in general, see [How to install and configure Azure PowerShell](/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator.
 
 ### <a name="values"></a>Sample configuration values for this exercise
 
@@ -155,6 +155,12 @@ In this step, you set the shared key and create the connection. The key you set 
 
 ### Step 1. Connect to your Azure account
 
+You must run these commands locally using the PowerShell service management module. To switch to service management, use this command:
+
+```powershell
+azure config mode asm
+```
+
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
    ```powershell
@@ -173,18 +179,14 @@ In this step, you set the shared key and create the connection. The key you set 
 
 ### Step 2. Set the shared key and create the connection
 
-When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. The following steps help you export the network configuration file to obtain the exact values for the names. You must run these commands locally using the PowerShell service management module. To switch to service management, use this command:
-
-```powershell
-azure config mode asm
-```
+When you create a classic VNet in the portal (not using PowerShell), Azure adds the the resource group name to the short name. For example, according to Azure, the name of the VNet that you created for this exercise is "Group TestRG1 TestVNet1", not "TestVNet1". PowerShell requires the full name of the virtual network, not the short name that appears in the portal. The long name is not visible in the portal. The following steps help you export the network configuration file to obtain the exact values for the virtual network name. 
 
 1. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to C:\AzureNet.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. Open the network configuration file with an xml editor and check the values for 'LocalNetworkSite name' and 'VirtualNetworkSite name'. Modify the example to reflect the values that you need. When specifying a name that contains spaces, use single quotation marks around the value.
+2. Open the network configuration file with an xml editor and check the values for 'LocalNetworkSite name' and 'VirtualNetworkSite name'. Modify the example for this exercise to reflect the values in the xml. When specifying a name that contains spaces, use single quotation marks around the value.
 
 3. Set the shared key and create the connection. The '-SharedKey' is a value that you generate and specify. In the example, we used 'abc123', but you can generate (and should) use something more complex. The important thing is that the value you specify here must be the same value that you specified when configuring your VPN device.
 

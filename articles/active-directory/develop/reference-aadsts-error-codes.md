@@ -190,6 +190,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90019 | MissingTenantRealm - Azure AD was unable to determine the tenant identifier from the request. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - The principal name format is not valid, or does not meet the expected `name[/host][@realm]` format. The principal name is required, host and realm are optional and may be set to null. |
 | AADSTS90023 | InvalidRequest - The authentication service request is not valid. |
+| AADSTS9002313 | InvalidRequest - Request is malformed or invalid. - The issue here is because there was something wrong with the request to a certain endpoint. The suggestion to this issue is to get a fiddler trace of the error occurring and looking to see if the request is actually properly formatted or not. |
 | AADSTS90024 | RequestBudgetExceededError - A transient error has occurred. Try again. |
 | AADSTS90033 | MsodsServiceUnavailable - The Microsoft Online Directory Service (MSODS) is not available. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - An unexpected, non-retryable error from the WCF service hosted by MSODS has occurred. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |
@@ -261,6 +262,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
 
 ## Next steps
 

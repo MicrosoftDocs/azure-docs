@@ -133,7 +133,7 @@ Simple entities need many examples in order to have a high confidence of predict
 
 1. Label the jobs in the example utterances
 
-    If there are more example utterances in one intent than another intent, that intent has a higher likelihood of being the highest predicted intext. 
+    If there are more example utterances in one intent than another intent, that intent has a higher likelihood of being the highest predicted intent. 
 
 ## Train the app so the changes to the intent can be tested 
 

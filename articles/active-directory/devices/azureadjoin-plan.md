@@ -66,6 +66,7 @@ A federated environment should have an identity provider that supports both WS-T
 
 - **WS-Fed:** This protocol is required to join a device to Azure AD.
 - **WS-Trust:** This protocol is required to sign in to an Azure AD joined device.
+
 When you're using AD FS, you need to enable the following WS-Trust endpoints:
  `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`

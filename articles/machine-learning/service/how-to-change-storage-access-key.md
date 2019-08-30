@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/08/2019
+ms.date: 08/16/2019
 
 
 ---
@@ -47,12 +47,15 @@ ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
 print("Default datstore: " + default_ds.name + ", storage account name: " +
-      default_ds.account_name + ", container name: " + ds.container_name)
+      default_ds.account_name + ", container name: " + default_ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
-    if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " +
+    if ds.datastore_type == "AzureBlob":
+        print("Blob store - datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
+    if ds.datastore_type == "AzureFile":
+        print("File share - datastore name: " + name + ", storage account name: " +
               ds.account_name + ", container name: " + ds.container_name)
 ```
 
@@ -61,6 +64,8 @@ This code looks for any registered datastores that use Azure Storage and lists t
 * Datastore name: The name of the datastore that the storage account is registered under.
 * Storage account name: The name of the Azure Storage account.
 * Container: The container in the storage account that is used by this registration.
+
+It also indicates whether the datastore is for an Azure Blob or an Azure File share, as there are different methods to re-register each type of datastore.
 
 If an entry exists for the storage account that you plan on regenerating access keys for, save the datastore name, storage account name, and container name.
 
@@ -94,12 +99,21 @@ To update Azure Machine Learning service to use the new key, use the following s
 1. To re-register datastore(s) that use the storage account, use the values from the [What needs to be updated](#whattoupdate) section and the key from step 1 with the following code:
 
     ```python
-    ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
+    # Re-register the blob container
+    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                              datastore_name='your datastore name',
                                               container_name='your container name',
-                                              account_name='your storage account name', 
+                                              account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
+    # Re-register file shares
+    ds_file = Datastore.register_azure_file_share(workspace=ws,
+                                          datastore_name='your datastore name',
+                                          file_share_name='your container name',
+                                          account_name='your storage account name',
+                                          account_key='new storage account key',
+                                          overwrite=True)
+    
     ```
 
     Since `overwrite=True` is specified, this code overwrites the existing registration and updates it to use the new key.

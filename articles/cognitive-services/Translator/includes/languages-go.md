@@ -6,11 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Prerequisites](prerequisites-go.md)]
 
-This quickstart requires:
-
-* [Go](https://golang.org/doc/install)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Create a project and import required modules
 
@@ -25,6 +23,7 @@ import (
     "log"
     "net/http"
     "net/url"
+    "os"
 )
 ```
 
@@ -32,16 +31,18 @@ import (
 
 Let's create the main function for our application. You'll notice it's a single line of code. That's because we're creating a single function to get and print the list of supported languages for Translator Text.
 
+This sample will try to read your Translator Text endpoint from an environment variable: `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `endpoint` as a string and comment out the conditional statement.
+
 Copy this code into your project:
 
 ```go
 func main() {
-    /*
-     * This calls our getLanguages function, which we'll
-     * create in the next section. It takes a single argument,
-     * the subscription key.
-     */
-    getLanguages()
+    if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+    }
+    endpoint := os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    uri := endpoint + "/languages?api-version=3.0"
+    getLanguages(uri)
 }
 ```
 
@@ -50,7 +51,7 @@ func main() {
 Let's create a function to get a list of supported languages.
 
 ```go
-func getLanguages() {
+func getLanguages(uri string) {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -64,9 +65,8 @@ Copy this code into the `getLanguages` function.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages")
+u, _ := url.Parse(uri)
 q := u.Query()
-q.Add("api-version", "3.0")
 u.RawQuery = q.Encode()
 ```
 

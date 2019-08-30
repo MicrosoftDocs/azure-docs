@@ -187,7 +187,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `

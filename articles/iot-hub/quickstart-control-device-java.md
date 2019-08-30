@@ -13,7 +13,7 @@ ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
-# Quickstart: Control a device connected to an IoT hub (Java)
+# Quickstart: Control a device connected to an Azure IoT hub with Java
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -31,9 +31,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Java. You need Java SE 8 or later on your development machine.
+The two sample applications you run in this quickstart are written using Java. You need Java SE 8 on your development machine.
 
-You can download Java for multiple platforms from [Oracle](https://aka.ms/azure-jdks).
+You can download Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 You can verify the current version of Java on your development machine using the following command:
 
