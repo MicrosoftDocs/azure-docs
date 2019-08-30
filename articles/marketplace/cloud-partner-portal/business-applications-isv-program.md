@@ -20,7 +20,7 @@ In order to enroll and take advantage of all the [technical, marketing, and sale
 
 - [Set up your Microsoft Partner Center account](#set-up-your-microsoft-partner-center-account).
 - [Accept the Business Applications Addendum](#accept-the-business-applications-isv-program-addendum).
-- [Set up your billing info](#set-up-your-billing-information).
+- [Set up your billing information](#set-up-your-billing-information).
 - [Recertify your application](#recertify-your-application).
 
 > [!IMPORTANT]
@@ -30,9 +30,15 @@ In order to enroll and take advantage of all the [technical, marketing, and sale
 
 [Partner Center](https://partner.microsoft.com) is the place to manage your account settings for the ISV Connect program.
 
-1. Sign in to [Partner Center](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Femail%2F%3Fdestination%3Dhttps%253A%252F%252Fpartner.microsoft.com%252Fpcv%252Faccountsettings%252Fconnectedpartnerprofile%26m%3D00000000-0000-0000-0000-000000000000%26u%3Daeo-preview%26l%3Dconnectedpartnerprofile&data=02%7C01%7Cbwyler%40microsoft.com%7C7f48ae711e2142305fea08d724c54eb8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637018302152692863&sdata=6Is1jFT5yF3e1FxmH5EdSgQ%2FCPbjUogf4xlDu2HAnug%3D&reserved=0) to confirm that your account has been migrated. If you see a profile screen with your MPN ID, proceed to the next step. If not, start your account migration by following the prompts in the [Partner Membership Center](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Femail%2F%3Fdestination%3Dhttps%253A%252F%252Fpartners.microsoft.com%252F%26m%3D00000000-0000-0000-0000-000000000000%26u%3Daeo-preview%26l%3Dpartners.microsoft.com&data=02%7C01%7Cbwyler%40microsoft.com%7C7f48ae711e2142305fea08d724c54eb8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637018302152702853&sdata=UNUl3HMscwI1fI2QQzQCDTd60thm90X1s847r6UEw08%3D&reserved=0). Visit [Support](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Femail%2F%3Fdestination%3Dhttps%253A%252F%252Fpartner.microsoft.com%252Fen-US%252Fsupport%253Fissueid%253D100-0077%26m%3D00000000-0000-0000-0000-000000000000%26u%3Daeo-preview%26l%3Dsupport&data=02%7C01%7Cbwyler%40microsoft.com%7C7f48ae711e2142305fea08d724c54eb8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637018302152702853&sdata=A0IlMiBlPvULgZE9J3ZTPSoCSMGbOVs1nBuAwA8SKh0%3D&reserved=0) for help with this step.
-2. Go to the Partner Center dashboard to verify your enrollment in the commercial marketplace. If you see "Commercial Marketplace" on the left navigation pane, you are enrolled and should proceed to the next step. If not, enroll in the commercial marketplace.
-3. Confirm your offers are in AppSource by [searching for your offers](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Femail%2F%3Fdestination%3Dhttps%253A%252F%252Fappsource.microsoft.com%252F%26m%3D00000000-0000-0000-0000-000000000000%26u%3Daeo-preview%26l%3Dappsource.microsoft.com&data=02%7C01%7Cbwyler%40microsoft.com%7C4582702a7ca8470ca33408d724c49d8c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637018299180049389&sdata=uU67TradCnRHLG9GTE7kIyxWIzMv9fOIvQ9EEX199b4%3D&reserved=0). If your offers are already in AppSource, proceed to the next step. For any offer not in AppSource, create a new [Dynamics 365 for Customer Engagement](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Femail%2F%3Fdestination%3Dhttps%253A%252F%252Fdocs.microsoft.com%252Fen-us%252Fazure%252Fmarketplace%252Fcloud-partner-portal%252Fdyn365ce%252Fcpp-create-offer%26m%3D00000000-0000-0000-0000-000000000000%26u%3Daeo-preview%26l%3Dcpp-create-offer&data=02%7C01%7Cbwyler%40microsoft.com%7C4582702a7ca8470ca33408d724c49d8c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637018299180059385&sdata=RHqJFLzS2%2F6vo33XwTzcaq02xlic%2FR8yMIlEZWpbdVw%3D&reserved=0) or [Dynamics 365 for Finance and Operations](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Femail%2F%3Fdestination%3Dhttps%253A%252F%252Fdocs.microsoft.com%252Fen-us%252Fazure%252Fmarketplace%252Fcloud-partner-portal-orig%252Fcpp-dynamics-365-operations-offer%26m%3D00000000-0000-0000-0000-000000000000%26u%3Daeo-preview%26l%3Dcpp-dynamics-365-operations-offer&data=02%7C01%7Cbwyler%40microsoft.com%7C4582702a7ca8470ca33408d724c49d8c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637018299180059385&sdata=xs2Zwwab4N6vPyHOPHmqxGP9GT%2Fndc%2Bmf8yx0%2FY4AYw%3D&reserved=0) offer using your Partner Center account.
+> [!NOTE]
+> This step requires an *Owner* role in Cloud Partner Portal for your given account and an *Owner* or *Manager* role in Partner Center.
+
+If you've already published Dynamics CE and/or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Partner Center. If not, you can manually activate your Partner Center account from your CPP Publisher Profile.
+
+1. Sign in to your **Publisher Profile** page in [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2. If you see a banner showing that your account settings have been migrated to Partner Center, continue on to the next section. Otherwise, select the banner prompting you to activate your Partner Center account.
+
+For more information, see [Account migration from Cloud Partner Portal to Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
 
 ## Accept the Business Applications ISV Program addendum
 
@@ -62,7 +68,7 @@ Next, set up your billing information for the Business Applications ISV Connect 
 
 3. Under *Accounts*, select **Billing profile**.
 
-4. Review the primary contact and billing information that is populated from your legal entity, and make any necessary updates.
+4. Review the primary contact and billing information that is populated from your legal entity and make any necessary updates.
 
 5. Supply Tax ID/VAT ID settings, if applicable.
 
@@ -76,7 +82,7 @@ After you've completed the steps above, your existing Dynamics CE and Dynamics O
 
 The final step for enrollment in the Business Applications ISV Connect program is recertifying your existing applications.
 
-1. [Follow the steps](https://partner.microsoft.com/en-us/solutions/business-applications/isv-publish) to recertify your application to AppSource.
+1. [Follow these steps](https://partner.microsoft.com/solutions/business-applications/isv-publish) to recertify your application to AppSource.
 2. [Create and publish a new offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). This will be an entirely new offer, and does not replace an existing one.
 
 ## Further info
@@ -84,7 +90,7 @@ The final step for enrollment in the Business Applications ISV Connect program i
 Ask your Account Manager or contact [Microsoft Partner Support](https://partner.microsoft.com/support) for assistance with your account. For general information on the Business Applications ISV Connect Program and Microsoft Partner Center, see:
 
 #### Business Applications for ISVs (online article)
-https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview
+https://partner.microsoft.com/solutions/business-applications/isv-overview
 
 #### Overview of the New Program for Business Applications ISVs (PDF)
 https://aka.ms/BizAppsISVProgram
