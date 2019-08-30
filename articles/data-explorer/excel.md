@@ -24,7 +24,7 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
 
     ![Get data from Azure Data Explorer](media/excel/get-data-from-adx.png)
 
-1. In the **Azure Data Explorer (Kusto)** window complete the following fields and select **OK**.
+1. In the **Azure Data Explorer (Kusto)** window, complete the following fields and select **OK**.
 
     ![Azure Data Explorer (Kusto) window](media/excel/adx-connection-window.png)
     
@@ -52,9 +52,9 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
 
 ## Analyze and visualize data in Excel
 
-Once the data loads to excel and is available in your Excel sheet you can analyze, summarize, and visualize the data by creating relationships and visuals. 
+Once the data loads to excel and is available in your Excel sheet, you can analyze, summarize, and visualize the data by creating relationships and visuals. 
 
-1.	In **Table Design** tab, select **Summarize with PivotTable**. In **Create PivotTable** window select the relevant table and **OK**.
+1.	In the **Table Design** tab, select **Summarize with PivotTable**. In the **Create PivotTable** window, select the relevant table and then select **OK**.
 
     ![Create pivot table](media/excel/create-pivot-table.png)
 
@@ -62,7 +62,7 @@ Once the data loads to excel and is available in your Excel sheet you can analyz
     
     ![Select PivotTable fields](media/excel/pivot-table-pick-fields.png)
 
-1. In **PivotTable Analyze** tab, select **PivotChart** to create visuals based on the table. In the example below use **Event Id**, **StartTime**, and **EventType** to view additional information about the weather events.
+1. In the **PivotTable Analyze** tab, select **PivotChart** to create visuals based on the table. In the example below use **Event Id**, **StartTime**, and **EventType** to view additional information about the weather events.
 
     ![Visualize data](media/excel/visualize-excel-data.png)
 
