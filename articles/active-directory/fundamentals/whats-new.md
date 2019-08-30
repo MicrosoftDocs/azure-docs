@@ -184,7 +184,7 @@ For more information, see [Manage dynamic membership rules](https://docs.microso
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
 
-We've introduced a new Microsoft Graph app permission, `AccessReview.ReadWrite.Membership`, which allows apps to automatically create and retrieve access reviews for group memberships and app assignments. This permission can be run from your scheduled jobs or as part of your automation, without requiring a logged-in user context.
+We've introduced a new Microsoft Graph app permission, `AccessReview.ReadWrite.Membership`, which allows apps to automatically create and retrieve access reviews for group memberships and app assignments. This permission can be used by your scheduled jobs or as part of your automation, without requiring a logged-in user context.
 
 For more information, see the [Example how to create Azure AD access reviews using Microsoft Graph app permissions with PowerShell blog](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241).
 
@@ -205,7 +205,7 @@ For more information about setting up Azure Monitor, see [Azure AD activity logs
 ### Update your users to the new, enhanced security info experience
 
 **Type:** Changed feature  
-**Service category:** Microsoft Authenticator App  
+**Service category:**  Authentications (Logins)   
 **Product capability:** User Authentication
 
 On September 25, 2019, we'll be turning off the old, non-enhanced security info experience for registering and managing user security info and only turning on the new, [enhanced version](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). This means that your users will no longer be able to use the old experience.
