@@ -104,7 +104,7 @@ After you call UDO functions, you can verify the results through the schema and 
 
 After you build the project, select **Test** > **Windows** > **Test Explorer**. You can run test cases from **Test Explorer**. Alternatively, right-click the .cs file in your unit test and select **Run Tests**.
 
-## Run test cases in Azure Pipelines
+## Run test cases in Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 
 Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure Pipelines can run these test cases.
 
