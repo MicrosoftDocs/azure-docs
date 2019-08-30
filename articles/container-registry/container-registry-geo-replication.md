@@ -6,7 +6,7 @@ author: stevelas
 manager: gwallace
 
 ms.service: container-registry
-ms.topic: overview
+ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
 ---
@@ -59,7 +59,7 @@ Using the geo-replication feature of Azure Container Registry, these benefits ar
 
 ## Configure geo-replication
 
-Configuring geo-replication is as easy as clicking regions on a map. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI.
+Configuring geo-replication is as easy as clicking regions on a map. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 Geo-replication is a feature of [Premium registries](container-registry-skus.md) only. If your registry isn't yet Premium, you can change from Basic and Standard to Premium in the [Azure portal](https://portal.azure.com):
 

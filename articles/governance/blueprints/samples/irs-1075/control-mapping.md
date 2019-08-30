@@ -457,7 +457,7 @@ exfiltration of information.
 - Deploy Advanced Threat Protection on Storage Accounts
 
 > [!NOTE]
-> Availability of specific Azure Policy defintions may vary in Azure Government and other national 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
 > clouds. 
 
 ## Next steps

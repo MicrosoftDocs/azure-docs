@@ -8,7 +8,6 @@ manager: jeconnoc
 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
