@@ -8,7 +8,7 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-august2019
+ms.custom: seo-java-july2019, seo-java-august2019
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service with Jenkins continuous integration and deployment
