@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Access the Azure HPC Cache system
 
-After the cache is created, NFS clients can access it with a simple mount command. 
+After the cache is created, NFS clients can access it with a simple mount command.
 
 Use the mount addresses listed on the cache overview page and the virtual namespace path that you set when you created the storage target. 
 
@@ -21,6 +21,8 @@ Use the mount addresses listed on the cache overview page and the virtual namesp
 
 The storage targets paths are shown in the Storage Targets page. 
 ![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/storage-target-path.png)
+
+## Mount command syntax
 
 Use a mount command like the following:
 

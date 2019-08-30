@@ -28,9 +28,9 @@ cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1
 
 After issuing this command, the `jobs` command will show that two threads are running.
 
-## Copy data with predictable filenames
+## Copy data with predictable file names
 
-If your filenames are predictable, you can use expressions to create parallel copy threads. 
+If your file names are predictable, you can use expressions to create parallel copy threads. 
 
 For example, if your directory contains 1000 files that are numbered sequentially from `0001` to `1000`, you can use the following expressions to create ten parallel threads that each copy 100 files:
 
@@ -47,7 +47,7 @@ cp /mnt/source/file8* /mnt/destination1/ & \
 cp /mnt/source/file9* /mnt/destination1/
 ```
 
-## Copy data with unstructured filenames
+## Copy data with unstructured file names
 
 If your file naming structure is not predictable, you can group files by directory names. 
 
