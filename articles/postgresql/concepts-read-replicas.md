@@ -40,7 +40,7 @@ Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, 
 
 
 ### Paired regions
-In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
 
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 
@@ -119,21 +119,21 @@ When you stop replication, the replica loses all links to its previous master an
 
 Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 
-## Fail over
+## Failover
 There is no automated failover between master and replica servers. 
 
-Since replication is asynchronous, there is lag between the master and the replica. The amount of lag depends on how heavy the workload running on the master server is. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
+Since replication is asynchronous, there is lag between the master and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
 
 > [!Tip]
-> If you fail over to the replica, the lag at the time you delink the replica from the master will indicate how much data is lost.
+> If you failover to the replica, the lag at the time you delink the replica from the master will indicate how much data is lost.
 
-Once you have decided you want to fail over to a replica, 
+Once you have decided you want to failover to a replica, 
 
-1. Stop replication to the replica
-	This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will restart and be delinked from the master. Once you initiate stop replication, the backend process typically takes about 2 minutes to complete. Learn more about [stop replication](#stop-replication).
+1. Stop replication to the replica<br/>
+   This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will restart and be delinked from the master. Once you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
 	
-2. Point your application to the (former) replica
-	Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
+2. Point your application to the (former) replica<br/>
+   Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
 	
 Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
 

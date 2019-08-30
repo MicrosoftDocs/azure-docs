@@ -19,7 +19,7 @@ There are four key stages in big data processing:
 > * Downloading the data
 > * Visualizing the data
 
-Begin by creating a storage account and a file system. Then, grant access to the data. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
+Begin by creating a storage account and a container. Then, grant access to the data. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
 
 ## Create a Data Lake Storage Gen2 account
 
@@ -27,16 +27,16 @@ A Data Lake Storage Gen2 account is a storage account that has a hierarchical na
 
 To create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## Create a file system
+## Create a container
 
-A *file system* is a container for folders and files. You need at least one of them to begin ingesting data in your storage account.  Here's a list of tools that you can use to create them.
+Here's a list of tools that you can use to create a container for your files.
 
 |Tool | Guidance |
 |---|--|
-|Azure Storage Explorer | [Create a file system by using Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure Storage Explorer | [Create a container by using Storage Explorer](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [Create a Blob container or File Share by using AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|Hadoop File System (HDFS) Command Line Interface (CLI) with HDInsight |[Create a file system by using HDFS with HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Code in an Azure Databricks Notebook|[Create a storage account file system (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Create a file system and mount it (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|Hadoop container (HDFS) Command Line Interface (CLI) with HDInsight |[Create a container by using HDFS with HDInsight](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
+|Code in an Azure Databricks Notebook|[Create a storage account container (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [Create a container and mount it (Python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
 
 It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data anyway, then you can create your clusters first, and use the HDFS CLI to your create file systems.  
 
