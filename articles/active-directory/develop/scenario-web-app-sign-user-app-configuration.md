@@ -43,7 +43,7 @@ You might want to refer to these tutorials and sample for full implementation de
 
 ## Configuration files
 
-Web applications that sign-in users with the Microsoft identity platform are usually configured through configuration files. The settings that you need to fill in are:
+Web applications that sign in users with the Microsoft identity platform are usually configured through configuration files. The settings that you need to fill in are:
 
 - the cloud `Instance` if you want your app to run (for instance in national clouds)
 - the audience in `tenantId`
@@ -80,7 +80,7 @@ In ASP.NET Core, these settings are usually located in the `appsettings.json` fi
 }
 ```
 
-In ASP.NET Core, there's another file (`properties\launchSettings.json`) that contains the URL (`applicationUrl`) and the SSL Port (`sslPort`) for your application as well as various profiles.
+In ASP.NET Core, there's another file (`properties\launchSettings.json`) that contains the URL (`applicationUrl`) and the SSL Port (`sslPort`) for your application and various profiles.
 
 ```JSon
 {
@@ -114,7 +114,7 @@ In ASP.NET Core, there's another file (`properties\launchSettings.json`) that co
 
 In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match these URLs; that is, for the two configuration files above, they would be `https://localhost:44321/signin-oidc` as the applicationUrl is `http://localhost:3110` but the `sslPort` is specified (44321), and the `CallbackPath` is `/signin-oidc` as defined in the `appsettings.json`.
   
-In the same way, the sign out URI would be set to `https://localhost:44321/signout-callback-oidc`.
+In the same way, the sign-out URI would be set to `https://localhost:44321/signout-callback-oidc`.
 
 # [ASP.NET](#tab/aspnet)
 
@@ -160,7 +160,7 @@ In the Azure portal, the reply URIs that you need to register in the **Authentic
 
 ## Initialization code
 
-The initialization code is different depending on the platform. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenIDConnect middleware. Given that today the ASP.NET / ASP.NET Core template generate web applications for the Azure AD v1.0 endpoint, a bit of configuration is required to adapt them to the Microsoft identity platform (v2.0) endpoint. In the case of Java, it's handled by spring
+The initialization code is different depending on the platform. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenIDConnect middleware. Today the ASP.NET / ASP.NET Core template generate web applications for the Azure AD v1.0 endpoint. Therefore, a bit of configuration is required to adapt them to the Microsoft identity platform (v2.0) endpoint. In the case of Java, it's handled by spring with the cooperation of the application.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -223,7 +223,7 @@ The code related to authentication in ASP.NET Web app / Web APIs is located in t
 
 # [Java](#tab/java)
 
-The Java sample leverages spring, and the configuration is done in the `src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java` file in the following method:
+The Java sample uses the Spring framework. The configuration is done in the `src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java` file in the following method:
 
 ```Java
 String getRedirectUrl(String claims, String scope, String registeredRedirectURL, String state, String nonce)
