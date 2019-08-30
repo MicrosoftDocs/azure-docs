@@ -14,11 +14,11 @@ ms.author: aahi
 
 # Create a Cognitive Services resource using the Azure portal
 
-Use this quickstart to get started with Azure Cognitive Services using the Azure portal. Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications. 
+Use this quickstart to create an Azure Cognitive Services resource using the Azure portal. After you have successfully created a Cognitive Services resource, you will obtain an endpoint and a key that you can use to authenticate your applications.
 
 ## Prerequisites
 
-* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -30,12 +30,14 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. You can create a Cognitive Services resource in two ways - using a multi-service key or a single-service key. A multi-service key approach lets you create a single key that can be used with different cognitive services. A single-service key approach lets you create a key for a specific cognitive service that you want to use.
+2. As explained earlier, you can create a Cognitive Services resource in two ways - using a multi-service resource or a single-service resource. A multi-service key approach lets you create a single key that can be used with different cognitive services. A single-service key approach lets you create a key for a specific cognitive service that you want to use.
     #### [Multi-service key](#tab/multiservice)
 
-    To create a multi-service resource, enter **Cognitive Services** in the search bar, and select the **Cognitive Services** resource.
+    To create a multi-service resource, enter **Cognitive Services** in the search bar.
 
     ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+
+    On the Cognitive Services page, select **Create**.
 
     #### [Single-service key](#tab/singleservice)
 
