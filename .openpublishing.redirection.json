@@ -726,6 +726,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#types-of-keys-in-qna-maker",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/troubleshooting-runtime.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/upgrade-qnamaker-service.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#upgrade-qna-maker-sku",
+      "redirect_document_id": false
+    },         
+    {
       "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-vr-app-launcher.md",
       "redirect_url": "/azure/cognitive-services/Labs/Conversation-Learner/overview",
       "redirect_document_id": false
