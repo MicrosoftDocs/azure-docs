@@ -99,7 +99,7 @@
       - name: connector
         href: excel-connector.md
       - name: imported query
-        href: excel-imported-query.md
+        href: excel-blank-query.md
     - name: Grafana
       href: grafana.md
     - name: ODBC connector
