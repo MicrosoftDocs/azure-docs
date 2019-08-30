@@ -38,11 +38,11 @@ The **Preprocess Text** module currently only supports English.
 
 1. **Remove stop words**: Select this option if you want to apply a predefined stopword list to the text column. 
 
-    Stopword lists are language-dependent and customizable. For more information, see the [Technical notes](#bkmk_TechnicalNotes) section.  
+    Stopword lists are language-dependent and customizable.
 
 1. **Lemmatization**: Select this option if you want words to be represented in their canonical form. This option is useful for reducing the number of unique occurrences of otherwise similar text tokens.
 
-    The lemmatization process is highly language-dependent; see the [Technical notes](#bkmk_TechnicalNotes) section for details.
+    The lemmatization process is highly language-dependent..
 
 1. **Detect sentences**: Select this option if you want the module to insert a sentence boundary mark when performing analysis.
 
@@ -62,8 +62,6 @@ The **Preprocess Text** module currently only supports English.
     * **Remove numbers**: Select this option to remove all numeric characters for the specified language. Identification numbers are domain-dependent and language dependent. If numeric characters are an integral part of a known word, the number might not be removed.
     
     * **Remove special characters**: Use this option to remove any non-alphanumeric special characters.
-    
-            For more about special characters, see the [Technical notes](#bkmk_TechnicalNotes) section.
     
     * **Remove duplicate characters**: Select this option to remove extra characters in any sequences that repeat for more than twice. For example, a sequence like "aaaaa" would be reduced to "aa".
     
