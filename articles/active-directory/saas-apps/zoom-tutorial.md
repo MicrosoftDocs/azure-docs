@@ -97,10 +97,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure Role in Azure AD
+> To learn how to configure Role in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 > [!NOTE]
-> Zoom may expect group claim in SAML payload so if you have created any group then please contact [Zoom Client support team](https://support.zoom.us/hc/en-us) with the group information so that they can configure this group information at their end also. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/en-us) so that they can configure at their end. Please follow the [document](https://support.zoom.us/hc/en-us/articles/115005887566) to get the Object ID.
+> Zoom might expect a group claim in the SAML payload. If you have created any groups, contact the [Zoom Client support team](https://support.zoom.us/hc/en-us) with the group information so they can configure the group information on their end. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/en-us) so they can configure the Object ID on their end. To get the Object ID, see [Configuring Zoom with Azure](https://support.zoom.us/hc/en-us/articles/115005887566).
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
