@@ -1,7 +1,7 @@
 ---
 
-title: Understand Azure Security Center for IoT costs Preview| Microsoft Docs
-description: Learn about the costs associated with Azure Security Center for IoT, and how you can control them. 
+title: Understand Azure Security Center for IoT costs| Microsoft Docs
+description: Learn about the costs associated with Azure Security Center for IoT, and how to  control them. 
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,35 +15,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/26/2019
 ms.author: mlottner
 
 ---
 # Pricing and associated costs
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article explains Azure Security Center (ASC) for IoT pricing model, summarizes all associated costs and explains how to manage them.
+This article explains Azure Security Center for IoT pricing model, summarizes all associated costs and explains how to manage them.
 
 ## Pricing
 
-The ASC for IoT pricing model is comprised of two parts, and is billed once an IoT Hub is [enabled](quickstart-onboard-iot-hub.md) in ASC for IoT:
+The Azure Security Center for IoT pricing model is comprised of two parts, and is billed once an IoT Hub is [enabled](quickstart-onboard-iot-hub.md) in Azure Security Center for IoT:
 
 - Cost by device - built-in security capabilities based on analysis of IoT Hub logs.
 
 - Cost by message - enhanced security capabilities based on security messages from IoT Edge or leaf devices.
 
   >[!Note]
-  > Security messages will also incur quota consumption on IoT Hub.
+  > Security messages also incur quota consumption on IoT Hub.
 
 For more information, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Associated costs
 
-ASC for IoT has two types of associated costs, which are not part of the direct pricing:
+Azure Security Center for IoT has two types of associated costs, which are not part of the direct pricing:
 
 - IoT Hub quota consumption
 
@@ -79,6 +74,7 @@ The following table provides a summary of associated costs and implications of e
 | | Disable device identity-based recommendations and alerts |
 | _Store raw device security events_ | Details on device OS baseline recommendations are not available |
 | | Details on [alert](concept-security-alerts.md) and [recommendation](concept-recommendations.md) investigations are not available |
+|
 
 
 ## See also

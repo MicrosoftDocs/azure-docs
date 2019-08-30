@@ -49,7 +49,7 @@ Use the following procedure.
 
      > [!NOTE]
      > 
-     > You can select a resource, resource group, or an entire subscription for an activity log signal.
+     > You can select only [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) tracked resource, resource group, or an entire subscription for an activity log signal. 
 
      **Alert target sample view**
 

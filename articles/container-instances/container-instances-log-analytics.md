@@ -3,9 +3,10 @@ title: Container instance logging with Azure Monitor logs
 description: Learn how to send logs from Azure container instances to Azure Monitor logs.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 07/09/2019
 ms.author: danlep
 ---

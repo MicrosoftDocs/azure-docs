@@ -2,19 +2,12 @@
 title: Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory | Azure
 description: Enable a listing type by using Azure Active Directory in the Azure Marketplace and AppSource for app and service publishers.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: qianw211
 manager: pabutler
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: qianw211
+ms.author: pabutler
 
 ---
 # Enable an AppSource and Marketplace listing by using Azure Active Directory

@@ -1,6 +1,6 @@
 ---
-title: Subscription keys
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Subscription keys - LUIS
+titleSuffix: Azure Cognitive Services
 description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: diberry
 ---

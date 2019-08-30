@@ -1,6 +1,6 @@
 ---
 title: Working with security policies | Microsoft Docs
-description: This article describes how to working with security policies in Azure Security Center.
+description: This article describes how to work with security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/05/2019
+ms.date: 7/18/2019
 ms.author: v-mohabe
 ---
 
@@ -67,7 +67,7 @@ To view your security policies in Security Center:
    In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
 
    > [!NOTE]
-   > - The Security Center dashboard may show a higher number of subscriptions under **Subscription coverage** than the number of subscriptions shown under **Policy management**. Subscription coverage shows the number of Standard, Free, and “not covered” subscriptions. The “not covered” subscriptions do not have Security Center enabled and are not displayed under **Policy management**.
+   > The Security Center dashboard may show a higher number of subscriptions under **Subscription coverage** than the number of subscriptions shown under **Policy management**. Subscription coverage shows the number of Standard, Free, and “not covered” subscriptions. The “not covered” subscriptions do not have Security Center enabled and are not displayed under **Policy management**.
    >
 
 2. Select the subscription or management group whose policies you want to view.
@@ -80,10 +80,10 @@ To view your security policies in Security Center:
    ![policy screen](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> - When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
+> When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
 
 ## Edit security policies
-You can edit the default security policy for each of your Azure subscriptions and management groups in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group.
+You can edit the default security policy for each of your Azure subscriptions and management groups in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). To modify a security policy, you must be an owner, or security administrator, of the subscription or the containing management group.
 
 For instructions on how to edit a security policy in Azure Policy, see and [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
@@ -141,6 +141,7 @@ In the following examples, replace these variables:
 
 This example shows you how to assign the built-in Security Center initiative on a subscription or management group
  
+ ```
     PUT  
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -165,6 +166,7 @@ This example shows you how to assign the built-in Security Center initiative on 
     } 
 
     } 
+ ```
 
 This example shows you how to assign the built-in Security Center initiative on a subscription, with the following policies disabled: 
 
@@ -174,7 +176,7 @@ This example shows you how to assign the built-in Security Center initiative on 
 
 - Endpoint protection ("endpointProtectionMonitoringEffect") 
 
-
+ ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
     
     Request Body (JSON) 
@@ -206,12 +208,12 @@ This example shows you how to assign the built-in Security Center initiative on 
      } 
     
     } 
-
+ ```
 This example shows you how to remove an assignment:
-
+ ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
-
+ ```
 
 ### Policy names reference <a name="policy-names"></a>
 

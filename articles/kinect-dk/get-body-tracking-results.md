@@ -3,7 +3,8 @@ title: Azure Kinect get body tracking results
 description: Get body tracking results
 author: qm13
 ms.prod: kinect-dk
-ms.author: yijwan, quentinm
+ms.author: quentinm
+ms.reviewer: yijwan
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, body, tracking, joint
@@ -31,7 +32,7 @@ if (K4A_RESULT_SUCCEEDED != k4a_device_get_calibration(device, device_config.dep
 }
 
 k4abt_tracker_t tracker = NULL;
-if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, &tracker), "Body tracker initialization failed!")
+if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, &tracker))
 {
     printf("Body tracker initialization failed!\n");
     return 0;

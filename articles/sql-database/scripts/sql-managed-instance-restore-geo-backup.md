@@ -10,7 +10,6 @@ ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 07/03/2019
 ---
 # Use PowerShell to restore a Managed Instance database to another geo-region

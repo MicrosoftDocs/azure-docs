@@ -61,7 +61,7 @@ If you don’t see the Kubernetes dashboard, check whether the `kube-proxy` pod 
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
-Make sure that the default network security group isn't modified and that port 22 is open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
+Make sure that the default network security group isn't modified and that both port 22 and 9000 are open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
 ## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error. How do I fix this problem?
 
@@ -82,10 +82,12 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
 
 *This troubleshooting assistance is directed from https://aka.ms/aks-pending-upgrade*
 
-Cluster operations are limited when active upgrade operations are occurring or an upgrade was attempted, but subsequently failed. To diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
+Upgrade and scale operations on a cluster with a single node pool or a cluster with [multiple node pools](use-multiple-node-pools.md) are mutually exclusive. You cannot have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource prior to the next request on that same resource. As a result, operations are limited when active upgrade or scale operations are occurring or attempted and subsequently failed. 
 
-* If cluster is actively upgrading, wait until the operation terminates. If it succeeded, try the previously failed operation again.
-* If cluster has failed upgrade, follow steps outlined above
+To help diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
+
+* If cluster is actively upgrading, wait until the operation terminates. If it succeeded, retry the previously failed operation again.
+* If cluster has failed upgrade, follow steps outlined in previous section.
 
 ## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
 

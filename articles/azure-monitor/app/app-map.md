@@ -193,7 +193,7 @@ For further information on Java correlation and how to configure cloud role name
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
@@ -268,4 +268,6 @@ To provide feedback, use the feedback option.
 
 ## Next steps
 
-* [Understanding correlation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* To learn more about how correlation works in Application Insights consult the [telemetry correlation article]  (https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights monitored components into a single view.
+* For advanced correlation scenarios in ASP.NET Core and ASP.NET consult the [track custom operations](custom-operations-tracking.md) article.

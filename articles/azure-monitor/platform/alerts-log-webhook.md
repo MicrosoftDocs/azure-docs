@@ -179,7 +179,7 @@ The following sample payload is for a custom webhook action for any log alert:
 ```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
-	"SearchResult":
+	"SearchResults":
         {
 		"tables":[
                     {"name":"PrimaryResult","columns":

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
 ---
@@ -67,7 +67,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 #### Step 2: Download your Visual Studio project
 
-[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  ([View Project on Github](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
+[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  ([View Project on GitHub](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
 
 #### Step 3: Configure your Visual Studio project
 
@@ -149,7 +149,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### Get a user token silently
 
-You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method:
+You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -172,3 +172,7 @@ Try out the Windows desktop tutorial for a complete step-by-step guide on buildi
 > [!div class="nextstepaction"]
 > [Call Graph API tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
 
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

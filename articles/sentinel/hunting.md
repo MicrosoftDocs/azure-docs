@@ -38,7 +38,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 - Powerful query language with IntelliSense: Built on top of a query language that gives you the flexibility you need to take hunting to the next level.
 
-- Create your own bookmarks: During the hunting process, you may come across matches or findings, dashboards, or activities that look unusual or suspicious. In order to mark those items so you can come back to them in the future, use the bookmark functionality. Bookmarks let you save items for later, to be used to create a case for investigation. For more information about bookmarks, see Use [bookmarks in hunting].
+- Create your own bookmarks: During the hunting process, you may come across matches or findings, dashboards, or activities that look unusual or suspicious. In order to mark those items so you can come back to them in the future, use the bookmark functionality. Bookmarks let you save items for later, to be used to create an incident for investigation. For more information about bookmarks, see Use [bookmarks in hunting].
 
 - Use notebooks to automate investigation: Notebooks are like step-by-step playbooks that you can build to walk through the steps of an investigation and hunt.  Notebooks encapsulate all the hunting steps in a reusable playbook that can be shared with others in your organization. 
 - Query the stored data: The data is accessible in tables for you to query. For example, you can query process creation, DNS events, and many other event types.

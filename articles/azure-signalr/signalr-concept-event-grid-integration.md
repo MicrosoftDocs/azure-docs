@@ -8,7 +8,7 @@ ms.author: chenyl
 ms.reviewer: zhshang
 ms.date: 06/12/2019
 ms.topic: conceptual
-ms.service: azure-signalr
+ms.service: signalr
 ---
 
 # Reacting to Azure SignalR Service events

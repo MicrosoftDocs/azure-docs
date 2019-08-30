@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define elements of the policy, such as the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey, and orchestration steps. Each policy file is defined within the top-level **TrustFrameworkPolicy** element of a policy file. 
+A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define elements of the policy, such as the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey, and orchestration steps. Each policy file is defined within the top-level **TrustFrameworkPolicy** element of a policy file.
 
 ```XML
 <TrustFrameworkPolicy
@@ -64,11 +64,11 @@ These types of policy files are typically used in a user journey:
 
 - A **Base** file that contains most of the definitions. To help with troubleshooting and long-term maintenance of your policies, it is recommended that you make a minimum number of changes to this file.
 - An **Extensions** file that holds the unique configuration changes for your tenant. This policy file is derived from the Base file. Use this file to add new functionality or override existing functionality. For example, use this file to federate with new identity providers.
-- A **Relying Party (RP)** file that is the single task-focused file that is invoked directly by the relying party application, such as your web, mobile, or desktop applications. Each unique task such as sign-up or sign-in, password reset, or profile edit, requires its own RP policy file. This policy file is derived from the Extensions file. 
+- A **Relying Party (RP)** file that is the single task-focused file that is invoked directly by the relying party application, such as your web, mobile, or desktop applications. Each unique task such as sign-up or sign-in, password reset, or profile edit, requires its own RP policy file. This policy file is derived from the Extensions file.
 
 A relying party application calls the RP policy file to execute a specific task. For example, to initiate the sign-in flow. The Identity Experience Framework in Azure AD B2C adds all of the elements first from the Base file, and then from the Extensions file, and finally from the RP policy file to assemble the current policy in effect. Elements of the same type and name in the RP file override those elements in the Extensions, and Extensions overrides Base. The following diagram shows the relationship between the policy files and the relying party applications.
 
-![Inheritance model](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![Diagram showing the trust framework policy inheritance model](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 The inheritance model is as follows:
 
@@ -80,7 +80,7 @@ For more information, see [Get started with custom policies](active-directory-b2
 
 ## Base policy
 
-To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.  
+To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.
 
 The **BasePolicy** element contains the following elements:
 
@@ -90,7 +90,7 @@ The **BasePolicy** element contains the following elements:
 | PolicyId | 1:1 | The identifier of the parent policy. |
 
 
-The following example shows how to specify a base policy. This **B2C_1A_TrustFrameworkExtensions** policy is derived from the **B2C_1A_TrustFrameworkBase** policy. 
+The following example shows how to specify a base policy. This **B2C_1A_TrustFrameworkExtensions** policy is derived from the **B2C_1A_TrustFrameworkBase** policy.
 
 ``` XML
 <TrustFrameworkPolicy
@@ -132,9 +132,9 @@ B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
   ...
 ```
 
-A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection. 
+A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection.
 
-The **SocialAndLocalAccounts** policy file in the [starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for other scenarios, such as changing an email address or linking and unlinking a social account. 
+The **SocialAndLocalAccounts** policy file in the [starter pack](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for other scenarios, such as changing an email address or linking and unlinking a social account.
 
 The orchestration steps may call a [Technical Profile](technicalprofiles.md). A technical profile provides a framework with a built-in mechanism to communicate with different types of parties. For example, a technical profile can perform these actions among others:
 
@@ -144,7 +144,7 @@ The orchestration steps may call a [Technical Profile](technicalprofiles.md). A 
 - Read and write data to and from an Azure AD B2C identity store.
 - Call a custom Restful API service.
 
-![Policy execution](./media/trustframeworkpolicy/custom-policy-execution.png)
+![Diagram showing the policy execution flow](./media/trustframeworkpolicy/custom-policy-execution.png)
 
  The **TrustFrameworkPolicy** element contains the following elements:
 

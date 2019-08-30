@@ -112,6 +112,10 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * You can control how many partitions that ADF will use. On each Source & Sink transformation, as well as each individual transformation, you can set a partitioning scheme. For smaller files, you may find selecting "Single Partition" can sometimes work better and faster than asking Spark to partition your small files.
 * If you do not have enough information about your source data, you can choose "Round Robin" partitioning and set the number of partitions.
 * If you explore your data and find that you have columns that can be good hash keys, use the Hash partitioning option.
+* When debugging in data preview and pipeline debug, note that the limit and sampling sizes for file-based source datasets only apply to the number of rows returned, not the number of rows read. This is important to note because it can effect the performance of your debug executions and possibly cause the flow to fail.
+* Remember that debug clusters are small single-node clusters by default, so use temporary small files for debugging. Go to Debug Settings and point to a small subset of your data using a temporary file.
+
+![Debug Settings](media/data-flow/debugsettings3.png "Debug Settings")
 
 ### File naming options
 
@@ -124,7 +128,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ### Looping through file lists
 
-In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow that to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
+In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow than to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
 
 For example, if I have a list of data files from July 2019 that I wish to process in a folder in Blob Storage, it would be more performant to call an Execute Data Flow activity one time from your pipeline and use a wildcard in your Source like this:
 

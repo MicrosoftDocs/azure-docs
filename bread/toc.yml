@@ -74,6 +74,9 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Avere vFXT for Azure
+    tocHref: /azure/avere-vfxt/
+    topicHref: /azure/avere-vfxt/
   - name: Azure App Configuration
     tocHref: /azure/azure-app-configuration/
     topicHref: /azure/azure-app-configuration/
@@ -117,6 +120,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure Lighthouse
+    tocHref: /azure/lighthouse/
+    topicHref: /azure/lighthouse/
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
@@ -136,6 +142,9 @@
     - name: Durable Functions
       tocHref: /azure/azure-functions/durable/
       topicHref: /azure/azure-functions/durable/durable-functions-overview
+  - name: Azure Australia
+    tocHref: /azure/azure-australia/
+    topicHref: /azure/azure-australia/
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -164,6 +173,9 @@
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
+      - name: IoT Plug and Play
+        tocHref: /azure/iot-pnp/
+        topicHref: /azure/iot-pnp/
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
@@ -422,6 +434,9 @@
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
+  - name: FXT Edge Filer
+    tocHref: /azure/fxt-edge-filer/
+    topicHref: /azure/fxt-edge-filer/  
   - name: Genomics
     tocHref: /azure/genomics/
     topicHref: /azure/genomics/    
@@ -560,6 +575,9 @@
       - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
         topicHref: /azure/media-services/video-indexer/        
+  - name: Migrate
+    tocHref: /azure/migrate/
+    topicHref: /azure/migrate/
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
@@ -628,6 +646,9 @@
     tocHref: /azure/security/
     topicHref: /azure/security/
     items:
+      - name: Fundamentals
+        tocHref: /azure/security/fundamentals/
+        topicHref: /azure/security/fundamentals/
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/ 

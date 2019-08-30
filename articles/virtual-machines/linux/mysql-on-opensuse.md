@@ -12,10 +12,10 @@ ms.assetid: 1594e10e-c314-455a-9efb-a89441de364b
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: za-rhoads
+ms.author: cynthn
 
 ---
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure

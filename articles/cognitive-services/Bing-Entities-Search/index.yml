@@ -2,17 +2,16 @@
 documentType: LandingData
 title: Bing Entity Search Documentation 
 metadata:
-  title: Bing Entity Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Entity Search API Documentation - Tutorials, quickstarts, API references
+  titleSuffix: Azure Cognitive Services
   description: How to use the Bing Entity Search API to obtain information about people, places, or other defined subjects. Tutorials explain how to build apps that use the service.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/01/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: The Bing Entity Search API enables your applications to get information about detected entities in search queries. Entities can be people, places, media titles, and more.
@@ -93,7 +92,7 @@ sections:
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference">Bing Entity Search API v7</a></p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet">.NET</a></p>
-            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-java-stable">Java</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python">Python</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-entitysearch?view=azure-node-latest">Node.js</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch">Go</a></p>

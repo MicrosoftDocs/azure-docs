@@ -1,6 +1,6 @@
 ---
 title: What is the Computer Vision API? - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
 author: PatrickFarley
@@ -62,7 +62,7 @@ Computer Vision can analyze images that meet the following requirements:
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels
-  - For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
+  - For the Read API, the dimensions of the image must be between 50 x 50 and 10000 x 10000 pixels.
 
 ## Data privacy and security
 

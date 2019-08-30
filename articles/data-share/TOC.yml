@@ -13,7 +13,7 @@
       href: subscribe-to-data-share.md
 - name: Concepts
   items:
-  - name: Azure Data Share Terminology 
+  - name: Azure Data Share terminology 
     href: terminology.md
   - name: Roles and requirements 
     href: concepts-roles-permissions.md
@@ -25,15 +25,29 @@
     href: how-to-configure-mapping.md
   - name: Troubleshoot 
     href: data-share-troubleshoot.md
+  - name: Add datasets
+    href: how-to-add-datasets.md
+  - name: Add recipients
+    href: how-to-add-recipients.md
+  - name: Delete an invitation
+    href: how-to-delete-invitation.md
+  - name: Revoke a share subscription
+    href: how-to-revoke-share-subscription.md
+- name: Reference
+  items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/datashare
+  - name: REST API
+    href: /rest/api/datashare
 - name: Resources
   items:
   - name: Blog
-    href: https://azure.microsoft.com/blog/tag/data-share
+    href: https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/
   - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/
   - name: Product feedback
     href: https://feedback.azure.com/forums/922759-azure-data-share-public-preview
   - name: Pricing
-    href: https://azure.microsoft.com/pricing
+    href: https://azure.microsoft.com/pricing/details/data-share/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-share

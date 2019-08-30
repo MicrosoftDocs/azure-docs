@@ -44,6 +44,10 @@
       href: ingest-data-event-hub.md
     - name: Event Grid
       href: ingest-data-event-grid.md
+    - name: IoT Hub
+      href: ingest-data-iot-hub.md
+    - name: One-click ingestion
+      href: ingest-data-one-click.md
     - name: Kafka
       href: ingest-data-kafka.md
     - name: Python
@@ -98,14 +102,18 @@
       href: sisense.md
   - name: Manage
     items:
-    - name: Manage database permissions
-      href: manage-database-permissions.md
     - name: Check cluster health
       href: check-cluster-health.md
+    - name: Select cluster VM SKU
+      href: manage-cluster-choose-sku.md
     - name: Manage cluster horizontal scaling
       href: manage-cluster-horizontal-scaling.md
     - name: Manage cluster vertical scaling
       href: manage-cluster-vertical-scaling.md
+    - name: Manage cluster security
+      href: manage-cluster-security.md
+    - name: Manage database permissions
+      href: manage-database-permissions.md
     - name: Delete data
       href: delete-data.md
     - name: Deal with duplicate data
