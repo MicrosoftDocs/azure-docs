@@ -16,7 +16,7 @@ The [Business Applications ISV Connect Program](https://partner.microsoft.com/so
 > [!IMPORTANT]
 > Existing ISV partners with *Dynamics 365 Customer Engagement*, *Dynamics 365 for Finance and Operations*, and *PowerApps* applications should complete all onboarding steps below before **October 15, 2019** to avoid having their existing offers removed from [Microsoft AppSource](https://appsource.microsoft.com).
 
-In order to enroll and take advantage of all the [technical, marketing, and sales enablement benefits](https://partner.microsoft.com/solutions/business-applications/isv-overview) of the Business Applications ISV Connect Program, we're asking existing ISV partners (with *Dynamics CE* and *Ops* offers) to complete the following steps:
+To enroll and take advantage of all the [technical, marketing, and sales enablement benefits](https://partner.microsoft.com/solutions/business-applications/isv-overview) of the Business Applications ISV Connect Program, we're asking existing ISV partners (with *Dynamics CE* and *Ops* offers) to complete the following steps:
 
 - [Set up your Microsoft Partner Center account](#set-up-your-microsoft-partner-center-account).
 - [Accept the Business Applications Addendum](#accept-the-business-applications-isv-program-addendum).
@@ -33,7 +33,7 @@ In order to enroll and take advantage of all the [technical, marketing, and sale
 > [!NOTE]
 > This step requires an *Owner* role in Cloud Partner Portal for your given account and an *Owner* or *Manager* role in Partner Center.
 
-If you've already published Dynamics CE and/or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Partner Center. If not, you can manually activate your Partner Center account from your CPP Publisher Profile.
+If you've already published Dynamics CE or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Partner Center. If not, you can manually activate your Partner Center account from your CPP Publisher Profile.
 
 1. Sign in to your **Publisher Profile** page in [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. If you see a banner showing that your account settings have been migrated to Partner Center, continue on to the next section. Otherwise, select the banner prompting you to activate your Partner Center account.
@@ -74,7 +74,7 @@ Next, set up your billing information for the Business Applications ISV Connect 
 
 6. Select **Save** to save your changes.
 
-You can update your billing profile at any time, however *Company Name* and billing address *Country* cannot be changed later.
+You can update your billing profile at any time, however *Company Name* and billing address *Country* can't be changed later.
 
 ## Recertify your application
 
@@ -83,7 +83,7 @@ After you've completed the steps above, your existing Dynamics CE and Dynamics O
 The final step for enrollment in the Business Applications ISV Connect program is recertifying your existing applications.
 
 1. [Follow these steps](https://partner.microsoft.com/solutions/business-applications/isv-publish) to recertify your application to AppSource.
-2. [Create and publish a new offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). This will be an entirely new offer, and does not replace an existing one.
+2. [Create and publish a new offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). This offer will be an entirely new offer, and doesn't replace an existing one.
 
 ## Further info
 
