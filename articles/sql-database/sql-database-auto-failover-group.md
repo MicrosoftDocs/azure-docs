@@ -194,7 +194,7 @@ If your application uses managed instance as the data tier, follow these general
 
 - **Create a failover group between managed instances in different subscriptions**
 
-  You can create a faillover group between managed instances in two difffernt subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID. 
+  You can create a failover group between managed instances in two different subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID. 
   
   > [!IMPORTANT]
   > Azure Portal does not support failover groups across different subscriptions.
