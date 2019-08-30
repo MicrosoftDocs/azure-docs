@@ -3,7 +3,7 @@ title: Troubleshoot virtual network peering issues
 description: Steps to help resolve most virtual network peering issues.
 services: virtual-network
 documentationcenter: na
-author: v-miegge, kaushika-msft
+author: v-miegge
 manager: dcscontentpm
 editor: ''
 
