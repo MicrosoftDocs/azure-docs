@@ -169,7 +169,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > Upgrade and scale operations on a cluster or node pool are mutually exclusive. You cannot have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
 
-When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool which are explained [below](##upgrade-a-cluster-control-plane-with-multiple-agent-pools).
+When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool which are explained [below](##upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
@@ -186,7 +186,7 @@ az aks nodepool upgrade \
 ```
 
 > [!Tip]
-> To upgrade the control plane to *1.14.6*, run `az aks upgrade -k 1.14.6`. Learn more about [control plane upgrades with multiple node pools here](##upgrade-a-cluster-control-plane-with-multiple-agent-pools).
+> To upgrade the control plane to *1.14.6*, run `az aks upgrade -k 1.14.6`. Learn more about [control plane upgrades with multiple node pools here](##upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.10*:
 
