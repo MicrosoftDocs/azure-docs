@@ -15,12 +15,12 @@ ms.date: 08/30/2019
 
 Azure Data Explorer offers the ability to export query results to Excel using the Excel native connector. You can also add a KQL query as an Excel data source for additional calculations or visualizations.
 
-Azure Data Explorer provides two options for connecting to data in Excel: use the native connector or import a query from Azure Data Explorer. This article shows you how to use the native connector in Excel to connect to the Azure Data Explorer cluster to get and visualize data.
+Azure Data Explorer provides two options for connecting to data in Excel: use the native connector or import a query from Azure Data Explorer. This article shows you how to use the native connector in Excel and connect to the Azure Data Explorer cluster to get and visualize data.
 
 ## Define Kusto query as Excel data source and load data to Excel
 
 1. Open **Microsoft Excel**.
-1. In **Data** tab, select **Get Data** > **From Azure** > **From Azure Data Explorer**
+1. In the **Data** tab, select **Get Data** > **From Azure** > **From Azure Data Explorer**
 
     ![Get data from Azure Data Explorer](media/excel-connector/get-data-from-adx.png)
 
@@ -43,7 +43,7 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
     |**Disable result-set truncation**    |         |      
     |**Additional Set statements (separated by semicolons)**    |    Add `set` statements to apply to data source     |   
 
-1.	In the **Navigator** pane, navigate to correct table. In the table preview pane, select **Transform Data** to make changes to your data or select **Load** to load it to Excel.
+1.	In the **Navigator** pane, navigate to the correct table. In the table preview pane, select **Transform Data** to make changes to your data or select **Load** to load it to Excel.
 
 ![Table preview window](media/excel-connector/navigate-table-preview-window.png)
 
@@ -62,7 +62,11 @@ Once the data loads to excel and is available in your Excel sheet, you can analy
     
     ![Select PivotTable fields](media/excel-connector/pivot-table-pick-fields.png)
 
-1. In the **PivotTable Analyze** tab, select **PivotChart** to create visuals based on the table. In the example below use **Event Id**, **StartTime**, and **EventType** to view additional information about the weather events.
+1. In the **PivotTable Analyze** tab, select **PivotChart** to create visuals based on the table. 
+
+    ![Pivot chart](media/excel-connector/pivot-table-analyze-pivotchart.png)
+
+1. In the example below, use **Event Id**, **StartTime**, and **EventType** to view additional information about the weather events.
 
     ![Visualize data](media/excel-connector/visualize-excel-data.png)
 
