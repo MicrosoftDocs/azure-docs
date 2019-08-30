@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -31,23 +31,13 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 >
 
-## Constructing the body of a membership rule
+## Rule builder in the Azure portal
 
-A membership rule that automatically populates a group with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
-
-* Property
-* Operator
-* Value
-
-The order of the parts within an expression are important to avoid syntax errors.
-
-### Rule builder in the Azure portal
-
-Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports up to five expressions. To add more expressions, you can use the text box.
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. To add more expressions, you can use the text box. If you make changes in the text box.
 
 > [!IMPORTANT]
-> The rule builder guarantees valid rule syntax for up to five expressions. If you make changes that aren't valid in the text box, the rule builder can't synchronize with it until the rule is corrected.
-> The rule builder doesn't change the syntax or usage of dynamic group rules in any way.
+> The rule builder supports the construction of up to five expressions. The rule builder makes it quick and easy to form a few simple expressions, but it doesn't automatically reproduce every rule. For example, the direct reports rule is not supported in the rule builder. If the rule builder doesn't support the rule you want to create, use the text box. If you make changes in the text box, the rule builder might not be able synchronize with it.
+> The rule builder doesn't change the syntax, validation, or use of dynamic group rules in any way.
 
 For more step-by-step instructions, see [Update a dynamic group](groups-update-rule.md).
 
@@ -64,6 +54,16 @@ user.department -eq "Sales"
 ```
 
 Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 2048 characters.
+
+# Constructing the body of a membership rule
+
+A membership rule that automatically populates a group with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
+
+* Property
+* Operator
+* Value
+
+The order of the parts within an expression are important to avoid syntax errors.
 
 ## Supported properties
 
