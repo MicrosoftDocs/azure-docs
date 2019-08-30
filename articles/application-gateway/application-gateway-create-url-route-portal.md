@@ -154,8 +154,6 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
   
         Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-   ![Create new application gateway: listener](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
-
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
 5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. 
