@@ -446,6 +446,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Fixed-width filed
+      href: how-to-fixed-width.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
