@@ -1,26 +1,19 @@
 ---
-title: Store access credentials on the Data Science Virtual Machine securely - Azure | Microsoft Docs
-description:  Learn how to securely store access credentials on the Data Science Virtual Machine. You'll learn how to use managed service identities and Azure Key Vault to store access credentials.
+title: Securely store access credentials
+titleSuffix: Azure Data Science Virtual Machine 
+description: Learn how to securely store access credentials on the Data Science Virtual Machine. You'll learn how to use managed service identities and Azure Key Vault to store access credentials.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
-ms.author: vijetaj
 
+author: vijetajo
+ms.author: vijetaj
+ms.topic: conceptual
+ms.date: 05/08/2018
 ---
 
-# Store access credentials securely on a Data Science Virtual Machine
+# Store access credentials securely on an Azure Data Science Virtual Machine
 
 It's common for the code in cloud applications to contain credentials for authenticating to cloud services. How to manage and secure these credentials is a well-known challenge in building cloud applications. Ideally, credentials should never appear on developer workstations or get checked in to source control.
 

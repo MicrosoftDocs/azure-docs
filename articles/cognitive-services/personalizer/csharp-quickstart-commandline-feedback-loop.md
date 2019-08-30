@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/5/2019
+ms.date: 08/30/2019
 ms.author: diberry
 #Customer intent: 
 
@@ -241,7 +241,7 @@ This quickstart assigns a simple number as a reward, either a zero or a 1. In pr
 
 Run the application with the dotnet `run` command from your application directory.
 
-```dotnet
+```console
 dotnet run
 ```
 
