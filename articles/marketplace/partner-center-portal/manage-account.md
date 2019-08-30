@@ -20,12 +20,12 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 - [Update contact information](#contact-info)
 - [Manage financial details (payout account, tax profile, payout hold status)](#financial-details)
 - [Set up Tracking GUIDs for monitoring customer usage](#tracking-guids)
-- [Manager users](#manage-users)
-- [Manager groups](#manage-groups)
-- [Manager Azure AD applications](#manage-azure-ad-applications)
+- [Manage users](#manage-users)
+- [Manage groups](#manage-groups)
+- [Manage Azure AD applications](#manage-azure-ad-applications)
 - [Define user roles and permissions](#define-user-roles-and-permissions)
 - [Manage Azure AD tenants (work accounts)](#manage-tenants)
-- [Manager Partner Center Agreements](#agreements)
+- [Manage Partner Center Agreements](#agreements)
 
 
 ## Access your account settings
@@ -297,28 +297,19 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 
 ### Define user roles and permissions
 
-Your company's users can be assigned the following roles and permissions in the Commercial Marketplace program on Partner Center. 
-
-Note
-Azure Active Directory (AAD) tenant roles include global admin, user admin, and CSP roles. Non-AAD roles are those roles that do not manage the tenant and they include MPN admin, business profile admin, referral admin, incentive admin, and incentive user.
-
+Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center. 
 
 |**Role**|**Permissions**|
 |----------------------------------|:---------------------------------|
-|Global admin|•	Can access all Microsoft account/services with full privileges
-|      |•	Create support tickets for the Partner Center
-||•	View agreements, price lists, and offers
-||•	View, create, and manage partner users|
+
 |Manager|•	Can access all Microsoft account features except tax and payout settings
 |      |•	Can manage users, roles, and work accounts (tenants)|
-|Developer|•	Can upload packages, submit apps and add-ons, and view the Usage report for telemetry details
-|      |•	Can't access financial info or account settings|
-|Business Contributor|•	Can access financial information and set pricing details
-|      |•	Can't create or submit new apps and add-ons|
-|Financial Contributor|•	Can view payout reports
-|      |•	Can't make changes to apps or settings|
-|Marketer|•	Can respond to customer reviews and non-financial reports
-|      |•	Can't make changes to apps or settings|
+|Developer|•	Can manage and publish offers
+|      |•	Can view some publisher reports|
+|Global admin|•	Not relevant for commercial marketplace|
+|Business Contributor|•	Not relevant for commercial marketplace|
+|Financial Contributor|•	Not relevant for commercial marketplace|
+|Marketer|•	Not relevant for commercial marketplace|
 
 For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV),Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
@@ -369,7 +360,6 @@ The **Agreements** section of Partner Center (under **Account Settings**) let's 
 
 **Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**. 
 
-For information about Cloud Solution Provider (CSP) agreements in Partner Center, visit [Microsoft Cloud Agreements by region and language](https://docs.microsoft.com/partner-center/agreements).
 
 ## Next steps
 

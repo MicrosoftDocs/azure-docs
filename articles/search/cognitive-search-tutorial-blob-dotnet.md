@@ -1,7 +1,7 @@
 ---
 title: 'C# Tutorial for calling Cognitive Services APIs in an indexing pipeline - Azure Search'
 description: In this tutorial, step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
-manager: eladz
+manager: nitinme
 author: MarkHeff
 services: search
 ms.service: search
