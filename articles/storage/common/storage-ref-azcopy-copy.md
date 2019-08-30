@@ -222,7 +222,7 @@ Set environment variable AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for S3 sour
 |--recursive|Look into sub-directories recursively when uploading from local file system.|
 |--s2s-detect-source-changed|Check if source has changed after enumerating. For S2S copy, as source is a remote resource, validating whether source has changed need additional request costs.|
 |--s2s-handle-invalid-metadata string |Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default "ExcludeIfInvalid").|
-|--s2s-preserve-access-tier|Preserve access tier during service to service copy. please refer to https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier.  (default true).|
+|--s2s-preserve-access-tier|Preserve access tier during service to service copy. Please refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier.  (default true).|
 |--s2s-preserve-properties|Preserve full properties during service to service copy. For S3 and Azure File non-single file source, as list operation doesn't return full properties of objects and files, to preserve full properties AzCopy needs to send one additional request per object and file. (default true).|
 
 ## Options inherited from parent commands
