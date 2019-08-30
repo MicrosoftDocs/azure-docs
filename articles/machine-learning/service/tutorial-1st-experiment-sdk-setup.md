@@ -52,26 +52,10 @@ From your workspace, you create a cloud resource to get started using Jupyter no
 
 1. Then select **Create**. It can take a moment to set up your VM.
 
-1. Wait until the status changes to **Running**.
+1. Wait until the status changes to **Running**. 
 
-### Launch Jupyter web interface
+You will use this Notebook VM in the next tutorial.
 
-After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
-
-1. Select **Jupyter** in the **URI** column for your VM.
-
-    ![Start the Jupyter notebook server](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
-
-   The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
-
-1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
-
-   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
-
-1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
-
-   > [!Warning]
-   > Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
 
 ## Next steps
 
