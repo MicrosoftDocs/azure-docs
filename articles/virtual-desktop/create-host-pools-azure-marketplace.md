@@ -53,7 +53,7 @@ Here's what you do for the **Basics** blade:
 6. Select **OK**.
 
 >[!IMPORTANT]
->If you're using a pure Azure Active Directory Domain Services and Azure Active Directory solution, make sure to deploy your host pool in the same region as your Azure Active Domain Services to avoid domain-join and credential errors.
+>If you're using a pure Azure Active Directory Domain Services and Azure Active Directory solution, make sure to deploy your host pool in the same region as your Azure Active Directory Domain Services to avoid domain-join and credential errors.
 
 ### Configure virtual machines
 
