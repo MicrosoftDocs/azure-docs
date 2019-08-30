@@ -120,7 +120,7 @@ When you've completed the guide, your application will accept sign-ins of person
 MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform. 
 You can add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the pom.xml or build.gradle file in your application. 
 
-```
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
@@ -136,7 +136,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ### Msal initialization
 You can add the reference to MSAL4J by adding the following code to the top of the file where you will be using MSAL4J: 
 
-```
+```Java
 import com.microsoft.aad.msal4j.*;
 ```
 
