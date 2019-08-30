@@ -6,22 +6,12 @@ ms.date: 08/30/2019
 ms.author: aahi
 ---
 
----
-author: aahill
-ms.service: cognitive-services
-ms.topic: include
-ms.date: 08/30/2019
-ms.author: aahi
----
-
 [Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Package (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [Node.js](https://nodejs.org/).
-
-## Setting up
 
 ### Create a Text Analytics Azure resource
 
@@ -31,6 +21,8 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 * View your resource on the [Azure portal](https://portal.azure.com/)
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TEXTANALYTICS_SUBSCRIPTION_KEY`.
+
+## Setting up
 
 ### Create a new Node.js application
 

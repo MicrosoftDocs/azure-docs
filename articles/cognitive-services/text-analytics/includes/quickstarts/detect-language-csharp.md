@@ -17,8 +17,6 @@ ms.author: aahi
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
 
-## Setting up
-
 ### Create a Text Analytics Azure resource
 
 Get a key to authenticate your applications by Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text Analytics using the [Azure portal](../../../cognitive-services-apis-create-account.md) or [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
@@ -27,6 +25,8 @@ Get a key to authenticate your applications by Azure Cognitive Services are repr
 * View your resource on the [Azure portal](https://portal.azure.com/)
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TEXT_ANALYTICS_SUBSCRIPTION_KEY`.
+
+## Setting up
 
 ### Create a new C# application
 
