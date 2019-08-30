@@ -28,14 +28,14 @@ As a publisher of an event, you need to create an event grid topic. In Azure Eve
 
 1. Create topic.json with the following content. For details about the payload, see our [API documentation](api.md).
 
-   ```json
-   {
-       "name": "sampleTopic1",
-       "properties" : {
-          "inputschema": "eventGridSchema",
-       },
-   }
-   ```
+    ```json
+    {
+        "name": "sampleTopic1",
+        "properties": {
+            "inputschema": "eventGridSchema"
+        }
+    }
+    ```
 
 1. Run the following command to create an event grid topic. Confirm that you see the HTTP status code is `200 OK`.
 
@@ -49,21 +49,21 @@ Subscribers can register for events published to a topic. To receive any event, 
 
 1. Create subscription.json with the following content. For details about the payload, see our [API documentation](api.md) 
 
-   ```json
+    ```json
     {
-      "properties": {
-        "destination": {
-          "endpointType": "WebHook",
-          "properties": {
-            "endpointUrl": "http://subscriber:80/api/subscriber"
-          }
+        "properties": {
+            "destination": {
+                "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "http://subscriber:80/api/subscriber"
+                }
+            }
         }
-      }
     }
     ```
 
-   >[!NOTE]
-   > The **endpointType** property specifies that the subscriber is a **Webhook**.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Function sample you deployed earlier.
+    >[!NOTE]
+    > The **endpointType** property specifies that the subscriber is a **Webhook**.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Function sample you deployed earlier.
 
 2. Run the following command to create a subscription for the topic. Confirm that you see the HTTP status code is `200 OK`.
 
@@ -75,18 +75,20 @@ Subscribers can register for events published to a topic. To receive any event, 
 
 1. Create event.json with the following content. For details about the payload, see our [API documentation](api.md).
 
-   ```json
-   [{
-       "id": "eventId-func-0",
-       "eventType": "recordInserted",
-       "subject": "myapp/vehicles/motorcycles",
-       "eventTime": "2019-07-28T21:03:07+00:00",
-       "dataVersion": "1.0",
-       "data": {
-            "make": "Ducati",
-            "model": "Monster"
-        },
-    }]
+    ```json
+    [
+        {
+            "id": "eventId-func-0",
+            "eventType": "recordInserted",
+            "subject": "myapp/vehicles/motorcycles",
+            "eventTime": "2019-07-28T21:03:07+00:00",
+            "dataVersion": "1.0",
+            "data": {
+                "make": "Ducati",
+                "model": "Monster"
+            }
+        }
+    ]
     ```
 
 1. Run the following command to publish an event.
@@ -98,14 +100,12 @@ Subscribers can register for events published to a topic. To receive any event, 
 ## Step 4: Verify event delivery
 
 1. SSH or RDP into your IoT Edge VM.
-1. Check the subscriber logs.
-
-    On Windows, run the following command:
-
+1. Check the subscriber logs<br><br>
+On Windows, run the following command:
     ```sh
     docker -H npipe:////./pipe/notedly_moby_engine container logs subscriber
     ```
-    
+
    On Linux, run the following command: 
 
     ```sh

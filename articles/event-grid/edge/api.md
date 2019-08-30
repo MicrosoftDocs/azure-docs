@@ -165,6 +165,11 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "deliveryPolicy":  //optional
+        {
+            "maxEventsPerBatch": 10,
+            "approxBatchSizeInBytes": 65536
+        },
         "destination":
         {
             "endpointType": "WebHook",
@@ -264,6 +269,11 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
         {
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
+        },
+        "deliveryPolicy":  //optional
+        {
+            "maxEventsPerBatch": 10,
+            "approxBatchSizeInBytes": 65536
         },
         "destination":
         {
@@ -368,6 +378,11 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
         {
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
+        },
+        "deliveryPolicy":  //optional
+        {
+            "maxEventsPerBatch": 10,
+            "approxBatchSizeInBytes": 65536
         },
         "destination":
         {
