@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ::: zone target="chromeless"
 
-This guide describes how to deploy the Azure Data Box Disk in the Azure portal. This guide helps answer these questions.
+This guide describes walks you through the steps of using the Azure Data Box Disk in the Azure portal. This guide helps answer the following questions.
 
 ::: zone-end
 
