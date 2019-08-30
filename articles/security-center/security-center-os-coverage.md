@@ -17,9 +17,7 @@ ms.author: "v-mohabe"
 ---
 # Supported platforms
 
-Virtual Machines (VMs) / Servers
-
-### Virtual machines / servers <a name="vm-server"></a>
+## Virtual machines / servers <a name="vm-server"></a>
 
 Security Center supports virtual machines / servers on different types of hybrid environments:
 
@@ -30,7 +28,7 @@ Security Center supports virtual machines / servers on different types of hybrid
 
 For an Azure environment activated on an Azure subscription, Azure Security Center will automatically discover IaaS resources that are deployed within the subscription. To receive the full set of security features, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manualagent).
 
-In non-Azure environments, for Azure Security Center to support virtual machines / servers on other clouds or on-premises, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) (same as for Azure environment), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manualagent).
+In non-Azure environments, for Azure Security Center to support virtual machines / servers on other clouds or on-premises, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) (same as for Azure environment mentioned in the previous paragraph), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manualagent).
 
 The following sections list the supported server operating systems on which the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), which is used by Azure Security Center, can run.
 
@@ -45,6 +43,8 @@ The following sections list the supported server operating systems on which the 
 
 > [!NOTE]
 > Integration with Microsoft Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
+
+To learn more about the supported features for the above list of Windows operating systems, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
 
 ### Linux operating systems <a name="os-linux"></a>
 
@@ -67,7 +67,7 @@ The following sections list the supported server operating systems on which the 
 > [!NOTE]
 > Since the list of supported Linux operating systems is constantly changing, if you prefer, click [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) to view the most up-to-date list of supported versions, in case there have been changes since this topic was last published.
 
-To learn more about the supported features for the above list of Windows operating systems, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
+To learn more about the supported features for the above list of Linux operating systems, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
 
 ### Managed virtual machine services <a name="virtual-machine"></a>
 
@@ -112,7 +112,7 @@ To learn more about the supported features for the above list of PaaS resources,
 ## Next steps
 
 - Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
-- Learn about [features available for the different cloud environments]{security-center-services.md).
-- Learn more about [Threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
+- Learn about [features available for the different cloud environments](security-center-services.md).
+- Learn more about [threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
 - Find [frequently asked questions about using Azure Security Center](security-center-faq.md).
 - Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).
