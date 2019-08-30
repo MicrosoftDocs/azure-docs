@@ -173,7 +173,7 @@ Before you begin the migration, complete the following initial checks and update
     |-------------------------------------------------|--------------------------------------|
     | Directory ID that Azure AD DS is hosted in      | c53a5765-de4d-4054-a530-bb16f61c678e |
     | Subscription ID that Azure AD DS is hosted in   | 8bc1dee-7dc5-4eca-9f8c-423e34c8735c  |
-    | Destination Resource Manager subnet resource ID | /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet/subnets/DomainServices |
+    | Destination Resource Manager subnet resource ID | /subscriptions/guid/resourceGroups/myResourceGroup/providers/ <br /> Microsoft.ClassicNetwork/virtualNetworks/myVnet/subnets/DomainServices |
 
 1. Optionally, if you plan to move other resources to the Resource Manager deployment model and virtual network, confirm that those resources can be migrated. For more information, see [Platform-supported migration of IaaS resources from Classic to Resource Manager][migrate-iaas].
 
