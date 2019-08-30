@@ -146,7 +146,7 @@ Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azu
 
 ## Manage users
 
-The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Note that in order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
+The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
 
 Once you are signed in with your work account (Azure AD tenant), you can:
 - [Add or remove users](#add-or-remove-users)
