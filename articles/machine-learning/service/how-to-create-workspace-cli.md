@@ -125,7 +125,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-## Use existing resources
+### Use existing resources
 
 To create a workspace that uses existing resources, you must provide the ID for the resources. Use the following commands to get the ID for the services:
 
