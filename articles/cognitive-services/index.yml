@@ -38,104 +38,124 @@ highlightedContent:
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
+    - title: Bing Search
+      links: 
+        - url: /azure/cognitive-services/Bing-Autosuggest
+          itemType: overview
+          text: Autosuggest Search
+        - url: /azure/cognitive-services/bing-custom-search
+          itemType: overview
+          text: Custom Search
+        - url: /azure/cognitive-services/bing-entities-search/
+          itemType: overview
+          text: Entity Search
+        - url: /azure/cognitive-services/bing-image-search
+          itemType: overview
+          text: Image Search     
+        - url: /azure/cognitive-services/bing-local-business-search
+          itemType: overview
+          text: Local Business Search
+        - url: /azure/cognitive-services/bing-news-search/
+          itemType: overview
+          text: News Search     
+        - url: /azure/cognitive-services/bing-spell-check/
+          itemType: overview
+          text: Spell Check    
+        - url: /azure/cognitive-services/Bing-Video-Search/
+          itemType: overview
+          text: Video Search    
+        - url: /azure/cognitive-services/bing-visual-search
+          itemType: overview
+          text: Visual Search  
+        - url: /azure/cognitive-services/bing-web-search/
+          itemType: overview
+          text: Web Search    
     - title: Decision Services 
       links: 
         - url: ./anomaly-detector/overview.md
-          itemType: get-started
+          itemType: overview
           text: Anomaly Detector 
         - url: ./content-moderator/overview.md
-          itemType: get-started
+          itemType: overview
           text: Content Moderator
         - url: ./personalizer/what-is-personalizer.md
-          itemType: get-started
+          itemType: overview
           text: Personalizer    
-    - title: Decision Services 
+    - title: Language
       links: 
-        - url: ./anomaly-detector/overview.md
-          itemType: get-started
-          text: Anomaly Detector 
-        - url: ./content-moderator/overview.md
-          itemType: get-started
-          text: Content Moderator
-        - url: ./personalizer/what-is-personalizer.md
-          itemType: get-started
-          text: Personalizer 
-    - title: Decision Services 
+        - url: /azure/cognitive-services/immersive-reader
+          itemType: overview
+          text: Immersive Reader
+        - url: /azure/cognitive-services/luis/
+          itemType: overview
+          text: Language Understanding (LUIS)
+        - url: /azure/cognitive-services/qnamaker/index
+          itemType: overview
+          text: QnA Maker
+        - url: /azure/cognitive-services/text-analytics/
+          itemType: overview
+          text: Text Analytics
+        - url: /azure/cognitive-services/translator/
+          itemType: overview
+          text: Translator Text
+    - title: Speech
       links: 
-        - url: ./anomaly-detector/overview.md
-          itemType: get-started
-          text: Anomaly Detector 
-        - url: ./content-moderator/overview.md
-          itemType: get-started
-          text: Content Moderator
-        - url: ./personalizer/what-is-personalizer.md
-          itemType: get-started
-          text: Personalizer
-    - title: Anomaly Detector 
-      links:
-        - text: What is Anomaly Detector?
-          url: anomaly-detector/overview.md
+        - url: /azure/cognitive-services/speech-service
           itemType: overview
-        - text: "Quickstart: Using .Net SDK"
-          url: anomaly-detector/quickstarts/detect-data-anomalies-csharp-sdk.md
-          itemType: quickstart
-        - text: "Tutorial: Visualize anomalies using batch detection and Power BI"
-          url: anomaly-detector/tutorials/batch-anomaly-detection-powerbi.md
-          itemType: tutorial
-        - text: "How to: Use the Anomaly Detector API on your time series data" 
-          url: anomaly-detector/how-to/identify-anomalies.md
-          itemType: how-to-guide
-        - text: Best practices
-          itemType: concept
-          url: anomaly-detector/concepts/anomaly-detection-best-practices.md
-    - title: Content Moderator
-      links:
-        - text: What is Content Moderator?
-          url: content-moderator/overview.md
+          text: Speech Services 
+        - url: /azure/cognitive-services/speaker-recognition/home
           itemType: overview
-        - text: "Quickstart: Try Content Moderator on the web"
-          url: content-moderator/quick-start.md
-          itemType: quickstart
-        - text: "Tutorial: Moderate Facebook content"
-          url: content-moderator/facebook-post-moderation.md
-          itemType: tutorial
-        - text: "How to: Check video content"
-          url: content-moderator/video-moderation-api.md
-          itemType: how-to-guide
-        - text: Image moderation
-          url: content-moderator/image-moderation-api.md
-          itemType: concept
-        - text: .Net SDK
-          url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
-          itemType: reference
-    - title: Personalizer 
-      links:
-        - text: What is Personalizer?
+          text: Speaker Recognition
+        - url: /azure/cognitive-services/speech/home
           itemType: overview
-          url: personalizer/what-is-personalizer.md
-        - text: "Quickstart: Create learning loop with .NET"
-          itemType: quickstart
-          url: personalizer/csharp-quickstart-commandline-feedback-loop.md
-        - text: Create and configure Personalizer
-          itemType: how-to-guide
-          url: personalizer/how-to-settings.md
-        - text: Analyze with an offline evaluation
-          itemType: how-to-guide
-          url: personalizer/how-to-offline-evaluation.md
-        - text: Ethics and responsible use
-          itemType: concept
-          url: personalizer/ethics-responsible-use.md
+          text: Bing Speech    
+        - url: /azure/cognitive-services/translator-speech/
+          itemType: overview
+          text: Translator Speech    
+    - title: Vision
+      links: 
+        - url: /azure/cognitive-services/computer-vision/
+          itemType: overview
+          text: Computer Vision
+        - url: /azure/cognitive-services/Custom-Vision-Service/
+          itemType: overview
+          text: Custom Vision
+        - url: /azure/cognitive-services/face/
+          itemType: overview
+          text: Face
+        - url: https://go.microsoft.com/fwlink/?linkid=2088514
+          itemType: overview
+          text: Form Recognition
+        - url: https://go.microsoft.com/fwlink/?linkid=2088323
+          itemType: overview
+          text: Ink Recognizer
+        - url: /azure/cognitive-services/video-indexer/video-indexer-overview
+          itemType: overview
+          text: Video Indexer         
+
 
 additionalContent:
-   sections:
-   - title: Cognitive Services
-     items:
-      - title: Anomaly Detector
-        summary: Easily add anomaly detection capabilities to your apps.
-        url: ./anomaly-detector/index.yml
-      - title: Content Moderator
-        summary: Automated image, text, and video moderation
-        url: ./content-moderator/overview.md
-      - title: Personalizer
-        summary: An AI service that delivers a personalized user experience
-        url: ./personalizer/index.yml
+  sections:
+    - items:
+      - title: Additional resources
+        links:
+          - text: Azure CLI
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+          - text: PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+      - title: REST APIs
+        links:
+          - text: Cognitive Services Management
+            url: https://docs.microsoft.com/rest/api/cognitiveservices/
+      - title: SDKs
+        links:
+          - text: .Net
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+          - text: Go
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+          - text: Java
+            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+          - text: Node.js
+            url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+          - text: Python
+            url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python      
