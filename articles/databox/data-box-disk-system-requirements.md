@@ -23,7 +23,7 @@ The system requirements include the supported platforms for clients connecting t
 
 ::: zone target="chromeless"
 
-## Prerequisites
+# Prerequisites
 
 You have a client computer available from which you can copy the data. Your client computer must:
 
