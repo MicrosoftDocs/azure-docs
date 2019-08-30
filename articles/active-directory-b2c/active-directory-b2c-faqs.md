@@ -128,6 +128,9 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 
 Follow these steps to delete your Azure AD B2C tenant:
 
+1. Create a new local user account in the B2C tenant, using the Azure Active Directory blade and assign it the Global Administrator directory profile.
+1. If the B2C tenant was linked to a subscription (which likely is associated to a non-B2C tenant), delete the Azure resource representing your B2C tenant's billing from the non-B2C tenant.
+1. All of the following steps should be completed using the newly created Global Administrator account.
 1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
 1. Delete all the **Applications** you registered in your Azure AD B2C tenant.
 1. Next, sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
@@ -139,12 +142,13 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. Select **View all applications**
 1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
 1. Under **Manage**, select **User settings**.
-1. Under **LinkedIn account connections**, select **No**, then select **Save**.
+1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.
 1. Select **Azure Active Directory** on the left-hand menu.
 1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
+1. If you encounter validation errors prior to deleting the tenant, use the [AzureAD PowerShell module](https://docs.microsoft.com/powershell/module/azuread) to fully delete all application registrations and service principals (Enterprise Applications). When you connect to the tenant using the AzureAD PowerShell module, make sure you use the newly created Global Administrator account (the one created at step #1).
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 
