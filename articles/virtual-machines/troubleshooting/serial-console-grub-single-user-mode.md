@@ -44,7 +44,7 @@ You can also restart your VM by running a SysRq "b" command if [SysRq](./serial-
 ![Linux Serial console restart](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## General single-user mode access
-You might need manual access to single-user mode when you haven't configured an account with password authentication. Modify the GRUB configuration to manually enter single-user mode. After you've done this, see the "Use single-user mode to reset or add a password" for further instructions.
+You might need manual access to single-user mode when you haven't configured an account with password authentication. Modify the GRUB configuration to manually enter single-user mode. After you've done this, see the "Use single-user mode to reset or add a password" section for further instructions.
 
 If the VM is unable to boot, distributions often automatically drop you into single-user mode or emergency mode. Other distributions, however, require additional setup, such as setting up a root password, before they can drop you into single-user or emergency mode automatically.
 
