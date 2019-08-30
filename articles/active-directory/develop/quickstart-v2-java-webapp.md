@@ -37,9 +37,7 @@ When you've completed the guide, your application will accept sign-ins of person
 >
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
-> You have two options to start your quickstart application:
-> * Express: [Option 1: Register and auto configure your app and then download your code sample.](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * Manual: [Option 2: Register and manually configure your application and code sample.](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> You have two options to start your quickstart application: express (Option 1), or manual (Option 2)
 > 
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
@@ -122,7 +120,7 @@ When you've completed the guide, your application will accept sign-ins of person
 MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform. 
 You can add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the pom.xml or build.gradle file in your application. 
 
-```
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
@@ -138,7 +136,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ### Msal initialization
 You can add the reference to MSAL4J by adding the following code to the top of the file where you will be using MSAL4J: 
 
-```
+```Java
 import com.microsoft.aad.msal4j.*;
 ```
 
