@@ -301,14 +301,12 @@ Your company's users can be assigned the following roles and permissions for the
 
 |**Role**|**Permissions**|
 |----------------------------------|---------------------------------|
-|Manager|- Can access all Microsoft account features except tax and payout settings|
-|      |- Can manage users, roles, and work accounts (tenants)|
-|Developer|- Can manage and publish offers|
-|      |- Can view some publisher reports|
-|Global admin|- Not relevant for commercial marketplace|
-|Business Contributor|- Not relevant for commercial marketplace|
-|Financial Contributor|- Not relevant for commercial marketplace|
-|Marketer|- Not relevant for commercial marketplace|
+|Manager|Can access all Microsoft account features except tax and payout settings. Able to manage users, roles, and work accounts (tenants).|
+|Developer|Can manage and publish offers, and can view some publisher reports.|
+|Global admin|Not relevant for commercial marketplace.|
+|Business Contributor|Not relevant for commercial marketplace.|
+|Financial Contributor|Not relevant for commercial marketplace.|
+|Marketer|Not relevant for commercial marketplace.|
 
 For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
