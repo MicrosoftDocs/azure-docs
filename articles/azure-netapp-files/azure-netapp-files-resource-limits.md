@@ -44,13 +44,13 @@ Azure NetApp Files volumes have a limit called *maxfiles*. The maxfiles limit is
 
 The service dynamically adjusts the maxfiles limit for a volume based on its provisioned size. For example, a volume configured initially with a size of 1 TiB would have a maxfiles limit of 20 million. Subsequent changes to the size of the volume would result in an automatic readjustment of the maxfiles limit based on the following rules: 
 
-|    Volume size (quota)    |  Automatic readjustment of the maxfiles limit    |
-|----------------------|-------------------|
-|    Under 1 TiB       |    20 million     |
-|    1 TiB to 2 TiB    |    40 million     |
-|    2 TiB to 3 TiB    |    60 million     |
-|    3 TiB to 4 TiB    |    80 million     |
-|    4 TiB or more     |    100 million    |
+|    Volume size (quota)     |  Automatic readjustment of the maxfiles limit    |
+|----------------------------|-------------------|
+|    < 1 TiB                 |    20 million     |
+|    >= 1 TiB but < 2 TiB    |    40 million     |
+|    >= 2 TiB but < 3 TiB    |    60 million     |
+|    >= 3 TiB but < 4 TiB    |    80 million     |
+|    >= 4 TiB                |    100 million    |
 
 For any volume size, you can initiate a support request to increase the maxfiles limit beyond 100 million.
 
@@ -75,6 +75,7 @@ From Azure portal navigation plane:
         |  Account |  *Subscription ID*   |  *Requested new maximum **account** number*    |  *What scenario or use case prompted the request?*  |
         |  Pool    |  *Subscription ID, Account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
         |  Volume  |  *Subscription ID, Account URI, Pool URI*   |  *Requested new maximum **volume** number*     |  *What scenario or use case prompted the request?*  |
+        |  Maxfiles  |  *Subscription ID, Account URI, Pool URI, Volume URI*   |  *Requested new maximum **maxfiles** number*     |  *What scenario or use case prompted the request?*  |    
 
     2. Specify the appropriate support method and provide your contract information.
 
