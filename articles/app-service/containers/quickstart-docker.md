@@ -53,8 +53,6 @@ Finally, ensure that your Azure Container Registry is connected. To do this, sel
 
 Now that everything is configured, you can deploy your image to [Azure App Service](https://azure.microsoft.com/services/app-service/) directly from the Docker extension explorer.
 
-### Deploy the image
-
 Find the image under the **Registries** node in the **DOCKER** explorer, and expand it to show its tags. Right-click a tag and then select **Deploy Image to Azure App Service**.
 
 From here, follow the prompts to choose a subscription, a globally unique app name, a Resource Group, and an App Service Plan. Choose **B1 Basic** for the pricing tier, and a region.
@@ -68,7 +66,7 @@ A **Resource Group** is a named collection of all your application's resources i
 
 An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine.
 
-### Browse the website
+## Browse the website
 
 The **Output** panel will open during deployment to indicate the status of the operation. When the operation completes, find the app you created in the **APP SERVICE** explorer, right-click it, then select **Browse Website** to open the site in your browser.
 
