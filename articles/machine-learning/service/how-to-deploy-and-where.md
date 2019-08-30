@@ -770,7 +770,7 @@ Support for deploying to the edge is in preview. For more information, see [Depl
 
 [!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
-## Continuous model deployment
+## Continuously deploy models
 
 You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning service workspace.
 
@@ -788,85 +788,89 @@ You can continuously deploy models by using the Machine Learning extension for [
 
     ![Select AzureMLWorkspace](media/how-to-deploy-and-where/resource-manager-connection.png)
 
-1. To continuously deploy your machine learning model by using Azure Pipelines, under pipelines select **release**. Add a new artifact, and then select the **AzureML Model** artifact and the service connection that you created earlier. Select the model and version to trigger a deployment.
+1. To continuously deploy your machine learning model by using Azure Pipelines, under pipelines, select **release**. Add a new artifact, and then select the **AzureML Model** artifact and the service connection that you created earlier. Select the model and version to trigger a deployment:
 
-    [![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
+    [![Select AzureML Model](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
-1. Enable the model trigger on your model artifact. By turning on the trigger, every time the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggered. 
+1. Enable the model trigger on your model artifact. When you turn on the trigger, every time the specified version (that is, the newest version) of that model is registered in your workspace, an Azure DevOps release pipeline is triggered.
 
-    [![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
+    [![Enable the model trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
-For more sample projects and examples, see the following sample repos:
+For more sample projects and examples, see these sample repos in GitHub:
 
-* [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
-* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+* [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
+* [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
 ## Package models
 
-In some cases, you may want to create a Docker image without deploying the model. For example, when you plan on [deploying to Azure App Service](how-to-deploy-app-service.md). Or you may want to download the image and run on a local Docker install. You may even want to download the files used to build the image, inspect them, modify them, and build it manually.
+In some cases, you might want to create a Docker image without deploying the model (if, for example, you plan to [deploy to Azure App Service](how-to-deploy-app-service.md)). Or you might want to download the image and run it on a local Docker installation. You might even want to download the files used to build the image, inspect them, modify them, and build the image manually.
 
-Model packaging enables you to do both. It packages up all the assets needed to host a model as a web service and allows you to download either a fully built Docker image or the files needed to build one. There are two ways to use model packaging:
+Model packaging enables you to do these things. It packages all the assets needed to host a model as a web service and allows you to download either a fully built Docker image or the files needed to build one. There are two ways to use model packaging:
 
-* __Download packaged model__: You download a Docker image containing the model and other files needed to host it as a web service.
-* __Generate dockerfile__: You download the dockerfile, model, entry script, and other assets needed to build a Docker image. You can then inspect the files or make changes before building the image locally.
+**Download a packaged model:** Download a Docker image that contains the model and other files needed to host it as a web service.
+**Generate a Dockerfile:** Download the Dockerfile, model, entry script, and other assets needed to build a Docker image. You can then inspect the files or make changes before you build the image locally.
 
-Both packages can be used to get a local Docker image. 
+Both packages can be used to get a local Docker image.
 
 > [!TIP]
-> Creating a package is similar to deploying a model, as it uses a registered model and inference configuration.
+> Creating a package is similar to deploying a model. You use a registered model and an inference configuration.
 
 > [!IMPORTANT]
-> Functionality such as downloading a fully built image or building an image locally requires a working [Docker](https://www.docker.com) installation on your development environment.
+> To download a fully built image or build an image locally, you need to have [Docker](https://www.docker.com) installed in your development environment.
 
 ### Download a packaged model
 
-The following example demonstrates how to build an image, which is registered in the Azure Container Registry for your workspace:
+The following example builds an image, which is registered in the Azure container registry for your workspace:
 
 ```python
 package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-After creating a package, you can use `package.pull()` to pull the image to your local Docker environment. The output of this command will display the name of the image. For example, `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. After downloading, use the `docker images` command to list the local images:
+After you create a package, you can use `package.pull()` to pull the image to your local Docker environment. The output of this command will display the name of the image. For example: 
+
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
+
+After you download the model, use the `docker images` command to list the local images:
 
 ```text
 REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
 myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
 ```
 
-To start a local container using this image, use the following command to start a named container from the shell or command line. Replace the `<imageid>` value with the image ID returned from the `docker images` command:
+To start a local container based on this image, use the following command to start a named container from the shell or command line. Replace the `<imageid>` value with the image ID returned by the `docker images` command:
 
 ```bash
 docker run -p 6789:5001 --name mycontainer <imageid>
 ```
 
-This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`.
+This command starts the latest version of the image named `myimage`. It maps local port 6789 to the port in the container on which the web service is listening (5001). It also assigns the name `mycontainer` to the container, which makes the container easier to stop. After the container is started, you can submit requests to `http://localhost:6789/score`.
 
-### Generate dockerfile and dependencies
+### Generate a Dockerfile and dependencies
 
-The following example demonstrates how to download the dockerfile, model, and other assets needed to build the image locally. The `generate_dockerfile=True` parameter indicates that we want the files, not a fully built image:
+The following example shows how to download the Dockerfile, model, and other assets needed to build an image locally. The `generate_dockerfile=True` parameter indicates that you want the files, not a fully built image:
 
 ```python
 package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
 package.wait_for_creation(show_output=True)
-# Download the package
+# Download the package.
 package.save("./imagefiles")
-# Get the Azure Container Registry that the model/dockerfile uses
+# Get the Azure container registry that the model/Dockerfile uses.
 acr=package.get_container_registry()
 print("Address:", acr.address)
 print("Username:", acr.username)
 print("Password:", acr.password)
 ```
 
-This code downloads the files needed to build the image to the `imagefiles` directory. The dockerfile included in the save files references a base image stored in an Azure Container Registry. When building the image on your local Docker installation, you must use the address, user name, and password to authenticate to this registry. Use the following steps to build the image using a local Docker installation:
+This code downloads the files needed to build the image to the `imagefiles` directory. The Dockerfile included in the saved files references a base image stored in an Azure container registry. When you build the image on your local Docker installation, you need to use the address, user name, and password to authenticate to the registry. Use the following steps to build the image by using a local Docker installation:
 
-1. From a shell or command-line session, use the following command to authenticate Docker with the Azure Container Registry. Replace `<address>`, `<username>`, and `<password>` with the values retrieved using `package.get_container_registry()`:
+1. From a shell or command-line session, use the following command to authenticate Docker with the Azure container registry. Replace `<address>`, `<username>`, and `<password>` with the values retrieved by `package.get_container_registry()`:
 
     ```bash
     docker login <address> -u <username> -p <password>
     ```
 
-2. To build the image, use the following command. Replace `<imagefiles>` with the path to the directory where `package.save()` saved the files:
+2. To build the image, use the following command. Replace `<imagefiles>` with the path of the directory where `package.save()` saved the files.
 
     ```bash
     docker build --tag myimage <imagefiles>
@@ -874,7 +878,7 @@ This code downloads the files needed to build the image to the `imagefiles` dire
 
     This command sets the image name to `myimage`.
 
-To verify that the image has been built, use the `docker images` command. You should see the `myimage` image in the list:
+To verify that the image is built, use the `docker images` command. You should see the `myimage` image in the list:
 
 ```text
 REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
@@ -888,7 +892,7 @@ To start a new container based on this image, use the following command:
 docker run -p 6789:5001 --name mycontainer myimage:latest
 ```
 
-This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`.
+This command starts the latest version of the image named `myimage`. It maps local port 6789 to the port in the container on which the web service is listening (5001). It also assigns the name `mycontainer` to the container, which makes the container easier to stop. After the container is started, you can submit requests to `http://localhost:6789/score`.
 
 ### Example client to test the local container
 
@@ -898,28 +902,28 @@ The following code is an example of a Python client that can be used with the co
 import requests
 import json
 
-# URL for the web service
+# URL for the web service.
 scoring_uri = 'http://localhost:6789/score'
 
-# Two sets of data to score, so we get two results back
+# Two sets of data to score, so we get two results back.
 data = {"data":
         [
             [ 1,2,3,4,5,6,7,8,9,10 ],
             [ 10,9,8,7,6,5,4,3,2,1 ]
         ]
         }
-# Convert to JSON string
+# Convert to JSON string.
 input_data = json.dumps(data)
 
-# Set the content type
+# Set the content type.
 headers = {'Content-Type': 'application/json'}
 
-# Make the request and display the response
+# Make the request and display the response.
 resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
 ```
 
-For more example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
+For example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
 
 ### Stop the Docker container
 
@@ -934,13 +938,13 @@ docker kill mycontainer
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.
 
-For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Next steps
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
+* [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 
