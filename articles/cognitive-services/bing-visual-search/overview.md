@@ -34,7 +34,7 @@ You can discover the following insights by using Bing Visual Search:
 | Related searches                     | Related searches made by others or that are based on the contents of the image.            |
 | Webpages that include the image     | Webpages that include the input image.            |
 | Recipes                              | Webpages that include recipes for making the dish shown in the input image.            |
-| Entities                             | Culturally well-known people, places, and things. |
+| Entities                             | Well-known people, places, and things. |
 
 In addition to insights, Bing Visual Search returns a variety of terms (that is, tags) derived from the input image. The tags enable users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags may be the name of the athlete, another tag could be Sports. Or, if the input image is of an apple pie, the tags could be Apple Pie, Pies, and Desserts.
 
