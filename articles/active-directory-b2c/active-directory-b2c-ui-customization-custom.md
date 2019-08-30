@@ -60,17 +60,16 @@ To host this HTML content in Blob storage, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the **Hub** menu, select **New** > **Storage** > **Storage account**.
-3. Enter a unique **Name** for your storage account.
-4. **Deployment model** can remain **Resource Manager**.
-5. Change **Account Kind** to **Blob storage**.
-6. **Performance** can remain **Standard**.
-7. **Replication** can remain **RA-GRS**.
-8. **Access tier** can remain **Hot**.
-9. **Storage service encryption** can remain **Disabled**.
-10. Select a **Subscription** for your storage account.
-11. Create a **Resource group** or select an existing one.
-12. Select the **Geographic location** for your storage account.
-13. Click **Create** to create the storage account.  
+3. Select a **Subscription** for your storage account.
+4. Create a **Resource group** or select an existing one.
+5. Enter a unique **Name** for your storage account.
+6. Select the **Geographic location** for your storage account. 
+7. **Deployment model** can remain **Resource Manager**.
+8. **Performance** can remain **Standard**.
+9. Change **Account Kind** to **Blob storage**.
+10. **Replication** can remain **RA-GRS**.
+11. **Access tier** can remain **Hot**. 
+12. Click **Review + create** to create the storage account.  
     After the deployment is completed, the **Storage account** blade opens automatically.
 
 ## Create a container
