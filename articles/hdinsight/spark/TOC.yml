@@ -49,6 +49,8 @@
     href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
     href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+  - name: Compare storage options
+    href: ../hdinsight-hadoop-compare-storage-options.md
 - name: How to
   items:
   - name: Use cluster storage
@@ -311,8 +313,6 @@
       href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
     - name: Apache Spark job fails - InvalidClassException
       href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
-    - name: Slow Apache Spark jobs - listStatus
-      href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
     - name: Slow Apache Spark jobs - storage container
       href: ./apache-spark-troubleshoot-job-slowness-container.md
     - name: IllegalArgumentException exception
@@ -331,6 +331,8 @@
       href: ./zookeeper-troubleshoot-quorum-fails.md
 - name: Reference
   items:
+  - name: Supported node configurations
+    href: ../hdinsight-supported-node-configuration.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell

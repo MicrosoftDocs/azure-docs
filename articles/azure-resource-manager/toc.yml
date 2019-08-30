@@ -58,6 +58,8 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
+  - name: Template deployments
+    href: template-deployment-overview.md
   - name: Template file structure
     displayName: parameters,variables,resources,outputs,condition
     href: resource-group-authoring-templates.md
@@ -67,8 +69,6 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
-  - name: Resource deletion
-    href: resource-group-delete.md
   - name: Deployment Manager
     items:
     - name: Overview
@@ -186,6 +186,8 @@
       - name: Use Azure PowerShell
         displayName: open,delete,deploy,move,lock,tag
         href: manage-resources-powershell.md
+    - name: Delete resource groups and resources
+      href: resource-group-delete.md
     - name: Lock resources
       href: resource-group-lock-resources.md
     - name: Authentication API to access subscriptions
