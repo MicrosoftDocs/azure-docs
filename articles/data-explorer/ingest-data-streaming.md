@@ -71,7 +71,7 @@ There are two supported streaming ingestion types:
 * Currently, support is only for 8 and 16 core SKUs (D13, D14, L8, and L16).
 * The data size limitation per ingestion request is 4 MB.
 * Schema updates, such as creation and modification of tables and ingestion mappings, may take up to 5 minutes for the streaming ingestion service.
-* Enabling streaming ingestion on a cluster, even when no data is ingested via streaming, uses part of the local SSD disk of the cluster machines for streaming ingestion data and reduces the storage available for hot cache.
+* Enabling streaming ingestion on a cluster, even when data isn't ingested via streaming, uses part of the local SSD disk of the cluster machines for streaming ingestion data and reduces the storage available for hot cache.
 
 ## Next steps
 
