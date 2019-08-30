@@ -83,7 +83,13 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
 ## Get the keys for your resource
 
-After creating your resource, you can access it from the Azure dashboard if you pinned it. Otherwise, you can find it in **Resource Groups**. After selecting your resource, you can get the keys by selecting **Keys** under **Resource Management**.
+After the resource is successfully created, you get a pop-up notification in the top-right of the screen. From the notification, click **Go to resource** to see the cognitive service resource you created. 
+
+![Go to cognitive service resource](media/cognitive-services-apis-create-account/cog-serv-go-to-resource.png)
+
+From the quickstart pane that opens, you can access your endpoint and key.
+
+![Get key and endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
