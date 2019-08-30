@@ -24,8 +24,8 @@ In Azure Active Directory (Azure AD), you can create complex attribute-based rul
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
-* You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
-* You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
+- You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
+- You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
 
 > [!NOTE]
 > This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
@@ -33,11 +33,17 @@ When any attributes of a user or device change, the system evaluates all dynamic
 
 ## Rule builder in the Azure portal
 
-Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. To add more expressions, you can use the text box. If you make changes in the text box.
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
-> [!IMPORTANT]
-> The rule builder supports the construction of up to five expressions. The rule builder makes it quick and easy to form a few simple expressions, but it doesn't automatically reproduce every rule. For example, the direct reports rule is not supported in the rule builder. If the rule builder doesn't support the rule you want to create, use the text box. If you make changes in the text box, the rule builder might not be able synchronize with it.
-> The rule builder doesn't change the syntax, validation, or use of dynamic group rules in any way.
+Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
+
+- Rule with more than five expressions
+- The Direct reports rule
+- Setting operator precedence
+- Rules with complex expressions; for example `(user.proxyAddresses -any (_ -contains "contoso"))`
+
+> [!NOTE]
+> The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
 
 For more step-by-step instructions, see [Update a dynamic group](groups-update-rule.md).
 
@@ -59,9 +65,9 @@ Parentheses are optional for a single expression. The total length of the body o
 
 A membership rule that automatically populates a group with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
 
-* Property
-* Operator
-* Value
+- Property
+- Operator
+- Value
 
 The order of the parts within an expression are important to avoid syntax errors.
 
@@ -69,9 +75,9 @@ The order of the parts within an expression are important to avoid syntax errors
 
 There are three types of properties that can be used to construct a membership rule.
 
-* Boolean
-* String
-* String collection
+- Boolean
+- String
+- String collection
 
 The following are the user properties that you can use to create a single expression.
 
@@ -300,10 +306,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 The following tips can help you use the rule properly.
 
-* The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
-* For the rule to work, make sure the **Manager** property is set correctly for users in your tenant. You can check the current value in the user's **Profile**.
-* This rule supports only the manager's direct reports. In other words, you can't create a group with the manager's direct reports *and* their reports.
-* This rule can't be combined with any other membership rules.
+- The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
+- For the rule to work, make sure the **Manager** property is set correctly for users in your tenant. You can check the current value in the user's **Profile**.
+- This rule supports only the manager's direct reports. In other words, you can't create a group with the manager's direct reports *and* their reports.
+- This rule can't be combined with any other membership rules.
 
 ### Create an "All users" rule
 
@@ -376,8 +382,8 @@ The following device attributes can be used.
 
 These articles provide additional information on groups in Azure Active Directory.
 
-* [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](groups-create-rule.md)
+- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Manage dynamic rules for users in a group](groups-create-rule.md)
