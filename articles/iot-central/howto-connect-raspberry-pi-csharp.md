@@ -351,10 +351,10 @@ Toggle settings
 
 ### Properties
 
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+| Type            | Display name | Field name | Data type                              |
+| --------------- | ------------ | ---------- | -------------------------------------- |
+| Device property | Die number   | dieNumber  | number                                 |
+| Location        | Location     | location   | {lat: float, long: float, alt?: float} |
 
 ## Next steps
 

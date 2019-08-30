@@ -1,22 +1,16 @@
 ---
-title: Using the Geo Artificial Intelligence Data Science Virtual Machine  - Azure | Microsoft Docs
+title: Use the Geo AI
+titleSuffix: Azure Data Science Virtual Machine 
 description: Learn how to use the Geo AI Data Science Virtual Machine to analyze data and build models based on geospatial data.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: vijetaj
 
 ---
 
@@ -45,7 +39,7 @@ In addition to the machine-learning and deep-learning framework-based samples fr
 
 2. [Getting started with geospatial analytics with R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): An introductory sample that shows how to work with geospatial data by using the R interface to ArcGIS that's provided by the [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) library. 
 
-3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are *forested* and *water*. The model returns such a label for every pixel in the image. The model is built by using the Microsoft open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning framework.
+3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are *forested* and *water*. The model returns such a label for every pixel in the image. 
 
 
 ## Next steps
