@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
 
-1. Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page.
+1. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
 
 2. Enter the email address and password you use to access your Azure subscription:
 
@@ -52,7 +52,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 3. To start creating a new Azure IoT Central application, select **New Application**:
 
-    ![Azure IoT Central Application Manager page](./media/tutorial-define-device-type/iotcentralhome.png)
+    ![Azure IoT Central application manager page](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. To create a new Azure IoT Central application:
     

@@ -93,7 +93,7 @@ myenv = Environment.from_existing_conda_environment(name = "myenv",
 
 ### Automatically create environments
 
-Automatically create an environment by submitting a training run with the [submit()]() method. When you submit a training run, the building of new environment can take several minutes depending on the size of the required dependencies. 
+Automatically create an environment by submitting a training run with the submit() method. When you submit a training run, the building of new environment can take several minutes depending on the size of the required dependencies. 
 
 If you don't specify an environment in your run configuration prior to submitting the run, a default environment is created for you.
 

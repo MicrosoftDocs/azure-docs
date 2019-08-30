@@ -241,6 +241,8 @@
         href: certify-tutorial.md
       - name: Cezanne HR Software
         href: cezannehrsoftware-tutorial.md
+      - name: Chargebee
+        href: chargebee-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
@@ -329,6 +331,8 @@
         href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
+      - name: CPQSync by Cincom
+        href: cpqsync-by-cincom-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
       - name: CyberArk SAML Authentication
@@ -441,6 +445,8 @@
         href: expiration-reminder-tutorial.md
     - name: F - G
       items:
+      - name: F5
+        href: headerf5-tutorial.md
       - name: FactSet
         href: factset-tutorial.md
       - name: Fidelity NetBenefits
@@ -489,6 +495,8 @@
         href: freshservice-tutorial.md
       - name: Front
         href: front-tutorial.md
+      - name: Frontline Education
+        href: frontline-education-tutorial.md
       - name: Fulcrum
         href: fulcrum-tutorial.md
       - name: Fuse
@@ -641,6 +649,8 @@
         href: iris-intranet-tutorial.md
       - name: IriusRisk
         href: iriusrisk-tutorial.md
+      - name: iServer Portal
+        href: iserver-portal-tutorial.md
       - name: ITRP
         href: itrp-tutorial.md
       - name: itslearning
@@ -823,6 +833,8 @@
         href: moxtra-tutorial.md
       - name: Mozy Enterprise
         href: mozy-enterprise-tutorial.md
+      - name: MS Azure SSO Access for Ethidex Compliance Office™
+        href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
       - name: My Award Points Top Sub/Top Team
         href: myawardpoints-tutorial.md
       - name: myPolicies
@@ -912,7 +924,7 @@
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
-        href: paloaltoglobalprotect-tutorial.md
+        href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
         href: pandadoc-tutorial.md
       - name: Panopto
@@ -1163,6 +1175,8 @@
         href: skydeskemail-tutorial.md
       - name: Skyhigh Networks
         href: skyhighnetworks-tutorial.md
+      - name: SKYSITE
+        href: skysite-tutorial.md
       - name: Skytap
         href: skytap-tutorial.md
       - name: Skyward Qmlativ
@@ -1258,7 +1272,7 @@
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
-        href: thefundingportal-tutorial.md
+        href: the-funding-portal-tutorial.md
       - name: ThirdLight
         href: thirdlight-tutorial.md
       - name: ThirdPartyTrust
