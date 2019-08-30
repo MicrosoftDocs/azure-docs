@@ -25,10 +25,11 @@ The system requirements include the supported platforms for clients connecting t
 
 # Prerequisites
 
-You have a client computer available from which you can copy the data. Your client computer must:
+1. You must have ordered your Data Box Disk using the Tutorial: Order your Azure Data Box Disk. You have received your disks and one connecting cable per disk.
+2. You have a client computer available from which you can copy the data. Your client computer must:
 
-- Run a supported operating system.
-- Have other required software installed.
+    - Run a supported operating system.
+    - Have other required software installed.
 
 ::: zone-end
 
