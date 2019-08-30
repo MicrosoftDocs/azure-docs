@@ -1,33 +1,27 @@
 ---
-title: Samples and walkthroughs for Data Science Virtual Machines - Azure | Microsoft Docs
+title: Samples & walkthroughs
+titleSuffix: Azure Data Science Virtual Machine 
 description: Through these samples and walkthroughs, learn how to handle common tasks and scenarios with the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
 
 ---
 
 
-# Samples on Data Science Virtual Machines
+# Samples on Azure Data Science Virtual Machines
 
 Azure Data Science Virtual Machines (DSVMs) include a comprehensive set of sample code. These samples include Jupyter notebooks and scripts in languages like Python and R.
 > [!NOTE]
 > For more information about how to run Jupyter notebooks on your data science virtual machines, see the [Access Jupyter](#access-jupyter) section.
 
-## Quick reference of samples
+## Available samples
 | Samples category | Description | Locations |
 | ------------- | ------------- | ------------- |
 | R language  | Samples illustrate scenarios such as how to connect with Azure-based cloud data stores and how to compare open-source R and Microsoft Machine Learning Server. They also explain how to operationalize models on Microsoft Machine Learning Server and SQL Server. <br/> [R language](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|

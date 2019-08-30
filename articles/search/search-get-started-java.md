@@ -2,7 +2,7 @@
 title: 'Java Quickstart: Create, load, and query indexes in Java'
 description: Explains how to create an index, load data, and run queries using Java and the Azure Search REST APIs.
 author: lisaleib
-manager: cgronlun
+manager: nitinme
 ms.author: v-lilei
 tags: azure-portal
 services: search
