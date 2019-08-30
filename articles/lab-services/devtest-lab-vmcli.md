@@ -37,7 +37,7 @@ The command to create a virtual machine is: `az lab vm create`. The resource gro
 The following command creates a Windows-based image from Azure Market Place. The name of the image is the same as you would see when creating a virtual machine using the Azure portal. 
 
 ```azurecli
-az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3’ --admin-username 'AdminUser' --admin-password 'Password1!'
+az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
 The following command creates a virtual machine based on a custom image available in the lab:
