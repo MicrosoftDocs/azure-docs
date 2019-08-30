@@ -1,5 +1,6 @@
 ---
-title: Data Science Virtual Machine pools - Azure | Microsoft Docs
+title: Shared pools
+titleSuffix: Azure Data Science Virtual Machine 
 description: Deploying pools of DSVMs as a shared resource for a team
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
@@ -15,7 +16,7 @@ ms.date: 12/10/2018
 
 # Create a shared pool of Data Science Virtual Machines
 
-This article discusses how to create a shared pool of Data Science Virtual Machines (DSVMs) for a team. The benefits of using a shared pool include better resource utilization, easier sharing and collaboration, and more effective management of DSVM resources.
+In this article, you'll learn how to create a shared pool of Data Science Virtual Machines (DSVMs) for a team. The benefits of using a shared pool include better resource utilization, easier sharing and collaboration, and more effective management of DSVM resources.
 
 You can use many methods and technologies to create a pool of DSVMs. This article focuses on pools for interactive virtual machines (VMs). An alternative managed compute infrastructure is Azure Machine Learning Compute. For more information, see [Set up compute targets](../service/how-to-set-up-training-targets.md#amlcompute).
 
