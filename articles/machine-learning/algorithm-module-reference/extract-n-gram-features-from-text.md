@@ -15,7 +15,7 @@ ms.date: 09/30/2019
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-Use the **Extract N-Gram Features from Text** module, to *featurize* unstructured text data.
+Use the **Extract N-Gram Features from Text** module to *featurize* unstructured text data.
 
 This module supports the following scenarios for using an n-gram dictionary:
 
@@ -37,7 +37,7 @@ This module supports the following scenarios for using an n-gram dictionary:
 
 1. Set **N-Grams size** to indicate the *maximum* size of the n-grams to extract and store. 
 
-    For example, if you type `3`, unigrams, bigrams, and trigrams will be created.
+    For example, if you enter 3, unigrams, bigrams, and trigrams will be created.
 
 1. **Weighting function** specifies how to build the document feature vector and how to extract vocabulary from documents.
 
