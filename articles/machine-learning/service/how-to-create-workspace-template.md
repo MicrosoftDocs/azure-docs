@@ -45,6 +45,11 @@ This template creates the following Azure services:
 
 The resource group is the container that holds the services. The various services are required by the Azure Machine Learning workspace.
 
+> [!TIP]
+> While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. If on container registry is present in the workspace, one will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
+>
+> You can also reference an existing container registry or storage account in the ARM template, instead of creating a new one.
+
 The example template has two parameters:
 
 * The **location** where the resource group and services will be created.
