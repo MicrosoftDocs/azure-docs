@@ -54,7 +54,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + 'gpu_support' is no longer necessary; AzureML now automatically detects and uses the nvidia docker extension when it is available. It will be removed in a future release.
     + Added support to create, update and use PipelineDrafts.
     + This release improves the execution performance of automated machine learning local runs.
-    + Users can query metrics now by name.
+    + Users can query metrics from run history by name.
     + Improved the logging by using custom exceptions instead of generic in the forecasting tasks.
   + **azureml-explain-model**
     + Added feature_maps parameter to the new MimicWrapper, allowing users to get raw feature explanations.
