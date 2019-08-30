@@ -1,13 +1,28 @@
-# JSON
+---
+title: Azure Data Factory Mapping Data Flow Working with JSON
+description: Data Factory Mapping Data Flow has built-in capabilities for handling JSON documents with hierarchies
+author: kromerm
+ms.author: makromer
+ms.service: data-factory
+ms.topic: conceptual
+ms.date: 08/30/2019
+---
+
+# Mapping Data Flow JSON Handling
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 ## Creating JSONs in UI
 ### Derived Column Transformation
 Adding a complex column to your data flow is easier through the derived column expression editor. After adding a new column and opening the editor, there are two options: enter the JSON structure manually or use the UI to add subcolumns interactively.
 
 #### Interactive UI JSON Design
 From the output schema side pane, new subcolumns can be added using the `+` menu:
-![](../images/AddSubcolumn.png "Add subcolumn")
+![Add subcolumn](media/data-flow/AddSubcolumn.png "Add Subcolumn")
+
 From there, new columns and subcolumns can be added in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
-![](../images/ComplexColumn.png "Complex column")
+
+![Complex column](media/data-flow/ComplexColumn.png "Complex column")
 
 #### Manual JSON Design
 To manually add a JSON structure, add a new column and enter the expression in the editor. The expression follows the following general format:
@@ -179,3 +194,6 @@ Returns true if any element in the provided array evaluates as true in the provi
 contains([1, 2, 3, 4], #item == 3) => true
 contains([1, 2, 3, 4], #item > 5) => false
 ```
+# Next Steps
+
+* [Use the Derived Column transformation to build your hierarchical structures](data-flow-derived-column.md)
