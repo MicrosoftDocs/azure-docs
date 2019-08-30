@@ -119,7 +119,7 @@ When you create your own queries, verify that they are working properly in Analy
 
 Click **Save**.
 
-You can wait for the trigger to run this action, or can click on ![beaker test icon](./media/automate-with-flow/beakericon.png) **Test** in the top.
+You can wait for the trigger to run this action, or can click on ![beaker test icon](./media/automate-with-flow/testicon.png) **Test** in the top.
 
 1. Select **I'll perform the trigger action**.
 2. Select **Run Flow**.
