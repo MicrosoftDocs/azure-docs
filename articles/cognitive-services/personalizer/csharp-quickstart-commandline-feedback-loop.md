@@ -241,7 +241,7 @@ This quickstart assigns a simple number as a reward, either a zero or a 1. In pr
 
 Run the application with the dotnet `run` command from your application directory.
 
-```csharp
+```console
 dotnet run
 ```
 

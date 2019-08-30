@@ -177,7 +177,7 @@ The _loop_ and _Task.Delay_ in the following code block are used to simulate ret
 
 Run the application with the dotnet `run` command from your application directory.
 
-```csharp
+```console
 dotnet run
 ```
 

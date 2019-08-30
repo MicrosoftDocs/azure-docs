@@ -184,7 +184,7 @@ Publish the LUIS app using the [PublishAsync](https://docs.microsoft.com/dotnet/
 
 Run the application with the dotnet `run` command from your application directory.
 
-```csharp
+```console
 dotnet run
 ```
 
