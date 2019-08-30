@@ -6,7 +6,7 @@ author: stevelas
 manager: gwallace
 
 ms.service: container-registry
-ms.topic: overview
+ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
 ---
