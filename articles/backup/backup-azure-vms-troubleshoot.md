@@ -2,7 +2,7 @@
 title: Troubleshoot backup errors with Azure virtual machines
 description: Troubleshoot backup and restore of Azure virtual machines
 ms.reviewer: srinathv
-author: dcurwin, v-miegge
+author: v-miegge
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
