@@ -37,9 +37,7 @@ When you've completed the guide, your application will accept sign-ins of person
 >
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
-> You have two options to start your quickstart application:
-> * Express: [Option 1: Register and auto configure your app and then download your code sample.](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * Manual: [Option 2: Register and manually configure your application and code sample.](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> You have two options to start your quickstart application: express (Option 1), or manual (Option 2)
 > 
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
