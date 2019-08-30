@@ -9,7 +9,7 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 

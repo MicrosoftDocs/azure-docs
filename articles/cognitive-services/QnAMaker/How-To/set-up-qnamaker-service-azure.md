@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -98,13 +98,13 @@ Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
 QnA Maker creates several Azure resources. In order to reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
 
-|Service|Share|
-|--|--|
-|Cognitive Services|X|
-|App service plan|✔|
-|App service|X|
-|Application Insights|✔|
-|Search service|✔|
+|Service|Share|Reason|
+|--|--|--|
+|Cognitive Services|X|Not possible by design|
+|App service plan|✔|Fixed disk space allocated for an App service plan. If other Apps, sharing the same App Service plan, use up significant disk space, QnAMaker App Service will run into problems.|
+|App service|X|Not possible by design|
+|Application Insights|✔|Can be shared|
+|Search service|✔|1. `testkb` is a reserved name for the QnAMaker service, it can’t be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for QnAMaker service.<br>3. Number of published KBs are limited by Search service tier. If there are free indexes available, other services can use it.|
 
 ## Upgrade QnA Maker
 
