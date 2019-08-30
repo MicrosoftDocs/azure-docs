@@ -1,23 +1,16 @@
 ---
-title: How to use the Linux Data Science Virtual Machine
-titleSuffix: Azure
+title: Explore Linux
+titleSuffix: Azure Data Science Virtual Machine 
 description: Learn how to complete several common data science tasks by using the Linux Data Science Virtual Machine.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-editor: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: vijetaj
+
 ---
 
 # Data science with a Linux Data Science Virtual Machine in Azure
