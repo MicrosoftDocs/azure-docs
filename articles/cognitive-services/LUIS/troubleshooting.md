@@ -212,7 +212,7 @@ See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do
 
 ### I need to handle more endpoint queries. How do I do that? 
 
-See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
+See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
 
 ## App management
 
