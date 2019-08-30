@@ -297,16 +297,17 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 
 ## Define user roles and permissions
 
-Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center. 
+Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center:
 
-|**Role**|**Permissions**|
-|----------------------------------|---------------------------------|
-|Manager|Can access all Microsoft account features except tax and payout settings. Able to manage users, roles, and work accounts (tenants).|
-|Developer|Can manage and publish offers, and can view some publisher reports.|
-|Global admin|Not relevant for commercial marketplace.|
-|Business Contributor|Not relevant for commercial marketplace.|
-|Financial Contributor|Not relevant for commercial marketplace.|
-|Marketer|Not relevant for commercial marketplace.|
+- **Manager**
+  - Can access all Microsoft account features except tax and payout settings
+  - Can manage users, roles, and work accounts (tenants)
+- **Developer**
+  - Can manage and publish offers
+  - Can view some publisher reports
+
+> [!NOTE]
+> The Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used in the Commercial Marketplace program and have no associated permissions.
 
 For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
