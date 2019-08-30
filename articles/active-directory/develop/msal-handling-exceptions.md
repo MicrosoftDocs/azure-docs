@@ -3,7 +3,7 @@ title: Errors and exceptions (MSAL) | Microsoft identity platform
 description: Learn how to handle errors and exceptions, conditional access, and claims challenges in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name
-author: negoe
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -25,26 +25,30 @@ This article gives an overview of the different types of errors and recommendati
 
 ## MSAL error handling basics
 
-Exceptions in the Microsoft Authentication Library (MSAL) are intended for app developers--not for displaying to end users. Exception messages aren't localized.
+Exceptions and errors in the Microsoft Authentication Library (MSAL) are intended for app developers--not for displaying to end users. Exception messages aren't localized.
 
-For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
-
-The complete list of errors can be found in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/dev/MSAL/src/public/MSALError.h#L128).
+For a list of protocol error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
 During silent or interactive token acquisition, apps may come across errors during the sign-in experience such as errors about consents, conditional access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
 
-For all such errors MSAL returns errors with `MSALErrorDomain`.
+## MSAL for iOS and macOS errors
 
-We recommend that you handle the following two MSAL errors on the client side:
-- `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused by a many different reasons including expired auth session or additional auth requirements.
+The complete list of errors is listed in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
+
+All MSAL produced errors are returned with `MSALErrorDomain` domain. 
+
+For system errors, MSAL returns the original `NSError` from the system API. For example, if token acquisition fails because of a lack of network connectivity, MSAL returns an error with the `NSURLErrorDomain` domain and `NSURLErrorNotConnectedToInternet` code.
+
+We recommend that you handle at least the following two MSAL errors on the client side:
+
+- `MSALErrorInteractionRequired`: The user must do an interactive request. There are many conditions that can lead to this error such as an expired authentication session or the need for additional authentication requirements. Call the MSAL interactive token acquisition API to recover. 
+
 - `MSALErrorServerDeclinedScopes`: Some or all scopes were declined. Decide whether to continue with only the granted scopes, or stop the sign-in process.
 
 > [!NOTE]
-> The `MSALInternalError` enum is only for reference. Do not try to automatically handle these errors at runtime. If your app encounters any of the errors that fall under `MSALInternalError`, you may want to show a generic user facing message explaining what happened.
+> The `MSALInternalError` enum should only be used for reference and debugging. Do not try to automatically handle these errors at runtime. If your app encounters any of the errors that fall under `MSALInternalError`, you may want to show a generic user facing message explaining what happened.
 
 For example, `MSALInternalErrorBrokerResponseNotReceived` means that user didn't complete authentication and manually returned to the app. In this case, your app should show a generic error message explaining that authentication didn't complete and suggest that they try to authenticate again.
-
-For any system errors, MSAL will return the original `NSError` from the system API. For example, if token acquisition fails because of a lack of network connectivity, MSAL will return an error with `NSURLErrorDomain` domain and `NSURLErrorNotConnectedToInternet` code.
 
 The following Objective-C sample code demonstrates best practices for handling some common error conditions:
 
@@ -169,8 +173,8 @@ Here are the common exceptions that might be thrown and some possible mitigation
 
 | Exception | Error code | Mitigation|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: The user or administrator has not consented to use the application with ID '{appId}' named '{appName}'. Send an interactive authorization request for this user and resource.| You need to get user consent first. If you aren't using .NET Core (which doesn't have any Web UI), call (once only) `AcquireTokeninteractive`. If you are using .NET core or don't want to do an `AcquireTokenInteractive`, the user can navigate to a URL to give consent: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. To call `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: The user is required to use multi-factor authentication.| There is no mitigation - if MFA is configured for your tenant and Azure Active Directory (AAD) decides to enforce it, you need to fallback to an interactive flow such as `AcquireTokenInteractive` or `AcquireTokenByDeviceCode`.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: The user or administrator has not consented to use the application with ID '{appId}' named '{appName}'. Send an interactive authorization request for this user and resource.| You need to get user consent first. If you aren't using .NET Core (which doesn't have any Web UI), call (once only) `AcquireTokeninteractive`. If you are using .NET core or don't want to do an `AcquireTokenInteractive`, the user can navigate to a URL to give consent: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. to call `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: The user is required to use multi-factor authentication (MFA).| There is no mitigation. If MFA is configured for your tenant and Azure Active Directory (AAD) decides to enforce it, you need to fallback to an interactive flow such as `AcquireTokenInteractive` or `AcquireTokenByDeviceCode`.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: The grant type isn't supported over the */common* or */consumers* endpoints. Use the */organizations* or tenant-specific endpoint. You used */common*.| As explained in the message from Azure AD, the authority needs to have a tenant or otherwise */organizations*.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: The request body must contain the following parameter: `client_secret or client_assertion`.| This exception can be thrown if your application was not registered as a public client application in Azure AD. In the Azure portal, edit the manifest for your application and set `allowPublicClient` to `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`: Could not identify logged in user| The library was unable to query the current Windows logged-in user or this user isn't AD or AAD joined (work-place joined users aren't supported). Mitigation 1: on UWP, check that the application has the following capabilities: Enterprise Authentication, Private Networks (Client and Server), User Account Information. Mitigation 2: Implement your own logic to fetch the username (for example, john@contoso.com) and use the `AcquireTokenByIntegratedWindowsAuth` form that takes in the username.|
@@ -311,6 +315,14 @@ Interactively acquiring the token prompts the user and gives them the opportunit
 When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claimsRequest` field of the `AuthenticationParameters.ts` class to satisfy the appropriate policy. 
 
 See [Requesting Additional Claims]() for more detail.
+
+### MSAL for iOS and macOS
+
+MSAL for iOS and macOS allows you to request specific claims in both interactive and silent token acquisition scenarios.
+
+To request custom claims, specify `claimsRequest` in `MSALSilentTokenParameters` or `MSALInteractiveTokenParameters`.
+
+See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.md) for more info.
 
 ## Retrying after errors and exceptions
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
@@ -25,11 +25,11 @@ ms.collection: M365-identity-device-management
 
 The Azure Active Directory Authentication Library ([ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc)) was created to work with  Azure Active Directory accounts via the v1.0 endpoint.
 
-The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Azure Active Directory (Azure AD) accounts, personal Microsoft accounts, and Azure AD B2C accounts. It does this via the Microsoft identity platform (formally the Azure AD v2.0 endpoint).
+The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Azure Active Directory (Azure AD) accounts, personal Microsoft accounts, and Azure AD B2C accounts via the Microsoft identity platform (formally the Azure AD v2.0 endpoint).
 
 The Microsoft identity platform has a few key differences with Azure Active Directory v1.0. This article highlights these differences and provides guidance to migrate an app from ADAL to MSAL.
 
-##  ADAL and MSAL app capability differences
+## ADAL and MSAL app capability differences
 
 ### Who can sign in
 
@@ -52,11 +52,11 @@ For more about differences between Azure Active Directory v1.0 and the Microsoft
 
 The MSAL public API reflects a few key differences between Azure AD v1.0 and the Microsoft identity platform.
 
-### ADAuthenticationContext instead of MSALPublicClientApplication
+### MSALPublicClientApplication instead of ADAuthenticationContext
 
 `ADAuthenticationContext` is the first object an ADAL app creates. It represents an instantiation of ADAL. Apps create a new instance of `ADAuthenticationContext` for each Azure Active Directory cloud and tenant (authority) combination. The same `ADAuthenticationContext` can be used to get tokens for multiple public client applications.
 
-In MSAL, the main interaction is through a`MSALPublicClientApplication` object, which is modeled after [OAuth 2.0 Public Client](https://tools.ietf.org/html/rfc6749#section-2.1). One instance of `MSALPublicClientApplication` can be used to interact with multiple AAD clouds, and tenants, without needing to create a new instance for each authority. For most apps, one `MSALPublicClientApplication` instance is sufficient.
+In MSAL, the main interaction is through an `MSALPublicClientApplication` object, which is modeled after [OAuth 2.0 Public Client](https://tools.ietf.org/html/rfc6749#section-2.1). One instance of `MSALPublicClientApplication` can be used to interact with multiple AAD clouds, and tenants, without needing to create a new instance for each authority. For most apps, one `MSALPublicClientApplication` instance is sufficient.
 
 ### Scopes instead of resources
 
@@ -82,41 +82,41 @@ You can read more information about using the "/.default" scope [here](https://d
 
 ### Supporting different WebView types & browsers
 
-ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for iOS supports more options for displaying web content when requesting an authorization code; which can improve the user experience.
+ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for iOS supports more options for displaying web content when requesting an authorization code, and no longer supports `UIWebView`; which can improve the user experience and security.
 
-By default, MSAL uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides Single Sign-On (SSO) benefits through cookie sharing between apps and web content.
+By default, MSAL on iOS uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides Single Sign-On (SSO) benefits through cookie sharing between apps and the Safari browser.
 
 You can choose to use a different web component depending on app requirements and the end-user experience you want. See [supported web view types](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Customizing-Browsers-and-WebViews) for more options.
 
-When migrating from ADAL to MSAL, WKWebView provides the user experience most similar to ADAL on iOS. You're encouraged to migrate to ASWebAuthenticationSession if possible.
+When migrating from ADAL to MSAL, `WKWebView` provides the user experience most similar to ADAL on iOS and macOS. We encourage you to migrate to `ASWebAuthenticationSession` on iOS, if possible. For macOS, we encourage you to use `WKWebView`.
 
 ### Account management API differences
 
 When you call the ADAL methods `acquireToken()` or `acquireTokenSilent()`, you receive an `ADUserInformation` object containing a list of claims from the `id_token` that represents the account being authenticated. Additionally, `ADUserInformation` returns a `userId` based on the `upn` claim. After initial interactive token acquisition, ADAL expects developer to provide `userId` in all silent calls.
 
-ADAL didn't provide an API to retrieve known user identities. It relies on the app to save and manage those accounts.
+ADAL doesn't provide an API to retrieve known user identities. It relies on the app to save and manage those accounts.
 
-MSAL provides a set of APIs that list all accounts known to MSAL without having doing token acquisition.
+MSAL provides a set of APIs to list all accounts known to MSAL without having to acquire a token.
 
-Like ADAL, MSAL returns account information that holds a list of claim from the `id_token` in its result object `MSALResult`.
+Like ADAL, MSAL returns account information that holds a list of claims from the `id_token`. It's part of the `MSALAccount` object inside the `MSALResult` object.
 
-MSAL provides a set of APIs to remove accounts, making the removed accounts inaccessible to the app. After the account is removed, later token acquisition calls will prompt the user to do interactive token acquisition. Account removal only applies to the client application that initiated it, and doesn't remove the account from the other apps running on the device or from the system browser. This ensures that the user continues to have a SSO experience on the device even after signing out of an individual app.
+MSAL provides a set of APIs to remove accounts, making the removed accounts inaccessible to the app. After the account is removed, later token acquisition calls will prompt the user to do interactive token acquisition. Account removal only applies to the client application that started it, and doesn't remove the account from the other apps running on the device or from the system browser. This ensures that the user continues to have a SSO experience on the device even after signing out of an individual app.
 
-Additionally, MSAL also returns an account identifier that can be used to request a token silently later. However, the account identifier `homeAccountId` isn't displayable and you can't assume what format it is in nor should you try to interpret or parse it.
+Additionally, MSAL also returns an account identifier that can be used to request a token silently later. However, the account identifier (accessible through `identifier` property in the `MSALAccount` object) isn't displayable and you can't assume what format it is in nor should you try to interpret or parse it.
 
 ### Migrating the account cache
 
-When migrating from ADAL, apps normally store ADAL's `userId`, which doesn't have the `homeAccountId` required by MSAL. As a onetime migration step, an app can query an MSAL account using ADAL's userId with the following API:
+When migrating from ADAL, apps normally store ADAL's `userId`, which doesn't have the `identifier` required by MSAL. As a one-time migration step, an app can query an MSAL account using ADAL's userId with the following API:
 
 `- (nullable MSALAccount *)accountForUsername:(nonnull NSString *)username error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
 This API reads both MSAL's and ADAL's cache to find the account by ADAL userId (UPN).
 
-If the account is found, the developer should use the account to do silent token acquisition. The first silent token acquisition will effectively upgrade the account, and the developer will get a MSAL compatible account identifier in the MSAL result (`homeAccountId`). After that, only `homeAccountId` should be used for  account lookups by using the following API:
+If the account is found, the developer should use the account to do silent token acquisition. The first silent token acquisition will effectively upgrade the account, and the developer will get a MSAL compatible account identifier in the MSAL result (`identifier`). After that, only `identifier` should be used for  account lookups by using the following API:
 
-`- (nullable MSALAccount *)accountForHomeAccountId:(nonnull NSString *)homeAccountId error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
+`- (nullable MSALAccount *)accountForIdentifier:(nonnull NSString *)identifier error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
-Although it's possible to continue using ADAL's `userId` for all operations in MSAL, since `userId` is based on UPN, it's subject to multiple limitations that result in a bad user experience. For example, if the UPN changes, the user has to sign in again. We recommend all apps use the non-displayable `homeAccountId` for all operations.
+Although it's possible to continue using ADAL's `userId` for all operations in MSAL, since `userId` is based on UPN, it's subject to multiple limitations that result in a bad user experience. For example, if the UPN changes, the user has to sign in again. We recommend all apps use the non-displayable account `identifier` for all operations.
 
 Read more about [cache state migration](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/SSO-between-ADAL-and-MSAL-based-apps).
 
@@ -130,10 +130,12 @@ MSAL introduces some token acquisition call changes:
 
 ### Error handling differences
 
-MSAL provides more clarity between errors that can be handled by your app and those that require intervention by the user. There are a limited number of errors developer should handle:
+MSAL provides more clarity between errors that can be handled by your app and those that require intervention by the user. There are a limited number of errors developer must handle:
 
 * `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused for various reasons such as an expired authentication session, conditional access policy has changed, a refresh token expired or was revoked, there are no valid tokens in the cache, and so on.
 * `MSALErrorServerDeclinedScopes`: The request wasn't fully completed and some scopes weren't granted access. This can be caused by a user declining consent to one or more scopes.
+
+Handling all other errors in the [`MSALError` list](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) is optional. You could use the information in those errors to improve the user experience.
 
 See [Handling exceptions and errors using MSAL](msal-handling-exceptions.md) for more about MSAL error handling.
 
@@ -158,8 +160,8 @@ To enable broker for your application:
     ```xml
     <key>LSApplicationQueriesSchemes</key>
     <array>
-         <string>msauth</string>
          <string>msauthv2</string>
+         <string>msauthv3</string>
     </array>
     ```
 
@@ -172,15 +174,13 @@ To enable broker for your application:
     }
     ```
 
-For more information about AAD authentication brokers and MSAL, see [Microsoft Authentication brokers and Conditional Access](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Microsoft-Authentication-brokers-and-Conditional-Access).
-
 ### Business to business (B2B)
 
 In ADAL, you create separate instances of `ADAuthenticationContext` for each tenant that the app requests tokens for. This is no longer a requirement in MSAL. In MSAL, you can create a single instance of `MSALPublicClientApplication` and use it for any AAD cloud and organization by specifying a different authority for acquireToken and acquireTokenSilent calls.
 
 ## SSO in partnership with other SDKs
 
-MSAL for iOS and macOS can achieve SSO via a unified cache with following SDKs:
+MSAL for iOS can achieve SSO via a unified cache with the following SDKs:
 
 - ADAL Objective-C 2.7.x+
 - MSAL.NET for Xamarin 2.4.x+
@@ -190,20 +190,25 @@ SSO is achieved via iOS keychain sharing and is only available between apps publ
 
 SSO through iOS keychain sharing is the only silent SSO type.
 
-MSAL for iOS and macOS also supports two other types of SSO:
+On macOS, MSAL can achieve SSO with other MSAL for iOS and macOS based applications and ADAL Objective-C-based applications.
 
-- SSO through the web browser. MSAL supports `ASWebAuthenticationSession`, which provides SSO through cookies shared between other apps on the device and specifically the Safari browser.
-- SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow conditional access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
+MSAL on iOS also supports two other types of SSO:
+
+* SSO through the web browser. MSAL for iOS supports `ASWebAuthenticationSession`, which provides SSO through cookies shared between other apps on the device and specifically the Safari browser.
+* SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow conditional access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
 
 ## Intune MAM SDK
 
-The [Intune MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) doesn't yet support MSAL for iOS and macOS. When it does, you'll need to update the version of the Intune MAM SDK to support MSAL.
+The [Intune MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) supports MSAL for iOS starting with version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
 
 ## MSAL and ADAL in the same app
 
-ADAL version 2.7.0, and above, can't coexist with MSAL in the same application. The main reason is because of the shared submodule common code. Because Objective-C doesn't support namespaces, if you add both ADAL and MSAL frameworks to your application, there will be two instances of the same class. And guarantee for which one gets picked at runtime. If both SDKs are using same version of the conflicting class, your app may still work. However, if it's a different version, your app might experience unexpected crashes that are difficult to diagnose.
+ADAL version 2.7.0, and above, can't coexist with MSAL in the same application. The main reason is because of the shared submodule common code. Because Objective-C doesn't support namespaces, if you add both ADAL and MSAL frameworks to your application, there will be two instances of the same class. There's no guarantee for which one gets picked at runtime. If both SDKs are using same version of the conflicting class, your app may still work. However, if it's a different version, your app might experience unexpected crashes that are difficult to diagnose.
 
-Running ADAL and MSAL in the same production application isn't supported. However, if you're just testing and migrating your users from ADAL Objective-C to MSAL for iOS and macOS, you can continue using [ADAL Objective-C 2.6.10](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases/tag/2.6.10). It's the only version that works with MSAL in the same application. There will be no new feature updates for this ADAL version, so it should be only used for migration and testing purposes. Your app shouldn't rely on ADAL and MSAL coexistence long term. ADAL and MSAL coexistence isn't supported.
+Running ADAL and MSAL in the same production application isn't supported. However, if you're just testing and migrating your users from ADAL Objective-C to MSAL for iOS and macOS, you can continue using [ADAL Objective-C 2.6.10](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases/tag/2.6.10). It's the only version that works with MSAL in the same application. There will be no new feature updates for this ADAL version, so it should be only used for migration and testing purposes. Your app shouldn't rely on ADAL and MSAL coexistence long term.
+
+ADAL and MSAL coexistence in the same application isn't supported.
+ADAL and MSAL coexistence between multiple applications is fully supported.
 
 ## Practical migration steps
 
@@ -213,13 +218,13 @@ You don't need to change your existing AAD application to switch to MSAL and ena
 
 The redirect URI should be in this format: `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>` with your application's bundle ID. Specify the redirect URI in the [Azure portal](https://aka.ms/MobileAppReg).
 
-To support cert-based authentication, an additional redirect URI needs to be registered in your application and the Azure portal in the following format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. For example, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+For iOS only, to support cert-based authentication, an additional redirect URI needs to be registered in your application and the Azure portal in the following format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. For example, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 We recommend all apps register both redirect URIs.
 
 If you wish to add support for incremental consent, select the APIs and permissions your app is configured to request access to in your app registration under the **API permissions** tab.
 
-If you're migrating from ADAL and want to support both AAD and MSA accounts, your existing application needs to be updated to support both. We don't recommend you update your existing production app to support both AAD and MSA right away. Instead, create another client ID that supports both AAD and MSA for testing, and after you've verified that all scenarios work, update the existing app.
+If you're migrating from ADAL and want to support both AAD and MSA accounts, your existing application registration needs to be updated to support both. We don't recommend you update your existing production app to support both AAD and MSA right away. Instead, create another client ID that supports both AAD and MSA for testing, and after you've verified that all scenarios work, update the existing app.
 
 ### Add MSAL to your app
 
@@ -236,13 +241,13 @@ Add your application's redirect URI scheme to your info.plist file. For ADAL bro
 </array>
 ```
 
-Add following schemes to your app's Info.plist under `LSApplicationQueriesSchemes`. If you already have `msauth` declared, only add `msauthv2`:
+Add following schemes to your app's Info.plist under `LSApplicationQueriesSchemes`.
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
-     <string>msauth</string>
      <string>msauthv2</string>
+     <string>msauthv3</string>
 </array>
 ```
 
@@ -277,7 +282,7 @@ Then call the account management API to see if there are any accounts in the cac
 
 ```objc
 NSError *error = nil;
-MSALAccount *account = [application accountForHomeAccountId:accountIdentifier error:&error];
+MSALAccount *account = [application accountForIdentifier:accountIdentifier error:&error];
 ```
 
 or read all of the accounts:

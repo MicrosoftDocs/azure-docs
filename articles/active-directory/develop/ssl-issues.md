@@ -13,22 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# How to: Troubleshoot MSAL for Objective-C issues
+# How to: Troubleshoot MSAL for iOS and macOS SSL issues
 
-This article provides information to help you troubleshoot issues that you may come across while using the Objective-C [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md)
+This article provides information to help you troubleshoot issues that you may come across while using the [Microsoft Authentication Library (MSAL) for iOS and macOS](reference-v2-libraries.md)
 
 ## Network issues
 
-**Error -1200**: "An SSL error has occurred and a secure connection to the server can't be made."  This error is from Apple's networking library. A full list of NSURL error codes is in NSURLError.h in the macOS and iOS SDKs.
+**Error -1200**: "An SSL error has occurred and a secure connection to the server can't be made."
 
-This error means that the connection isn't secure. It occurs when a certificate is invalid. Refer to `NSURLErrorFailingURLErrorKey` in the `userInfo` dictionary of the error object for more details, including which server is failing the SSL check.
+This error means that the connection isn't secure. It occurs when a certificate is invalid. For more information, including which server is failing the SSL check, refer to `NSURLErrorFailingURLErrorKey` in the `userInfo` dictionary of the error object.
+
+This error is from Apple's networking library. A full list of NSURL error codes is in NSURLError.h in the macOS and iOS SDKs. For more details about this error, see [URL Loading System Error Codes](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
 
 ## Certificate issues
 
@@ -40,7 +42,7 @@ Certificates using SHA-1 hashes have known vulnerabilities. Most modern web brow
 
 ## Captive portals
 
-A captive portal presents a web page to a user when they first access a Wi-Fi network and haven't yet been granted access to that network. It intercepts their internet traffic until the user satisfies the requirements of the portal. Network errors resulting from the user not being able to connect to network resources are expected until the user connects through the portal.
+A captive portal presents a web page to a user when they first access a Wi-Fi network and haven't yet been granted access to that network. It intercepts their internet traffic until the user satisfies the requirements of the portal. Network errors because the user can't connect to network resources are expected until the user connects through the portal.
 
 ## Next steps
 

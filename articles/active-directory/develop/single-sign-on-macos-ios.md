@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2019
+ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev
@@ -28,7 +28,7 @@ The Microsoft Authentication Library (MSAL) for macOS and iOS supports Single Si
 
 This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.  
 
-- [SSO through Authentication broker](#sso-through-authentication-broker)
+- [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
 
 > [!IMPORTANT]
 > This flow is not available on macOS.
@@ -41,11 +41,14 @@ SSO is achieved through the [ASWebAuthenticationSession](https://developer.apple
 
 If you use the default web view in your app to sign in users, you'll get automatic SSO between MSAL-based applications and Safari. To learn more about the web views that MSAL supports, visit [Customize browsers and WebViews](customize-webviews.md).
 
+> [!IMPORTANT]
+> This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari. 
+
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
-MSAL Objective-C supports migration and SSO with ADAL Objective-C based apps. The apps must be distributed by the same Apple Developer.
+MSAL Objective-C supports migration and SSO with ADAL Objective-C-based apps. The apps must be distributed by the same Apple Developer.
 
-See [SSO between ADAL and MSAL apps on macOS and iOS](sso-between-adal-msal-apps-macos-ios.md) for instructions for cross-app SSO between ADAL and MSAL based apps.
+See [SSO between ADAL and MSAL apps on macOS and iOS](sso-between-adal-msal-apps-macos-ios.md) for instructions for cross-app SSO between ADAL and MSAL-based apps.
 
 ## Silent SSO between apps
 
@@ -56,7 +59,7 @@ To enable SSO across your applications, you'll need to do the following steps, w
 1. Ensure that all your applications use the same Client ID or Application ID.
 1. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains.
 1. Request the same keychain entitlement for each of your applications.
-1. Tell the MSAL SDKs about the shared keychain you want us to use.
+1. Tell the MSAL SDKs about the shared keychain you want us to use if it's different from the default one.
 
 ### Use the same Client ID and Application ID
 
@@ -64,11 +67,9 @@ For the Microsoft identity platform to know which applications can share tokens,
 
 The way the Microsoft identity platform tells apps that use the same Application ID apart is by their **Redirect URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. For example:
 
-App1 Redirect URI: `msauthcom.contoso.mytestapp1://auth`
-App2 Redirect URI: `msauthcom.contoso.mytestapp2://auth`
-App3 Redirect URI: `msauthcom.contoso.mytestapp3://auth`
-
-These Redirect URIs are then grouped under the same client ID/application ID and are looked up based on the redirect URI that you return in your SDK configuration.
+App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`
+App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`
+App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
 
 > [!IMPORTANT]
 > The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris.md#msal-redirect-uri-format-requirements).
@@ -93,7 +94,7 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 </plist>
 ```
 
-Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
+Once you have the keychain entitlement enabled in each of your applications, and you're ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
 
 ```objc
 NSError *error = nil;
@@ -110,10 +111,9 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 
 That's it! The Microsoft identity SDK will now share credentials across all your applications. The account list will also be shared across application instances.
 
-## SSO through Authentication broker
+## SSO through Authentication broker on iOS
 
-MSAL provides support for brokered authentication with Microsoft Authenticator starting with version 0.3.0.
-Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow conditional access policies.
+MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow conditional access policies.
 
 The following steps are how you enable SSO using an authentication broker for your app:
 
@@ -131,15 +131,15 @@ The following steps are how you enable SSO using an authentication broker for yo
     ```xml
     <key>LSApplicationQueriesSchemes</key>
     <array>
-         <string>msauth</string>
          <string>msauthv2</string>
+         <string>msauthv3</string>
     </array>
     ```
 
 1. Add the following to your `AppDelegate.m` file to handle callbacks:
 
     ```objc
-    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
+    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
     {
         return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     }
