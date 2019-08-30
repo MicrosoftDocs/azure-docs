@@ -103,8 +103,9 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 - [Create a Machine Learning service workspace](how-to-manage-workspace.md) to get started.
 
 - Follow the full-length tutorials:
+  + [Create a workspace and train your first ML model](tutorial-1st-experiment-sdk-setup.md)
   + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md)
-  + [Prepare data and use automated machine learning to auto-train a regression model](tutorial-data-prep.md)
+
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 

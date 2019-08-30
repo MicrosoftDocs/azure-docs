@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
+ms.date: 08/28/2019
 ---
 
 # Tutorial: Get started creating your first ML experiment
@@ -46,10 +46,11 @@ From your workspace, you create a cloud resource to get started using Jupyter no
 
      ![Select New VM](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
-1. Provide a name for your VM. Then select **Create**.
+1. Provide a name for your VM. 
+   + Your Notebook VM name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  
+   + The name must also be unique across your Azure subscription.
 
-    > [!NOTE]
-    > Your Notebook VM name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  The name must also be unique across your Azure subscription.
+1. Then select **Create**. It can take a moment to set up your VM.
 
 1. Wait until the status changes to **Running**.
 
@@ -61,38 +62,16 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
     ![Start the Jupyter notebook server](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
+   The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
 
-1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
+1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
 
-    > [!TIP]
-    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
+   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
-1. Open the `samples-*` subdirectory, then open `tutorials/tutorial-1st-experiment-sdk-train.ipynb` to run **part two** of the tutorial.
+1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
 
-## <a name="end"></a> Clean up resources
-
-Do not complete this section if you plan on continuing to **part 2** of the tutorial.
-
-### Stop the notebook VM
-
-If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
-
-1. In your workspace, select **Notebook VMs**.
-
-   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. From the list, select the VM.
-
-1. Select **Stop**.
-
-1. When you're ready to use the server again, select **Start**.
-
-### Delete everything
-
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
+   > [!Warning]
+   > Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
 
 ## Next steps
 
@@ -101,7 +80,10 @@ In this tutorial, you completed these tasks:
 * Created an Azure Machine Learning service workspace.
 * Created and configured a cloud notebook server in your workspace.
 
-Continue with **part 2** of this tutorial to train a simple machine learning model.
+In **part two** of the tutorial you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md)
+
+> [!IMPORTANT]
+> If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the cloud notebook server VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.

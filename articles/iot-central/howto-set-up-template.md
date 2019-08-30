@@ -12,6 +12,8 @@ manager: peterpr
 
 # Set up a device template
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
 For example, a builder can create a device template for a connected fan that has the following characteristics:

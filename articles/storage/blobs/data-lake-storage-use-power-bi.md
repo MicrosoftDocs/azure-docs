@@ -34,7 +34,7 @@ Before you begin this tutorial, you must have the following:
 
     ![Get data page](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. In the **Azure Data Lake Storage Gen2** dialog box, you can provide the URL to your Azure Data Lake Storage Gen2 account, filesystem or subfolder using the file system endpoint format. URLs for Data Lake Storage Gen2 have the following pattern  `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` and then click **OK**.
+4. In the **Azure Data Lake Storage Gen2** dialog box, you can provide the URL to your Azure Data Lake Storage Gen2 account, filesystem or subfolder using the container endpoint format. URLs for Data Lake Storage Gen2 have the following pattern  `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` and then click **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

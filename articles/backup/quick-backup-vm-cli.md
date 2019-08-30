@@ -105,7 +105,7 @@ az backup job list \
 
 The output is similar to the following example, which shows the backup job is *InProgress*:
 
-```
+```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
 --------  ---------------  ----------  -----------  -------------------  --------------
 a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48.718366

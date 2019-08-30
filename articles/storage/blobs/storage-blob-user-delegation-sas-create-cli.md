@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
@@ -45,7 +45,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-For more information about the built-in roles that include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, see [Built-in roles for Azure resources](/role-based-access-control/built-in-roles).
+For more information about the built-in roles that include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 ## Use Azure AD credentials to secure a SAS
 
@@ -57,9 +57,9 @@ When creating a user delegation SAS, the `--auth-mode login` and `--as-user para
 
 ### Create a user delegation SAS for a container
 
-To create a user delegation SAS for a container with Azure CLI, call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command.
+To create a user delegation SAS for a container with the Azure CLI, call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command.
 
-Supported permissions for a user delegation SAS on a container include Add, Create, Delete, List, Read, and Write. Permissions can be specified singly or combined. For more information about these permissions, see [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas).
+Supported permissions for a user delegation SAS on a container include Add, Create, Delete, List, Read, and Write. Permissions can be specified singly or combined. For more information about these permissions, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 The following example returns a user delegation SAS token for a container. Remember to replace the placeholder values in brackets with your own values:
 
@@ -81,9 +81,9 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 ### Create a user delegation SAS for a blob
 
-To create a user delegation SAS for a blob with Azure CLI, call the [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas) command.
+To create a user delegation SAS for a blob with the Azure CLI, call the [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas) command.
 
-Supported permissions for a user delegation SAS on a blob include Add, Create, Delete, Read, and Write. Permissions can be specified singly or combined. For more information about these permissions, see [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas).
+Supported permissions for a user delegation SAS on a blob include Add, Create, Delete, Read, and Write. Permissions can be specified singly or combined. For more information about these permissions, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 The following syntax returns a user delegation SAS for a blob. The example specifies the `--full-uri` parameter, which returns the blob URI with the SAS token appended. Remember to replace the placeholder values in brackets with your own values:
 
@@ -109,7 +109,22 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 > [!NOTE]
 > A user delegation SAS does not support defining permissions with a stored access policy.
 
+## Revoke a user delegation SAS
+
+To revoke a user delegation SAS from the Azure CLI, call the [az storage account revoke-delegation-keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) command. This command revokes all of the user delegation keys associated with the specified storage account. Any shared access signatures associated with those keys are invalidated.
+
+Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli-interactive
+az storage account revoke-delegation-keys \
+    --name <storage-account> \
+    --resource-group <resource-group>
+```
+
+> [!IMPORTANT]
+> Both the user delegation key and RBAC role assignments are cached by Azure Storage, so there may be a delay between when you initiate the process of revocation and when an existing user delegation SAS becomes invalid.
+
 ## Next steps
 
-- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
