@@ -8,7 +8,9 @@
   items:
   - name: Create a new knowledge base
     href: How-To/create-knowledge-base.md
-  - name: Get answer from knowledge base
+  - name: Add questions with metadata
+    href: quickstarts/add-question-metadata-portal.md
+  - name: Get answer
     items:
     - name: Using Postman
       href: Quickstarts/get-answer-from-kb-using-postman.md
@@ -40,7 +42,7 @@
         href: Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base
       - name: Python
         href: Quickstarts/publish-kb-python.md
-    - name: Get answer from knowledge base
+    - name: Get answer
       items:
       - name: C#
         href: Quickstarts/get-answer-from-knowledge-base-csharp.md   
