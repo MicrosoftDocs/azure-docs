@@ -48,6 +48,8 @@
       href: ingest-data-iot-hub.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
+    - name: Streaming ingestion
+      href: ingest-data-streaming.md
     - name: Kafka
       href: ingest-data-kafka.md
     - name: Python
