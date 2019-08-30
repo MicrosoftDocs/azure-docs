@@ -21,15 +21,21 @@ Azure Active Directory Domain Services (AD DS) supports a one-time move for cust
 
 The migration process takes an existing Azure AD DS instance that runs in a Classic virtual network and moves it to an existing Resource Manager virtual network. The migration is performed using PowerShell, and has two main stages of execution - *preparation* and *migration*.
 
+![Overview of the migration process for Azure AD DS](media/migrate-from-classic-vnet/migration-overview.png)
+
 In the *preparation* stage, Azure AD DS takes a backup of the domain to get the latest snapshot of users, groups, and passwords synchronized to the managed domain. Synchronization is then disabled, and the cloud service that hosts the Azure AD DS managed domain is deleted. During the preparation stage, the Azure AD DS managed domain is unable to authenticate users.
 
-In the *migration* stage, the underlying virtual disks for the domain controllers (DCs) from the Classic Azure AD DS managed domain are copied to create the VMs using the Resource Manager model. The Azure AD DS managed domain is then recreated, which includes the LDAPS and DNS configuration. Synchronization to Azure AD is restarted, and LDAP certificates are restored. There's no need to rejoin any machines to an Azure AD DS managed domain – they continue to be joined to the managed domain and run without changes.
+![Preparation stage for migrating Azure AD DS](media/migrate-from-classic-vnet/migration-preparation.png)
+
+In the *migration* stage, the underlying virtual disks for the domain controllers from the Classic Azure AD DS managed domain are copied to create the VMs using the Resource Manager deployment model. The Azure AD DS managed domain is then recreated, which includes the LDAPS and DNS configuration. Synchronization to Azure AD is restarted, and LDAP certificates are restored. There's no need to rejoin any machines to an Azure AD DS managed domain – they continue to be joined to the managed domain and run without changes.
+
+![Migration of Azure AD DS](media/migrate-from-classic-vnet/migration-process.png)
 
 ## Migration benefits
 
-When you move an Azure AD DS managed domain using this migration process, you avoid the need to rejoin machines to the managed domain or delete the Azure AD DS instance and create one from scratch. Machines continue to be joined to the Azure AD DS managed domain at the end of the migration process.
+When you move an Azure AD DS managed domain using this migration process, you avoid the need to rejoin machines to the managed domain or delete the Azure AD DS instance and create one from scratch. VMs continue to be joined to the Azure AD DS managed domain at the end of the migration process.
 
-Azure AD DS deploys many features that are only available for domains using in Resource Manager virtual networks, such as:
+AFter migration, Azure AD DS provides many features that are only available for domains using in Resource Manager virtual networks, such as:
 
 * Fine-grained password policy support.
 * AD account lockout protection.
@@ -44,7 +50,9 @@ Some common scenarios for migrating an Azure AD DS managed domain include the fo
 
 ### Migrate Azure AD DS to an existing Resource Manager virtual network
 
-A common scenario is where you've already moved existing Classic resources to a Resource Manager deployment model and virtual network. Peering is then used from the Resource Manager virtual network to the Classic virtual network that continues to run Azure AD DS. This approach lets the Resource Manager applications and services use the authentication and management functionality of the Azure AD DS managed domain the Classic virtual network. Once migrated, all resources run using the Resource Manager deployment model and virtual network.
+A common scenario is where you've already moved other existing Classic resources to a Resource Manager deployment model and virtual network. Peering is then used from the Resource Manager virtual network to the Classic virtual network that continues to run Azure AD DS. This approach lets the Resource Manager applications and services use the authentication and management functionality of the Azure AD DS managed domain in the Classic virtual network. Once migrated, all resources run using the Resource Manager deployment model and virtual network.
+
+![Migrate Azure AD DS to an existing Resource Manager virtual network](media/migrate-from-classic-vnet/migrate-to-existing-vnet.png)
 
 High-level steps involved in this example migration scenario include the following parts:
 
@@ -56,6 +64,8 @@ High-level steps involved in this example migration scenario include the followi
 
 In this example scenario, you migrate Azure AD DS and other associated resources from the Classic deployment model to the Resource Manager deployment model. If some resources continued to run in the Classic virtual network alongside the Azure AD DS managed domain, they can all benefit from migrating to the Resource Manager deployment model.
 
+![Migrate multiple resources to the Resource Manager deployment model](media/migrate-from-classic-vnet/migrate-multiple-resources.png)
+
 High-level steps involved in this example migration scenario include the following parts:
 
 1. Remove existing VPN gateways or virtual network peering configured on the Classic virtual network.
@@ -63,22 +73,25 @@ High-level steps involved in this example migration scenario include the followi
 1. Test and confirm a successful migration, then delete the Classic virtual network.
 1. Move additional Classic resources using the steps outlined in this article.
 
-We don't recommend converting the Classic virtual network to a Resource Manager network. Converting the virtual network removes the option to roll back or restore the Azure AD DS managed domain if there any problems during the migration and verification stages.
+> [!NOTE]
+> We don't recommend converting the Classic virtual network to a Resource Manager network. Converting the virtual network removes the option to roll back or restore the Azure AD DS managed domain if there any problems during the migration and verification stages.
 
 ### Migrate Azure AD DS but keep other resources on the Classic virtual network
 
 With this example scenario, you have the minimum amount of downtime in one session. You only migrate Azure AD DS to a Resource Manager virtual network, and keep existing resources on the Classic deployment model and virtual network. In a following maintenance period, you can migrate the additional resources from the Classic deployment model and virtual network as desired.
 
+![Migrate only Azure AD DS to the Resource Manager deployment model](media/migrate-from-classic-vnet/migrate-only-azure-ad-ds.png)
+
 High-level steps involved in this example migration scenario include the following parts:
 
 1. Remove existing VPN gateways or virtual network peering configured on the Classic virtual network.
-1. Migrate the Azure AD DS managed domain using the steps outlined in this article.1. Move Azure AD Domain Services using the steps below.
-1. Set up virtual network peering between the Classic virtual network and the new Resource Manager virtual network
+1. Migrate the Azure AD DS managed domain using the steps outlined in this article.
+1. Set up virtual network peering between the Classic virtual network and the new Resource Manager virtual network.
 1. Later, migrate the additional resources from the classic virtual network as needed.
 
 ## Before you begin
 
-As you prepare and then migrate an Azure AD DS managed domain, there are some considerations around
+As you prepare and then migrate an Azure AD DS managed domain, there are some considerations around the availability of authentication and management services. The Azure AD DS managed domain is unavailable for a period of time during migration. Applications and services that rely on Azure AD DS experience downtime during migration.
 
 > [!IMPORTANT]
 > Read all of this migration article and guidance before you start the migration process. The migration process affects the availability of the Azure AD DS domain controllers for periods of time. Users, services, and applications can't authenticate against the managed domain during the migration process.
@@ -89,9 +102,11 @@ The migration process involves the domain controllers being offline for a period
 
 ### Account lockout
 
-Azure AD DS managed domains that run on Classic virtual networks don't have AD account lockout policies in place. If VMs are exposed to the internet, attackers could use password-spray methods to brute-force their way into accounts. There's no account lockout policy to stop those attempts.
+Azure AD DS managed domains that run on Classic virtual networks don't have AD account lockout policies in place. If VMs are exposed to the internet, attackers could use password-spray methods to brute-force their way into accounts. There's no account lockout policy to stop those attempts. For Azure AD DS managed domains that use the Resource Manager deployment model and virtual networks, AD account lockout policies protect against these password-spray attacks.
 
-For Azure AD DS managed domains that use the Resource Manager deployment model and virtual networks, AD account lockout policies protect against these password-spray attacks. By default, 5 bad password attempts in 2 minutes lock out an account for 30 minutes. A locked out account can't be logged into, which may interfere with the ability to manage the Azure AD DS managed domain or applications managed by the account. After an Azure AD DS managed domain is migrated, accounts can experience what feels like a permanent lockout due to repeated failed attempts to sign-ins. Two common scenarios after migration include the following:
+By default, 5 bad password attempts in 2 minutes lock out an account for 30 minutes.
+
+A locked out account can't be signed in to, which may interfere with the ability to manage the Azure AD DS managed domain or applications managed by the account. After an Azure AD DS managed domain is migrated, accounts can experience what feels like a permanent lockout due to repeated failed attempts to sign in. Two common scenarios after migration include the following:
 
 * A service account that's using an expired password.
     * The service account repeatedly tries to sign in with an expired password, which locks out the account. To fix this, locate the application or VM with expired credentials and update the password.
@@ -103,11 +118,13 @@ If you suspect that some accounts may be locked out after migration, the final m
 
 ### Roll back and restore
 
-If the migration isn't successful, the process can roll back and restore an Azure AD DS managed domain. Rollback is a self-service option to immediately restore the state to before the migration attempt. Azure support engineers can also restore a managed domain from backup as a last resort. These options are explained in remaining sections of this article.
+If the migration isn't successful, there's process to roll back or restore an Azure AD DS managed domain. Rollback is a self-service option to immediately return the state of the manageddomain to before the migration attempt. Azure support engineers can also restore a managed domain from backup as a last resort. For more information, see [how to roll back or restore from a failed migration](#roll-back-and-restore).
 
 ### IP addresses
 
-The domain controller IP addresses for an Azure AD DS managed domain change after migration. The new IP address is inside the address range for the subnet specified in the Resource Manager virtual network. Azure AD DS typically uses the first two available IP addresses in the address range, but this isn't guaranteed. You can't currently specify the IP addresses to use after migration.
+The domain controller IP addresses for an Azure AD DS managed domain change after migration. The new IP addresses are inside the address range for the new subnet in the Resource Manager virtual network.
+
+Azure AD DS typically uses the first two available IP addresses in the address range, but this isn't guaranteed. You can't currently specify the IP addresses to use after migration.
 
 ### Restrictions on available virtual networks
 
@@ -124,18 +141,18 @@ For more information on virtual network requirements, see [Virtual network desig
 
 The migration to the Resource Manager deployment model and virtual network is split into 5 main steps:
 
-| Step    | Performed through  | Estimated time  | Downtime  | Rollback/Restore? |
+| Step    | Performed through  | Estimated time  | Downtime  | Roll back/Restore? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| Step 1 - Update and locate the new virtual network | Azure portal | 15 minutes | No downtime required | N/A |
-| Step 2 - Prepare the Azure AD DS managed domain for migration | PowerShell | 15 – 30 minutes on average | Downtime of Azure AD DS starts after this command is completed. | Rollback and restore available |
-| Step 3 - Move the Azure AD DS managed domain to an existing virtual network | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed, downtime ends. | Restore only |
-| Step 4 - Test and wait for the replica domain controller | PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally. | Restore only |
-| Step 5 - Optional configuration steps | Azure portal and VMs | N/A | No downtime required | N/A |
+| [Step 1 - Update and locate the new virtual network](#update-and-verify-virtual-network-settings) | Azure portal | 15 minutes | No downtime required | N/A |
+| [Step 2 - Prepare the Azure AD DS managed domain for migration](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minutes on average | Downtime of Azure AD DS starts after this command is completed. | Roll back and restore available |
+| [Step 3 - Move the Azure AD DS managed domain to an existing virtual network](#migrate-the-managed-domain) | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed, downtime ends. | Restore only |
+| [Step 4 - Test and wait for the replica domain controller](#test-and-verify-connectivity-after-the-migration)| PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally. | Restore only |
+| [Step 5 - Optional configuration steps](#optional-post-migration-configuration-steps) | Azure portal and VMs | N/A | No downtime required | N/A |
 
 > [!IMPORTANT]
-> To avoid additional downtime, read all of this migration article and guidance before you start the migration process. The migration process affects the availability of the Azure AD DS domain controllers for periods of time. Users, services, and applications can't authenticate against the managed domain during the migration process.
+> To avoid additional downtime, read all of this migration article and guidance before you start the migration process. The migration process affects the availability of the Azure AD DS domain controllers for a period of time. Users, services, and applications can't authenticate against the managed domain during the migration process.
 
-### Step 1 - Update and locate the new virtual network
+## Update and verify virtual network settings
 
 Before you begin the migration, complete the following initial checks and updates. These steps can happen at any time before the migration and don't affect the operation of the Azure AD DS managed domain.
 
@@ -147,7 +164,7 @@ Before you begin the migration, complete the following initial checks and update
 
     Make sure that network settings don't block necessary ports required for Azure AD DS. Ports must be open on both the Classic virtual network and the Resource Manager virtual network. These settings include route tables and network security groups.
 
-    To view the ports required, see [Network security groups and required ports][network-ports]. To minimize network communication problems, it's recommended to apply a network security group or route table to the Resource Manager virtual network after the migration as successfully completed.
+    To view the ports required, see [Network security groups and required ports][network-ports]. To minimize network communication problems, it's recommended to wait and apply a network security group or route table to the Resource Manager virtual network after the migration successfully completed.
 
 1. Check the Azure AD DS managed domain health in the Azure portal. If you have any alerts for the managed domain, resolve them before you start the migration process.
 1. Gather the following information using the Azure portal or PowerShell. It is best to have all of these IDs before you start the migration:
@@ -156,31 +173,20 @@ Before you begin the migration, complete the following initial checks and update
     |-------------------------------------------------|--------------------------------------|
     | Directory ID that Azure AD DS is hosted in      | c53a5765-de4d-4054-a530-bb16f61c678e |
     | Subscription ID that Azure AD DS is hosted in   | 8bc1dee-7dc5-4eca-9f8c-423e34c8735c  |
-    | Destination Resource Manager subnet resource ID | /subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet/subnets/DomainServices |
+    | Destination Resource Manager subnet resource ID | /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet/subnets/DomainServices |
 
-1. Optional - If you plan to move other resources to the Resource Manager deployment model and virtual network, confirm that those resources can be moved by running this validation check.
+1. Optionally, if you plan to move other resources to the Resource Manager deployment model and virtual network, confirm that those resources can be migrated. For more information, see [Platform-supported migration of IaaS resources from Classic to Resource Manager][migrate-iaas].
 
-    Don't convert the Classic virtual network to a Resource Manager virtual network. If you, there's no option to roll back or restore the Azure AD DS managed domain.
+    > [!NOTE]
+    > Don't convert the Classic virtual network to a Resource Manager virtual network. If you, there's no option to roll back or restore the Azure AD DS managed domain.
 
-### Step 2 - Prepare the Azure AD DS managed domain for migration
+## Prepare the managed domain for migration
 
-Azure PowerShell is used to prepare the Azure AD DS managed domain for migration. These steps include taking a backup, pausing synchronization, and deleting the cloud service that hosts Azure AD DS. When this step completes, Azure AD DS is taken offline for a period of time. If the preparation step fails, you can roll back to the previous state by following **LINK NEEDED**.
+Azure PowerShell is used to prepare the Azure AD DS managed domain for migration. These steps include taking a backup, pausing synchronization, and deleting the cloud service that hosts Azure AD DS. When this step completes, Azure AD DS is taken offline for a period of time. If the preparation step fails, you can [roll back to the previous state](#roll-back).
 
-The following Azure PowerShell cmdlets are explained step-by-step after the code block:
+To prepare the Azure AD DS managed domain for migration, complete the following steps:
 
-```powershell
-# Sign in and pause the Azure AD DS managed domain  
-Connect-AzAccount
-$resourceId = (Get-AzResource | Where-Object { $_.ResourceType -ieq 'Microsoft.AAD/domainServices' }).Id
-Set-AzResource -ResourceId $resourceId -Properties @{"subnetId" = $null}
-
-# Check for serviceStatus to be set to PreparedForMigration
-(Get-AzResource -ResourceId $resourceId).Properties
-```
-
-To run the Azure PowerShell cmdlets, complete the following steps:
-
-1. Open a PowerShell window and sign in as a global admin of your Azure AD directory using the [Connect-AzAccount][Connect-AzAccount] cmdlet:
+1. Open a PowerShell window and sign in as a global admin of your Azure AD tenant using the [Connect-AzAccount][Connect-AzAccount] cmdlet:
 
     ```azurepowershell
     Connect-AzAccount
@@ -192,7 +198,7 @@ To run the Azure PowerShell cmdlets, complete the following steps:
     Set-AzContext --SubscriptionId "<subscription_id>"
     ```
 
-1. Find your Azure AD DS instance using the [Get-AzResource][Get-AzResource] cmdlet, and search for the resource of type *Microsoft.AAD/domainServices*:
+1. Find your Azure AD DS instance using the [Get-AzResource][Get-AzResource] cmdlet, and search for the resource of type *Microsoft.AAD/domainServices*. The instance ID is stored as a variable named `$resourceId` for use in a following step:
 
     ```azurepowershell
     $resourceId = (Get-AzResource | Where-Object { $_.ResourceType -eq 'Microsoft.AAD/domainServices' }).Id
@@ -210,15 +216,16 @@ To run the Azure PowerShell cmdlets, complete the following steps:
     (Get-AzureRmResource -ResourceId $resourceId).Properties
     ```
 
-    If the *serviceStatus* and *migrationProperties* don't show these values, follow the instructions for rollback.
+    If the *serviceStatus* and *migrationProperties* don't show these values, [follow the instructions to roll back](#roll-back).
 
 1. Finally, remove the DNS server settings from the Classic virtual network:
 
     * From the Azure portal, select **Virtual networks (Classic)** from the left-hand side menu.
     * Choose the Classic virtual network that Azure AD DS was deployed into.
-    * Select **DNS settings**, then delete the old IP addresses of the Azure AD DS domain controllers.
+    * Select **DNS settings**, then delete the old IP addresses of the Azure AD DS domain controllers and save the updated configuration.
+        * You may need to provide alternate DNS server addresses if only the Azure AD DS managed domain addresses were listed.
 
-### Step 3 - Move the Azure AD DS managed domain to an existing virtual network
+## Migrate the managed domain
 
 With the Azure AD DS managed domain prepared and backed up, the domain can be migrated. This step recreates the Azure AD Domain Services domain controller VMs using the Resource Manager deployment model. This step can take 1 to 3 hours to complete.
 
@@ -236,7 +243,7 @@ As this stage, you can optionally move other existing resources from the Classic
 > [!IMPORTANT]
 > Don't convert the Classic virtual network to a Resource Manager virtual network during the migration process. If you convert the virtual network, you can't then rollback or restore the Azure AD DS managed domain as the original virtual network won't exist anymore.
 
-### Step 4 - Test and wait for the replica domain controller
+## Test and verify connectivity after the migration
 
 It can take some time for the second domain controller to successfully deploy and be available for use in the Azure AD DS managed domain.
 
@@ -256,7 +263,7 @@ Now test the virtual network connection and name resolution. On a VM that is con
 
 The second domain controller should be available 1-2 hours after the migration cmdlet from finishes. To check if the second domain controller is available, look at the **Properties** page for the Azure AD DS managed domain in the Azure portal. If two IP addresses shown, the second domain controller is ready.
 
-### Step 5- Optional configuration steps
+## Optional post-migration configuration steps
 
 When the migration process is successfully complete, some optional configuration steps include enabling audit logs or e-mail notifications, or updating the fine-grained password policy.
 
@@ -276,7 +283,7 @@ If needed, you can update the fine-grained password policy to be less restrictiv
 
 1. [Configure password policy][password-policy] for fewer restrictions on the Azure AD DS managed domain and observe the events in the audit logs.
 1. If any service accounts are using expired passwords as identified in the audit logs, update those accounts with the correct password.
-1. If VM is exposed to the internet, review for generic account names like *administrator*, *user*, or *guest* with high sign in attempts. Where possible, update those VMs to use less generically named accounts.
+1. If VM is exposed to the internet, review for generic account names like *administrator*, *user*, or *guest* with high sign-in attempts. Where possible, update those VMs to use less generically named accounts.
 1. Use a network trace on the VM to locate the source of the attacks and block those IP addresses for being able to attempt sign-ins.
 1. When there are minimal lockout issues, update the fine-grained password policy to be as restrictive as necessary.
 
@@ -328,3 +335,4 @@ To restore the Azure AD DS managed domain from backup, [open a support case tick
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
+[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
