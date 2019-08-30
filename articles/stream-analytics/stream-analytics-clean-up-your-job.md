@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 06/21/2019
 ms.custom: seodec18
 ---
 
