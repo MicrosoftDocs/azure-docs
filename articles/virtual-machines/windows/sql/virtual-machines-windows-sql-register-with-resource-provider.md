@@ -42,7 +42,7 @@ If the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-age
 
 When lightweight is specified during the registration process, the SQL VM resource provider will auto install SQL IaaS Extension in [lightweight mode](#change-management-modes) and verify the SQL Server instance metadata; this will not restart SQL Server service. You need to provide the type of SQL Server license desired when registering with SQL VM resource provider as either 'PAYG 'or 'AHUB'.
 
-Registering with the SQL VM resource provider in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) will assure compliance and enable flexible licensing as well as in-place SQL Server edition updates. Failover Cluster Instances and multi-instance deployments can be registered with SQL VM resource provider only in lightweight mode. You can [upgrade](#change-management-modes) to the full management mode at any time, but doing so will restart the SQL Server service. 
+Registering with the SQL VM resource provider in lightweight mode will assure compliance and enable flexible licensing as well as in-place SQL Server edition updates. Failover Cluster Instances and multi-instance deployments can be registered with SQL VM resource provider only in lightweight mode. You can [upgrade](#change-management-modes) to the full management mode at any time, but doing so will restart the SQL Server service. 
 
 
 # [PowerShell](#tab/powershell)
