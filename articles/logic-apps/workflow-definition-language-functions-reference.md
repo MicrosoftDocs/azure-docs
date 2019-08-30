@@ -3576,7 +3576,7 @@ setProperty(<object>, '<property>', <value>)
 | <*value*> | Yes | Any | The value to set for the specified property |
 |||||
 
-To set a child property for an existing property, use this syntax:
+To set the child property in a child object, use a nested `setProperty()` call instead. Otherwise, the function returns only the child object as output.
 
 ```
 setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
