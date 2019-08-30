@@ -106,7 +106,7 @@ You can use HDInsight development tools, including IntelliJ, Eclipse, Visual Stu
 
 * [Azure toolkit for Eclipse](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
 
-* [Azure HDInsight tools for VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
+* [Azure HDInsight tools for VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode)
 
 * [Azure data lake tools for Visual Studio](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
 
