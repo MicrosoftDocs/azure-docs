@@ -123,13 +123,13 @@ conceptualContent:
         - url: /azure/cognitive-services/face/
           itemType: overview
           text: Face
-        - url: https://go.microsoft.com/fwlink/?linkid=2088514
+        - url: /azure/cognitive-services/form-recognizer/
           itemType: overview
           text: Form Recognition (Preview)
-        - url: https://go.microsoft.com/fwlink/?linkid=2088323
+        - url: /azure/cognitive-services/form-recognizer/
           itemType: overview
           text: Ink Recognizer (Preview)
-        - url: /azure/cognitive-services/video-indexer/video-indexer-overview
+        - url: /azure/cognitive-services/ink-recognizer/
           itemType: overview
           text: Video Indexer         
 
