@@ -192,7 +192,7 @@ If your application uses managed instance as the data tier, follow these general
 
   Because each instance is isolated in its own VNet, two-directional traffic between these VNets must be allowed. See [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-- **Create a failover group between managed instances in different suscriptions**
+- **Create a failover group between managed instances in different subscriptions**
 
   You can create a faillover group between managed instances in two difffernt subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID. 
   
