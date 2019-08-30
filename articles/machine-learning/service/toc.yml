@@ -16,7 +16,7 @@
     items:
     - name: Create first ML experiment
       items:
-      - name: 1. Setup workspace & dev environment
+      - name: 1. Set up workspace & dev environment
         href: tutorial-1st-experiment-sdk-setup.md
       - name: 2. Train your first model
         href: tutorial-1st-experiment-sdk-train.md
