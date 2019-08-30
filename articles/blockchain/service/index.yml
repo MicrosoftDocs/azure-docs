@@ -64,7 +64,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage blockchain members using Azure CLI
+          - text: Manage blockchain members - CLI
             url: manage-cli.md
           - text: Manage consortium members - PowerShell
             url: manage-consortium-powershell.md
