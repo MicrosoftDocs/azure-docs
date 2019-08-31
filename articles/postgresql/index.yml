@@ -103,7 +103,7 @@ landingContent:
           - text: Use Python
             url: connect-python.md
           - text: Use Node.js
-            url: connect-nodejs
+            url: connect-nodejs.md
           - text: Use Java
             url: connect-java.md
           - text: Use Ruby
@@ -111,9 +111,9 @@ landingContent:
           - text: Use PHP
             url: connect-php.md
           - text: Use .Net
-            url: connect-csharp
+            url: connect-csharp.md
           - text: Use .Net
-            url: connect-go
+            url: connect-go.md
   # Card
   - title: Back up and migrate data
     linkLists:
