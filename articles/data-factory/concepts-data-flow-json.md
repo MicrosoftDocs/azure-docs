@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Working with JSON
+title: Azure data factory mapping data flow JSON concepts
 description: Data Factory Mapping Data Flow has built-in capabilities for handling JSON documents with hierarchies
 author: kromerm
 ms.author: makromer
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ---
 
-# Mapping Data Flow JSON Handling
+# Mapping data flow JSON handling
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-## Creating JSONs in UI
+## Creating JSON structures in expression editor
 ### Derived Column Transformation
 Adding a complex column to your data flow is easier through the derived column expression editor. After adding a new column and opening the editor, there are two options: enter the JSON structure manually or use the UI to add subcolumns interactively.
 
 #### Interactive UI JSON Design
 From the output schema side pane, new subcolumns can be added using the `+` menu:
-![Add subcolumn](media/data-flow/AddSubcolumn.png "Add Subcolumn")
+![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
 
 From there, new columns and subcolumns can be added in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
 
-![Complex column](media/data-flow/ComplexColumn.png "Complex column")
+![Complex column](media/data-flow/complexcolumn.png "Complex column")
 
 #### Manual JSON Design
 To manually add a JSON structure, add a new column and enter the expression in the editor. The expression follows the following general format:
@@ -81,7 +81,7 @@ If this expression were entered for a column named "complexColumn" then it would
 ```
 
 ### Single document
-#### Option one
+* Option one
 ```
 [
     {
@@ -96,7 +96,7 @@ If this expression were entered for a column named "complexColumn" then it would
 ]
 ```
 
-#### Option two
+* Option two
 ```
 File1.json
 {
@@ -142,7 +142,6 @@ File3.json
 
 # Higher order functions
 ## filter
-### Description
 Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.
 
 ### Examples
@@ -152,7 +151,6 @@ filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') => ['a', 'b']
 ```
 
 ## map
-### Description
 Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item.
 
 ### Examples
@@ -162,7 +160,6 @@ map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed'
 ```
 
 ## reduce
-### Description
 Accumulates elements in an array. Reduce expects a reference to an accumulator and one element in the first expression function as #acc and #item and it expects the resulting value as #result to be used in the second expression function.
 
 ### Examples
@@ -173,7 +170,6 @@ reduce([1, 2, 3, 4], 0, #acc + #item, #result + 15) => 25
 ```
 
 ## sort
-### Description
 Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2.
 
 ### Examples
@@ -186,7 +182,6 @@ sort(['a3', 'b2', 'c1'],
 ```
 
 ## contains
-### Description
 Returns true if any element in the provided array evaluates as true in the provided predicate. Contains expects a reference to one element in the predicate function as #item.
 
 ### Examples
@@ -194,6 +189,7 @@ Returns true if any element in the provided array evaluates as true in the provi
 contains([1, 2, 3, 4], #item == 3) => true
 contains([1, 2, 3, 4], #item > 5) => false
 ```
-# Next Steps
+
+## Next Steps
 
 * [Use the Derived Column transformation to build your hierarchical structures](data-flow-derived-column.md)
