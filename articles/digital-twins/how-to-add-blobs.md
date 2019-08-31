@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ---
@@ -186,7 +186,7 @@ curl
  -H "Authorization: Bearer YOUR_TOKEN"
  -H "Accept: application/json"
  -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 

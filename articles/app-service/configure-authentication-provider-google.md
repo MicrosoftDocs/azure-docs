@@ -11,7 +11,6 @@ ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
@@ -49,6 +48,10 @@ To complete the procedure in this topic, you must have a Google account that has
    
    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 4. (Optional) To restrict access to your site to only users authenticated by Google, set **Action to take when request is not authenticated** to **Google**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Google for authentication.
+
+> [!CAUTION]
+> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
+
 5. Click **Save**.
 
 You are now ready to use Google for authentication in your app.

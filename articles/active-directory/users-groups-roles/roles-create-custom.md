@@ -88,7 +88,7 @@ Create a new role using the following PowerShell script:
 
 ``` PowerShell
 # Basic role information
-$displayName = "Application Support Administrator
+$displayName = "Application Support Administrator"
 $description = "Can manage basic aspects of application registrations."
 $templateId = (New-Guid).Guid
  

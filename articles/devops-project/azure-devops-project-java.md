@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019
 monikerRange: 'vsts'
 ---
 
 
-# Create a CI/CD pipeline for Java with Azure DevOps Projects
+# Quickstart: Set up a CI/CD pipeline for a Java app with Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Java app in Azure Pipelines.  
 

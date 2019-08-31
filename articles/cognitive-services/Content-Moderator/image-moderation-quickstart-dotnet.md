@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 08/08/2019
 ms.author: sajagtap
 
 #As a C# developer of content management software, I want to analyze images for offensive or inappropriate material so that I can categorize and handle it accordingly.
@@ -47,22 +47,22 @@ Next, you'll copy and paste the code from this guide into your project to implem
 
 Add the following `using` statements to the top of your *Program.cs* file.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-8)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-7)]
 
 ### Create the Content Moderator client
 
 Add the following code to your *Program.cs* file to create a Content Moderator client provider for your subscription. Add the code alongside the **Program** class, in the same namespace. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=84-107)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=83-106)]
 
 
 ### Set up input and output targets
 
 Add the following static fields to the **Program** class in _Program.cs_. These fields specify the files for input image content and output JSON content.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=48-52)]
 
-You will need to create the *_ImageFiles.txt* input file and update its path accordingly (relative paths are relative to the execution directory). Open _ImageFiles.txt_ and add the URLs of images to moderate. This quickstart uses the following URLs as its sample input.
+You will need to create the *ImageFiles.txt* input file and update its path accordingly (relative paths are relative to the execution directory). Open _ImageFiles.txt_ and add the URLs of images to moderate. This quickstart uses the following URLs as its sample input.
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -73,20 +73,20 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Add the following code to *Program.cs*, alongside the **Program** class in the same namespace. You will use an instance of this class to record the moderation results for each of the reviewed images.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=109-124)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=108-123)]
 
 
 ### Define the image evaluation method
 
 Add the following method to the **Program** class. This method evaluates a single image in three different ways and returns the evaluation results. If you want to learn more about what the individual operations do, follow the link in the [Next steps](#next-steps) section.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-81)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=54-80)]
 
 ### Load the input images
 
 Add the following code to the **Main** method in the **Program** class. This code sets up the program to retrieve evaluation data for each image URL in the input file. It then writes this data to a single output file.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=16-45)]
 
 ## Run the program
 

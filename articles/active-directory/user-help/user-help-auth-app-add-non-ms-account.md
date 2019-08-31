@@ -30,6 +30,9 @@ Generally, for all your personal accounts, you must:
 
 2. Add the account to the Microsoft Authenticator app. You might be asked to scan a QR code as part of this process.
 
+    >[!Note]
+    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+
 We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Netflix, or Adobe.
 
 ## Add your Google account
@@ -164,9 +167,6 @@ Add your Amazon account by turning on two-factor verification and then adding th
     The page changes to show you a QR code. Do not close this page.
 
 5. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, and then select **Other account (Google, Facebook, etc.)**.
-
-    >[!Note]
-    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
 6. Use your device's camera to scan the QR code from the **Choose how you'll receive codes** page on your computer.
 

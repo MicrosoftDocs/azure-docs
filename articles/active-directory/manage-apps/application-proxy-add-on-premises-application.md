@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ This tutorial:
 
 To add an on-premises application to Azure AD, you need:
 
-* A [Microsoft Azure AD basic or premium subscription](https://azure.microsoft.com/pricing/details/active-directory)
+* A [Microsoft Azure AD premium subscription](https://azure.microsoft.com/pricing/details/active-directory)
 * An application administrator account
 * User identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
@@ -89,9 +89,9 @@ Allow access to the following URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates. |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | The connector uses these URLs during the registration process. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | The connector uses these URLs during the registration process. |
 
-You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
+You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 
 ## Install and register a connector
 

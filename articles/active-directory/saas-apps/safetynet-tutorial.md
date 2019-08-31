@@ -133,7 +133,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create SafetyNet test user
 
-In this section, you create a user called Britta Simon in SafetyNet. Work with [SafetyNet support team](mailto:dev@predictivesolutions.com) to add the users in the SafetyNet platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in SafetyNet. Work with [SafetyNet support team](mailto:dev@predictivesolutions.com) to add the users in the SafetyNet platform. Users must be created and activated before you use single sign-on.
 
 ### Test SSO
 

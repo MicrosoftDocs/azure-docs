@@ -100,7 +100,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [Xamarin.iOS and Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[autoscaling]: ../app-service/web-sites-scale.md
+[autoscaling]: ../app-service/manage-scale-up.md
 [staging environments]: ../app-service/deploy-staging-slots.md
 [hybrid connections]: ../biztalk-services/integration-hybrid-connection-overview.md
 [virtual networks]: ../app-service/web-sites-integrate-with-vnet.md

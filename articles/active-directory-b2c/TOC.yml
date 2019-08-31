@@ -62,9 +62,6 @@
         href: active-directory-b2c-reference-tokens.md
       - name: Request access token
         href: active-directory-b2c-access-tokens.md
-      - name: Support multiple token issuers
-        href: multiple-token-endpoints.md
-        displayName: migrate, b2clogin, owin, jwt
   - name: User flow and policy
     items:
     - name: User flows
@@ -127,8 +124,14 @@
         href: active-directory-b2c-setup-goog-app.md
       - name: LinkedIn
         href: active-directory-b2c-setup-li-app.md
+      - name: QQ
+        href: active-directory-b2c-setup-qq-app.md
       - name: Twitter
         href: active-directory-b2c-setup-twitter-app.md
+      - name: WeChat
+        href: active-directory-b2c-setup-wechat-app.md
+      - name: Weibo
+        href: active-directory-b2c-setup-weibo-app.md
       - name: Generic identity provider
         href: active-directory-b2c-setup-oidc-idp.md
     - name: Tokens and session management
@@ -221,6 +224,8 @@
       items:
       - name: Collect logs using Application Insights
         href: active-directory-b2c-troubleshoot-custom.md
+      - name: Policy validation
+        href: active-directory-b2c-guide-troubleshooting-custom.md
     - name: Usage analytics
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Reference
@@ -299,7 +304,12 @@
       - name: RelyingParty
         href: relyingparty.md
   - name: Use b2clogin.com
-    href: b2clogin.md
+    items:
+    - name: b2clogin.com overview
+      href: b2clogin.md
+    - name: Migrate web API to b2clogin.com
+      href: multiple-token-endpoints.md
+      displayName: migrate, b2clogin, owin
   - name: Automation
     items:
     - name: Export usage report
@@ -308,6 +318,9 @@
       href: active-directory-b2c-devquickstarts-graph-dotnet.md
   - name: Audit logs
     href: active-directory-b2c-reference-audit-logs.md
+  - name: Secure API Management API
+    href: secure-api-management.md
+    displayName: apim, api management, migrate, b2clogin.com
   - name: Compliance
     items:
     - name: User access
