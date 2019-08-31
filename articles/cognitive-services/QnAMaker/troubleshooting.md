@@ -110,6 +110,14 @@ If you have content from multiple languages, be sure to create a separate servic
 
 Refresh your app service when the caution icon is next to the version value for the knowledge base in the **Endpoint keys** table on the **User Settings** [page](https://www.qnamaker.ai/UserSettings).
 
+### I deleted my existing Search service. How can I fix this?
+
+If you delete an Azure Search index, the operation is final and the index cannot be recovered. 
+
+### I deleted my `testkb` index in my Search service. How can I fix this? 
+
+Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+
 ### When should I refresh my endpoint keys?
 
 Refresh your endpoint keys if you suspect that they have been compromised.
