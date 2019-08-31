@@ -41,7 +41,11 @@ landingContent:
           - text: Limits
             url: concepts-limits.md
           - text: Supported versions
-            url: concepts-supported-versions.md            
+            url: concepts-supported-versions.md
+          - text: PostgreSQL extensions - single server
+            url: concepts-extensions.md
+          - text: PostgreSQL extensions - Hyperscale (Citus)
+            url: concepts-hyperscale-extensions.md
   # Card
   - title: Design a Database in a single Server
     linkLists:
@@ -56,7 +60,7 @@ landingContent:
           - text: Monitor and tune the service
             url: tutorial-monitor-and-tune.md
   # Card
-  - title: Design a hyperscale server (Citus) (preview)
+  - title: Design a Hyperscale server (Citus) (preview)
     linkLists:
       - linkListType: tutorial
         links:
@@ -64,9 +68,36 @@ landingContent:
             url: tutorial-design-database-hyperscale-multi-tenant.md
           - text: Design a real-time database
             url: tutorial-design-database-hyperscale-realtime.md
+      - linkListType: concept
+        links:
+          - text: Understand nodes
+            url: concepts-hyperscale-nodes.md
+          - text: Understand distributed data
+            url: concepts-hyperscale-distributed-data.md
+          - text: Configure performance options
+            url: concepts-hyperscale-configuration-options.md
+  # Card
+  - title: Programming APIs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /cli/azure/postgres
+          - text: Azure CLI
+            url: /rest/api/datacatalog/
+          - text: Azure Resource Manager templates
+            url: /azure/templates/microsoft.dbforpostgresql/allversions        
+      - linkListType: get-started
+        links:
+          - text: Azure CLI scripts for common tasks
+            url: /azure/postgresql/sample-scripts-azure-cli
   # Card
   - title: Connect and query a single server
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Configure SSL connectivity
+            url: concepts-ssl-connection-security.md
       - linkListType: get-started
         links:
           - text: Use Python
@@ -84,26 +115,11 @@ landingContent:
           - text: Use .Net
             url: connect-go
   # Card
-  - title: Programming APIs
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: REST API
-            url: /cli/azure/postgres
-          - text: Azure CLI
-            url: /rest/api/datacatalog/
-          - text: Azure Resource Manager templates
-            url: /azure/templates/microsoft.dbforpostgresql/allversions        
-      - linkListType: get-started
-        links:
-          - text: Azure CLI scripts for common tasks
-            url: /azure/postgresql/sample-scripts-azure-cli
-  # Card
-  - title: Backup and migrate data
+  - title: Back up and migrate data
     linkLists:
       - linkListType: concept
         links:
-          - text: Backup and restore in a single server
+          - text: Back up and restore in a single server
             url: concepts-backup.md
       - linkListType: how-to-guide
         links:
