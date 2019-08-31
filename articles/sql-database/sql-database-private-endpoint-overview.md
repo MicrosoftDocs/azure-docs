@@ -127,7 +127,7 @@ WHERE session_id=@@SPID
 
 ## Connecting from an Azure VM in Peered Virtual Network (VNet) 
 
-Configure [VNET peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) to establish connectivity to the SQL Database from an Azure VM in a peered VNet.
+Configure [VNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) to establish connectivity to the SQL Database from an Azure VM in a peered VNet.
 
 ## Connecting from an Azure VM in VNet-to-VNet environment
 
