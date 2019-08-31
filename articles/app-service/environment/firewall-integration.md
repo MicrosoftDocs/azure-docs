@@ -28,13 +28,13 @@ The solution to securing outbound addresses lies in use of a firewall device tha
 
 ## System architecture
 
-Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. This is called asymmetric routing and it will break TCP.
+Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. When your reply address is different from the address traffic was sent to, the problem is called asymmetric routing and it will break TCP.
 
-There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. This is true for inbound management requests and it is true for inbound application requests.
+There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. Routes must be defined for inbound management requests and for inbound application requests.
 
 The traffic to and from an ASE must abide by the following conventions
 
-* The traffic to Azure SQL, Storage and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
+* The traffic to Azure SQL, Storage, and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
 * Route table rules must be defined that send inbound management traffic back from where it came.
 * Route table rules must be defined that send inbound application traffic back from where it came. 
 * All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
@@ -45,7 +45,7 @@ The traffic to and from an ASE must abide by the following conventions
 
 The steps to lock down egress from your existing ASE with Azure Firewall are:
 
-1. Enable service endpoints to SQL, Storage, and Event Hub on your ASE subnet. To do this, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your apps have must be configured with service endpoints as well. 
+1. Enable service endpoints to SQL, Storage, and Event Hub on your ASE subnet. To enable service endpoints, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your apps have must be configured with service endpoints as well. 
 
    ![select service endpoints][2]
   
@@ -54,7 +54,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
    
    ![Add application rule][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues.
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section, provide a name, select **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues.
 
    ![Add NTP network rule][3]
 
@@ -87,7 +87,7 @@ Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs.
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Integrating your Azure Firewall with Azure Monitor logs is very useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## Dependencies
 
@@ -112,7 +112,7 @@ The following information is only required if you wish to configure a firewall a
 | Endpoint | Details |
 |----------| ----- |
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| \*:12000 | This port is used for some system monitoring. If blocked then some issues will be harder to triage but your ASE will continue to operate |
+| \*:12000 | This port is used for some system monitoring. If blocked, then some issues will be harder to triage but your ASE will continue to operate |
 | 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
 | 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
 | 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
