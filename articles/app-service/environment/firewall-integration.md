@@ -241,6 +241,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 ## US Gov dependencies
 
+| Endpoint |
+|----------|
 | \*.ctldl.windowsupdate.com:80 |
 | \*.management.usgovcloudapi.net:80 |
 | \*.update.microsoft.com:80 |
