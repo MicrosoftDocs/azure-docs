@@ -24,13 +24,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Single server using the Azure Portal
+          - text: Create a server using the Azure Portal
             url: quickstart-create-server-database-portal.md
-          - text: Single server using Azure CLI
+          - text: Create a server using Azure CLI
             url: quickstart-create-server-database-azure-cli.md
       - linkListType: learn
         links:
-          - text: Create an Azure Database for PostgreSQL server
+          - text: 'Learning module: Create an Azure Database for PostgreSQL server'
             url: /learn/modules/create-azure-db-for-postgresql-server/
       - linkListType: concept
         links:
@@ -42,8 +42,6 @@ landingContent:
             url: concepts-supported-versions.md
           - text: PostgreSQL extensions - single server
             url: concepts-extensions.md
-          - text: PostgreSQL extensions - Hyperscale (Citus)
-            url: concepts-hyperscale-extensions.md
       - linkListType: tutorial
         links:
           - text: Design a Database using the Azure portal
@@ -69,6 +67,8 @@ landingContent:
             url: tutorial-design-database-hyperscale-realtime.md
       - linkListType: concept
         links:
+          - text: PostgreSQL extensions
+            url: concepts-hyperscale-extensions.md        
           - text: Understand nodes
             url: concepts-hyperscale-nodes.md
           - text: Understand distributed data
@@ -76,27 +76,27 @@ landingContent:
           - text: Configure performance options
             url: concepts-hyperscale-configuration-options.md
   # Card
-  - title: Programming APIs
+  - title: Code with programming APIs
     linkLists:
-      - linkListType: reference
-        links:
-          - text: REST API developer reference
-            url: /cli/azure/postgres
-          - text: Azure CLI developer reference
-            url: /rest/api/datacatalog/
-          - text: Azure Resource Manager templates
-            url: /azure/templates/microsoft.dbforpostgresql/allversions        
       - linkListType: get-started
         links:
           - text: Azure CLI scripts for common tasks
             url: /azure/postgresql/sample-scripts-azure-cli
+      - linkListType: reference
+        links:
+          - text: Azure CLI developer reference
+            url: /rest/api/datacatalog/
+          - text: REST API developer reference
+            url: /cli/azure/postgres
+          - text: Azure Resource Manager templates
+            url: /azure/templates/microsoft.dbforpostgresql/allversions        
   # Card
   - title: Connect and query a single server
     linkLists:
       - linkListType: concept
         links:
           - text: Understand the firewall
-            url: concepts-firewall-rule.md         
+            url: concepts-firewall-rules.md         
           - text: Create firewall rules
             url: howto-manage-firewall-using-portal.md
           - text: Configure SSL
@@ -126,9 +126,13 @@ landingContent:
             url: concepts-backup.md
       - linkListType: how-to-guide
         links:
-          - text: Restore a server
+          - text: Restore a server using the Azure portal
             url: howto-restore-server-portal.md
+          - text: Restore a server using Azure CLI
+            url: howto-restore-server-cli.md            
           - text: Migrate a database using dump and restore
             url: howto-migrate-using-dump-and-restore.md
           - text: Migrate a database using export and import
             url: howto-migrate-using-export-and-import.md
+          - text: Minimal downtime migrations
+            url: howto-migrate-online.md
