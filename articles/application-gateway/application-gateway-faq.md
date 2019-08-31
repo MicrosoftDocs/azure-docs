@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 08/31/2019
 ms.author: victorh
 ---
 
@@ -272,7 +272,11 @@ Yes, the Application Gateway v2 SKU supports Key Vault. For more information, se
 
 ### How do I configure HTTPS listeners for .com and .net sites? 
 
-For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
+
+### Can I use special characters in my .pfx file password?
+
+No, use only alphanumeric characters in your .pfx file password.
 
 ## Configuration - web application firewall (WAF)
 
