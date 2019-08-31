@@ -241,6 +241,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 ## US Gov dependencies
 
+For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
+
 | Endpoint |
 |----------|
 | \*.ctldl.windowsupdate.com:80 |
