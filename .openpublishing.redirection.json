@@ -1131,6 +1131,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/bing-video-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/bing-image-search/bing-image-stats.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
       "redirect_document_id": true
