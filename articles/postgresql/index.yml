@@ -20,6 +20,29 @@ landingContent:
           - text: What is Azure Database for PostgreSQL?
             url: overview.md
 # Card
+  - title: Create a Hyperscale server (Citus) (preview)
+    linkLists:
+      - linkListType: quickstart
+        links:    
+          - text: Create a Hyperscale (Citus) server in the Azure Portal
+            url: quickstart-create-hyperscale-portal.md    
+      - linkListType: tutorial
+        links:
+          - text: Design a multi-tenant database
+            url: tutorial-design-database-hyperscale-multi-tenant.md
+          - text: Design a real-time database
+            url: tutorial-design-database-hyperscale-realtime.md
+      - linkListType: concept
+        links:
+          - text: PostgreSQL extensions - Hyperscale
+            url: concepts-hyperscale-extensions.md        
+          - text: Understand nodes
+            url: concepts-hyperscale-nodes.md
+          - text: Understand distributed data
+            url: concepts-hyperscale-distributed-data.md
+          - text: Configure performance options
+            url: concepts-hyperscale-configuration-options.md
+# Card
   - title: Connect to a single server
     linkLists:
       - linkListType: concept
@@ -46,29 +69,6 @@ landingContent:
             url: connect-csharp.md
           - text: Connect using Go
             url: connect-go.md
-# Card
-  - title: Create a Hyperscale server (Citus) (preview)
-    linkLists:
-      - linkListType: quickstart
-        links:    
-          - text: Create a Hyperscale (Citus) server in the Azure Portal
-            url: quickstart-create-hyperscale-portal.md    
-      - linkListType: tutorial
-        links:
-          - text: Design a multi-tenant database
-            url: tutorial-design-database-hyperscale-multi-tenant.md
-          - text: Design a real-time database
-            url: tutorial-design-database-hyperscale-realtime.md
-      - linkListType: concept
-        links:
-          - text: PostgreSQL extensions - Hyperscale
-            url: concepts-hyperscale-extensions.md        
-          - text: Understand nodes
-            url: concepts-hyperscale-nodes.md
-          - text: Understand distributed data
-            url: concepts-hyperscale-distributed-data.md
-          - text: Configure performance options
-            url: concepts-hyperscale-configuration-options.md
   # Card
   - title: Create a single server
     linkLists:
