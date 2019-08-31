@@ -19,6 +19,56 @@ landingContent:
         links:
           - text: What is Azure Database for PostgreSQL?
             url: overview.md
+# Card
+  - title: Connect and query a single server
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand the firewall
+            url: concepts-firewall-rules.md         
+          - text: Create firewall rules
+            url: howto-manage-firewall-using-portal.md
+          - text: Configure SSL
+            url: concepts-ssl-connection-security.md
+      - linkListType: get-started
+        links:
+          - text: Connect using Python
+            url: connect-python.md
+          - text: Connect using  Node.js
+            url: connect-nodejs.md
+          - text: Connect using Java
+            url: connect-java.md
+          - text: Connect using Ruby
+            url: connect-ruby.md
+          - text: Connect using PHP
+            url: connect-php.md
+          - text: Connect using .Net
+            url: connect-csharp.md
+          - text: Connect using Go
+            url: connect-go.md
+# Card
+  - title: Create a Hyperscale server (Citus) (preview)
+    linkLists:
+      - linkListType: quickstart
+        links:    
+          - text: Create a Hyperscale (Citus) server using the Azure Portal
+            url: quickstart-create-hyperscale-portal.md    
+      - linkListType: tutorial
+        links:
+          - text: Design a multi-tenant database
+            url: tutorial-design-database-hyperscale-multi-tenant.md
+          - text: Design a real-time database
+            url: tutorial-design-database-hyperscale-realtime.md
+      - linkListType: concept
+        links:
+          - text: PostgreSQL extensions
+            url: concepts-hyperscale-extensions.md        
+          - text: Understand nodes
+            url: concepts-hyperscale-nodes.md
+          - text: Understand distributed data
+            url: concepts-hyperscale-distributed-data.md
+          - text: Configure performance options
+            url: concepts-hyperscale-configuration-options.md
   # Card
   - title: Create a single server
     linkLists:
@@ -52,29 +102,7 @@ landingContent:
             url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
           - text: Monitor and tune the service
             url: tutorial-monitor-and-tune.md            
-  # Card
-  - title: Create a Hyperscale server (Citus) (preview)
-    linkLists:
-      - linkListType: quickstart
-        links:    
-          - text: Create a Hyperscale (Citus) server using the Azure Portal
-            url: quickstart-create-hyperscale-portal.md    
-      - linkListType: tutorial
-        links:
-          - text: Design a multi-tenant database
-            url: tutorial-design-database-hyperscale-multi-tenant.md
-          - text: Design a real-time database
-            url: tutorial-design-database-hyperscale-realtime.md
-      - linkListType: concept
-        links:
-          - text: PostgreSQL extensions
-            url: concepts-hyperscale-extensions.md        
-          - text: Understand nodes
-            url: concepts-hyperscale-nodes.md
-          - text: Understand distributed data
-            url: concepts-hyperscale-distributed-data.md
-          - text: Configure performance options
-            url: concepts-hyperscale-configuration-options.md
+
   # Card
   - title: Code with programming APIs
     linkLists:
@@ -90,33 +118,7 @@ landingContent:
             url: /cli/azure/postgres
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbforpostgresql/allversions        
-  # Card
-  - title: Connect and query a single server
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Understand the firewall
-            url: concepts-firewall-rules.md         
-          - text: Create firewall rules
-            url: howto-manage-firewall-using-portal.md
-          - text: Configure SSL
-            url: concepts-ssl-connection-security.md
-      - linkListType: get-started
-        links:
-          - text: Connect using Python
-            url: connect-python.md
-          - text: Connect using  Node.js
-            url: connect-nodejs.md
-          - text: Connect using Java
-            url: connect-java.md
-          - text: Connect using Ruby
-            url: connect-ruby.md
-          - text: Connect using PHP
-            url: connect-php.md
-          - text: Connect using .Net
-            url: connect-csharp.md
-          - text: Connect using Go
-            url: connect-go.md
+
   # Card
   - title: Back up and migrate data
     linkLists:
