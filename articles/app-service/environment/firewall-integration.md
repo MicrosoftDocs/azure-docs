@@ -203,7 +203,6 @@ With an Azure Firewall, you automatically get everything below configured with t
 |gmstorageprodsn1.file.core.windows.net:443 |
 |gmstorageprodsn1.queue.core.windows.net:443 |
 |gmstorageprodsn1.table.core.windows.net:443 |
-|management.azure.com:443 |
 |rteventservice.trafficmanager.net:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
@@ -233,11 +232,18 @@ With an Azure Firewall, you automatically get everything below configured with t
 |mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
+|apt-mo.trafficmanager.net:80 |
 |apt-mo.trafficmanager.net:443 |
 |azure.archive.ubuntu.com:80 |
 |azure.archive.ubuntu.com:443 |
 |changelogs.ubuntu.com:80 |
-|security.ubuntu.com:80 |
+|13.74.252.37:11371 |
+|13.75.127.55:11371 |
+|13.76.190.189:11371 |
+|13.80.10.205:11371 |
+|13.91.48.226:11371 |
+|40.76.35.62:11371 |
+|104.215.95.108:11371 |
 
 ## US Gov dependencies
 
