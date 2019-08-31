@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 08/31/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -122,6 +122,16 @@ Follow these steps to view the access for a single user, group, service principa
    ![Access control - Role assignments tab](./media/role-assignments-portal/access-control-role-assignments.png)
 
    On the Role assignments tab, you can see who has access at this scope. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
+
+### View number of role assignments
+
+You can have up to **2000** role assignments in each subscription and **500** role assignments in each management group. To help you keep track of these limits, the **Role assignments** tab includes a chart that lists the current number of role assignments.
+
+![Access control - Number of role assignments chart](./media/role-assignments-portal/access-control-role-assignments-chart.png)
+
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. You can reduce the number of role assignments by deleting role assignments that are no longer needed or by assigning roles to groups instead.
+
+![Access control - Add role assignment warning](./media/role-assignments-portal/add-role-assignment-warning.png)
 
 ## Add a role assignment
 
