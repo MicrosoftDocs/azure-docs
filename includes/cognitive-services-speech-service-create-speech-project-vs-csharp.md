@@ -6,23 +6,31 @@ ms.date: 08/30/2019
 ms.author: wolfma
 ---
 
-To create a Visual Studio project for Universal Windows Platform (UWP) development, you need to set up Visual Studio development options, create the project, select the target architecture, and install the Speech SDK.
+To create a Visual Studio project for Windows development, you need to create the project, set up Visual Studio for .NET desktop development, install the Speech SDK, and choose the target architecture.
 
-### Set up Visual Studio development options
+### Create the project and add the workload
+
+To start, create the project in Visual Studio, and make sure that Visual Studio is set up for .NET desktop development:
 
 1. Open Visual Studio 2019.
 
 1. In the Start window, select **Create a new project**. 
 
-1. Select **Console App (.NET Framework)**, and then select **Next**.
+1. In the **Create a new project** window, choose **Console App (.NET Framework)**, and then select **Next**.
 
-1. In **Project name**, enter `helloworld`, and then select **Create**.
+1. In the **Configure your new project** window, enter `helloworld` in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
 
-1. From the menu bar in Visual Studio, select **Tools** > **Get Tools and Features**, and check whether the **.NET desktop development** workload is available. If the workload hasn't been installed, mark the checkbox, then select **Modify** to start the installation. It may take a few minutes to download and install.
+1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features**, which opens Visual Studio Installer and displays the **Modifying** dialog box.
 
-   If the checkbox next to **.NET desktop development** is selected, you can close the dialog box now.
+1. Check whether the **.NET desktop development** workload is available. If the workload hasn't been installed, select the check box next to it, and then select **Modify** to start the installation. It may take a few minutes to download and install.
+
+   If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
 
    ![Enable .NET desktop development](../articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+
+1. Close Visual Studio Installer.
+
+### Install the Speech SDK
 
 The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), so you can reference it in the code.
 
@@ -43,6 +51,8 @@ The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspee
 1. Accept all agreements and licenses to start the installation.
 
    After the package is installed, a confirmation appears in the **Package Manager Console** window.
+
+### Choose the target architecture
 
 Now, to build and run the console application, create a platform configuration matching your computer's architecture.
 
