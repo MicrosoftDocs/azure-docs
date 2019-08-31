@@ -82,6 +82,7 @@ conceptualContent:
           itemType: overview
           text: Personalizer (Preview)   
     - title: Language
+      summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links: 
         - url: /azure/cognitive-services/immersive-reader
           itemType: overview
@@ -99,6 +100,7 @@ conceptualContent:
           itemType: overview
           text: Translator Text
     - title: Speech
+      summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links: 
         - url: /azure/cognitive-services/speech-service
           itemType: overview
@@ -113,6 +115,7 @@ conceptualContent:
           itemType: overview
           text: Translator Speech (Retiring)   
     - title: Vision
+      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content. 
       links: 
         - url: /azure/cognitive-services/computer-vision/
           itemType: overview
