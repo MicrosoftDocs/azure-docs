@@ -101,10 +101,8 @@
         href: media-services-portal-upload-files.md
       - name: .NET
         href: media-services-dotnet-upload-files.md
-        displayName: invalid character
       - name: REST
         href: media-services-rest-upload-files.md
-        displayName: invalid character
     - name: Upload files with StorSimple
       href: media-services-upload-files-from-storsimple.md
     - name: Copy existing blobs
