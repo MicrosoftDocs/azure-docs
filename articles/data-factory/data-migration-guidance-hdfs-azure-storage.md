@@ -17,8 +17,8 @@ ms.date: 8/30/2019
 
 Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from on-premise HDFS to Azure Blob Storage or Azure Data Lake Storage Gen2. Basically, Azure Data Factory contains two approaches to migrate data from on-premise HDFS to Azure. You can select each of them based on your scenario. 
 
-- ADF DistCp mode. ADF support using [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) to copy files as-is into Azure Blob (including [staged copy](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)) or Azure Data Lake Store, in which case it can fully leverage your cluster's power instead of running on the self-hosted Integration Runtime. It will provide better copy throughput especially when your cluster is very powerful. Based on your configuration in Azure Data Factory, copy activity automatically constructs a DistCp command, submits to your Hadoop cluster, and monitors the copy status. By using ADF integrated with DistCp, customer can not only leverage your existing powerful cluster to achieve the best copy throughput but also get the benefit of flexible scheduling and unified monitoring experience from ADF. So by default, ADF DistCp mode is the recommended way to migrate data from on-premise hadoop cluster to Azure.
-- ADF built-in IR mode. In some scenarios, DistCp cannot work for your cases (For example, in VNET environment, DistCp tool does not support Express Route private peering + Azure storage VNet endpoint). Besides sometime you do not want to use your existing hadoop cluster as the engine to migrate the data since it will bring heavy loads on your cluster, which may impact the performance of existing ETL jobs. If that case, you can use ADF built-in capability, where ADF’s integration runtime can be the engine to copy the data from on-prem HDFS to Azure.
+- ADF DistCp mode. ADF support using [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) to copy files as-is into Azure Blob (including [staged copy](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)) or Azure Data Lake Store, in which case it can fully leverage your cluster's power instead of running on the self-hosted integration runtime (IR). It will provide better copy throughput especially when your cluster is very powerful. Based on your configuration in Azure Data Factory, copy activity automatically constructs a DistCp command, submits to your Hadoop cluster, and monitors the copy status. By using ADF integrated with DistCp, customer can not only leverage your existing powerful cluster to achieve the best copy throughput but also get the benefit of flexible scheduling and unified monitoring experience from ADF. By default, ADF DistCp mode is the recommended way to migrate data from on-premise hadoop cluster to Azure.
+- ADF built-in IR mode. In some scenarios, DistCp cannot work for your cases (For example, in VNET environment, DistCp tool does not support Express Route private peering + Azure storage VNet endpoint). Besides, sometime you do not want to use your existing hadoop cluster as the engine to migrate the data since it will bring heavy loads on your cluster, which may impact the performance of existing ETL jobs. If that case, you can use ADF built-in capability, where ADF’s integration runtime (IR) can be the engine to copy the data from on-prem HDFS to Azure.
 
 This article provides the following information of both approaches for data engineers and developers:
 > [!div class="checklist"]
@@ -62,7 +62,7 @@ Migrate data over public Internet:
 
 - In this architecture, data is transferred securely using HTTPS over public Internet. 
 - ADF DistCp mode is recommended to use in public network environment. By doing so, you can not only leverage your existing powerful cluster to achieve the best copy throughput but also get the benefit of flexible scheduling and unified monitoring experience from ADF.
-- You need to install one ADF self-hosted IR in your windows machine behind corporate firewall for submitting DistCp command to your hadoop cluster, and monitor the copy status. Given this machine will not be used for moving data, so the CPU and memory for the machine is not required to be high.
+- You need to install one ADF self-hosted IR in your windows machine behind corporate firewall for submitting DistCp command to your hadoop cluster, and monitoring the copy status. Given this machine will not be used for moving data, so the CPU and memory capacity for the machine does not impact the data movement throughput.
 - The existing parameters from DistCp command are supported.
 
 
@@ -70,10 +70,10 @@ Migrate data over private link:
 
 ![solution-architecture-private-network](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png)
 
-- In this architecture, data migration is done over a private peering link Azure Express Route such that data never traverses over public Internet.
+- In this architecture, data migration is done over a private peering link via Azure Express Route such that data never traverses over public Internet.
 - DistCp tool does not support Express Route private peering + Azure storage VNet endpoint, so you are encouraged to use ADF built-in capability via integration runtime to migrate the data.
-- You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture. You can manually scale up your self-hosted IR VMs or scale out to multiple VMs (up to 4 nodes) to fully utilize your network and storage IOPS/bandwidth.
-- The recommend configuration to start with for each Azure VM is Standard_D32s_v3 with 32 vCPU and 128-GB memory. You can keep monitoring CPU and memory utilization of the IR VM during the data migration to see if you need to further scale up the VM for better performance or scale down the VM to save cost.
+- You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture. You can manually scale up your VMs or scale out to multiple VMs (up to 4 nodes) associated to one self-hosted integration runtime to fully utilize your network and storage IOPS/bandwidth.
+- The recommend configuration to start with for each Azure VM is Standard_D32s_v3 with 32 vCPU and 128-GB memory. You can keep monitoring CPU and memory utilization of the VM during the data migration to see if you need to further scale up the VM for better performance or scale down the VM to save cost.
 - You can also scale out by associating up to 4 VM nodes with a single self-hosted IR. A single copy job running against a self-hosted IR will automatically partition the file set and leverage all VM nodes to copy the files in parallel. For high availability, you are recommended to start with two VM nodes to avoid single point of failure during the data migration.
 - Both initial snapshot data migration and delta data migration can be achieved using this architecture.
 
@@ -115,7 +115,7 @@ Let us assume the following:
 - Total data volume is 1 PB
 - Migrating data using second solution architecture (ADF built-in IR mode)
 - 1 PB is divided into 1000 partitions and each copy moves one partition
-- Each copy is configured with one self-hosted IR associated to 4 machines and achieves 500 MBps throughput.
+- Each copy activity is configured with one self-hosted IR associated to 4 machines and achieves 500 MBps throughput.
 - ForEach concurrency is set to 4 and aggregate throughput is 2 GBps
 - In total, it takes 146 hours to complete the migration.
 
