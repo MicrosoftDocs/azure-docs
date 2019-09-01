@@ -60,7 +60,7 @@ We're going to simply set field starting points and lengths for this file conten
 
 10. Then in the expression builder, type:
 
-```substring(Column_1,1,4)```
+  ```substring(Column_1,1,4)```
 
   ![derived column](media/data-flow/fwderivedcol1.png)
 
@@ -78,11 +78,12 @@ We're going to simply set field starting points and lengths for this file conten
 
   ![fixed width sink](media/data-flow/fwsink.png)
 
-15. Here is what the output will look like:
+  Here is what the output will look like:
 
   ![fixed width output](media/data-flow/fxdoutput.png)
 
-16. The fixed-width data is now split with four characters each and assigned to Col1, Col2, Col3, Col4, ... Based on the above example I am splitting the data into 4 columns
+  The fixed-width data is now split with four characters each and assigned to Col1, Col2, Col3, Col4, ...
+  Based on the above example I am splitting the data into 4 columns
 
 ## Next steps
 
