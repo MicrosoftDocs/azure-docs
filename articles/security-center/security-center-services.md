@@ -20,7 +20,7 @@ ms.author: "v-mohabe"
 > [!NOTE]
 >Some features are only available with the Standard tier. If you have not already signed up for Security Center's Standard tier, a free trial period is available. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
-The following sections show Security Center features that are available for the different cloud environments.
+The following sections show Security Center features that are available for their [supported platforms](security-center-os-coverage.md).
 
 * [Virtual machines / servers](#vm-server-features)
 * [Endpoint protection solutions](#endpoint-supported)
@@ -53,7 +53,7 @@ The following sections show Security Center features that are available for the 
 |Regulatory Compliance dashboard & reports|✔|✔|✔|✔|✔|✔|Standard|
 |Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|
 
-## Supported endpoint protection solutions <a name="endpoint-supported"></a>
+### Supported endpoint protection solutions <a name="endpoint-supported"></a>
 
 The following table provides a matrix of:
 
@@ -89,27 +89,30 @@ The following PaaS resources are supported by Azure Security Center:
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob storage accounts|✔| ✔|
-|App services|✔| ✔|
-|Cloud Services|✔| X|
-|VNets|✔| NA|
-|Subnets|✔| NA|
-|NICs|✔| NA|
-|NSGs|✔| NA|
+|CosmosDB*|X| ✔|
+|Blob storage|✔| ✔|
+|Storage account|✔| NAV|
+|App service|✔| ✔|
+|Funcion|✔| X|
+|Cloud Service|✔| X|
+|VNet|✔| NA|
+|Subnet|✔| NA|
+|NIC|✔| NA|
+|NSG|✔| NA|
 |Subscription|✔ **| ✔|
-|Batch|✔| NA|
-|Service fabric|✔| NA|
-|Automation account|✔| NA|
-|Load balancer|✔| NA|
-|Search|✔| NA|
-|Service bus|✔| NA|
-|Stream analytics|✔| NA|
-|Event hub|✔| NA|
-|Logic apps|✔| NA|
-|Storage account|✔| NA|
+|Batch account|✔| X|
+|Service fabric account|✔| X|
+|Automation account|✔| X|
+|Load balancer|✔| X|
+|Search|✔| X|
+|Service bus namespace|✔| X|
+|Stream analytics|✔| X|
+|Event hub namespace|✔| X|
+|Logic apps|✔| X|
 |Redis|✔| NA|
-|Data lake analytics|✔| NA|
-|Key vault|✔| NA|
+|Data Lake Analytics|✔| X|
+|Data Lake Store|✔| X|
+|Key vault|✔| X|
 
 \* These features are currently supported in public preview.
 
@@ -117,6 +120,8 @@ The following PaaS resources are supported by Azure Security Center:
 
 ## Next steps
 
+- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md)
+- Learn how [Security Center manages and safeguards data](security-center-data-security.md)
 - Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
 - Review the [platforms that support security center](security-center-os-coverage.md)
 - Learn more about [threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).

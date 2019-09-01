@@ -238,7 +238,7 @@ If you switch off auto provision after it was previously on:
 >  Disabling automatic provisioning does not remove the Log Analytics Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-faq.md#remove-oms).
 >
 	
-## Manual agent provisioning <a name="manualagent"></a>
+## Manual agent provisioning <a name="manual-agent"></a>
  
 There are several ways to install the Log Analytics Agent manually. When installing manually, make sure you disable auto provisioning.
 
