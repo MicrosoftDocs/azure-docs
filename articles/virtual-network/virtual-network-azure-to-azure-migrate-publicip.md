@@ -54,7 +54,7 @@ The following steps show how to prepare the public IP for the configuration move
 5. Select > **Settings** > **Export template**.
 6. Choose **Download** in the **Export template** blade.
 7. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template and a shell script and PowerShell script to deploy the template.
-8. To edit the parameter of the public IP name, open the **parameters.json** file:
+8. To edit the parameter of the public IP name, open the **parameters.json** file and edit the **value** property:
     
     ```json
                 {
@@ -72,9 +72,9 @@ The following steps show how to prepare the public IP for the configuration move
 
 10. To edit the target region where the public IP configuration will be moved, open the **template.json** file:
 
-         ```json
-           "resources": [
-           {
+       ```json
+            "resources": [
+            {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2019-06-01",
             "name": "[parameters('publicIPAddresses_myPubIP_name')]",
@@ -94,9 +94,9 @@ The following steps show how to prepare the public IP for the configuration move
                }
                }
              ]             
-         ```
+       ```
   
-11. Edit the location in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+11. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
 
@@ -105,94 +105,54 @@ The following steps show how to prepare the public IP for the configuration move
     ```
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
-    
+    * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
+
     ```json
-                "resources": [
-                            {
-                                "type": "Microsoft.Network/virtualNetworks",
-                                "apiVersion": "2019-06-01",
-                                "name": "[parameters('virtualNetworks_myVNET1_name')]",
-                                "location": "TARGET REGION",
-                                "properties": {
-                                    "provisioningState": "Succeeded",
-                                    "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
-                                    "addressSpace": {
-                                        "addressPrefixes": [
-                                            "10.0.0.0/16"
-                                        ]
-                                    },
+          "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+            "location": "TARGET REGION",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
     ```
 
-    * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
-    
+    For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+
+    * **Public IP allocation method** and **Idle time out** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle time out can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**.:
+
     ```json
-                 "subnets": [
-                        {
-                            "name": "subnet-1",
-                            "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
-                            "properties": {
-                                "provisioningState": "Succeeded",
-                                "addressPrefix": "10.0.0.0/24",
-                                "delegations": [],
-                                "privateEndpointNetworkPolicies": "Enabled",
-                                "privateLinkServiceNetworkPolicies": "Enabled"
-                            }
-                        },
-                        {
-                            "name": "GatewaySubnet",
-                            "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
-                            "properties": {
-                                "provisioningState": "Succeeded",
-                                "addressPrefix": "10.0.1.0/29",
-                                "serviceEndpoints": [],
-                                "delegations": [],
-                                "privateEndpointNetworkPolicies": "Enabled",
-                                "privateLinkServiceNetworkPolicies": "Enabled"
-                            }
-                        }
-                    ],
+         "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+            "location": "TARGET REGION",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
+                "ipAddress": "52.177.6.204",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        }
+    ]
     ```
+    For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
 
-    In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
-                
-    ```json
-                 "type": "Microsoft.Network/virtualNetworks/subnets",
-                                "apiVersion": "2019-06-01",
-                                "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
-                                "dependsOn": [
-                                    "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
-                                ],
-                                "properties": {
-                                    "provisioningState": "Succeeded",
-                                    "addressPrefix": "10.0.1.0/29",
-                                    "serviceEndpoints": [],
-                                    "delegations": [],
-                                    "privateEndpointNetworkPolicies": "Enabled",
-                                    "privateLinkServiceNetworkPolicies": "Enabled"
-                                }
-                            },
-                            {
-                                "type": "Microsoft.Network/virtualNetworks/subnets",
-                                "apiVersion": "2019-06-01",
-                                "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/subnet-1')]",
-                                "dependsOn": [
-                                    "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
-                                ],
-                                "properties": {
-                                    "provisioningState": "Succeeded",
-                                    "addressPrefix": "10.0.0.0/24",
-                                    "delegations": [],
-                                    "privateEndpointNetworkPolicies": "Enabled",
-                                    "privateLinkServiceNetworkPolicies": "Enabled"
-                                }
-                            }
-                        ]
-    ```
 
-12. Save the **template.json** file.
+13. Save the **template.json** file.
 
-13. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
+14. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
 
     ```azurepowershell-interactive
 
@@ -202,7 +162,7 @@ The following steps show how to prepare the public IP for the configuration move
 
 ## Discard 
 
-After the deployment, if you wish to start over or discard the virtual network in the target, delete the resource group that was created in the target and the moved virtual network will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+After the deployment, if you wish to start over or discard the public ip in the target, delete the resource group that was created in the target and the moved virtual network will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -212,7 +172,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## Clean up
 
-To commit the changes and complete the move of the virtual network, delete the source virtual network or resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) or [Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0):
+To commit the changes and complete the move of the virtual network, delete the source virtual network or resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) or [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -222,13 +182,13 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ``` azurepowershell-interactive
 
-Remove-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resource-group-name>
+Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-name>
 
 ```
 
 ## Next steps
 
-In this tutorial, you moved an Azure Virtual Network from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+In this tutorial, you moved an Azure Public IP from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
 - [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
