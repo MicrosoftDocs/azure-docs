@@ -48,7 +48,7 @@ The Resource Graph module for PowerShell is **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Validate that the module has been imported and is the correct version (0.7.3):
+1. Validate that the module has been imported and is the latest version (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
