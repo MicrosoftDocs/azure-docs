@@ -636,7 +636,7 @@ For more info on configuring database connectivity with WildFly, see [PostgreSQL
 
 ### Use Service Bus as a message broker
 
-You can configure your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. You can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
+You can configure WildFly and your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. You can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
 
 The following steps assume you have created an App Service instance for hosting your bean, and a Service Bus Namespace and Queue. For more info, see [Quickstart: Create a Java app on Azure App Service on Linux](/azure/app-service/containers/quickstart-java) and [Quickstart: Use the Azure CLI to create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-cli). You use a similar configuration when connecting to a Service Bus Topic.
 
