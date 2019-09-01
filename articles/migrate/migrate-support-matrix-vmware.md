@@ -4,7 +4,7 @@ description: Summarizes support settings and limitations for assessment and migr
 services: backup
 author: rayne-wiselman
 manager: carmonm
-ms.service: backup
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew

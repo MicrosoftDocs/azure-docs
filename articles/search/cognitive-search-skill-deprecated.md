@@ -2,7 +2,7 @@
 title: Deprecated cognitive skills - Azure Search
 description: This page contains a list of cognitive search skills that are considered deprecated and will not be supported in the near future.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
 
 ---
@@ -427,13 +427,15 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
-   1. Folder path don't contain wildcard filter.
-   2. File name points to a single file or is `*` or `*.*`.
-   3. `rowDelimiter` must be **\n**.
-   4. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
-   5. `encodingName` is set to **utf-8**, which is the default value.
+   1. Folder path doesn't contain wildcard filter.
+   2. File name is empty, or points to a single file. If you specify wildcard file name in copy activity, it can only be `*` or `*.*`.
+   3. `rowDelimiter` is **default**, **\n**, **\r\n**, or **\r**.
+   4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
+   5. `encodingName` is left as default or set to **utf-8**.
    6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    7. `compression` can be **no compression**, **GZip**, or **Deflate**.
+
+3. If your source is a folder, `recursive` in copy activity must be set to true.
 
 ```json
 "activities":[
@@ -442,7 +444,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -454,7 +456,11 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",
@@ -527,6 +533,10 @@ When your source data has rows greater than 1 MB, you might want to vertically s
 
 Alternatively, for data with such wide columns, you can use non-PolyBase to load the data using ADF, by turning off "allow PolyBase" setting.
 
+### SQL Data Warehouse resource class
+
+To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
+
 ### PolyBase troubleshooting
 
 **Loading to Decimal column**
@@ -540,13 +550,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase settings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" is a PolyBase native configuration which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. 
 
-**Others**
-
-### SQL Data Warehouse resource class
-
-To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
-
-### **tableName** in Azure SQL Data Warehouse
+**`tableName` in Azure SQL Data Warehouse**
 
 The following table gives examples of how to specify the **tableName** property in the JSON dataset. It shows several combinations of schema and table names.
 
@@ -563,7 +567,7 @@ If you see the following error, the problem might be the value you specified for
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### Columns with default values
+**Columns with default values**
 
 Currently, the PolyBase feature in Data Factory accepts only the same number of columns as in the target table. An example is a table with four columns where one of them is defined with a default value. The input data still needs to have four columns. A three-column input dataset yields an error similar to the following message:
 
