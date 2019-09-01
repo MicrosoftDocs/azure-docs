@@ -2,7 +2,7 @@
 title: Custom cognitive search skill - Azure Search
 description: Extend capabilities of cognitive search skillsets by calling out to Web APIs
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search

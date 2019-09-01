@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
 ---
 
 # Boosted Decision Tree Regression module
@@ -84,7 +83,7 @@ The gradient boosting method can also be used for classification problems by red
 
 10. Run the experiment.  
   
-### Results
+## Results
 
 After training is complete:
 
