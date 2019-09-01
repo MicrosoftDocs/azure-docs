@@ -638,11 +638,7 @@ For more info on configuring database connectivity with WildFly, see [PostgreSQL
 
 You can configure your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. You can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
 
-<!--To use Service Bus with your bean, you must configure your Wild-->
-
-The following steps assume you have created an App Service instance for hosting your bean, and a Service Bus Namespace and Queue.
-
-<!-- more intro needed. add links to topics on creating app service, service bus, queue  -->
+The following steps assume you have created an App Service instance for hosting your bean, and a Service Bus Namespace and Queue. For more info, see [Quickstart: Create a Java app on Azure App Service on Linux](/azure/app-service/containers/quickstart-java) and [Quickstart: Use the Azure CLI to create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-cli). You use a similar configuration when connecting to a Service Bus Topic.
 
 1. Open a Bash terminal and use `export <variable>=<value>` to set each of the following environment variables.
 
@@ -656,6 +652,17 @@ The following steps assume you have created an App Service instance for hosting 
     | SB_QUEUE            | The name of your Service Bus Queue.                                        |
     | SB_SAS_POLICY       | The name of the shared access signature (SAS) policy for your queue.       |
     | SB_SAS_KEY          | The primary or secondary key for your queue's SAS policy.                  |
+
+    ```bash
+    export RESOURCEGROUP_NAME = <resource group>
+    export WEBAPP_NAME = <web app>
+    export WEBAPP_PLAN_NAME = <App Service plan>
+    export REGION = <region>
+    export DEFAULT_SBNAMESPACE = <namespace>
+    export SB_QUEUE = <queue>
+    export SB_SAS_POLICY = <SAS policy>
+    export SB_SAS_KEY = <SAS key>
+    ```
 
     You can find this information in the Azure portal. For the SAS policy and key, be sure to use the values for the queue, not for its namespace. To find these values on the Azure portal, navigate to your queue, select **Shared access policies**, and then select your SAS policy.
 
@@ -692,7 +699,11 @@ The following steps assume you have created an App Service instance for hosting 
 
 4. Create a file named *commands.cli* and add the following code.
 
+    <!-- TODO add the correct values for the first two lines -->
+
     ```console
+    /system-property=property.helloworldmdb.queue:add(value=myque)
+    /system-property=property.connection.factory:add(value=java:global/remoteJMS/SBF)
     /subsystem=ee:list-add(name=global-modules, value={"name" => "org.jboss.genericjms.provider", "slot" =>"main"}
     /subsystem=naming/binding="java:global/remoteJMS":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/home/site/deployments/tools/jndi.properties])
     /subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)
@@ -704,13 +715,9 @@ The following steps assume you have created an App Service instance for hosting 
     reload --use-current-server-config=true
     ```
 
-    This file is run by the startup script described in the next step.
-
-    <!-- It configures JMS and JNDI ... (describe more) -->
+    This file is a [Wildfly CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) script launched by the startup script described in the next step. The commands in this file configure JMS and JNDI to create a connection between your app and your Service Bus Queue.
 
 5. Create a file named *startup.sh* and add the following code.
-
-    <!-- needs env var stuff -->
 
     ```bash
     echo "Generating jndi.properties file in /home/site/deployments/tools directory"
@@ -727,11 +734,11 @@ The following steps assume you have created an App Service instance for hosting 
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli
     ```
 
+    Your App Service instance will run this script every time it starts, providing additional configuration needed by WildFly. This script copies your app dependencies to the required locations. It also generates a *jndi.properties* file that uses the environment variables shown in step 1. These values are passed to your App Service instance in a later step.
+
 6. Use FTP to upload the .jar files, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-    <!-- add env var stuff here -->
-
-7. Update your MessageListener implementation to add the following `imports` statements.
+7. Update your MessageListener implementation to add the following `import` statements:
 
     ```java
     import javax.ejb.TransactionAttribute;
@@ -742,16 +749,12 @@ The following steps assume you have created an App Service instance for hosting 
 
 8. Next, update your listener class annotations to match the following:
 
-    <!-- need to say something about initialization of the ${} values. -->
-
-    <!-- need to say something about Queue vs. Topic, and add placeholder for that in the code shown here. -->
-
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     @MessageDriven(name = "MyMessageListener", activationConfig = {
-            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
-            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.queue}"),
+            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "java:global/remoteJMS/SBF"),
+            @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:global/remoteJMS/jmstestqueue"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
             @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
     public class MyMessageListener implements MessageListener {
@@ -759,9 +762,9 @@ The following steps assume you have created an App Service instance for hosting 
     }
     ```
 
-9. Update the `azure-webapp-maven-plugin` configuration in your bean's *pom.xml* file to refer to your Service Bus account info. This file uses the environment variables you set previously to keep your account information out of your source files.
+    The `connectionFactory` and `destination` values refer to the JNDI values configured previously. The `destinationType` value is `javax.jms.Queue`, indicating that you are connecting to a Service Bus Queue instance. This value should be `javax.jms.Topic` when you connect to a Service Bus Topic.
 
-    If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+9. Update the `azure-webapp-maven-plugin` configuration in your bean's *pom.xml* file to refer to your Service Bus account info. If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
@@ -804,13 +807,17 @@ The following steps assume you have created an App Service instance for hosting 
     </plugin>
     ```
 
+    These settings configure your App Service instance so that it has the same environment variables that you set locally. It uses environment variables to keep your account information out of your source files.
+
 10. Rebuild and redeploy your app.
 
     ```bash
     mvn package -DskipTests azure-webapp:deploy
     ```
 
-Your bean is now configured to use Service Bus as the messaging mechanism.
+Your message-driven bean is now configured to use Service Bus as the messaging mechanism.
+
+For a sample that you can use to test these instructions, see the [migrate-java-ee-app-to-azure-2](https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2) repo on GitHub.
 
 <!--
 For more information, see [How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
@@ -847,6 +854,17 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
     | REDIS_PORT               | The SSL port that your Redis cache listens on.                             |
     | REDIS_PASSWORD           | The primary access key for your instance.                                  |
     | REDIS_SESSION_KEY_PREFIX | A value that you specify to identify session keys that come from your app. |
+
+    ```bash
+    export RESOURCEGROUP_NAME = <resource group>
+    export WEBAPP_NAME = <web app>
+    export WEBAPP_PLAN_NAME = <App Service plan>
+    export REGION = <region>
+    export REDIS_CACHE_NAME = <cache>
+    export REDIS_PORT = <port>
+    export REDIS_PASSWORD = <access key>
+    export REDIS_SESSION_KEY_PREFIX = <prefix>
+    ```
 
     You can find the name, port, and access key information on the Azure portal by looking in the **Properties** or **Access keys** sections of your service instance.
 
