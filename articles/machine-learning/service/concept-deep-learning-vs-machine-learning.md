@@ -1,7 +1,7 @@
 ---
 title: 'Deep learning vs. machine learning'
 titleSuffix: Azure Machine Learning service
-description: Learn about the relationship between deep learning and machine learning and how both concepts relate to artificial intelligence. Deep learning can be applied in scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
+description: Learn about deep learning vs. machine learning and how both concepts relate to artificial intelligence. Deep learning can be applied in scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,13 +13,13 @@ ms.date: 08/07/2019
 
 # Deep learning vs. machine learning
 
-This article helps you understand the relationship between deep learning and machine learning. You'll learn how the two concepts compare and how they fit into the broader category of artificial intelligence. The article also describes how deep learning can be applied to real-world scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
+This article helps you compare deep learning vs. machine learning. You'll learn how the two concepts compare and how they fit into the broader category of artificial intelligence. The article also describes how deep learning can be applied to real-world scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
 
 ## Deep learning, machine learning, and AI
 
 ![Relationship diagram: AI vs. machine learning vs. deep learning](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-Deep learning, machine learning, and AI are related fields of study:
+Consider the following definitions to understand deep learning vs. machine learning vs. AI:
 
 - **Deep learning** is a subset of machine learning that's based on artificial neural networks. The _learning process_ is _deep_ because the structure of artificial neural networks consists of multiple input, output, and hidden layers. Each layer contains units that transform the input data into information that the next layer can use for a certain predictive task. Thanks to this structure, a machine can learn through its own data processing.
 
@@ -101,9 +101,9 @@ Convolutional neural networks have been used in areas such as image recognition 
 
 ## Next steps
 
-The following articles show you how to use deep learning technology in the [Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service):
+The following articles show you how to use deep learning technology in the [Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
 
-- [Classify handwritten digits by using a TensorFlow model](how-to-train-tensorflow.md)
-- [Classify handwritten digits by using a TensorFlow estimator and Keras](how-to-train-keras.md)
-- [Classify images by using a Pytorch model](how-to-train-pytorch.md)
-- [Classify handwritten digits by using a Chainer model](how-to-train-pytorch.md)
+- [Classify handwritten digits by using a TensorFlow model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+- [Classify handwritten digits by using a TensorFlow estimator and Keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+- [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzerihow-to-train-pytorch.md)
