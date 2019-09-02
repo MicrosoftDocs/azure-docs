@@ -1,5 +1,5 @@
 ---
-title: Azure data factory mapping data flow JSON concepts
+title: Azure Data Factory Mapping Data Flow JSON concepts
 description: Data Factory Mapping Data Flow has built-in capabilities for handling JSON documents with hierarchies
 author: kromerm
 ms.author: makromer
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ---
 
-# Mapping data flow JSON handling
+# Mapping Data Flow JSON handling
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ## Creating JSON structures in expression editor
-### Derived Column Transformation
+### Derived column transformation
 Adding a complex column to your data flow is easier through the derived column expression editor. After adding a new column and opening the editor, there are two options: enter the JSON structure manually or use the UI to add subcolumns interactively.
 
-#### Interactive UI JSON Design
+#### Interactive UI JSON design
 From the output schema side pane, new subcolumns can be added using the `+` menu:
 ![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
 
@@ -24,7 +24,7 @@ From there, new columns and subcolumns can be added in the same way. For each no
 
 ![Complex column](media/data-flow/complexcolumn.png "Complex column")
 
-#### Manual JSON Design
+#### Manual JSON design
 To manually add a JSON structure, add a new column and enter the expression in the editor. The expression follows the following general format:
 ```
 @(
@@ -46,7 +46,7 @@ If this expression were entered for a column named "complexColumn" then it would
 }
 ```
 
-#### Sample Manual DSL
+#### Sample manual DSL
 ```
 @(
 	title=Title,
@@ -72,7 +72,7 @@ If this expression were entered for a column named "complexColumn" then it would
 )
 ```
 
-## Source Format Options
+## Source format options
 ### Default
 ```
 { "json": "record 1" }
@@ -190,6 +190,6 @@ contains([1, 2, 3, 4], #item == 3) => true
 contains([1, 2, 3, 4], #item > 5) => false
 ```
 
-## Next Steps
+## Next steps
 
 * [Use the Derived Column transformation to build your hierarchical structures](data-flow-derived-column.md)
