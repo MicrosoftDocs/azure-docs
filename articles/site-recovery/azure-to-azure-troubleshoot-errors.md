@@ -12,7 +12,7 @@ ms.author: asgang
 ---
 # Troubleshoot Azure-to-Azure VM replication errors
 
-This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
+This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines (VMs) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
 ## List of errors
 
@@ -22,51 +22,53 @@ This article describes how to troubleshoot common errors in Azure Site Recovery 
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure resource quota issues (error code 150097)
 
-Make sure that your subscription is enabled to create Azure VMs in the target region that you plan to use as your disaster-recovery region. Also make sure that your subscription has sufficient quota to create VMs of the necessary sizes. By default, Site Recovery chooses the same size for the target VM as the source VM has. If the matching size isn't available, Site Recovery automatically chooses the closest available size. 
+Make sure your subscription is enabled to create Azure VMs in the target region that you plan to use as your disaster-recovery region. Also make sure your subscription has sufficient quota to create VMs of the necessary sizes. By default, Site Recovery chooses a target VM size that's the same as the source VM size. If the matching size isn't available, Site Recovery automatically chooses the closest available size.
 
 If there's no size that supports the source VM configuration, this error message appears:
 
-- **Replication couldn't be enabled for the virtual machine *VmName*.**
+> "Replication couldn't be enabled for the virtual machine *VmName*."
 
 ### Possible causes
 
 - Your subscription ID isn't enabled to create any VMs in the target region location.
 - Your subscription ID isn't enabled, or doesn't have sufficient quota, to create specific VM sizes in the target region location.
-- A suitable target VM size that matches the source VM NIC count (2) isn't found for the subscription ID in the target region location.
+- No suitable target VM size is found to match the source VM's network interface card (NIC) count (2), for the subscription ID in the target region location.
 
 ### Fix the problem
 
-Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of required sizes in the target location. After it's enabled, retry the failed operation.
+Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
 
-If the target location has a capacity constraint, disable replication and enable it to a different location where your subscription has sufficient quota to create VMs of the required sizes.
+If the target location has a capacity constraint, disable replication to it. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
 ## <a name="trusted-root-certificates-error-code-151066"></a>Trusted root certificates (error code 151066)
 
-If not all the latest trusted-root certificates are present on the VM, your "enable replication" Site Recovery job might fail. Without the certificates, the authentication and authorization of Site Recovery service calls from the VM fail. If the "enable replication" job fails, this error message appears:
+If not all the latest trusted root certificates are present on the VM, your "enable replication" Site Recovery job might fail. Authentication and authorization of Site Recovery service calls from the VM fail without these certificates. 
 
-- **Site Recovery configuration failed.**
+If the "enable replication" job fails, this error message appears:
+
+> "Site Recovery configuration failed."
 
 ### Possible cause
 
-The trusted-root certificates required for authorization and authentication aren't present on the virtual machine.
+The trusted root certificates required for authorization and authentication aren't present on the virtual machine.
 
 ### Fix the problem
 
-**Windows**
+#### Windows
 
-For a VM running the Windows operating system, ensure that the trusted root certificates are present on the machine. For information, see  [Configure trusted roots and disallowed certificates](https://technet.microsoft.com/library/dn265983.aspx).
+For a VM running the Windows operating system, install all the latest Windows updates on the VM so that all the trusted root certificates are present on the machine. Follow the typical Windows update-management or certificate update-management process in your organization to get all the latest root certificates and the updated certificate-revocation list on the VMs.
 
-Install all the latest Windows updates on the VM so that all the trusted root certificates are present on the machine. If you're in a disconnected environment, follow the standard Windows update process in your organization to get the certificates. If the required certificates aren't present on the VM, the calls to the Site Recovery service fail for security reasons.
-
-Follow the typical Windows update management or certificate update management process in your organization to get all the latest root certificates and the updated certificate revocation list on the VMs.
+If you're in a disconnected environment, follow the standard Windows update process in your organization to get the certificates. If the required certificates aren't present on the VM, the calls to the Site Recovery service fail for security reasons.
 
 To verify that the issue is resolved, go to login.microsoftonline.com from a browser in your VM.
 
+For more information, see  [Configure trusted roots and disallowed certificates](https://technet.microsoft.com/library/dn265983.aspx).
+
 **Linux**
 
-Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate revocation list on the VM.
+Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate-revocation list on the VM.
 
-Because SuSE Linux uses symlinks to maintain a certificate list, follow these steps:
+Because SuSE Linux uses symbolic links (or *symlinks*) to maintain a certificate list, follow these steps:
 
 1. Sign in as a root user.
 
@@ -78,7 +80,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
     **# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
 
-1. If the Symantec root CA certificate is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
+1. If the Symantec root CA certificate is not found, run the following command to download the file. Check for any errors and follow recommended actions for network failures.
 
     **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
 
@@ -162,72 +164,76 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 For Site Recovery replication to work, outbound connectivity is required from the VM to specific URLs or IP ranges. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register the Azure virtual machine with Site Recovery (151195)
 
 #### Possible cause 
 
-Connection cannot be established to Site Recovery endpoints due to DNS resolution failure.
+The connection to Site Recovery endpoints can't be established because of a DNS resolution failure.
 
-This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
+This problem happens most frequently during reprotection, when you have failed over the virtual machine but the DNS server is not reachable from the disaster-recovery (DR) region.
 
-#### Resolution
+#### Fix the problem
 
-If you're using custom DNS then make sure that the DNS server is accessible from the Disaster Recovery region. To check if you have a custom DNS go to the VM> Disaster Recovery network> DNS servers. Try accessing the DNS server from the virtual machine. If it is not accessible then make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
+If you're using a custom DNS, make sure that the DNS server is accessible from the disaster-recovery region. To find out whether you have a custom DNS, on the VM, go to ***disaster recovery network*** > **DNS servers**.
 
 ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+
+Try accessing the DNS server from the virtual machine. If the server is not accessible, make it accessible either by failing over the DNS server or by creating the line of site between the DR network and the DNS.
 
 ### Issue 2: Site Recovery configuration failed (151196)
 
 #### Possible cause
 
-Connection cannot be established to Office 365 authentication and identity IP4 endpoints.
+The connection to Office 365 authentication and identity IP4 endpoints can't be established.
 
-#### Resolution
+#### Fix the problem
 
-Azure Site Recovery required access to Office 365 IPs ranges for authentication.
-If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
-If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
+Site Recovery requires access to Office 365 IP ranges for authentication.
+If you're using Azure network security group (NSG) rules or firewall proxy to control outbound network connectivity on the VM, be sure you allow communication to Office 365 IP ranges. Create an NSG rule based on an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags), allowing access to all IP addresses corresponding to Azure AD. If new addresses are added to Azure AD in the future, you must create new NSG rules.
 
 > [!NOTE]
-> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.microsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article](https://aka.ms/lboutboundrulescli).
+> If VMs are behind a *Standard* internal load balancer, the load balancer by default does not have access to Office 365 IP ranges (that is, login.microsoftonline.com). Either change the internal load balancer type to *Basic* or create outbound access as described in the article [Configure load balancing and outbound rules](https://aka.ms/lboutboundrulescli).
 
 ### Issue 3: Site Recovery configuration failed (151197)
 
 #### Possible cause
 
-Connection cannot be established to Azure Site Recovery service endpoints.
+The connection can't be established to Site Recovery service endpoints.
 
-#### Resolution
+#### Fix the problem
 
-Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
+Site Recovery requires access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), depending on the region. Make sure that the required IP ranges are accessible from the virtual machine.
 
-### Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
+### Issue 4: Azure-to-Azure replication failed when the network traffic goes through an on-premises proxy server (151072)
 
 #### Possible cause
 
-The custom proxy settings are invalid and Azure Site Recovery Mobility Service agent did not auto-detect the proxy settings from IE
+The custom proxy settings are invalid, and the Site Recovery Mobility Service agent did not auto-detect the proxy settings from Internet Explorer.
 
-#### Resolution
+#### Fix the problem
 
-1. Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
-1. If you prefer to set proxy only for Azure Site Recovery Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:
+The Mobility Service agent detects the proxy settings from Internet Explorer on Windows and from /etc/environment on Linux.
 
-    - ``/usr/local/InMage/config/`` on ***Linux***
-    - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+If you prefer to set the proxy only for the Mobility Service, you can provide the proxy details in the ProxyInfo.conf file in these locations:
 
-1. The ProxyInfo.conf should have the proxy settings in the following INI format.
+- **Linux**: /usr/local/InMage/config/
+- **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config
 
-    *[proxy]*
+In ProxyInfo.conf, provide the proxy settings in the following initialization-file format:
 
-    *Address=http://1.2.3.4*
+> [*proxy*]
 
-    *Port=567*
+> Address=*http://1.2.3.4*
 
-1. Azure Site Recovery Mobility Service agent supports only ***un-authenticated proxies***.
+> Port=*567*
+
+
+> [!NOTE]
+> Azure Site Recovery Mobility Service agent supports only *un-authenticated proxies*.
 
 ### More information
 
-To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+To specify [required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the guidance in [About networking in Azure to Azure replication](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## Disk not found in the machine (error code 150039)
 
@@ -299,9 +305,9 @@ You can ignore this warning if you never intend to protect this virtual machine 
 1. Provide the subscription ID, VM Resource Group and VM name as a parameter.
 1. If asked Azure credentials, please provide that and  check that the script gets executed without any failures. 
 
-## Replication cannot be enabled because of the existing stale resource links on the VM (error code 150226)
+## Replication can't be enabled because of the existing stale resource links on the VM (error code 150226)
 
-### Cause 
+### Cause
 
 Virtual machine has stale configuration left from previous Site Recovery protection**
 
