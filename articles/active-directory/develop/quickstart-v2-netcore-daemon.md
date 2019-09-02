@@ -140,7 +140,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 If you're using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
 
 ```console
-cd {ProjectFolder}\daemon-console\
+cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
@@ -161,7 +161,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
 ```
 
 Alternatively, if you are not using Visual Studio, you can run the following command to add MSAL to your project:
