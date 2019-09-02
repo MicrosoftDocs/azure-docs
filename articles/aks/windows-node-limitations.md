@@ -28,11 +28,19 @@ This article outlines some of the limitations and OS concepts for Windows Server
 
 AKS uses Windows Server 2019 as the host OS version and only supports process isolation. Container images built using other Windows Server versions are not supported. [Windows container version compatibility][windows-container-compat]
 
-## Is Kubernetes on Windows any different than on Linux?
+## Is Kubernetes different on Windows and Linux?
 
 Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see the [Supported Functionality and Limitations][upstream-limitations] section of the [Intro to Windows support in Kubernetes][intro-windows] document, from the Kubernetes project.
 
-## What kind of disks are supported for Windows Server containers?
+Kubernetes is historically Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS-level apply:
+
+- **Identity** - Linux uses userID (UID) and groupID (GID), represented as integer types. User and group names are not canonical - they are just an alias in */etc/groups* or */etc/passwd* back to UID+GID.
+    - Windows Server uses a larger binary security identifier (SID) which is stored in the Windows Security Access Manager (SAM) database. This database is not shared between the host and containers, or between containers.
+- **File permissions** - Windows Server uses an access control list based on SIDs, rather than a bitmask of permissions and UID+GID
+- **File paths** - convention on Windows Server is to use \ instead of /.
+    - In pod specs that mount volumes, specify the path correctly for Windows Server containers. For example, rather than a mount point of */mnt/volume* in a Linux container, specify a drive letter and location such as */K/Volume* to mount as the *K:* drive.
+
+## What kind of disks are supported for Windows?
 
 Azure Disks and Azure Files are the supported volume types, accessed as NTFS volumes in the Windows Server container.
 
@@ -44,11 +52,11 @@ The master nodes (the control plane) in an AKS cluster are hosted by AKS the ser
 
 AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
 
-## Can I change the minimum number of pods per node below 30?
+## Can I change the min. # of pods per node?
 
-No, this is currently a requirement to ensure the reliability of your clusters.
+It is currently a requirement to be set to a minimum of 30 pods to ensure the reliability of your clusters.
 
-## How do I keep my Windows nodes up to date with patches?
+## How do patch my Windows nodes?
 
 Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and updates. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, it is the customers responsibility to upgrade node pools to stay current on patches and hotfix. This is also true for the Kubernetes version being used. AKS release notes will indicate when new versions are available. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
@@ -60,11 +68,11 @@ Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and
 
 The AKS cluster can have a maximum of eight (8) node pools. You can have a maximum of 400 nodes across those node pools. [Node pool limitations][nodepool-limitations].
 
-## Can't I use more than 6 (six) characters in a Windows node pool name?
+## What can I name my Windows node pools?
 
-No, this is a current limitation of AKS.
+You have to keep the name to a maximum of 6 (six) characters. This is a current limitation of AKS.
 
-## Are all AKS features supported with Windows nodes?
+## Are all features supported with Windows nodes?
 
 Network policies and kubenet are currently not supported with Windows nodes. 
 
@@ -80,19 +88,9 @@ Azure Dev Spaces is currently only available for Linux-based node pools.
 
 Group managed service accounts (gMSA) support is not currently available in AKS.
 
-## What if I need a Windows Server container feature which is not support by AKS?
+## What if I need a feature which is not supported?
 
 We work hard to bring all the features you need to Windows in AKS, but if you do encounter gaps, the open-source, upstream [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. Please make sure to check out our roadmap of features coming [AKS roadmap][aks-roadmap].
-
-## Are there specific OS concepts that are different between Linux and Windows, in relationship to AKS?
-
-Kubernetes is historically Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS-level apply:
-
-- **Identity** - Linux uses userID (UID) and groupID (GID), represented as integer types. User and group names are not canonical - they are just an alias in */etc/groups* or */etc/passwd* back to UID+GID.
-    - Windows Server uses a larger binary security identifier (SID) which is stored in the Windows Security Access Manager (SAM) database. This database is not shared between the host and containers, or between containers.
-- **File permissions** - Windows Server uses an access control list based on SIDs, rather than a bitmask of permissions and UID+GID
-- **File paths** - convention on Windows Server is to use \ instead of /.
-    - In pod specs that mount volumes, specify the path correctly for Windows Server containers. For example, rather than a mount point of */mnt/volume* in a Linux container, specify a drive letter and location such as */K/Volume* to mount as the *K:* drive.
 
 ## Next steps
 
@@ -115,4 +113,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [preview-support]: support-policies.md#preview-features-or-feature-flags
-[windows-container-compat]: https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#windows-server-2019-host-os-compatibility
+[windows-container-compat]: https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#windows-server-2019-host-os-compatibility
