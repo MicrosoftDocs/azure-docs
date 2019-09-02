@@ -115,8 +115,8 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | **logs**| Complex Type| The name of a diagnostic-log category for a resource type. To get the list of diagnostic-log categories for a resource, perform a GET diagnostic-settings operation. |
 | **category**| String| An array of log categories and their retention policies. |
 | **timeGrain** | String | The granularity of metrics, which are captured in ISO 8601 duration format. The property value must be `PT1M`, which specifies one minute. |
-| **enabled**| Boolean | Specifies whether collection of the metric or log category is enabled for this resource.|
-| **retentionPolicy**| Complex Type| Describes the retention policy for a metric or log category. This property is used for storage accounts only.|
+| **enabled**| Boolean | Specifies whether collection of the metric or log category is enabled for this resource. |
+| **retentionPolicy**| Complex Type| Describes the retention policy for a metric or log category. This property is used for storage accounts only. |
 |**days**| Int| The number of days to keep the metrics or logs. If the property value is 0, the logs are kept forever. This property is used for storage accounts only. |
 
 ##### Response
@@ -283,7 +283,7 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 
 | Property | Type | Description | Example |
 | --- | --- | --- | --- |
-| **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4`  |
+| **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4` |
 | **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| String| The ID of the activity run. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
@@ -329,16 +329,16 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 
 | Property | Type | Description | Example |
 | --- | --- | --- | --- |
-| **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4`  |
+| **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4` |
 | **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| String| The ID of the pipeline run. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | The ID associated with the data-factory resource. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | The category of the diagnostic logs. Set the property value to `PipelineRuns`. | `PipelineRuns` |
 |**level**| String | The level of the diagnostic logs. Set the property value to `Informational`. | `Informational` |
-|**operationName**| String | The name of the pipeline along with its status. After the pipeline run is finished, the property value is `Pipeline - Succeeded`.| `MyPipeline - Succeeded`. |
+|**operationName**| String | The name of the pipeline along with its status. After the pipeline run is finished, the property value is `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
 |**pipelineName**| String | The name of the pipeline. | `MyPipeline` |
-|**start**| String | The start time of the activity runs in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`.|
+|**start**| String | The start time of the activity runs in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`. |
 |**end**| String | The end time of the activity runs in timespan UTC format. If the diagnostic log shows an activity has started but not yet ended, the property value is `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 |**status**| String | The final status of the pipeline run. Possible property values are `Succeeded` and `Failed`. | `Succeeded`|
 
@@ -373,14 +373,14 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 
 | Property | Type | Description | Example |
 | --- | --- | --- | --- |
-| **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4`  |
+| **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4` |
 | **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| String| The ID of the trigger run. | `08587023010602533858661257311` |
 |**resourceId**| String | The ID associated with the data-factory resource. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | The category of the diagnostic logs. Set the property value to `PipelineRuns`. | `PipelineRuns` |
 |**level**| String | The level of the diagnostic logs. Set the property value to `Informational`. | `Informational` |
-|**operationName**| String | The name of the trigger with its final status, which indicates whether the trigger successfully fired. If the heartbeat was successful, the property value is `MyTrigger - Succeeded`.| `MyTrigger - Succeeded` |
+|**operationName**| String | The name of the trigger with its final status, which indicates whether the trigger successfully fired. If the heartbeat was successful, the property value is `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
 |**triggerName**| String | The name of the trigger. | `MyTrigger` |
 |**triggerType**| String | The type of the trigger. Possible property values are `Manual Trigger` and `Schedule Trigger`. | `ScheduleTrigger` |
 |**triggerEvent**| String | The event of the trigger. | `ScheduleTime - 2017-07-06T01:50:25Z` |
@@ -463,7 +463,7 @@ Create or add diagnostic settings for your data factory.
 After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
 
 > [!NOTE]
-> Because an Azure log table can't having more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Because an Azure log table can't have more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
 ### Install Azure Data Factory Analytics from Azure Marketplace
 
