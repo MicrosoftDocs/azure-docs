@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
 ---
-# Alert and monitor data factories using Azure Monitor
+# Alert and monitor data factories by using Azure Monitor
 
 Cloud applications are complex and have many moving parts. Monitors provide data to help ensure that your applications stay up and running in a healthy state. Monitors also help you avoid potential problems and troubleshoot past ones.
 
