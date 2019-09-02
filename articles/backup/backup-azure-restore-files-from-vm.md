@@ -7,7 +7,7 @@ manager: carmonm
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
 ---
 # Recover files from Azure virtual machine backup
