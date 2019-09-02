@@ -114,10 +114,10 @@ If you need to deploy a scale-out process server, this table can help you to fig
 
  VMware traffic that replicates to Azure goes through a specific process server. You can limit upload throughput by throttling bandwidth on the machines that are running as process servers. You can influence bandwidth using this registry key:
 
-- The HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth that's used for replication.
+- The HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth that's used for replication. The default value is four. The maximum value is 32. Monitor traffic to optimize the value.
 - In addition, you can throttle bandwidth on the process server machine as follows:
 
-    1. On the process server machine, open the Azure Backup MMC snap-in. There's a shortcut on the desktop or in the folder C:\Program Files\Microsoft Azure Recovery Services Agent\bin. The default value is four. The maximum value is 32. Monitor traffic to optimize the value.
+    1. On the process server machine, open the Azure Backup MMC snap-in. There's a shortcut on the desktop or in the folder C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
     2. In the snap-in, select **Change Properties**.
     3. In **Throttling**, select **Enable internet bandwidth usage throttling for backup operations**. Set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 1,023 Mbps.
 
