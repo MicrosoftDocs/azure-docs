@@ -45,6 +45,9 @@ Follow the steps below to access the managed version of the portal.
 1. Go to your API Management service instance in the Azure portal.
 1. Click on the **New developer portal (preview)** button in the top navigation bar. A new browser tab with an administrative version of the portal will open. If you're accessing the portal for the first time, the default content will be automatically provisioned.
 
+> [!NOTE]
+> New developer portal needs to be published explicitly, if the API Management Service is in Internal VNET.
+
 ## <a name="managed-tutorial"></a> Edit and customize the managed version of the portal
 
 In the video below we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
