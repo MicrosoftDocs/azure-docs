@@ -140,7 +140,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 If you're using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
 
 ```console
-cd {ProjectFolder}\daemon-console
+cd {ProjectFolder}\daemon-console\
 dotnet run
 ```
 
@@ -216,8 +216,15 @@ For more information, please see the [reference documentation for `AcquireTokenF
 
 ## Next steps
 
+To learn more about daemon applications, see the scenario landing page
+
 > [!div class="nextstepaction"]
-> [.NET Core daemon sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Daemon application that calls web APIs](scenario-daemon-overview.md)
+
+For the daemon application tutorial, see:
+
+> [!div class="nextstepaction"]
+> [Daemon .NET Core console tutorial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Learn more about permissions and consent:
 
@@ -228,9 +235,6 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 client cre
 
 > [!div class="nextstepaction"]
 > [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)
-
-> [!div class="nextstepaction"]
-> [Client credential flows with MSAL.NET](https://aka.ms/msal-net-client-credentials)
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
