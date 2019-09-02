@@ -26,20 +26,20 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 
 ## Onboarding the Microsoft Security Code Analysis extension
 
-- If you have one of the following support offerings, contact your Technical Account Manager to purchase or swap existing hours to get access to the extension.
+- If you have one of the following support offerings, contact your Technical Account Manager to purchase or swap existing hours to get access to the extension:
    - Unified Support Advanced tier
    - Unified Support Performance tier
    - Premier Support for Developers
    - Premier Support for Partners
    - Premier Support for Enterprise
-- If you have one of the following support services or have no Microsoft support plan, you must upgrade to an eligible support offering.
+- If you have one of the following support services or have no Microsoft support plan, you must upgrade to an eligible support offering:
    - Azure Support for Partners
    - Azure Basic Support
    - Azure Developer Support
    - Azure Standard Support
    - Azure Professional Direct
    - Unified Support Core tier
-- To purchase an eligible support offering, go to our [support services home page](https://www.microsoft.com/enterprise/services/support)
+- To purchase an eligible support offering, go to our [support services home page](https://www.microsoft.com/enterprise/services/support).
 - After a support contract is in place, contact your Technical Account Manager to help get you started and to help you collect all the required details.
 
 >[!NOTE]
@@ -50,11 +50,11 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 1. After the extension is shared with your Azure DevOps organization, go to your Azure DevOps organization page. An example URL for such a page is http://dev.azure.com/contoso.
 1. Select the shopping bag icon in the upper-right corner next to your name, then select **Manage extensions**.
 1. Select the Microsoft Security Code Analysis extension, then open the Azure DevOps UI wizard to start installation.
-1. From the drop-down. choose the Azure DevOps organization to install the extension on.
-1. Select **Install**. After installation is complete, you can start using the extension
+1. From the drop-down list, choose the Azure DevOps organization to install the extension on.
+1. Select **Install**. After installation is complete, you can start using the extension.
 
 >[!NOTE]
-> Even if you don't have access, continue with the installation steps. You can request access from your Azure DevOps organization admin during the installation process.
+> Even if you don't have access for installing the extension, continue with the installation steps. You can request access from your Azure DevOps organization admin during the installation process.
 
 After you install the extension, the secure development build tasks are visible and available to add to your Azure pipelines.
 
@@ -62,7 +62,7 @@ After you install the extension, the secure development build tasks are visible 
 
 1. From your Azure DevOps organization, open your team project.
 1. Select **Pipelines** > **Builds**.
-1. Select the pipeline into which you want to add the extension build tasks.
+1. Select the pipeline into which you want to add the extension build tasks:
    - New pipeline: Select **New** and follow the steps detailed to create a new pipeline.
    - Edit pipeline: Select an existing pipeline and then select **Edit** to begin editing the pipeline.
 1. Select **+** and go to the **Add Tasks** pane.
@@ -78,7 +78,7 @@ After you install the extension, the secure development build tasks are visible 
 > - Always select **Continue on Error** for secure-development build tasks. Even if one tool fails, the others can run. There are no interdependencies among tools.
 > - Microsoft Security Code Analysis build tasks fail only if a tool fails to run successfully. But they succeed even if a tool identifies issues in the code. By using the Post-Analysis build task, you can configure your build to fail when a tool identifies issues in the code.
 > - Some Azure DevOps build tasks are not supported when run via a release pipeline. More specifically, Azure DevOps doesn't support tasks that publish artifacts from within a release pipeline.
-> - For a list of predefined variables in Azure DevOps Team Build that you can specify as parameters, see [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts)
+> - For a list of predefined variables in Azure DevOps Team Build that you can specify as parameters, see [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
 ## Next steps
 

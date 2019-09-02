@@ -60,7 +60,7 @@ The Anti-Malware Scanner build task is now included in the Microsoft Security Co
 
 ### BinSkim
 
-BinSkim is a Portable Executable (PE) lightweight scanner that validates compiler settings, linker settings, and other security-relevant characteristics of binary files. This build task provides a command-line wrapper around the binskim.exe console application. BinSkim is an open-source tool. For more information, see [BinSkim on GitHub](https://github.com/Microsoft/binskim)
+BinSkim is a Portable Executable (PE) lightweight scanner that validates compiler settings, linker settings, and other security-relevant characteristics of binary files. This build task provides a command-line wrapper around the binskim.exe console application. BinSkim is an open-source tool. For more information, see [BinSkim on GitHub](https://github.com/Microsoft/binskim).
 
 ### Credential Scanner
 

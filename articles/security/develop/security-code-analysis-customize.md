@@ -28,7 +28,7 @@ This article describes in detail the configuration options available in each of 
 
 Details of task configuration are shown in the following screenshot and text.
 
-![Configuring the Anti-Malware Scanner build task](./media/security-tools/5-add-anti-malware-task600.png) 
+![Configuring the Anti-Malware Scanner build task](./media/security-tools/5-add-anti-malware-task600.png)
 
 In the **Type** list box of the screenshot, **Basic** is selected. Select **Custom** to provide command-line arguments that customize the scan.
 
@@ -48,10 +48,10 @@ Details of task configuration are shown in the following screenshot and list.
 ![Configuring the BinSkim build task](./media/security-tools/7-binskim-task-details.png)
 
 - Set the build configuration to Debug so that .pdb debug files are produced. BinSkim uses these files to map issues in the output binaries back to source code.
-- To avoid researching and creating your own command line: 
+- To avoid researching and creating your own command line:
      - In the **Type** list, select **Basic**.
      - In the **Function** list, select **Analyze**.
-- In **Target**, enter one or more specifiers for a file, directory, or filter pattern. These specifiers resolve to one or more binaries to be analyzed.
+- In **Target**, enter one or more specifiers for a file, directory, or filter pattern. These specifiers resolve to one or more binaries to be analyzed:
     - Multiple specified targets must be separated by a semicolon (;).
     - A specifier can be a single file or contain wildcards.
     - Directory specifications must always end with \\*.
@@ -61,7 +61,7 @@ Details of task configuration are shown in the following screenshot and list.
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
 
-- If you select **Command Line** in the **Type** list, you need to run binskim.exe.
+- If you select **Command Line** in the **Type** list, you need to run binskim.exe:
      - Make sure the first arguments to binskim.exe are the verb **analyze** followed by one or more path specifications. Each path can be either a full path or a path relative to the source directory.
      - Multiple target paths must be separated by a space.
      - You can omit the **/o** or **/output** option. The output value is added for you or replaced.
@@ -73,7 +73,7 @@ Details of task configuration are shown in the following screenshot and list.
           > [!NOTE]
           > The trailing \\* is important if you specify directories for the target.
 
-For more information on BinSkim command-line arguments, rules by ID, or exit codes, see the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md)
+For more information on BinSkim command-line arguments, rules by ID, or exit codes, see the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
 ## Credential Scanner task
 
@@ -87,10 +87,10 @@ Available options include:
   - **Tool Version**: We recommend you select **Latest**.
   - **Scan Folder**: The repository folder to be scanned.
   - **Searchers File Type**: The options for locating the searchers file that is used for scanning.
-  - **Suppressions File**: A [JSON](https://json.org/) file can suppress issues in the output log. For more information, see the Resources section.
+  - **Suppressions File**: A [JSON](https://json.org/) file can suppress issues in the output log. For more information about suppression scenarios, see the FAQ section of this article.
   - **Verbose Output**: Self-explanatory.
   - **Batch Size**: The number of concurrent threads used to run Credential Scanner. The default value is 20. Possible values range from 1 through 2,147,483,647.
-  - **Match Timeout**: The amount of time to spend attempting a searcher match before abandoning the check.
+  - **Match Timeout**: The amount of time in seconds to spend attempting a searcher match before abandoning the check.
   - **File Scan Read Buffer Size**: The size in bytes of the buffer used while content is read. The default value is 524,288.  
   - **Maximum File Scan Read Bytes**: The maximum number of bytes to read from a file during content analysis. The default value is 104,857,600.
   - **Control Options** > **Run this task**: Specifies when the task will run. Select **Custom conditions** to specify more complex conditions.
@@ -99,7 +99,7 @@ Available options include:
 ## Microsoft Security Risk Detection task
 
 > [!NOTE]
-> You must create and configure an account with the Microsoft Security Risk Detection (MSRD) service before using the MSRD task. This service requires a separate onboarding process. Unlike most other tasks in this extension, this task isn't plug-and-play.
+> You must create and configure an account with the Microsoft Security Risk Detection (MSRD) service before using the MSRD task. This service requires a separate onboarding process. Unlike most other tasks in this extension, this task requires a separate subscription with MSRD.
 >
 > Please refer to [Microsoft Security Risk Detection](https://aka.ms/msrddocs) and [Microsoft Security Risk Detection: How To](https://docs.microsoft.com/security-risk-detection/how-to/) for instructions.
 
@@ -171,7 +171,7 @@ Details of task configuration are shown in the following screenshot and list.
 ![Configuring the Publish Security Analysis Logs build task](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
 - **Artifact Name**: Any string identifier.
-- **Artifact Type**: Depending on your selection, you can publish logs to the Azure DevOps server or to a shared file that is accessible to the build agent.
+- **Artifact Type**: Depending on your selection, you can publish logs to your Azure DevOps server or to a shared file that is accessible to the build agent.
 - **Tools**: You can choose to preserve logs for specific tools, or you can select **All Tools** to preserve all logs.
 
 ## Security Report task

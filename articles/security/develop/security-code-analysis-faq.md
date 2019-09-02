@@ -20,7 +20,7 @@ Got questions? Check out the following FAQ for more information.
 
 ## General FAQ
 
-### Can I install the extension on my Visual Studio Team Foundation Server (not Azure DevOps) instance? 
+### Can I install the extension on my Visual Studio Team Foundation Server instance instead of on an Azure DevOps instance?
 
 No. The extension isn't available for downloading and installation for Visual Studio Team Foundation Server.
 
@@ -117,7 +117,7 @@ The hash key of the secret from the CredScan output file is required as shown in
 
 ##### To suppress all secrets in a specified file or to suppress the secrets file itself
 
-The file expression can be a file name. It can also be any postfix portion of a full file path or a file name. Wildcards are not supported.
+The file expression can be a file name. It can also be the basename part of a full file path or a file name. Wildcards are not supported.
 
 The following examples show how to suppress the file \<InputPath>\src\JS\lib\angular.js
 
@@ -170,7 +170,7 @@ Credential Scanner relies on a set of content searchers that are commonly define
 A content searcher is defined as follows:
 
 - **Name**: The descriptive searcher name to be used in Credential Scanner output files. We recommended you use the camel-case naming convention for searcher names.
-- **RuleId**: The stable opaque ID of the searcher.
+- **RuleId**: The stable opaque ID of the searcher:
     - A Credential Scanner default searcher is assigned a **RuleId** value like CSCAN0010, CSCAN0020, or CSCAN0030. The last digit is reserved for potentially merging or dividing searcher groups via regular expressions (regex).
     - The **RuleId** value for a customized searcher should have its own namespace. Examples include CSCAN-\<Namespace\>0010, CSCAN-\<Namespace\>0020, and CSCAN-\<Namespace\>0030.
     - A fully qualified searcher name is the combination of a **RuleId** value and a searcher name. Examples include CSCAN0010.KeyStoreFiles and CSCAN0020.Base64EncodedCertificate.
