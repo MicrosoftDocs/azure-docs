@@ -16,7 +16,7 @@ ms.date: 12/11/2018
 ms.author: shlo
 
 ---
-# Alert and monitor data factories by using Azure Monitor
+# Alert and monitor data factories using Azure Monitor
 
 Cloud applications are complex and have many moving parts. Monitors provide data to help ensure that your applications stay up and running in a healthy state. Monitors also help you avoid potential problems and troubleshoot past ones.
 
@@ -538,7 +538,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 1. Define the action group.
 
-    ![Create a rule, with New Action group highlighted](media/monitor-using-azure-monitor/alerts_image9.png)
+    ![ Create a rule, with New Action group highlighted](media/monitor-using-azure-monitor/alerts_image9.png)
 
     ![Create a new action group](media/monitor-using-azure-monitor/alerts_image10.png)
 
