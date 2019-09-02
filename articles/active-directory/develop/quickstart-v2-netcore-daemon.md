@@ -36,9 +36,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> You have two options to start your quickstart application:
-> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> You have two options to start your quickstart application: Express (Option 1 below), and Manual (Option 2)
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
@@ -77,12 +75,12 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 
 #### Step 2: Download your Visual Studio project
 
-[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 #### Step 3: Configure your Visual Studio project
 
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-1. Open the solution in Visual Studio - **daemon-console.sln** (optional).
+1. Open the solution in Visual Studio - **1-Call-MSGraph\daemon-console.sln** (optional).
 1. Edit **appsettings.json** and replace the values of the fields `ClientId`, `Tenant` and `ClientSecret` with the following:
 
     ```json
