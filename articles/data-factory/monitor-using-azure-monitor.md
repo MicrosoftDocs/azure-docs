@@ -20,15 +20,15 @@ ms.author: shlo
 
 Cloud applications are complex and have many moving parts. Monitors provide data to help ensure that your applications stay up and running in a healthy state. Monitors also help you avoid potential problems and troubleshoot past ones.
 
-You can use monitoring data to gain deep insights about your application. This knowledge helps you improve application performance and maintainability. It also helps you automate actions that otherwise require manual intervention.
+You can use monitoring data to gain deep insights about your applications. This knowledge helps you improve application performance and maintainability. It also helps you automate actions that otherwise require manual intervention.
 
-Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Data Factory writes diagnostic logs in Monitor.
+Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. And Azure Data Factory writes diagnostic logs in Monitor.
 
 For details, see [Azure Monitor overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
 
 ## Keeping Azure Data Factory data
 
-Data Factory stores pipeline run data for only 45 days. Use Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis. You can also keep them in a storage account so that you have factory information for your chosen duration.
+Data Factory stores pipeline-run data for only 45 days. Use Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis. You can also keep them in a storage account so that you have factory information for your chosen duration.
 
 ## Diagnostic logs
 
@@ -36,7 +36,7 @@ Data Factory stores pipeline run data for only 45 days. Use Monitor if you want 
 * Stream the logs to Azure Event Hubs. The logs become input to a partner service or to a custom analytics solution like Power BI.
 * Analyze the logs with Log Analytics.
 
-You can use a storage account or event-hub namespace that isn't in the subscription of the resource that is emitting logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
+You can use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
 
 ## Set up diagnostic logs
 
@@ -67,7 +67,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 * Replace `{api-version}` with `2016-09-01`.
 * Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
-* Set the authorization header to a JSON web token that you got from Azure Active Directory (Azure AD). For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
+* Set the authorization header to the JSON web token that you got from Azure Active Directory (Azure AD). For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
 ##### Body
 
@@ -114,11 +114,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | **storageAccountId** |String | The resource ID of the storage account to which you want to send diagnostic logs. |
 | **serviceBusRuleId** |String | The service-bus rule ID of the service-bus namespace in which you want to have Event Hubs created for streaming diagnostic logs. The rule ID has the format `{service bus resource ID}/authorizationrules/{key name}`.|
-| **workspaceId** | Complex Type | An array of metric time grains and their retention policies. The property value is empty. |
+| **workspaceId** | Complex Type | An array of metric time grains and their retention policies. This property's value is empty. |
 |**metrics**| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object that maps parameter names to argument values. |
-| **logs**| Complex Type| The name of a diagnostic-log category for a resource type. To get the list of diagnostic-log categories for a resource, first perform a GET diagnostic-settings operation. |
+| **logs**| Complex Type| The name of a diagnostic-log category for a resource type. To get the list of diagnostic-log categories for a resource, perform a GET diagnostic-settings operation. |
 | **category**| String| An array of log categories and their retention policies. |
-| **timeGrain** | String | The granularity of metrics which are captured in ISO 8601 duration format. The property value must be `PT1M`, which specifies one minute. |
+| **timeGrain** | String | The granularity of metrics, which are captured in ISO 8601 duration format. The property value must be `PT1M`, which specifies one minute. |
 | **enabled**| Boolean | Specifies whether collection of the metric or log category is enabled for this resource.|
 | **retentionPolicy**| Complex Type| Describes the retention policy for a metric or log category. This property is used for storage accounts only.|
 |**days**| Int| The number of days to keep the metrics or logs. If the property value is 0, the logs are kept forever. This property is used for storage accounts only. |
@@ -289,7 +289,7 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 | --- | --- | --- | --- |
 | **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4`  |
 | **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | String | The time of the event in timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+| **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| String| The ID of the activity run. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |**pipelineRunId**| String| The ID of the pipeline run. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | The ID associated with the data-factory resource. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -298,8 +298,8 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 |**operationName**| String | The name of the activity with its status. If the activity is the start heartbeat, the property value is `MyActivity -`. If the activity is the end heartbeat, the property value is `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
 |**pipelineName**| String | The name of the pipeline. | `MyPipeline` |
 |**activityName**| String | The name of the activity. | `MyActivity` |
-|**start**| String | The start time of the activity run in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`|
-|**end**| String | The end time of the activity run in timespan UTC format. If the diagnostic log shows that an activity has started but not yet ended, the property value is `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
+|**start**| String | The start time of the activity runs in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`|
+|**end**| String | The end time of the activity runs in timespan UTC format. If the diagnostic log shows that an activity has started but not yet ended, the property value is `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
 
 #### Pipeline-run log attributes
 
@@ -335,14 +335,14 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 | --- | --- | --- | --- |
 | **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4`  |
 | **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | String | The time of the event in timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+| **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| String| The ID of the pipeline run. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | The ID associated with the data-factory resource. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | The category of the diagnostic logs. Set the property value to `PipelineRuns`. | `PipelineRuns` |
 |**level**| String | The level of the diagnostic logs. Set the property value to `Informational`. | `Informational` |
 |**operationName**| String | The name of the pipeline along with its status. After the pipeline run is finished, the property value is `Pipeline - Succeeded`.| `MyPipeline - Succeeded`. |
 |**pipelineName**| String | The name of the pipeline. | `MyPipeline` |
-|**start**| String | The start time of the activity run in timespan UTC format | `2017-06-26T20:55:29.5007959Z`.|
+|**start**| String | The start time of the activity runs in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`.|
 |**end**| String | The end time of the activity runs in timespan UTC format. If the diagnostic log shows an activity has started but not yet ended, the property value is `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 |**status**| String | The final status of the pipeline run. Possible property values are `Succeeded` and `Failed`. | `Succeeded`|
 
@@ -379,17 +379,17 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 | --- | --- | --- | --- |
 | **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4`  |
 | **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | String | The time of the event in timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+| **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| String| The ID of the trigger run. | `08587023010602533858661257311` |
 |**resourceId**| String | The ID associated with the data-factory resource. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | The category of the diagnostic logs. Set the property value to `PipelineRuns`. | `PipelineRuns` |
 |**level**| String | The level of the diagnostic logs. Set the property value to `Informational`. | `Informational` |
-|**operationName**| String | The name of the trigger with its final status, which indicates whether the trigger successfully fired. If the heartbeat was successful, the property value is `MyTrigger - Succeeded` .| `MyTrigger - Succeeded` |
+|**operationName**| String | The name of the trigger with its final status, which indicates whether the trigger successfully fired. If the heartbeat was successful, the property value is `MyTrigger - Succeeded`.| `MyTrigger - Succeeded` |
 |**triggerName**| String | The name of the trigger. | `MyTrigger` |
-|**triggerType**| String | The type of the trigger. Possible property values are `Manual trigger` and `Schedule Trigger`. | `ScheduleTrigger` |
+|**triggerType**| String | The type of the trigger. Possible property values are `Manual Trigger` and `Schedule Trigger`. | `ScheduleTrigger` |
 |**triggerEvent**| String | The event of the trigger. | `ScheduleTime - 2017-07-06T01:50:25Z` |
 |**start**| String | The start time of the trigger firing in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`|
-|**status**| String | The final status of whether the trigger successfully fired. Possible property values are `Succeeded` and `Failed`. | `Succeeded`|
+|**status**| String | The final status showing whether the trigger successfully fired. Possible property values are `Succeeded` and `Failed`. | `Succeeded`|
 
 ### Log Analytics schema
 
@@ -434,7 +434,7 @@ To access the metrics, complete the instructions in [Azure Monitor data platform
 
 You can use Data Factory integration with Monitor to route data to Monitor. This integration is useful in the following scenarios:
 
-* You want to write complex queries on a rich set of metrics that is published by Data Factory to Monitor. You can also create custom alerts on these queries via Monitor.
+* You want to write complex queries on a rich set of metrics that is published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
 
 * You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
 
@@ -471,9 +471,9 @@ After a few moments, the new setting appears in your list of settings for this d
 
 ### Install Azure Data Factory Analytics from Azure Marketplace
 
-![Go to Azure Marketplace, enter Analytics filter, and select Azure Data Factory Analytics (Preview)](media/data-factory-monitor-oms/monitor-oms-image3.png)
+![Go to "Azure Marketplace", enter "Analytics filter", and select "Azure Data Factory Analytics (Preview")](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
-![Details about Azure Data Factory Analytics (Preview)](media/data-factory-monitor-oms/monitor-oms-image4.png)
+![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
 Select **Create** and then select **OMS Workspace** and **OMS Workspace settings**.
 
@@ -501,7 +501,7 @@ Installing Azure Data Factory Analytics creates a default set of views so that t
 
 - ADF Statistics - 3) Max Pipeline Runs Duration
 
-![Window with Workbooks (Preview) and AzureDataFactoryAnalytics highlighted](media/data-factory-monitor-oms/monitor-oms-image6.png)
+![Window with "Workbooks (Preview)" and "AzureDataFactoryAnalytics" highlighted](media/data-factory-monitor-oms/monitor-oms-image6.png)
 
 ![Graphical representation of runs and errors](media/data-factory-monitor-oms/monitor-oms-image7.png)
 
@@ -524,13 +524,13 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 1. Define the alert condition.
 
     > [!NOTE]
-    > Make sure to select **All** in the **Filter by resource type** drop-down list box.
+    > Make sure to select **All** in the **Filter by resource type** drop-down list.
 
-    ![Define alert condition > Select target, which opens Select a resource pane ](media/monitor-using-azure-monitor/alerts_image5.png)
+    !["Define alert condition" > "Select target", which opens the "Select a resource" pane ](media/monitor-using-azure-monitor/alerts_image5.png)
 
-    ![Define alert condition > Add criteria, which opens Configure signal logic pane](media/monitor-using-azure-monitor/alerts_image6.png)
+    !["Define alert condition" >" Add criteria", which opens the "Configure signal logic" pane](media/monitor-using-azure-monitor/alerts_image6.png)
 
-    ![Configure signal type pane](media/monitor-using-azure-monitor/alerts_image7.png)
+    !["Configure signal type" pane](media/monitor-using-azure-monitor/alerts_image7.png)
 
 1. Define the alert details.
 
@@ -538,7 +538,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 1. Define the action group.
 
-    ![ Create a rule, with New Action group highlighted](media/monitor-using-azure-monitor/alerts_image9.png)
+    ![Create a rule, with "New Action group" highlighted](media/monitor-using-azure-monitor/alerts_image9.png)
 
     ![Create a new action group](media/monitor-using-azure-monitor/alerts_image10.png)
 
