@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 08/30/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
@@ -20,7 +20,7 @@ ms.author: alkohli
 
 ::: zone target="chromeless"
 
-# Get started with Azure Data Box Disk using Azure portal
+# Get started with Azure Data Box 
 
 ::: zone-end
 
