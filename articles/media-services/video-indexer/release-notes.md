@@ -36,7 +36,7 @@ New tags added to video shots provides editorial “shot types” to identify th
 
 ### New People and Locations entities extraction available
 
-Video Indexer identifies names of locations and people via natural language processing (NLP) from the video’s OCR and transcription. Video Indexer uses a machine learning algorithm to recognize names that are being called out in a video (for example: a location, the Eiffel Tower; a person, John Doe).
+Video Indexer identifies names of locations and people via natural language processing (NLP) from the video’s OCR and transcription. A machine learning algorithm is used to recognize when specific named locations (for example, the Eiffel Tower) or people (for example, John Doe) are being called out in a video.
 
 ### Keyframes extraction in native resolution
 
