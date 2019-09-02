@@ -13,7 +13,7 @@ ms.author: raynew
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Azure Migrate Server Migration.
 
 
-## I can't find an existing project
+## Find an existing project
 
 There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
 
@@ -30,15 +30,15 @@ If you created the Azure Migrate project in the current version of Azure Migrate
 
 If you created the project in the previous version of Azure Migrate,  do the following:
 
-    1. In the [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
-    2. In the Azure Migrate dashboard, if you've created a project in the previous version, a banner referencing older projects appears. Select the banner.
+1. In the [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
+2. In the Azure Migrate dashboard, if you've created a project in the previous version, a banner referencing older projects appears. Select the banner.
 
-       ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
+    ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
 
-    3. Review the list of old project.
+3. Review the list of old project.
 
 
-## How do I create additional projects?
+## Create additional projects
 
 Create a new Azure Migrate project as follows:
 
@@ -51,11 +51,13 @@ Create a new Azure Migrate project as follows:
 
    ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
-## Which Azure geographies are supported?
+## Supported Azure geographies
 
 Review supported geographies for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
-## How do I delete projects and Log Analytics workspaces?
+## Delete projects and workspaces
+
+When deleting Azure Migrate projects and Log Analytics workspaces, note that:
 
 - When you delete an Azure Migrate project, the project *and* the metadata about discovered machines are deleted.
 - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted.
@@ -86,7 +88,7 @@ Browse to the Log Analytics workspace attached to the project.
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
 
 
-## Fix error: "Requests must contain user identity headers"
+## Fix: "Requests must contain user identity headers"
 
 When creating a project this error might indicate that you don't have access to the Azure Active Directory (Azure AD) tenant of the organization.
 
@@ -96,7 +98,7 @@ When creating a project this error might indicate that you don't have access to 
     - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
 
 
-## Fix error: "The provided manifest file is invalid: Invalid OVF manifest entry"?
+## Fix: "Invalid OVF manifest entry"
 
 If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
 
@@ -122,16 +124,16 @@ This can happen if the appliance machine is behind a proxy.
 
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-## Fix error 802: Date and time synchronization
+## Fix: Date and time synchronization
 
-The server clock might be out of synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time:
+An error about date and time synchronization (802) indicates that the server clock might be out of synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time:
 
 1. Open an admin command prompt on the VM.
 2. To check the time zone, run **w32tm /tz**.
 3. To synchronize the time, run **w32tm /resync**.
 
 
-## Fix error: UnableToConnectToServer
+## Fix: UnableToConnectToServer
 
 If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://*servername*.com:9443/sdk that can accept the message.
 
@@ -144,38 +146,33 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     4. Verify that vCenter Server is up and running.
 
 
-## Fix error 60052: The appliance might not be registered successfully 
+## Fix: The appliance might not be registered
 
-Error "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions. 
+- Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions. 
+    - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
+    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
+- Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
+    - In the Azure portal and check whether the project exists in the resource group.
+    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
 
-- Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
+## Fix: Azure Key Vault management operation failed
 
-## Fix error 60039: The appliance might not be registered successfully 
-
-Error "The appliance might not be registered successfully to the Azure Migrate project" can occur  if registration fails because the Azure Migrate project used to the register the appliance can't be found.
- 
-- In the Azure portal and check whether the project exists in the resource group.
-- If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
-
-## Fix error 60030 or 60031: Azure Key Vault management operation failed
-
-If you receive the error "An Azure Key Vault management operation failed", do the following: 
+If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following: 
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
 - Make sure the account has access to the key vault specified in the error message, and then retry the operation.
 - If the issue persists, contact Microsoft support.
 - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
 
-## Fix error 60028: Discovery couldn't be initiated
+## Fix: Discovery couldn't be initiated
 
-The error "Discovery couldn't be initiated because of an error. The operation failed for the specified list of hosts or clusters" indicates that discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts were successfully added.
+Error 60028: "Discovery couldn't be initiated because of an error. The operation failed for the specified list of hosts or clusters" indicates that discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts were successfully added.
 
 - Add the hosts listed in the error again, using the **Add host** option.
 - If there's a validation error, review the remediation guidance to fix the errors, and then try the **Save and start discovery** option again.
 
-## Fix error 60025: An Azure AD operation failed
+## Fix: Azure AD operation failed (60025)
 
-Error "An Azure AD operation failed. The error occurred while creating or updating the Azure AD application" occurs when the Azure user account used to initiate the discovery is different from the account used to register the appliance. Do one of the following:
+Error 60025: "An Azure AD operation failed. The error occurred while creating or updating the Azure AD application" occurs when the Azure user account used to initiate the discovery is different from the account used to register the appliance. Do one of the following:
 
 - Ensure that the user account initiating the discovery is same as the one used to register the appliance.
 - Provide Azure Active Directory application access permissions to the user account for which the discovery operation is failing.
@@ -183,7 +180,7 @@ Error "An Azure AD operation failed. The error occurred while creating or updati
 - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure Active Directory application permissions.
 
 
-## I started discovery but don't see the discovered VMs 
+## Discovered VMs not in portal
 
 If you start discovery so that **Server Assessment** and **Server Migration** show **Discovery in progress**, but don't yet see the VMs in the portal, note the following: 
 
@@ -191,7 +188,7 @@ If you start discovery so that **Server Assessment** and **Server Migration** sh
 - If you continue to see **Discovery in progress** even after these waiting periods, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in **Server Assessment** and **Server Migration**.
 
 
-## Deleted VMs appear in the portal
+## Deleted VMs in the portal
 
 If you've deployed an appliance that continuously discovers your on-premises environment, but deleted VMs are still showing in the portal, note the following:  
 
@@ -203,7 +200,7 @@ If you've deployed an appliance that continuously discovers your on-premises env
     3. Select **Refresh agent**. 
     1. Wait for the refresh operation to complete. You should now see up-to-date information.
 
-## The latest VM information isn't in the portal
+## VM information isn't in the portal
 
 - It takes up to 30 minutes for the discovery data gathered by the appliance to be reflected in the portal.
 - If you don't see up-to-date information after 30 minutes, refresh the data by following these steps:
@@ -214,9 +211,9 @@ If you've deployed an appliance that continuously discovers your on-premises env
     1. Wait for the refresh operation to complete. You should now see up-to-date information.
 
 
-### Fix error 50004: Can't connect to a host or cluster 
+## Fix: Can't connect to host or cluster
 
-The error "Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9" might occur if the Azure DNS service for the appliance can't resolve the cluster or host name you provided
+Error 50004: "Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9" might occur if the Azure DNS service for the appliance can't resolve the cluster or host name you provided.
 
 - If you see this error on the cluster, cluster FQDN.
 - You might also see this error for hosts in a cluster. This indicates that the appliance can connect to the cluster, but the cluster returns host names that aren't FQDNs. To resolve this error, update the hosts file on the appliance by adding a mapping of the IP address and host names:
@@ -257,11 +254,11 @@ Could not determine VM suitability because of an internal error | Try creating a
 Could not determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
 Could not determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
 
-## I can't add Enterprise Agreement (EA) in an assessment
+## Can't add Enterprise Agreement (EA) in an assessment
 
 Azure Migrate Server Assessment doesn't currently support Enterprise Agreement (EA) pricing. To work around this limitation, use **Pay-As-You-Go** as the Azure offer, and use the **Discount** property to specify any custom discount that you receive. [Learn](https://aka.ms/migrate/selfhelp/eapricing) how to customize an assessment.
 
-## Why are Linux VMs "Conditionally ready"?
+## Linux VMs are "conditionally ready"
 
 Server Assessment marks Linux VMs as  "Conditionally ready" due to a known gap in Server Assessment.
 
@@ -271,7 +268,7 @@ Server Assessment marks Linux VMs as  "Conditionally ready" due to a known gap i
 - You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  After you've verified the endorsed distribution, you can ignore this warning.
 
-## Why do recommended Azure SKUs exceed on-premises sizing?
+## Azure SKUs exceed on-premises sizing
 
 Azure Migrate Server Assessment might recommend Azure VM SKUs with more cores and memory than current on-premises allocation based on the type of assessment:
 
@@ -289,7 +286,7 @@ We have an on-premises VM with four cores and eight GB of memory, with 50% CPU u
 - If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended. 
 - [Learn more](concepts-assessment-calculation.md#sizing) about assessment sizing.
 
-## Why is the recommended Azure disk SKU bigger than on-premises?
+## Azure disk SKUs bigger than on-premises
 
 Azure Migrate Server Assessment might recommend a bigger disk based on the type of assessment.
 - Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type.
@@ -298,7 +295,7 @@ Azure Migrate Server Assessment might recommend a bigger disk based on the type 
 
 As an example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment recommends a premium disk (because of the higher IOPS requirements), and then recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.
 
-## Fix issue "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing"
+## Fix: Percentage of utilized core or memory missing
 
 Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing" when the Azure Migrate appliance can't collect performance data for the relevant on-premises VMs.
 
@@ -306,11 +303,11 @@ Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMem
 - If only the memory counters are missing and you're trying to assess Hyper-V VMs, check whether you have dynamic memory enabled on these VMs. There's a known issue for Hyper-V VMs only, in which an Azure Migrate appliance can't collect memory utilization data for VMs that don't have dynamic memory enabled.
 - If any of the performance counters are missing, Azure Migrate Server Assessment falls back to the allocated cores and memory, and it recommends a corresponding VM size.
 
-## Is the VM OS license cost included in the compute cost assessment?
+## Is the VM OS license cost included in cost assessment?
 
 Azure Migrate Server Assessment currently considers the operating system license cost only for Windows machines. License costs for Linux machines aren't currently considered.
 
-## How do performance history and percentile use impact size recommendations?
+## Performance history and percentile use
 
 These properties apply only to performance-based sizing in Azure Migrate Server Assessment.
 
@@ -323,11 +320,11 @@ Server Assessment continuously collects performance data of on-premises machines
 
 
 
-## I can't find dependency visualization for Azure Government projects.
+## I can't find dependency visualization for Azure Government
 
 Azure Migrate depends on Service Map for the dependency visualization functionality. Because Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
 
-## Dependencies don't show up after installing the agents
+## Dependencies don't show after installing agents
 
 
 After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
@@ -341,15 +338,15 @@ For Windows VMs:
 
 For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded.
 
-## What operating systems does MMA support?
+## Supported MMA OS
 
  Review the supported [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems), and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) operating systems.
 
-## What operating systems does the dependency agent support?
+## Supported dependency agent OS
 
 Review the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
-## I can't visualize dependencies for more than an hour
+## Dependencies for more than an hour
 
 Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
 
@@ -361,7 +358,7 @@ However, you can use Azure Monitor logs to [query the dependency data](https://d
 
 In Azure Migrate Server Assessment, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
 
-## Machines show "Install agent" instead of "View dependencies"
+## Machines show "Install agent" not "View dependencies"
 
 After migrating machines with dependency visualization enabled to Azure, machines might show "Install agent" action instead of "View dependencies" due to the following behavior:
 
@@ -372,7 +369,7 @@ After migrating machines with dependency visualization enabled to Azure, machine
 - After a test migration to Azure, on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless you block outgoing Azure Monitor log traffic from these machines, Azure Migrate won't associate the on-premises machines with any Service Map dependency data, and thus will show the option to install agents, rather than to view dependencies.
 
 
-## How do I collect Azure portal network traffic logs?
+## Collect network traffic logs in portal
 
 Collect logs as follows:
 
