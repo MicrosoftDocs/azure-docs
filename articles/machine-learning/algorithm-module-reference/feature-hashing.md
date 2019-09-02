@@ -17,7 +17,7 @@ This article describes a module of the visual interface (preview) for Azure Mach
 
 Use the **Feature Hashing** module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
 
-The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see from [nimbusml ngramhash](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
 ## What is feature hashing
 
@@ -108,7 +108,7 @@ After you create the transformed dataset, you can use it as the input to the Tra
  
 ### Best practices
 
-The following best practices can help you get the most ouf the **Feature Hashing** module:
+The following best practices can help you get the most out of the **Feature Hashing** module:
 
 * Add a **Preprocess Text** module before using **Feature Hashing** to preprocess the input text. 
 
