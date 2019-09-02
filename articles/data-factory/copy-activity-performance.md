@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
@@ -178,6 +178,7 @@ For each copy activity run, Azure Data Factory determines the number of parallel
 | Copy scenario | Default parallel copy count determined by service |
 | --- | --- |
 | Copy data between file-based stores |Depends on the size of the files and the number of DIUs used to copy data between two cloud data stores, or the physical configuration of the self-hosted integration runtime machine. |
+| Copy from relational data store with partition option enabled (including [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
 | Copy data from any source store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
