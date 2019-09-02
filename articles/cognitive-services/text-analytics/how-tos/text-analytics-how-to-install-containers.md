@@ -43,54 +43,38 @@ You must meet the following prerequisites before using Text Analytics containers
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Key Phrase Extraction | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Language Detection | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Sentiment Analysis | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
+#### [Key Phrase Extraction](#tab/keyphrase)
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+#### [Language Detection](#tab/language)
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+#### [Sentiment Analysis](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+***
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-## Get the container image with `docker pull`
+#### [Key Phrase Extraction](#tab/keyphrase)
 
-Container images for Text Analytics are available from Microsoft Container Registry.
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-| Container | Repository |
-|-----------|------------|
-|Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Sentiment Analysis| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+#### [Language Detection](#tab/language)
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
+#### [Sentiment Analysis](#tab/sentiment)
 
-* [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654)
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
-
-### Docker pull for the Key phrase extraction container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### Docker pull for the language detection container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### Docker pull for the sentiment container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
+***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -107,23 +91,19 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-### Run container example of docker run command
+#### [Key Phrase Extraction](#tab/keyphrase)
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-This command:
+#### [Language Detection](#tab/language)
 
-* Runs a key phrase container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
+#### [Sentiment Analysis](#tab/sentiment)
+
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+***
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).

@@ -59,6 +59,8 @@
     items:
     - name: Push and pull an image
       href: container-registry-get-started-docker-cli.md
+    - name: Push and pull an OCI artifact
+      href: container-registry-oci-artifacts.md
     - name: View repositories
       href: container-registry-repositories.md
     - name: Import container images

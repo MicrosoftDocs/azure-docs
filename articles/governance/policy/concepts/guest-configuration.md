@@ -1,6 +1,6 @@
 ---
-title: Understand how to audit the contents of a virtual machine
-description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure virtual machine. 
+title: Understand how to audit the contents of a machine
+description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure machine. 
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
@@ -12,7 +12,7 @@ ms.custom: seodec18
 # Understand Azure Policy's Guest Configuration
 
 In addition to auditing and [remediating](../how-to/remediate-resources.md) Azure resources, Azure
-Policy can audit settings inside a virtual machine. The validation is performed by the Guest
+Policy can audit settings inside a machine. The validation is performed by the Guest
 Configuration extension and client. The extension, through the client, validates settings such as
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
@@ -24,7 +24,7 @@ It is not yet possible to apply configurations.
 
 ## Extension and client
 
-To audit settings inside a virtual machine, a [virtual machine
+To audit settings inside a machine, a [virtual machine
 extension](../../../virtual-machines/extensions/overview.md) is enabled. The extension downloads
 applicable policy assignment and the corresponding configuration definition.
 
@@ -67,7 +67,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## Validation tools
 
-Inside the virtual machine, the Guest Configuration client uses local tools to run the audit.
+Inside the machine, the Guest Configuration client uses local tools to run the audit.
 
 The following table shows a list of the local tools used on each supported operating system:
 
@@ -85,7 +85,7 @@ trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state
 written to the Guest Configuration resource provider. This causes Azure Policy to evaluate the Azure
 Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest value from
 the Guest Configuration resource provider. However, it doesn't trigger a new audit of the
-configuration within the virtual machine.
+configuration within the machine.
 
 ## Supported client types
 
@@ -112,7 +112,7 @@ Windows Server Nano Server is not supported in any version.
 
 ## Guest Configuration Extension network requirements
 
-To communicate with the Guest Configuration resource provider in Azure, virtual machines require
+To communicate with the Guest Configuration resource provider in Azure, machines require
 outbound access to Azure datacenters on port **443**. If you're using a private virtual network in
 Azure and don't allow outbound traffic, exceptions must be configured using [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. At
@@ -136,22 +136,22 @@ outbound access to the IPs in the regions where your VMs are deployed.
 ## Guest Configuration definition requirements
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
-definition and an **Audit** definition. The **DeployIfNotExists** definition is used to prepare the
-virtual machine with the Guest Configuration agent and other components to support the [validation
+definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** definition is used to prepare the
+machine with the Guest Configuration agent and other components to support the [validation
 tools](#validation-tools).
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
-- Validate the virtual machine has been assigned a configuration to evaluate. If no assignment is
-  currently present, get the assignment and prepare the virtual machine by:
-  - Authenticating to the virtual machine using a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
+- Validate the machine has been assigned a configuration to evaluate. If no assignment is
+  currently present, get the assignment and prepare the machine by:
+  - Authenticating to the machine using a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installing the latest version of the **Microsoft.GuestConfiguration** extension
   - Installing [validation tools](#validation-tools) and dependencies, if needed
 
 If the **DeployIfNotExists** assignment is Non-compliant, a [remediation
 task](../how-to/remediate-resources.md#create-a-remediation-task) can be used.
 
-Once the **DeployIfNotExists** assignment is Compliant, the **Audit** policy assignment uses the
+Once the **DeployIfNotExists** assignment is Compliant, the **AuditIfNotExists** policy assignment uses the
 local validation tools to determine if the configuration assignment is Compliant or Non-compliant.
 The validation tool provides the results to the Guest Configuration client. The client forwards the
 results to the Guest Extension, which makes them available through the Guest Configuration resource
@@ -162,20 +162,28 @@ compliance in the **Compliance** node. For more information, see [getting compli
 data](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> The **DeployIfNotExists** policy is required for the **Audit** policy to return results.
-> Without the **DeployIfNotExists**, the **Audit** policy shows "0 of 0" resources as status.
+> The **DeployIfNotExists** policy is required for the **AuditIfNotExists** policy to return results.
+> Without the **DeployIfNotExists**, the **AuditIfNotExists** policy shows "0 of 0" resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
 for use in assignments. The built-in initiative named *[Preview]: Audit Password security settings
-inside Linux and Windows virtual machines* contains 18 policies. There are six **DeployIfNotExists**
-and **Audit** pairs for Windows and three pairs for Linux. In each case, the logic inside the
+inside Linux and Windows machines* contains 18 policies. There are six **DeployIfNotExists**
+and **AuditIfNotExists** pairs for Windows and three pairs for Linux. In each case, the logic inside the
 definition validates only the target operating system is evaluated based on the [policy rule](definition-structure.md#policy-rule)
 definition.
 
 ### Multiple assignments
 
 Guest Configuration policies currently only support assigning the same Guest Assignment once
-per virtual machine, even if the Policy assignment uses different parameters.
+per machine, even if the Policy assignment uses different parameters.
+
+## Built-in resource modules
+
+When the Guest Configuration extension is installed, the 'GuestConfiguration' PowerShell module
+is included with the latest version of DSC resource modules. This module can be downloaded from the PowerShell
+Gallery by using the 'Manual Download' link from the module page
+[GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+The '.nupkg' file format can be renamed to '.zip' to uncompress and review.
 
 ## Client log files
 

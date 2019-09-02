@@ -13,10 +13,10 @@ ms.author: spelluru
 ---
 
 # Authorize access to Event Hubs resources using Azure Active Directory
-Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Overview
-When a security principal (a user, group, or application) attempts to access an Event Hubs resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
+When a security principal (a user, or an application) attempts to access an Event Hubs resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
 
  1. First, the security principal’s identity is authenticated, and an OAuth 2.0 token is returned. 
  1. Next, the token is passed as part of a request to the Event Hubs service to authorize access to the specified resource.
@@ -30,7 +30,7 @@ Native applications and web applications that make requests to Event Hubs can al
 ## Assign RBAC roles for access rights
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../role-based-access-control/overview.md). Azure Event Hubs defines a set of built-in RBAC roles that encompass common sets of permissions used to access event hub data and you can also define custom roles for accessing the data.
 
-When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. An Azure AD security principal may be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Built-in RBAC roles for Azure Event Hubs
 Azure provides the following built-in RBAC roles for authorizing access to Event Hubs data using Azure AD and OAuth:
@@ -58,7 +58,7 @@ For more information about how built-in roles are defined, see [Understand role 
 ## Next steps
 - Learn how to assign a built-in-RBAC role to a security principal, see [Authenticate access to Event Hubs resources using Azure Active Directory](authenticate-application.md).
 - Learn [how to create custom roles with RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
-- Learn [How to use Azure Active Directory with EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
+- Learn [how to use Azure Active Directory with EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 See the following related articles:
 
