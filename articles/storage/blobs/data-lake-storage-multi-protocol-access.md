@@ -46,15 +46,15 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 ## Region availability
 
-In the current release, multi-protocol access on Azure Data Lake Storage (preview) is available in the following regions:
+Multi-protocol access on Azure Data Lake Storage (preview) is available in the following regions:
 
 |||||
 |-|-|-|-|
-|US Central|Asia East|Canada Central|
-|US East|Asia Southeast|Europe North|
-|US East 2|Australia East|Europe West|
-|US West 2|Brazil South|Japan East|
-|US West Central|||
+|Central US|West Central US|Canada Central|
+|East US|East Asia|North Europe|
+|East US 2|Southeast Asia|West Europe|
+|West US|Australia East|Japan East|
+|West US 2|Brazil South||
 
 ## Next steps
 
