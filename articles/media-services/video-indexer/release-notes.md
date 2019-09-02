@@ -32,11 +32,11 @@ You can now create a Video Indexer paid account in the UK south region.
 
 ### New Editorial Shot Type insights available
 
-New tags added to video shots provides editorial “shot types” to identify them with common editorial phrases used in the content creation workflow such as: extreme closeup, closeup, wide, medium, two shot, outdoor, indoor, left face and right face (Available in the JSON)
-  
+New tags added to video shots provides editorial “shot types” to identify them with common editorial phrases used in the content creation workflow such as: extreme closeup, closeup, wide, medium, two shot, outdoor, indoor, left face and right face (Available in the JSON).
+
 ### New People and Locations entities extraction available
 
-Video Indexer identifies names of locations and people via natural language processing (NLP) from the video’s OCR and transcription.
+Video Indexer identifies names of locations and people via natural language processing (NLP) from the video’s OCR and transcription. Video Indexer uses a machine learning algorithm to recognize names that are being called out in a video (for example: a location, the Eiffel Tower; a person, John Doe).
 
 ### Keyframes extraction in native resolution
 
