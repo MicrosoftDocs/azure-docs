@@ -80,14 +80,16 @@ landingContent:
         links:
           - text: Introduction to Apache Kafka
             url: ./kafka/apache-kafka-introduction.md
-          - text: linktext2
-            url: file2.md
+          - text: Apache HBase overview
+            url: ./hbase/apache-hbase-overview.md
       - linkListType: tutorial
         links:
           - text: Use Kafka producer and consumper APIs
             url: ./kafka/apache-kafka-producer-consumer-api.md
           - text: Apache Spark structured streaming with Apache Kafka
             url: ./hdinsight-apache-kafka-spark-structured-streaming.md
+          - text: Get started with Apache HBase
+            url: ./hbase/apache-hbase-tutorial-get-started-linux.md
 
   # Card
   - title: Interactive querying
