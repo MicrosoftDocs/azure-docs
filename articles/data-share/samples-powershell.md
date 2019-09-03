@@ -8,7 +8,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/6/2019
 author: joannapea
-ms.author: t-roupa
+ms.author: joanpo
 ---
 
 # Azure PowerShell samples for Azure Data Share
