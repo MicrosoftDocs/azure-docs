@@ -99,7 +99,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this quickstart, you have created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart you created a key vault and a secret using an Azure Resource manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](key-vault-overview.md)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
