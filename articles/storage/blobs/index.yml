@@ -21,12 +21,10 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About blob storage
+  - title: About Blob storage
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Blob storage?
-            url: storage-blobs-overview.md
           - text: Azure Blob storage
             url: storage-blobs-introduction.md
           - text: Azure Data Lake Storage Gen2
@@ -40,7 +38,7 @@ landingContent:
             url: ../common/storage-account-overview.md
           - text: Data redundancy
             url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Access tiers 
+          - text: Hot, cool, and archive storage 
             url: storage-blob-storage-tiers.md
       - linkListType: how-to-guide
         links:
@@ -88,26 +86,20 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Security overview
-            url: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Storage service encryption
             url: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Authorization
+          - text: Authorize with Azure Active Directory
             url: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Delegate access SAS
-            url: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - linkListType: how-to-guide
         links:
-          - text: Access blob or queue data
+          - text: Access blob data with an Azure AD account
             url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
           - text: Manage access rights with RBAC 
             url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Authorize with a managed identity 
             url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Authorize from a client application 
-            url: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card
-  - title: Work with data
+  - title: Work with blob data
     linkLists:
       - linkListType: quickstart
         links:
@@ -123,7 +115,7 @@ landingContent:
             url: storage-quickstart-blobs-python.md
       - linkListType: tutorial
         links:
-          - text: Upload image data
+          - text: Create a web app to upload image data
             url: storage-upload-process-images.md
     # Card
   - title: Transfer data
