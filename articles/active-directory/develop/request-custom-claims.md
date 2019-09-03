@@ -57,6 +57,14 @@ NSError *claimsError = nil;
 MSALClaimsRequest *request = [[MSALClaimsRequest alloc] initWithJsonString:@"{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}" error:&claimsError];
 ```
 
+```swift
+var requestError: NSError? = nil
+let request = MSALClaimsRequest(jsonString: "{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}",
+                                        error: &requestError)
+```
+
+
+
 It can also be modified by requesting additional specific claims:
 
 ```objc
@@ -66,6 +74,21 @@ individualClaimRequest.additionalInfo.essential = @1;
 individualClaimRequest.additionalInfo.value = @"myvalue";
 [request requestClaim:individualClaimRequest forTarget:MSALClaimsRequestTargetIdToken error:&claimsError];
 ```
+
+```swift
+let individualClaimRequest = MSALIndividualClaimRequest(name: "custom-claim")
+individualClaimRequest.additionalInfo = MSALIndividualClaimRequestAdditionalInfo()
+individualClaimRequest.additionalInfo?.essential = 1
+individualClaimRequest.additionalInfo?.value = "myvalue"
+do {
+  try request.requestClaim(individualClaimRequest, for: .idToken)
+} catch let error as NSError {
+  // handle error here  
+}
+        
+```
+
+
 
 `MSALClaimsRequest` should be then set in the token parameters and provided to one of MSAL token acquisitions APIs:
 
@@ -79,6 +102,19 @@ parameters.claimsRequest = request;
     
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
 ```
+
+```swift
+let application: MSALPublicClientApplication!
+let webParameters: MSALWebviewParameters!
+        
+let parameters = MSALInteractiveTokenParameters(scopes: ["user.read"], webviewParameters: webParameters)
+parameters.claimsRequest = request
+        
+application.acquireToken(with: parameters) { (result: MSALResult?, error: Error?) in            ...
+
+```
+
+
 
 ## Next steps
 
