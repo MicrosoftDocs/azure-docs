@@ -164,7 +164,7 @@ default sequencing order and no changes would be made.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Understand how to use [static and dynamic parameters](parameters.md).
 - Find out how to make use of [blueprint resource locking](resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).

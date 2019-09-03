@@ -133,7 +133,7 @@ This is an example of a request body that includes **excludedPrincipals**:
 ## Next steps
 
 - Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Understand how to use [static and dynamic parameters](parameters.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
