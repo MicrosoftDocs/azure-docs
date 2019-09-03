@@ -28,9 +28,9 @@
         href: connect-windows-7-and-10.md
       - name: Connect from a web browser
         href: connect-web.md
-      - name: Connect from macOS
+      - name: Connect with the macOS client
         href: connect-macos.md
-      - name: Connect from iOS
+      - name: Connect with the iOS client
         href: connect-ios.md
   - name: Create a host pool with an Azure Resource Manager template
     href: create-host-pools-arm-template.md
