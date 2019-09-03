@@ -1,7 +1,7 @@
 ---
 title: Create your first automated machine learning experiment
 titleSuffix: Azure Machine Learning service
-description: Learn how to train and deploy a classification model with automated machine learning in the Azure portal.
+description: Learn how to train and deploy a classification model with automated machine learning in the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -40,11 +40,11 @@ In this tutorial, you learn how to do the following tasks:
 
 ## Create and run the experiment
 
-The following experiment set up and run steps  are completed in Azure Machine Learning studio. 
+The following experiment setup and run steps are completed in Azure Machine Learning studio. 
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/workspaceportal/).
 
-1. Select your subscription and the workspace you just created. Then select **Get started**.
+1. Select your subscription and the workspace you created. Then select **Get started**.
 
 1.  Select **Automated machine learning** under the **Authoring** section, on the left side pane.
 You'll see the **Getting started** screen, since this is your first experiment with Automated Machine Learning.
@@ -57,8 +57,8 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
     Field| Value
     ---|---
-    Compute name| Enter a unique name that identifies your compute context. For this example, we use **automl-compute**.
-    Virtual machine size| Select the virtual machine size for your compute. We use **Standard_DS12_V2**.
+    Compute name| Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
+    Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
     Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6. 
 
     To create your new compute, select **Create**. This takes a couple minutes to complete. 
@@ -66,9 +66,9 @@ You'll see the **Getting started** screen, since this is your first experiment w
     When creation is complete, select your new compute from the drop-down list, and then select **Next**.
 
     >[!NOTE]
-    >For this tutorial, we use the default storage account and container created with your new compute. They automatically populate in the form.
+    >For this tutorial,  you'll use the default storage account and container created with your new compute. They automatically populate in the form.
 
-1. Select **Upload from local file**. From here you create a new dataset with the **bankmarketing_train.csv** file you previously downloaded for this tutorial. 
+1. Select **Upload from local file**. From here, you create a new dataset with the **bankmarketing_train.csv** file you previously downloaded for this tutorial. 
 
     1. Select **Browse** and then select the **bankmarketing_train.csv** file on your local computer. 
 
@@ -101,7 +101,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
 1. Select **Classification** as the prediction task.
 
-1. Select **y** as the target column, what we want to predict. This column indicates whether the client subscribed to a term deposit or not.
+1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
 
 1. Expand **Advanced Settings** and populate the fields as follows.
 
@@ -114,7 +114,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
     Concurrency| Select **5** for the number of max concurrent iterations.
 
    >[!NOTE]
-   > For this experiment, we don't set a metric or max cores per iterations threshold. We also don't block algorithms from being tested.
+   > For this experiment, you don't set a metric or max cores per iterations threshold. You also don't block algorithms from being tested.
 
 1. Select **Start** to run the experiment.
 
@@ -133,11 +133,11 @@ As the experiment progresses, the screen updates the **Iteration chart** and **I
 
 ## Deploy the model
 
-By using automated machine learning in the Azure Machine Learning studio, we can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
+By using automated machine learning in the Azure Machine Learning studio, you can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete.
 
-1. On the **Run Detail** page, select the **Deploy Best Model** button in the top right corner.
+1. On the **Run Detail** page, select the **Deploy Best Model** button in the top-right corner.
 
 1. Populate the **Deploy Best Model** pane as follows:
 
