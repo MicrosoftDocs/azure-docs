@@ -33,7 +33,6 @@ When you've completed the guide, your application will accept sign-ins of person
 > ## Prerequisites
 > To run this sample you will need: 
 > - Java Development Kit (JDK) 8 or greater and Maven.
-> - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [how to get an Azure AD tenant.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)
 >
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
