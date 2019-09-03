@@ -9,9 +9,9 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 08/14/2019
+ms.date: 09/09/2019
 
-# Customer intent:As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
+# Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
 # Tutorial: Create your first classification model with automated machine learning
@@ -40,12 +40,16 @@ In this tutorial, you learn how to do the following tasks:
 
 ## Create and run the experiment
 
-These steps walk you through experiment set up from data selection to choosing your primary metric and model type. 
+The following experiment set up and run steps  are completed in Azure Machine Learning studio. 
 
-1. Go to the left pane of your workspace. Select **Automated machine learning** under the **Authoring (Preview)** section.
-You'll see the **Welcome to Automated Machine Learning** screen, since this is your first experiment with Automated Machine Learning.
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/workspaceportal/).
 
-    ![Azure portal navigation pane](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
+1. Select your subscription and the workspace you just created. Then select **Get started**.
+
+1.  Select **Automated machine learning** under the **Authoring** section, on the left side pane.
+You'll see the **Getting started** screen, since this is your first experiment with Automated Machine Learning.
+
+    ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
 1. Select **Create experiment**. Then enter **my-1st-automl-experiment** as the experiment name.
 
@@ -57,27 +61,47 @@ You'll see the **Welcome to Automated Machine Learning** screen, since this is y
     Virtual machine size| Select the virtual machine size for your compute. We use **Standard_DS12_V2**.
     Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6. 
 
-    To create your new compute, select **Create**. This takes a few moments. 
+    To create your new compute, select **Create**. This takes a couple minutes to complete. 
 
     When creation is complete, select your new compute from the drop-down list, and then select **Next**.
 
     >[!NOTE]
     >For this tutorial, we use the default storage account and container created with your new compute. They automatically populate in the form.
 
-1. Select **Upload** and choose the **bankmarketing_train.csv** file from your local computer to upload it to the default container. Public preview supports only local file uploads and Azure Blob storage accounts. When the upload is complete, select the file from the list. 
+1. Select **Upload from local file**. From here you create a new dataset with the **bankmarketing_train.csv** file you previously downloaded for this tutorial. 
 
-1. The **Preview** tab allows us to further configure our data for this experiment.
+    1. Select **Browse** and then select the **bankmarketing_train.csv** file on your local computer. 
 
-    On the **Preview** tab, indicate that the data includes headers. The service defaults to include all of the features (columns) for training. For this example, scroll to the right and **Ignore** the **day_of_week** feature.
+    1. Give your dataset a unique name and provide an optional description. 
 
-    ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
+    1. Select **Next** to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
 
-    >[!NOTE]
-    > Data profiling is not available with computes that have zero minimum nodes.
+    1. When the upload is complete, the **Settings and preview** form is intelligently populated based on the file type. Ensure the form is populated as follows.
+    
+        Field| Value
+        ---|---
+        File format| Delimited
+        Delimiter| Comma
+        Encoding| UTF-8
+        Column headers| All files have same headers
+        Skip rows | None
+
+        >[!NOTE]
+        > If any of the settings on this form are updated the preview will update accordingly.
+  
+        Select **Next**.
+    
+    1. The **Schema** tab allows for further configuration of your data for this experiment.
+
+        1. On the **Schema** tab, the service defaults to include all of the features (columns) for training. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select**Done**.
+
+        ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
+
+    Now your configured dataset uploads to your default storage and your experiment.
 
 1. Select **Classification** as the prediction task.
 
-1. Select **y** as the target column, where we want to do predictions. This column indicates whether the client subscribed to a term deposit or not.
+1. Select **y** as the target column, what we want to predict. This column indicates whether the client subscribed to a term deposit or not.
 
 1. Expand **Advanced Settings** and populate the fields as follows.
 
@@ -94,26 +118,26 @@ You'll see the **Welcome to Automated Machine Learning** screen, since this is y
 
 1. Select **Start** to run the experiment.
 
-   When the experiment starts, you see a blank **Run Detail** screen with the following status at the top.
-      
-The experiment preparation process takes a couple of minutes. When the process finishes, the status message changes to **Run is Running**.
+   When the experiment starts, you see a blank screen with a status message at the top.
+
+The experiment preparation process takes several minutes. When that process finishes, the status message changes to **Run is Running**.
 
 ##  View experiment details
 
-As the experiment progresses, the **Run Detail** screen updates the iteration chart and list with the different iterations (models) that are run. The iterations list is in order by metric score. By default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) that are run. The iterations list is in order by metric score. By default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
 
->[!TIP]
+>[!WARNING]
 > Training jobs take several minutes for each pipeline to finish running.
 
 [![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
 
 ## Deploy the model
 
-By using automated machine learning in the Azure portal, we can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
+By using automated machine learning in the Azure Machine Learning studio, we can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete.
 
-1. On the **Run Detail** page, select the **Deploy Best Model** button.
+1. On the **Run Detail** page, select the **Deploy Best Model** button in the top right corner.
 
 1. Populate the **Deploy Best Model** pane as follows:
 
@@ -138,7 +162,7 @@ Deployment files are larger than data and experiment files, so they cost more to
 
 Delete just the deployment instance from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
-1. Go to the **Assets** pane on the left and select **Deployments**. 
+1. Go to the [Azure portal](https://portal.azure.com//). Navigate to the **Assets** pane on the left and select **Deployments**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
@@ -150,7 +174,7 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 
 ## Next steps
 
-In this automated machine learning tutorial, you used the Azure portal to create and deploy a classification model. See these articles for more information and next steps:
+In this automated machine learning tutorial, you used the Azure Machine Learning studio to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md)
