@@ -15,7 +15,7 @@ ms.workload: na
 ms.date: 8/29/2019
 ms.author: "v-mohabe"
 ---
-# Supported platforms
+# Supported platforms 
 
 ## Virtual machines / servers <a name="vm-server"></a>
 
@@ -106,8 +106,8 @@ The following Azure PaaS resources are supported by Azure Security Center:
 * Event hub namespace
 * Logic apps
 * Redis
-* Data lake analytics
-* Data lake Store
+* Data Lake Analytics
+* Data Lake Store
 * Key vault
 
 To learn more about the supported features for the above list of PaaS resources, see [PaaS services supported features](security-center-services.md#paas-services).
