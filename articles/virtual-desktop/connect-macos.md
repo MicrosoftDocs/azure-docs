@@ -30,8 +30,8 @@ To subscribe to a feed:
 3. Enter the Feed URL. This can be a URL or email address:
   - The URL is the RD Web Access server's URL, provided to you by your admin. For Windows Virtual Desktop, you can use https://rdweb.wvd.microsoft.com.
   - If you plan to use Email, enter your email address in this field. This tells the client to search for an RD Web Access server associated with your email address if it was configured by your admin.
-3. Select **Subscribe**.
-3. **Sign in** with your user account when prompted.
+4. Select **Subscribe**.
+5. **Sign in** with your user account when prompted.
 
 After successfully authenticating, you should now see a list of resources available to you.
 
