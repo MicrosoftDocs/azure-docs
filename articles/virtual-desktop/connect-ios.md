@@ -19,8 +19,8 @@ A downloadable client is available that provides access to Windows Virtual Deskt
 
 1. Install the [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) app on your iOS device.
 2. On your iOS device, open a browser and navigate to [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Under the label **Step 2 Join the Beta** select **Start Testing**.
-4. When you are redirected to the TestFlight app, select **Accept** and then **Install** the client.
+3. Under the label **Step 2 Join the Beta**, select **Start Testing**.
+4. When you're redirected to the TestFlight app, select **Accept** and then **Install** the client.
 
 ## Subscribe to a feed
 
@@ -33,7 +33,7 @@ To subscribe to a feed:
    - The **URL** is the RD Web Access server's URL, provided to you by your admin. If accessing resources from Windows Virtual Desktop, you can use `https://rdweb.wvd.microsoft.com`.
    - If you plan to use **Email**, enter your email address in this field. This tells the client to search for an RD Web Access server associated with your email address if it was configured by your admin.
 3. Tap **Next**.
-4. Provide your sign in information when prompted. This can vary based on the deployment and can include:
+4. Provide your sign-in information when prompted. This can vary based on the deployment and can include:
    - **User name**, the user name that has permission to access the resources.
    - **Password**, the password associated with the user name.
    - **Additional factor**, which you may be prompted for if authentication was configured that way by your admin.
