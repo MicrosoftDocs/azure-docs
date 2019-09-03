@@ -23,13 +23,15 @@ Skillsets are authored in JSON, you can build complex skillsets with looping and
 # Concepts
 ## Enrichment Tree
 To envision how a skillset progressively enriches your document, let’s start with what the document looks like before any enrichment. The output of document cracking is dependent on the data source and the specific parsing mode selected. 
-|Data Source\Parsing Mode |Default |JSON | JSON Lines, CSV |
+|Data Source\Parsing Mode|Default|JSON|JSON Lines/CSV|
 |---|---|---|---|---|
-|Blob Storage |/document/content<br>/document/normalized_images/*<br>… |/document/{key1}<br>/document/{key2}<br>… |/document/{key1}<br>/document/{key2}<br>… |
-|SQL |/document/{column1}<br>/document/{column2}<br>… |   |   |
-|Cosmos DB |/document/{key1}<br>/document/{key2}<br>… |   |   |
+|Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|/document/{key1}<br>/document/{key2}<br>… |
+|SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |N/A|
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|N/A|
 
-The enrichment tree is the JSON representation of the document and enrichments as it flows through the enrichment pipeline. The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
+
+
+The enrichment tree is the JSON representation of the document and enrichments as it flows through the enrichment pipeline. The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
 For the rest of this document we will assume we are working with PDF files in blob storage, but the same concepts apply to enriching documents from all other data sources.
 
 ## Context
