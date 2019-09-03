@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ---
 
-# How to: Configure and customize the build tasks
+# Configure and customize the build tasks
 
 This article describes in detail the configuration options available in each of the build tasks. The article starts with the tasks for security code analysis tools. It ends with the post-processing tasks.
 
