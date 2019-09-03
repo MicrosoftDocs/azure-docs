@@ -15,16 +15,54 @@ This article describes the roles required to share data using Azure Data Share P
 
 ## Roles and requirements
 
-To share or receive data using Azure Data Share, the user account that you use to sign in to Azure must be able to grant Data Share permissions to the Storage account that you are sharing data from or receiving data in to. Typically this is a permission that exists in the **owner** role, or a custom role with Microsoft.Authorization/role assignments/write permission assigned. 
+Azure Data Share uses Managed Identities for Azure Services (previously known as MSIs) to authenticate to underlying storage accounts in order to be able to read data to be shared by a data provider, as well as receive data shared as a data consumer. This ensures that there is no exchange of credentials between the data provider and the data consumer. 
 
-To share or receive data from or to an Azure Storage account, you must be an owner of the storage account. Even if you have created the Storage account, this does not automatically grant you ownership of the Storage account. To add yourself in to the owner role of your Azure Storage account, follow these steps.
+In order to facilitate this, the Managed Service Identity needs to be granted access to the underlying storage accounts. The Azure Data Share service uses the Azure Data Share resource's Managed Service Identity to to read and write data. This means that the user of Azure Data Share needs the ability to create a role assignment for the Managed Service Identity to the storage account that they are sharing data from/to. Typically this is a permission that exists in the **owner** role, User Access Administrator role or a custom role with Microsoft.Authorization/role assignments/write permission assigned. 
 
-1. Navigate to Storage account in Azure portal
-1. Select **Access control (IAM)**
-1. Click **Add**
-1. Add yourself in as owner
+If you are not an owner of the storage account in question, and you are unable to create a role assignment for the Azure Data Share resource's Managed Identity yourself, you can request an Azure Administrator to create a role assignment on your behalf. 
 
-To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. 
+Below is a summary of the roles assigned to Data Share resource Managed Identity:
+
+| |  |  |
+|---|---|---|
+|**Storage Type**|**Data Provider Source Storage Account**|**Data Consumer Target Storage Account**|
+|Azure Blob Storage| Storage Blob Data Reader | Storage Blob Data Contributor
+|Azure Data Lake Gen1 | Owner | Not Supported
+|Azure Data Lake Gen2 | Storage Blob Data Reader | Storage Blob Data Contributor
+|
+### Data Providers 
+To add a dataset to an Azure Data Share, the data providers data share resource managed identity needs to be added to the Storage Blob Data Reader role. This is done automatically by the Azure Data Share service if the user is adding datasets via the Azure Portal and is an owner of the storage account, or is a member of a custom role which has the Microsoft.Authorization/role assignments/write permission assigned. 
+
+In the absence of the above conditions, the user can have an Azure Administrator add the Data Share resource Managed Identity to the Storage Blob Data Reader account. Creating this role assignment manually by the Administrator will void having to be an owner of the Storage account or have a custom role assignment. Note that this applies to data being shared from Azure Storage or Azure Data Lake Gen2. 
+
+If sharing data from Azure Data Lake Gen1, the role assignment must be made to the Owner role. 
+
+To create a role assignment for the Data Share resource's Managed Identity, follow the below steps:
+
+1. Navigate to the Storage account
+1. Select **Access Control (IAM)**
+1. Select **Add a role assignment**
+1. Under *Role*, select *Storage Blob Data Reader* 
+1. Under *Select*, type in the name of your Azure Data Share account
+1. Click *Save*
+
+### Data Consumers
+To receive data, the data consumers data share resource managed identity needs to be added to the Storage Blob Data Contributor role. This role is required to enable the Azure Data Share service to be able to write to the storage account. This is done automatically by the Azure Data Share service if the user is adding datasets via the Azure Portal and is an owner of the storage account, or is a member of a custom role which has the Microsoft.Authorization/role assignments/write permission assigned. 
+
+In the absence of the above conditions, the user can have an Azure Administrator add the Data Share resource Managed Identity to the Storage Blob Data Contributor account. Creating this role assignment manually by the Administrator will void having to be an owner of the Storage account or have a custom role assignment. Note that this applies to data being shared to Azure Storage or Azure Data Lake Gen2. Receiving data to Azure Data Lake Gen1 is not supported. 
+
+To create a role assignment for the Data Share resource's Managed Identity, follow the below steps:
+
+1. Navigate to the Storage account
+1. Select **Access Control (IAM)**
+1. Select **Add a role assignment**
+1. Under *Role*, select *Storage Blob Data Contributor* 
+1. Under *Select*, type in the name of your Azure Data Share account
+1. Click *Save*
+
+If you are sharing data using our REST APIs, you will need to create these role assignments manually by adding the data share account in to the appropriate roles. 
+
+To learn more about how to add a role assignment, refer to [this documentation](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) which outlines how to add a role assignment to an Azure resource. 
 
 ## Resource Provider registration 
 
