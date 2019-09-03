@@ -356,6 +356,9 @@ The custom property name can be found in the directory by querying a user's prop
 
 You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
 
+> [!NOTE]
+> Please note that systemlabels is a read-only attribute that cannot be set with Intune.
+
 The following device attributes can be used.
 
  Device attribute  | Values | Example
