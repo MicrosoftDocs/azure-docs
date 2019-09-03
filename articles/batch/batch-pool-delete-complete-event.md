@@ -31,7 +31,7 @@ ms.author: lahugh
 
 |Element|Type|Notes|
 |-------------|----------|-----------|
-|`id`|String|The id of the pool.|
+|`id`|String|The ID of the pool.|
 |`startTime`|DateTime|The time the pool delete started.|
 |`endTime`|DateTime|The time the pool delete completed.|
 
