@@ -40,3 +40,46 @@ landingContent:
             url: how-to-settings.md  
           - text: Analyze success with offline evaluation
             url: how-to-offline-evaluation.md
+      - linkListType: deploy
+        links: 
+          - text: Troubleshooting
+            url: troubleshooting.md
+  - title: Best practices
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Ethics in responsible use
+            url: ethics-responsible-use.md    
+      - linkListType: concept
+        links:
+          - text: Effective feature sets
+            url: concepts-features.md#how-to-make-feature-sets-more-effective-for-personalizer              
+      - linkListType: concept
+        links: 
+          - text: Best practices for calculating reward score
+            url: concept-rewards.md#best-practices-for-calculating-reward-score      
+          - text: Best practices for setting reward wait time
+            url: concept-rewards.md#best-practices-for-setting-reward-wait-time   
+          - text: Best practices for choosing an exploration setting
+            url: concepts-exploration.md#best-practices-for-choosing-an-exploration-setting                        
+  - title: Developing with Personalizer
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .Net NuGet package
+            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+          - text: Reference documentation
+            url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+      - linkListType: reference
+        links:
+          - text: Go
+            url: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer 
+      - linkListType: reference
+        links:
+          - text: Node.js NPM package
+            url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+      - linkListType: reference
+        links:
+          - text: Python pypi project
+            url: https://pypi.org/project/azure-cognitiveservices-personalizer/       
+          
