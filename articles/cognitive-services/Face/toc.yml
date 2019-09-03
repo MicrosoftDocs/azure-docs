@@ -9,10 +9,6 @@
   items:
   - name: Using the client SDK
     items:
-    - name: Frame faces in an image
-      items:
-      - name: Python
-        href: Tutorials/FaceAPIinPythonTutorial.md
     - name: .NET SDK
       href: Quickstarts/csharp-sdk.md
     - name: Python SDK
