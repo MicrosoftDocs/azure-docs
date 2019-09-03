@@ -20,8 +20,8 @@ To install the iOS Beta client:
 
 1. Install the [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) app on your iOS device.
 2. On your iOS device, open a browser and navigate to [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Under the label **Step 2 Join the Beta**, select **Start Testing**.
-4. When you're redirected to the TestFlight app, select **Accept** and then **Install** the client.
+3. Under the label **Step 2: Join the Beta**, select **Start Testing**.
+4. When you're redirected to the TestFlight app, select **Accept**, then select **Install**.
 
 ## Subscribe to a feed
 
