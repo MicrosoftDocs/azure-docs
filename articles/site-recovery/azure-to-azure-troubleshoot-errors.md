@@ -14,12 +14,6 @@ ms.author: asgang
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines (VMs) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
-## List of errors
-
-- [Azure resource quota issues (error code 150097)](#azure-resource-quota-issues-error-code-150097)
-- [Trusted root certificates (error code 151066)](#trusted-root-certificates-error-code-151066)
-- [Outbound connectivity for Site Recovery (error code 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)
-
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure resource quota issues (error code 150097)
 
 Make sure your subscription is enabled to create Azure VMs in the target region that you plan to use as your disaster-recovery region. Also make sure your subscription has sufficient quota to create VMs of the necessary sizes. By default, Site Recovery chooses a target VM size that's the same as the source VM size. If the matching size isn't available, Site Recovery automatically chooses the closest available size.
@@ -42,9 +36,9 @@ If the target location has a capacity constraint, disable replication to it. The
 
 ## <a name="trusted-root-certificates-error-code-151066"></a>Trusted root certificates (error code 151066)
 
-If not all the latest trusted root certificates are present on the VM, your "enable replication" Site Recovery job might fail. Authentication and authorization of Site Recovery service calls from the VM fail without these certificates. 
+If not all the latest trusted root certificates are present on the VM, your "Enable replication" Site Recovery job might fail. Authentication and authorization of Site Recovery service calls from the VM fail without these certificates. 
 
-If the "enable replication" job fails, the following message appears:
+If the "Enable replication" job fails, the following message appears:
 
 > "Site Recovery configuration failed."
 
@@ -56,7 +50,7 @@ The trusted root certificates required for authorization and authentication aren
 
 #### Windows
 
-For a VM running the Windows operating system, install all the latest Windows updates on the VM so that all the trusted root certificates are present on the machine. Follow the typical Windows update-management or certificate update-management process in your organization to get all the latest root certificates and the updated certificate-revocation list on the VMs.
+For a VM running the Windows operating system, install the latest Windows updates on the VM so that all the trusted root certificates are present on the machine. Follow the typical Windows update-management or certificate update-management process in your organization to get the latest root certificates and the updated certificate-revocation list on the VMs.
 
 If you're in a disconnected environment, follow the standard Windows update process in your organization to get the certificates. If the required certificates aren't present on the VM, the calls to the Site Recovery service fail for security reasons.
 
@@ -64,7 +58,7 @@ To verify that the issue is resolved, go to login.microsoftonline.com from a bro
 
 For more information, see  [Configure trusted roots and disallowed certificates](https://technet.microsoft.com/library/dn265983.aspx).
 
-**Linux**
+#### Linux
 
 Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate-revocation list on the VM.
 
@@ -110,31 +104,33 @@ Because SuSE Linux uses symbolic links (or *symlinks*) to maintain a certificate
 
     - Command:
 
-              **# ls -l | grep Baltimore**
+        **# ls -l | grep Baltimore**
 
     - Output:
 
-            ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-        -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+        `lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem`
+
+        `-rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem`
 
     - Command:
 
-            **# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
+        **# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
 
     - Output:
 
-            ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+        `-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem`
 
-            ``lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+        `lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem`
 
     - Command:
 
-            **# ls -l | grep DigiCert_Global_Root**
+        **# ls -l | grep DigiCert_Global_Root**
 
     - Output:
 
-            ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
-        -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+        `lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem`
+
+        `-rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem`
 
 1. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0:
 
@@ -152,19 +148,21 @@ Because SuSE Linux uses symbolic links (or *symlinks*) to maintain a certificate
 
     - Command:
 
-              **# ls -l 653b494a.0 b204d74a.0 3513523f.0**
+        **# ls -l 653b494a.0 b204d74a.0 3513523f.0**
 
     - Output
 
-              ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
-          -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
-          -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
+        `-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0`
+
+        `-rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0`
+
+        `-rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0`
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
 For Site Recovery replication to work, outbound connectivity is required from the VM to specific URLs or IP ranges. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register the Azure virtual machine with Site Recovery (151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register the Azure virtual machine with Site Recovery (error code 151195)
 
 #### Possible cause 
 
@@ -174,13 +172,13 @@ This problem happens most frequently during reprotection, when you have failed o
 
 #### Fix the problem
 
-If you're using a custom DNS, make sure that the DNS server is accessible from the disaster-recovery region. To find out whether you have a custom DNS, on the VM, go to ***disaster recovery network*** > **DNS servers**.
+If you're using a custom DNS, make sure that the DNS server is accessible from the disaster-recovery region. To find out whether you have a custom DNS, on the VM, go to *disaster recovery network* > **DNS servers**.
 
 ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 Try accessing the DNS server from the virtual machine. If the server is not accessible, make it accessible either by failing over the DNS server or by creating the line of site between the DR network and the DNS.
 
-### Issue 2: Site Recovery configuration failed (151196)
+### Issue 2: Site Recovery configuration failed (error code 151196)
 
 #### Possible cause
 
@@ -194,7 +192,7 @@ If you're using Azure network security group (NSG) rules or firewall proxy to co
 > [!NOTE]
 > If VMs are behind a *Standard* internal load balancer, the load balancer by default does not have access to Office 365 IP ranges (that is, login.microsoftonline.com). Either change the internal load balancer type to *Basic* or create outbound access as described in the article [Configure load balancing and outbound rules](https://aka.ms/lboutboundrulescli).
 
-### Issue 3: Site Recovery configuration failed (151197)
+### Issue 3: Site Recovery configuration failed (error code 151197)
 
 #### Possible cause
 
@@ -204,7 +202,7 @@ The connection can't be established to Site Recovery service endpoints.
 
 Site Recovery requires access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), depending on the region. Make sure that the required IP ranges are accessible from the virtual machine.
 
-### Issue 4: Azure-to-Azure replication failed when the network traffic goes through an on-premises proxy server (151072)
+### Issue 4: Azure-to-Azure replication failed when the network traffic goes through an on-premises proxy server (error code 151072)
 
 #### Possible cause
 
@@ -248,7 +246,7 @@ A new disk attached to the VM must be initialized. If the disk is not found, the
 
 ### Fix the problem
 
-Make that the data disks are initialized, and then retry the operation.
+Make sure that the data disks are initialized, and then retry the operation.
 
 - **Windows**: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 
@@ -295,8 +293,8 @@ You can ignore this warning if you never intend to protect this virtual machine 
 
 ### Fix the problem
 
->[!NOTE]
->Site Recovery doesn't delete the source virtual machine or impact it in any way while performing these steps.
+> [!NOTE]
+> Site Recovery doesn't delete the source virtual machine or impact it in any way while you perform these steps.
 
 1. Remove the lock from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
@@ -320,8 +318,8 @@ A stale configuration can occur on an Azure VM if you enabled replication for th
 
 ### Fix the problem
 
->[!NOTE]
->Site Recovery doesn't delete the source virtual machine or impact it in any way while performing these steps.
+> [!NOTE]
+> Site Recovery doesn't delete the source virtual machine or impact it in any way while you perform these steps.
 
 1. Remove the lock from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
@@ -331,7 +329,7 @@ A stale configuration can occur on an Azure VM if you enabled replication for th
 1. Run the script, which is called Cleanup-stale-asr-config-Azure-VM.ps1. Supply the subscription ID, VM Resource Group, and VM name as parameters.
 1. If asked for Azure credentials, provide them, and then verify that the script runs without any failures.
 
-## Unable to see the Azure VM or resource group for selection in "enable replication"
+## Unable to see the Azure VM or resource group for the selection in the "Enable replication" job
 
 ### Cause 1: The resource group and source virtual machine are in different locations
 
@@ -343,7 +341,7 @@ As a workaround, you can enable replication from the VM instead of the Recovery 
 
 You might not be able to find the resource group at the time of protection if the resource group is not part of the selected subscription. Make sure that the resource group belongs to the subscription that you're using.
 
-### Cause 3: Stale Configuration
+### Cause 3: Stale configuration
 
 You might not see the VM that you want to enable for replication if a stale Site Recovery configuration has been left on the Azure VM. This condition could occur if you enabled replication for the Azure VM by using Site Recovery, and then:
 
@@ -354,7 +352,7 @@ You might not see the VM that you want to enable for replication if a stale Site
 ### Fix the problem
 
 > [!NOTE]
-> Make sure to update the "AzureRM.Resources" module before using the script mentioned in this section.  Site Recovery doesn't delete the source virtual machine or impact it in any way while performing these steps.
+> Make sure to update the "AzureRM.Resources" module before using the script mentioned in this section.  Site Recovery doesn't delete the source virtual machine or impact it in any way while you perform these steps.
 
 1. Remove the lock, if any, from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
@@ -387,7 +385,7 @@ To enable replication on the VM, its provisioning state must be **Succeeded**. F
 ### Fix the problem
 
 - If **provisioningState** is **Failed**, contact support with details to troubleshoot.
-- If **provisioningState** is **Updating**, another extension might be being deployed. Check whether there are any ongoing operations on the VM, wait for them to finish, and then retry the failed Site Recovery **Enable replication** job.
+- If **provisioningState** is **Updating**, another extension might be being deployed. Check whether there are any ongoing operations on the VM, wait for them to finish, and then retry the failed Site Recovery "Enable replication" job.
 
 ## Unable to select target VM (network selection tab is unavailable)
 
@@ -439,7 +437,7 @@ When this error occurs, the following message appears:
 
 The disk is smaller than the supported size of 1024 MB.
 
-### Recommendations
+### Fix the problem
 
 Make sure that the disk size is within the supported size range, and then retry the operation.
 
@@ -462,9 +460,9 @@ The following examples are lines from GRUB files where device names (shown in bo
 
 ### Fix the problem
 
-Replace the each device name with the corresponding UUID:
+Replace each device name with the corresponding UUID:
 
-1. Find the UUID of the device by executing the command **blkid \<device name>**. For example:
+1. Find the UUID of the device by executing the command **blkid** ***device name***. For example:
 
     ```
     blkid /dev/sda1
@@ -501,11 +499,11 @@ In each example, the portion in bold shows that the GRUB has to detect two LVM d
 
 ### Fix the problem
 
-If the LVM device doesn't exist, either create it or remove the corresponding parameter from the GRUB configuration files. Then, try again to enable protection.
+If the LVM device doesn't exist, either create it or remove the corresponding parameters from the GRUB configuration files. Then, try again to enable protection.
 
 ## A Site Recovery Mobility Service update finished with warnings (error code 151083)
 
-The Site Recovery Mobility Service has many components, one of which is called the filter driver. The filter driver is loaded into system memory only during system reboot. Whenever a Mobility Service update includes filter driver changes, the machine is updated but you still see a warning that some fixes require a reboot. This is because the filter driver fixes can take effect only when the new filter driver is loaded, which happens only during a reboot.
+The Site Recovery Mobility Service has many components, one of which is called the filter driver. The filter driver is loaded into system memory only during system reboot. Whenever a Mobility Service update includes filter driver changes, the machine is updated but you still see a warning that some fixes require a reboot. The warning appears because the filter driver fixes can take effect only when the new filter driver is loaded, which happens only during a reboot.
 
 > [!NOTE]
 > This is only a warning. Existing replication continues to work even after the new agent update. You can choose to reboot whenever you want the benefits of the new filter driver, but the old filter driver keeps working if you don't reboot.
