@@ -18,19 +18,25 @@ metadata:
 landingContent:
   - title: About Personalizer
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: What is Personalizer?
             url: what-is-personalizer.md
+      - linkListType: concept
+        links:
           - text: How Personalizer works
-            url: how-personalizer-works.md 
-          - text: How to create and configure Personalizer resource
-            url: how-to-settings.md    
-          - text: "Quickstart: Personalize client library for .NET"
-            url: csharp-quickstart-commandline-feedback-loop.md
+            url: how-personalizer-works.md  
           - text: Choosing features and actions to personalize
             url: concepts-features.md
           - text: How to calculate a reward
             url: concept-rewards.md
+      - linkListType: quickstart
+        links:
+          - text: Personalize client library for .NET
+            url: csharp-quickstart-commandline-feedback-loop.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to create and configure Personalizer resource
+            url: how-to-settings.md  
           - text: Analyze success with offline evaluation
             url: how-to-offline-evaluation.md
