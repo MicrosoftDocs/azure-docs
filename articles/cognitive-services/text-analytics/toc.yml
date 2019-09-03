@@ -16,6 +16,8 @@
       items:
       - name: Language detection
         href: quickstarts/detect-language.md
+      - name: Sentiment analysis
+        href: quickstarts/sentiment-analysis.md
       - name: C#
         href: quickstarts/csharp.md
       - name: Python
