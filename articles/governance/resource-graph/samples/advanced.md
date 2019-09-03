@@ -21,6 +21,7 @@ We'll walk through the following advanced queries:
 > - [Get virtual machine scale set capacity and size](#vmss-capacity)
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
+> - [Include the tenant and subscription names with DisplayNames](#displaynames)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
