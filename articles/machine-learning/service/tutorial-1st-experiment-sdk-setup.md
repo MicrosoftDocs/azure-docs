@@ -19,16 +19,14 @@ In this tutorial, you complete the end-to-end steps to get started with the Azur
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create a machine learning Workspace to use in the next tutorial.
+> * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
 > * Create a cloud-based Jupyter notebook VM with Azure Machine Learning Python SDK installed and pre-configured.
 
-## Prerequisites
-
-The only prerequisite for this tutorial is an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## Create a workspace
 
-A workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning service workspace, skip to the [next section](#azure). Otherwise, create one now.
+An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning service workspace, skip to the [next section](#azure). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -53,10 +51,7 @@ From your workspace, you create a cloud resource to get started using Jupyter no
 1. Then select **Create**. It can take a moment to set up your VM.
 
 1. Wait until the status changes to **Running**.
-
-### Launch Jupyter web interface
-
-After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
+   After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
 1. Select **Jupyter** in the **URI** column for your VM.
 
@@ -64,14 +59,6 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
 
-1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
-
-   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
-
-1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
-
-   > [!Warning]
-   > Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
 
 ## Next steps
 
