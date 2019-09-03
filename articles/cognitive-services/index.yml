@@ -39,6 +39,7 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
     - title: Bing Search
+      summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links: 
         - url: /azure/cognitive-services/Bing-Autosuggest
           itemType: overview
@@ -71,6 +72,7 @@ conceptualContent:
           itemType: overview
           text: Web Search    
     - title: Decision Services 
+      summary: Build apps that surface recommendations for informed and efficient decision-making.
       links: 
         - url: ./anomaly-detector/overview.md
           itemType: overview
