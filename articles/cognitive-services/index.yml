@@ -38,6 +38,27 @@ highlightedContent:
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:   
+    - title: Vision
+      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content. 
+      links: 
+        - url: /azure/cognitive-services/computer-vision/
+          itemType: overview
+          text: Computer Vision
+        - url: /azure/cognitive-services/Custom-Vision-Service/
+          itemType: overview
+          text: Custom Vision
+        - url: /azure/cognitive-services/face/
+          itemType: overview
+          text: Face
+        - url: /azure/cognitive-services/form-recognizer/
+          itemType: overview
+          text: Form Recognition (Preview)
+        - url: /azure/cognitive-services/form-recognizer/
+          itemType: overview
+          text: Ink Recognizer (Preview)
+        - url: /azure/cognitive-services/ink-recognizer/
+          itemType: overview
+          text: Video Indexer   
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links: 
@@ -70,28 +91,7 @@ conceptualContent:
           text: Bing Speech (Retiring)   
         - url: /azure/cognitive-services/translator-speech/
           itemType: overview
-          text: Translator Speech (Retiring)   
-    - title: Vision
-      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content. 
-      links: 
-        - url: /azure/cognitive-services/computer-vision/
-          itemType: overview
-          text: Computer Vision
-        - url: /azure/cognitive-services/Custom-Vision-Service/
-          itemType: overview
-          text: Custom Vision
-        - url: /azure/cognitive-services/face/
-          itemType: overview
-          text: Face
-        - url: /azure/cognitive-services/form-recognizer/
-          itemType: overview
-          text: Form Recognition (Preview)
-        - url: /azure/cognitive-services/form-recognizer/
-          itemType: overview
-          text: Ink Recognizer (Preview)
-        - url: /azure/cognitive-services/ink-recognizer/
-          itemType: overview
-          text: Video Indexer          
+          text: Translator Speech (Retiring)           
     - title: Decision Services 
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links: 
