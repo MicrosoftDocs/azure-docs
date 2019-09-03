@@ -1,6 +1,6 @@
 ---
 title: SAP workload planning and deployment checklist | Microsoft Docs
-description: checklist for planning and deployments of SAP workload on Azure
+description: Checklist for planning SAP workload deployments to Azure and deploying the workloads
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -20,16 +20,18 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP workload on Azure planning and deployment checklist 
+# SAP workload on Azure: planning and deployment checklist
 
-This checklist is designed for customers moving their SAP NetWeaver, S/4HANA, and Hybris applications to Azure Infrastructure as a Service.  This checklist should be reviewed by a customer and/or SAP partner during the duration of the project. It is important that many of the checks are conducted at the beginning of the project and in the planning phase. Once the deployment is done, elementary changes on deployed Azure infrastructure or SAP software releases can become complex. Review this checklist at key milestones throughout a project.  Small problems can be detected before they become large problems and sufficient time exists to re-engineer and test any necessary changes. The checklist in no ways claims to be complete. Dependent on your individual situation, there might be many more checks that need to be conducted. 
+This checklist is designed for customers moving SAP NetWeaver, S/4HANA, and Hybris applications to Azure infrastructure as a service. The checklist should be reviewed by a customer and/or SAP partner throughout the duration of the project. It's important to note that many of the checks are completed at the beginning of the project and during the planning phase. After the deployment is done, straightforward changes on deployed Azure infrastructure or SAP software releases can become complex.
 
-The checklist assembled does not include tasks that are independent of Azure.  Example: SAP application Interfaces change during a move to Azure Public Cloud or to a hosting provider.    
+Review the checklist at key milestones during your project. Doing so will enable you to detect small problems before they become large problems, and you'll have enough time to re-engineer and test any necessary changes. You shouldn't consider this checklist to be complete. Depending on your situation, you might need to perform many more checks.
 
-This checklist can also be used for already deployed systems. New features such as Write Accelerator, Availability Zones, and new VM types may have been added since you deployed.  It is therefore useful to review the checklist periodically to ensure you are aware of new features in the Azure platform. 
+The checklist doesn't include tasks that are independent of Azure. For example, SAP application interfaces change during a move to the Azure platform or to a hosting provider.
+
+This checklist can also be used for systems that are already deployed. New features, like Write Accelerator and Availability Zones, and new VM types might have been added since you deployed. So it's useful to review the checklist periodically to ensure you're aware of new features in the Azure platform.
 
 ## Project preparation and planning phase
-In this phase, a migration of SAP workload onto Azure public cloud is planned. The minimum set of entities and items discussed and defined list like:
+During this phase, you plan the migration of your SAP workload onto the Azure platform. The minimum set of entities and items discussed and defined list like:
 
 1. High-Level Design Document – this document should contain:
 	1. The current inventory of SAP components and applications and target application inventory on Azure
