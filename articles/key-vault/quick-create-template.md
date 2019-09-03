@@ -102,6 +102,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 In this quickstart, you have created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](key-vault-overview.md)
-- See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
-- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Get more info on [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
 - Review [Azure Key Vault best practices](key-vault-best-practices.md)
