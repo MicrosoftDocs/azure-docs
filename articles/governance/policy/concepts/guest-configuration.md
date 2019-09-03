@@ -16,7 +16,7 @@ Configuration extension and client. The extension, through the client, validates
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
 
-At this time, Azure Policy Guest Configuration only performs an audit of setings inside the machine.
+At this time, Azure Policy Guest Configuration only performs an audit of settings inside the machine.
 It is not yet possible to apply configurations.
 
 ## Extension and client
@@ -25,11 +25,11 @@ To audit settings inside a machine, a [virtual machine
 extension](../../../virtual-machines/extensions/overview.md) is enabled. The extension downloads
 applicable policy assignment and the corresponding configuration definition.
 
-### Limits set on the exension
+### Limits set on the extension
 
 In order to limit the extension from impacting applications running inside the machine,
 the Guest Configuration is not allowed to exceed more than 5% of CPU utilization.
-This is true boh for configurations provided by Microsoft as "built-in"
+This is true both for configurations provided by Microsoft as "built-in"
 and for custom configurations authored by customers.
 
 ## Register Guest Configuration resource provider
