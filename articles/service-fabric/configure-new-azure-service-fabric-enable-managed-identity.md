@@ -47,13 +47,14 @@ If the deployment fails with this message, it means the cluster is not on the re
 }
 ```
 
-## Next steps
-* [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
-* [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
 
 ## Related Articles
 * Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
 
 * [Enable managed identity support in an existing Azure Service Fabric cluster](./configure-existing-cluster-enable-managed-identity-token-service.md)
+
+## Next steps
+* [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
+* [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)

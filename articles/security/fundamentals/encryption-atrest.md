@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 08/30/2019
 ms.author: barclayn
 
 ---
@@ -249,6 +249,8 @@ Azure SQL Database currently supports encryption at rest for Microsoft-managed s
 Support for server encryption is currently provided through the SQL feature called Transparent Data Encryption. Once an Azure SQL Database customer enables TDE key are automatically created and managed for them. Encryption at rest can be enabled at the database and server levels. As of June 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) is enabled by default on newly created databases. Azure SQL Database supports RSA 2048-bit customer-managed keys in Azure Key Vault. For more information, see [Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
 Client-side encryption of Azure SQL Database data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
+
+#### Encryption Model and key management table
 
 |                                  |                    | **Encryption Model and Key Management** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|

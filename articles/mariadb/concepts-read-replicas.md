@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/21/2019
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -45,7 +45,7 @@ Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, 
 
 
 ### Paired regions
-In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
 
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 

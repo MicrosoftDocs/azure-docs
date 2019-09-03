@@ -2,12 +2,11 @@
 title: Conditional cognitive search skill (Azure Search) | Microsoft Docs
 description: The conditional skill enables filtering, creating defaults, and merging values.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019

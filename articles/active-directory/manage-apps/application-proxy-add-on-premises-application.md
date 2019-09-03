@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ This tutorial:
 
 To add an on-premises application to Azure AD, you need:
 
-* A [Microsoft Azure AD basic or premium subscription](https://azure.microsoft.com/pricing/details/active-directory)
+* A [Microsoft Azure AD premium subscription](https://azure.microsoft.com/pricing/details/active-directory)
 * An application administrator account
 * User identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
@@ -64,7 +64,7 @@ To enable TLS 1.2:
 1. Restart the server.
 
 > [!IMPORTANT]
-> To provide the best-in-class encryption to our customers, we are making updates to the Application Proxy service to limit access to only TLS 1.2 protocols. Based on customer readiness changes will be gradually rolled out to customers who are only using TLS 1.2 protocols and will not see any impact from this change. TLS 1.0 and 1.1 deprecation will complete on August 31, 2019 and customers will receive advance notice to prepare for this change. To prepare for this change make sure that all client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) for useful references and resources.
+> To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) for useful references and resources.
 
 ## Prepare your on-premises environment
 
@@ -89,7 +89,7 @@ Allow access to the following URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates. |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | The connector uses these URLs during the registration process. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | The connector uses these URLs during the registration process. |
 
 You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 

@@ -409,10 +409,10 @@ For a full list of sections and properties available for defining activities, se
 
 ### Blob storage as a source type
 
-- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
+- To copy from **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC/Avro/JSON format**, refer to [Other format source](#other-format-source) section.
 
-### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
+#### <a name="format-based-source"></a> Parquet, delimited text and binary format source
 
 To copy data to and from Blob storage in **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy source:
 
