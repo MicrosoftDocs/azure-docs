@@ -74,7 +74,7 @@ When looking at provisioning events for an individual user, the events normally 
 1. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute-mapping rules and scoping filters to determine what action, if any, should be performed.
 1. Export event: If the synchronization rule event dictated that an action should be performed (Add, Update, Delete), then the results of the action are recorded in an Export event.
 
-   ![Example: Audit log page that shows the activities and status](./media/check-status-user-account-provisioning/audit_logs.PNG)
+   ![Example: Audit log page that shows the activities and status](./media/check-status-user-account-provisioning/provisioning_logs.png)
 
 ### Looking up provisioning events for a specific user
 

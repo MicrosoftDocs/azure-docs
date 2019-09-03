@@ -35,7 +35,7 @@ The provisioning logs record all the operations performed by the provisioning se
 Below is a list of the general problem areas that you can drill into if you have an idea of where to start.
 
 - [Provisioning service does not appear to start](#provisioning-service-does-not-appear-to-start)
-- [Provisioning logs say users are skipped and not provisioned, even though they are assigned](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+- [Provisioning logs say users are skipped and not provisioned, even though they are assigned](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## Provisioning service does not appear to start
 If you set the **Provisioning Status** to be **On** in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section of the Azure portal. However no other status details are shown on that page after subsequent reloads, it is likely that the service is running but has not completed an initial synchronization yet. Check the **Provisioning logs (preview)** described above to determine what operations the service is performing, and if there are any errors.

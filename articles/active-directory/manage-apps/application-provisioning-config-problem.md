@@ -40,7 +40,7 @@ Below is a list of the general problem areas that you can drill into if you have
 
 * [Provisioning service does not appear to start](#provisioning-service-does-not-appear-to-start)
 * Can’t save configuration due to app credentials not working
-* [Provisioning logs say users are “skipped” and not provisioned, even though they are assigned](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+* [Provisioning logs say users are “skipped” and not provisioned, even though they are assigned](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## Provisioning service does not appear to start
 
