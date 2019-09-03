@@ -7,7 +7,6 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # How to update an existing blueprint assignment
 
