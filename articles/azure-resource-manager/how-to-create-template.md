@@ -45,7 +45,7 @@ Often, you can find an existing template that deploys a solution that is similar
 
 Search through that repository for a template that is similar to what you need. It's okay if the template doesn't do exactly what you need, you can customize it.
 
-After finding a template, select **Browse on Github**, and then copy the **azuredeploy.json** file from the repository. In VS Code, create a new file named **azuredeploy.json** and add the contents of the template file you copied from the Quickstart repository.
+After finding a template, select **Browse on GitHub**, and then copy the **azuredeploy.json** file from the repository. In VS Code, create a new file named **azuredeploy.json** and add the contents of the template file you copied from the Quickstart repository.
 
 ## Add resources
 
