@@ -13,13 +13,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 01/04/2019
+ms.date: 06/19/2019
 ms.author: jowargo
 ---
 
 # Get started with Notification Hubs using Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!IMPORTANT]
+> This tutorial is deprecated. 
 
 Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices.
 

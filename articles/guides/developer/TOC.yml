@@ -83,7 +83,7 @@
   - name: Plan
     items:
     - name: Web application architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: VM architectures
       href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/
     - name: Connect to on-premises networks
@@ -127,7 +127,7 @@
   - name: Scale
     items:
     - name: Web and mobile apps
-      href: https://docs.microsoft.com/azure/app-service/web-sites-scale
+      href: https://docs.microsoft.com/azure/app-service/manage-scale-up
     - name: Virtual machines
       href: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
     - name: Microservice apps

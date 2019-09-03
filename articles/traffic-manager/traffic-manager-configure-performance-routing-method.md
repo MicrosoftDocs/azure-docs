@@ -2,15 +2,16 @@
 title: Configure performance traffic routing method using Azure Traffic Manager | Microsoft Docs
 description: This article explains how to configure Traffic Manager to route traffic to the endpoint with lowest latency 
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Configure the performance traffic routing method

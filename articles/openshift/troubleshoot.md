@@ -2,8 +2,8 @@
 title: Troubleshoot Azure Red Hat OpenShift | Microsoft Docs
 description: Troubleshoot and resolve common issues with Azure Red Hat OpenShift
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
@@ -18,10 +18,6 @@ This article details some common issues encountered while creating or managing M
 
 If creating an Azure Red Hat OpenShift cluster using the `az` CLI command fails, retrying the create will continue to fail.
 Use `az openshift delete` to delete the failed cluster, then create an entirely new cluster.
-
-## Untrusted Azure Red Hat OpenShift server certificate
-
-The OpenShift console uses a self-signed certificate. When prompted in your browser, bypass the warning and accept the "untrusted" certificate.
 
 ## Hidden Azure Red Hat OpenShift cluster resource group
 

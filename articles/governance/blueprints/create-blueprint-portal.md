@@ -7,7 +7,6 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
@@ -81,12 +80,12 @@ Manager template and role assignment on the new resource group.
 
    1. Change **Type** to **Built-in**. In **Search**, enter **tag**.
 
-   1. Click out of **Search** for the filtering to occur. Select **Apply tag and its default value
+   1. Click out of **Search** for the filtering to occur. Select **Append tag and its default value
       to resource groups**.
 
    1. Select **Add** to add this artifact to the blueprint.
 
-1. Select the row of the policy assignment **Apply tag and its default value to resource groups**.
+1. Select the row of the policy assignment **Append tag and its default value to resource groups**.
 
 1. The window to provide parameters to the artifact as part of the blueprint definition opens and
    allows setting the parameters for all assignments (static parameters) based on this blueprint

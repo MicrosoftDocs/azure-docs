@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 
@@ -121,6 +121,7 @@ For example, the following request body made to the [create or update](https://d
 ## Next steps
 
 - [Common alert schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Learn how to create a logic app that leverages the common alert schema to handle all your alerts.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

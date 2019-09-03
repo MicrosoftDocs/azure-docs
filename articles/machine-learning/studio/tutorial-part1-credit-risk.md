@@ -72,7 +72,7 @@ The **german.data** dataset contains rows of 20 variables for 1000 past applican
 
 The UCI website provides a description of the attributes of the feature vector for this data. This data includes financial information, credit history, employment status, and personal information. For each applicant, a binary rating has been given indicating whether they are a low or high credit risk. 
 
-You'll use this data to train a predictive analytics model. When you're done, your model should be able to accept a feature vector for a new individual and predict whether he or she is a low or high credit risk.  
+You'll use this data to train a predictive analytics model. When you're done, your model should be able to accept a feature vector for a new individual and predict whether they are a low or high credit risk.  
 
 Here's an interesting twist.
 

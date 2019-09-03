@@ -3,14 +3,16 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
+manager: philmea
 ---
 
 # Device connectivity in Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
 
@@ -82,7 +84,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
 
 - Sample implementation for [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### For testing purposes only
 

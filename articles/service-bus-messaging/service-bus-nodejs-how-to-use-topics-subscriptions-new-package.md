@@ -22,15 +22,15 @@ ms.author: aschhab
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-In this tutorial, you learn how to create Node.js applications to send messages to and receive messages from a Service Bus queue using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
+In this tutorial, you learn how to write a Node.js program to send messages to a Service Bus topic and receive messages from a Service Bus subscription using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus topics and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md) article to create a queue. Note down the connection string for your Service Bus instance and the names of the topic and subscription you created. We'll use these values in the samples.
+- If you don't have a topic and subscription to work with, follow steps in the [Use Azure portal to create a Service Bus topics and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md) article to create them. Note down the connection string for your Service Bus instance and the names of the topic and subscription you created. We'll use these values in the samples.
 
 > [!NOTE]
 > - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/app-service-web-get-started-nodejs.md), or [Node.js Cloud Service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of queues yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
+> - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of topcis and subscriptions yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
 
 ### Use Node Package Manager (NPM) to install the package
 To install the npm package for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
@@ -40,10 +40,10 @@ npm install @azure/service-bus
 ```
 
 ## Send messages to a topic
-Interacting with a Service Bus topic starts with instantiating the `ServiceBusClient` class and using it to instantiate the `TopicClient` class. Once you have the topic client, you can create a sender and use  either `send` or `sendBatch` method on it to send messages.
+Interacting with a Service Bus topic starts with instantiating the [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient) class. Once you have the topic client, you can create a sender and use  either [send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) or [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) method on it to send messages.
 
-1. Open your favorite editor, such as Visual Studio Code
-2. Create a file called `send.js` and paste the below code into it
+1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+2. Create a file called `send.js` and paste the below code into it. This code will send 10 messages to your topic.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus"); 
@@ -81,16 +81,19 @@ Interacting with a Service Bus topic starts with instantiating the `ServiceBusCl
     });
     ```
 3. Enter the connection string and name of your topic in the above code.
-4. Then run the command `node send.js` in a command prompt to execute this file. This will send 10 messages to your queue.
-The messages you send can have some standard properties like `label` and `messageId`. If you want to set any custom properties, use `userProperties`, which is a json object that can hold key-value pairs of your custom data.
+4. Then run the command `node send.js` in a command prompt to execute this file. 
 
-    Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). There's no limit on the number of messages held in a topic, but there's a limit on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas](service-bus-quotas.md).
+Congratulations! You just sent messages to a Service Bus queue.
+
+Messages have some standard properties like `label` and `messageId` that you can set when sending. If you want to set any custom properties, use the `userProperties`, which is a json object that can hold key-value pairs of your custom data.
+
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). There's no limit on the number of messages held in a topic, but there's a limit on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas](service-bus-quotas.md).
 
 ## Receive messages from a subscription
-Interacting with a Service Bus subscription starts with instantiating the `ServiceBusClient` class and using it to instantiate the `SubscriptionClient` class. Once you have the subscription client, you can create a receiver and use  either `receiveMessages` or `registerMessageHandler` method on it to receive messages.
+Interacting with a Service Bus subscription starts with instantiating the [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient) class. Once you have the subscription client, you can create a receiver and use  either [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) or [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) method on it to receive messages.
 
-1. Open your favorite editor, such as Visual Studio Code
-2. Create a file called `recieve.js` and paste the below code into it
+1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+2. Create a file called `recieve.js` and paste the below code into it. This code will attempt to receive 10 messages from your subscription. The actual count you receive depends on the number of messages in the subscription and network latency.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -121,9 +124,11 @@ Interacting with a Service Bus subscription starts with instantiating the `Servi
     });
     ```
 3. Enter the connection string and names of your topic and subscription in the above code.
-4. Then run the command `node receiveMessages.js` in a command prompt to execute this file. This command will try to receive a maximum of 10 messages from your subscription. The actual count you receive may depend on the number of messages in the subscription and network latency.
+4. Then run the command `node receiveMessages.js` in a command prompt to execute this file.
 
-    The `createReceiver` method takes in a `ReceiveMode` which is an enum with values [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) and [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Remember to [settle your messages](message-transfers-locks-settlement.md#settling-receive-operations) if you use the `PeekLock` mode by using any of `complete()`, `abandon()`, `defer()`, or `deadletter()` methods on the message. 
+Congratulations! You just received messages from a Service Bus subscription.
+
+The [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) method takes in a `ReceiveMode` which is an enum with values [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) and [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Remember to [settle your messages](message-transfers-locks-settlement.md#settling-receive-operations) if you use the `PeekLock` mode by using any of `complete()`, `abandon()`, `defer()`, or `deadletter()` methods on the message.
 
 ## Subscription filters and actions
 Service Bus supports [filters and actions on subscriptions](topic-filters.md), which allows you to filter the incoming messages to a subscription and to edit their properties.
@@ -135,6 +140,9 @@ Once you have an instance of a `SubscriptionClient` you can use the below method
 - removeRule
 
 Every subscription has a default rule that uses the true filter to allow all incoming messages. When you add a new rule, remember to remove the default filter in order for the filter in your new rule to work. If a subscription has no rules, then it will receive no messages.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next Steps
 To learn more, see the following resources.

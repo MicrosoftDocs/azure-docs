@@ -4,7 +4,7 @@ description: This article describes different options available to read and acce
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 07/23/2019
 ms.author: rimman
 
 ---
@@ -18,7 +18,7 @@ You can work with the Azure Cosmos DB change feed using any of the following opt
 
 ## Using Azure Functions
 
-Azure Functions is the simplest and recommended option. When you create an Azure Cosmos DB trigger in an Azure Functions application, you can select the container to connect, and the Azure Function gets triggered whenever there is a change to the container. Triggers can be created by using the Azure Functions portal, the Azure Cosmos DB portal or programmatically with SDKs. Visual Studio and VS Code provide support to write Azure Functions, and you can even use the Azure Functions CLI for cross-platform development. You can write and debug the code on your desktop, and then deploy the function with one click. See [Serverless database computing using Azure Functions](serverless-computing-database.md) and [Using change feed with Azure Functions](change-feed-functions.md)) articles to learn more.
+Azure Functions is the simplest and recommended option. When you create an Azure Functions trigger for Cosmos DB, you can select the container to connect, and the Azure Function gets triggered whenever there is a change to the container. Triggers can be created by using the Azure Functions portal, the Azure Cosmos DB portal or programmatically with SDKs. Visual Studio and VS Code provide support to write Azure Functions, and you can even use the Azure Functions CLI for cross-platform development. You can write and debug the code on your desktop, and then deploy the function with one click. See [Serverless database computing using Azure Functions](serverless-computing-database.md) and [Using change feed with Azure Functions](change-feed-functions.md)) articles to learn more.
 
 ## Using the change feed processor library
 

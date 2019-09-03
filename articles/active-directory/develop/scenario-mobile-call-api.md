@@ -3,7 +3,7 @@ title: Mobile app that calls web APIs - calling a web API | Microsoft identity p
 description: Learn how to build a mobile app that calls web APIs (calling a web API)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
@@ -13,7 +13,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
@@ -110,24 +111,48 @@ After you have the access token, it's easy to call a web API. Your app will use 
 
 ### Xamarin
 
-```CSharp
-httpClient = new HttpClient();
-
-// Put access token in HTTP request.
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call Graph.
-HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
-...
-}
-```
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## Making several API requests
 
 If you need to call the same API several times, or if you need to call multiple APIs, take the following into consideration when you build your app:
 
 - **Incremental consent**: Microsoft identity platform allows apps to get user consent as permissions are required, rather than all at the start. Each time your app is ready to call an API, it should request only the scopes it needs to use.
-- **Conditional access**: In certain scenarios, you might get additional conditional access requirements when you make several API requests. This can happen if the first request has no conditional access policies applied and your app attempts to silently access a new API that requires conditional access. To handle this scenario, be sure to catch errors from silent requests and be prepared to make an interactive request.  To learn more, see [Guidance for conditional access](conditional-access-dev-guide.md).
+- **Conditional Access**: In certain scenarios, you might get additional Conditional Access requirements when you make several API requests. This can happen if the first request has no Conditional Access policies applied and your app attempts to silently access a new API that requires Conditional Access. To handle this scenario, be sure to catch errors from silent requests and be prepared to make an interactive request.  To learn more, see [Guidance for Conditional Access](conditional-access-dev-guide.md).
+
+## Calling several APIs in Xamarin or UWP - Incremental consent and Conditional Access
+
+If you need to call several APIs for the same user, once you've acquired a token for a user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+```
+
+The cases where interaction is required is when:
+
+- The user consented for the first API, but now needs to consent for more scopes (incremental consent)
+- The first API didn't require multiple-factor authentication, but the next one does.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+try
+{
+ result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+}
+catch(MsalUiRequiredException ex)
+{
+ result = await app.AcquireTokenInteractive("scopeApi2")
+                  .WithClaims(ex.Claims)
+                  .ExecuteAsync();
+}
+```
 
 ## Next steps
 

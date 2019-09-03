@@ -10,13 +10,12 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: lagayhar
 ---
 # Get started with Application Insights in a Java web project
 
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically instrument request, track dependencies, and collect performance counters](auto-collect-dependencies.md#java), [diagnose performance issues and exceptions](../../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically instrument request, track dependencies, and collect performance counters](auto-collect-dependencies.md#java), diagnose performance issues and exceptions, and [write code][api] to track what users do with your app. 
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
@@ -86,7 +85,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 ```
 
 #### If you're using Eclipse to create a Dynamic Web project ...
-Use the [Application Insights SDK for Java plug-in][eclipse]. Note: even though using this plugin will get you up and running with Application Insights quicker (assuming you're not using Maven/Gradle), it is not a dependency management system. As such, updating the plugin will not automatically update the Application Insights libraries in your project.
+Use the Application Insights SDK for Java plug-in. Note: even though using this plugin will get you up and running with Application Insights quicker (assuming you're not using Maven/Gradle), it is not a dependency management system. As such, updating the plugin will not automatically update the Application Insights libraries in your project.
 
 * *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK* Refresh your project's dependencies.
@@ -164,6 +163,8 @@ You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+Please note that [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) does not support reading instrumentation key from code.
 
 ## 4. Add an HTTP filter
 The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
@@ -429,30 +430,6 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
 ### Unix performance counters
 * [Install collectd with the Application Insights plugin](java-collectd.md) to get a wide variety of system and network data.
 
-## Local forwarder
-
-[Local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-If you are using SpringBoot starter, add the following to your configuration file (application.properties):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Default values are the same for SpringBoot application.properties and applicationinsights.xml configuration.
-
 ## Get user and session data
 OK, you're sending telemetry from your web server. Now to get the full 360-degree view of your application, you can add more monitoring:
 
@@ -481,7 +458,6 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Create [dashboards](../../azure-monitor/app/app-insights-dashboards.md) to bring together the key charts for monitoring your system.
 * Use  [Analytics](../../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
@@ -491,7 +467,6 @@ Application Insights can test your website at regular intervals to check that it
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

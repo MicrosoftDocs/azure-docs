@@ -1,6 +1,6 @@
 ---
-title: Subscription keys
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Subscription keys - LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS uses two keys, the free authoring key to create your model and the metered endpoint key for querying the prediction endpoint with user utterances.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -24,6 +24,7 @@ LUIS uses two keys: [authoring](#programmatic-key) and [endpoint](#endpoint-key)
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you also want to publish and query.
 
 <a name="programmatic-key" ></a>
+
 ## Authoring key
 
 An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The authoring key is provided to author your LUIS app or to test endpoint queries. 
@@ -44,11 +45,11 @@ When you need **production endpoint queries**, create an Azure Resource then ass
 
 When the Azure resource creation process is finished, [assign the key](luis-how-to-azure-subscription.md) to the app. 
 
-    * The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+* The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
-    * The endpoint key can be used for all your LUIS apps or for specific LUIS apps. 
+* The endpoint key can be used for all your LUIS apps or for specific LUIS apps. 
 
-    * Do not use the endpoint key for authoring LUIS apps. 
+* Do not use the endpoint key for authoring LUIS apps. 
 
 ## Use endpoint key in query
 The LUIS endpoint accepts two styles of query, both use the endpoint key, but in different places:

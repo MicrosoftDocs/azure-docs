@@ -31,7 +31,7 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 * [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
-You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
+You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Python, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
 
 > [!NOTE]
 > The Java JDK and Maven are required to build the Java project. Install these components on the Jenkins Master, or on the VM agent if you use the agent for continuous integration. If you are deploying a Java SE application, ZIP is also needed on the build server.
@@ -68,7 +68,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
 
 
 1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az-appservice-plan-create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
-2. Create a web app. You can use the [Azure portal](/azure/app-service-web/web-sites-configure) or the following `az` Azure CLI command:
+2. Create a web app. You can use the [Azure portal](/azure/app-service/configure-common) or the following `az` Azure CLI command:
     ```azurecli-interactive	
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```

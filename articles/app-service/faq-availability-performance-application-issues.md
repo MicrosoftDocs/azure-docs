@@ -12,7 +12,6 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
@@ -158,7 +157,7 @@ Consider switching to 64-bit processes so you can take advantage of the addition
 
 Also note that a 64-bit environment requires a Basic or Standard service plan. Free and Shared plans always run in a 32-bit environment.
 
-For more information, see [Configure web apps in App Service](web-sites-configure.md).
+For more information, see [Configure web apps in App Service](configure-common.md).
 
 ## Why does my request time out after 230 seconds?
 

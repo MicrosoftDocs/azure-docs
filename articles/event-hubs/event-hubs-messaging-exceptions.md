@@ -89,6 +89,12 @@ This error can occur for one of two reasons:
 
 This error should rarely occur. It happens when the container running code for your namespace is low on CPU – not more than a few seconds before the Event Hubs load balancer begins.
 
+### Limit on calls to the GetRuntimeInformation method
+Azure Event Hubs supports up to 50 calls per second to the GetRuntimeInfo per second. You may receive an exception similar to the following one once the limit is reached:
+
+```
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+```
 
 ## Next steps
 

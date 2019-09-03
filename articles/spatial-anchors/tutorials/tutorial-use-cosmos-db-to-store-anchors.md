@@ -41,7 +41,7 @@ It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this
 
 Copy the `Connection String` because you'll need it.
 
-## Open the sample project in Unity
+## Download the Unity sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -67,7 +67,7 @@ Locate the `StorageConnectionString` property, and set the value to be the same 
 
 ## Next steps
 
-In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
+In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Starting a new Android app](./tutorial-new-android-app.md)
+> [Starting a new Android app](./tutorial-new-unity-hololens-app.md)

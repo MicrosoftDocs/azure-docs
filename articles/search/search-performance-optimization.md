@@ -2,7 +2,7 @@
 title: Deployment strategies and best practices for optimizing performance - Azure Search
 description: Learn techniques and best practices for tuning Azure Search performance and configuring optimum scale.
 author: LiamCavanagh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -43,7 +43,7 @@ When you are receiving too many throttled requests, or exceed your target latenc
 2. **Increase Search Tier:**  Azure Search comes in a [number of tiers](https://azure.microsoft.com/pricing/details/search/) and each of these tiers offers different levels of performance.  In some cases, you may have so many queries that the tier you are on cannot provide sufficiently low latency rates, even when replicas are maxed out. In this case, you may want to consider leveraging one of the higher search tiers such as the Azure Search S3 tier that is well-suited for scenarios with large numbers of documents and extremely high query workloads.
 
 ## Scaling for slow individual queries
-Another reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Two options possible options that might help include the following:
+Another reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Two possible options that might help include the following:
 
 1. **Increase Partitions** A partition is a mechanism for splitting your data across extra resources. Adding a second partition splits data into two, a third partition splits it into three, and so forth. One positive side-effect is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
    
@@ -82,7 +82,7 @@ Here is a high-level visual of what that architecture would look like.
    ![Single data source with distributed indexer and service combinations][2]
 
 ### Use REST APIs for pushing content updates on multiple services
-If you are using the Azure Search REST API to [push content in your Azure Search index](https://docs.microsoft.com/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but fails for other search services.
+If you are using the Azure Search REST API to [push content in your Azure Search index](https://docs.microsoft.com/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
 ## Leverage Azure Traffic Manager
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple Azure Search Services. One advantage of the Traffic Manager is that it can probe Azure Search to ensure that it is available and route users to alternate search services in the event of downtime. In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Search. Here is an example of what the architecture that leverages Traffic Manager.

@@ -14,7 +14,7 @@
   items:
   - name: Detect suspicious threats
     href: tutorial-detect-threats.md
-  - name: Investigate cases
+  - name: Investigate incidents
     href: tutorial-investigate-cases.md 
   - name: Respond to threats
     href: tutorial-respond-threats-playbook.md  
@@ -43,6 +43,8 @@
         href: connect-azure-atp.md
       - name: Connect Azure Security Center
         href: connect-azure-security-center.md
+      - name: Connect domain name server
+        href: connect-dns.md
       - name: Connect Microsoft web application firewall
         href: connect-microsoft-waf.md
       - name: Connect Windows firewall
@@ -54,6 +56,8 @@
       items:
       - name: Connect generic CEF
         href: connect-common-event-format.md
+      - name: Connect AWS
+        href: connect-aws.md
       - name: Connect Barracuda
         href: connect-barracuda.md
       - name: Connect Check Point
@@ -72,6 +76,8 @@
         href: connect-cisco.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
+    - name: Connect Azure Stack VMs
+      href: connect-azure-stack.md  
   - name: Hunting
     href: hunting.md
     items:

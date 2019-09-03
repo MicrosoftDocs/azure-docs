@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides encryption of data at rest and h
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/23/2019
 ms.author: rimman
 ms.author: sngun
 ms.custom: seodec18
@@ -55,5 +55,5 @@ A: The emulator is a standalone dev/test tool and does not use the key managemen
 
 ## Next steps
 
-For an overview of Cosmos DB security and the latest improvements, see [Azure Cosmos DB database security](database-security.md).
+For an overview of Cosmos DB security and the latest improvements, see [Azure Cosmos database security](database-security.md).
 For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

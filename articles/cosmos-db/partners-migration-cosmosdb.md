@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/07/2018
+ms.date: 05/28/2019
 ---
 
 # Azure Cosmos DB NoSQL migration and application development partners

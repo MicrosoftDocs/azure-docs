@@ -4,13 +4,12 @@ description: In this tutorial, you learn how to monitor boot diagnostics and per
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -198,28 +197,27 @@ After **Update management** is enabled, the **Update management** screen appears
 
 To install updates, schedule a deployment that follows your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
-To schedule a new Update Deployment for the VM, select **Schedule update deployment** at the top of the **Update management** screen. In the **New update deployment** screen, specify the following information:
+Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. In the **New update deployment** screen, specify the following information:
 
-* **Name** - Provide a unique name to identify the update deployment.
-* **Update classification** - Select the types of software the update deployment included in the deployment. The classification types are:
-  * Critical and security updates
-  * Other updates
-* **Updates to Exclude** - You can provide a list of package names that should be skipped during the update deployment. Package names support wildcards (such as, \*kernel\*).
+To create a new update deployment, select **Schedule update deployment**. The **New update deployment** page opens. Enter values for the properties described in the following table and then click **Create**:
 
-  ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
+| Property | Description |
+| --- | --- |
+| Name |Unique name to identify the update deployment. |
+|Operating System| Linux or Windows|
+| Groups to update |For Azure machines, define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. </br></br>For Non-Azure machines, select an existing saved search to select a group of Non-Azure machines to include in the deployment. </br></br>To learn more, see [Dynamic Groups](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md) |
+|Update classifications|Select all the update classifications that you need|
+|Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [inclusion behavior](../../automation/automation-update-management.md#inclusion-behavior) |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
+| Pre-scripts + Post-scripts|Select the scripts to run before and after your deployment|
+| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes and no more than 6 hours |
+| Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
-* **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time.
-  You can also specify whether the deployment occurs once or set up a recurring schedule. Select the Recurring option under Recurrence to set up a recurring schedule.
+Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
-  ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
-
-* **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within. This helps ensure changes are performed within your defined service windows.
-
-After you have completed configuring the schedule, select **Create** button and you return to the status dashboard.
+After you have completed configuring the schedule, click **Create** button and you return to the status dashboard.
 Notice that the **Scheduled** table shows the deployment schedule you created.
-
-> [!WARNING]
-> For updates that require a reboot, the VM is restarted automatically.
 
 ### View results of an update deployment
 
@@ -311,4 +309,4 @@ In this tutorial, you configured, reviewed, and managed updates for a VM. You le
 Advance to the next tutorial to learn about Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](./tutorial-azure-security.md)
+> [Manage VM security](../../security/fundamentals/overview.md)

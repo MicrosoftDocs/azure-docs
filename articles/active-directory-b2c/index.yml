@@ -1,89 +1,152 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Active Directory B2C Documentation
+### YamlMime:Landing
+
+title: Azure Active Directory B2C documentation # < 60 chars
+summary: Azure Active Directory B2C (Azure AD B2C) is an identity management service that enables custom control of how your customers sign up, sign in, and manage their profiles when using your iOS, Android, .NET, single-page (SPA), and other applications. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples. # < 160 chars
+
 metadata:
-  title: Azure Active Directory B2C Documentation
-  meta.description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
+  title: Azure Active Directory B2C documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications. # Required; article description that is displayed in search results. < 160 chars.
   services: active-directory-b2c
-  author: davidmu1
-  manager: daveba
   ms.service: active-directory
   ms.subservice: B2C
   ms.topic: landing-page
-  ms.date: 03/29/2018
-  ms.author: davidmu
-abstract:
-  description: Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how customers sign up, sign in, and manage their profiles when using your applications. This includes applications developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting the identities of your customers at the same time. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ./media/index/active-directory-b2c-video.PNG
-      width: 250  
-    title: Customer Identity Management with Azure AD B2C (20:56)
-    href: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
-    width: 250
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/active-directory-b2c/active-directory-b2c-overview
-      html: <p>Learn more about Azure AD B2C and its features and capabilities.</p>
-      image:
-        src: ./media/index/i_get-started.svg
-      title: About Azure AD B2C
-    - href: /azure/active-directory-b2c/solution-articles
-      html: <p>Investigate solution and training opportunities using Azure AD B2C.</p>
-      image:
-        src: ./media/index/i_advanced.svg
-      title: Solutions and training
-    - href: /azure/active-directory-b2c/trustframeworkpolicy
-      html: <p>Create advanced sign-up and sign-in scenarios using custom policies in Azure AD B2C.</p>
-      image: 
-        src: ./media/index/i_investigate.svg
-      title: Identity Experience Framework
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to set up identity management for the customers that use your application:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
-    - image: 
-        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
-      text: Desktop
-      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
-    - image: 
-        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
-      text: Single-page
-      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
-- title: Step-by-Step Tutorials
-  items:
-    - type: paragraph
-      text: Learn how to manage sign-up, sign-in, and customer profiles in your ASP.NET, desktop, or single-page Node.js applications.
-    - type: list
-      style: cards
-      className: cardsD
-      items:
-      - title: ASP.NET
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
-      - title: Desktop
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
-      - title: Single-page
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
-- title: Samples
-  items:
-  - type: paragraph
-    text: Find samples that show you how to manage customer identities in your application.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/active-directory-b2c/code-samples">Mobile, desktop, web, and single-page apps</a>
+  ms.collection: collection
+  author: mmacy
+  ms.author: marsma
+  ms.date: 08/29/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: Learn the basics
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD B2C?
+            url: active-directory-b2c-overview.md
+      - linkListType: get-started
+        links:
+          - text: Create an Azure AD B2C tenant
+            url: tutorial-create-tenant.md
+          - text: Register an application
+            url: tutorial-register-applications.md
+          - text: Set up user flows
+            url: tutorial-create-user-flows.md
+      - linkListType: learn
+        links:
+          - text: "Video: Customer identity management with Azure AD B2C"
+            url: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
+
+  # Card
+  - title: Add identity to ASP.NET apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-web-app.md
+      - linkListType: tutorial
+        links:
+          - text: Authenticate users a .NET web application
+            url: active-directory-b2c-tutorials-web-app.md
+          - text: Grant API access to a .NET web application
+            url: active-directory-b2c-tutorials-web-api.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for web apps and APIs
+            url: code-samples.md#web-apps-and-apis
+
+  # Card
+  - title: Add identity to single-page apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-desktop-app.md
+      - linkListType: tutorial
+        links:
+          - text: Authenticate users in a single-page app
+            url: active-directory-b2c-tutorials-spa.md
+          - text: Grant API access to a single-page app
+            url: active-directory-b2c-tutorials-spa-webapi.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for single-page apps
+            url: code-samples.md#single-page-apps
+
+  # Card
+  - title: Add identity to desktop apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-desktop-app.md
+      - linkListType: tutorial
+        links:
+          - text: Authenticate users in native clients
+            url: active-directory-b2c-tutorials-desktop-app.md
+          - text: Grant API access to native clients
+            url: active-directory-b2c-tutorials-desktop-app-webapi.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for mobile and desktop apps
+            url: code-samples.md
+
+  # Card
+  - title: Configure common identity scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to user flows
+            url: active-directory-b2c-reference-policies.md
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up and sign in users
+            url: tutorial-create-user-flows.md
+          - text: Customize the user interface
+            url: customize-ui-overview.md
+          - text: Enable sign-in with Facebook
+            url: active-directory-b2c-setup-fb-app.md
+
+  # Card
+  - title: Build advanced identity scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to custom policies
+            url: active-directory-b2c-overview-custom.md
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up and sign in users
+            url: active-directory-b2c-get-started-custom.md
+          - text: Customize the user interface
+            url: active-directory-b2c-ui-customization-custom.md
+          - text: Enable sign-in with Azure AD multi-tenant
+            url: active-directory-b2c-setup-commonaad-custom.md
+          - text: Add your own business logic with REST APIs
+            url: active-directory-b2c-rest-api-validation-custom.md
+
+#  # Card
+#  - title: cardtitle2
+#    linkLists:
+#      - linkListType: linkListType
+#        links:
+#          - text: linktext1
+#            url: file1.md
+#          - text: linktext2
+#            url: file2.md
+#      - linkListType: linkListType
+#        links:
+#          - text: linktext1
+#            url: file1.md
+#          - text: linktext2
+#            url: file2.md

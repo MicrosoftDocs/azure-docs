@@ -6,8 +6,9 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: anzaman,cherylmc
+ms.date: 05/21/2019
+ms.author: cherylmc
+ms.reviewer: anzaman
 ms.custom: seodec18
 
 ---
@@ -135,6 +136,32 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **To release a connection authorization**
 
 You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
+
+## Modify a virtual network connection
+You can update certain properties of a virtual network connection. 
+
+**To update the connection weight**
+
+Your virtual network can be connected to multiple ExpressRoute circuits. You may receive the same prefix from more than one ExpressRoute circuit. To choose which connection to send traffic destined for this prefix, you can change *RoutingWeight* of a connection. Traffic will be sent on the connection with the highest *RoutingWeight*.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+The range of *RoutingWeight* is 0 to 32000. The default value is 0.
+
+## Configure ExpressRoute FastPath 
+You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your ExpressRoute circuit is on [ExpressRoute Direct](expressroute-erdirect-about.md) and your virtual newtork gateway is Ultra Performance or ErGw3AZ. FastPath improves data path preformance such as packets per second and connections per second between your on-premises network and your virtual network. 
+
+> [!NOTE] 
+> If you already have a virtual network connection but haven't enabled FastPath you need to delete the virtual network connection and create a new one. 
+> 
+>  
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
 
 ## Next steps
 

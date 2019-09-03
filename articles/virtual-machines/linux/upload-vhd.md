@@ -4,7 +4,7 @@ description: Upload or copy a customized virtual machine by using the Resource M
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

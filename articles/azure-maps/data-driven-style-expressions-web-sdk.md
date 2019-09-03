@@ -34,10 +34,11 @@ Expressions are represented as JSON arrays. The first element of an expression i
 ] 
 ```
 
-The Azure Maps Web SDK supports many types of expressions that can be used on their own or in combination with other expressions.
+The Azure Maps Web SDK supports many types of that can be used on their own or in combination with other expressions.
 
 | Type of expressions | Description |
 |---------------------|-------------|
+| [Aggregate expression](#aggregate-expression) | An expression that defines a calculate that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
 | [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
 | [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
 | [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
@@ -59,7 +60,8 @@ All examples in this document will use the following feature to demonstrate diff
 		"type": "Point",
 		"coordinates": [-122.13284, 47.63699]
 	},
-	"properties": {		
+	"properties": {	
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -160,6 +162,27 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `['sin', number]` | number | Calculates the sine of the specified number. |
 | `['sqrt', number]` | number | Calculates the square root of the specified number. |
 | `['tan', number]` | number | Calculates the tangent of the specified number. |
+
+## Aggregate expression
+
+An aggregate expression defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. The output of these expressions must be a number or boolean. 
+
+An aggregate expression takes in three values; an operator value, and initial value, and an expression to retrieve a property from each feature in a data to apply the aggregate operation on. This expression has the following format:
+
+```javascript
+[operator: string, initialValue: boolean | number, mapExpression: Expression]
+```
+
+- operator: An expression function that is then applied to against all values calculated by the `mapExpression` for each point in the cluster. Supported operators; 
+    - For numbers: `+`, `*`, `max`, `min`
+    - For Booleans: `all`, `any`
+- initialValue: An initial value in which the first calculated value is aggregated against.
+- mapExpression: An expression that is applied against each point in the data set.
+
+**Examples**
+
+If all features in a data set have a `revenue` property that is a number. The total revenue of all points in a cluster created from the data set can be calculated using the following aggregate expression: `['+', 0, ['get', 'revenue']]`
+
 ## Boolean expressions
 
 Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
@@ -283,6 +306,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
         //Specify a default value to return if no match is found.
         'black'
+    ]
+});
+```
+
+The following example uses a match expression to perform an "in array" or "array contains" type filter, in this case filtering data that has an ID value that is in a list of allowed IDs. When using expressions with filters, the result needs to be a Boolean value.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
     ]
 });
 ```
@@ -607,7 +652,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[See live example](map-add-shape.md#line-stroke-gradient)
+[See live example](map-add-line-layer.md#line-stroke-gradient)
 
 ### Text field format expression
 
@@ -789,8 +834,11 @@ See the following articles for more code samples that implement expressions:
 > [!div class="nextstepaction"] 
 > [Add a bubble layer](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Add shapes](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Add a line layer](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Add a heat map layer](map-add-heat-map-layer.md)

@@ -1,6 +1,6 @@
 ---
-title: Scenario Availability - Speech Services
-titlesuffix: Azure Cognitive Services
+title: Scenario Availability - Speech Service
+titleSuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: chrisbasoglu
@@ -20,7 +20,7 @@ The Speech service SDK features many scenarios across a wide variety of programm
   - All programming languages/environments where there is an arrow link <img src="media/index/link.jpg" height="15" width="15"></img> in the quickstart table [here](https://aka.ms/csspeech).
 - **Text-to-Speech (TTS)**
   - C++/Windows & Linux
-  - C#/Windows
+  - C#/Windows & UWP & Unity
   - TTS REST API can be used in every other situation.
 - **Wake Word (Keyword Spotter/KWS)**
   - C++/Windows & Linux

@@ -2,12 +2,12 @@
 title: Create an internal load balancer in Azure Kubernetes Service (AKS)
 description: Learn how to create and use an internal load balancer to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
 ---
@@ -17,13 +17,15 @@ ms.author: iainfou
 To restrict access to your applications in Azure Kubernetes Service (AKS), you can create and use an internal load balancer. An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the Kubernetes cluster. This article shows you how to create and use an internal load balancer with Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. AKS currently supports the *Basic* SKU. If you wish to use the *Standard* SKU, you can use the upstream [aks-engine][aks-engine]. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison].
+> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, the *Basic* SKU is used when a service manifest is used to create a load balancer on AKS. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 ## Create an internal load balancer
 
@@ -44,7 +46,7 @@ spec:
     app: internal-app
 ```
 
-Deploy the internal load balancer using the [kubectl apply]kubectl-apply] and specify the name of your YAML manifest:
+Deploy the internal load balancer using the [kubectl apply][kubectl-apply] and specify the name of your YAML manifest:
 
 ```console
 kubectl apply -f internal-lb.yaml
@@ -137,6 +139,7 @@ You can also directly delete a service as with any Kubernetes resource, such as 
 Learn more about Kubernetes services at the [Kubernetes services documentation][kubernetes-services].
 
 <!-- LINKS - External -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [aks-engine]: https://github.com/Azure/aks-engine
 
@@ -149,3 +152,4 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

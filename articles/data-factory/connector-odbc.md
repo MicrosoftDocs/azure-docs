@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -228,80 +228,6 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
     }
 ]
 ```
-
-## IBM Informix source
-
-You can copy data from IBM Informix database using the generic ODBC connector.
-
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Informix to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. For example, you can use driver "IBM INFORMIX ODBC DRIVER (64-bit)". See [Prerequisites](#prerequisites) section for details.
-
-Before you use the Informix source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
-
-Create an ODBC linked service to link an IBM Informix data store to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "InformixLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
-
-## Microsoft Access source
-
-You can copy data from Microsoft Access database using the generic ODBC connector.
-
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Microsoft Access to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
-
-Before you use the Microsoft Access source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
-
-Create an ODBC linked service to link a Microsoft Access database to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "MicrosoftAccessLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
 
 ## SAP HANA sink
 

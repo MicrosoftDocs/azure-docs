@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 
 ---
@@ -24,9 +24,10 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 * [Parquet format](#parquet-format)
 * [ORC format](#orc-format)
 * [Avro format](#avro-format)
+* [Binary format](#binary-format)
 
 > [!TIP]
-> Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md), including how the metadata is determined based on your file format settings and tips on when to specify the [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema) section.
+> Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md).
 
 ## Text format
 
@@ -531,6 +532,10 @@ To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](
 Note the following points:
 
 * [Complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
+
+## Binary format
+
+Refer to [Binary format](format-binary.md) article on details.
 
 ## Compression support
 
