@@ -57,9 +57,9 @@ You can delay the migration process, by canceling out of the window. You are per
 
 * **Optionally**, backup the apps from the LUIS portal's apps list by exporting each app or use the export [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
 * **Optionally**, save each app's collaborator's list. This email list is provided as part of the migration process.
-* **Required**, you need to have an [Azure subscription](https://azure.microsoft.com/en-us/free/). A part of the subscription process does require billing information. However, you can use Free (F0) pricing tiers when you use LUIS. You may eventually find you need a paid tier, as your usage increases. 
+* **Required**, you need to have an [Azure subscription](https://azure.microsoft.com/free/). A part of the subscription process does require billing information. However, you can use Free (F0) pricing tiers when you use LUIS. You may eventually find you need a paid tier, as your usage increases. 
 
-If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/en-us/free/). 
+If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/free/). 
 
 ### Migration steps
 
@@ -75,7 +75,7 @@ You can add contributors to the authoring resource from the _Azure portal_, on t
 
 |Portal|Purpose|
 |--|--|
-|[Azure](https://azure.microsoft.com/en-us/free/)|* Create prediction and authoring resources.<br>* Assign contributors.|
+|[Azure](https://azure.microsoft.com/free/)|* Create prediction and authoring resources.<br>* Assign contributors.|
 |[LUIS](https://www.luis.ai)|* Migrate to new authoring resources.<br>* Assign or unassign prediction and authoring resources to apps from **Manage -> Azure resources** page.| 
 
 ## Migration for the app contributor

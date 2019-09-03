@@ -47,7 +47,7 @@ When you are ready to publish your prediction endpoint, create and assign author
 
 ## Create resources in the Azure portal
 
-1. Sign in to the [Azure portal](https://azure.microsoft.com/en-us/free/). 
+1. Sign in to the [Azure portal](https://azure.microsoft.com/free/). 
 1. Select **+ Create a resource**.
 1. In the search box, enter `Language understanding`.
 1. Select **Create** to begin the creation process. 
