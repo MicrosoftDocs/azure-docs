@@ -37,6 +37,6 @@ After successfully authenticating, you should now see a list of resources availa
 
 Once subscribed to a feed, the content of the feed is updated automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
 
-## Additional client documentation
+## Client documentation
 
 For more documentation detailing how to use the macOS client, check out the [Remote Desktop Services documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
