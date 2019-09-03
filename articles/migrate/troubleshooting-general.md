@@ -13,7 +13,7 @@ ms.author: raynew
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Azure Migrate Server Migration.
 
 
-## Find an existing project
+## Find a project
 
 There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
 
@@ -51,11 +51,11 @@ Create a new Azure Migrate project as follows:
 
    ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
-## Supported Azure geographies
+## Review supported geographies
 
 Review supported geographies for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
-## Delete projects and workspaces
+## Delete projects/workspaces
 
 When deleting Azure Migrate projects and Log Analytics workspaces, note that:
 
@@ -88,7 +88,7 @@ Browse to the Log Analytics workspace attached to the project.
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
 
 
-## Fix: "Requests must contain user identity headers"
+## Error "Requests must contain user identity headers"
 
 When creating a project this error might indicate that you don't have access to the Azure Active Directory (Azure AD) tenant of the organization.
 
@@ -98,7 +98,7 @@ When creating a project this error might indicate that you don't have access to 
     - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
 
 
-## Fix: "Invalid OVF manifest entry"
+## Error "Invalid OVF manifest entry"
 
 If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
 
@@ -124,7 +124,7 @@ This can happen if the appliance machine is behind a proxy.
 
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-## Fix: Date and time synchronization
+## Error:Date/time synchronization
 
 An error about date and time synchronization (802) indicates that the server clock might be out of synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time:
 
@@ -133,7 +133,7 @@ An error about date and time synchronization (802) indicates that the server clo
 3. To synchronize the time, run **w32tm /resync**.
 
 
-## Fix: UnableToConnectToServer
+## Error: UnableToConnectToServer
 
 If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://*servername*.com:9443/sdk that can accept the message.
 
@@ -146,7 +146,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     4. Verify that vCenter Server is up and running.
 
 
-## Fix: The appliance might not be registered
+## Error: Appliance might not be registered
 
 - Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions. 
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
@@ -155,7 +155,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     - In the Azure portal and check whether the project exists in the resource group.
     - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
 
-## Fix: Azure Key Vault management operation failed
+## Error: Key Vault management operation failed
 
 If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following: 
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
