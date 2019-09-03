@@ -78,13 +78,17 @@ Migrate data over private link:
 
 ### Initial snapshot data migration 
 
-For small tables when their volume size is smaller than 100 GB, or it can be migrated to Azure within 2 hours, each ADF copy activity can be configured per table. You can run multiple ADF copy jobs to load different tables concurrently for better throughput. Within each copy activity when loading one table, you can also reach some level of parallelism by using [parallelCopies setting](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) with data partition option to run parallel queries and copy data by partitions. There are two data partition options to be chosen with details below.
-- You are encouraged to start from data slice since it is more efficient.  Make sure the number of parallelism in parallelCopies setting is below the total number of data slice partitions in your Netezza server.  
+For small tables when their volume size is smaller than 100 GB, or it can be migrated to Azure within 2 hours, you can make each copy job load data per table. You can run multiple ADF copy jobs to load different tables concurrently for better throughput. 
+
+Within each copy job, you can also reach some level of parallelism by using [parallelCopies setting](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) with data partition option to run parallel queries and copy data by partitions. There are two data partition options to be chosen with details below.
+- You are encouraged to start from data slice since it is more efficient.  Make sure the number of parallelism in parallelCopies setting is below the total number of data slice partitions in your table on Netezza server.  
 - If the volume size for each data slice partition is still large (For example, bigger than 10 GB), you are encouraged to switch to dynamic range partition, where you will have more flexibility to define the number of the partitions and the size of volume for each partition by partition column, upper bound and lower bound.
 
-For the large tables when their volume size is bigger than 100 GB, or it cannot be migrated to Azure within 2 hours, you are recommended to use multiple copy activities to load one table. To partition the data in one table loaded by different copy activities, leverage the ‘query’ property in copy activities to filter the data by query, and then each ADF copy job can copy one partition at a time (Within each copy activity, you can still enable parallelism to use multiple threads/sessions to load one partition via either data slice or dynamic range). You can run multiple ADF copy jobs concurrently for better throughput. If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from the table. All other copy jobs loading other partitions will not be impacted.
+For the large tables when their volume size is bigger than 100 GB, or it cannot be migrated to Azure within 2 hours, you are recommended to partition the data by custom query and then make each copy jobs copy one partition at a time. You can run multiple ADF copy jobs concurrently for better throughput. Be aware that, for each copy job now used to load one parition by custom query, you can still enable the parallelism to use multiple threads/sessions to load data via either data slice or dynamic range to increase the throughput. 
 
-When loading data into Azure SQL Data Warehouse, Polybase is suggested to be enabled within copy activity with an Azure blob storage as staging.
+If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from the table. All other copy jobs loading other partitions will not be impacted.
+
+When loading data into Azure SQL Data Warehouse, Polybase is suggested to be enabled within copy job with an Azure blob storage as staging.
 
 ### Delta data migration 
 
