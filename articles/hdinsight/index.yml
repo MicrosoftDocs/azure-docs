@@ -65,18 +65,6 @@ landingContent:
           - text: Analyze Spark data with Power BI
             url: ./spark/apache-spark-use-bi-tools.md
 
-  # Card (optional)
-  - title: Extract, transform, and load (ETL)
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: ETL at scale
-            url: ./hadoop/apache-hadoop-etl-at-scale.md
-      - linkListType: tutorial
-        links:
-          - text: Analyze flight data
-            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
-
   # Card
   - title: Stream data
     linkLists:
@@ -96,10 +84,16 @@ landingContent:
             url: ./hbase/apache-hbase-tutorial-get-started-linux.md
 
   # Card
-  - title: Interactive querying
+  - title: ETL and Interactive querying
     linkLists:
+      - linkListType: concept
+        links:
+          - text: ETL at scale
+            url: ./hadoop/apache-hadoop-etl-at-scale.md
       - linkListType: tutorial
         links:
+          - text: Analyze flight data
+            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
           - text: Use Hive Warehouse connector
             url: ./interactive-query/apache-hive-warehouse-connector.md
           - text: Create Scala Maven application
