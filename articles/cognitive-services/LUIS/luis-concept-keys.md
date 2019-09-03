@@ -39,7 +39,9 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 
 ## Authoring key
 
-An authoring key is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The purpose of the authoring key is to provide authentication to manage your LUIS app or to test prediction endpoint queries. 
+An authoring key is created automatically when you create a LUIS account and it is free. When you begin with LUIS, you have one starter key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The purpose of the authoring key is to provide authentication to manage your LUIS app or to test prediction endpoint queries. 
+
+Creating authoring keys in the Azure portal allows you to control permissions to the authoring resource by assigning people to [the contributor role](#contributions-from-other-authors). You need permission at the Azure subscription level to add contributors.. 
 
 To find the authoring Key, sign in to [LUIS](luis-reference-regions.md#luis-website) and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
@@ -90,6 +92,9 @@ The app ID used in the previous URLs, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, is
 You can [assign](luis-how-to-azure-subscription.md) the runtime key in the [LUIS portal](https://www.luis.ai) or via the corresponding APIs. 
 
 ## Key limits
+
+You can create up to 10 authoring keys per region per subscription. 
+
 See [Key Limits](luis-boundaries.md#key-limits) and [Azure regions](luis-reference-regions.md). 
 
 Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want your client application to be located.
@@ -103,7 +108,7 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 
 Management of contributions from collaborators depends on the current status of the app.
 
-**For [authoring resource migrated](luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role. 
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Learn [how to add a user](luis-how-to-collaborate.md), using the collaborator's email address and the _contributor_ role. 
 
 **For apps that have not migrated yet**: all _collaborators_ are managed in the LUIS portal from the **Manage -> Collaborators** page.
 
