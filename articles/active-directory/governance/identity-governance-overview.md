@@ -67,7 +67,7 @@ Azure AD Privileged Identity Management (PIM) provides additional controls tailo
 
 ## Least privileged roles
 
-Using PIM allows a user's administrative permissions to be restricted for additional security. The following are the least privileged directory roles for configuration in Azure AD identity governance features: 
+It's a best practice to use the least privileged role to perform administrative tasks in Identity Governance. We recommend that you use Azure AD PIM to activate a role as needed to perform these tasks. The following are the least privileged directory roles to configure Identity Governance features: 
 
 | Feature | Least privileged role |
 | ------- | --------------------- |
