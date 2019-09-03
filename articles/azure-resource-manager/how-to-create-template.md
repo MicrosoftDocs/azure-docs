@@ -165,7 +165,7 @@ The following example conditionally deploys a storage account:
 }
 ```
 
-For more information, see the [condition element](resource-group-authoring-templates.md#condition).
+For more information, see the [condition element](conditional-resource-deployment.md).
 
 ## Review dependencies
 

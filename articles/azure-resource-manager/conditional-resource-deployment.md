@@ -10,9 +10,7 @@ ms.author: tomfitz
 
 # Conditional deployment in Resource Manager templates
 
-Sometimes you need to specify during deployment whether a resource in the template is deployed. You may want the flexibility to either deploy a new resource or use an existing resource.
-
-When you must decide during deployment whether to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+Sometimes you need to optionally deploy a resource in a template. Use the `condition` element to specify whether the resource is deployed. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
 
 ## New or existing resource
 
