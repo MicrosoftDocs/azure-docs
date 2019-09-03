@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform iOS and macOS quickstart | Azure
-description: Learn how to sign-in users and query Microsoft Graph in an iOS or macOS application.
+description: Learn how to sign in users and query Microsoft Graph in an iOS or macOS application.
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT

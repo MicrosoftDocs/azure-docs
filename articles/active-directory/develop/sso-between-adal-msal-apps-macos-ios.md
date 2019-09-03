@@ -85,11 +85,11 @@ This is the `MSALAccount` interface providing those identifiers:
 
 ### SSO from MSAL to ADAL
 
-If you have two applications, and the user first signs into an MSAL based app, you can get SSO in the ADAL app by saving the `username` from the `MSALAccount` object and passing it to your ADAL-based app as `userId`. ADAL can then find the account information silently with the `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API.
+If you have an MSAL app and an ADAL app, and the user first signs into the MSAL-based app, you can get SSO in the ADAL app by saving the `username` from the `MSALAccount` object and passing it to your ADAL-based app as `userId`. ADAL can then find the account information silently with the `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API.
 
 ### SSO from ADAL to MSAL
 
-If you have two applications, and user first signs into an ADAL based app, you can use ADAL user identifiers for account lookups in MSAL. This also applies when migrating from ADAL to MSAL.
+If you have an MSAL app and an ADAL app, and the user first signs into the ADAL-based app, you can use ADAL user identifiers for account lookups in MSAL. This also applies when migrating from ADAL to MSAL.
 
 #### ADAL's homeAccountId
 
