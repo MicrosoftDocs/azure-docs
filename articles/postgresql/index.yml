@@ -19,6 +19,10 @@ landingContent:
         links:
           - text: What is Azure Database for PostgreSQL?
             url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: Our blog
+            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL         
 # Card
   - title: Create a Hyperscale (Citus) cluster (preview)
     linkLists:
