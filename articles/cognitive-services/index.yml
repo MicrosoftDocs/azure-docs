@@ -37,52 +37,7 @@ highlightedContent:
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-  items: 
-    - title: Bing Search
-      summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
-      links: 
-        - url: /azure/cognitive-services/Bing-Autosuggest
-          itemType: overview
-          text: Autosuggest Search
-        - url: /azure/cognitive-services/bing-custom-search
-          itemType: overview
-          text: Custom Search
-        - url: /azure/cognitive-services/bing-entities-search/
-          itemType: overview
-          text: Entity Search
-        - url: /azure/cognitive-services/bing-image-search
-          itemType: overview
-          text: Image Search     
-        - url: /azure/cognitive-services/bing-local-business-search
-          itemType: overview
-          text: Local Business Search (Preview)
-        - url: /azure/cognitive-services/bing-news-search/
-          itemType: overview
-          text: News Search     
-        - url: /azure/cognitive-services/bing-spell-check/
-          itemType: overview
-          text: Spell Check    
-        - url: /azure/cognitive-services/Bing-Video-Search/
-          itemType: overview
-          text: Video Search    
-        - url: /azure/cognitive-services/bing-visual-search
-          itemType: overview
-          text: Visual Search  
-        - url: /azure/cognitive-services/bing-web-search/
-          itemType: overview
-          text: Web Search    
-    - title: Decision Services 
-      summary: Build apps that surface recommendations for informed and efficient decision-making.
-      links: 
-        - url: ./anomaly-detector/overview.md
-          itemType: overview
-          text: Anomaly Detector (Preview)
-        - url: ./content-moderator/overview.md
-          itemType: overview
-          text: Content Moderator
-        - url: ./personalizer/what-is-personalizer.md
-          itemType: overview
-          text: Personalizer (Preview)   
+  items:   
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links: 
@@ -136,8 +91,52 @@ conceptualContent:
           text: Ink Recognizer (Preview)
         - url: /azure/cognitive-services/ink-recognizer/
           itemType: overview
-          text: Video Indexer         
-
+          text: Video Indexer          
+    - title: Decision Services 
+      summary: Build apps that surface recommendations for informed and efficient decision-making.
+      links: 
+        - url: ./anomaly-detector/overview.md
+          itemType: overview
+          text: Anomaly Detector (Preview)
+        - url: ./content-moderator/overview.md
+          itemType: overview
+          text: Content Moderator
+        - url: ./personalizer/what-is-personalizer.md
+          itemType: overview
+          text: Personalizer (Preview) 
+    - title: Search
+      summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
+      links: 
+        - url: /azure/cognitive-services/Bing-Autosuggest
+          itemType: overview
+          text: Autosuggest Search
+        - url: /azure/cognitive-services/bing-custom-search
+          itemType: overview
+          text: Custom Search
+        - url: /azure/cognitive-services/bing-entities-search/
+          itemType: overview
+          text: Entity Search
+        - url: /azure/cognitive-services/bing-image-search
+          itemType: overview
+          text: Image Search     
+        - url: /azure/cognitive-services/bing-local-business-search
+          itemType: overview
+          text: Local Business Search (Preview)
+        - url: /azure/cognitive-services/bing-news-search/
+          itemType: overview
+          text: News Search     
+        - url: /azure/cognitive-services/bing-spell-check/
+          itemType: overview
+          text: Spell Check    
+        - url: /azure/cognitive-services/Bing-Video-Search/
+          itemType: overview
+          text: Video Search    
+        - url: /azure/cognitive-services/bing-visual-search
+          itemType: overview
+          text: Visual Search  
+        - url: /azure/cognitive-services/bing-web-search/
+          itemType: overview
+          text: Web Search   
 
 additionalContent:
   sections:
