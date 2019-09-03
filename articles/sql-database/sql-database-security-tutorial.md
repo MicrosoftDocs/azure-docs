@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
 ---
 # Tutorial: Secure a single or pooled database
@@ -81,9 +81,6 @@ To set up a server-level firewall rule:
    1. Select **OK** and close the **Firewall settings** page.
 
 You can now connect to any database in the server with the specified IP address or IP address range.
-
-> [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services, under **Allow access to Azure services**. Choose **OFF** to disable access for all Azure services.
 
 ### Setup database firewall rules
 
