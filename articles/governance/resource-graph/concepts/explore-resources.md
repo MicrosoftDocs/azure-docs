@@ -14,8 +14,6 @@ Azure Resource Graph provides the ability to explore and discover your Azure res
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
 about the properties that make up your Azure resources.
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Explore virtual machines
 
 A common resource in Azure is a virtual machine. As a resource type, virtual machines have many
