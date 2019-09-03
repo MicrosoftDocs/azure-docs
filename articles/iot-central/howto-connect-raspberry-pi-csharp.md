@@ -14,6 +14,8 @@ manager: peterpr
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as a device developer, to connect a Raspberry Pi to your Microsoft Azure IoT Central application using the C# programming language.
 
 ## Before you begin
@@ -349,10 +351,10 @@ Toggle settings
 
 ### Properties
 
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+| Type            | Display name | Field name | Data type                              |
+| --------------- | ------------ | ---------- | -------------------------------------- |
+| Device property | Die number   | dieNumber  | number                                 |
+| Location        | Location     | location   | {lat: float, long: float, alt?: float} |
 
 ## Next steps
 

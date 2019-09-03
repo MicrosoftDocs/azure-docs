@@ -1,13 +1,13 @@
 ---
 title: Azure Backup for SQL Server workloads using Azure Backup Server
 description: An introduction to backing up SQL Server databases using Azure Backup Server
-
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
+ms.author: dacurwin
 ---
 # Back up SQL Server to Azure With Azure Backup Server
 This article leads you through the configuration steps for backup of SQL Server databases using Microsoft Azure Backup Server (MABS).
@@ -35,12 +35,12 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
     ![Select SQL DB](./media/backup-azure-backup-sql/pg-databases.png)
 6. Provide a name for the protection group and select the **I want online Protection** checkbox.
 
-    ![Data Protection Method - short term disk & Online Azure](./media/backup-azure-backup-sql/pg-name.png)
+    ![Data Protection Method - short-term disk & Online Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. In the **Specify Short-Term Goals** screen, include the necessary inputs to create backup points to disk.
 
-    Here we see that **Retention range** is set to *5 days*, **Synchronization frequency** is set to once every *15 minutes* which is the frequency at which backup is taken. **Express Full Backup** is set to *8:00 P.M*.
+    Here we see that **Retention range** is set to *5 days*, **Synchronization frequency** is set to once every *15 minutes*, which is the frequency at which backup is taken. **Express Full Backup** is set to *8:00 P.M*.
 
-    ![Short term goals](./media/backup-azure-backup-sql/pg-shortterm.png)
+    ![Short-term goals](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
    > At 8:00 PM (according to the screen input) a backup point is created every day by transferring the data that has been modified from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. While the transaction logs are synchronized every 15 minutes, if there is a need to recover the database at 9:00 PM – then the point is created by replaying the logs from the last express full backup point (8pm in this case).
@@ -123,7 +123,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
 ## Recover a SQL Server database from Azure
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
-1. Open the DPM server Management Console. Navigate to **Recovery** workspace where you can see the servers backed up by DPM. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time which ends with **Online**.
+1. Open the DPM server Management Console. Navigate to **Recovery** workspace where you can see the servers backed up by DPM. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that ends with **Online**.
 
     ![Select Recovery point](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Right-click the database name and click **Recover**.

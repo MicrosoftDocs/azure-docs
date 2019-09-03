@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 
 ---
@@ -82,12 +82,12 @@ The following properties are supported for Azure File Storage linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet and delimited text format**, refer to [Parquet and delimited text format dataset](#parquet-and-delimited-text-format-dataset) section.
-- For other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### Parquet and delimited text format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
 
-To copy data to and from Azure File Storage in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based dataset and supported settings. The following properties are supported for Azure File Storage under `location` settings in format-based dataset:
+To copy data to and from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Azure File Storage under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -127,7 +127,7 @@ To copy data to and from Azure File Storage in **Parquet or delimited text forma
 
 ### Other format dataset
 
-To copy data to and from Azure File Storage in **ORC/Avro/JSON/Binary format**, the following properties are supported:
+To copy data to and from Azure File Storage in **ORC/Avro/JSON format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -181,12 +181,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure File Storage as source
 
-- For copy from **Parquet and delimited text format**, refer to [Parquet and delimited text format source](#parquet-and-delimited-text-format-source) section.
-- For copy from other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format source](#other-format-source) section.
+- To copy from **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC/Avro/JSON format**, refer to [Other format source](#other-format-source) section.
 
-#### Parquet and delimited text format source
+#### <a name="format-based-source"></a> Parquet, delimited text and binary format source
 
-To copy data from Azure File Storage in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy source:
+To copy data from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -244,7 +244,7 @@ To copy data from Azure File Storage in **Parquet or delimited text format**, re
 
 #### Other format source
 
-To copy data from Azure File Storage in **ORC/Avro/JSON/Binary format**, the following properties are supported in the copy activity **source** section:
+To copy data from Azure File Storage in **ORC/Avro/JSON format**, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -286,12 +286,12 @@ To copy data from Azure File Storage in **ORC/Avro/JSON/Binary format**, the fol
 
 ### Azure File Storage as sink
 
-- For copy to **Parquet and delimited text format**, refer to [Parquet and delimited text format sink](#parquet-and-delimited-text-format-sink) section.
-- For copy to other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format sink](#other-format-sink) section.
+- To copy to **Parquet, delimited text or binary format**, refer to [Parquet, delimited text and binary format sink](#format-based-sink) section.
+- To copy to other formats like **ORC/Avro/JSON format**, refer to [Other format sink](#other-format-sink) section.
 
-#### Parquet and delimited text format sink
+#### <a name="format-based-sink"></a> Parquet, delimited text and binary format sink
 
-To copy data to Azure File Storage in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity sink and supported settings. The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy sink:
+To copy data to **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings. The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -339,12 +339,12 @@ To copy data to Azure File Storage in **Parquet or delimited text format**, refe
 
 #### Other format sink
 
-To copy data to Azure File Storage in **ORC/Avro/JSON/Binary format**, the following properties are supported in the **sink** section:
+To copy data to Azure File Storage in **ORC/Avro/JSON format**, the following properties are supported in the **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **FileSystemSink** |Yes |
-| copyBehavior | Defines the copy behavior when the source is files from file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><b>- MergeFiles</b>: merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
+| copyBehavior | Defines the copy behavior when the source is files from file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><b>- MergeFiles</b>: merges all files from the source folder to one file. If the File Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
 
 **Example:**

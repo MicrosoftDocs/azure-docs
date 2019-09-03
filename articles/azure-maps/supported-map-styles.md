@@ -21,8 +21,18 @@ A **road** map is a standard map that displays roads, natural and artificial fea
 **Applicable APIs:**
 * [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* JS map control
+* Web SDK map control
 * Android map control
+
+## blank and blank_accessible
+
+The **blank** and **blank_accessible** map styles provide a blank canvas on which to visualize data on. The **blank_accessible** style will continue to provide screen reader updates with location details of where the map is located, even though the base map is not displayed.
+
+> [!Note]
+> In the web SDK you can change the background color of the map by setting the CSS `background-color` style of map DIV element.
+
+**Applicable APIs:**
+* Web SDK map control
 
 ## satellite 
 The **satellite** style is a combination of satellite and aerial imagery.
@@ -31,7 +41,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 **Applicable APIs:**
 * [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
-* JS map control
+* Web SDK map control
 * Android map control
 
 ## satellite_road_labels
@@ -40,7 +50,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
 **Applicable APIs:**
-* JS map control
+* Web SDK map control
 * Android map control
 
 ## grayscale_dark
@@ -49,7 +59,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **Applicable APIs:**
-* JS map control 
+* Web SDK map control 
 * Android map control
 
 
@@ -59,7 +69,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![grayscale light](./media/supported-map-styles/grayscale_light.png)
 
 **Applicable APIs:**
-* JS map control
+* Web SDK map control
 * Android map control
 
 
@@ -69,7 +79,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![night](./media/supported-map-styles/night.png)
 
 **Applicable APIs:**
-* JS map control
+* Web SDK map control
 * Android map control
 
 ## road_shaded_relief
@@ -79,5 +89,5 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* JS map control
+* Web SDK map control
 * Android map control

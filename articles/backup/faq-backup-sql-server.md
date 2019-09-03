@@ -1,13 +1,13 @@
 ---
-title: Frequently asked questions about backing up SQL Server databases on Azure VMs with Azure Backup
+title: FAQ - Backing up SQL Server databases on Azure VMs with Azure Backup
 description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
-
-author: sachdevaswati
-manager: vijayts
+ms.reviewer: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: vijayts
+ms.author: dacurwin
 ---
 # FAQ about SQL Server databases that are running on an Azure VM backup
 
@@ -24,17 +24,17 @@ Under some circumstances, the Azure Backup service triggers remedial backups. Au
   - If log or differential backup fails due to LSN Validation Error, next log or differential backup is instead converted to a full backup.
   - If no full backup has happened before a log or differential backup, that log or differential backup is instead converted to a full backup.
   - If the latest full backup's point-in-time is older than 15 days, the next log or differential backup is instead converted to a full backup.
-  - All the backup jobs that get canceled due to an extension upgrade are re-triggered after the upgrade is completed and the extension is started.
-  - If you choose to overwrite the database during Restore, the next log/differential backup fails and a full backup is triggered instead.
-  - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
+  - All the backup jobs that get canceled due to an extension upgrade are re-triggered after the upgrade is completed and the extension is started.
+  - If you choose to overwrite the database during Restore, the next log/differential backup fails and a full backup is triggered instead.
+  - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
 
 Auto-heal as a capability is enabled for all user by default; However in case you choose to opt-out of it, then perform the below:
 
   * On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
-  * In the **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*.
+  * In the **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*.
   * Save your changes and close the file.
   * On the SQL Server instance, open **Task Manage** and then restart the **AzureWLBackupCoordinatorSvc** service.
-   
+   
 
 ## Can I control as to how many concurrent backups run on the SQL server?
 
@@ -66,12 +66,12 @@ No. Successful backup jobs don't generate alerts. Alerts are sent only for backu
 The **Backup Job** menu will only show ad-hoc backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
-Yes, you can achieve this capability with [auto-protection](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
+Yes, you can achieve this capability with [auto-protection](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## If I delete a database from an autoprotected instance, what will happen to the backups?
 If a database is dropped from an autoprotected instance, the database backups are still attempted. This implies that the deleted database begins to show up as unhealthy under **Backup Items** and is still protected.
 
-The correct way to stop protecting this database is to do **Stop Backup** with **delete data** on this database.  
+The correct way to stop protecting this database is to do **Stop Backup** with **delete data** on this database.  
 
 ## If I do stop backup operation of an autoprotected database what will be its behavior?
 If you do **stop backup with retain data**, no future backups will take place and the existing recovery points will remain intact. The database will still be considered as protected and be shown under the **Backup items**.

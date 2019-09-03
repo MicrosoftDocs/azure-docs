@@ -17,6 +17,8 @@ ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory device management FAQ
 
+## General FAQ
+
 ### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
@@ -280,12 +282,20 @@ If a password is changed outside the corporate network (for example, by using Az
 
 ## Azure AD register FAQ
 
-### Q: How do I remove an Azure AD registered device locally on the device?
+### Q: How do I remove an Azure AD registered state for a device locally?
 
 **A:** 
 - For Windows 10 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10.
 - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
 - For macOS, you can use the Microsoft Intune Company Portal application to un-enroll the device from management and remove any registration. 
+
+---
+### Q: How can I block users from adding additional work accounts (Azure AD registered) on my corporate Windows 10 devices?
+
+**A:**
+Enable the following registry to block your users from adding additional work accounts to your corporate domain joined, Azure AD joined or hybrid Azure AD joined Windows 10 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### Q: Can I register Android or iOS BYOD devices?

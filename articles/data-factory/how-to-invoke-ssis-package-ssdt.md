@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 07/31/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -20,8 +20,11 @@ This article describes the feature of Azure-enabled SQL Server Integration Servi
 
 With this feature, you can create a new Azure-SSIS IR or attach an existing one to SSIS projects and then execute your packages on it.  We support running packages to be deployed into SSIS catalog (SSISDB) in Project Deployment Model and those to be deployed into file systems/file shares/Azure Files in Package Deployment Model. 
 
+## Prerequisites
+To use this feature, please download and install the latest SSDT with SSIS Projects extension for Visual Studio from [here](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) or as a standalone installer from [here](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer).
+
 ## Azure-enable SSIS projects
-You can create new Azure-enabled SSIS projects using the **Integration Services Project (Azure-Enabled)** template.
+On SSDT, you can create new Azure-enabled SSIS projects using the **Integration Services Project (Azure-Enabled)** template.
 
 ![New Azure-Enabled SSIS Project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-new-project.png)
 

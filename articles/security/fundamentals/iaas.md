@@ -1,24 +1,23 @@
 ---
-  title: Security best practices for IaaS workloads in Azure | Microsoft Docs
-  description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
-  services: security
-  documentationcenter: na
-  author: barclayn
-  manager: MBaldwin
-  editor: TomSh
+title: Security best practices for IaaS workloads in Azure | Microsoft Docs
+description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
+services: security
+documentationcenter: na
+author: barclayn
+manager: MBaldwin
+editor: TomSh
 
-  ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
-  ms.service: security
-  ms.devlang: na
-  ms.topic: article
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 05/05/2019
-  ms.author: barclayn
-
-
-
+ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
+ms.service: security
+ms.subservice: security-fundamentals
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/26/2019
+ms.author: barclayn
 ---
+
 # Security best practices for IaaS workloads in Azure
 This article describes security best practices for VMs and operating systems.
 
@@ -67,7 +66,7 @@ Your subscription admins and coadmins can change this setting, making them admin
 Organizations that control VM access and setup improve their overall VM security.
 
 ## Use multiple VMs for better availability
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, use an [availability set](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, use an [availability set](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) or availability [zones](../../availability-zones/az-overview.md).
 
 An availability set is a logical grouping that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they’re deployed in an Azure datacenter. Azure ensures that the VMs you place in an availability set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are affected, and your overall application continues to be available to your customers. Availability sets are an essential capability when you want to build reliable cloud solutions.
 
@@ -76,7 +75,7 @@ You should install antimalware protection to help identify and remove viruses, s
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 
-You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for ease of deployment and built-in detections (alerts and incidents).
+You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](../../security-center/index.yml) for ease of deployment and built-in detections (alerts and incidents).
 
 **Best practice**: Install an antimalware solution to protect against malware.   
 **Detail**: [Install a Microsoft partner solution or Microsoft Antimalware](../../security-center/security-center-install-endpoint-protection.md)
@@ -179,7 +178,7 @@ Monitor and restrict VM direct internet connectivity. Attackers constantly scan 
 **Detail**: Use RBAC to ensure that only the central networking group has permission to networking resources.
 
 **Best practice**: Identify and remediate exposed VMs that allow access from “any” source IP address.   
-**Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) to source IP addresses that actually need access.
+**Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-network-recommendations.md) to source IP addresses that actually need access.
 
 **Best practice**: Restrict management ports (RDP, SSH).   
 **Detail**: [Just-in-time (JIT) VM access](../../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When JIT is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the JIT solution.

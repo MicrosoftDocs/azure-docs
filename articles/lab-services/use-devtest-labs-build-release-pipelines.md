@@ -1,6 +1,6 @@
 ---
-title: Use DevTest Labs in Azure DevOps build and release pipelines | Microsoft Docs
-description: Learn how to use Azure DevTest Labs in Azure DevOps build and release pipelines.  
+title: Use DevTest Labs in Azure Pipelines build and release pipelines | Microsoft Docs
+description: Learn how to use Azure DevTest Labs in Azure Pipelines build and release pipelines.  
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -16,8 +16,8 @@ ms.author: spelluru
 
 ---
 
-# Use DevTest Labs in Azure DevOps build and release pipelines
-This article provides information on how DevTest Labs can be used in Azure DevOps build and release pipelines. 
+# Use DevTest Labs in Azure Pipelines build and release pipelines
+This article provides information on how DevTest Labs can be used in Azure Pipelines build and release pipelines. 
 
 ## Overall flow
 The basic flow is to have a **build pipeline** that does the following tasks:
@@ -46,7 +46,7 @@ There are a couple of items that need to be created beforehand:
 The build pipeline will create a DevTest Labs environment and deploy the code for testing.
 
 ## Set up a build pipeline
-In Azure DevOps, create a build pipeline using the code from the [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use the **ASP.NET Core** template, which will populate the necessary task to build, test, and publish the code.
+In Azure Pipelines, create a build pipeline using the code from the [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use the **ASP.NET Core** template, which will populate the necessary task to build, test, and publish the code.
 
 ![Select the ASP.NET template](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -82,7 +82,7 @@ The third task is the **Azure App Service Deploy** task. The app type is set to 
 
 ![App Service Deploy task](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## Setup release pipeline
+## Set up release pipeline
 You create a release pipeline with two tasks: **Azure Deployment: Create Or Update Resource Group** and **Deploy Azure App Service**. 
 
 For the first task, specify the name and location of the resource group. The template location is a linked artifact. If the Resource Manager template includes linked templates, a custom resource group deployment needs to be implemented. The template is in the published drop artifact. Override template parameters for the Resource Manager template. You can leave remaining settings with default values. 
@@ -95,5 +95,5 @@ Now that both pipelines are set up, manually queue up a build and see it work. T
 ## Next steps
 See the following articles:
 
-- [Integrate Azure DevTest Labs into your Azure DevOps continuous integration and delivery pipeline](devtest-lab-integrate-ci-cd-vsts.md)
-- [Integrate environments into your Azure DevOps CI/CD pipelines](integrate-environments-devops-pipeline.md)
+- [Integrate Azure DevTest Labs into your Azure Pipelines continuous integration and delivery pipeline](devtest-lab-integrate-ci-cd-vsts.md)
+- [Integrate environments into your Azure Pipelines CI/CD pipelines](integrate-environments-devops-pipeline.md)

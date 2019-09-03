@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Create Recovery Services vaults'
 description: creating Recovery Services vaults that stores the backups and recovery points
-
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 keywords: Recovery Services vault; Azure VM backup; Azure VM restore;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: sogup
+ms.author: dacurwin
 ---
 
 # Create a Recovery Services vault

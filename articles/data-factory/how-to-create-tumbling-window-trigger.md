@@ -3,17 +3,14 @@ title: Create tumbling window triggers in Azure Data Factory | Microsoft Docs
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor:
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: shlo
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -144,7 +141,7 @@ The following points apply to existing **TriggerResource** elements:
 * If the value for the **frequency** element (or window size) of the trigger changes, the state of the windows that are already processed is *not* reset. The trigger continues to fire for the windows from the last window that it executed by using the new window size.
 * If the value for the **endTime** element of the trigger changes (added or updated), the state of the windows that are already processed is *not* reset. The trigger honors the new **endTime** value. If the new **endTime** value is before the windows that are already executed, the trigger stops. Otherwise, the trigger stops when the new **endTime** value is encountered.
 
-### Tumbling Window Trigger Dependency
+### Tumbling window trigger dependency
 
 If you want to make sure that a tumbling window trigger is executed only after the successful execution of another tumbling window trigger in the data factory, [create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md). 
 

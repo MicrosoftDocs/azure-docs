@@ -6,7 +6,7 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 11/27/2018
+ms.date: 8/2/2019
 ms.author: asgang
 
 ---
@@ -58,7 +58,11 @@ Azure Site Recovery has limits on data change rate, based on the type of disk. T
 If a spike is from an occasional data burst and the data change rate is greater than 10 MB/s (for Premium) and 2 MB/s (for Standard) for some time and comes down, replication will catch up. But if the churn is well beyond the supported limit most of the time, consider one of these options if possible:
 
 * **Exclude the disk that's causing a high data-change rate**: You can exclude the disk by using [PowerShell](./azure-to-azure-exclude-disks.md).To exclude the disk you have to disable the replication first. 
-* **Change the tier of the disaster recovery storage disk**: This option is possible only if the disk data churn is less than 10 MB/s. Let's say a VM with a P10 disk is having a data churn of greater than 8 MB/s but less than 10 MB/s. If the customer can use a P30 disk for target storage during protection, the problem can be solved.
+* **Change the tier of the disaster recovery storage disk**: This option is possible only if the disk data churn is less than 20 MB/s. Let's say a VM with a P10 disk is having a data churn of greater than 8 MB/s but less than 10 MB/s. If the customer can use a P30 disk for target storage during protection, the problem can be solved. Note that this solution is only possible for machines that are using Premium Managed Disks. Follow the below steps:
+    - Navigate to the Disks blade of the impacted replicated machine and copy the replica disk name
+    - Navigate to this replica managed disk
+    - You may see a banner on the Overview blade saying that a SAS URL has been generated. Click on this banner and cancel the export. Ignore this step if you do not see the banner.
+    - As soon as the SAS URL is revoked, go to Configuration blade of the Managed Disk and increase the size so that ASR supports the observed churn rate on source disk
 
 ## <a name="Network-connectivity-problem"></a>Network connectivity problems
 

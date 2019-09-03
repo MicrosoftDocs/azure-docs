@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/31/2019
 ms.author: diberry
 ---
 
@@ -96,7 +96,7 @@ If you didn't create a new resource group, you need to find the resources associ
 
 ## Related to QnA Maker bots
 
-* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support).
     ![QnA Maker help bot icon is red robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * [Healthcare bots](https://docs.microsoft.com/HealthBot/qna_model_howto) use QnA Maker as one of their [language models](https://docs.microsoft.com/HealthBot/qna_model_howto).
 

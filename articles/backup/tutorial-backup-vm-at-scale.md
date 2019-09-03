@@ -4,6 +4,7 @@ description: Simultaneously back up multiple virtual machines to Azure
 
 keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
 author: dcurwin
+manager: carmonm
 ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
