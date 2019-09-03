@@ -133,6 +133,7 @@ For information about creating advanced blueprint definitions, see the following
 - Use [static and dynamic parameters](../concepts/parameters.md).
 - Customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Protect deployments with [blueprint resource locking](../concepts/resource-locking.md).
+- [Manage Blueprints as Code](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ## Next steps
 
