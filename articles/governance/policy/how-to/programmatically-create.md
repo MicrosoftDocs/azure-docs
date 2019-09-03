@@ -16,8 +16,6 @@ resources stay compliant with your corporate standards and service level agreeme
 
 For information about compliance, see [getting compliance data](getting-compliance-data.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 Before you begin, make sure that the following prerequisites are met:

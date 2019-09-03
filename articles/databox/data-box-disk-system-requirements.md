@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high 
 ---
@@ -26,7 +26,7 @@ The system requirements include the supported platforms for clients connecting t
 
 # Review prerequisites
 
-1. You must have ordered your Data Box Disk using the Tutorial: Order your Azure Data Box Disk. You have received your disks and one connecting cable per disk.
+1. You must have ordered your Data Box Disk using the [Tutorial: Order your Azure Data Box Disk](data-box-disk-deploy-ordered.md). You have received your disks and one connecting cable per disk.
 2. You have a client computer available from which you can copy the data. Your client computer must:
 
     - Run a supported operating system.
