@@ -266,9 +266,9 @@ from azureml.pipeline.steps import PythonScriptStep
 
 trainStep = PythonScriptStep(
     script_name="train.py",
-    arguments=["--input", blob_input_data, "--output", processed_data1],
+    arguments=["--input", blob_input_data, "--output", output_data1],
     inputs=[blob_input_data],
-    outputs=[processed_data1],
+    outputs=[output_data1],
     compute_target=compute_target,
     source_directory=project_folder
 )
