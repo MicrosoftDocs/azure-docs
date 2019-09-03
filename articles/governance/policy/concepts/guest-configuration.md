@@ -194,6 +194,33 @@ Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ver
 
 Where `<version>` refers to the current version number.
 
+If you would like to use the Azure VM Run Command capability to capture information from log files,
+the following example scripts can be helpful.
+
+Windows:
+
+[Run PowerShell scripts in your Windows VM with Run Command](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
+
+```powershell
+$linesToIncludeBeforeMatch = 0
+$linesToIncludeAfterMatch = 10
+$versions = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\'
+$current = $versions.Name | Sort-Object -Descending | Select-Object -First 1
+Select-String -Path "C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\$current\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch
+```
+
+Linux:
+
+[Run shell scripts in your Linux VM with Run Command](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/run-command)
+
+```bash
+linesToIncludeBeforeMatch=0
+linesToIncludeAfterMatch=10
+versions= "$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z)"
+echo "${versions[0]}"
+grep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine' /var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.9.0/GCAgent/logs/dsc.log
+```
+
 ## Guest Configuration samples
 
 Samples for Policy Guest Configuration are available in the following locations:
