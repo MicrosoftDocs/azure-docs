@@ -4,42 +4,46 @@
   href: ../overview.md 
 - name: Tutorials
   items:
-  - name: Publish and subscribe to events locally
+  - name: Publish and subscribe locally
     items:
-    - name: Deploy the Event Grid IoT module
+    - name: Deploy Event Grid Edge
       href: deploy-event-grid-portal.md
-    - name: Deploy the Azure Function IoT module
+    - name: Deploy Azure Functions
       href: deploy-func-webhook-module-portal.md
-    - name: Publish and subscribe to events locally
+    - name: Publish and Subscribe
       href: pub-sub-events-webhook-local.md
-  - name: Publish and subscribe to events in the cloud
+  - name: Publish and subscribe to the cloud
     items:
-    - name: Deploy the Event Grid IoT module
+    - name: Deploy Event Grid Edge
       href: deploy-event-grid-portal.md
-    - name: Publish and subscribe to events in the cloud
+    - name: Publish and Subscribe
       href: pub-sub-events-webhook-cloud.md
-  - name: Forward events to the Event Grid cloud
+  - name: Forward to Azure Event Grid
     items:
-    - name: Deploy the Event Grid IoT module
+    - name: Deploy Event Grid Edge
       href: deploy-event-grid-portal.md
-    - name: Forward events to the Event Grid cloud
+    - name: Publish and Subscribe
       href: forward-events-event-grid-cloud.md
-  - name: Forward events to IoT Hub
+  - name: Forward to Edge Hub and Azure IoT Hub
     items:
-    - name: Deploy the Event Grid IoT module
+    - name: Deploy Event Grid Edge
       href: deploy-event-grid-portal.md
-    - name: Forward events to IoT Hub
+    - name: Publish and Subscribe
       href: forward-events-iothub.md
 - name: Concepts
   items:
-  - name: Event Grid concepts
+  - name: Event Grid Concepts
     href: concepts.md
-  - name: Security and authentication
+  - name: Security and Authentication
     href: security-authentication.md
-  - name: Event schemas
+  - name: Event Schemas
     href: event-schemas.md
-  - name: Delivery and retry
-    href: delivery-retry.md  
+  - name: Delivery and Retry
+    href: delivery-retry.md
+  - name: Output Batching
+    href: delivery-output-batching.md
+  - name: Advanced Filtering
+    href: advanced-filtering.md
 - name: How-to guides
   items:
   - name: Persist state
@@ -60,3 +64,5 @@
   items:
   - name: REST API
     href: api.md
+  - name: Module Twin Configuration Schema
+    href: twin-json.md
