@@ -6,7 +6,7 @@ ms.date: 07/26/2019
 ms.author: larryfr
 ---
 
-To update a web service, use the `update` method. You can update the web service to use a new model, a new entry script, or new dependencies, which can be specified in an inference configuration. For more information, see the documentation for [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+To update a web service, use the `update` method. You can update the web service to use a new model, a new entry script, or new dependencies that can be specified in an inference configuration. For more information, see the documentation for [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
 > When you create a new version of a model, you must manually update each service that you want to use it.

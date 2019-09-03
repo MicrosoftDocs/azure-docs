@@ -16,7 +16,7 @@ The entries in the `inferenceconfig.json` document map to the parameters for the
 | `extraDockerFileSteps` | `extra_docker_file_steps` | Optional. Path to a local file that contains additional Docker steps to run when setting up the image. |
 | `sourceDirectory` | `source_directory` | Optional. Path to folders that contain all files to create the image. |
 | `enableGpu` | `enable_gpu` | Optional. Whether to enable GPU support in the image. The GPU image must be used on an Azure service, like Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. The default is False. |
-| `baseImage` | `base_image` | Optional. Custom image to be used as a base image. If no base image is provided, the image will be used based on the provided runtime parameter. |
+| `baseImage` | `base_image` | Optional. Custom image to be used as a base image. If no base image is provided, the image will be based on the provided runtime parameter. |
 | `baseImageRegistry` | `base_image_registry` | Optional. Image registry that contains the base image. |
 | `cudaVersion` | `cuda_version` | Optional. Version of CUDA to install for images that need GPU support. The GPU image must be used on an Azure service, like Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If `enable_gpu` is set, the default is 9.1. |
 | `description` | `description` | A description for the image. |
