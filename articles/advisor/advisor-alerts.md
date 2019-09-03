@@ -34,13 +34,13 @@ NOTE: Advisor alerts are currently only available for High Availability, Perform
 
 ![Azure Advisor Banner](./media/Advisor%20Alert/create4.png)
 
-**5.** In the condition section, select the method you want to use for configuring your alert. If you want to alert for all recommendations for a certain category and/or impact level, select “Category and impact level”. If you want to alert for all recommendations of a certain type, select “Recommendation type”. [Click here for a full screen image](./media/Advisor%20Alert/create6.png)
-
-![Azure Advisor Banner](./media/Advisor%20Alert/create6.png)
-
-**6.** Depending on the Configure by option that you select, you will be able to specify the criteria. If you want all recommendations, just leave the remaining fields blank. [Click here for a full screen image](./media/Advisor%20Alert/create5.png)
+**5.** In the condition section, select the method you want to use for configuring your alert. If you want to alert for all recommendations for a certain category and/or impact level, select “Category and impact level”. If you want to alert for all recommendations of a certain type, select “Recommendation type”. [Click here for a full screen image](./media/Advisor%20Alert/create5.png)
 
 ![Azure Advisor Banner](./media/Advisor%20Alert/create5.png)
+
+**6.** Depending on the Configure by option that you select, you will be able to specify the criteria. If you want all recommendations, just leave the remaining fields blank. [Click here for a full screen image](./media/Advisor%20Alert/create6.png)
+
+![Azure Advisor Banner](./media/Advisor%20Alert/create6.png)
 
 **7.** In the action groups section, select “Add existing” to use an action group you already created or select “Create new” to set up a new [action group](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). [Click here for a full screen image](./media/Advisor%20Alert/create7.png)
 
