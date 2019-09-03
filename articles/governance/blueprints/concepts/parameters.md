@@ -286,7 +286,7 @@ a dynamic parameter that isn't provided during assignment, the assignment will f
 ## Next steps
 
 - See the list of [blueprint functions](../reference/blueprint-functions.md).
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
