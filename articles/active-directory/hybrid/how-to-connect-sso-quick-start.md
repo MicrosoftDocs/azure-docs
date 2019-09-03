@@ -182,11 +182,11 @@ Ensure that the machine running the macOS is joined to AD. Instructions for AD-j
 
 #### Microsoft Edge based on Chromium (all platforms)
 
-If you have overridden the [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) or the [AuthServerAllowlist](https://docs.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#authserverallowlist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
+If you have overridden the [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) or the [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
 
 #### Microsoft Edge based on Chromium (macOS and other non-Windows platforms)
 
-For Microsoft Edge based on Chromium on Mac OS and other non-Windows platforms, refer to [The Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
+For Microsoft Edge based on Chromium on Mac OS and other non-Windows platforms, refer to [The Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
 
 #### Google Chrome (all platforms)
 
