@@ -20,7 +20,7 @@ Azure Data Lake and Stream Analytics Tools include functionality related to two 
 This article describes how to use Visual Studio to create Azure Data Lake Analytics accounts. You can define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 > [!IMPORTANT]
-> Microsoft recommends you upgrade to Azure Data Lake Tools for Visual Studio version 2.3.3000.4 or later. The previous versions are no longer available for download and are now deprecated.
+> We recommend you upgrade to Azure Data Lake Tools for Visual Studio version 2.3.3000.4 or later. The previous versions are no longer available for download and are now deprecated.
 >
 > 1. Check if you are using an earlier version than 2.3.3000.4 of Azure Data Lake Tools for Visual Studio.
 >
@@ -104,7 +104,7 @@ After the job submission, the **Job view** tab opens to show the job progress.
 
 ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-To see the latest job status and refresh the screen, click **Refresh**.
+To see the latest job status and refresh the screen, select **Refresh**.
 
 ## Check job status
 
