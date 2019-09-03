@@ -1,3 +1,16 @@
+---
+title: Configure Alerts for Advisor | Microsoft Docs
+description: How to configure alerts for your advisor recommendations.
+services: advisor
+author: saket-ms
+ms.service: advisor
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/03/2019
+ms.author: saket-ms
+---
+
 # Create activity log alerts for new recommendations 
 
 ## Overview
