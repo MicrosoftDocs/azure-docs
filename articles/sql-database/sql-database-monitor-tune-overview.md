@@ -170,78 +170,73 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 ### Resolve problem queries or provide more resources
 
-Once you identify the problem, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your Azure SQL database to absorb the CPU requirements. For information on scaling resources for single databases, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and for scaling resources for elastic pools, see [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information on scaling a managed instance, see [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+After you identify the problem, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your Azure SQL database to absorb the CPU requirements. 
 
-### Determine if running problems are caused by increased workload volume
+For more information, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information about scaling a managed instance, see [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 
-An increase in application traffic and workload can account for increased CPU utilization, but you must be careful to properly diagnose this problem. In a high-CPU scenario, answer these questions to determine if indeed a CPU increase is due to workload volume changes:
+### Performance problems caused by increased workload volume
 
-1. Are the queries from the application the cause of the high-CPU problem?
-2. For the top CPU-consuming queries (that can be identified):
+An increase in application traffic and workload volume can account for increased CPU utilization. But you must be careful to properly diagnose this problem. When you see high CPU utilization, answer these questions to determine whether the increase is caused by changes to the workload volume:
 
-   - Determine if there were multiple execution plans associated with the same query. If so, determine why.
-   - For queries with the same execution plan, determine if the execution times were consistent and if the execution count increased. If yes, there are likely performance problems due to workload increase.
+- Are the queries from the application the cause of the high CPU utilization?
+- For the top CPU-consuming queries that you can identify:
 
-To summarize, if the query execution plan didn't execute differently but CPU utilization increased along with execution count, there is likely a workload increase-related performance problem.
+   - Were multiple execution plans associated with the same query? If so, why?
+   - For queries with the same execution plan, were the execution times consistent? Did the execution count increase? If so, workload increase is likely causing performance problems.
 
-It is not always easy to conclude there is a workload volume change that is driving a CPU problem.   Factors to consider: 
+To summarize, if the query execution plan didn't execute differently but CPU utilization increased along with execution count, the performance problem is likely related to a workload increase.
 
-- **Resource usage changed**
+It's not always easy to identify a workload volume change that's driving a CPU problem. Consider these factors: 
 
-  For example, consider a scenario where CPU increased to 80% for an extended period of time.  CPU utilization alone doesn't mean workload volume changed.  Query execution plan regressions and data distribution changes can also contribute to more resource usage even though the application is executing the same exact workload.
+- **Changed resource usage**: For example, consider a scenario where CPU utilization increased to 80 percent for an extended period of time.  CPU utilization alone doesn't mean the workload volume changed.  Query execution plan regressions and data distribution changes can also contribute to more resource usage even though the application executes the same workload.
 
-- **New query appeared**
+- **The appearance of a new query**: An application might drive a new set of queries at different times.
 
-   An application may drive a new set of queries at different times.
-
-- **Number of requests increased or decreased**
-
-   This scenario is the most obvious measure of workload. The number of queries doesn't always correspond to more resource utilization. However, this metric is still a significant signal assuming other factors are unchanged.
+- **An increase or decrease in the number of requests**: This scenario is the most obvious measure of a workload. The number of queries doesn't always correspond to more resource utilization. However, this metric is still a significant signal, assuming other factors are unchanged.
 
 ## Performance problems related to waiting 
 
-Once you are certain that you are not facing a high-CPU, running-related performance problem, you are facing a waiting-related performance problem. Namely, your CPU resources are not being used efficiently because the CPU is waiting on some other resource. In this case, your next step is to identify what your CPU resources are waiting on. The most common methods for showing the top wait type categories are:
+If you're sure that your performance problem isn't related to high CPU utilization or running, your problem is related to waiting. Namely, your CPU resources aren't being used efficiently because the CPU is waiting on some other resource. In this case, identify what your CPU resources are waiting on. These are the most common methods to show the top categories of wait types:
 
-- The [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) provides wait statistics per query over time. In Query Store, wait types are combined into wait categories. The mapping of wait categories to wait types is available in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) provides wait statistics for each query over time. In Query Store, wait types are combined into wait categories. You can find the mapping of wait categories to wait types in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returns information about all the waits encountered by threads that executed during operation. You can use this aggregated view to diagnose performance problems with Azure SQL Database and also with specific queries and batches.
-- [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returns information about the wait queue of tasks that are waiting on some resource.
+- [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returns information about the queue of tasks that are waiting on some resource.
 
-In high-CPU scenarios, the Query Store and wait statistics do not always reflect CPU utilization for these two reasons:
+In high CPU-utilization scenarios, Query Store and wait statistics might not reflect CPU utilization if:
 
-- High-CPU consuming queries may still be executing and the queries haven't finished
-- The high-CPU consuming queries were running when a failover occurred
+- High-CPU-consuming queries are still executing.
+- The high-CPU-consuming queries were running when a failover happened.
 
-Query Store and wait statistics-tracking DMVs only show results for successfully completed and timed-out queries and do not show data for currently executing statements (until they complete). The dynamic management view [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) allows you to track currently executing queries and the associated worker time.
+DMVs that track Query Store and wait statistics show results for only successfully completed and timed-out queries. They don't show data for currently executing statements until the statements finish. Use the dynamic management view [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to track currently executing queries and the associated worker time.
 
-As shown in the previous chart, the most common waits are:
+The chart at the beginning of this article shows that the most common waits are:
 
 - Locks (blocking)
 - I/O
-- `tempdb`-related contention
+- Contention related to `tempdb`
 - Memory grant waits
 
 > [!IMPORTANT]
-> For a set a T-SQL queries using these DMVs to troubleshoot these waiting-related problems, see:
+> For a set of T-SQL queries that use DMVs to troubleshoot waiting-related problems, see:
 >
 > - [Identify I/O performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identify `tempdb` performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identify memory grant waits](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
-> - [TigerToolbox - Waits and Latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
-> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
+> - [TigerToolbox waits and latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## Improve database performance with more resources
 
-Finally, if there are no actionable items that can improve performance of your database, you can change the amount of resources available in Azure SQL Database. Assign more resources by changing the [DTU service tier](sql-database-service-tiers-dtu.md) of a single database or increase the eDTUs of an elastic pool at any time. Alternatively, if you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), change either the service tier or increase the resources allocated to your database.
+If no actionable items can improve your database performance, you can change the amount of resources available in Azure SQL Database. Assign more resources by changing the [DTU service tier](sql-database-service-tiers-dtu.md) of a single database. Or increase the eDTUs of an elastic pool at any time. Alternatively, if you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), either change the service tier or increase the resources allocated to your database.
 
-1. For single databases, you can [change service tiers](sql-database-single-database-scale.md) or [compute resources](sql-database-single-database-scale.md) on-demand to improve database performance.
-2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
+For single databases, you can [change service tiers or compute resources](sql-database-single-database-scale.md) on demand to improve database performance. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 
 ## Tune and refactor application or database code
 
-You can change application code to more optimally use the database, change indexes, force plans, or use hints to manually adapt the database to your workload. Find guidance and tips for manual tuning and rewriting the code in the [performance guidance topic](sql-database-performance-guidance.md) article.
+You can optimize the application code for the database, change indexes, force plans, or use hints to manually adapt the database to your workload. For information about manual tuning and rewriting the code, see [Performance tuning guidance](sql-database-performance-guidance.md).
 
 ## Next steps
 
-- To enable automatic tuning in Azure SQL Database and let automatic tuning feature fully manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
-- To use manual tuning, you can review [Tuning recommendations in Azure portal](sql-database-advisor-portal.md) and manually apply the ones that improve performance of your queries.
-- Change resources that are available in your database by changing [Azure SQL Database service tiers](sql-database-performance-guidance.md)
+- To enable automatic tuning in Azure SQL Database and let the automatic tuning feature fully manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
+- To use manual tuning, review [Tuning recommendations in Azure portal](sql-database-advisor-portal.md). Manually apply the recommendations that improve performance of your queries.
+- Change the resources that are available in your database by changing [Azure SQL Database service tiers](sql-database-performance-guidance.md).
