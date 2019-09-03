@@ -42,15 +42,14 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
 
-
    This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
-1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
 
-   > [!Warning]
-   > Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
-
-1. The rest of this article contains the same content as you see in the notebook.  Switch to the notebook now if you want to run the code.
+> [!Important]
+> The rest of this article contains the same content as you see in the notebook.  
+>
+> Switch to the notebook now if you want to read along as run the code.
 
 
 ## Connect workspace and create experiment
