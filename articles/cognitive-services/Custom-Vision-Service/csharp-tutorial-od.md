@@ -20,6 +20,7 @@ This article provides information and sample code to help you get started using 
 ## Prerequisites
 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Get the Custom Vision SDK and sample code
 
