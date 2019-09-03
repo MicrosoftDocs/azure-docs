@@ -28,7 +28,7 @@ ms.custom: seodec18
 
 This article shows you how to configure Azure App Service to use Azure Active Directory as an authentication provider.
 
-You should configure each App Service app with its own registration, so it has its own permissions and consent. Also, consider using separate app registrations for separate deployment slots. This avoids permission sharing between environments, so that a bug in new code you are testing does not affect production.
+It's recommended that you configure each App Service app with its own registration, so it has its own permissions and consent. Also, consider using separate app registrations for separate deployment slots. This avoids permission sharing between environments, so that an issue in new code you're testing does not affect production.
 
 ## <a name="express"> </a>Configure with express settings
 
@@ -39,7 +39,7 @@ You should configure each App Service app with its own registration, so it has i
    app registration instead, click **Select an existing app** and then search for the name of a previously created app registration within your tenant.
    Click the app registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings page.
    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
-5. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
+5. (Optional) To restrict access to your app to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
@@ -48,13 +48,13 @@ You should configure each App Service app with its own registration, so it has i
 
 ## <a name="advanced"> </a>Configure with advanced settings
 
-You can also provide configuration settings manually. This is the preferred solution if the Azure Active Directory tenant you wish to use is different from the tenant with which you sign into Azure. To complete the configuration, you must first create a registration in Azure Active Directory, and then you must provide some of the registration details to App Service.
+You can also provide configuration settings manually, if the Azure Active Directory tenant you want to use is different from the tenant with which you sign into Azure. To complete the configuration, you must first create a registration in Azure Active Directory, and then you must provide some of the registration details to App Service.
 
 ### <a name="register"> </a>Create an app registration in Azure AD for your App Service app
 
-When creating an app registration, note three pieces of information that you will need later when configuring your App Service app: the client ID, the tenant ID, and optionally the client secret and the app ID URI.
+When creating an app registration manually, note three pieces of information that you will need later when configuring your App Service app: the client ID, the tenant ID, and optionally the client secret and the application ID URI.
 
-1. In the [Azure portal], navigate to your App Service app and note your app's **URL**. You will use this to configure your Azure Active Directory app registration.
+1. In the [Azure portal], navigate to your App Service app and note your app's **URL**. You will use it to configure your Azure Active Directory app registration.
 2. In the [Azure portal], from the left menu, select **Active Directory** > **App registrations** > **New registration**. 
 3. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Web** and type the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Then select **Create**.
@@ -80,13 +80,13 @@ When creating an app registration, note three pieces of information that you wil
     |Client ID| Use the **Application (client) ID** of the app registration. |
     |Issuer ID| Use `https://login.microsoftonline.com/<tenant-id>`, and replace *\<tenant-id>* with the **Directory (tenant) ID** of the app registration. |
     |Client Secret (Optional)| Use the client secret you generated in the app registration.|
-    |Allowed Token Audiences| If this is a *back end* app and you want to allow authentication tokens from a front end app, add the **Application ID URI** of the *front end* here. |
+    |Allowed Token Audiences| If this is a *back-end* app and you want to allow authentication tokens from a front-end app, add the **Application ID URI** of the *front end* here. |
 1. Select **OK**, then select **Save**.
 
 You are now ready to use Azure Active Directory for authentication in your App Service app.
 
 ## Configure a native client application
-You can register native clients, which provides greater control over permissions mapping. You need this if you wish to perform sign-ins using a client library such as the **Active Directory Authentication Library**.
+You can register native clients if you wish to perform sign-ins using a client library such as the **Active Directory Authentication Library**.
 
 2. In the [Azure portal], from the left menu, select **Active Directory** > **App registrations** > **New registration**. 
 3. In the **Register an application** page, enter a **Name** for your app registration.

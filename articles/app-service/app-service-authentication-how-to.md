@@ -127,7 +127,7 @@ When using fully qualified URLs, the URL must be either hosted in the same domai
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-You must run the following command in the [Azure Cloud Shell](../cloud-shell/quickstart.md):
+Run the following command in the [Azure Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -194,7 +194,7 @@ When your provider's access token (not the [session token](#extend-session-token
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 
-To refresh your access token at anytime, just call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
+To refresh your access token at any time, just call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
 
 ```JavaScript
 function refreshTokens() {
@@ -247,6 +247,10 @@ This setting appends the `domain_hint` query string parameter to the login redir
 
 While App Service takes care of the simplest authorization case (i.e. reject unauthenticated requests), your app may require more fine-grained authorization behavior, such as limiting access to only a specific group of users. In certain cases, you need to write custom application code to allow or deny access to the signed-in user. In other cases, App Service or your identity provider may be able to help without requiring code changes.
 
+- [Server level](#server-level-windows-apps-only)
+- [Identity provider level](#identity-provider-level)
+- [Application level](#application-level)
+
 ### Server level (Windows apps only)
 
 For any Windows app, you can define authorization behavior of the IIS web server, by editing the *Web.config* file. Linux apps don't use IIS and can't be configured through *Web.config*.
@@ -278,7 +282,7 @@ The identity provider may provide certain turn-key authorization. For example:
 
 ### Application level
 
-
+If either of the other levels don't provide the authorization you need, or if your platform or identity provider isn't supported, you must write custom code to authorize users based on the [user claims](#access-user-claims).
 
 ## Next steps
 
