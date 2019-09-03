@@ -143,7 +143,7 @@ Backup operation on the VM failed due to delay in network calls while performing
 
 From an elevated (admin) command-prompt, run the below command:
 
-```
+```text
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -239,7 +239,7 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 - **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either allowed list of IPs or through a proxy server.
 - **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
-   ```
+   ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

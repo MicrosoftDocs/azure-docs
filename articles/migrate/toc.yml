@@ -76,6 +76,8 @@
     href: how-to-create-group-machine-dependencies.md 
   - name: Create an assessment
     href: how-to-create-assessment.md
+  - name: Assess a SQL Server database
+    href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json&view=sql-server-2017
   - name: Customize an assessment
     href: how-to-modify-assessment.md
   - name: Add migration tools
