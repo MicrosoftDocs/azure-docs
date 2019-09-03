@@ -1,11 +1,10 @@
 ---
 title: Interface definition for custom skills in cognitive search - Azure Search
 description: Custom data extraction interface for web-api custom skill in cognitive search pipeline in Azure Search.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
