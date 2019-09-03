@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
