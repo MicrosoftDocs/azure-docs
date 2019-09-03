@@ -128,13 +128,13 @@ The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does no
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Select the **Settings** , then select **Network**.
+2. Select **Settings** , then select **Network**.
 
    ![edit connections](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
 3. Click the **+** button to create a new connection.
 
    ![add a connection](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Select **IPsec/IKEv2 (strongswan)** from the  menu, and double-click. You can name your connection in this step.
+4. Select **IPsec/IKEv2 (strongSwan)** from the  menu, and double-click. You can name your connection in this step.
 
    ![choose a connection type](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Open the **VpnSettings.xml** file from the **Generic** folder contained in the downloaded client configuration files. Find the tag called **VpnServer** and copy the name, beginning with 'azuregateway' and ending with '.cloudapp.net'.
