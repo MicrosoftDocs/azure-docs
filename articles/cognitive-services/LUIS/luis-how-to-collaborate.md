@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 
@@ -19,7 +19,11 @@ An app owner can add contributors to apps. These collaborators can modify the mo
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
-## After authoring migration, add contributor to Azure authoring resource
+## Add contributor to Azure authoring resource
+
+The following procedure is for all users that have **migrated** to use the Azure authoring resource.
+
+You have migrated if your LUIS authoring experience is tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
 
 1. In the Azure portal, find the Language Understanding (LUIS) authoring resource. It has the type `LUIS.Authoring`.
 1. On this resource's **Access Control (IAM)** page, select **+Add** then select **Add role assignment**.
@@ -34,7 +38,11 @@ An app owner can add contributors to apps. These collaborators can modify the mo
 
     If you have trouble with this role assignment, review [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) and [Azure access control troubleshooting](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments).
 
-## Before authoring migration, add collaborator to LUIS app
+## Add collaborator to LUIS app
+
+The following procedure is for all users that have **not migrated** to use the Azure authoring resource.
+
+You have not migrated if your LUIS authoring experience is not tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
 
 An app has a single author, the owner, but can have many collaborators. To allow collaborators to edit your LUIS app, you must add the email they use to access the LUIS portal to the collaborators list. Once they are added, the app shows in their LUIS portal.
 
