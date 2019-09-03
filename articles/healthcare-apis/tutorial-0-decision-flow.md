@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Decision flow on setting up the environment
+title: Tutorial Decision flow on setting up the environment
 description: This tutorial explains how to setup the environment based on scenarios
 services: healthcare-apis
 ms.service: healthcare-apis

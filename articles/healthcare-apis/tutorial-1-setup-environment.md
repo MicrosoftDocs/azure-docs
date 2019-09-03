@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Setup development environment
+title: Tutorial Setup development environment
 description: This tutorial explains how to setup development environment
 services: healthcare-apis
 ms.service: healthcare-apis
