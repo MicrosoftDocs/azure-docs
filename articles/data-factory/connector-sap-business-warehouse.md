@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
@@ -22,6 +22,9 @@ ms.author: jingwang
 > * [Current version](connector-sap-business-warehouse.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP Data Integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
 
 ## Supported capabilities
 
