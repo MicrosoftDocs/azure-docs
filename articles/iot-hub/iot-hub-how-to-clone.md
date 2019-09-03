@@ -49,10 +49,10 @@ There is no guarantee that this will work cleanly, so we recommend that you do n
     - Go to the ExportDevices method in the Program.cs file and set the number num_of_devices to the number of devices you want toe export. You may want to start with a smaller number of devices (like under 10,000) to test the import/export. Set the container and storage account information where the devices will be stored.
     - In program.cs, it has code to run three methods.
 
-      . exportdevices -- this exports the devices registered with the IoT Hub to a file called *devices.txt* in blob storage. 
-      . importandandddevices -- this will add new devices with random keys (helpful for testing)
-      . importexistingdevices -- this will import the devices from the *devices.txt* file stored in blob storage in to the IoT hub.
-      . deletedevices -- this will delete all of the devices registered for an IoT hub. 
+      . **exportdevices** -- this exports the devices registered with the IoT Hub to a file called *devices.txt* in blob storage. 
+      . **importandandddevices** -- this will add new devices with random keys (helpful for testing)
+      . **importexistingdevices** -- this will import the devices from the *devices.txt* file stored in blob storage in to the IoT hub.
+      . **deletedevices** -- this will delete all of the devices registered for an IoT hub. 
 
 *  How to move resources when using a storage account as a custom endpoint.
 *  How to move the resources when using a service bus queue as a custom endpoint.
