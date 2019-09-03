@@ -61,10 +61,10 @@ For devices running the Windows desktop operating system, supported version are 
 ### Windows down-level devices
 
 - Windows 8.1
-- Windows 7. For support information on Windows 7, please review this article [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)
+- Windows 7. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2. For support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 As a first planning step, you should review your environment and determine whether you need to support Windows down-level devices.
 
