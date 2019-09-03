@@ -109,8 +109,6 @@ landingContent:
             url: storage-quickstart-blobs-storage-explorer.md
           - text: Use .NET
             url: storage-quickstart-blobs-dotnet.md
-          - text: Use Java
-            url: storage-quickstart-blobs-java-v10.md
           - text: Use Python
             url: storage-quickstart-blobs-python.md
       - linkListType: tutorial
