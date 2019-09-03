@@ -48,9 +48,9 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * Select a **Resource group location**.
     * Choose the **Search pricing tier** of the Azure Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a Free Azure Search tier deployed through your subscription. In that case, you'll need to start with the Basic Azure Search tier. See [Azure Search pricing details](https://azure.microsoft.com/pricing/details/search/).
     * Choose the **Search Location** where you want Azure Search data to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Search.
-    * In the **App name** field, enter a name for your App service.
-    * By default, the App service defaults to the standard (S1) tier. You can change the plan after creation. Learn more about [App service pricing](https://azure.microsoft.com/pricing/details/app-service/).
-    * Choose the **Website location** where the App Service will be deployed.
+    * In the **App name** field, enter a name for your App Service.
+    * By default, App Service defaults to the standard (S1) tier. You can change the plan after creation. Learn more about [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+    * Choose the **Website location** where App Service will be deployed.
 
         > [!NOTE]
 	    > The **Search Location** can differ from the **Website Location**.
@@ -101,8 +101,8 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 |Service|Share|Reason|
 |--|--|--|
 |Cognitive Services|X|Not possible by design|
-|App service plan|✔|Fixed disk space allocated for an App service plan. If other apps that sharing the same App Service plan use significant disk space, QnAMaker App Service will encounter problems.|
-|App service|X|Not possible by design|
+|App Service plan|✔|Fixed disk space allocated for an App Service plan. If other apps that sharing the same App Service plan use significant disk space, QnAMaker App Service will encounter problems.|
+|App Service|X|Not possible by design|
 |Application Insights|✔|Can be shared|
 |Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can’t be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
 
@@ -110,14 +110,14 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 
 If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App service setting to use a previously existing Search service and remove the one you just created.
 
-If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App service creation to use an existing Search service.
+If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App Service creation to use an existing Search service.
 
 ## Upgrade QnA Maker
 
 |Upgrade|Reason|
 |--|--|
 |[Upgrade](#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more questions and answers in your knowledge base.|
-|[Upgrade](#upgrade-app-service) App service SKU|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
+|[Upgrade](#upgrade-app-service) App Service SKU|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
 |[Upgrade](#upgrade-the-azure-search-service) Azure Search service|You plan to have many knowledge bases.|
 
 
@@ -135,15 +135,15 @@ To upgrade the QnA Maker management SKU:
 
     ![QnA Maker pricing](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### Upgrade App service
+### Upgrade App Service
 
- When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
+ When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
 
-You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or scale down the App service.
+You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or scale down App Service.
 
-Go to the App service resource in the Azure portal, and select the **scale up** or **scale down** options as required.
+Go to the App Service resource in the Azure portal, and select the **scale up** or **scale down** options as required.
 
-![QnA Maker app service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
+![QnA Maker App Service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
 ### Upgrade the Azure Search service
 
@@ -161,7 +161,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
     ![QnA Maker Azure search keys](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
 
-1. To link the new Azure search resource to the QnA Maker stack, go to the QnA Maker App service.
+1. To link the new Azure search resource to the QnA Maker stack, go to the QnA Maker App Service.
 
     ![QnA Maker appservice](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
 
@@ -169,7 +169,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
     ![QnA Maker appservice setting](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
 
-1. Restart the App service.
+1. Restart the App Service.
 
     ![QnA Maker appservice restart](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
@@ -187,7 +187,7 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 
         ![QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. Restart the App service. The update process should complete within a couple of seconds. Any dependent applications or bots that use this QnAMaker service will be unavailable to end users during this restart period.
+1. Restart the App Service. The update process should complete within a couple of seconds. Any dependent applications or bots that use this QnAMaker service will be unavailable to end users during this restart period.
 
     ![QnAMaker appservice restart](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
