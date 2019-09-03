@@ -7,7 +7,6 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Define and Assign an Azure Blueprint with REST API
 
@@ -489,7 +488,7 @@ To remove the blueprint itself, use the following REST API operation:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](./concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).
