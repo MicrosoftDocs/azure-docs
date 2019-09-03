@@ -13,10 +13,10 @@ ms.subservice: cognitive-search
 # Working with skillsets
 
 Skillsets define the AI skills that are invoked within the enrichment pipeline to enrich each document. 
-A skillset primarily comprises of three properties:
-+	```Skills```, an unordered collection of skills where the platform determines the sequence of execution based on the inputs required for each skill. 
-+	```CognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
-+	```KnowledgeStore```, the storage account where your enriched documents can be projected in addition to the search index.
+A skillset comprises of three properties:
++	```skills```, an unordered collection of skills where the platform determines the sequence of execution based on the inputs required for each skill. 
++	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
++	```knowledgeStore```, the storage account where your enriched documents can be projected in addition to the search index.
 
 Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree where a ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walkthrough the [JFK Files sample](https://github.com/microsoft/AzureSearch_JFK_Files/blob/master/JfkWebApiSkills/JfkInitializer/skillset.json) skillset.
 
@@ -32,7 +32,6 @@ The enrichment tree is the JSON representation of the document and enrichments a
 |Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|/document/{key1}<br>/document/{key2}<br>… |
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |N/A|
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|N/A|
-
 
 
 The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills, projecting to the knowledge store or mapping to index fields. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
@@ -54,7 +53,7 @@ Projection is the process of selecting the nodes from the enrichment tree to be 
 |Source |Destination |Selector |
 |---|---|---|
 |Document content |Index| Field mapping |
-|Enrichment output| Index| Output field mapping |
+|Enrichment (skill) output| Index| Output field mapping |
 |Document content |Knowledge store |Projection |
 |Enrichment output |Knowledge store |Projection |
 
@@ -73,18 +72,19 @@ The enrichment tree now has the new nodes parented under the context of the skil
  
  ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enricment-tree-after.png "Enrichment tree after  skill #1 executes")
  
- You should now be able to look at the remainder of the skills in the skillset and be able to visualize how the tree of enrichments continues to grow with the execution of each skill. "Skills like the merge skill and the shaper skill also create new nodes, but only use data from existing nodes.
+ You should now be able to look at the remainder of the skills in the skillset and be able to visualize how the tree of enrichments continues to grow with the execution of each skill. Some skills like the merge skill and the shaper skill also create new nodes, but only use data from existing nodes and don't create any net new enrichments.
 
 ## Knowledge store
 Skillsets also define a knowledge store where your enriched documents can be projected as tables or objects. To save your enriched data in the knowledge store, you define a set of projections of your enriched document. To learn more about the knowledge store see [what is knowledge store?](knowledge-store-concept-intro.md)
 ### Slicing projections
-When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child (contained within) of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all your table projections. 
+When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all your table projections. 
 ### Shaping projections
 There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then in your projections, you only reference the output of the shaper skill. You could also inline shape a projection within the projection the definition itself.
-One advantage of the shaper approach is that it ensures that all the mutations of the enrichment tree are contained within the skills which does make debugging issues with your skillset easier. Either approach works, the following example demonstrates each of the approaches. Assuming we are working with a set of reviews and enrich the reviews enriched with key phrases, entities and sentiment analysis. The enrichment tree in fig 3 represents the state after all enrichments are complete.
+One advantage of the shaper approach is that it ensures that all the mutations of the enrichment tree are contained within the skills which does make debugging issues with your skillset easier. Either approach works, the following example demonstrates each of the approaches. Assuming we are working with a set of reviews and enrich the reviews enriched with key phrases, entities and sentiment analysis. The enrichment tree below represents the state after all enrichments are complete.
 ![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enricment-tree-projection.png "Enrichment tree before projection")
+
 To create a shape that you can project into three tables namely Reviews, KeyPhrases and Entities, the two options are
-#### Shaper Skill 
+#### Shaper skill 
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
