@@ -49,18 +49,14 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 ## Connect workspace and create experiment
 
 > [!Important]
-> The rest of this article contains the same content as you see in the notebook.  
+> The rest of this article contains the same content as you see in the notebook.  Switch to the notebook now if you want to read along as run the code.
 >
-> Switch to the notebook now if you want to read along as run the code.
+> In Jupyter notebooks, you run code by clicking on a code cell and hitting 
+**Shift+Enter** to run the cells one at a time. Or, run the entire notebook at once by choosing **Cell > Run All** from the top menu.
 
 Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. In a cloud notebook server, the file is automatically in the root directory.
 
 If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token.
-
-> [!TIP]
-> If you're new to Jupyter notebooks, run code by clicking on a code cell and hitting 
-> **Shift+Enter** to run the cells one at a time. Alternatively, to run the entire notebook at once,
-> click **Cell** on the top menu bar and then click **Run All**.
 
 ```python
 from azureml.core import Workspace
