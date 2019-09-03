@@ -24,12 +24,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **New features**
   + Introduced FileDataset, which references single or multiple files in your datastores or public urls. The files can be of any format. FileDataset provides you with the ability to download or mount the files to your compute. To learn about FileDataset, please visit https://aka.ms/file-dataset.
   + Added Pipeline Yaml Support for PythonScript Step, Adla Step, Databrick Step, DataTransferStep and AzureBatch Step
-  
-  + **Preview features**
-    + [Contrib features below] 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
