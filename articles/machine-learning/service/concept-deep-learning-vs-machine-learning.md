@@ -106,4 +106,4 @@ The following articles show you how to use deep learning technology in the [Azur
 - [Classify handwritten digits by using a TensorFlow model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 - [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-- [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzerihow-to-train-pytorch.md)
+- [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
