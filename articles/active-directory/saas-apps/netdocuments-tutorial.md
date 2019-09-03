@@ -146,7 +146,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. On the **Federated Identity** dialog, perform the following steps:
    
-    ![Federated Identitty](./media/netdocuments-tutorial/ic795049.png "Federated Identitty")
+    ![Federated Identity](./media/netdocuments-tutorial/ic795049.png "Federated Identity")
    
     a. As **Federated identity server type**, select **Active Directory Federation Services**.
    
