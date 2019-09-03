@@ -89,6 +89,8 @@
       href: resource-manager-tools-vs-code.md
     - name: Create template
       href: how-to-create-template.md
+    - name: Write template expressions
+      href: template-expressions.md
     - name: Child resource name and type
       href: child-resource-name-type.md
     - name: Conditional deployment
