@@ -3,27 +3,32 @@ title: Understanding Consumption plan costs in Azure Functions
 description: Learn how to better estimate the costs that you may incur when running your function app in a Consumption plan in Azure.
 author: ggailey777
 ms.author: glenga
-ms.date: 7/23/2019
+ms.date: 8/31/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
+# Customer intent: As a cloud developer, I want to understand the overall costs of running my code in Azure Functions so that I can make better architectural and business decisions.
 ---
 
 # Understanding Consumption plan costs
 
 There are currently three types of hosting plans for app that run in Azure Functions, with each plan having its own pricing model: 
 
-* [**Consumption plan**](functions-scale.md#consumption-plan): you are only charged for the time that your function app runs. This plan includes a [free grant](https://azure.microsoft.com/pricing/details/functions/) on a per subscription basis.
+* [**Consumption plan**](functions-scale.md#consumption-plan): you are only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.
 * [**Premium plan**](functions-scale.md#premium-plan): provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and VNET access. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md).
 * [**Dedicated (App Service) plan**](functions-scale.md#app-service-plan) (basic tier or higher): when you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/en-us/pricing/details/app-service/). 
 
 You chose the plan that best supports your function performance and cost requirements. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-This article deals only with the the Consumption plan, since this plan results in variable costs. To learn more about how to estimate costs when running in a Con
+This article deals only with the the Consumption plan, since this plan results in variable costs. 
 
 ## Overall costs of using Functions
 
-When estimating the overall cost of running your functions in the Consumption plan, remember that the Functions runtime uses several other Azure services, which are each billed separately. Of course when pricing a Functions-base topology, any triggers and bindings you have that integrate with other Azure services require you to create and pay for those additional services. The total cost is the execution cost of your functions, plus the cost of bandwidth and additional services.
+When estimating the overall cost of running your functions in any plan, remember that the Functions runtime uses several other Azure services, which are each billed separately. Of course when pricing a Functions-base topology, any triggers and bindings you have that integrate with other Azure services require you to create and pay for those additional services. 
+
+For functions running in a Consumption plan, the total cost is the execution cost of your functions, plus the cost of bandwidth and additional services. 
+
+When estimating the overall costs of your function app topology using current service prices, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=functions). 
 
 ### Storage account
 
@@ -37,45 +42,52 @@ Functions relies on [Application Insights](../azure-monitor/app/app-insights-ove
 
 You don't pay for data transfer between Azure services in the same region. However, you can incur costs for outbound data transfers to another region or outside of Azure. To learn more, see [Bandwidth pricing details](https://azure.microsoft.com/en-us/pricing/details/bandwidth/).
 
-### What is a GB second and how is it calculated?
+## Consumption plan costs
 
-The execution "cost" of a single function execution is calculated by combining its memory usage with its execution time. A function that runs for longer costs more, as does a function that consumes more memory. If the amount of memory used by the function stays constant, then it's a simple multiplication - e.g if your function consumed 0.5 GB for 3 seconds, then the cost is `0.5GB * 3s = 1.5 GB-seconds`. 
+The execution *cost* of a single function execution is measured in *GB-seconds*, which is calculated by combining its memory usage with its execution time. A function that runs for longer costs more, as does a function that consumes more memory. 
 
-Once you take into account that memory usage can change over time, the calculation is best described as the integral of memory usage over time.  The system does this calculation by sampling the memory usage of the process (and child processes) at regular intervals. As mentioned on the [pricing page][consumptionpricing], memory usage is rounded up to the nearest 128 MB bucket (so if your process is using 160 MB you are charged for 256 MB). This process of calculating memory usage and rounding up takes concurrency (multiple concurrent function executions in the same process) into account.
+Consider a simple case where the amount of memory used by the function stays constant. In this case, calculating the cost is simple multiplication. For example, say that your function consumed 0.5 GB for 3 seconds. Then the execution cost is just  `0.5GB * 3s = 1.5 GB-seconds`. 
 
-### Is CPU usage factored into the GB second calculation?
+Once you take into account that memory usage can change over time, the calculation is best described as the integral of memory usage over time.  The system does this calculation by sampling the memory usage of the process (along with child processes) at regular intervals. As mentioned on the [pricing page], memory usage is rounded up to the nearest 128 MB bucket. This means that when your process is using 160 MB, you are charged for 256 MB. The process of calculating memory usage and rounding up takes into account concurrency, which is multiple concurrent function executions in the same process.
 
-Not directly. Indirectly, CPU usage can have an impact on the cost because it might impact the execution time of the function.
+> [!NOTE]
+> While CPU usage isn't directly considered in execution cost, it can have an impact on the cost when it affects the execution time of the function.
 
-### What is the minimum GB second cost of a function execution?
+To fix a lower bound on your estimates, it's useful to know the minimum costs of an execution. As detailed on the [pricing page], when a function runs for less than 100ms, an execution time of 100ms is used as the basis of the calculation. This means that the minimum cost of an execution is determined by multiplying the minimum amount of memory (128 MB) and the minimum execution time (100ms): `0.125 GB * 0.1s = 0.0125 GB-sec`. 
 
-To determine this we can take the minimum amount of memory (128 MB) and the minimum execution time (100ms - if a function runs for less than 100ms then the system uses an execution time of 100ms in the calculation, as mentioned on the [pricing page]) and multiply them together i.e. `0.125 GB * 0.1s = 0.0125 GB-sec`.
+## Behaviors affecting execution time
 
-### How can I get a quick summary of my functions related costs?
+The following behaviors of your functions can impact the execution time:
 
-The [cost analysis functionality](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill#option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal) in the Azure Portal can give you a quick overview of the cost of your functions in terms of real-world currency. 
++ **Triggers and bindings**: The time taken to read input from and write output to your [function bindings](functions-triggers-bindings.md) is counted as execution time. For example, when your function uses an output binding to write a message to an Azure storage queue, your execution time includes the time taken to write the message to the queue, which is included in the calculation of the function cost. 
+
++ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) is counted as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What is happening over that time in terms of CPU activity is not factored into the calculation. You may be able to reduce costs during asynchronous operations by using [Durable Functions](durable/durable-functions-overview.md). You are not billed for time spent at awaits in orchestrator functions.
+
+## Viewing cost-related data
+
+The [cost analysis functionality](../billing/billing-understand-your-bill.md#option-2-compare-the-usage-and-costs-in-the-azure-portal) in the Azure portal provides a quick overview of the cost of your functions in terms of real-world currency. 
 
 [[/images/billing/costmanagement.PNG]]
 
 The relevant entries are:
 * Compute Requests (in 10s) - this is the `Total Executions` meter listed on the pricing page. In Azure Monitor this metric is called `Execution Count`.
-* Compute Duration (in GB Seconds) - this is the `Execution Time` meter listed on the pricing page. In Azure Monitor, this metric is called `Function Execution Units` and is measured in MB milliseconds (discussed further below).
+* Compute Duration (in GB-seconds) - this is the `Execution Time` meter listed on the pricing page. In Azure Monitor, this metric is called `Function Execution Units` and is measured in MB milliseconds (discussed further below).
 
 ### How granular is this cost information? Can I get a per execution cost?
 
 In terms of real world currency, the cost information is available per day, per resource (i.e. per Function App, **not** per function). You can retrieve per minute, per resource data in terms of `Execution Count` and `Function Execution Units` from Azure Metrics.
 
-Per execution cost information is not currently available. There is an open feature request tracking that [here](https://github.com/Azure/azure-functions-host/issues/1451).
+Per execution cost information is [not currently available](https://github.com/Azure/azure-functions-host/issues/1451). 
 
-### How can I view graphs of execution count and GB seconds?
+### How can I view graphs of execution count and GB-seconds?
 
 You can do this with the [metrics explorer](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics#to-access-all-metrics-in-a-single-place). Here is an example of viewing `Function Execution Units`:
 
 [[/images/billing/azuremetrics-executionunits.PNG]]
 
-This screen shows a total of 9.2 million `Function Execution Units` consumed in the last hour. As mentioned above, this metric is measured in MB milliseconds. To convert this to GB seconds, divide by 1,024,000. So in this case, my Function App consumed `9,200,000 / 1,024,000 = 8.98` GB seconds in the last hour.
+This screen shows a total of 9.2 million `Function Execution Units` consumed in the last hour. As mentioned above, this metric is measured in MB milliseconds. To convert this to GB-seconds, divide by 1,024,000. So in this case, my Function App consumed `9,200,000 / 1,024,000 = 8.98` GB-seconds in the last hour.
 
-### How can I access execution count and GB seconds programmatically?
+### How can I access execution count and GB-seconds programmatically?
 
 The same metrics shown above are available through the [Azure Monitor REST API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics#access-metrics-via-the-rest-api). 
 
@@ -109,7 +121,7 @@ This command returns a payload with fragments that look like this:
         }
       ],
 ```
-This particular response shows that from `2018-04-13T23:40` to `2018-04-13T23:41`, my app consumed 153,600 MB milliseconds (0.15 GB seconds).
+This particular response shows that from `2018-04-13T23:40` to `2018-04-13T23:41`, my app consumed 153,600 MB milliseconds (0.15 GB-seconds).
 
 ### How can I get more information about the memory usage of my app?
 
@@ -145,18 +157,8 @@ customMetrics
 |TimerTriggerCSharp1 Duration|	0.9007444311 |
 |TimerTriggerCSharp2 Duration|	808.5745516667|
 
-### Am I billed for "await time" ?
-
-This question is typically asked in the context of a C# function that does an async operation and waits for the result, e.g. `await Task.Delay(1000)` or `await client.GetAsync("http://google.com")`. The answer is yes - the GB second calculation is based on the start and end time of the function and the memory usage over that period. What actually happens over that time in terms of CPU activity is not factored into the calculation.
-
-One exception to this rule is if you are using durable functions. You are not billed for time spent at awaits in orchestrator functions.
-
-### Am I billed for input/output bindings?
-
-Yes. For example, if your function uses an output binding to write a message to an Azure storage queue, your execution time includes the time taken to write the message to the queue and is included in the calculation of the function cost.
-
 ### Why is my execution count showing as zero for apps in an app service plan?
 
 Its a known issue, see [here](https://github.com/Azure/Azure-Functions/issues/750).
 
-[consumptionpricing]:https://azure.microsoft.com/en-us/pricing/details/functions/
+[pricing page]:https://azure.microsoft.com/pricing/details/functions/
