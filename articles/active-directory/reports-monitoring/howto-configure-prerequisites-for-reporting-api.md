@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 The [Azure Active Directory (Azure AD) reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from of programming languages and tools.
 
-The reporting API uses [OAuth](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad) to authorize access to the web APIs.
+The reporting API uses [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) to authorize access to the web APIs.
 
 To prepare your access to the reporting API, you need to:
 
