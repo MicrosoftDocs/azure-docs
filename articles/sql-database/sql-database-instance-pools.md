@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
-ms.date: 09/04/2019
+ms.date: 09/05/2019
 ---
 # What are SQL Database instance pools (preview)?
 
@@ -29,37 +29,32 @@ Instance pools provide the following benefits:
 2. Predictable and fast instance deployment time (up to 5 minutes).
 3. Minimal IP address allocation.
 
-The following diagram illustrates an instance pool with multiple instances deployed within a VNet subnet.
+The following diagram illustrates an instance pool with multiple instances deployed within a virtual network subnet.
 
 ![instance pool with multiple instances](./media/sql-database-instance-pools/instance-pools1.png)
 
 Instance pools enable deployment of multiple instances on the same virtual machine where the virtual machine's compute size is based on the total number of vCores allocated for the pool. This architecture allows *partitioning* of the virtual machine into multiple instances, which can be any supported size, including 2 vCores (2 vCore instances are only available for instances in pools).
 
-Management operations on instances in a pool are much faster once the pool is initially deployed. These operations are faster because deployment or extension of a [virtual cluster](https://sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) (dedicated set of virtual machines) is not part of provisioning the managed instance but happens when the managed instance is provisioned.
+Management operations on instances in a pool are much faster once the pool is initially deployed. These operations are faster because deployment or extension of a [virtual cluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) (dedicated set of virtual machines) is not part of provisioning the managed instance.
 
 Because all instances in a pool share the same virtual machine, the total IP allocation does not depend on the number of instances deployed, which is convenient for deployment in subnets with a narrow IP range.
 
-Each pool has a fixed IP allocation of only nine IP addresses (not including the five IP addresses in the subnet that are reserved for its own needs).
-
-For details, see [subnet size requirements for single instances](sql-database-managed-instance-determine-size-vnet-subnet.md).
+Each pool has a fixed IP allocation of only nine IP addresses (not including the five IP addresses in the subnet that are reserved for its own needs). For details, see [subnet size requirements for single instances](sql-database-managed-instance-determine-size-vnet-subnet.md).
 
 ## Application scenarios for instance pools
 
 The following list provides the main use cases where instance pools should be considered:
 
 - Migration of *a group of SQL instances* at the same time, where the majority is a smaller size (for example 2 or 4 vCores).
-
 - Scenarios where *predictable and short instance creation or scaling* is important. For example, deployment of a new tenant in a multi-tenant SaaS application environment that requires instance-level capabilities.
-
 - Scenarios where having a *fixed cost* or *spending limit* is important. For example, running shared dev-test or demo environments of a fixed (or infrequently changing) size, where you periodically deploy managed instances when needed.
-
 - Scenarios where *minimal IP address allocation* in a VNet subnet is important. All instances in a pool are sharing a virtual machine, so the number of allocated IP addresses is lower than in the case of single instances.
 
 
 ## Architecture of instance pools
 
-Instance pools have similar architecture to regular managed instances (*single instances*). To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) and provide isolation and security for customers, instance pools also rely on [virtual
-clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), which represents a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
+Instance pools have similar architecture to regular managed instances (*single instances*). To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) and to provide isolation and security for customers, instance pools also rely on [virtual
+clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtual clusters represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
 
 The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows Job Objects](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
 
@@ -74,7 +69,7 @@ Every instance pool creates a separate virtual cluster underneath. Instances wit
 There are several resource limitations regarding instance pools and instances inside pools:
 
 - Instance pools are available only on Gen5 hardware.
-- Instances within the pool have dedicated CPU and RAM memory so the aggregated number of vCores across all instances must be less than or equal to the number of vCores allocated to the pool.
+- Instances within a pool have dedicated CPU and RAM, so the aggregated number of vCores across all instances must be less than or equal to the number of vCores allocated to the pool.
 - All [instance level limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) apply to instances created within a pool.
 - In addition to instance-level limits there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
@@ -95,17 +90,14 @@ The [service tier property](sql-database-managed-instance-resource-limits.md#ser
 The public preview has the following limitations:
 
 - Currently, only the General Purpose service tier is available.
-
 - Instance pools cannot be scaled during the public preview so careful capacity planning before deployment is important.
-
 - Azure portal support for instance pool creation and configuration is not yet available. All operations on instance pools are supported through PowerShell only. Initial instance deployment in a pre-created pool is also supported through PowerShell only. Once deployed into a pool, managed instances can be update using the Azure portal.
-
 - Managed instances created outside of the pool cannot be moved into an existing pool and instances created inside a pool cannot be moved outside as a single instance or to another pool.
 - Reserved instance pricing (license included or with Azure Hybrid Benefit) is not available.
 
 ## SQL features supported
 
-Instances created in pools support the same [compatibility levels and features supported in a single instance](sql-database-managed-instance.md#sql-features-supported).
+Instances created in pools support the same [compatibility levels and features supported in single managed instances](sql-database-managed-instance.md#sql-features-supported).
 
 Every managed instance deployed in a pool has a separate instance of SQL Agent.
 
@@ -113,7 +105,7 @@ Optional features or features that require you to choose specific values (such a
 
 ## Performance considerations
 
-Although managed instances within pools do have dedicated vCore and RAM memory, they share local disk (for tempdb usage) and network resources. It's not likely, but it is possible to experience the *noisy neighbor* effect if multiple instances in the pool have high resource consumption at the same time. If you observe this behavior, consider deploying these instances to a bigger pool or as single instances.
+Although managed instances within pools do have dedicated vCore and RAM, they share local disk (for tempdb usage) and network resources. It's not likely, but it is possible to experience the *noisy neighbor* effect if multiple instances in the pool have high resource consumption at the same time. If you observe this behavior, consider deploying these instances to a bigger pool or as single instances.
 
 ## Security considerations
 
@@ -140,10 +132,9 @@ vCore price for a pool is charged regardless of how many instances are deployed 
 For the Compute price (measured in vCores), two pricing options are available:
 
   1. *License included*: Apply existing SQL Server licenses with Software Assurance.
+  2. *Azure Hybrid Benefit*: A reduced price that includes Azure Hybrid Benefit for SQL Server. Customers can opt into this price by using their existing SQL Server licenses with Software Assurance. For eligibility and other details, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-  2. *Azure Hybrid Benefit*: A reduced price that includes Azure Hybrid Benefit for SQL Server. Customers can opt into this price by using their existing SQL Server licenses with Software Assurance. For eligibility and other details, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
-
-Choosing between these two pricing options is not possible at the level of individual instances. All instances in the parent pool must be either at License Included price or Azure Hybrid Benefit price. The license model for the pool can be altered after the pool is created.
+Setting different pricing options is not possible for individual instances in a pool. All instances in the parent pool must be either at License Included price or Azure Hybrid Benefit price. The license model for the pool can be altered after the pool is created.
 
 > [!IMPORTANT]
 > If you specify a License Model for the instance that is different than in the pool, the pool price is used and the instance level value is ignored.
