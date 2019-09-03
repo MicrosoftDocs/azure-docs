@@ -32,9 +32,9 @@ Specifically, this SAP table connector supports:
 - Copying data from an SAP table in:
 
   - SAP ERP Central Component (SAP ECC) version 7.01 or later (in a recent SAP Support Package Stack released after 2015).
-  - SAP Business Warehouse (SAP BW) version 7.01 or later.
+  - SAP Business Warehouse (SAP BW) version 7.01 or later (in a recent SAP Support Package Stack released after 2015).
   - SAP S/4HANA.
-  - Other products in SAP Business Suite version 7.01 or later.
+  - Other products in SAP Business Suite version 7.01 or later (in a recent SAP Support Package Stack released after 2015).
 
 - Copying data from both an SAP transparent table, a pooled table, a clustered table, and a view.
 - Copying data by using basic authentication or Secure Network Communications (SNC), if SNC is configured.
