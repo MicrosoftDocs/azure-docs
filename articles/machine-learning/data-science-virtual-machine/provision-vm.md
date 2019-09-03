@@ -1,25 +1,20 @@
 ---
-title: Create a Windows Data Science Virtual Machine
-titleSuffix: Azure
+title: 'Quickstart: Create a Windows'
+titleSuffix: Azure Data Science Virtual Machine 
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
+ms.topic: conceptual
 ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: vijetaj
 
 ---
 
-# Provision a Windows Data Science Virtual Machine on Azure
+# Quickstart: Set up a Windows Data Science Virtual Machine on Azure
 
 The Microsoft Windows Data Science Virtual Machine (DSVM) is a Windows Server 2016 virtual machine (VM) image on Azure. It comes preinstalled and configured with tools for data analytics and machine learning.
 
