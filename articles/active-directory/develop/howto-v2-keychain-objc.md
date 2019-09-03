@@ -66,8 +66,12 @@ let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
                                               authority: nil)
 config.cacheConfig.keychainSharingGroup = "custom-group"
         
-let application = MSALPublicClientApplication(configuration: config)
-        
+do {
+	let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application          
+} catch let error as NSError {
+  // handle error here
+}       
 ```
 
 

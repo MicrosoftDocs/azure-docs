@@ -262,6 +262,14 @@ Add the following to your AppDelegate.m file:
 }
 ```
 
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+```
+
+
+
 This allows MSAL to handle responses from the broker and web component.
 This wasn't necessary in ADAL since it "swizzled" app delegate methods automatically. Adding it manually is less error prone and gives the application more control.
 
@@ -278,6 +286,17 @@ MSALPublicClientApplication *application =
                                                      error:&error];
 ```
 
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
+do {
+	let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
+            
+} catch let error as NSError {
+  // handle error here
+}
+```
+
 Then call the account management API to see if there are any accounts in the cache:
 
 ```objc
@@ -286,12 +305,40 @@ NSError *error = nil;
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:&error];
 ```
 
+```swift
+let application: MSALPublicClientApplication!
+let accountIdentifier: String! /*previously saved MSAL account identifier */
+
+do {
+  let account = try application.account(forIdentifier: accountIdentifier)
+  // continue with account usage
+} catch let error as NSError {
+  // handle error here
+}
+```
+
+
+
 or read all of the accounts:
 
 ```objc
 NSError *error = nil;
 NSArray<MSALAccount *> *accounts = [application allAccounts:&error];
 ```
+
+```swift
+let application: MSALPublicClientApplication!
+let accountIdentifier: String! /*previously saved MSAL account identifier */
+
+do {
+  let accounts = try application.allAccounts()
+  // continue with account usage
+} catch let error as NSError {
+  // handle error here
+}
+```
+
+
 
 If an account is found, call the MSAL `acquireTokenSilent` API:
 
@@ -301,7 +348,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters
                               completionBlock:^(MSALResult *result, NSError *error)
 {
-    if (!error)
+    if (result)
     {
         NSString *accessToken = result.accessToken;
         // Use your token
@@ -318,6 +365,37 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
     }
 }];
 ```
+
+```swift
+let application: MSALPublicClientApplication!
+let account: MSALAccount!
+        
+let silentParameters = MSALSilentTokenParameters(scopes: ["<your-resource-here>/.default"], 
+                                                 account: account)
+application.acquireTokenSilent(with: silentParameters) {
+  (result: MSALResult?, error: Error?) in
+  if let accessToken = result?.accessToken {
+     // use accessToken
+  }
+  else {
+    // Check the error
+    guard let error = error else {
+      assert(true, "callback should contain a valid result or error")
+      return
+    }
+    
+    let nsError = error as NSError
+    if (nsError.domain == MSALErrorDomain
+        && nsError.code == MSALError.interactionRequired.rawValue) {
+      // Interactive auth will be required
+    }
+                
+    // Other errors may require trying again later, or reporting authentication problems to the user
+  }
+}
+```
+
+
 
 ## Next steps
 
