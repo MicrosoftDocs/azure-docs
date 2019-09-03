@@ -20,11 +20,11 @@ landingContent:
           - text: What is Azure Database for PostgreSQL?
             url: overview.md
 # Card
-  - title: Create a Hyperscale server (Citus) (preview)
+  - title: Create a Hyperscale (Citus) cluster (preview)
     linkLists:
       - linkListType: quickstart
         links:    
-          - text: Create a Hyperscale (Citus) server in the Azure Portal
+          - text: Create a Hyperscale (Citus) cluster in the Azure Portal
             url: quickstart-create-hyperscale-portal.md    
       - linkListType: tutorial
         links:
