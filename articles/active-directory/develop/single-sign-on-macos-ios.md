@@ -104,6 +104,20 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
+config.cacheConfig.keychainSharingGroup = "my.keychain.group"
+        
+do {
+	let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application          
+} catch let error as NSError {
+  // handle error here
+}       
+```
+
+
+
 > [!WARNING]
 > When you share a keychain across your applications, any application can delete users or even all of the tokens across your application.
 > This is particularly impactful if you have applications that rely on tokens to do background work.
@@ -144,6 +158,14 @@ The following steps are how you enable SSO using an authentication broker for yo
         return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     }
     ```
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+```
+
+
 
 ## Next steps
 
