@@ -15,7 +15,7 @@ manager: femila
 
 # Azure Blockchain Service development overview
 
-With Azure Blockchain Service, you can create consortium blockchain networks to enable enterprise scenarios like asset tracking, digital token, loyalty and reward, supply chain financial, and provenance. This article is an introduction to Azure Blockchain Service development overview and key topics to implement blockchain for enterprise.
+With Azure Blockchain Service, you can create consortium blockchain networks to enable enterprise scenarios like asset tracking, digital token, loyalty and reward, supply chain financial, and provenance. This article is an introduction to Azure Blockchain Service development and key topics to implement blockchain for enterprise.
 
 ## Client connection to Azure Blockchain Service
 
