@@ -1,22 +1,22 @@
 ---
 title: 'Example: Model the AdventureWorks Inventory database - Azure Search'
 description: Learn how to model relational data, transforming it into a flattened data set, for indexing and full text search in Azure Search.
-author: cstone
+author: HeidiSteen
 manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
+ms.date: 09/05/2019
+ms.author: heidist
 
 ---
 # Example: Model the AdventureWorks Inventory database for Azure Search
 
-Modeling structured database content into an efficient search index is rarely a straightforward exercise. Scheduling and change management aside, there exists the challenge of denormalizing source rows away from their table-joined state into search-friendly entities. This article uses the AdventureWorks sample data, available online, to highlight common experiences in the transition from database to search. 
+Azure Search accepts a flattened rowset as inputs to the [indexing (data ingestion) pipeline](search-what-is-an-index.md). If your source data originates from a relational database, this article demonstrates one approach for creating a flattened rowset, using the AdventureWorks sample database as an example.
 
 ## About AdventureWorks
 
-If you have a SQL Server instance, you might be familiar with the AdventureWorks sample database. Among the tables included in this database are five tables that expose product information.
+If you have a SQL Server instance, you might be familiar with the [AdventureWorks sample database](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Among the tables included in this database are five tables that expose product information.
 
 + **ProductModel**: name
 + **Product**: name, color, cost, size, weight, image, category (each row joins to a specific ProductModel)
@@ -24,7 +24,7 @@ If you have a SQL Server instance, you might be familiar with the AdventureWorks
 + **ProductModelProductDescription**: locale (each row joins a ProductModel to a specific ProductDescription for a specific language)
 + **ProductCategory**: name, parent category
 
-Combining all of this data into a flattened rowset that can be ingested into a search index is the task at hand. 
+Combining all of this data into a flattened rowset that can be ingested into a search index is the objective of this example. 
 
 ## Considering our options
 
