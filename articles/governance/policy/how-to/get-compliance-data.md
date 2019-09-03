@@ -7,7 +7,6 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Get compliance data of Azure resources
 

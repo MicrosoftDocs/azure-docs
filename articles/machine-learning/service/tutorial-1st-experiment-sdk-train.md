@@ -32,11 +32,16 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 ## Launch Jupyter web interface
 
-After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
+1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
 
-1. Select **Jupyter** in the **URI** column for your VM to start up the notebook server.
+1. Select **Jupyter** in the **URI** column for the VM you created in part one of this tutorial.
 
-1. On the Jupyter notebook webpage, select the top foldername that contains your username.  
+    ![Start the Jupyter notebook server](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
+
+1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
+
 
    This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
@@ -44,6 +49,9 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
    > [!Warning]
    > Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
+
+1. The rest of this article contains the same content as you see in the notebook.  Switch to the notebook now if you want to run the code.
+
 
 ## Connect workspace and create experiment
 

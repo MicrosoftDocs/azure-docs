@@ -7,7 +7,6 @@ ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand the deployment sequence in Azure Blueprints
 
