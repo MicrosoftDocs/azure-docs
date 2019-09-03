@@ -19,7 +19,7 @@ Azure SQL Database provides tools and methods you can use to monitor usage easil
 Automatic tuning enables a database to adapt to the workload and automatically optimize performance. However, some custom issues might need troubleshooting. This article explains some best practices and some tools you can use to troubleshoot performance problems.
 
 To ensure that a database runs without problems, you should:
-- [Monitor database performance](#monitoring-database-performance) to make sure that the resources assigned to the database can handle the workload. If the database is hitting resource limits, consider:
+- [Monitor database performance](#monitor-database-performance) to make sure that the resources assigned to the database can handle the workload. If the database is hitting resource limits, consider:
    - Identifying and optimizing the top resource-consuming queries.
    - Adding more resources by upgrading the service tier.
 - [Troubleshoot performance problems](#troubleshoot-performance-problems) to identify why a potential problem occurred and to identify the root cause of the problem. After you identify the root cause, take steps to fix the problem.
@@ -82,11 +82,11 @@ If you find a running-related performance problem, your goal is to identify the 
 - Use the [Azure portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) to monitor CPU percentage usage.
 - Use the following [DMVs](sql-database-monitoring-with-dmvs.md):
 
-  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returns CPU, I/O, and memory consumption for an SQL database. One row exists for every 15-second interval, even if there's no activity in the database. Historical data is maintained for one hour.
-  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returns CPU usage and storage data for Azure SQL Database. The data is collected and aggregated in five-minute intervals.
+  - The [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU, I/O, and memory consumption for an SQL database. One row exists for every 15-second interval, even if there's no activity in the database. Historical data is maintained for one hour.
+  - The [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU usage and storage data for Azure SQL Database. The data is collected and aggregated in five-minute intervals.
 
 > [!IMPORTANT]
-> To troubleshoot CPU usage problems for T-SQL queries that use sys.dm_db_resource_stats and sys.resource_stats DMVs, see [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
+> To troubleshoot CPU usage problems for T-SQL queries that use the sys.dm_db_resource_stats and sys.resource_stats DMVs, see [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
 ### <a name="ParamSniffing"></a> Queries that have PSP problems
 
