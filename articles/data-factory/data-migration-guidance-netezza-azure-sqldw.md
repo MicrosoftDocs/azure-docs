@@ -84,7 +84,7 @@ Within each copy job, you can also reach some level of parallelism by using [par
 - You are encouraged to start from data slice since it is more efficient.  Make sure the number of parallelism in parallelCopies setting is below the total number of data slice partitions in your table on Netezza server.  
 - If the volume size for each data slice partition is still large (For example, bigger than 10 GB), you are encouraged to switch to dynamic range partition, where you will have more flexibility to define the number of the partitions and the size of volume for each partition by partition column, upper bound and lower bound.
 
-For the large tables when their volume size is bigger than 100 GB, or it cannot be migrated to Azure within 2 hours, you are recommended to partition the data by custom query and then make each copy jobs copy one partition at a time. You can run multiple ADF copy jobs concurrently for better throughput. Be aware that, for each copy job now used to load one parition by custom query, you can still enable the parallelism to use multiple threads/sessions to load data via either data slice or dynamic range to increase the throughput. 
+For the large tables when their volume size is bigger than 100 GB, or it cannot be migrated to Azure within 2 hours, you are recommended to partition the data by custom query and then make each copy job copies one partition at a time. You can run multiple ADF copy jobs concurrently for better throughput. Be aware that, for each copy job target to load one partition by custom query, you can still enable the parallelism via either data slice or dynamic range to increase the throughput. 
 
 If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from the table. All other copy jobs loading other partitions will not be impacted.
 
@@ -107,7 +107,7 @@ Given you are migrating data from Netezza server to Azure, no matter Netezza ser
 
 As a best practice, conduct a performance POC with a representative sample dataset, so that you can determine an appropriate partition size for each copy activity. We suggest you to make each partition be loaded to Azure within 2 hours.  
 
-Start with a single copy activity with single self-hosted IR machine to copy a table. Gradually increase parallelCopies setting based on the number of data slice partitions, and see if the entire table can be loaded to Azure within 2 hours according to the throughput you monitor from the PoC. 
+Start with a single copy activity with single self-hosted IR machine to copy a table. Gradually increase parallelCopies setting based on the number of data slice partitions in your table, and see if the entire table can be loaded to Azure within 2 hours according to the throughput you see from the copy job. 
 
 If it cannot be achieved, and at the same time the capacity of the self-hosted IR node and the data store are not fully utilized, gradually increase the number of concurrent copy activities until you reach limits of your network or bandwidth limit of the data stores. 
 
