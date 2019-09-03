@@ -65,8 +65,6 @@ For example, the following JSON shows a policy that limits where resources are d
 
 All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Mode
 
 **Mode** is configured depending on if the policy is targeting an Azure Resource Manager property or a
