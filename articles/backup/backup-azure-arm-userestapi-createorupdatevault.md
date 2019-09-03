@@ -1,7 +1,7 @@
 ---
 title: 'Azure Backup: Create Recovery Services vaults using REST API'
 description: manage backup and restore operations of Azure VM Backup using REST API
-services: backup
+
 author: pvrk
 manager: shivamg
 keywords: REST API; Azure VM backup; Azure VM restore;

@@ -30,7 +30,7 @@ To automatically deploy a logic app template to Azure, you can choose the follow
 
 [![Deploy to Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-For example, you're prompted for this information after you sign in to the Azure portal:
+For example, you're prompted for the following information after you sign in to the Azure portal:
 
 * Azure subscription name
 * Resource group that you want to use
@@ -42,7 +42,7 @@ For example, you're prompted for this information after you sign in to the Azure
 For more information, see these topics:
 
 * [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md)
-* [Deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* [Deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 
 <a name="visual-studio"></a>
 
@@ -54,43 +54,31 @@ To deploy a logic app template from an Azure Resource Group project that you cre
 
 ## Deploy with Azure PowerShell
 
-To deploy to a specific *Azure resource group*, use this command:
+To deploy to a specific *Azure resource group*, use the following command:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-To deploy to a specific *Azure subscription*, use this command:
-
-```powershell
-New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
-```
+For more information, see these topics:
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
-* [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
 <a name="cli"></a>
 
 ## Deploy with Azure CLI
 
-To deploy to a specific *Azure resource group*, use this command:
+To deploy to a specific *Azure resource group*, use the following command:
 
 ```azurecli
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
-```
-
-To deploy to a specific *Azure subscription*, use this command:
-
-```azurecli
-az deployment create --location <location> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
 For more information, see these topics:
 
 * [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
-* [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
 
 <a name="azure-pipelines"></a>
 

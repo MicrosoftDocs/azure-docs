@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API in C# | Microsoft Docs
+title: Quickstart - Send a query to the Bing Local Business Search API in C#
 titleSuffix: Azure Cognitive Services
 description: Use this article to start using the Bing Local Business Search API in C#.
 services: cognitive-services

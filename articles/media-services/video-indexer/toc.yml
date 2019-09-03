@@ -21,6 +21,8 @@
     href: compare-video-indexer-with-media-services-presets.md   
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md  
+  - name: Language identification model
+    href: language-identification-model.md
   - name: Customizing content models
     items:
     - name: Overview

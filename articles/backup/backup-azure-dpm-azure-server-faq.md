@@ -1,7 +1,7 @@
 ---
 title: Azure Backup Server and DPM FAQ
 description: 'Answers to common questions about: The Azure Backup Server and DPM.'
-services: backup
+
 author: srinathvasireddy
 manager: sivan
 ms.service: backup

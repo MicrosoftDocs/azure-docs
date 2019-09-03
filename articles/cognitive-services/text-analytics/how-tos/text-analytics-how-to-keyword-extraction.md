@@ -1,5 +1,6 @@
 ---
-title: Key phrase extraction using the Text Analytics REST API | Microsoft Docs
+title: Key phrase extraction using the Text Analytics REST API
+titleSuffix: Azure Cognitive Services
 description: How to extract key phrases using the Text Analytics REST API from Azure Cognitive services.
 services: cognitive-services
 author: aahill

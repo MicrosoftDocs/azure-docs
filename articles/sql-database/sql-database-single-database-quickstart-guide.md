@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 02/04/2019
 ---
 # Getting started with single databases in Azure SQL Database

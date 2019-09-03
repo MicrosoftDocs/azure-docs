@@ -24,7 +24,7 @@ Account type | Azure usage | Marketplace usage | Purchases | Refunds
 --- | --- | --- | --- | ---
 Enterprise Agreement (EA) | Yes | Yes | Yes | No
 Microsoft Customer Agreement (MCA) | Yes | Yes | Yes | Yes
-Pay-as-you-go (PAYG) | Yes | No | No | No
+Pay-as-you-go (PAYG) | Yes | Yes | No | No
 
 To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
@@ -61,8 +61,6 @@ EffectivePrice | All | Blended unit price for the period. Blended prices average
 ExchangeRateDate | MCA | Date the exchange rate was established.
 ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency.
 Frequency | All | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**).
-IncludedQuantity | PAYG | The amount of the meter that is included at no charge in your current billing period.
-InstanceId | PAGY | See ResourceId.
 InvoiceId | PAYG, MCA | The unique document ID listed on the invoice PDF.
 InvoiceSection | MCA | See InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Unique identifier for the EA department or MCA invoice section.
@@ -101,6 +99,7 @@ ServicePeriodStartDate | MCA | The start date of the rating period that defined 
 SubscriptionId | All | Unique identifier for the Azure subscription.
 SubscriptionName | All | Name of the Azure subscription.
 Tags | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+Term | All | Displays the term for the validity of the offer. For example: In case of reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is 1 month (SaaS, Marketplace Support). This is not applicable for Azure consumption.
 UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour.
 UnitPrice | EA, PAYG | The price per unit for the charge.
 

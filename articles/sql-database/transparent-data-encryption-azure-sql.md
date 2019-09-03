@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/19/2019
 ---
 # Transparent data encryption for SQL Database and Data Warehouse

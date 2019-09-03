@@ -19,7 +19,7 @@
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
-    - name: Single database - portal
+    - name: Single database
       href: sql-database-single-database-get-started.md
     - name: Single database - template
       displayName: Azure Resource Manager template, ARM
@@ -87,14 +87,22 @@
       href: sql-database-design-first-database.md
     - name: Design database using .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Singleton Database
+  - name: Single Database
     items:
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+    - name: Add to a failover group
+      href: sql-database-single-database-failover-group-tutorial.md
     - name: Implement a geo-distributed database
       href: sql-database-implement-geo-distributed-database.md 
+    - name: Configure active geo-replication
+      href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
+  - name: Elastic pool
+    items:
+    - name: Add to a failover group
+      href: sql-database-elastic-pool-failover-group-tutorial.md
   - name: Managed Instance
     items:
     - name: Migrate online using DMS
@@ -245,8 +253,6 @@
         href: sql-database-active-geo-replication.md
       - name: Auto-failover groups
         href: sql-database-auto-failover-group.md
-      - name: Configure active geo-replication - Portal
-        href: sql-database-active-geo-replication-portal.md
       - name: Configure security for replicas
         href: sql-database-geo-replication-security-config.md
     - name: Database recovery options
@@ -516,6 +522,8 @@
       href: sql-database-managed-instance-connect-app.md
   - name: Load and move data
     items:
+    - name: Move resource to a new region
+      href: sql-database-move-resources-across-regions.md
     - name: Copy a database within Azure
       href: sql-database-copy.md
     - name: Import a database from a BACPAC file

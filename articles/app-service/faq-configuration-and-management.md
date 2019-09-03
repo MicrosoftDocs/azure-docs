@@ -148,12 +148,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 The exception was caused by an issue with the Hybrid Connection Manager that has since been fixed. Be sure to [update your Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) to resolve this issue.
 
-## How do I add or edit a URL rewrite rule?
+## How do I add a URL rewrite rule?
 
-To add or edit a URL rewrite rule:
-
-1. Set up Internet Information Services (IIS) Manager so that it connects to your App Service web app. To learn how to connect IIS Manager to App Service, see [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. In IIS Manager, add or edit a URL rewrite rule. To learn how to add or edit a URL rewrite rule, see [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+To add a URL rewrite rule, create a web.config file with the relevant config entries in the **wwwroot** folder. For more information, see [Azure App Services: Understanding URL rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## How do I control inbound traffic to App Service?
 

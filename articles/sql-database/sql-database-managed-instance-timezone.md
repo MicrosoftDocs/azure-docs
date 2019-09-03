@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
-manager: craigg
 ms.date: 07/05/2019
 ---
 # Time zones in Azure SQL Database Managed Instance

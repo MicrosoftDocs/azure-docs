@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the Azure Backup agent
 description: Troubleshoot installation and registration of the Azure Backup agent
-services: backup
+
 author: saurabhsensharma
 manager: sivan
 ms.service: backup

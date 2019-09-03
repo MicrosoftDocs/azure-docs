@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Monitor In-Memory OLTP storage

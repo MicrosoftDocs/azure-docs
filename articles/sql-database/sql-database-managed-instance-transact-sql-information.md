@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova 
-manager: craigg
 ms.date: 07/07/2019
 ms.custom: seoapril2019
 ---
@@ -377,8 +376,9 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 
 Linked servers in Managed Instances support a limited number of targets:
 
-- Supported targets are SQL Server and SQL Database.
-- Targets that aren't supported are files, Analysis Services, and other RDBMS.
+- Supported targets are Managed Instances, Single Databases, and SQL Server instances. 
+- Linked servers don't support distributed writable transactions (MS DTC).
+- Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
 
 Operations
 
@@ -386,6 +386,7 @@ Operations
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - The `OPENROWSET` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage. Track this requests on [Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### PolyBase
 

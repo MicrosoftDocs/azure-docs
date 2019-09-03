@@ -1,7 +1,7 @@
 ---
 title: Security features to help protect hybrid backups that use Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure
-services: backup
+
 author: utraghuv
 manager: vijayts
 ms.service: backup

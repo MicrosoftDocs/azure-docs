@@ -173,10 +173,10 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 ```python
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(ls_name)
+    ds_ls = LinkedServiceReference(reference_name=ls_name)
     blob_path= 'adfv2tutorial/input'
     blob_filename = 'input.txt'
-    ds_azure_blob= AzureBlobDataset(ds_ls, folder_path=blob_path, file_name = blob_filename)
+    ds_azure_blob= AzureBlobDataset(linked_service_name=ds_ls, folder_path=blob_path, file_name = blob_filename)
     ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 ```
@@ -191,7 +191,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adfv2tutorial/output'
-    dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
+    dsOut_azure_blob = AzureBlobDataset(linked_service_name=ds_ls, folder_path=output_blobpath)
     dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
@@ -205,9 +205,9 @@ Add the following code to the **Main** method that creates a **pipeline with a c
     act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
-    dsin_ref = DatasetReference(ds_name)
-    dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
+    dsin_ref = DatasetReference(reference_name=ds_name)
+    dsOut_ref = DatasetReference(reference_name=dsOut_name)
+    copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
     p_name = 'copyPipeline'

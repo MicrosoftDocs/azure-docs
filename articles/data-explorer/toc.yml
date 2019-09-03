@@ -98,8 +98,6 @@
       href: sisense.md
   - name: Manage
     items:
-    - name: Manage database permissions
-      href: manage-database-permissions.md
     - name: Check cluster health
       href: check-cluster-health.md
     - name: Select cluster VM SKU
@@ -108,6 +106,10 @@
       href: manage-cluster-horizontal-scaling.md
     - name: Manage cluster vertical scaling
       href: manage-cluster-vertical-scaling.md
+    - name: Manage cluster security
+      href: manage-cluster-security.md
+    - name: Manage database permissions
+      href: manage-database-permissions.md
     - name: Delete data
       href: delete-data.md
     - name: Deal with duplicate data

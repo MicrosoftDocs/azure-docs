@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Upgrade an app to use the latest elastic database client library

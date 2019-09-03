@@ -1,6 +1,6 @@
 ---
-title: Prediction scores
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Prediction scores - LUIS
+titleSuffix: Azure Cognitive Services
 description: A prediction score indicates the degree of confidence the LUIS API service has for prediction results, based on a user utterance. 
 services: cognitive-services
 author: diberry

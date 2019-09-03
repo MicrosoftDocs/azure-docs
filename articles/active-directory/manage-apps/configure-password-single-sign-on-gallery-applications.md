@@ -17,6 +17,7 @@ ms.date: 07/11/2017
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # How to configure password single sign-on for an Azure AD Gallery application

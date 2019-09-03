@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/17/2019
 ---
 # Manage Azure SQL Database long-term backup retention

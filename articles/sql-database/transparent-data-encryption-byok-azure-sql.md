@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/18/2019
 ---
 # Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support

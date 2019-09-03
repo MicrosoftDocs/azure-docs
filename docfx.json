@@ -389,6 +389,9 @@
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse"
       },
+      "manager": {
+        "articles/sql-database/**/*.md": "jroth"
+      },
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"

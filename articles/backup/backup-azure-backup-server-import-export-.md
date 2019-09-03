@@ -1,7 +1,7 @@
 ---
 title: Azure Backup - Offline backup for DPM and Azure Backup Server
 description: Learn how Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service.
-services: backup
+
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup

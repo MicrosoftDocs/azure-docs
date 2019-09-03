@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs

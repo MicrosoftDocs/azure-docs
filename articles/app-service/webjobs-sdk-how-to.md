@@ -168,6 +168,7 @@ public static void Run(
 
 The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The content of the queue message, passed in to the function in the `myQueueItem` parameter, is the name of the blob.
 
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ### Manual triggers
 

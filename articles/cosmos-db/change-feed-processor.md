@@ -5,7 +5,7 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'Azure Backup: Create backup policies using REST API'
 description: Manage backup policies (schedule and retention) using REST API
-services: backup
+
 author: pvrk
 manager: shivamg
 keywords: REST API; Azure VM backup; Azure VM restore;

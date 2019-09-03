@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
 ---
 

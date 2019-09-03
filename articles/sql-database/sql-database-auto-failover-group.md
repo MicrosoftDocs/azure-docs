@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 07/18/2019
 ---
 
@@ -26,7 +25,7 @@ When you are using auto-failover groups with automatic failover policy, any outa
 When you are using auto-failover groups with automatic failover policy, any outage that impacts databases in the SQL Database server or managed instance results in automatic failover. You can manage auto-failover group using:
 
 - The [Azure portal](sql-database-implement-geo-distributed-database.md)
-- [PowerShell: Failover Group](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell: Failover Group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API: Failover group](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
 After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
@@ -305,7 +304,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 |  | |
 
 > [!IMPORTANT]
-> For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
 ### PowerShell: Managing failover groups with Managed Instances (preview)
@@ -366,7 +365,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 - For sample scripts, see:
   - [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [Configure and failover a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).

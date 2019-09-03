@@ -123,6 +123,8 @@ After the service is created, locate it within the Azure portal, open it, and th
      https://blobnameurl/container?SASKEY
      ```
 
+     This blob container SAS connection string can be found in Azure Storage explorer. Creating the SAS for the concerned container will provide you the URL in above requested format.
+     
      Also, based on the type dump information in Azure storage, keep the following detail in mind.
 
      * For BSON dumps, the data within the blob container must be in bsondump format, such that data files are placed into folders named after the containing databases in the format collection.bson. Metadata files (if any) should be named using the format *collection*.metadata.json.

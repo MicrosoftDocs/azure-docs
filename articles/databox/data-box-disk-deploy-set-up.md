@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/22/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -303,6 +303,8 @@ For more information on how to set up and unlock the disks, go to [Tutorial: Unp
 
 ::: zone-end
 
+::: zone target="docs"
+
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box Disk topics such as:
@@ -318,4 +320,6 @@ Advance to the next tutorial to learn how to copy data on your Data Box Disk.
 
 > [!div class="nextstepaction"]
 > [Copy data on your Data Box Disk](./data-box-disk-deploy-copy-data.md)
+
+::: zone-end
 

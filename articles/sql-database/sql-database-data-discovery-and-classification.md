@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/22/2019
 ---
 # Azure SQL Database and SQL Data Warehouse data discovery & classification

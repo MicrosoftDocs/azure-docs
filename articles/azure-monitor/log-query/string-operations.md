@@ -35,6 +35,10 @@ String values are wrapped with either with single or double quote characters. Ba
 print "this is a 'string' literal in double \" quotes"
 ```
 
+```Kusto
+print 'this is a "string" literal in single \' quotes'
+```
+
 To prevent "\\" from acting as an escape character, add "\@" as a prefix to the string:
 
 ```Kusto

@@ -1,7 +1,7 @@
 ---
-title: Language support - Speech Services
+title: Language support - Speech Service
 titleSuffix: Azure Cognitive Services
-description: The Azure Speech Services support numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service.
+description: The Speech Service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
 author: erhopf
 manager: nitinme

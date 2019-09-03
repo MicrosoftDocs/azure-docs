@@ -1,7 +1,7 @@
 ---
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
-services: backup
+
 author: sogup
 manager: vijayts
 ms.service: backup

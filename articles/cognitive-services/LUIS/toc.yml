@@ -321,6 +321,18 @@
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
+  - name: Custom entity reference
+    items: 
+    - name: Composite entity
+      href: reference-entity-composite.md
+    - name: List entity
+      href: reference-entity-list.md
+    - name: Pattern.any entity
+      href: reference-entity-pattern-any.md
+    - name: Regular expression entity
+      href: reference-entity-regular-expression.md      
+    - name: Simple entity
+      href: reference-entity-simple.md
   - name: Azure CLI
     href: https://go.microsoft.com/fwlink/?linkid=2092156
   - name: Azure RM PowerShell

@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
-manager: craigg
 ms.service: sql-database
 ms.date: 03/12/2019
 ---

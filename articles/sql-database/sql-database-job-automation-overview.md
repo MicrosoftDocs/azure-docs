@@ -9,7 +9,6 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Automate management tasks using database jobs

@@ -1,6 +1,6 @@
 ---
-title: Create knowledge base - REST, C#
-titlesuffix: QnA Maker- Azure Cognitive Services 
+title: "Quickstart: Create knowledge base - REST, C# - QnA Maker"
+titleSuffix: Azure Cognitive Services 
 description: This C# REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
 author: diberry

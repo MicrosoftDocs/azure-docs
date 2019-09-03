@@ -29,8 +29,8 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * You can send some features for some actions and not for others, if you don't have them. For example, TV series may have attributes movies don't have.
 * You may have some features available only some times. For example, a mobile application may provide more information than a web page. 
 * Over time, you may add and remove features about context and actions. Personalizer continues to learn from available information.
-* There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions. 
-* Personalizer will try to choose actions that work best for everyone at any time.
+* There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions.
+* For categorical features, you don't need to define the possible values, and you don't need to pre-define ranges for numerical values.
 
 ## Supported feature types
 

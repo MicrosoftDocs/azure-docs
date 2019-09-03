@@ -1326,11 +1326,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
       "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
       "redirect_document_id": true
@@ -2531,6 +2526,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-edge/sql-storage.md",
       "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
       "redirect_document_id": false
@@ -2653,6 +2653,11 @@
     {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
     {
@@ -2995,6 +3000,11 @@
       "redirect_url": "/azure/virtual-machines/windows/planned-maintenance",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
+      "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/sql-database/sql-database-customer-implementations.md",
       "redirect_url": "http://customers.microsoft.com",
@@ -13841,6 +13851,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
+      "redirect_url": "/azure/service-bus-relay/service-bus-relay-tutorial",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/service-bus-relay/service-bus-dotnet-how-to-use-relay.md",
       "redirect_url": "/azure/service-bus-relay/relay-wcf-dotnet-get-started",
       "redirect_document_id": false
@@ -15248,6 +15263,11 @@
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
       "redirect_document_id": false
     },
     {
@@ -30360,6 +30380,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Guides/active-learning-qnamaker.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -35085,8 +35110,8 @@
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage.md",
-      "redirect_url": "/azure/azure-monitor/platform/collect-azure-metrics-logs",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage-iis-table.md",
@@ -36624,6 +36649,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/collect-azure-metrics-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -37917,6 +37947,11 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/quickstart-summary.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Tutorials/PythonTutorial.md",
+      "redirect_url": "https://github.com/Microsoft/Cognitive-Vision-Python",
       "redirect_document_id": false
     },
     {
@@ -39830,6 +39865,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-extend-hadoop-virtual-network.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-plan-virtual-network-deployment",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
       "redirect_url": "/azure/active-directory-domain-services/alert-service-principal",
       "redirect_document_id": true
@@ -40214,6 +40254,12 @@
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
       "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
+      "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
+      "redirect_document_id": true
     },
 
     {

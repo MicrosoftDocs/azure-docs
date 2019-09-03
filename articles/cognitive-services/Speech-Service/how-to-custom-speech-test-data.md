@@ -1,6 +1,6 @@
 ---
-title: "Prepare test data for Custom Speech - Speech Services"
-titlesuffix: Azure Cognitive Services
+title: "Prepare test data for Custom Speech - Speech Service"
+titleSuffix: Azure Cognitive Services
 description: "Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page, we cover the types of data, how they are used, and how to manage them."
 services: cognitive-services
 author: erhopf

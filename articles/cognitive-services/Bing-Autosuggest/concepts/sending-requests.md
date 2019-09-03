@@ -1,6 +1,6 @@
 ---
 title: "Sending requests to the Bing Autosuggest API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to send requests to Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft

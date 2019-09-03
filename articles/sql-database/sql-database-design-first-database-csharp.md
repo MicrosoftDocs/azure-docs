@@ -8,7 +8,6 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
 ms.date: 02/08/2019
 ---
 # Tutorial: Design a relational database in a single database within Azure SQL Database C&#x23; and ADO.NET

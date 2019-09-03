@@ -1,7 +1,7 @@
 ---
 title: 'Azure Backup: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell'
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
-services: backup
+
 author: pvrk
 manager: vijayts
 keywords: Azure Backup; SQL;

@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/08/2019
 ---
 # Azure SQL Database threat detection for single or pooled databases

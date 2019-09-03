@@ -75,6 +75,8 @@ Personalizer is based on cutting-edge science and research in the area of [Reinf
 
 * **Model**: A Personalizer model captures all data learned about user behavior, getting training data from the combination of the arguments you send to Rank and Reward calls, and with a training behavior determined by the Learning Policy. 
 
+* **Learning Policy**: How Personalizer trains a model on every event will be determined by some meta-parameters that affect how the machine learning algorithms work. New Personalizer loops will start with a default Learning Policy, which can yield moderate performance. When running [Evaluations](concepts-offline-evaluation.md), Personalizer can create new Learning Policies specifically optimized to the use cases of your loop. Personalizer will perform significantly better with policies optimized for each specific loop, generated during Evaluation.
+
 ## Example use cases for Personalizer
 
 * Intent clarification & disambiguation: help your users have a better experience when their intent is not clear by providing an option that is personalized to each user.
@@ -178,3 +180,4 @@ You can monitor the effectiveness of Personalizer periodically by performing [of
 ## Next steps
 
 Understand [where you can use Personalizer](where-can-you-use-personalizer.md).
+Perform [Offline Evaluations](how-to-offline-evaluation.md)

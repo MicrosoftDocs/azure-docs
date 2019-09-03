@@ -1,7 +1,7 @@
 ---
 title: 'Azure Backup: Monitor Azure Backup with Azure Monitor'
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-services: backup
+
 author: pvrk
 manager: shivamg
 keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups

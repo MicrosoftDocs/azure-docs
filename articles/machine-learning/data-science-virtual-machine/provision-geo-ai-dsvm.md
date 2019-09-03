@@ -4,7 +4,7 @@ description: Learn how to create and configure the Geo AI Data Science Virtual M
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 

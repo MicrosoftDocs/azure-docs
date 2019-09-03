@@ -8,7 +8,6 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 02/08/2019
 ---
 # Tutorial: Design a relational database in a single database within Azure SQL Database using SSMS

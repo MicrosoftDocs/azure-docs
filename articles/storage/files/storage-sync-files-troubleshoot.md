@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 07/24/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -37,13 +37,22 @@ If you try to install the sync agent on an Active Directory domain controller wh
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
-<a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
-If a server is not listed under **Registered servers** for a Storage Sync Service:
-1. Sign in to the server that you want to register.
-2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
+<a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**
+
+This message appears if Az or AzureRM PowerShell module is not installed on PowerShell 5.1. 
+
+> [!Note]  
+> ServerRegistration.exe does not support PowerShell 6.x. You can use the Register-AzStorageSyncServer cmdlet on PowerShell 6.x to register the server.
+
+To install the Az or AzureRM module on PowerShell 5.1, perform the following steps:
+
+1. Type **powershell** from an elevated command prompt and hit enter.
+2. Install the latest Az or AzureRM module by following the documentation:
+	- [Az module (requires .NET 4.7.2)](https://go.microsoft.com/fwlink/?linkid=2062890)
+	- [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
-<a id="server-already-registered"></a>**Server Registration displays the following message during Azure File Sync agent installation: "This server is already registered"** 
+<a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
 
 ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -61,6 +70,12 @@ Reset-StorageSyncServer
 
 <a id="web-site-not-trusted"></a>**When I register a server, I see numerous "web site not trusted" responses. Why?**  
 This issue occurs when the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information about how to correctly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Server to use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
+
+<a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
+If a server is not listed under **Registered servers** for a Storage Sync Service:
+1. Sign in to the server that you want to register.
+2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
+3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 ## Sync group management
 <a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
@@ -246,7 +261,8 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) section in the troubleshooting guide. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | File is encrypted by an unsupported solution (like NTFS EFS). | Decrypt the file and use a supported encryption solution. For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur for the following reasons: File has a delete pending state or file is located on a DFS-R read-only replication folder. | If the file is in a delete pending state, the file will be deleted once all open file handles are closed. If the file is located on a DFS-R read-only replication folder, Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) for more information. |
+| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | File is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) for more information. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | File has a delete pending state | File will be deleted once all open file handles are closed. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
@@ -321,7 +337,7 @@ No action is required. When a file or file share (cloud endpoint) is restored us
 This error occurs because the Azure File Sync agent cannot access the Azure file share, which may be because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 3. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
 4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 
@@ -340,7 +356,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
-3. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -426,12 +442,7 @@ This error occurs when the Azure subscription is suspended. Sync will be reenabl
 | **Error string** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Azure File Sync does not yet have support for this feature. To troubleshoot:
-
-1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
-
-Remove these rules to fix this issue. 
+This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Verify the firewall and virtual network settings on the storage account are configured properly. For more information, see [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
 
 <a id="-2134375911"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -609,6 +620,33 @@ This error occurs because the Azure File Sync service is unavailable. This error
 
 This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
+<a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83088 |
+| **HRESULT (decimal)** | -2134364024 | 
+| **Error string** | ECS_E_INVALID_AAD_TENANT |
+| **Remediation required** | Yes |
+
+This error occurs because Azure File Sync does not currently support moving the subscription to a different Azure Active Directory tenant.
+ 
+To resolve the issue, perform one of the following options:
+
+- Option 1 (recommended): Move the subscription back to the original Azure Active Directory tenant
+- Option 2: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
+
+<a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83096 |
+| **HRESULT (decimal)** | -2134364010 | 
+| **Error string** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
+| **Remediation required** | Yes |
+
+This error occurs if the firewall and virtual network settings are enabled on the storage account and the “Allow trusted Microsoft services to access this storage account” exception is not checked. To resolve this issue, follow the steps documented in the [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide.
+
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
 # [Portal](#tab/azure-portal)
@@ -689,22 +727,6 @@ $storageAccount = Get-AzStorageAccount | Where-Object {
 
 if ($storageAccount -eq $null) {
     throw [System.Exception]::new("The storage account referenced in the cloud endpoint does not exist.")
-}
-```
----
-
-<a id="troubleshoot-network-rules"></a>**Check to make sure the storage account does not contain any network rules.**  
-# [Portal](#tab/azure-portal)
-1. Once in the storage account, select **Firewalls and virtual networks** on the left-hand side of the storage account.
-2. Inside the storage account, the **Allow access from all networks** radio button should be selected.
-    ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
-
-# [PowerShell](#tab/azure-powershell)
-```powershell
-if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
-    [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
-    throw [System.Exception]::new("The storage account referenced contains network " + `
-        "rules which are not currently supported by Azure File Sync.")
 }
 ```
 ---

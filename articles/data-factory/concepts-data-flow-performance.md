@@ -124,7 +124,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ### Looping through file lists
 
-In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow that to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
+In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow than to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
 
 For example, if I have a list of data files from July 2019 that I wish to process in a folder in Blob Storage, it would be more performant to call an Execute Data Flow activity one time from your pipeline and use a wildcard in your Source like this:
 

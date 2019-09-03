@@ -4,7 +4,7 @@ description: With TTL, Microsoft Azure Cosmos DB provides the ability to have do
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
 

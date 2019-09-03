@@ -1,7 +1,7 @@
 ---
 title: Support matrix for Microsoft Azure Backup server and System Center DPM
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server or System Center DPM to back up on-premises and Azure VM resources.
-services: backup
+
 author: rayne-wiselman
 ms.service: backup
 ms.date: 02/17/2019

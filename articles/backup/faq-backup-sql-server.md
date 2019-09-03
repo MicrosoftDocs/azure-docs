@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions about backing up SQL Server databases on Azure VMs with Azure Backup
 description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
-services: backup
+
 author: sachdevaswati
 manager: vijayts
 ms.service: backup

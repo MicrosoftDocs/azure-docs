@@ -1,7 +1,7 @@
 ---
 title: Back up and restore encrypted Azure VMs with Azure Backup
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
-services: backup
+
 author: geetha
 manager: vijayts
 ms.service: backup

@@ -3,8 +3,8 @@ title: Troubleshoot Azure AD entitlement management (Preview) - Azure Active Dir
 description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/30/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 

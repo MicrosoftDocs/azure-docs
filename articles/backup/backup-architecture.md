@@ -1,7 +1,7 @@
 ---
 title: Azure Backup architecture
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
-services: backup
+
 author: dcurwin
 manager: carmonm
 ms.service: backup

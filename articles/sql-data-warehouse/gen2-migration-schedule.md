@@ -9,7 +9,7 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/22/2019
 ---
 # Upgrade your data warehouse to Gen2
 
@@ -26,40 +26,41 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
-| Australia East |Available |June 1, 2019 |
-| Australia Southeast |Available |May 1, 2019 |
-| Brazil South |Available |June 1, 2019 |
-| Canada Central |Available |June 1, 2019 |
-| Canada East |\* |\* |
-| Central US |Available |June 1, 2019 |
+| Australia East |Available |Complete |
+| Australia Southeast |Available |Complete |
+| Brazil South |Available |Complete |
+| Canada Central |Available |Complete |
+| Canada East |June 1, 2020 |July 1, 2020 |
+| Central US |Available |Complete |
 | China East |\* |\* |
-| China East 2 |Available |Gen2 only |
+| China East 2 |Available |Complete |
 | China North |\* |\* |
-| China North 2 |Available |Gen2 only |
-| East Asia |Available |June 1, 2019 |
-| East US |Available |June 1, 2019 |
-| East US 2 |Available |June 1, 2019 |
-| France Central |Available |June 1, 2019 |
+| China North 2 |Available |Complete |
+| East Asia |Available |Complete |
+| East US |Available |Complete |
+| East US 2 |Available |Complete |
+| France Central |Available |In-progress |
 | Germany Central |\* |\* |
-| Germany West Central |September 1, 2019|January 2, 2020 |
-| India Central |Available |June 1, 2019 |
-| India South |Available |June 1, 2019 |
-| Japan East |Available |June 1, 2019 |
-| Japan West |Available |May 1, 2019 |
-| Korea Central |Available |June 1, 2019 |
-| Korea South |Available |May 1, 2019 |
-| North Central US |Available |May 1, 2019 |
-| North Europe |Available |June 1, 2019 |
-| South Africa North |July 12, 2019 |Gen2 only |
-| South Central US |Available |June 1, 2019 |
-| South East Asia |Available |June 1, 2019 |
-| UAE North |July 20, 2019 |Gen2 only |
-| UK South |Available |June 1, 2019 |
-| UK West |Available |Gen2 only |
-| West Central US |September 2, 2019 |January 2, 2020|
-| West Europe |Available |June 1, 2019 |
-| West US |Available |June 1, 2019 |
-| West US 2 |Available |June 1, 2019 |
+| Germany West Central |September 1, 2019|October 1, 2019 |
+| India Central |Available |Complete |
+| India South |Available |Complete |
+| India West |July 1, 2019 |In-progress |
+| Japan East |Available |Complete |
+| Japan West |Available |Complete |
+| Korea Central |Available |Complete |
+| Korea South |Available |Complete |
+| North Central US |Available |Complete |
+| North Europe |Available |Complete |
+| South Africa North |July 12, 2019 |Complete |
+| South Central US |Available |Complete |
+| South East Asia |Available |Complete |
+| UAE North |July 20, 2019 |Complete |
+| UK South |Available |In-progress |
+| UK West |Available |In-progress |
+| West Central US |September 1, 2019 |October 1, 2019|
+| West Europe |Available |Complete |
+| West US |Available |Complete |
+| West US 2 |Available |Complete |
 
 ## Automatic upgrade process
 

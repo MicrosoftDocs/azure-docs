@@ -1,6 +1,6 @@
 ---
-title: Number Prebuilt entity
-titleSuffix: Azure
+title: Number Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry

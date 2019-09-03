@@ -11,7 +11,6 @@ keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Se
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 03/11/2019
 ---
 # Choose the right SQL Server option in Azure

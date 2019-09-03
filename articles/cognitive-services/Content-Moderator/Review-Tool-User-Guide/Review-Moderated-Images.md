@@ -1,6 +1,6 @@
 ---
 title: Use content reviews through the Review tool - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how the Review tool allows human moderators to review images in a web portal.
 services: cognitive-services
 author: sanjeev3

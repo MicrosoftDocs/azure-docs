@@ -55,7 +55,10 @@ If your organization has these accounts in use in scripts or code, consider repl
 
 High privileged administrators aren’t the only ones targeted in attacks. Bad actors tend to target normal users. After gaining access, these bad actors can request access to privileged information on behalf of the original account holder or download the entire directory and perform a phishing attack on your whole organization. One common method to improve the protection for all users is to require a stronger form of account verification when a risky sign-in is detected.
 
-**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal.
+**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal. 
+
+[!NOTE]
+Any users previously flagged for risk are blocked until password reset and risk dismissal upon policy activation.
 
 ### Block legacy authentication (preview)
 

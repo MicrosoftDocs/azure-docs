@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 04/22/2019
 ---
 # Resource limits for single databases using the vCore-based purchasing model

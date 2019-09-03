@@ -5,6 +5,7 @@
   - name: What is Azure Maps?
     href: about-azure-maps.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a web app
     href: quick-demo-map-app.md

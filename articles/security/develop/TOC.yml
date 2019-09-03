@@ -1,6 +1,12 @@
 - name: Secure Development Documentation
   href: index.yml
 
+- name: Sample apps
+  expanded: true
+  items:
+  - name: Web app in a Linux container
+    href: secure-web-app.md
+
 - name: Concepts
   expanded: true
   items:

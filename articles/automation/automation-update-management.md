@@ -16,6 +16,10 @@ You can use the Update Management solution in Azure Automation to manage operati
 
 You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a virtual machine from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
+> [!NOTE]
+> The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [./how-to/region-mappings.md]. The region mappings do not affect the ability to manage virtual machines in a
+> separate region than your Automation account.
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Solution overview
@@ -67,7 +71,7 @@ The following table shows a list of supported operating systems:
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later (Including Windows Server 2012 and 2016)    |.NET Framework 4.5.1 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 and later.  |.NET Framework 4.5.1 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box. For more information on classification-based patching on CentOS, see [Update classifications on Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |

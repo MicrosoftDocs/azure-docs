@@ -1,6 +1,6 @@
 ---
-title: Percentage Prebuilt entity
-titleSuffix: Azure
+title: Percentage Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains percentage prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry

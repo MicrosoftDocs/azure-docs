@@ -1,7 +1,7 @@
 ---
 title: 'Azure Backup: Manage Backup Jobs using REST API'
 description: manage backup and restore jobs of Azure Backup using REST API
-services: backup
+
 author: pvrk
 manager: shivamg
 keywords: REST API; Azure VM backup; Azure VM restore;

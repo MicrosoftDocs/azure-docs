@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C++ (Windows) - Speech Services'
+title: 'Quickstart: Synthesize speech, C++ (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in C++ on Windows Desktop by using the Speech SDK
 services: cognitive-services

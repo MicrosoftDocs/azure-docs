@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, C# (.NET Core) - Speech Services'
+title: 'Quickstart: Recognize speech, C# (.NET Core) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C# under .NET Core on Windows or macOS by using the Speech SDK
 services: cognitive-services

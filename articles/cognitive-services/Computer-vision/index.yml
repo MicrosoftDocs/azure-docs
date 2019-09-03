@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Computer Vision to process images and return information. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
 
   ms.service: cognitive-services
   ms.subservice: computer-vision
@@ -94,7 +94,6 @@ sections:
     - html: <a href="Tutorials/CSharpTutorial.md">Create a Computer Vision app using C#</a>
 #    - html: <a href="Tutorials/java-tutorial.md">Java Tutorial</a>
 #    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript Tutorial</a>
-#    - html: <a href="Tutorials/PythonTutorial-source.md">Python Tutorial</a>
 - title: Reference
   items:
   - type: list

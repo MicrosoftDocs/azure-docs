@@ -1,6 +1,6 @@
 ---
 title: Security attributes for Azure services
-description: A checklist of common security attributes for evaluating Azure Service Fabric
+description: A checklist of security attributes for evaluating Azure services
 services: security
 documentationcenter: ''
 author: msmbaldwin
@@ -13,9 +13,18 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure services
 
-This article collects the common security attributes for selected Azure services. 
+This article collects the security attributes for selected Azure services. A security attribute is a quality or feature of an Azure service. It contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+Security attributes are categorized as:
+* Preventative
+* Network segmentation
+* Detection
+* Support for identity and access management
+* Audit trail
+* Access controls (if used)
+* Configuration management (if used)
+
+In each category, we show "Yes" or "No" to indicate whether an attribute is used. For some services, we show "N/A" for an attribute that is not applicable. We might also provide a note or a link to more information about an attribute.
 
 ## [API Management](../api-management/api-management-security-attributes.md)
 
@@ -229,19 +238,19 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Security attribute | Yes/no | Notes |
 |---|---|--|
 | Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All Cosmos DB databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
-| Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
-| Encryption Key Handling (CMK, BYOK, etc.)| No |  |
-| Column Level Encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](../cosmos-db/table-introduction.md). |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
+| Encryption key handling (CMK, BYOK, etc.)| No |  |
+| Column level encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](../cosmos-db/table-introduction.md). |
 | API calls encrypted| Yes | All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2 connections, but this is not yet enforced. If customers turn off lower level TLS on their end, they can ensure to connect to Cosmos DB.  |
 
 ### Network segmentation
 
 | Security attribute | Yes/no | Notes |
 |---|---|--|
-| Service Endpoint support| Yes |  |
-| vNET Injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](../cosmos-db/vnet-service-endpoint.md). |
+| Service endpoint support| Yes |  |
+| VNet injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](../cosmos-db/VNet-service-endpoint.md). |
 | Network Isolation and Firewalling support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. See [Configure IP firewall in Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md).|
-| Support for forced tunneling | Yes | Can be configured at the client side on the VNET where the virtual machines are located.   |
+| Forced tunneling support| Yes | Can be configured at the client side on the VNet where the virtual machines are located.   |
 
 ### Detection
 
@@ -260,8 +269,8 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security attribute | Yes/no | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | Azure Activity log for account level operations such as Firewalls, VNets, Keys access, and IAM. |
-| Data plane Logging and Audit | Yes | Diagnostics monitoring logging for container level operations such as create container, provision throughput, indexing policies, and CRUD operations on documents. |
+| Control and management plane logging and audit| Yes | Azure Activity log for account level operations such as Firewalls, VNets, Keys access, and IAM. |
+| Data plane logging and audit | Yes | Diagnostics monitoring logging for container level operations such as create container, provision throughput, indexing policies, and CRUD operations on documents. |
 
 ### Configuration management
 
@@ -293,7 +302,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
-| vNET injection support| No | |
+| VNet injection support| No | |
 | Network isolation and firewalling support| Yes |  |
 | Forced tunneling support| No |  |
 
@@ -342,7 +351,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| N/A |  |
-| vNET injection support| N/A | |
+| VNet injection support| N/A | |
 | Network isolation and firewalling support| Yes | Each customer is contained in its own routing domain and tunneled to its own VNet |
 | Forced tunneling support| N/A | Via Border Gateway Protocol (BGP). |
 
@@ -725,7 +734,7 @@ SQL Database includes both [single database](../sql-database/sql-database-single
 | Security attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | See [How to encrypt a Linux virtual machine in Azure](/azure/virtual-machines/linux/encrypt-disks) and [Encrypt virtual disks on a Windows VM](/azure/virtual-machines/windows/encrypt-disks). |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNET encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Encryption key handling (CMK, BYOK, etc.)| Yes | Customer-managed keys is a supported Azure encryption scenario; see [Azure encryption overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Via HTTPS and SSL. |

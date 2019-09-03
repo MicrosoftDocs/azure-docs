@@ -20,8 +20,13 @@ You can use a few different technologies to deploy your Azure Functions project 
 
 ## Deployment technology availability
 
-> [!IMPORTANT]
-> Azure Functions supports cross-platform local development and hosting on Windows and Linux. Currently, three hosting plans are available: [Consumption](functions-scale.md#consumption-plan), [Premium](functions-scale.md#premium-plan), and [Dedicated (Azure App Service)](functions-scale.md#app-service-plan). Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions.
+Azure Functions supports cross-platform local development and hosting on Windows and Linux. Currently, three hosting plans are available:
+
++ [Consumption](functions-scale.md#consumption-plan)
++ [Premium](functions-scale.md#premium-plan)
++ [Dedicated (App Service)](functions-scale.md#app-service-plan)
+
+Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions. The following chart shows which deployment technologies are supported for each combination of operating system and hosting plan:
 
 | Deployment technology | Windows Consumption | Windows Premium (preview) | Windows Dedicated  | Linux Consumption (preview) | Linux Dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
@@ -36,7 +41,7 @@ You can use a few different technologies to deploy your Azure Functions project 
 | Portal editing |✔|✔|✔| |✔<sup>2</sup>|
 
 <sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
-<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using the Dedicated plan.
+<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
 
 ## Key concepts
 
@@ -72,13 +77,13 @@ Use zip deploy to push a .zip file that contains your function app to Azure. Opt
 >
 >When you deploy by using zip deploy, you can set your app to run in [Run From Package](run-functions-from-deployment-package.md) mode. To set Run From Package mode, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI.
 
->__When to use it:__ Zip deploy is the recommended deployment technology for Azure Functions running on Windows and for Azure Functions running on Linux in the Dedicated plan.
+>__When to use it:__ Zip deploy is the recommended deployment technology for Functions running on Windows and Linux in the Premium or Dedicated plan.
 
 ### Docker container
 
 You can deploy a Linux container image that contains your function app.
 
->__How to use it:__ Create a Linux function app in the Dedicated plan and specify which container image to run from. You can do this in two ways:
+>__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. You can do this in two ways:
 >
 >* Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
 >* Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
@@ -101,7 +106,7 @@ Web Deploy packages and deploys your Windows applications to any IIS server, inc
 
 Use source control to connect your function app to a Git repository. An update to code in that repository triggers deployment. For more information, see the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
->__How to use it:__ Use Deployment Center in the Azure Functions portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+>__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
 >__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines.
 
@@ -135,26 +140,26 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like `WEBSITE_RUN_FROM_PACKAGE`). 
 
->__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use the client tooling:
+>__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use one of the following client tools:
 >
->* [Get started using VS Code](functions-create-first-function-vs-code.md)
->* [Get started using Azure Functions Core Tools](functions-run-local.md)
->* [Get started using Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Azure Functions Core Tools (command line)](functions-run-local.md)
+>* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 The following table shows the operating systems and languages that support portal editing:
 
-| | Windows Consumption | Windows Premium (Preview) | Windows Dedicated | Linux Consumption (Preview) | Linux Dedicated |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
+| | Windows Consumption | Windows Premium (preview) | Windows Dedicated | Linux Consumption (preview) | Linux Premium (preview)| Linux Dedicated |
+|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
-| C# Script |✔|✔|✔| |✔<sup>*</sup>|
-| F# | | | | | |
-| Java | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>*</sup>|
-| Python (Preview) | | | | | |
-| PowerShell (Preview) |✔|✔|✔| | |
-| TypeScript (Node.js) | | | | | |
+| C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| F# | | | | | | |
+| Java | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
+| Python (Preview) | | | | | | |
+| PowerShell (Preview) |✔|✔|✔| | | |
+| TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using the Dedicated plan.
+<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
 
 ## Deployment slots
 
@@ -170,9 +175,10 @@ There are two levels of support for deployment slots:
 | OS/hosting plan | Level of support |
 | --------------- | ------ |
 | Windows Consumption | Preview |
-| Windows Premium (Preview) | Preview |
+| Windows Premium (preview) | Preview |
 | Windows Dedicated | General availability |
-| Linux Consumption | Not supported |
+| Linux Consumption | Unsupported |
+| Linux Premium (preview) | Preview |
 | Linux Dedicated | General availability |
 
 ## Next steps

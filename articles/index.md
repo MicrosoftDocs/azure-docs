@@ -1515,9 +1515,9 @@ featureFlags:
                                     <h3>Mobile</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/app-service-mobile/">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>App Service - Mobile Apps</p>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1533,12 +1533,6 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/appcenter/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
-                                                <p>Visual Studio App Center</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/azure-maps/">
                                                 <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
@@ -1548,6 +1542,12 @@ featureFlags:
                                             <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>App Service - Mobile Apps</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5059,18 +5059,18 @@ featureFlags:
                         <a href="#mobile">Mobile</a>
                         <ul id="mobile" class="cardsA">
                             <li>
-                                <a href="/azure/app-service-mobile">
+                                <a href="/appcenter">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service - Mobile Apps</h3>
-                                                    <p>Build and host the backend for any mobile app</p>
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>Ship apps faster by automating application lifecycles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5116,25 +5116,6 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/appcenter">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio App Center</h3>
-                                                    <p>Ship apps faster by automating application lifecycles</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/azure-maps">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5172,6 +5153,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/app-service-mobile">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service - Mobile Apps</h3>
+                                                    <p>Build and host the backend for any mobile app</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                         </ul>
                     </li>
                     <li>

@@ -4,7 +4,7 @@ description: Use Azure Cosmos DB change feed with Azure Functions
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---

@@ -1,7 +1,7 @@
 ---
 title: Azure Backup for SQL Server workloads using DPM
 description: An introduction to backing up SQL Server databases using the Azure Backup service
-services: backup
+
 author: kasinh
 manager: vvithal
 ms.service: backup

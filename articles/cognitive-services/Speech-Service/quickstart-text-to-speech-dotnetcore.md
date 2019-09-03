@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C# (.NET Core) - Speech Services'
+title: 'Quickstart: Synthesize speech, C# (.NET Core) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in C# under .NET Core on Windows by using the Speech SDK
 services: cognitive-services

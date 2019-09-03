@@ -5,9 +5,9 @@ description: Azure Machine Learning Studio is a drag-and-drop tool for quickly b
 
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio

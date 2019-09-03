@@ -43,7 +43,7 @@ You can replicate and recover VMs between any two regions within the same geogra
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
 Europe | UK West, UK South, North Europe, West Europe, France Central, France South, South Africa West, South Africa North
-Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
+Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, UAE Central, UAE North
 Australia	| Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central 
 Germany	| Germany Central, Germany Northeast

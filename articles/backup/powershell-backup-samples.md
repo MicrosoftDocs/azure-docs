@@ -1,7 +1,7 @@
 ---
 title: Azure Backup PowerShell Samples
 description: Azure Backup PowerShell Samples
-services: backup
+
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup

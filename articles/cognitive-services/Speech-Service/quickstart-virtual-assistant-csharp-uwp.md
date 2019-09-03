@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), C# (UWP) - Speech Services'
+title: 'Quickstart: Custom voice-first virtual assistant (Preview), C# (UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech Software Development Kit (SDK). You connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2017.
 services: cognitive-services

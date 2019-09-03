@@ -1,5 +1,5 @@
 ---
-title: Simple entity, phrase list
+title: Simple entity, phrase list - LUIS
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, extract machine-learned data of employment job name from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 services: cognitive-services

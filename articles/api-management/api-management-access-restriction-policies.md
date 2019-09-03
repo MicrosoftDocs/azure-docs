@@ -74,7 +74,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="LimitCallRate"></a> Limit call rate by subscription
 
@@ -134,7 +134,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** product
+-   **Policy scopes:** product, api, operation
 
 ## <a name="LimitCallRateByKey"></a> Limit call rate by key
 
@@ -198,7 +198,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 
@@ -244,7 +244,7 @@ In the following example, the policy only allows requests coming either from the
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
@@ -362,7 +362,7 @@ In the following example, the quota is keyed by the caller IP address.
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
@@ -549,7 +549,7 @@ output-token-variable-name|String. Name of context variable that will receive to
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## Next steps
 

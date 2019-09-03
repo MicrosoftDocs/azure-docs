@@ -106,7 +106,7 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
 
 ### Upload the extension file for verification
 
-By now, you have configured your policy so that Azure AD B2C knows how to communicate with your LinkedIn account. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
+By now, you have configured your policy so that Azure AD B2C knows how to communicate with your Twitter account. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
 
 1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
 2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.

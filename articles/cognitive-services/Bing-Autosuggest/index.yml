@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/20/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: Bing Autosuggest API lets you send a partial search query term to Bing and get back a list of suggested queries that other users have searched on.  For example, as users type each character of their search term, you can call this API to populate the search box's drop-down list with suggestions. Learn how to use Autosuggest API with our quickstarts, tutorials, and samples.
@@ -88,7 +88,7 @@ sections:
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet">.NET</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest">Go</a></p>
-            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable">Java</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI

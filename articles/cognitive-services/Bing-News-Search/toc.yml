@@ -76,7 +76,7 @@
       - name: .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
       - name: Java
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable
+        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
       - name: Node.js

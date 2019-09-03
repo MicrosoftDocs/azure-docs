@@ -1,6 +1,6 @@
 ---
-title: Install and run containers
-titleSuffix: Text Analytics -  Azure Cognitive Services
+title: Install and run containers - Text Analytics
+titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
 services: cognitive-services
 author: IEvangelist
@@ -32,6 +32,8 @@ You must meet the following prerequisites before using Text Analytics containers
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Text Analytics resource |In order to use the container, you must have:<br><br>An Azure [Text Analytics](text-analytics-how-to-access-key.md) resource to get the associated API key and endpoint URI. Both values are available on the Azure portal's Text Analytics Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
 ### The host computer
 
@@ -102,14 +104,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
-
-| Placeholder | Value |
-|-------------|-------|
-|{API_KEY} | This key is used to start the container, and is available on the Azure portal's `Text Analytics` Keys page. |
-|{ENDPOINT_URI} | The billing endpoint URI value is available on the Azure `Text Analytics` Overview page. |
-
-Replace these parameters with your own values in the following example `docker run` command.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. Refer to [Gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

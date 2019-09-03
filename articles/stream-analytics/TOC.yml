@@ -148,6 +148,8 @@
         href: stream-analytics-scale-jobs.md
     - name: Scale with ML functions
       href: stream-analytics-scale-with-machine-learning-functions.md
+    - name: Scale with repartitioning
+      href: repartition.md
   - name: Automate
     items:
     - name: Using .NET SDK

@@ -159,7 +159,7 @@ A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access
 
 ### Using the Azure CLI
 
-The simplest way to add this role assignment is by using the `az role assignemnt create` command in Azure CLI.
+The simplest way to add this role assignment is by using the `az role assignment create` command in Azure CLI.
 
 > [!NOTE]
 > This command must be run by a user with the Contributor or Owner roles, as only they can grant these permissions. The `--assignee` is the email address of the user to whom you want to assign the HDInsight Cluster Operator role.

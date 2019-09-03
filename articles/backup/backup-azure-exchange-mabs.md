@@ -1,7 +1,7 @@
 ---
 title: Back up an Exchange server to Azure Backup with Azure Backup Server
 description: Learn how to back up an Exchange server to Azure Backup using Azure Backup Server
-services: backup
+
 author: kasinh
 manager: vvithal
 ms.service: backup

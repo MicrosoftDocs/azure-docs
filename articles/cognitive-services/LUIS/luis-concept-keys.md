@@ -1,6 +1,6 @@
 ---
-title: Subscription keys
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Subscription keys - LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS uses two keys, the free authoring key to create your model and the metered endpoint key for querying the prediction endpoint with user utterances.
 services: cognitive-services
 author: diberry

@@ -1,6 +1,6 @@
 ---
-title: Features 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Features - LUIS
+titleSuffix: Azure Cognitive Services
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 services: cognitive-services
 author: diberry
