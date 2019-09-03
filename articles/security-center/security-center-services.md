@@ -120,10 +120,10 @@ The following PaaS resources are supported by Azure Security Center:
 
 ## Next steps
 
-- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md)
-- Learn how [Security Center manages and safeguards data](security-center-data-security.md)
+- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Security Center manages and safeguards data](security-center-data-security.md).
 - Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
-- Review the [platforms that support security center](security-center-os-coverage.md)
+- Review the [platforms that support security center](security-center-os-coverage.md).
 - Learn more about [threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
 - Find [frequently asked questions about using Azure Security Center](security-center-faq.md).
 - Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).
