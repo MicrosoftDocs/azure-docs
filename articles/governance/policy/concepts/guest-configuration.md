@@ -194,12 +194,11 @@ Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ver
 
 Where `<version>` refers to the current version number.
 
-If you would like to use the Azure VM Run Command capability to capture information from log files,
-the following example scripts can be helpful.
+### Windows
 
-Windows:
-
-[Run PowerShell scripts in your Windows VM with Run Command](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
+If you would like to use the Azure VM Run Command capability to capture information from log files in Windows machines,
+the following example PowerShell script can be helpful. For details on running the script from the Azure Portal
+or using Azure PowerShell, see [Run PowerShell scripts in your Windows VM with Run Command](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/run-command).
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -209,11 +208,13 @@ $current = $versions.Name | Sort-Object -Descending | Select-Object -First 1
 Select-String -Path "C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\$current\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch
 ```
 
-Linux:
+### Linux
 
-[Run shell scripts in your Linux VM with Run Command](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/run-command)
+If you would like to use the Azure VM Run Command capability to capture information from log files in Linux machines,
+the following example Bash script can be helpful. For details on running the script from the Azure Portal
+or using Azure CLI, see [Run shell scripts in your Linux VM with Run Command](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/run-command)
 
-```bash
+```Bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
 latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
