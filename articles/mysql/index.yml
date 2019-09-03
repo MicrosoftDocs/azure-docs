@@ -98,7 +98,7 @@ landingContent:
           - text: Connect using Go
             url: connect-go.md
   # Card
-  - title: Manage a server with programming APIs
+  - title: Code with programming APIs
     linkLists:
       - linkListType: get-started
         links:
