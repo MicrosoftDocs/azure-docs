@@ -19,12 +19,28 @@ ms.author: iainfou
 
 ---
 # Azure Active Directory Domain Services: Frequently Asked Questions (FAQs)
+
 This page answers frequently asked questions about the Azure Active Directory Domain Services. Keep checking back for updates.
 
 ## Troubleshooting guide
+
 Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
 
 ## Configuration
+
+* [Can I create multiple managed domains for a single Azure AD directory?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
+* [Can I enable Azure AD Domain Services in a Classic virtual network?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
+* [Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?](#can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network)
+* [Can I migrate my existing managed domain from a classic virtual network to a Resource Manager virtual network?](#can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network)
+* [Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?](#can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription)
+* [Can I enable Azure AD Domain Services in a federated Azure AD directory? I do not synchronize password hashes to Azure AD. Can I enable Azure AD Domain Services for this directory?](#can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory)
+* [Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?](#can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription)
+* [Can I enable Azure AD Domain Services using PowerShell?](#can-i-enable-azure-ad-domain-services-using-powershell)
+* [Can I enable Azure AD Domain Services using a Resource Manager Template?](can-i-enable-azure-ad-domain-services-using-a-resource-manager-template)
+* [Can I add domain controllers to an Azure AD Domain Services managed domain?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
+* [Can guest users invited to my directory use Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
+* [Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+
 ### Can I create multiple managed domains for a single Azure AD directory?
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
@@ -62,6 +78,17 @@ No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../a
 No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
 
 ## Administration and Operations
+
+* [Can I connect to the domain controller for my managed domain using Remote Desktop?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
+* [I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?](#ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain)
+* [Do I have domain administrator privileges for the managed domain provided by Azure AD Domain Services?](#do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services)
+* [Can I modify group memberships using LDAP or other AD administrative tools on managed domains?](#can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains)
+* [How long does it take for changes I make to my Azure AD directory to be visible in my managed domain?](#how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain)
+* [Can I extend the schema of the managed domain provided by Azure AD Domain Services?](#can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services)
+* [Can I modify or add DNS records in my managed domain?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
+* [What is the password lifetime policy on a managed domain?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
+* [Does Azure AD Domain Services provide AD account lockout protection?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
 No. You do not have permissions to connect to domain controllers for the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
 
@@ -90,6 +117,14 @@ The default password lifetime on an Azure AD Domain Services managed domain is 9
 Yes. Five invalid password attempts within 2 minutes on the managed domain cause a user account to be locked out for 30 minutes. After 30 minutes, the user account is automatically unlocked. Invalid password attempts on the managed domain do not lock out the user account in Azure AD. The user account is locked out only within your Azure AD Domain Services managed domain.
 
 ## Billing and availability
+
+* [Is Azure AD Domain Services a paid service?](#is-azure-ad-domain-services-a-paid-service)
+* [Is there a free trial for the service?](#is-there-a-free-trial-for-the-service)
+* [Can I pause an Azure AD Domain Services managed domain?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
+* [Can I failover Azure AD Domain Services to another region for a DR event?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
+* [Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?](#can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event)
+* [What Azure regions is the service available in?](#can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services)
+
 ### Is Azure AD Domain Services a paid service?
 Yes. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
