@@ -7,7 +7,6 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand Azure Policy's Guest Configuration
 
