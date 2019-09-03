@@ -418,6 +418,19 @@ az ml folder attach
 
 This command creates a subfolder `.azureml` that contains template run configuration files for different compute targets. You can copy and edit these files to customize your configuration, for example to add Python packages or change Docker settings.  
 
+### Structure of run configuration file
+
+The run configuration file is YAML formatted, with following sections
+ * The script to run and its arguments
+ * Compute target name, either "local" or name of a compute under the workspace.
+ * Parameters for executing the run: framework, communicator for distributed runs, maximum duration, and number of compute nodes.
+ * Environment section. See [Create and manage environments for training and deployment](how-to-use-environments.md) for details of the fields in this section.
+   * To specify Python packages to install for the run, create [conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually), and set __condaDependenciesFile__ field.
+ * Run history details to specify log file folder, and to enable or disable output collection and run history snapshots.
+ * Configuration details specific to the framework selected.
+ * Data reference and data store details.
+ * Configuration details specific for Machine Learning Compute for creating a new cluster.
+
 ### Create an experiment
 
 First, create an experiment for your runs
