@@ -1,9 +1,9 @@
 ---
 title: Check the publishing status of your Commercial Marketplace offer
 description: Check the status of the validation, certification, and preview steps required to publish an offer via the Commercial Marketplace in Microsoft Partner Center. 
-author: mattwojo 
+author: ChJenk 
 manager: evansma
-ms.author: mattwoj 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
 ms.date: 05/30/2019

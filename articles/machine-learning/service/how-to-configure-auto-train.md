@@ -202,6 +202,8 @@ The three different `task` parameter values determine the list of algorithms to 
 ### Primary Metric
 The primary metric; as shown in the examples above determines the metric to be used during model training for optimization. The primary metric you can select is determined by the task type you choose. Below is a list of available metrics.
 
+Learn about the specific definitions of these in [Understand automated machine learning results](how-to-understand-automated-ml.md).
+
 |Classification | Regression | Time Series Forecasting
 |-- |-- |--
 |accuracy| spearman_correlation | spearman_correlation
