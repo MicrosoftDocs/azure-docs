@@ -44,7 +44,6 @@ landingContent:
             url: howto-server-parameters.md
           - text: Plan for high availability
             url: concepts-high-availability.md
-                        
       - linkListType: tutorial
         links:
           - text: Design a Database using the Azure portal
@@ -76,6 +75,8 @@ landingContent:
             url: howto-connect-webapp.md
           - text: Connection strings
             url: howto-connection-string.md
+          - text: Troubleshoot connection issues
+            url: howto-troubleshoot-common-connection-issues.md
       - linkListType: get-started
         links:
           - text: Connect using MySQL Workbench
@@ -97,7 +98,7 @@ landingContent:
           - text: Connect using Go
             url: connect-go.md
   # Card
-  - title: Code with programming APIs
+  - title: Manage a server with programming APIs
     linkLists:
       - linkListType: get-started
         links:
@@ -130,3 +131,18 @@ landingContent:
             url: howto-restore-server-cli.md            
           - text: Minimal downtime migrations
             url: howto-migrate-online.md
+  # Card
+  - title: Replicate data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand replication
+            url: concepts-data-in-replication.md
+          - text: Understand read replicas
+            url: concepts-read-replicas.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure data-in replication
+            url: howto-data-in-replication.md
+          - text: Create a read replica using the Azure portal
+            url: howto-read-replicas-portal.md         
