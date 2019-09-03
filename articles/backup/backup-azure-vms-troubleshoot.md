@@ -10,11 +10,33 @@ ms.date: 08/30/2019
 ms.author: dacurwin
 ---
 
-# Troubleshoot Azure virtual machine backup
+# Troubleshooting backup failures on Azure virtual machines
+
 You can troubleshoot errors encountered while using Azure Backup with the information listed below:
 
 ## Backup
+
 This section covers backup operation failure of Azure Virtual machine.
+
+### Basic troubleshooting
+
+* Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Verify that another backup service is not running.
+   * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+* Verify that the VM has internet connectivity.
+   * Make sure another backup service is not running.
+* From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and are not due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
+   * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
+    * If Azure Backup is working, then the issue is likely with another backup solution. 
+    * Here is an example of an event viewer error where Azure backup was working fine but "Windows Server Backup" was failing:<br>
+    ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article. 
+
+## Common issues
+
+The following are common issues with backup failures on Azure virtual machines.
 
 ## CopyingVHDsFromBackUpVaultTakingLongTime - Copying backed up data from vault timed out
 
@@ -31,7 +53,7 @@ Error message: VM is not in a state that allows backups.<br/>
 The backup operation failed because the VM is in Failed state. For successful backup the VM state should be Running, Stopped, or Stopped (deallocated).
 
 * If the VM is in a transient state between **Running** and **Shut down**, wait for the state to change. Then trigger the backup job.
-*  If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.
+* If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.
 
 ## UserErrorFsFreezeFailed - Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot
 
