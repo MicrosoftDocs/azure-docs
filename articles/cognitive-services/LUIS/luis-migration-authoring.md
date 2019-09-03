@@ -26,12 +26,6 @@ For example, if you have 2 types of LUIS apps you are authoring, with different 
 > [!Note]
 > Before migration, co-authors are known as _collaborators_. After migration, the Azure role of _contributor_ is used for the same functionality.
 
-## When do you need to migrate?
-
-Migrate apps to use Azure authoring resources by:
-
-* **June 1, 2020**.
-
 ## What is migrating?
 
 Migration includes:

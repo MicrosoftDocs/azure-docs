@@ -33,6 +33,7 @@ On a weekly basis, you are prompted to migrate your apps. You can cancel this wi
 
 The migration process is available if you are the owner of any LUIS apps. 
 
+1. 1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
 1. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**. If you choose to migrate later, you have 9 months to migrate to the new authoring key in Azure.
 
     ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)

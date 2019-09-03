@@ -20,9 +20,26 @@ Authoring and runtime resources provide authentication to your LUIS app and pred
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
-## Starter key
+When you sign in to the LUIS portal, you can choose to continue with:
 
-The starter key is provided for you. It is used as your authentication key to query the prediction endpoint runtime, up to 1000 queries a month. 
+* a free [trial key](#trial-key) - providing authoring and a few prediction endpoint queries.
+* a new Azure LUIS authoring resource - create a new resource. This is not the same as a prediction endpoint resource. 
+
+
+<a name="starter-key"></a>
+
+## Sign in to LUIS portal and begin authoring
+
+1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
+1. Begin your LUIS app by choosing which type of LUIS authoring key you would like to use: free trial key, or new Azure LUIS authoring key. 
+
+    ![Choose a type of Language Understanding authoring resource](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+
+1. When you are done with your resource selection process, [create a new app](luis-how-to-start-new-app.md#create-new-app-in-luis). 
+
+## Trial key
+
+The trial (starter) key is provided for you. It is used as your authentication key to query the prediction endpoint runtime, up to 1000 queries a month. 
 
 It is visible on both the **User Settings** page and the **Manage -> Azure resources** pages in the LUIS portal. 
 
@@ -103,7 +120,6 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     When this API is successful, it returns a 201 - created status. 
-
 
 ## Unassign resource
 
