@@ -50,10 +50,10 @@ By default, MSAL will dynamically detect iOS version and select the recommended 
 | iOS 11 | SFAuthenticationSession |
 | iOS 10 | SFSafariViewController |
 
-Developer can also select a different kind of a system browser for MSAL:
+Developers can also select a different system browser for MSAL apps:
 
-- `SFAuthenticationSession` is an iOS 11 version of `ASWebAuthenticationSession`.
-- `SFSafariViewController` is more general purpose and provides an interface for browsing the web and can be used for login purposes as well. In iOS 9 and 10, cookies and other website data are shared with Safari, but not in iOS 11 and later.
+- `SFAuthenticationSession` is the iOS 11 version of `ASWebAuthenticationSession`.
+- `SFSafariViewController` is more general purpose and provides an interface for browsing the web and can be used for login purposes as well. In iOS 9 and 10, cookies and other website data are shared with Safari--but not in iOS 11 and later.
 
 ## In-app browser
 
@@ -71,7 +71,7 @@ The browser you use impacts the SSO experience because of how they share cookies
 | **SFSafariViewController** | System | iOS10 | N/A | Yes | iOS only |  w/ Safari instances
 | **WKWebView**  | In-app | iOS8 and up | macOS 10.10 and up | No | iOS and macOS | No**
 
-** For SSO to work, tokens need to be shared between apps which requires a token cache or broker application such as Microsoft Authenticator for iOS.
+** For SSO to work, tokens need to be shared between apps. This requires a token cache, or broker application, such as Microsoft Authenticator for iOS.
 
 ## Change the default browser for the request
 
