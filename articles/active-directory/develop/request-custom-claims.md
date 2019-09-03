@@ -31,7 +31,8 @@ There are multiple scenarios where this is needed. For example:
 - Requesting claims outside of the standard set for your application.
 - Requesting specific combinations of the standard claims that cannot be specified using scopes for your application. For example, if an access token gets rejected because of missing claims, the application can request the missing claims using MSAL.
 
-MSAL bypasses the access token cache whenever a claims request is specified. It's important to only provide `claimsRequest` parameter when additional claims are needed (as opposed to always providing same `claimsRequest` parameter in each MSAL API call).
+> [!NOTE]
+> MSAL bypasses the access token cache whenever a claims request is specified. It's important to only provide `claimsRequest` parameter when additional claims are needed (as opposed to always providing same `claimsRequest` parameter in each MSAL API call).
 
 `claimsRequest` can be specified in `MSALSilentTokenParameters` and `MSALInteractiveTokenParameters`:
 

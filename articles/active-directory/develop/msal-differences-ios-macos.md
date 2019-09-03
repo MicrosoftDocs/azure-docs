@@ -51,10 +51,10 @@ For conditional access scenarios, there will be fewer user prompts when you use 
 
 - When you set up your project on macOS, ensure that your application is signed with a valid development or production certificate. MSAL still works in the unsigned mode, but it will behave differently with regards to cache persistence. The app should only be run unsigned for debugging purposes. If you distribute the app unsigned, it will prompt the user for a keychain password every time they restart the app.
 
-- macOS apps don't need t implement the AppDelegate call.
+- macOS apps don't need to implement the AppDelegate call.
 
 **iOS**
 
 - There are additional steps to set up your project to support authentication broker flow. The steps are called out in the tutorial.
 - iOS projects need to register custom schemes in the info.plist. This isn't required on macOS.
-- Keychain groups don't need to be configured for iOS.
+- Keychain groups always need to be configured for iOS.
