@@ -69,7 +69,7 @@ landingContent:
         links:
           - text: Update existing blueprints
             url: ./how-to/update-existing-assignments.md
-          - text: Mange assignments with PowerShell
+          - text: Manage assignments with PowerShell
             url: ./how-to/manage-assignments-ps.md
           - text: Implement Blueprint Operators
             url: ./how-to/configure-for-blueprint-operator.md
@@ -95,9 +95,9 @@ landingContent:
             url: ./reference/blueprint-functions.md
           - text: PowerShell module (PSGallery)
             url: https://www.powershellgallery.com/packages/Az.Blueprint
-          - text: "SDK: Azure PowerShell"
+          - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
-          - text: "SDK: REST API"
+          - text: REST API
             url: /rest/api/blueprints/
-          - text: "SDK: .NET"
+          - text: .NET
             url: /dotnet/api/overview/azure/blueprints/management
