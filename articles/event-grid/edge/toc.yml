@@ -65,4 +65,4 @@
   - name: REST API
     href: api.md
   - name: Module Twin Configuration Schema
-    href: twinjson.md
+    href: twin-json.md

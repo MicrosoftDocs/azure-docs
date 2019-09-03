@@ -11,20 +11,20 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Module Twin JSON Schema
+# Module twin JSON schema
+
 Event Grid on IoT Edge integrates with the IoT Edge ecosystem and supports creating topics and subscriptions via the Module Twin.
 It also reports the current metadata state of what all topics and event subscriptions have been successfully created back to the Reported properties on the Module Twin.
 
 > [!CAUTION]
 > Because of limitations in the IoT Edge ecosystem, all array elements in the json below have been encoded to json strings. See the EventSubscription.Filter.EventTypes and EventSubscription.Filter.AdvancedFilters keys below.
 
+## Desired properties JSON
 
-## Desired Properties JSON
-
-1. The value of each key-value pair in the Topics section has exactly the same json schema as what is used for `Topic.Properties` on the API when creating topics.
-1. The value of each key-value pair in the EventSubscriptions section has exactly the same json schema as what is used for `EventSubscription.Properties` on the API when creating topics.
-1. To delete a topic, set its' value to `null` in the desired properties.
-1. Deleting event subscriptions via desired properties is not supported.
+* The value of each key-value pair in the Topics section has exactly the same json schema as what is used for `Topic.Properties` on the API when creating topics.
+* The value of each key-value pair in the EventSubscriptions section has exactly the same json schema as what is used for `EventSubscription.Properties` on the API when creating topics.
+* To delete a topic, set its' value to `null` in the desired properties.
+* Deleting event subscriptions via desired properties is not supported.
 
 ```json
 {
@@ -75,12 +75,13 @@ It also reports the current metadata state of what all topics and event subscrip
 }
 ```
 
-## Reported Properties JSON
+## Reported properties JSON
 
 The reported properties section of the module twin is supposed to show:
-1. The set of topics and subscriptions that exist in the module's store
-1. Any errors encountered when created desired topics/event subscriptions
-1. Any bootup errors (such as desired properties json parsing failed)
+
+* The set of topics and subscriptions that exist in the module's store
+* Any errors encountered when created desired topics/event subscriptions
+* Any boot up errors (such as desired properties json parsing failed)
 
 ```json
 {
@@ -129,8 +130,8 @@ The reported properties section of the module twin is supposed to show:
         }
     },
     "errors": {
-		"bootupMessage": "",
-		"bootupException": "",
+        "bootupMessage": "",
+        "bootupException": "",
         "topics": {},
         "eventSubscriptions": {
             "twinTopic1EventGridUserTopicSub": "HttpStatusCode='BadRequest' ErrorCode='InvalidDestination' Message='EventSubscription.Properties.Destination failed validation. Reason: EndpointUrl must target the /api/events API of Azure Event Grid in the cloud..'"

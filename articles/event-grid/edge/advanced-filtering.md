@@ -1,5 +1,5 @@
 ---
-title: Advanced Filtering - Azure Event Grid IoT Edge | Microsoft Docs 
+title: Advanced filtering - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Advanced filtering in Event Grid on IoT Edge.
 author: HiteshMadan
 manager: rajarv
@@ -11,7 +11,7 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Advanced Filtering
+# Advanced filtering
 
 Event Grid allows specifying filters on any property in the json payload. These filters are modeled as set of `AND` conditions, with each outer condition having optional inner `OR` conditions. For each `AND` condition, you specify the:
 
@@ -20,7 +20,8 @@ Event Grid allows specifying filters on any property in the json payload. These 
 * (either) `Value` - The reference value against which the filter is run.
 * (or) `Values` - The set of reference values against which the filter is run.
 
-## JSON Syntax
+## JSON syntax
+
 The JSON syntax for an advanced filter is as follows:
 
 ```json
@@ -40,30 +41,36 @@ The JSON syntax for an advanced filter is as follows:
 }
 ```
 
-## Filtering on Array values 
+## Filtering on array values
+
 Event Grid does not support filtering on array values today. If an incoming event has an array value for the advanced filter's key, matching fails. The incoming event ends up not matching with the Event Subscription.
 
-## AND-OR-NOT Semantics
+## AND-OR-NOT semantics
+
 Notice in the json above that `AdvancedFilters` is an array. Think of each `AdvancedFilter` array element as an `AND` condition.
 
 For the operators that support multiple values (such as `NumberIn`, `NumberNotIn`, `StringIn`, etc.), each value is treated as an `OR` condition. Thus a `StringBeginsWith("a", "b", "c")` will match any string value that starts with either `a` or `b` or `c`.
 
 > [!CAUTION]
-> The NOT operators - `NumberNotIn` and `StringNotIn` behave as AND conditions on each value given in the `Values` field.<br>
+> The NOT operators - `NumberNotIn` and `StringNotIn` behave as AND conditions on each value given in the `Values` field.
+>
 > Not doing so will make the filter an Accept-All filter and defeat the purpose of filtering.
 
-## Floating Point Rounding Behavior
+## Floating-point rounding behavior
+
 Event Grid uses the `decimal` .NET type to handle all numeric values. Thus number values specified on the Event Subscription JSON are not subject to floating point rounding behavior.
 
-## Case Sensitivity of String filters
+## Case sensitivity of string filters
+
 All String comparisons are case-insensitive. There is no way to change this behavior today.
 
-## Allowed Advanced Filter Keys
+## Allowed advanced filter keys
+
 The `Key` property can either be a well-known top-level property, or be a json path with multiple dots, where each dot signifies stepping into a nested json object.
 
 Event Grid does not have any special meaning for the `$` character in the Key, unlike the JSONPath specification.
 
-### Event Grid Schema
+### Event grid schema
 
 For events in the Event Grid schema:
 
@@ -73,17 +80,18 @@ For events in the Event Grid schema:
 * EventType
 * DataVersion
 * Data.Prop1
-* Data.Prop1.Prop2.Prop3.Prop4.Prop5
+* Data.Prop*Prop2.Prop3.Prop4.Prop5
 
-### Custom Event Schema
+### Custom event schema
+
 There is no restriction on the `Key` in Custom Event Schema since Event Grid does not enforce any envelope schema on the payload.
 
-## Numeric Single-Value Filter Examples
+## Numeric single-value filter examples
 
-1. NumberGreaterThan
-1. NumberGreaterThanOrEquals
-1. NumberLessThan
-1. NumberLessThanOrEquals
+* NumberGreaterThan
+* NumberGreaterThanOrEquals
+* NumberLessThan
+* NumberLessThanOrEquals
 
 ```json
 {
@@ -97,16 +105,16 @@ There is no restriction on the `Key` in Custom Event Schema since Event Grid doe
             {
                 "operatorType": "NumberGreaterThanOrEquals",
                 "key": "Data.Key2",
-                "value": 1.456
+                "value": *456
             },
             {
                 "operatorType": "NumberLessThan",
-                "key": "Data.P1.P2.P3",
+                "key": "Data.P*P2.P3",
                 "value": 1000
             },
             {
                 "operatorType": "NumberLessThanOrEquals",
-                "key": "Data.P1.P2",
+                "key": "Data.P*P2",
                 "value": 999
             }
         ]
@@ -114,10 +122,10 @@ There is no restriction on the `Key` in Custom Event Schema since Event Grid doe
 }
 ```
 
-## Numeric Range-Value Filter Examples
+## Numeric range-value filter examples
 
-5. NumberIn
-1. NumberNotIn
+* NumberIn
+* NumberNotIn
 
 ```json
 {
@@ -137,13 +145,14 @@ There is no restriction on the `Key` in Custom Event Schema since Event Grid doe
     }
 }
 ```
-## String Range-Value Filter Examples
 
-7. StringContains
-1. StringBeginsWith
-1. StringEndsWith
-1. StringIn
-1. StringNotIn
+## String range-value filter examples
+
+* StringContains
+* StringBeginsWith
+* StringEndsWith
+* StringIn
+* StringNotIn
 
 ```json
 {
@@ -179,9 +188,10 @@ There is no restriction on the `Key` in Custom Event Schema since Event Grid doe
 }
 ```
 
-## Boolean Single-Value Filter Examples
+## Boolean single-value filter examples
 
-12. BoolEquals
+* BoolEquals
+
 ```json
 {
     "filter": {
