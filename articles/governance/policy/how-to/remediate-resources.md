@@ -7,7 +7,6 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Remediate non-compliant resources with Azure Policy
 

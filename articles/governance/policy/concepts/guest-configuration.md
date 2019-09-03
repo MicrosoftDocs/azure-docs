@@ -7,7 +7,6 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand Azure Policy's Guest Configuration
 
@@ -176,6 +175,14 @@ definition.
 
 Guest Configuration policies currently only support assigning the same Guest Assignment once
 per machine, even if the Policy assignment uses different parameters.
+
+## Built-in resource modules
+
+When the Guest Configuration extension is installed, the 'GuestConfiguration' PowerShell module
+is included with the latest version of DSC resource modules. This module can be downloaded from the PowerShell
+Gallery by using the 'Manual Download' link from the module page
+[GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+The '.nupkg' file format can be renamed to '.zip' to uncompress and review.
 
 ## Client log files
 
