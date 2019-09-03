@@ -128,6 +128,31 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
+```swift
+        
+let msalIdentifier: String?
+var account: MSALAccount
+        
+do {
+  if let msalIdentifier = msalIdentifier {
+    account = try application.account(forIdentifier: msalIdentifier)
+  }
+  else {
+    account = try application.account(forUsername: "adal.user.id") 
+  }
+             
+  let silentParameters = MSALSilentTokenParameters(scopes: ["user.read"], account: account)          
+  application.acquireTokenSilent(with: silentParameters) {
+    (result: MSALResult?, error: Error?) in
+    // handle result
+  }  
+} catch let error as NSError {
+  // handle error
+}
+```
+
+
+
 MSAL supported account lookup APIs:
 
 ```objc
@@ -150,7 +175,7 @@ Returns account for for the given username (received from an account object retu
 - (MSALAccount *)accountForUsername:(NSString *)username
                               error:(NSError * __autoreleasing *)error;
 ```
-    
+
 ## ADAL 2.x-2.6.6
 
 This section covers SSO differences between MSAL and ADAL 2.x-2.6.6.
@@ -179,6 +204,21 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
+```swift
+do {
+  let account = try application.account(forUsername: "adal.user.id")          
+  let silentParameters = MSALSilentTokenParameters(scopes: ["user.read"], account: account)
+  application.acquireTokenSilent(with: silentParameters) { 
+    (result: MSALResult?, error: Error?) in
+    // handle result
+  }   
+} catch let error as NSError { 
+  // handle error
+}
+```
+
+
+
 Alternatively, you can read all of the accounts, which will also read account information from ADAL:
 
 ```objc
@@ -194,6 +234,28 @@ if ([accounts count] != 1)
 MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:accounts[0]];
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
+
+```swift
+      
+do {
+  let accounts = try application.allAccounts()
+  if accounts.count == 1 {
+    // You might want to display an account picker to user in actual application
+    // For this sample we assume there's only ever one account in cache
+    return
+  }
+  
+  let silentParameters = MSALSilentTokenParameters(scopes: ["user.read"], account: accounts[0])
+  application.acquireTokenSilent(with: silentParameters) {
+    (result: MSALResult?, error: Error?) in
+    // handle result  
+  }  
+} catch let error as NSError { 
+  // handle error
+}
+```
+
+
 
 ## Next steps
 
