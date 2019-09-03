@@ -206,7 +206,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Next steps
 
-In this quickstart, you have created a Key Vault and stored a secret in it. See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet)
+In this quickstart, you have created a Key Vault and stored a secret in it. See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet).
 
 To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 - 
