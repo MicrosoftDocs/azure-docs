@@ -602,6 +602,8 @@
       href: data-migration-guidance-s3-azure-storage.md
     - name: Migrate data from on-premises Hadoop cluster to Azure
       href: data-migration-guidance-hdfs-azure-storage.md
+    - name: Migrate data from on-premise Netezza server to Azure
+      href: data-migration-guidance-netezza-azure-sqldw.md
 - name: Reference
   items:
   - name: .NET
