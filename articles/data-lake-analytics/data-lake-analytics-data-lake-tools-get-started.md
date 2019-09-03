@@ -15,7 +15,7 @@ ms.date: 08/30/2019
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Azure Data Lake and Stream Analytics Tools include functionality related to two Azure services, Azure Data Lake Analytics and Azure Stream Analytics. For more information on the Azure Stream Analytics scenarios, see [Azure Stream Analytics tools for Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
+Azure Data Lake and Stream Analytics Tools include functionality related to two Azure services, Azure Data Lake Analytics and Azure Stream Analytics. For more information about the Azure Stream Analytics scenarios, see [Azure Stream Analytics tools for Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
 
 This article describes how to use Visual Studio to create Azure Data Lake Analytics accounts. You can define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
@@ -82,13 +82,13 @@ OUTPUT @a
 
 1. Select the **U-SQL Project** type, and then select **Next**. In **Configure your new project**, select **Create**.
 
-   Visual Studio creates a solution with a **Script.usql** file.
+   Visual Studio creates a solution that contains a **Script.usql** file.
 
 1. Paste the script from [Write your first U-SQL script](#write-your-first-u-sql-script) into the **Script.usql** window.
 
 1. In **Solution Explorer**, right-click **Script.usql**, and select **Submit Script**.
 
-1. In **Submit Job**, specify your Data Lake Analytics account and select **Submit**.
+1. In **Submit Job**, choose your Data Lake Analytics account and select **Submit**.
 
    ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-submit-job-vs2019.png)
 

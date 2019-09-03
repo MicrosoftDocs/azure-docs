@@ -13,7 +13,7 @@ ms.date: 08/30/2019
 ---
 # Test your Azure Data Lake Analytics code
 
-Azure Data Lake provides the U-SQL language. U-SQL combines declarative SQL with imperative C# to process data at any scale. In this document, you learn how to create test cases for U-SQL and extended C# user-defined operator (UDO) code.
+Azure Data Lake provides the [U-SQL](data-lake-analytics-u-sql-get-started.md) language. U-SQL combines declarative SQL with imperative C# to process data at any scale. In this document, you learn how to create test cases for U-SQL and extended C# user-defined operator (UDO) code.
 
 ## Test U-SQL scripts
 
@@ -57,9 +57,9 @@ A U-SQL script test project is built on top of a C# unit test framework. After y
 
 You can use a C# unit test framework to test your C# user-defined operators (UDOs). When testing UDOs, you need to prepare corresponding **IRowset** objects as inputs.
 
-There are two ways to create an IRowset object:
+There are two ways to create an **IRowset** object:
 
-- Load data from a file to create IRowset:
+- Load data from a file to create **IRowset**:
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -75,7 +75,7 @@ There are two ways to create an IRowset object:
     IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
     ```
 
-- Use data from a data collection to create IRowset:
+- Use data from a data collection to create **IRowset**:
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -118,7 +118,7 @@ CPPSDK is a package that includes Microsoft Visual C++ 14 and Windows SDK 10.0.1
 
 - For Visual Studio 2015, it is under `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 - For Visual Studio 2017, it is under `C:\Program Files (x86)\Microsoft Visual Studio\2017\<Visual Studio Edition>\SDK\ScopeCppSDK`
-- For Visual Studio 2017, it is under `C:\Program Files (x86)\Microsoft Visual Studio\2019\<Visual Studio Edition>\SDK\ScopeCppSDK`
+- For Visual Studio 2019, it is under `C:\Program Files (x86)\Microsoft Visual Studio\2019\<Visual Studio Edition>\SDK\ScopeCppSDK`
 
 #### Prepare CPPSDK in the Azure Pipelines build agent
 
@@ -134,11 +134,13 @@ The most common way to prepare the CPPSDK dependency in Azure Pipelines is as fo
 
 ### Run C# UDO test cases in Azure Pipelines
 
-For a C# UDO test, make sure to reference the following assemblies, which are needed for UDOs. If you reference them through [the Nuget package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
+For a C# UDO test, make sure to reference the following assemblies, which are needed for UDOs.
 
 - Microsoft.Analytics.Interfaces
 - Microsoft.Analytics.Types
 - Microsoft.Analytics.UnitTest
+
+If you reference them through [the Nuget package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
 
 ## Next steps
 
