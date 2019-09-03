@@ -40,9 +40,9 @@ NOTE: Advisor alerts are currently only available for High Availability, Perform
 
 **6.** Depending on the Configure by option that you select, you will be able to specify the criteria. If you want all recommendations, just leave the remaining fields blank. [Click here for a full screen image](./media/Advisor%20Alert/create5.png)
 
-![Azure Advisor Banner](Create_5.PNG)
+![Azure Advisor Banner](./media/Advisor%20Alert/create5.png)
 
-**7.** In the action groups section, select “Add existing” to use an action group you already created or select “Create new” to set up a new action group(https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). [Click here for a full screen image](./media/Advisor%20Alert/create7.png)
+**7.** In the action groups section, select “Add existing” to use an action group you already created or select “Create new” to set up a new [action group](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). [Click here for a full screen image](./media/Advisor%20Alert/create7.png)
 
 ![Azure Advisor Banner](./media/Advisor%20Alert/create7.png)
 
