@@ -21,7 +21,7 @@ landingContent:
             url: overview.md
       - linkListType: whats-new
         links:
-          - text: Check out our Azure Database for PostgreSQL blog
+          - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL         
  # Card
   - title: Create a single server
