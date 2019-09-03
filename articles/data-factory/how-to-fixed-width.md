@@ -14,7 +14,7 @@ ms.author: makromer
 
 # Process fixed-length text files by using Data Factory Mapping Data Flows
 
-With the Mapping Data Flows feature in Data Factory, you can transform data from fixed-width text files. In the following task, we'll define a dataset for a text file without a delimiter and then set up substring splits based on ordinal position.
+By using Mapping Data Flows in Microsoft Azure Data Factory, you can transform data from fixed-width text files. In the following task, we'll define a dataset for a text file without a delimiter and then set up substring splits based on ordinal position.
 
 ## Create a pipeline
 
