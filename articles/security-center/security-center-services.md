@@ -92,7 +92,7 @@ The following PaaS resources are supported by Azure Security Center:
 |Blob storage|✔| ✔|
 |Storage account|✔| NA|
 |App service|✔| ✔|
-|Funcion|✔| X|
+|Function|✔| X|
 |Cloud Service|✔| X|
 |VNet|✔| NA|
 |Subnet|✔| NA|
@@ -115,7 +115,7 @@ The following PaaS resources are supported by Azure Security Center:
 
 \* These features are currently supported in public preview.
 
-\*\* AAD recommendations are only available for Standard subscriptions
+\*\* Azure Active Directory (Azure AD) recommendations are available only for Standard subscriptions.
 
 ## Next steps
 
