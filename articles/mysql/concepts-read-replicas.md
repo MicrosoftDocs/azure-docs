@@ -23,7 +23,7 @@ To learn more about MySQL replication features and issues, please see the [MySQL
 
 The read replica feature helps to improve the performance and scale of read-intensive workloads. Read workloads can be isolated to the replicas, while write workloads can be directed to the master.
 
-A common scenario is to have BI and analytical workloads use the read replica as the data source for reporting.• Member of SQL Database team owning performance in SQL Database and Business Models
+A common scenario is to have BI and analytical workloads use the read replica as the data source for reporting.
 
 Because replicas are read-only, they don't directly reduce write-capacity burdens on the master. This feature isn't targeted at write-intensive workloads.
 
