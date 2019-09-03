@@ -216,9 +216,8 @@ Linux:
 ```bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
-versions= "$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z)"
-echo "${versions[0]}"
-grep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine' /var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.9.0/GCAgent/logs/dsc.log
+latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log"
 ```
 
 ## Guest Configuration samples
