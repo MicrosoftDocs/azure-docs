@@ -174,6 +174,14 @@ To enable broker for your application:
     }
     ```
 
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+```
+
+
+
 ### Business to business (B2B)
 
 In ADAL, you create separate instances of `ADAuthenticationContext` for each tenant that the app requests tokens for. This is no longer a requirement in MSAL. In MSAL, you can create a single instance of `MSALPublicClientApplication` and use it for any AAD cloud and organization by specifying a different authority for acquireToken and acquireTokenSilent calls.
@@ -306,6 +314,7 @@ MSALAccount *account = [application accountForIdentifier:accountIdentifier error
 ```
 
 ```swift
+// definitions that need to be initialized
 let application: MSALPublicClientApplication!
 let accountIdentifier: String! /*previously saved MSAL account identifier */
 
