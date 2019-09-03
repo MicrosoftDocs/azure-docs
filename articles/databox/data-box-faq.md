@@ -175,14 +175,14 @@ A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob sto
 ### Q. My device was delivered but the device seems to be damaged. What should I do?
 A. If your device has arrived damaged or there is evidence of tampering, do not use the device. [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md) and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
 
-### Can I pick up my Data Box order myself? Can I return the Data Box via a carrier that I choose?
+### Q. Can I pick up my Data Box order myself? Can I return the Data Box via a carrier that I choose?
 A. Yes. Microsoft also offers self-managed shipping in US Gov region only. When placing the Data Box order, you can choose self-managed shipping option. To pick up your Data Box device, take the following steps:
     
 1. After you have placed the order, the order is processed and the Data Box is prepared. You will be notified via an email that your order is ready for pickup. 
 2. Once the order is ready for pickup, go to your order in the Azure portal and navigate to the **Overview** blade. 
 3. You will see a notification with a code in the Azure portal. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. The team will provide the location and schedule a pickup date and time. You must call the team within 5 business days after you receive the email notification.
 
-Once the data copy is complete, take the following steps to return your disk:
+Once the data copy is complete, take the following steps to return your device:
 
 1. Once the data copy is complete with no errors, run **Prepare to ship**. After the preparation is complete, you'll receive a code in the local web UI of the device. Copy and save the code.
 2. Turn off the device and remove the connecting cables.
