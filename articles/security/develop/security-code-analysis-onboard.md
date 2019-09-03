@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ---
 
-# How to: Onboarding and installing
+# Onboarding and installing
 
 Prerequisites to getting started with Microsoft Security Code Analysis:
 
@@ -84,4 +84,4 @@ After you install the extension, the secure development build tasks are visible 
 
 For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md).
 
-If you have more questions about the extension and the tools offered, check out our [FAQ page.](security-code-analysis-faq.md).
+If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
