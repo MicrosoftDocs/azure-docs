@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: aahi
-zone_pivot_groups:  programming-languages-set-one-without-java
+zone_pivot_groups: text-analytics-programming-languages
 ---
 
 # Quickstart: Use the Text Analytics client library for sentiment analysis
