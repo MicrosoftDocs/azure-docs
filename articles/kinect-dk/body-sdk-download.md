@@ -59,7 +59,7 @@ If the command succeeds, the SDK is ready for use.
 * [Bug Fix] Fix logger crashing bug.
 
 ### v0.9.1
-* [Bug Fix] Fix memory leak when destoroying tracker
+* [Bug Fix] Fix memory leak when destroying tracker
 * [Bug Fix] Better error messages for missing dependencies
 * [Bug Fix] Fail without crashing when creating a second tracker instance
 * [Bug Fix] Logger environmental variables now work correctly
