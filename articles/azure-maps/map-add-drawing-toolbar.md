@@ -3,7 +3,7 @@ title: Add a drawing toolbar to Azure Maps| Microsoft Docs
 description: How to add a drawing toolbar to a map using Azure Maps Web SDK
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/22/2019
+ms.date: 09/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -23,7 +23,7 @@ The following code creates an instance of the drawing manager and displays the t
 drawingManager = new atlas.drawing.DrawingManager(map, {
         toolbar: new atlas.control.DrawingToolbar({
             position: 'top-right',
-            style: 'light'
+            style: 'dark'
         })
     });
 ```
@@ -71,8 +71,7 @@ The following code gets the rendering layers from the drawing manager and modifi
 var layers = drawingManager.getLayers();
     layers.pointLayer.setOptions({
         iconOptions: {
-            image: 'marker-blue',
-            size: 1
+            image: 'marker-blue'
         }
     });
     layers.lineLayer.setOptions({

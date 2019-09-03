@@ -3,7 +3,7 @@ title: Set drawing options in Azure Maps| Microsoft Docs
 description: How to set drawing options data using Azure Maps Web SDK
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -26,7 +26,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-The code below is a complete running example of how to set a drawing mode of the drawing manager.
+The code below is a complete running example of how to set a drawing mode of the drawing manager. Click the map to start drawing a polygon.
 
 <br/>
 
@@ -43,12 +43,12 @@ The following code sets the type of drawing interaction that the drawing manager
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
-    "mode": "draw-polygon",
-    "interaction-type": "freehand"
+    mode: "draw-polygon",
+    interactionType: "freehand"
 });
 ```
 
-Below is the code sample implementing the functionality that lets you draw on the map freely while holding the mouse click. 
+Below is the code sample implementing the functionality that lets you draw on the map freely, while holding the left mouse button down and dragging it around. 
 
 <br/>
 
@@ -64,6 +64,6 @@ The previous examples demonstrated how to customize drawing options while instan
 
 <br/>
 
-<iframe height="600" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
+<iframe height="685" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
