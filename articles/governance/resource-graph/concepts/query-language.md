@@ -7,7 +7,6 @@ ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understanding the Azure Resource Graph query language
 
