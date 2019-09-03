@@ -169,7 +169,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
             "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
             "createOptions": {
                 "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
                     "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
         },
         "type": "docker",

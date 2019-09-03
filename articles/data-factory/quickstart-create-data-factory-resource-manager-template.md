@@ -8,8 +8,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
 ---
 # Tutorial: Create an Azure data factory using Azure Resource Manager template

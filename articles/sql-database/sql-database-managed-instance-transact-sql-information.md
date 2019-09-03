@@ -333,6 +333,10 @@ A managed instance can't access file shares and Windows folders, so the followin
 - `CREATE ASSEMBLY FROM FILE` isn't supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
+### Database Mail (db_mail)
+ - `sp_send_dbmail` cannot send atachments using @file_attachments parameter. Local file system and extental shares or Azure blob Storage are not accessible form this procedure.
+ - See the known issues related to `@query` parameter and authentication.
+ 
 ### DBCC
 
 Undocumented DBCC statements that are enabled in SQL Server aren't supported in managed instances.
@@ -531,6 +535,14 @@ The maximum file size of `tempdb` can't be greater than 24 GB per core on a Gene
 A managed instance places verbose information in error logs. There are many internal system event that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a> Known issues
+
+### Cannot authenicate to external mail servers using secure connection (SSL)
+
+**Date:** Aug 2019
+
+Database mail that is [configured using secure connection (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) cannot authenticate on some email servers outside the Azure. This is security configuration issue that will be resolved soon.
+
+**Workaround:** Temporary remove secure connection (SSL) form the database mail configuration until the issue gets resolved. 
 
 ### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 
