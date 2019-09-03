@@ -23,7 +23,6 @@ ms.author: "v-mohabe"
 The following sections show Security Center features that are available for their [supported platforms](security-center-os-coverage.md).
 
 * [Virtual machines / servers](#vm-server-features)
-* [Endpoint protection solutions](#endpoint-supported)
 * [PaaS services](#paas-services)
 
 
@@ -91,7 +90,7 @@ The following PaaS resources are supported by Azure Security Center:
 |MySQL*|✔| ✔|
 |CosmosDB*|X| ✔|
 |Blob storage|✔| ✔|
-|Storage account|✔| NAV|
+|Storage account|✔| NA|
 |App service|✔| ✔|
 |Funcion|✔| X|
 |Cloud Service|✔| X|
