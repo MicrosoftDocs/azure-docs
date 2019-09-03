@@ -35,7 +35,43 @@ When the parameter **newOrExisting** is set to **new**, the condition evaluates 
 
 For a complete example template that uses the `condition` element, see [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
-## Functions with conditional deployment
+## Allow condition
+
+You can pass in a parameter value that indicates whether a condition is allowed. The following example deploys a SQL server and optionally allows Azure IPs.
+
+```json
+{
+    "type": "Microsoft.Sql/servers",
+    "name": "[parameters('serverName')]",
+    "apiVersion": "2015-05-01-preview",
+    "location": "[parameters('location')]",
+    "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "version": "12.0"
+    },
+    "resources": [
+        {
+            "condition": "[parameters('allowAzureIPs')]",
+            "type": "firewallRules",
+            "name": "AllowAllWindowsAzureIps",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
+            ],
+            "properties": {
+                "endIpAddress": "0.0.0.0",
+                "startIpAddress": "0.0.0.0"
+            }
+        }
+    ]
+}
+```
+
+For the complete template, see [Azure SQL logical server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+
+## Runtime functions
 
 If you use a [reference](resource-group-template-functions-resource.md#reference) or [list](resource-group-template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
 
