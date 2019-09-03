@@ -1,30 +1,22 @@
 ---
-title: FAQs - Azure Active Directory Domain Services | Microsoft Docs
-description: Frequently asked questions about Azure Active Directory Domain Services
+title: Frequently asked questions about Azure AD Domain Services | Microsoft Docs
+description: Read and understand some of the frequently asked questions around configuration, administration, and availability for Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/03/2019
 ms.author: iainfou
 
 ---
-# Azure Active Directory Domain Services: Frequently Asked Questions (FAQs)
+# Frequently Asked Questions (FAQs)
 
-This page answers frequently asked questions about the Azure Active Directory Domain Services. Keep checking back for updates.
-
-## Troubleshooting guide
-
-Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
+This page answers frequently asked questions about the Azure Active Directory Domain Services.
 
 ## Configuration
 
@@ -36,7 +28,7 @@ Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common is
 * [Can I enable Azure AD Domain Services in a federated Azure AD directory? I do not synchronize password hashes to Azure AD. Can I enable Azure AD Domain Services for this directory?](#can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory)
 * [Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?](#can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription)
 * [Can I enable Azure AD Domain Services using PowerShell?](#can-i-enable-azure-ad-domain-services-using-powershell)
-* [Can I enable Azure AD Domain Services using a Resource Manager Template?](can-i-enable-azure-ad-domain-services-using-a-resource-manager-template)
+* [Can I enable Azure AD Domain Services using a Resource Manager Template?](#can-i-enable-azure-ad-domain-services-using-a-resource-manager-template)
 * [Can I add domain controllers to an Azure AD Domain Services managed domain?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Can guest users invited to my directory use Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
@@ -77,7 +69,7 @@ No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../a
 ### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
 No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
 
-## Administration and Operations
+## Administration and operations
 
 * [Can I connect to the domain controller for my managed domain using Remote Desktop?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
 * [I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?](#ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain)
@@ -142,3 +134,13 @@ No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of
 
 ### What Azure regions is the service available in?
 Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.
+
+## Troubleshooting
+
+Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
+
+## Next steps
+
+To learn more about Azure AD Domain Services, see [What is Azure Active Directory Domain Services?](overview.md).
+
+To get started, see [Create and configure an Azure Active Directory Domain Services instance](tutorial-create-instance.md).
