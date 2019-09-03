@@ -2,7 +2,7 @@
 title: Troubleshoot backup errors with Azure virtual machines
 description: Troubleshoot backup and restore of Azure virtual machines
 ms.reviewer: srinathv
-author: v-miegge
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
@@ -26,7 +26,7 @@ This section covers backup operation failure of Azure Virtual machine.
    * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
 * Verify that the VM has internet connectivity.
    * Make sure another backup service is not running.
-* From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it here.
+* From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](https://docs.microsoft.com/en-us/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and are not due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
    * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
     * If Azure Backup is working, then the issue is likely with another backup solution. 
