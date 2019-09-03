@@ -1,6 +1,6 @@
 ---
 title: Register data assets in Azure Data Catalog
-description: How to register data assets in your Azure Data Catalog
+description: This tutorial describes how to register data assets in your Azure Data Catalog. 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog

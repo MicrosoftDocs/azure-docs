@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2019
+ms.date: 08/20/2019
 ms.author: spelluru
 
 ---
 
-# Enable and use remote desktop for Linux virtual machines in a lab in Azure Lab Services
+# Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services
 This article shows you how to do the following tasks:
 
 - Enable remote desktop for Linux VM
 - How teacher can connect to the template VM via Remote Desktop Connection (RDP).
-- How students connect to the student VM via RDP
 
 ## Enable remote desktop for Linux VM
 During lab creation, teachers can enable **remote desktop connection** for **Linux** images. The **Enable Remote Desktop Connection** option is shown when a Linux image is selected for the template. When this option is enabled, teachers can connect to template VM and student VMs via RDP (Remote Desktop). 
@@ -64,15 +63,6 @@ A teacher/professor can connect to a student VM by switching to the **Virtual Ma
 
 For more information on connecting to the VM using SSH or RDP, see [Connect using SSH or RDP]((#connect-using-ssh-or-rdp). 
 
-## Students connecting to the student VM
-Student can RDP in to their Linux VMs after the lab owner (teacher/professor) **publishes** the template VM with RDP and GUI packages installed on the machine. Here are the steps: 
-
-1. When a student signs in to the Labs portal directly (`https://labs.azure.com`) or by using a registration link (`https://labs.azure.com/register/<registrationCode>`), a tile for each lab the student has access to is displayed. 
-2. On the tile, select **Start** if the VM is stopped. 
-3. Select **Connect**. You see two options to connect to the VM: **SSH** and **Remote Desktop**.
-
-    ![Student VM - connection options](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
-
 ## Connect using SSH or RDP
 If you select the **SSH** option, you see the following **Connect to your virtual machine** dialog box:  
 
@@ -83,10 +73,4 @@ Select the **Copy** button next to the text box to copy it to the clipboard. Sav
 If you select the **RDP** option, an RDP file is downloaded on to your machine. Save it and open it to connect to the machine. 
 
 ## Next steps
-See the following articles:
-
-- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
-- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
-
+After an instructor enabled the remote desktop connection feature, students can connect to their VMs via RDP/SSH. For more information, see [Use remote desktop for Linux VMs in a classroom lab](how-to-use-remote-desktop-linux-student.md). 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
 
 # Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning
 
-In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents.
 
@@ -33,37 +33,19 @@ You learn how to select a model and deploy it in [part two of this tutorial](tut
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.41.
+> Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.57.
 
 ## Prerequisites
 
-Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server.  To run the notebook you will need:
+* Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
+    * Create a workspace
+    * Create a cloud notebook server
+    * Launch the Jupyter notebook dashboard
 
-* A Python 3.6 notebook server with the following installed:
-    * The Azure Machine Learning SDK for Python
-    * `matplotlib` and `scikit-learn`
-* The tutorial notebook and the file **utils.py**
-* A machine learning workspace
-* The configuration file for the workspace in the same directory as the notebook
+* After you launch the Jupyter notebook dashboard, open the **tutorials/img-classification-part1-training.ipynb** notebook.
 
-Get all these prerequisites from either of the sections below.
+The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment.
 
-* Use a [cloud notebook server in your workspace](#azure)
-* Use [your own notebook server](#server)
-
-### <a name="azure"></a>Use a cloud notebook server in your workspace
-
-It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* After you launch the notebook webpage, open the **tutorials/img-classification-part1-training.ipynb** notebook.
-
-### <a name="server"></a>Use your own Jupyter notebook server
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook from your cloned directory.
 
 ## <a name="start"></a>Set up your development environment
 
@@ -97,7 +79,7 @@ Create a workspace object from the existing workspace. `Workspace.from_config()`
 ```python
 # load workspace configuration from the config.json file in the current folder.
 ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep='\t')
+print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
 ### Create an experiment
@@ -111,11 +93,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### Create or attach an existing compute resource
+### Create or attach an existing compute target
 
 By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. The code below creates the compute clusters for you if they don't already exist in your workspace.
 
- **Creation of the compute takes about five minutes.** If the compute is already in the workspace, the code uses it and skips the creation process.
+ **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -227,9 +209,9 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ### Upload data to the cloud
 
-Now make the data accessible remotely by uploading that data from your local machine into Azure. Then it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload or download data. You can also interact with it from your remote compute targets. It's backed by an Azure Blob storage account.
+You downloaded and used the training data on the computer your notebook is running on.  In the next section, you will train a model on the remote Azure Machine Learning Compute.  The remote compute resource will also need access to your data. To provide access, upload your data to a centralized datastore associated with your workspace. This datastore provides fast access to your data when using remote compute targets in the cloud, as it is in the Azure data center.
 
-The MNIST files are uploaded into a directory named `mnist` at the root of the datastore:
+Upload the MNIST files into a directory named `mnist` at the root of the datastore. See [access data from your datastores](how-to-access-data.md) for more information.
 
 ```python
 ds = ws.get_default_datastore()

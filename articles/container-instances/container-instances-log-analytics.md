@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 08/02/2019
+ms.date: 09/02/2019
 ms.author: danlep
 ---
 # Container instance logging with Azure Monitor logs

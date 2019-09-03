@@ -59,6 +59,8 @@
     items:
     - name: Push and pull an image
       href: container-registry-get-started-docker-cli.md
+    - name: Push and pull an OCI artifact
+      href: container-registry-oci-artifacts.md
     - name: View repositories
       href: container-registry-repositories.md
     - name: Import container images
@@ -66,7 +68,11 @@
     - name: Lock container images
       href: container-registry-image-lock.md
     - name: Delete container images
-      href: container-registry-delete.md
+      items:
+      - name: Delete image data - CLI
+        href: container-registry-delete.md
+      - name: Automatically purge tags and manifests (preview)
+        href: container-registry-auto-purge.md
     - name: Upgrade a Classic registry
       href: container-registry-upgrade.md
     - name: Use ACR webhooks

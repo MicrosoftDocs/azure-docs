@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
 ---
 
@@ -28,7 +28,7 @@ Time Series Insights supports the following resources:
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. The following documents describe template files in greater detail:
 
-- [Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Azure Resource Manager template deployment](../azure-resource-manager/template-deployment-overview.md)
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 

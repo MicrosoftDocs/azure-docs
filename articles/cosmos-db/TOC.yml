@@ -648,6 +648,10 @@
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
         href: troubleshoot-changefeed-functions.md
+      - name: Change feed processor start time
+        href: how-to-configure-change-feed-start-time.md
+      - name: Using the change feed estimator
+        href: how-to-use-change-feed-estimator.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
@@ -747,6 +751,10 @@
         href: cosmosdb-sql-api-migrate-data-striim.md
       - name: Migrate to Cassandra API using Striim
         href: cosmosdb-cassandra-api-migrate-data-striim.md
+      - name: Migrate - Oracle DB to Cassandra API using Blitzz
+        href: oracle-migrate-cosmos-db-blitzz.md
+      - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+        href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
     - name: Bulk executor library

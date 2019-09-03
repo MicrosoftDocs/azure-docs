@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
+ms.author: v-mohabe
 
 ---
 # Apply system updates in Azure Security Center
@@ -67,16 +67,6 @@ In this example, we will use **Compute**.
 
     ![Azure Monitor logs search][5]
 
-## Reboot after system updates
-1. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.
-
-   ![Reboot after system updates][6]
-2. Select **Reboot after system updates**. This opens **A restart is pending to complete system updates** blade displaying a list of VMs that you need to restart to complete the apply system updates process.
-
-   ![Restart pending][7]
-
-Restart the VM from Azure to complete the process.
-
 ## Next steps
 To learn more about Security Center, see the following:
 
@@ -94,5 +84,3 @@ To learn more about Security Center, see the following:
 [3]: ./media/security-center-apply-system-updates/detail-on-missing-update.png
 [4]: ./media/security-center-apply-system-updates/log-search.png
 [5]: ./media/security-center-apply-system-updates/search-details.png
-[6]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
-[7]: ./media/security-center-apply-system-updates/restart-pending.png

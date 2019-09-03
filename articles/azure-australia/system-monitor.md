@@ -103,7 +103,7 @@ The logs collected in Azure fall under one of following three categories:
 
 Azure virtual machine monitoring is enhanced by the deployment of the virtual machine agent for both Windows and Linux. This markedly increases the breadth of logging information gathered. Deployment of this agent can be configured to occur automatically via the Azure Security Center.
 
-Microsoft provides detailed information about Azure resource-specific logs and their [schemas](https://docs.microsoft.com/azure/security/azure-log-audit).
+Microsoft provides detailed information about Azure resource-specific logs and their [schemas](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 ### Log retention and protection
 

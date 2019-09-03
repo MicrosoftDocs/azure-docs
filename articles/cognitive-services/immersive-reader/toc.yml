@@ -9,10 +9,16 @@
   items:
   - name: Using C#
     href: Quickstart.md
+  - name: Using Swift (iOS)
+    href: ios-quickstart.md
 - name: Tutorials
   items:
   - name: Launch the Immersive Reader (Node.js)
-    href: tutorial.md
+    href: tutorial-nodejs.md
+  - name: Launch the Immersive Reader (Python)
+    href: tutorial-python.md
+  - name: Picture to Immersive Reader (Swift)
+    href: tutorial-ios-picture-immersive-reader.md
 - name: How-To
   items:
   - name: Azure Active Directory authentication
@@ -21,6 +27,8 @@
   items:
   - name: SDK Reference
     href: reference.md
+  - name: iOS SDK Reference
+    href: ios-reference.md
 - name: Resources
   items:
   - name: Azure roadmap
