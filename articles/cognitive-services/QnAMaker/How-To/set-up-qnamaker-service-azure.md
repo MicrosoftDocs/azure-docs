@@ -25,7 +25,7 @@ Your QnA Maker service deals with two kinds of keys: **subscription keys** and *
 |Name|Location|Purpose|
 |--|--|--|
 |Subscription key|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new QnA Maker service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys** page.|
-|Endpoint key|[QnA Maker portal](http://www.qnamaker.ai)|These keys are used to access the published knowledge base endpoint to get a response for a user question. You typically use this endpoint in your chat bot or in the client application code that connects to the QnA Maker service. These keys are created when you publish your QnA Maker knowledge base.<br><br>Find these keys on the **Service settings** page. Find this page from the user's menu in the upper-right of the page in the drop-down menu.|
+|Endpoint key|[QnA Maker portal](http://www.qnamaker.ai)|These keys are used to access the published knowledge base endpoint to get a response for a user question. You typically use this endpoint in your chat bot or in the client application code that connects to the QnA Maker service. These keys are created when you publish your QnA Maker knowledge base.<br><br>Find these keys on the **Service settings** page. Find this page from the user's menu in the upper right of the page in the drop-down menu.|
 
 ## Create a new QnA Maker service
 
@@ -44,7 +44,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * In the **Name** field, enter a unique name to identify this QnA Maker service. This name also identifies the QnA Maker endpoint with which your knowledge bases will be associated.
     * Choose the **Subscription** in which the QnA Maker resource will be deployed.
     * Select the **Pricing tier** for the QnA Maker management services (portal and management APIs). See [the details about SKU pricing](https://aka.ms/qnamaker-pricing).
-    * Create a new **Resource Group** (recommended) or use an existing one in which to deploy this QnA Maker resource. QnA Maker creates several Azure resources. When you create a resource group to hold these resources, you can simply find, manage, and delete these resources by the resource group name.
+    * Create a new **Resource Group** (recommended) or use an existing one in which to deploy this QnA Maker resource. QnA Maker creates several Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
     * Select a **Resource group location**.
     * Choose the **Search pricing tier** of the Azure Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a Free Azure Search tier deployed in your subscription. In that case, you'll need to start with the Basic Azure Search tier. See details of Azure search pricing [here](https://azure.microsoft.com/pricing/details/search/).
     * Choose the **Search Location** where you want Azure Search data to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Search.
