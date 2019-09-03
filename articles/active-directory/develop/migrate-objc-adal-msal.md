@@ -56,11 +56,11 @@ The MSAL public API reflects a few key differences between Azure AD v1.0 and the
 
 `ADAuthenticationContext` is the first object an ADAL app creates. It represents an instantiation of ADAL. Apps create a new instance of `ADAuthenticationContext` for each Azure Active Directory cloud and tenant (authority) combination. The same `ADAuthenticationContext` can be used to get tokens for multiple public client applications.
 
-In MSAL, the main interaction is through an `MSALPublicClientApplication` object, which is modeled after [OAuth 2.0 Public Client](https://tools.ietf.org/html/rfc6749#section-2.1). One instance of `MSALPublicClientApplication` can be used to interact with multiple AAD clouds, and tenants, without needing to create a new instance for each authority. For most apps, one `MSALPublicClientApplication` instance is sufficient.
+In MSAL, the main interaction is through an `MSALPublicClientApplication` object, which is designed after [OAuth 2.0 Public Client](https://tools.ietf.org/html/rfc6749#section-2.1). One instance of `MSALPublicClientApplication` can be used to interact with multiple AAD clouds, and tenants, without needing to create a new instance for each authority. For most apps, one `MSALPublicClientApplication` instance is sufficient.
 
 ### Scopes instead of resources
 
-In ADAL, an app had to provide a *resource* identifier like `https://graph.microsoft.com`to acquire tokens from the Azure Active Directory v1.0 endpoint. A resource can define a number of scopes, or oAuth2Permissions in the app manifest, that it understands. This allowed client apps to request tokens from that resource for a certain set of scopes pre-defined during app registration.
+In ADAL, an app had to provide a *resource* identifier like `https://graph.microsoft.com` to acquire tokens from the Azure Active Directory v1.0 endpoint. A resource can define a number of scopes, or oAuth2Permissions in the app manifest, that it understands. This allowed client apps to request tokens from that resource for a certain set of scopes pre-defined during app registration.
 
 In MSAL, instead of a single resource identifier, apps provide a set of scopes per request. A scope is a resource identifier followed by a permission name in the form resource/permission. For example, `https://graph.microsoft.com/user.read`
 
@@ -86,7 +86,7 @@ ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for 
 
 By default, MSAL on iOS uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides Single Sign-On (SSO) benefits through cookie sharing between apps and the Safari browser.
 
-You can choose to use a different web component depending on app requirements and the end-user experience you want. See [supported web view types](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Customizing-Browsers-and-WebViews) for more options.
+You can choose to use a different web component depending on app requirements and the end-user experience you want. See [supported web view types](customize-webviews.md) for more options.
 
 When migrating from ADAL to MSAL, `WKWebView` provides the user experience most similar to ADAL on iOS and macOS. We encourage you to migrate to `ASWebAuthenticationSession` on iOS, if possible. For macOS, we encourage you to use `WKWebView`.
 
@@ -118,7 +118,7 @@ If the account is found, the developer should use the account to do silent token
 
 Although it's possible to continue using ADAL's `userId` for all operations in MSAL, since `userId` is based on UPN, it's subject to multiple limitations that result in a bad user experience. For example, if the UPN changes, the user has to sign in again. We recommend all apps use the non-displayable account `identifier` for all operations.
 
-Read more about [cache state migration](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/SSO-between-ADAL-and-MSAL-based-apps).
+Read more about [cache state migration](sso-between-adal-msal-apps-macos-ios.md).
 
 ### Token acquisition changes
 
@@ -232,7 +232,7 @@ You can add MSAL SDK to your app using your preferred package management tool. S
 
 ### Update your app's Info.plist file
 
-Add your application's redirect URI scheme to your info.plist file. For ADAL broker compatible apps, it should be there already. The default MSAL redirect URI will be in the format: `msauth.<app.bundle.id>`.  
+Add your application's redirect URI scheme to your info.plist file. For ADAL broker compatible apps, it should be there already. The default MSAL redirect URI scheme will be in the format: `msauth.<app.bundle.id>`.  
 
 ```xml
 <key>CFBundleURLSchemes</key>
@@ -270,17 +270,18 @@ This wasn't necessary in ADAL since it "swizzled" app delegate methods automatic
 You can create `MSALPublicClientApplication` using following code:
 
 ```objc
-    NSError *error = nil;
-    MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
+NSError *error = nil;
+MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
     
-    MSALPublicClientApplication *application =
-    [[MSALPublicClientApplication alloc] initWithConfiguration:configuration
-                                                         error:&error];
+MSALPublicClientApplication *application =
+[[MSALPublicClientApplication alloc] initWithConfiguration:configuration
+                                                     error:&error];
 ```
 
 Then call the account management API to see if there are any accounts in the cache:
 
 ```objc
+NSString *accountIdentifier = nil /*previously saved MSAL account identifier */;
 NSError *error = nil;
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:&error];
 ```
@@ -295,27 +296,27 @@ NSArray<MSALAccount *> *accounts = [application allAccounts:&error];
 If an account is found, call the MSAL `acquireTokenSilent` API:
 
 ```objc
-    MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"<your-resource-here>/.default"] account:account];
+MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"<your-resource-here>/.default"] account:account];
     
-    [application acquireTokenSilentWithParameters:silentParameters
-                                  completionBlock:^(MSALResult *result, NSError *error)
+[application acquireTokenSilentWithParameters:silentParameters
+                              completionBlock:^(MSALResult *result, NSError *error)
+{
+    if (!error)
     {
-        if (!error)
+        NSString *accessToken = result.accessToken;
+        // Use your token
+    }
+    else
+    {
+        // Check the error
+        if ([error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
         {
-            NSString *accessToken = result.accessToken;
-            // Use your token
+            // Interactive auth will be required
         }
-        else
-        {
-            // Check the error
-            if ([error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
-            {
-                // Interactive auth will be required
-            }
             
-            // Other errors may require trying again later, or reporting authentication problems to the user
-        }
-    }];
+        // Other errors may require trying again later, or reporting authentication problems to the user
+    }
+}];
 ```
 
 ## Next steps
