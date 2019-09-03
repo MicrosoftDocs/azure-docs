@@ -45,4 +45,4 @@ Once subscribed to a feed, the content of the feed is updated automatically on a
 
 ## Additional client documentation
 
-For more documentation detailing how to use the macOS client, check out the [Remote Desktop Services documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios).
+For more documentation detailing how to use the iOS Beta client, check out the [Remote Desktop Services documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios).
