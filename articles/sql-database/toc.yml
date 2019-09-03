@@ -107,6 +107,8 @@
     items:
     - name: Migrate online using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+    - name: Add to a failover group
+      href: sql-database-managed-instance-failover-group-tutorial.md
     - name: Configure transactional replication
       href: replication-with-sql-database-managed-instance.md
   - name: Security in SQL Database
@@ -236,7 +238,7 @@
   - name: Platform as a Service
     items:
     - name: Platform as a Service documentation
-      href: sql-database-paas.yml
+      href: sql-database-paas-index.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
     - name: High availability

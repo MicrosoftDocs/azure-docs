@@ -123,6 +123,8 @@
     href: /azure/templates/microsoft.containerinstance/containergroups
   - name: YAML file  
     href: container-instances-reference-yaml.md
+  - name: Connector
+    href: /connectors/aci
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

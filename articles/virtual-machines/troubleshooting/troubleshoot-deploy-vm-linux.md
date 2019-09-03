@@ -12,7 +12,7 @@ ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli

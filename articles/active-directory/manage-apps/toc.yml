@@ -1,4 +1,4 @@
-  - name: Application Management Documentation
+  - name: Application management documentation
     href: index.yml
   - name: Overview
     expanded: true
@@ -29,6 +29,8 @@
         items:
         - name: Get started with app integration
           href: plan-an-application-integration.md
+        - name: Plan an access panel deployment
+          href: access-panel-deployment-plan.md
         - name: Guidance for developers
           href: developer-guidance-for-integrating-applications.md
       - name: Single sign-on
@@ -284,6 +286,8 @@
             href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Publishing walkthroughs
           items:
+          - name: Integrate with Power BI
+            href: application-proxy-integrate-with-power-bi.md
           - name: Integrate with Cloud App Security
             href: application-proxy-integrate-with-microsoft-cloud-application-security.md
           - name: Integrate with Remote Desktop

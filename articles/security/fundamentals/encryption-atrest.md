@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 08/30/2019
 ms.author: barclayn
 
 ---
@@ -250,6 +250,8 @@ Support for server encryption is currently provided through the SQL feature call
 
 Client-side encryption of Azure SQL Database data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
 
+#### Encryption Model and key management table
+
 |                                  |                    | **Encryption Model and Key Management** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed**      |
@@ -294,7 +296,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Event Grid                       | Yes                | -                  | -                  |
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | Yes                |
+| IoT Hub                          | Yes                | -                  | Yes                |
 | **Management and Governance**    |                    |                    |                    |
 | Azure Site Recovery              | Yes                | Yes, RSA 2048-bit  | Yes                |
 | **Media**                        |                    |                    |                    |
