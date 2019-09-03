@@ -41,7 +41,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Query HDFS compatible storage
-            url: ./hdinsight-hadoop-use-blob-storage.md
+            url: ./hadoop/hdinsight-hadoop-use-blob-storage.md
           - text: Compare storage options
             url: ./hdinsight-hadoop-compare-storage-options.md
 
