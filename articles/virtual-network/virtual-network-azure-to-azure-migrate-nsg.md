@@ -31,7 +31,7 @@ Azure security groups can't be moved from one region to another. You can however
 
 
 ## Prepare and move
-The following steps show how to prepare the network security group for the configuration and security rule move using an Resource Manager template, and move the public IP configuration and security rules to the target region using the portal and a script.
+The following steps show how to prepare the network security group for the configuration and security rule move using an Resource Manager template, and move the NSG configuration and security rules to the target region using the portal and a script.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
