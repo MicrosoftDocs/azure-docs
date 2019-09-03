@@ -83,11 +83,15 @@ This is the `MSALAccount` interface providing those identifiers:
 @end
 ```
 
-### Acquire a token silently in ADAL
+### ADAL getting SSO from MSAL
 
-If another app has previously signed in using MSAL, save the `username` from the `MSALAccount` object and pass it to your ADAL-based app. ADAL can then find the account information silently with the `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API.
+If you have two applications, and user first signs into an MSAL based app, you can get SSO in ADAL by saving the `username` from the `MSALAccount` object and passing it to your ADAL-based app as `userId`. ADAL can then find the account information silently with the `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API.
 
-### Use ADAL's homeAccountID with MSAL
+### MSAL getting SSO from ADAL
+
+If you have two applications, and user first signs into an ADAL based app, or for migration from ADAL to MSAL, you can use ADAL user identifiers for account lookups in MSAL. 
+
+#### ADAL's homeAccountId
 
 ADAL 2.7.x returns the `homeAccountId` in the `ADUserInformation` object in the result via this property:
 
@@ -96,11 +100,35 @@ ADAL 2.7.x returns the `homeAccountId` in the `ADUserInformation` object in the 
 @property (readonly) NSString *homeAccountId;
 ```
 
+`homeAccountId` in ADAL's is equivalent of `identifier` in MSAL. 
 You can save this identifier to use in MSAL for account lookups with the `accountForIdentifier:error:` API.
 
-### Use ADAL account identifier `userId` to query accounts in MSAL
+#### ADAL's `userId`
 
-1. In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback.
+If `homeAccountId` is not available or if you only have displayable identifier, you can use ADAL's `userId` for account lookup in MSAL. 
+
+1. In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback. If account is found, use the account in the acquireTokenSilent calls.
+
+```objc
+NSString *msalIdentifier = @"previously.saved.msal.account.id";
+MSALAccount *account = nil;
+    
+if (msalIdentifier)
+{
+    // If you have MSAL account id returned either from MSAL as identifier or ADAL as homeAccountId, use it
+    account = [application accountForIdentifier:@"my.account.id.here" error:nil];
+}
+else
+{
+    // Fallback to ADAL userId for migration
+    account = [application accountForUsername:@"adal.user.id" error:nil];
+}
+    
+MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:account];
+[application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
+```
+
+MSAL supported account lookup APIs:
 
 ```objc
 /*!
@@ -123,25 +151,6 @@ Returns account for for the given username (received from an account object retu
                               error:(NSError * __autoreleasing *)error;
 ```
     
-2. Then use the account in the acquireTokenSilent calls:
-
-```objc
-NSString *msalIdentifier = @"previously.saved.msal.account.id";
-MSALAccount *account = nil;
-    
-if (msalIdentifier)
-{
-    account = [application accountForIdentifier:@"my.account.id.here" error:nil];
-}
-else
-{
-    account = [application accountForUsername:@"adal.user.id" error:nil];
-}
-    
-MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:account];
-[application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
-```
-
 ## ADAL 2.x-2.6.6
 
 This section covers SSO differences between MSAL and ADAL 2.x-2.6.6.
