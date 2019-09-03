@@ -95,3 +95,16 @@ Below is the complete running code sample of the functionality above:
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+## Next steps
+
+Learn more about the classes and methods used in this article:
+
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [Drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+
+> [!div class="nextstepaction"]
+> [Drawing manager](https://docs.microsoft.com/en-us/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
