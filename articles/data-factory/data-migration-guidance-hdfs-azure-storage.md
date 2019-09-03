@@ -121,6 +121,7 @@ Here is the estimated price based on the above assumptions:
 
 > [!NOTE]
 > This is a hypothetical pricing example.  Your actual pricing depends on the actual throughput in your environment.
+> The price for Azure Windows VM (with self-hosted integration runtime installed) is not included.
 
 ### Additional references 
 - [HDFS connector](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
