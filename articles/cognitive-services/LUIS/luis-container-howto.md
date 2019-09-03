@@ -243,7 +243,7 @@ Both V2 and [V3 (Preview)](luis-migration-api-v3.md) versions of the API are ava
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
-Use the host, `https://localhost:5000`, for container APIs. 
+Use the host, `http://localhost:5000`, for container APIs. 
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
