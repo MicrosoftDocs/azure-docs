@@ -26,7 +26,7 @@ This topic shows you how to configure Azure App Service to use Google as an auth
 To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 ## <a name="register"> </a>Register your application with Google
-2. Follow the Google documentation at [Google Sign-In for server-side apps](https://developers.google.com/identity/sign-in/web/server-side-flow) to create a client ID and client secret, with the following information (no need to make any code changes):
+1. Follow the Google documentation at [Google Sign-In for server-side apps](https://developers.google.com/identity/sign-in/web/server-side-flow) to create a client ID and client secret, with the following information (no need to make any code changes):
     - For **Authorized JavaScript Origins**, use `https://<app-name>.azurewebsites.net` with the name of your app in *\<app-name>*.
     - For **Authorized Redirect URI**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
 1. Once the client ID and client secrets are created, copy their values.
@@ -43,9 +43,9 @@ To complete the procedure in this topic, you must have a Google account that has
    App Service provides authentication but does not restrict authorized access to your site content and APIs. For more information, see [Authorize or deny users](app-service-authentication-how-to.md#authorize-or-deny-users).
 4. (Optional) To restrict access to your site to only users authenticated by Google, set **Action to take when request is not authenticated** to **Google**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Google for authentication.
 
-> [!CAUTION]
-> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
-
+    > [!NOTE]
+    > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
+    
 5. Click **Save**.
 
 You are now ready to use Google for authentication in your app.

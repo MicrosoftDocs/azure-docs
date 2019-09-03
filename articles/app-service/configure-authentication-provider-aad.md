@@ -35,15 +35,12 @@ It's recommended that you configure each App Service app with its own registrati
 1. In the [Azure portal], navigate to your App Service app. In the left navigation, select **Authentication / Authorization**.
 2. If **Authentication / Authorization** is not enabled, select **On**.
 3. Select **Azure Active Directory**, and then select **Express** under **Management Mode**.
-4. Select **OK** to register the App Service app in Azure Active Directory. This creates a new app registration. If you want to choose an existing
-   app registration instead, click **Select an existing app** and then search for the name of a previously created app registration within your tenant.
-   Click the app registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings page.
-   By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+4. Select **OK** to register the App Service app in Azure Active Directory. This creates a new app registration. If you want to choose an existing app registration instead, click **Select an existing app** and then search for the name of a previously created app registration within your tenant. Click the app registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings page.
+By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 5. (Optional) To restrict access to your app to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 
-> [!CAUTION]
-> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
-
+    > [!NOTE]
+    > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
 6. Click **Save**.
 
 ## <a name="advanced"> </a>Configure with advanced settings
