@@ -93,13 +93,17 @@ Administrators can choose to require one of the previous controls or all selecte
 Session controls can limit the experience 
 
 - Use app enforced restrictions
+   - Currently works with Exchange Online and SharePoint Online only.
+      - Passes device information to allow control of experience granting full or limited access.
 - Use Conditional Access App Control
-   - Do things like: 
-      - Block download, cut, copy, and print of sensitive documents
-      - Monitor risky session behavior
-      - Require labeling of sensitive files
+   - Uses signals from Microsoft Cloud App Security to do things like: 
+      - Block download, cut, copy, and print of sensitive documents.
+      - Monitor risky session behavior.
+      - Require labeling of sensitive files.
 - Sign-in frequency
+   - Ability to change the default sign in frequency for modern authentication.
 - Persistent browser session
+   - Allows users to remain signed in after closing and reopening their browser window.
 
 ## Simple policies
 
