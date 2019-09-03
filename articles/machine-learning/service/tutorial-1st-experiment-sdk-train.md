@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
+ms.date: 09/03/2019
 ---
 
 # Tutorial: Train your first ML model
@@ -29,6 +29,21 @@ In this tutorial, you learn the following tasks:
 The only prerequisite is to run part one of this tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 In this part of the tutorial, you run the code in the sample Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` opened at the end of part one. This article walks through the same code that is in the notebook.
+
+## Launch Jupyter web interface
+
+After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
+
+1. Select **Jupyter** in the **URI** column for your VM to start up the notebook server.
+
+1. On the Jupyter notebook webpage, select the top foldername that contains your username.  
+
+   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
+
+1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+   > [!Warning]
+   > Ensure you open the `tutorial-1st-experiment-sdk-train.ipynb` file, **not** the `.yml` file of the > same name. 
 
 ## Connect workspace and create experiment
 
