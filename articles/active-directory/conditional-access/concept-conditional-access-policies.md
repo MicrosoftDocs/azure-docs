@@ -122,7 +122,7 @@ A Conditional Access policy must contain at minimum the following to be enforced
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[Commonly Conditional Access policies](concept-conditional-access-policy-common.md)
+[Common Conditional Access policies](concept-conditional-access-policy-common.md)
 
 [Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
 
