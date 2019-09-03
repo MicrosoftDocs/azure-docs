@@ -32,6 +32,8 @@ landingContent:
         links:
           - text: Create HDInsight clusters in the portal
             url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
+          - text: Setup HDInsight clusters
+            url: ./hdinsight-hadoop-provision-linux-clusters.md
           - text: Create Spark cluster using template
             url: ./spark/apache-spark-jupyter-spark-sql.md
           - text: Create clusters with Data Lake Store Gen2
@@ -39,7 +41,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Query HDFS compatible storage
-            url: ./hdinsight-hadoop-use-blob-storage
+            url: ./hdinsight-hadoop-use-blob-storage.md
+          - text: Compare storage options
+            url: ./hdinsight-hadoop-compare-storage-options.md
 
   # Card
   - title: Apache Spark
@@ -110,11 +114,29 @@ landingContent:
         links:
           - text: Plan virtual network
             url: ./hdinsight-plan-virtual-network-deployment.md
-          - text: HDInsight security
+          - text: HDInsight security overview
             url: ./domain-joined/hdinsight-security-overview.md
+          - text: Use Enterprise Security Package
+            url: ./domain-joined/apache-domain-joined-architecture.md
           - text: Migrate on-prem clusters to the cloud
             url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
       - linkListType: tutorial
         links:
           - text: Enterprise security setup with Azure ADDS
             url: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
+
+  # Card
+  - title: Cluster management
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Customize clusters with script actions
+            url: ./hdinsight-hadoop-customize-cluster-linux.md
+          - text: Use SSH
+            url: ./hdinsight-hadoop-linux-use-ssh-unix.md
+          - text: Cluster capacity planning
+            url: ./hdinsight-capacity-planning.md
+          - text: Use Azure monitor logs
+            url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+          - text: Monitor and manage clusters with Ambari UI
+            url: ./hdinsight-hadoop-manage-ambari.md
