@@ -1,6 +1,6 @@
 ---
 title: Working with skillsets - Azure Search
-description: Skillsets in cognitive search enable orchestration of AI enrichments
+description: Skillsets in cognitive search enable orchestration of AI enrichments, understanding a few concepts and how skillsets works allows you to build complex skillsets
 manager: eladz
 author: vkurpad
 services: search
@@ -14,15 +14,18 @@ ms.subservice: cognitive-search
 
 Skillsets define the AI skills that are invoked within the enrichment pipeline to enrich each document. 
 A skillset primarily comprises of three properties:
-+	Skills, an unordered collection of skills where the platform determines the sequence of execution based on the inputs required for each skill. 
-+	CognitiveServices, the cognitive services key required for billing the cognitive skills invoked
-+	KnowledgeStore, the storage account where your enriched documents can be projected in addition to the search index.
++	```Skills```, an unordered collection of skills where the platform determines the sequence of execution based on the inputs required for each skill. 
++	```CognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
++	```KnowledgeStore```, the storage account where your enriched documents can be projected in addition to the search index.
 
-Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree where a ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described in with an example. We will be using the [JFK Files sample](https://github.com/microsoft/AzureSearch_JFK_Files/blob/master/JfkWebApiSkills/JfkInitializer/skillset.jsonf_Q?e=HJQEAK) to illustrate some of the concepts and capabilities. But first, we will introduce a few concepts.
+Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree where a ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described in with an example. To illustrate some of the concepts and capabilities, we will walkthrough the [JFK Files sample](https://github.com/microsoft/AzureSearch_JFK_Files/blob/master/JfkWebApiSkills/JfkInitializer/skillset.jsonf_Q?e=HJQEAK) skillset.
 
 ## Concepts
 ### Enrichment tree
-To envision how a skillset progressively enriches your document, let’s start with what the document looks like before any enrichment. The output of document cracking is dependent on the data source and the specific parsing mode selected. 
+To envision how a skillset progressively enriches your document, let’s start with what the document looks like before any enrichment. 
+![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
+
+The output of document cracking is dependent on the data source and the specific parsing mode selected. This is also the state of the document that the [field mappings](search-indexer-field-mappings.md) can source content from when adding data to the search index.
 
 |Data Source\Parsing Mode|Default|JSON|JSON Lines/CSV|
 |---|---|---|---|
@@ -61,11 +64,13 @@ Let’s now step through a skillset and look at how the enrichment tree evolves 
 One important aspect of the enrichment tree is the scope of the enrichments addressable with a specific path. Let’s look at the JFK Files sample skillset, and evaluate the document state, inputs and outputs as each skill executes.
 ### Skill #1: OCR skill 
 ![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enricment-tree-before.png "Enrichment tree after document cracking and before skill execution")
+
 With the skill context of ```"/document/normalized_images/*"```, this skill will execute once for each image in the document. The skill generates a set out outputs, the outputs we want are the text and layoutText . Since neither of these nodes exist in the enrichment tree you don’t need to rename them with a targetName option. If you did have an existing node with the same name, the targetName allows you to create the node with a different name.
 The enrichment tree now has the new nodes parented under the context of the skill and these nodes are available to any downstream skills, projections or output field mappings.
  While the document ```"/document"``` is the root node for all enrichments, when ```"/document"``` is addressed, the only child properties are ```"/document/content"```, ```"/document/normalized_images/*"```. To access any of the enrichments that were added to a node in a subsequent skill, the full path for those enrichments are needed. For example, if you want to use the text from OCR as an input to another skill, you will need to select it as ```"/document/normalized_images/*/text"```.
  
  ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enricment-tree-after.png "Enrichment tree after  skill #1 executes")
+ 
  You should now be able to look at the remainder of the skills in the skillset and be able to visualize how the tree of enrichments continues to grow with the execution of each skill. Skills like the merge skill and the shaper skill create new nodes from existing nodes, but do not affect the existing nodes.
 
 ## Knowledge store
