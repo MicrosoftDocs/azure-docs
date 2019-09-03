@@ -51,7 +51,7 @@ Follow the instructions for your operating system on [Work with Azure Functions 
 
 ### Sign in to Azure
 
-Once the Functions extension is installed, sign into your Azure account by navigating to the **Azure: Functions** explorer, select **Sign in to Azure**, and follow the prompts.
+Once the Functions extension is installed, sign into your Azure account by going to the **Azure: Functions** explorer, select **Sign in to Azure**, and follow the prompts.
 
 ![Sign in to Azure through Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
 
@@ -202,7 +202,7 @@ The important parts of the code are as follows:
 
 ## Debug locally
 
-1. When you create the Functions project, the Visual Studio Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
+1. When you create the Functions project, the Visual Studio Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just select **F5** or use the Debug explorer to start the project:
 
     ![Debug explorer showing the Functions launch configuration](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -388,7 +388,7 @@ After your first deployment, you can make changes to your code, such as adding a
     }
     ```
 
-1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
+1. Start the debugger by selecting **F5** or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
     ```output
     Http Functions:
@@ -474,15 +474,15 @@ In this section, you add a storage binding to the HttpExample function created e
             )
     ```
 
-1. To test these changes locally, start the debugger again in Visual Studio Code by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. As before the **Output** window should show the endpoints in your project.
+1. To test these changes locally, start the debugger again in Visual Studio Code by selecting **F5** or selecting the **Debug** > **Start Debugging** menu command. As before the **Output** window should show the endpoints in your project.
 
 1. In a browser, visit the URL `http://localhost:7071/api/HttpExample?name=VS%20Code` to create a request to the HttpExample endpoint, which should also write a message to the queue.
 
 1. To verify that the message was written to the "outqueue" queue (as named in the binding), you can use one of three methods:
 
-    1. Sign into the [Azure portal](https://portal.azure.com), and navigate to the resource group containing your functions project. Within that resource group, local and navigate into the storage account for the project, then navigate into **Queues**. On that page, navigate into "outqueue", which should display all the logged messages.
+    1. Sign into the [Azure portal](https://portal.azure.com), and go to the resource group containing your functions project. Within that resource group, locate and open the storage account for the project, then go to **Queues**. On that page, go to "outqueue", which should display all the logged messages.
 
-    1. Navigate and examine the queue with either the Azure Storage Explorer, which integrates with Visual Studio, as described on [Connect Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), especially the [Examine the output queue](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) section.
+    1. Open and examine the queue with either the Azure Storage Explorer, which integrates with Visual Studio, as described on [Connect Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), especially the [Examine the output queue](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) section.
 
     1. Use the Azure CLI to query the storage queue, as described on [Query the storage queue](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
     

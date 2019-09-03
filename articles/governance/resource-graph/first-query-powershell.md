@@ -7,7 +7,6 @@ ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
