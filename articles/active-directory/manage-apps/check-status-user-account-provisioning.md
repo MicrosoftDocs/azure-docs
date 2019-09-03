@@ -39,28 +39,28 @@ This article uses the following terms, defined below:
 
 ## Getting provisioning reports from the Azure portal
 
-To get provisioning report information for a given application, start by launching the [Azure portal](https://portal.azure.com) and browsing to the Enterprise Application for which provisioning is configured. For example, if you are provisioning users to LinkedIn Elevate, the navigation path to the application details is:
+To get provisioning report information for a given application, start by launching the [Azure portal](https://portal.azure.com) and **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can also browse to the Enterprise Application for which provisioning is configured. For example, if you are provisioning users to LinkedIn Elevate, the navigation path to the application details is:
 
 **Azure Active Directory > Enterprise Applications > All applications > LinkedIn Elevate**
 
-From here, you can access both the Provisioning summary report, and the provisioning audit logs, both described below.
+From here, you can access both the provisioning progress bar and the provisioning logs, described below.
 
-## Provisioning summary report
+## Provisioning progress bar
 
-The provisioning summary report is visible in the **Provisioning** tab for given application. It is located in the **Synchronization Details** section underneath **Settings**, and provides the following information:
+The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for given application. It is located in the **Current Status** section underneath **Settings**, and shows the status of the current initial or incremental sync cycle. This section also shows:
 
 * The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial synchronization](user-provisioning.md#what-happens-during-provisioning) has completed.
 * Whether or not an [initial synchronization](user-provisioning.md#what-happens-during-provisioning) has been completed.
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials).
 
-The provisioning summary report should be the first place admins look to check on the operational health of the provisioning job.
+The **Current Status** should be the first place admins look to check on the operational health of the provisioning job.
 
- ![Summary report](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Summary report](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
-## Provisioning audit logs
+## Provisioning logs (preview)
 
-All activities performed by the provisioning service are recorded in the Azure AD audit logs, which can be viewed in the **Audit logs** tab under the **Account Provisioning** category. Logged activity event types include:
+All activities performed by the provisioning service are recorded in the Azure AD [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs). You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. Logged activity event types include:
 
 * **Import events** - An "import" event is recorded each time the Azure AD provisioning service retrieves information about an individual user or group from a source system or target system. During synchronization, users are retrieved from the source system first, with the results recorded as "import" events. The matching IDs of the retrieved users are then queried against the target system to check if they exist, with the results also recorded as "import" events. These events record all mapped user attributes and their values that were seen by the Azure AD provisioning service at the time of the event.
 * **Synchronization rule events** - These events report on the results of the attribute-mapping rules and any configured scoping filters, after user data has been imported and evaluated from the source and target systems. For example, if a user in a source system is deemed to be in scope for provisioning, and deemed to not exist in the target system, then this event records that the user will be provisioned in the target system.
@@ -80,31 +80,18 @@ When looking at provisioning events for an individual user, the events normally 
 
 The most common use case for the provisioning audit logs is to check the provisioning status of an individual user account. To look up the last provisioning events for a specific user:
 
-1. Go to the **Audit logs** section.
-1. From the **Category** menu, select **Account Provisioning**.
-1. In the **Date Range** menu, select the date range you want to search.
-1. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (for example, userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
-1. Press Enter to search. The most recent provisioning events will be returned first.
-1. If events are returned, note the activity types and whether they succeeded or failed. If no results are returned, then it means the user either does not exist, or has not yet been detected by the provisioning process if a full sync has not yet completed.
-1. Click on individual events to view extended details, including all user properties that were retrieved, evaluated, or written as part of the event.
+1. Go to **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section.
+1. In the **Date** menu, select the date range you want to search.
+2. In the **Identity** box, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (for example, userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
+3. Select **Apply** to apply the filter. The most recent provisioning events will be returned first.
+4. If events are returned, note the activity types and whether they succeeded or failed. If no results are returned, then it means the user either does not exist, or has not yet been detected by the provisioning process if a full sync has not yet completed.
+5. Click on individual events to view extended details, including all user properties that were retrieved, evaluated, or written as part of the event.
 
-For a demonstration on how to use the audit logs, see the video below. The audit logs are presented around the 5:30 mark:
-
-> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
-
-### Tips for viewing the provisioning audit logs
-
-For best readability in the Azure portal, select the **Columns** button and choose these columns:
-
-* **Date** - Shows the date the event occurred.
-* **Target(s)** - Shows the app name and user ID that are the subjects of the event.
-* **Activity** - The activity type, as described previously.
-* **Status** - Whether the event succeeded or not.
-* **Status Reason** - A summary of what happened in the provisioning event.
+For more details about using the logs, see [Provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs).
 
 ## Troubleshooting
 
-The provisioning summary report and audit logs play a key role helping admins troubleshoot various user account provisioning issues.
+The provisioning summary report and provisioning logs play a key role helping admins troubleshoot various user account provisioning issues.
 
 For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
 

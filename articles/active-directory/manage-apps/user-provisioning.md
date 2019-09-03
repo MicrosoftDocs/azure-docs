@@ -106,9 +106,9 @@ Use the Azure Active Directory portal to configure the Azure AD provisioning ser
 
    - **Settings** control the operation of the provisioning service for an application, including whether it's currently running. The **Scope** menu lets you specify whether only assigned users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](assign-user-or-group-access-portal.md).
 
-In the app management screen, select **Audit logs** to view records of every operation run by the Azure AD provisioning service. For more information, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+In the app management screen, select **Provisioning logs (preview)** to view records of every operation run by the Azure AD provisioning service. For more information, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
-![Example - Audit logs screen for an app](./media/user-provisioning/audit_logs.PNG)
+![Example - Provisioning logs screen for an app](./media/user-provisioning/audit_logs.PNG)
 
 > [!NOTE]
 > The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
@@ -158,7 +158,7 @@ The provisioning service continues running back-to-back incremental syncs indefi
 
 ### Errors and retries
 
-If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [audit logs](check-status-user-account-provisioning.md) for "process escrow" events to determine the root cause and take the appropriate action. Common failures can include:
+If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs) for "process escrow" events to determine the root cause and take the appropriate action. Common failures can include:
 
 - Users not having an attribute populated in the source system that is required in the target system
 - Users having an attribute value in the source system for which there's a unique constraint in the target system, and the same value is present in another user record
@@ -179,9 +179,9 @@ Performance depends on whether your provisioning job is running an initial provi
 
 ## How can I tell if users are being provisioned properly?
 
-All operations run by the user provisioning service are recorded in the Azure AD audit logs. This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
+All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs). This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
 
-For information on how to read the audit logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## How do I troubleshoot issues with user provisioning?
 
