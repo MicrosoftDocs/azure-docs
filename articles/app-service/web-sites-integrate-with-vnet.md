@@ -105,7 +105,7 @@ To disconnect your app from the VNet, select **Disconnect**. This will restart y
 
 #### Web App for Containers
 
-If you use App Service on Linux with the built-in images, the regional VNet Integration feature works without additional changes. If you use Web App for Containers, you need to modify your docker image in order to use VNet Integration. In your docker image, use the PORT environment variable as the main web server’s listening port, instead of using a hardcoded port number. The PORT environment variable is automatically set by App Service platform at the container startup time.
+If you use App Service on Linux with the built-in images, the regional VNet Integration feature works without additional changes. If you use Web App for Containers, you need to modify your docker image in order to use VNet Integration. In your docker image, use the PORT environment variable as the main web server’s listening port, instead of using a hardcoded port number. The PORT environment variable is automatically set by App Service platform at the container startup time. If you are using SSH, then the SSH daemon must be configured to listen on the port number specified by the SSH_PORT environment variable when using regional VNet integration.
 
 ### Service Endpoints
 
