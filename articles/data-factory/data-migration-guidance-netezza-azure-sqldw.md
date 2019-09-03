@@ -30,7 +30,7 @@ ADF offers a serverless architecture that allows parallelism at different levels
 
 ![performance](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
 
-- A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify [up to 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), and a single copy activity will partition its file set across all nodes. 
+- A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify [up to 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), and a single copy activity will distribute its partition across all nodes. 
 - A single copy activity reads from and writes to the data store using multiple threads. 
 - ADF control flow can start multiple copy activities in parallel, for example using [For Each loop](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
@@ -40,11 +40,11 @@ You can get more details from [copy activity performance guide](https://docs.mic
 
 Within a single copy activity run, ADF has built-in retry mechanism so it can handle a certain level of transient failures in the data stores or in the underlying network.
 
-The copy activity also offers you two ways to handle incompatible rows when copying data between source and sink data stores. You can either abort and fail the copy activity when incompatible data is encountered or continue to copy the rest data by skipping incompatible data rows. In addition, you can log the incompatible rows in Azure Blob storage or Azure Data Lake Store in order to learn the cause for the failure, fix the data on the data source, and retry the copy activity.
+ADF copy activity also offers you two ways to handle incompatible rows when copying data between source and sink data stores. You can either abort and fail the copy activity when incompatible data is encountered or continue to copy the rest data by skipping incompatible data rows. In addition, you can log the incompatible rows in Azure Blob storage or Azure Data Lake Store in order to learn the cause for the failure, fix the data on the data source, and retry the copy activity.
 
 ## Network security 
 
-By default, ADF transfers data from on-premise Netezza server to Azure Storage or Azure SQL Data Warehouse using encrypted connection over HTTPS protocol. HTTPS provides data encryption in transit and prevents eavesdropping and man-in-the-middle attacks.
+By default, ADF transfers data from on-premise Netezza server to Azure Storage or Azure SQL Data Warehouse using encrypted connection over HTTPS protocol. It provides data encryption in transit and prevents eavesdropping and man-in-the-middle attacks.
 
 Alternatively, if you do not want data to be transferred over public Internet, you can achieve higher security by transferring data over a private peering link via Azure Express Route. Refer to the solution architecture below on how this can be achieved.
 
@@ -63,14 +63,14 @@ Migrate data over private link:
 ![solution-architecture-private-network](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
 
 - In this architecture, data migration is done over a private peering link via Azure Express Route such that data never traverses over public Internet. 
-- You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture. You can manually scale up your VMs or scale out to multiple VMs to fully utilize your network and storage IOPS/bandwidth.
+- You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture. You can manually scale up your VMs or scale out to multiple VMs to fully utilize your network and data stores bandwidth to copy data.
 - Both initial snapshot data migration and delta data migration can be achieved using this architecture.
 
 ## Implementation best practices 
 
 ### Authentication and credential management 
 
-- To authenticate to Netezza, you can use [SQL authentication via connection string](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties). 
+- To authenticate to Netezza, you can use [ODBC authentication via connection string](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties). 
 - Multiple authentication types are supported to connect to Azure Blob Storage.  Use of [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) is highly recommended: built on top of an automatically managed ADF identify in Azure AD, it allows you to configure pipelines without supplying credentials in Linked Service definition.  Alternatively, you can authenticate to Azure Blob Storage using [Service Principal](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [shared access signature](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication), or [storage account key](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
 - Multiple authentication types are also supported to connect to Azure Data Lake Storage Gen2.  Use of [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) is highly recommended, although [service principal](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) or [storage account key](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) can also be used. 
 - Multiple authentication types are also supported to connect to Azure SQL Data Warehouse. Use of [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity) is highly recommended, although [service principal](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) or [SQL authentication](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication) can also be used.
@@ -78,19 +78,19 @@ Migrate data over private link:
 
 ### Initial snapshot data migration 
 
-For small tables when their volume size is smaller than 100 GB or can be migrated to Azure within 2 hours, each ADF copy activity can be used to copy data per table and you can run multiple ADF copy jobs to load different tables concurrently for better throughput. You can still reach some level of parallelism within each copy activity to load one table by using [parallelCopies setting](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) with data partition option to run parallel queries and copy data by partitions. There are two data partition options to be chosen with details below.
-- You are encouraged to start from data slice since it is more efficient.  Make sure the number of parallelism for parallelCopies setting is below the total number of data slice partitions in your Netezza server.  
-- If the volume size for each data slice partition is still large (For example, bigger than 10 GB), you are encouraged to use dynamic range partition where you have more flexibility to define the number of the partitions and the size of volume for each partition by partition column, upper bound and lower bound.
+For small tables when their volume size is smaller than 100 GB, or it can be migrated to Azure within 2 hours, each ADF copy activity can be configured per table. You can run multiple ADF copy jobs to load different tables concurrently for better throughput. Within each copy activity when loading one table, you can also reach some level of parallelism by using [parallelCopies setting](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) with data partition option to run parallel queries and copy data by partitions. There are two data partition options to be chosen with details below.
+- You are encouraged to start from data slice since it is more efficient.  Make sure the number of parallelism in parallelCopies setting is below the total number of data slice partitions in your Netezza server.  
+- If the volume size for each data slice partition is still large (For example, bigger than 10 GB), you are encouraged to switch to dynamic range partition, where you will have more flexibility to define the number of the partitions and the size of volume for each partition by partition column, upper bound and lower bound.
 
-For the large tables when their volume size is bigger than 100 GB or cannot be migrated to Azure within 2 hours, you are recommended to use multiple copy activities to load different partitions from one table. To partition the data loaded by different copy activities, leverage the ‘query’ property in copy activities to filter the data by query, and then each ADF copy job can copy one partition at a time (Within each copy activity, you can still enable parallelism to use multiple threads/sessions to load one partition via either data slice or dynamic range). You can run multiple ADF copy jobs concurrently for better throughput. If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from the table. All other copy jobs loading other partitions will not be impacted.
+For the large tables when their volume size is bigger than 100 GB, or it cannot be migrated to Azure within 2 hours, you are recommended to use multiple copy activities to load one table. To partition the data in one table loaded by different copy activities, leverage the ‘query’ property in copy activities to filter the data by query, and then each ADF copy job can copy one partition at a time (Within each copy activity, you can still enable parallelism to use multiple threads/sessions to load one partition via either data slice or dynamic range). You can run multiple ADF copy jobs concurrently for better throughput. If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from the table. All other copy jobs loading other partitions will not be impacted.
 
-When loading data into Azure SQL Data Warehouse, Polybase is suggested to be enabled within copy activity with configuring an Azure blob storage as staging.
+When loading data into Azure SQL Data Warehouse, Polybase is suggested to be enabled within copy activity with an Azure blob storage as staging.
 
 ### Delta data migration 
 
-The way to identify the new or updated rows from your table is using a timestamp column or incrementing key within the schema, and then store the latest value as high watermark in an external table, which can be used to differentiate the delta data for next time data loading. 
+The way to identify the new or updated rows from your table is using a timestamp column or incrementing key within the schema, and then store the latest value as high watermark in an external table, which can be used to filter the delta data for next time data loading. 
 
-Different tables can use different watermark column to identify the new or updated rows. We would suggest you to create an external control table where each row within it represents one table on Netezza server with its specific watermark column name and high watermark value. 
+Different tables can use different watermark column to identify the new or updated rows. We would suggest you to create an external control table where each row represents one table on Netezza server with its specific watermark column name and high watermark value. 
 
 ### Self-hosted Integration runtime configuration on Azure VM or machine
 
@@ -101,11 +101,11 @@ Given you are migrating data from Netezza server to Azure, no matter Netezza ser
 
 ### Rate limiting
 
-As a best practice, conduct a performance POC with a representative sample dataset, so that you can determine an appropriate partition size for each copy activity, where a good practice is to make each partition can be loaded to Azure within 2 hours.  
+As a best practice, conduct a performance POC with a representative sample dataset, so that you can determine an appropriate partition size for each copy activity. We suggest you to make each partition be loaded to Azure within 2 hours.  
 
-Start with a single copy activity with single self-hosted IR machine to copy a table. Gradually increase parallelCopies setting based on the number of data slice partitions, and see if the table can be loaded to Azure within 2 hours according to the throughput from the test. 
+Start with a single copy activity with single self-hosted IR machine to copy a table. Gradually increase parallelCopies setting based on the number of data slice partitions, and see if the entire table can be loaded to Azure within 2 hours according to the throughput you monitor from the PoC. 
 
-If it cannot be achieved, and at the same time the CPU/Memory on the self-hosted IR node as well as the data store bandwidth are not fully utilized, gradually increase the number of concurrent copy activities until you reach limits of your network or bandwidth limit of the data stores. 
+If it cannot be achieved, and at the same time the capacity of the self-hosted IR node and the data store are not fully utilized, gradually increase the number of concurrent copy activities until you reach limits of your network or bandwidth limit of the data stores. 
 
 Keep monitoring the CPU/memory utilization on self-hosted IR machine, and be ready to scale up the machine or scale out to multiple machines when you see the CPU/memory are fully utilized. 
 
