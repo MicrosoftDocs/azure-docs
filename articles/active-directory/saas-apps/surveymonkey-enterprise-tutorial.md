@@ -42,7 +42,7 @@ To configure Azure AD integration with SurveyMonkey Enterprise, you need the fol
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* SurveyMonkey Enterprise supports **SP and IDP** initiated SSO
+* SurveyMonkey Enterprise supports **IDP** initiated SSO
 
 ## Adding SurveyMonkey Enterprise from the gallery
 
@@ -102,12 +102,15 @@ To configure Azure AD single sign-on with SurveyMonkey Enterprise, perform the f
 
     ![SurveyMonkey Enterprise Domain and URLs single sign-on information](common/preintegrated.png)
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+5. On the **User Attributes & Claims** section, ensure the Claim Names match the names SurveyMonkey requires and map each attribute to the appropriate value in your system.
 
-    ![SurveyMonkey Enterprise Domain and URLs single sign-on information](common/both-signonurl.png)
+	a. NameID - an example value is "user.principalname"
 
-    In the **Sign-on URL** text box, type a URL:
-    `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+	b. Email - an example value is "user.mail"
+	
+	c. FirstName (optional) - an example value is "user.givenname"
+
+	c. LastName (optional) - an example value is "user.surname"
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -179,7 +182,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create SurveyMonkey Enterprise test user
 
-In this section, you create a user called Britta Simon in SurveyMonkey Enterprise. Work with [SurveyMonkey Enterprise support team](https://help.surveymonkey.com/) to add the users in the SurveyMonkey Enterprise platform. Users must be created and activated before you use single sign-on.
+It is not necessary to create a test user in SurveyMonkey. User accounts will be provisioned, if the user chooses to create a new account, based on the SAML assertion. Your SurveyMonkey Customer Success Manager will provide steps to complete this process after your Azure metadata has been added to the SurveyMonkey configuration and it's ready to be validated.
 
 ### Test single sign-on 
 
