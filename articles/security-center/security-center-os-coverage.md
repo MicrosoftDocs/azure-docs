@@ -28,11 +28,11 @@ Security Center supports virtual machines / servers on different types of hybrid
 
 For an Azure environment activated on an Azure subscription, Azure Security Center will automatically discover IaaS resources that are deployed within the subscription.
 
-In non-Azure environments, for Azure Security Center to support virtual machines / servers on other clouds or on-premises, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) (same as for Azure environment mentioned in the previous paragraph), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manualagent).
+In non-Azure environments, for Azure Security Center to support virtual machines / servers on other clouds or on-premises, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) (same as for Azure environment mentioned in the previous paragraph), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manual-agent).
 
 
 > [!NOTE]
-> To receive the full set of security features, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manualagent).
+> To receive the full set of security features, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manual-agent).
 
 
 The following sections list the supported server operating systems on which the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), which is used by Azure Security Center, can run.
