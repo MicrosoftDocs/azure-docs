@@ -11,8 +11,6 @@
     items:
     - name: Frame faces in an image
       items:
-      - name: C#
-        href: QuickStarts/csharp-detect-sdk.md
       - name: Python
         href: Tutorials/FaceAPIinPythonTutorial.md
     - name: .NET SDK
