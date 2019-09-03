@@ -45,7 +45,7 @@ Designed by Google and the most popular OS in the world, apps built on Android c
 - More developer resource and expensive to build an app.
 - Lower code reuse.
 
-## Cross-platforms and Hybrid
+## Cross-platforms and Hybrid apps
 Cross-platform apps gives you the power to write native mobile applications once, share code, and run them on iOS, Android, and Windows.
 
 ### 1. **Xamarin**

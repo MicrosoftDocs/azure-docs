@@ -7,13 +7,13 @@
   - name: Stages in Mobile App Development
   items:
     - name: Overview
-      href: overview-of-mobile-app-development.md
+      href: 
     - name: Choose the front-end development platform
       href: front-end-development-platform.md
     - name: Plan and Design mobile app with back-end services
       items:
       - name: Authentication
-        href: 
+        href: authentication.md
       - name: Cloud Storage
         href: 
       - name: Real time and Offline Data Storage
@@ -46,13 +46,13 @@
   - name: Additional Services
     items:
     - name: Cognitive Services 
-      href: 
+      href: cognitive-services.md
     - name: Azure Maps 
-      href:         
+      href: azure-maps.md
     - name: Azure Search
       href:        
     - name: Azure CDN for Asset Hosting
-      href:         
+      href: azure-cdn.md        
     - name: Azure PlayFab
       href:           
   - name: Conclusion

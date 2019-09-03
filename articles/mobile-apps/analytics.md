@@ -11,11 +11,11 @@ ms.author: emalani
 ---
 
 # Analyze and understand usage of your mobile application 
-How well do you understand how your users use your apps? How many active users does your app have and how is usage changing over time? What features are they using and which ones are used the most? Where are these users based? How many users are using the latest version of the application? Well, all these questions are important to turn your app into a successful business and to answer those kidns of usage analytics questions, you need to collect usage data from your apps.
+How well do you understand how your users use your apps? How many active users does your app have and how is usage changing over time? What features are they using and which ones are used the most? Where are these users based? How many users are using the latest version of the application? Well, all these questions are important to turn your app into a successful business and to answer those kinds of usage analytics questions, you need to collect usage data from your apps.
 
 The more you drill down into the data, the more you could find ways to improve your app and keep your users happy and it's important to use data to find actionable insights. This way you will do the right thing for users and your app.
 
-## Importance of levereaging Analytics for mobile apps?
+## Importance of levereaging Analytics for mobile apps
 - **Understand** your users, how they interact with your app, and what brings them back to fine tune your application and provide great experience to grow your business.
 - **Track** your usage metrics and make informed decision on how to market your app and better serve your customers.
 - **Measure** your app performance and things that matter the most to your business.

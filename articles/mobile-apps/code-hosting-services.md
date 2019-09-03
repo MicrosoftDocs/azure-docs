@@ -15,7 +15,7 @@ If you have development teams with multiple team members working on the same cod
 
 Cloud hosting is much easier than on-premise options as it requires less hardware configuration and allows organizations to complete the implementation process in a more agile manner.
 
-## Benefits of hosting source code in the cloud?
+## Benefits of hosting source code in the cloud
 - **Centralized cloud storage** to view and manage your data from anywhere.
 - Enables **better collaboration and cleaner code** within teams to keep track of code and manage projects to ensure the continuous delivery of excellent software.
 - **Get involved** and makes it **easy to contribute** to your projects.
