@@ -19,8 +19,6 @@ settings, and more.
 At this time, Azure Policy Guest Configuration only performs an audit of setings inside the machine.
 It is not yet possible to apply configurations.
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Extension and client
 
 To audit settings inside a machine, a [virtual machine

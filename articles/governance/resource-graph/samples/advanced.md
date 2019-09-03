@@ -25,8 +25,6 @@ We'll walk through the following advanced queries:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Language support
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
