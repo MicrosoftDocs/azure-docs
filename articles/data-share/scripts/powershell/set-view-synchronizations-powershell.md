@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 title: "PowerShell script: Set and view Azure Data Share sychronization settings| Microsoft Docs"
-=======
-title: "PowerShell script: Set and view share synchronization settings| Microsoft Docs"
->>>>>>> 88c36e52867af9797b7fc9f076e4411cb6159b7b
 description: This PowerShell script sets and gets share synchronization settings.
 services: data-share
 author: t-roupa
