@@ -20,11 +20,9 @@ The rest of the document details the steps needed to deploy Event Grid module wi
 > [!NOTE]
 >The Event Grid module runs as a low-privileged user **ContainerUser** in Windows.
 
-We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. Persistence in docker basically involves mounting a host directory onto the container. There are a couple of ways to mount host directory onto a container.
-
 ## Option 1: Persistence via volume mount
 
-To mount a volume you need to create it using docker commands, give permissions so that the container can read, write to it and then deploy the module. There is no provision to automatically create the volume with necessary permissions on Windows as part of Event Grid deployment and need to be performed before deploying.
+We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to preserve the data across deployments. To mount a volume you need to create it using docker commands, give permissions so that the container can read, write to it and then deploy the module. There is no provision to automatically create the volume with necessary permissions on Windows. These need to be created before deploying.
 
 1. Create a volume by running the below command
 
@@ -66,7 +64,7 @@ To mount a volume you need to create it using docker commands, give permissions 
    ]
    ```
 
-1. Add the group. Users** to value pointed by **Mountpoint** as follows:
+1. Add the group **Users** to value pointed by **Mountpoint** as follows:
     1. Open File Explorer
     1. Navigate to the folder pointed by **Mountpoint**
     1. Right-click and go to properties
