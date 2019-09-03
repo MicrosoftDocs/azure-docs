@@ -133,7 +133,7 @@ typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL cont
 
 For example:
 
-```objective-c
+```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
     {
         if (!containsPII)
@@ -146,17 +146,17 @@ For example:
     }];
 ```
 
-### Personal Identifiable Information (PII) & Organizational Identifiable Information (OII)
+### Personal Identifiable Information (PII)
 
-By default, MSAL doesn't capture or log any PII or OII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII or OII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+By default, MSAL doesn't capture or log any PII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
 
-```Objective-C
-// By default, the `MSALLogger` doesn't capture any PII or OII
+```objc
+// By default, the `MSALLogger` doesn't capture any PII
 
-// PII or OII will be logged
+// PII will be logged
 MSALGlobalConfig.loggerConfig.piiEnabled = YES;
 
-// PII or OII will NOT be logged
+// PII will NOT be logged
 MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 ```
 
