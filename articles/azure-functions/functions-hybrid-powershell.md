@@ -15,7 +15,7 @@ ms.author: eamono
 
 # Managing hybrid environments with PowerShell in Azure Functions and App Service Hybrid Connections
 
-The Azure App Service Hybrid Connections enables access to resources in other networks. You can learn more about this capability on the [Hybrid Connections](../app-service/app-service-hybrid-connections.md) documentation. The follow information describes how to use this capability to run PowerShell functions on an on-premises server. This server can then be used to manage all resources within the on-premises environment from an Azure PowerShell function.
+The Azure App Service Hybrid Connections enables access to resources in other networks. You can learn more about this capability on the [Hybrid Connections](../app-service/app-service-hybrid-connections.md) documentation. The following information describes how to use this capability to run PowerShell functions targeting an on-premises server. This server can then be used to manage all resources within the on-premises environment from an Azure PowerShell function.
 
 
 ## Configure an on-premises server to be used for PowerShell remoting
