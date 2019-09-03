@@ -141,7 +141,7 @@ var webViewParamaters : MSALWebviewParameters?
 
 Modify the value assigned to `kClientID`to be your Application ID. This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
 
-## [iOS only step] Configure URL schemes
+## For iOS only, configure URL schemes
 
 In this step, you will register `CFBundleURLSchemes` so that the user can be redirected back to the app after sign in. By the way, `LSApplicationQueriesSchemes` also allows  your app to make use of Microsoft Authenticator.
 
@@ -329,7 +329,7 @@ func initWebViewParams() {
     }
 ```
 
-### [iOS only step] Handle the sign-in callback
+### For iOS only, handle the sign-in callback
 
 Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class like this:
 

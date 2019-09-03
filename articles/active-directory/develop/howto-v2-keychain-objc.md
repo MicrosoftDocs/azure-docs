@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Configure keychain
 
-When the [Microsoft Authentication Library for iOS and macOS](msal-overview.md) (MSAL) signs in a user, or refreshes a token, it tries to cache tokens in the keychain. By caching tokens in the keychain, MSAL can provide silent SSO between multiple apps distributed by the same Apple developer. SSO is achieved through keychain access groups functionality (see [Apple's documentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc))
+When the [Microsoft Authentication Library for iOS and macOS](msal-overview.md) (MSAL) signs in a user, or refreshes a token, it tries to cache tokens in the keychain. By caching tokens in the keychain, MSAL can provide silent single sign-on (SSO) between multiple apps distributed by the same Apple developer. SSO is achieved via the keychain access groups functionality (see [Apple's documentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc))
 
 This article covers how to configure app entitlements so that MSAL can write cached tokens to iOS and macOS keychain.
 
