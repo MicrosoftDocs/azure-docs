@@ -7,7 +7,6 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Creating dynamic blueprints through parameters
 

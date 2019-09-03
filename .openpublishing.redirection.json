@@ -41560,6 +41560,11 @@
       "source_path": "articles/sql-database/sql-database-paas.yml",
       "redirect_url": "/azure/sql-database/sql-database-paas-index",
       "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/azure-monitor/app/sample-mscrm.md",
+      "redirect_url": "/azure/azure-monitor/app/javascript",
+      "redirect_document_id": false
     }
   ]
 }
