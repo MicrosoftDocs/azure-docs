@@ -203,9 +203,8 @@ or using Azure PowerShell, see [Run PowerShell scripts in your Windows VM with R
 ```powershell
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
-$versions = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\'
-$current = $versions.Name | Sort-Object -Descending | Select-Object -First 1
-Select-String -Path "C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\$current\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch
+$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object FullName | Sort-Object -Descending | Select-Object -First 1
+Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch
 ```
 
 ### Linux
