@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-one
+zone_pivot_groups:  programming-languages-set-one-without-java
 ---
 
 # Quickstart: Use the Text Analytics client library for sentiment analysis
@@ -26,12 +26,6 @@ Get started with the Text Analytics client library. Follow these steps to instal
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/sentiment-analysis-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](../includes/quickstarts/sentiment-analysis-java.md)]
 
 ::: zone-end
 

@@ -15,6 +15,20 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
+- id: programming-languages-set-one-without-java
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
   prompt: Choose a Text Analytics feature offering

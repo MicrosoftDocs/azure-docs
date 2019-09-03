@@ -29,12 +29,6 @@ Get started with the Text Analytics client library. Follow these steps to instal
 
 ::: zone-end
 
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](../includes/quickstarts/detect-language-java.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-nodejs"
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/detect-language-nodejs.md)]
