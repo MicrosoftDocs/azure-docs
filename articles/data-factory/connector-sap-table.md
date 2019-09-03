@@ -12,13 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
 # Copy data from an SAP table by using Azure Data Factory
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
+
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP Data Integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
 
 ## Supported capabilities
 
