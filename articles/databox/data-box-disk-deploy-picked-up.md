@@ -81,11 +81,10 @@ Take the following steps if returning the device in Europe.
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
-1. Attach the reverse shipping label provided onto the box and make sure the TAU code (reference number) is written on it 
-2. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
-
-If the provided shipment label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
-
+1. Go to **Overview** and copy and save the displayed TAU code (reference number).
+2. Go to **Overview > Download shipping label** and download a return ship label. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
+3. Write the TAU code on the shipping label and affix the label on the box. 
+4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
 ### Pick up in Asia
 
