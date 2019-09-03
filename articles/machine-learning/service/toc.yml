@@ -16,7 +16,7 @@
     items:
     - name: Create first ML experiment
       items:
-      - name: 1. Setup workspace & dev environment
+      - name: 1. Set up workspace & dev environment
         href: tutorial-1st-experiment-sdk-setup.md
       - name: 2. Train your first model
         href: tutorial-1st-experiment-sdk-train.md
@@ -34,10 +34,10 @@
         href: tutorial-auto-train-models.md
   - name: Visual interface
     items:
-    - name: Train regression model
+    - name: 1. Train regression model
       displayName: studio
       href: ui-tutorial-automobile-price-train-score.md
-    - name: Deploy regression model
+    - name: 2. Deploy regression model
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
   - name: Automated machine learning
@@ -291,12 +291,18 @@
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
+      - name: Feature Hashing
+        href: ../algorithm-module-reference/feature-hashing.md
+      - name: Extract N-Gram Features from Text
+        href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
         href: ../algorithm-module-reference/add-columns.md
       - name: Add Rows
         href: ../algorithm-module-reference/add-rows.md
       - name: Remove Duplicate Rows
         href: ../algorithm-module-reference/remove-duplicate-rows.md
+      - name: Preprocess Text
+        href: ../algorithm-module-reference/preprocess-text.md
       - name: Join Data
         href: ../algorithm-module-reference/join-data.md
       - name: Split Data

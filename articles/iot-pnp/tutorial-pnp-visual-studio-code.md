@@ -338,7 +338,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 1. To create an IoT hub:
 
     ```azurecli-interactive
-    az group create --name environmentalsensorresources --location eastus
+    az group create --name environmentalsensorresources --location centralus
     az iot hub create --name {your iot hub name} \
       --resource-group environmentalsensorresources --sku F1
     ```

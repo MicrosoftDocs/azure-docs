@@ -141,6 +141,11 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
+## Entitlement management
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Add SharePoint Online sites to catalog | Global administrator
 
 
 ## Groups

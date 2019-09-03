@@ -7,7 +7,6 @@ ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Troubleshoot errors using Azure Blueprints
 
