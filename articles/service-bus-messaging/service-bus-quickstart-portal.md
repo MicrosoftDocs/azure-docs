@@ -33,7 +33,7 @@ To complete this tutorial, make sure you have installed:
 ## Send and receive messages
 
 > [!NOTE]
-> The sample to send and receive messages mentioned in this section is a .NET sample. For samples for other programming languages, see [Service Bus samples](service-bus-samples.md). 
+> The sample used in this section to send and receive messages is a .NET sample. For samples to send/receive messages using other programming languages, see [Service Bus samples](service-bus-samples.md). 
 > 
 > For step-by-step instructions for sending/receiving messages using various programming languages, see the following quick starts:
 > - [.NET](service-bus-dotnet-get-started-with-queues.md)
