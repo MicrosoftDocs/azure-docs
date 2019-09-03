@@ -1,38 +1,35 @@
 ---
-title: Understand how to audit the contents of a virtual machine
-description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure virtual machine. 
+title: Understand how to audit the contents of a machine
+description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure machine. 
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand Azure Policy's Guest Configuration
 
 In addition to auditing and [remediating](../how-to/remediate-resources.md) Azure resources, Azure
-Policy can audit settings inside a virtual machine. The validation is performed by the Guest
+Policy can audit settings inside a machine. The validation is performed by the Guest
 Configuration extension and client. The extension, through the client, validates settings such as
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
 
-At this time, Azure Policy Guest Configuration only performs an audit of setings inside the machine.
+At this time, Azure Policy Guest Configuration only performs an audit of settings inside the machine.
 It is not yet possible to apply configurations.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Extension and client
 
-To audit settings inside a virtual machine, a [virtual machine
+To audit settings inside a machine, a [virtual machine
 extension](../../../virtual-machines/extensions/overview.md) is enabled. The extension downloads
 applicable policy assignment and the corresponding configuration definition.
 
-### Limits set on the exension
+### Limits set on the extension
 
 In order to limit the extension from impacting applications running inside the machine,
 the Guest Configuration is not allowed to exceed more than 5% of CPU utilization.
-This is true boh for configurations provided by Microsoft as "built-in"
+This is true both for configurations provided by Microsoft as "built-in"
 and for custom configurations authored by customers.
 
 ## Register Guest Configuration resource provider
@@ -67,7 +64,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## Validation tools
 
-Inside the virtual machine, the Guest Configuration client uses local tools to run the audit.
+Inside the machine, the Guest Configuration client uses local tools to run the audit.
 
 The following table shows a list of the local tools used on each supported operating system:
 
@@ -85,7 +82,7 @@ trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state
 written to the Guest Configuration resource provider. This causes Azure Policy to evaluate the Azure
 Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest value from
 the Guest Configuration resource provider. However, it doesn't trigger a new audit of the
-configuration within the virtual machine.
+configuration within the machine.
 
 ## Supported client types
 
@@ -112,7 +109,7 @@ Windows Server Nano Server is not supported in any version.
 
 ## Guest Configuration Extension network requirements
 
-To communicate with the Guest Configuration resource provider in Azure, virtual machines require
+To communicate with the Guest Configuration resource provider in Azure, machines require
 outbound access to Azure datacenters on port **443**. If you're using a private virtual network in
 Azure and don't allow outbound traffic, exceptions must be configured using [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. At
@@ -137,14 +134,14 @@ outbound access to the IPs in the regions where your VMs are deployed.
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
 definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** definition is used to prepare the
-virtual machine with the Guest Configuration agent and other components to support the [validation
+machine with the Guest Configuration agent and other components to support the [validation
 tools](#validation-tools).
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
-- Validate the virtual machine has been assigned a configuration to evaluate. If no assignment is
-  currently present, get the assignment and prepare the virtual machine by:
-  - Authenticating to the virtual machine using a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
+- Validate the machine has been assigned a configuration to evaluate. If no assignment is
+  currently present, get the assignment and prepare the machine by:
+  - Authenticating to the machine using a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installing the latest version of the **Microsoft.GuestConfiguration** extension
   - Installing [validation tools](#validation-tools) and dependencies, if needed
 
@@ -167,7 +164,7 @@ data](../how-to/getting-compliance-data.md).
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
 for use in assignments. The built-in initiative named *[Preview]: Audit Password security settings
-inside Linux and Windows virtual machines* contains 18 policies. There are six **DeployIfNotExists**
+inside Linux and Windows machines* contains 18 policies. There are six **DeployIfNotExists**
 and **AuditIfNotExists** pairs for Windows and three pairs for Linux. In each case, the logic inside the
 definition validates only the target operating system is evaluated based on the [policy rule](definition-structure.md#policy-rule)
 definition.
@@ -175,7 +172,15 @@ definition.
 ### Multiple assignments
 
 Guest Configuration policies currently only support assigning the same Guest Assignment once
-per virtual machine, even if the Policy assignment uses different parameters.
+per machine, even if the Policy assignment uses different parameters.
+
+## Built-in resource modules
+
+When the Guest Configuration extension is installed, the 'GuestConfiguration' PowerShell module
+is included with the latest version of DSC resource modules. This module can be downloaded from the PowerShell
+Gallery by using the 'Manual Download' link from the module page
+[GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+The '.nupkg' file format can be renamed to '.zip' to uncompress and review.
 
 ## Client log files
 
