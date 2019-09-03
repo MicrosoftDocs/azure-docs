@@ -23,7 +23,7 @@ To learn more about MySQL replication features and issues, please see the [MySQL
 
 The read replica feature helps to improve the performance and scale of read-intensive workloads. Read workloads can be isolated to the replicas, while write workloads can be directed to the master.
 
-A common scenario is to have BI and analytical workloads use the read replica as the data source for reporting.
+A common scenario is to have BI and analytical workloads use the read replica as the data source for reporting.• Member of SQL Database team owning performance in SQL Database and Business Models
 
 Because replicas are read-only, they don't directly reduce write-capacity burdens on the master. This feature isn't targeted at write-intensive workloads.
 
@@ -116,7 +116,7 @@ A read replica is created as a new Azure Database for MySQL server. An existing 
 
 ### Replica configuration
 
-A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, backup retention period, and MySQL engine version. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
