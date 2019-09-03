@@ -246,6 +246,15 @@ To create a new update deployment, select **Schedule update deployment**. The **
 
 Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
+### Maintenance Windows
+
+Maintenance windows control the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window.
+
+* Maintenance windows control how many updates are attempted to be installed.
+* Update Management does not stop installing new updates if the end of a maintenance window is approaching.
+* Update Management does not terminate in-progress updates if when the maintenance window is exceeded.
+* If the maintenance window is exceeded on Windows, it is often because of a service pack update taking a long time to install.
+
 ### <a name="multi-tenant"></a>Cross-tenant Update Deployments
 
 If you have machines in another Azure tenant reporting to Update Management that you need to patch, you'll need to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the switch `-ForUpdate` to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration

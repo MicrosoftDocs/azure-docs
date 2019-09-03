@@ -106,6 +106,14 @@ To ensure that the nodes in a cluster can reliably communicate with the API serv
 
 > [!WARNING]
 > The use of Azure Firewall can incur significant costs over a monthly billing cycle. The requirement to use Azure Firewall should only be necessary in this initial preview period. For more information and cost planning, see [Azure Firewall pricing][azure-firewall-costs].
+>
+> Alternatively, if your cluster uses the [Standard SKU load balancer][standard-sku-lb], you do not need to configure the Azure Firewall as the outbound gateway. Use [az network public-ip list][az-network-public-ip-list] and specify the resource group of your AKS cluster, which usually starts with *MC_*. This displays the public IP for your cluster, which you can whitelist. For example:
+>
+> ```azurecli-interactive
+> RG=$(az aks show --resource-group myResourceGroup --name myAKSClusterSLB --query nodeResourceGroup -o tsv)
+> SLB_PublicIP=$(az network public-ip list --resource-group $RG --query [].ipAddress -o tsv)
+> az aks update --api-server-authorized-ip-ranges $SLB_PublicIP --resource-group myResourceGroup --name myAKSClusterSLB
+> ```
 
 First, get the *MC_* resource group name for the AKS cluster and the virtual network. Then, create a subnet using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *AzureFirewallSubnet* with the CIDR range of *10.200.0.0/16*:
 
@@ -257,11 +265,13 @@ For more information, see [Security concepts for applications and clusters in AK
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-network-firewall-create]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-create
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
@@ -269,3 +279,4 @@ For more information, see [Security concepts for applications and clusters in AK
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[standard-sku-lb]: load-balancer-standard.md

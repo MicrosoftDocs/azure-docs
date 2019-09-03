@@ -62,9 +62,6 @@
         href: active-directory-b2c-reference-tokens.md
       - name: Request access token
         href: active-directory-b2c-access-tokens.md
-      - name: Support multiple token issuers
-        href: multiple-token-endpoints.md
-        displayName: migrate, b2clogin, owin, jwt
   - name: User flow and policy
     items:
     - name: User flows
@@ -307,7 +304,12 @@
       - name: RelyingParty
         href: relyingparty.md
   - name: Use b2clogin.com
-    href: b2clogin.md
+    items:
+    - name: b2clogin.com overview
+      href: b2clogin.md
+    - name: Migrate web API to b2clogin.com
+      href: multiple-token-endpoints.md
+      displayName: migrate, b2clogin, owin, jwt
   - name: Automation
     items:
     - name: Export usage report

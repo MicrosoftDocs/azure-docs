@@ -46,6 +46,8 @@ Use the links in this section for more information about managed cloud networkin
 
 [Tata Communications](https://www.tatacommunications.com/)
 
+[Vandis](https://www.vandis.com/)
+
 ## <a name="expressroute"></a>ExpressRoute partners
 
 For information about partners, see [ExpressRoute partners and locations](../expressroute/expressroute-locations-providers.md).

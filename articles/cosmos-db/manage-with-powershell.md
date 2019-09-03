@@ -242,6 +242,7 @@ For the example below, assume the account has a current failover priority of `We
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"

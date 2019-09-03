@@ -6,8 +6,6 @@
     href: security-center-intro.md
   - name: Security Center supported platforms and features
     href: security-center-os-coverage.md
-  - name: Endpoint protection assessment and recommendations 
-    href: security-center-endpoint-protection.md
 
 - name: Quickstarts
   expanded: true
@@ -48,6 +46,24 @@
     href: security-center-incident-response.md  
   - name: Cross-tenant management
     href: security-center-cross-tenant-management.md 
+  - name: Threat detection alerts
+    items:
+    - name: Security alerts overview
+      href: security-center-alerts-overview.md
+    - name: Threat detection for VMs & servers
+      href: security-center-alerts-iaas.md
+    - name: Threat detection for cloud native compute
+      href: security-center-alerts-compute.md
+    - name: Threat detection for data services
+      href: security-center-alerts-data-services.md
+    - name: Threat detection for Azure service layer
+      href: security-center-alerts-service-layer.md   
+    - name: Integration with Azure Security Products
+      href: security-center-alerts-integration.md
+    - name: Cloud Smart Alert correlation (incidents)
+      href: security-center-alerts-cloud-smart.md 
+    - name: Alert validation (EICAR test file)
+      href: security-center-alert-validation.md
 
 - name: How-to guides
   items:
@@ -109,24 +125,6 @@
       href: security-center-file-integrity-monitoring.md
     - name: Adaptive network hardening
       href: security-center-adaptive-network-hardening.md
-  - name: Threat detection alerts
-    items:
-    - name: Security alerts overview
-      href: security-center-alerts-overview.md
-    - name: Threat detection for VMs & servers
-      href: security-center-alerts-iaas.md
-    - name: Threat detection for cloud native compute
-      href: security-center-alerts-compute.md
-    - name: Threat detection for data services
-      href: security-center-alerts-data-services.md
-    - name: Threat detection for Azure service layer
-      href: security-center-alerts-service-layer.md   
-    - name: Integration with Azure Security Products
-      href: security-center-alerts-integration.md
-    - name: Cloud Smart Alert correlation (incidents)
-      href: security-center-alerts-cloud-smart.md 
-    - name: Alert validation (EICAR test file)
-      href: security-center-alert-validation.md
       
   - name: Archive
     items:
@@ -134,18 +132,10 @@
       href: security-center-apply-disk-encryption.md
     - name: Apply system updates
       href: security-center-apply-system-updates.md
-    - name: Enable encryption for storage account
-      href: security-center-enable-encryption-for-storage-account.md
-    - name: Enable VM Agent
-      href: security-center-enable-vm-agent.md
     - name: Install Endpoint Protection
       href: security-center-install-endpoint-protection.md
     - name: Reboot after system updates
       href: security-center-apply-system-updates.md#reboot-after-system-updates
-    - name: Remediate security configurations
-      href: security-center-remediate-os-vulnerabilities.md
-    - name: Update OS version
-      href: security-center-update-os-version.md
     - name: Vulnerability assessment not installed
       href: security-center-vulnerability-assessment-recommendations.md
     - name: Add a web application firewall
@@ -197,6 +187,8 @@
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Features and API retirement (July 2019)
     href: security-center-features-retirement-july2019.md
+  - name: Endpoint protection assessment and recommendations 
+    href: security-center-endpoint-protection.md
 
 - name: Resources
   items:

@@ -3,7 +3,7 @@ title: Azure VMware Solution by CloudSimple - Private cloud VMware components
 description: Describes how VMware components are installed on private cloud 
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
@@ -41,11 +41,11 @@ vCenter server appliance (VCSA) provides the authentication, management, and orc
 
 ### vCenter single sign-on
 
-Embedded Platform Services Controller on VCSA is associated with a **vCenter Single Sign-On domain**.  The domain name is **cloudsimple.local**.  A default user **CloudOwner@cloudsimple.com** is created for you to access vCenter.  You can add your on-premises/Azure active directory [identity sources for vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/).
+Embedded Platform Services Controller on VCSA is associated with a **vCenter Single Sign-On domain**.  The domain name is **cloudsimple.local**.  A default user **CloudOwner@cloudsimple.com** is created for you to access vCenter.  You can add your on-premises/Azure active directory [identity sources for vCenter](set-vcenter-identity.md).
 
 ## vSAN storage
 
-Private clouds are created with fully configured all-flash vSAN storage, local to the cluster.  Minimum three nodes of the same SKU are required to create a vSphere cluster with vSAN datastore.  Deduplication and compression are enabled on the vSAN datastore by default.  Two disk groups are created on each node of the vSphere cluster. Each disk group contains one cache disk and three capacity disks.
+Private clouds are created with fully configured all-flash vSAN storage, local to the cluster.  Minimum three nodes of the same SKU are required to create a vSphere cluster with vSAN datastore.  De-duplication and compression are enabled on the vSAN datastore by default.  Two disk groups are created on each node of the vSphere cluster. Each disk group contains one cache disk and three capacity disks.
 
 A default vSAN storage policy is created on the vSphere cluster and applied to the vSAN datastore.  This policy determines how the VM storage objects are provisioned and allocated within the datastore to guarantee the required level of service.  The storage policy defines the **Failures to tolerate (FTT)** and the **Failure tolerance method**.  You can create new storage policies and apply them to the VMs. To maintain SLA, 25% spare capacity must be maintained on the vSAN datastore.  
 

@@ -35,7 +35,7 @@ From this page, you can:
 * Click each tab, and view the recommendations by resource type.
 
     > [!NOTE]
-    > For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+    > For more information about storage encryption, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
 
 ## Remediate a recommendation on a data resource

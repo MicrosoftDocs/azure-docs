@@ -149,18 +149,6 @@ For a list of region IP addresses instead of region names, download the [Azure D
 >
 > It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
 
-## Introduction video
-
-Prefer watching to reading? Have a look at the following video from May 2015, when Azure Automation
-State Configuration was first announced.
-
-> [!NOTE]
-> While the concepts and life cycle discussed in this video are correct, Azure Automation State
-> Configuration has progressed a lot since this video was recorded. It is now generally available,
-> has a much more extensive UI in the Azure portal, and supports many additional capabilities.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
-
 ## Next steps
 
 - To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md)

@@ -34,7 +34,7 @@ The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery sol
 
 ## Basic concepts and terms
 
-The disaster recovery feature implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. Note that the Geo-disaster recovery feature is available for the [Standard SKU](https://azure.microsoft.com/pricing/details/event-hubs/) only. You do not need to make any connection string changes, as the connection is made via an alias.
+The disaster recovery feature implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. Note that the Geo-disaster recovery feature is available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You do not need to make any connection string changes, as the connection is made via an alias.
 
 The following terms are used in this article:
 

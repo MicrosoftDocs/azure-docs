@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -28,7 +28,7 @@ Microsoft highly recommends Administrators enable users to select more than the 
 | Password | MFA and SSPR |
 | Security questions | SSPR Only |
 | Email address | SSPR Only |
-| Microsoft Authenticator app | MFA and public preview for SSPR |
+| Microsoft Authenticator app | MFA and SSPR |
 | OATH Hardware token | Public preview for MFA and SSPR |
 | SMS | MFA and SSPR |
 | Voice call | MFA and SSPR |
@@ -38,7 +38,7 @@ Microsoft highly recommends Administrators enable users to select more than the 
 
 |     |
 | --- |
-| OATH Hardware tokens for MFA and SSPR and Mobile app notification or Mobile app code as methods for Azure AD self-service password reset are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| OATH Hardware tokens for MFA and SSPR are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## Password
@@ -153,7 +153,7 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## OATH hardware tokens (public preview)
 
-OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens.
+OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret keys need to be encoded in Base32.
 
 ![Uploading OATH tokens to the MFA Server OATH tokens blade](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 

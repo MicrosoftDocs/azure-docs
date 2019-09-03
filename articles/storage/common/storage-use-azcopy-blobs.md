@@ -143,10 +143,14 @@ You can download the contents of a directory without copying the containing dire
 
 You can use AzCopy to copy blobs to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
 
-> [!NOTE]
-> Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. 
+AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Optimize throughput](storage-use-azcopy-configure.md#optimize-throughput).
 
-AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
+> [!NOTE]
+> This scenario has the following limitations in the current release.
+>
+> - Only accounts that don't have a hierarchical namespace are supported.
+> - You have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL.
+>-  Premium block blob storage accounts don't support access tiers. Omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`).
 
 This section contains the following examples:
 
@@ -155,9 +159,6 @@ This section contains the following examples:
 > * Copy a directory to another storage account
 > * Copy a containers to another storage account
 > * Copy all containers, directories, and files to another storage account
-
-> [!NOTE]
-> In the current release, you have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL. 
 
 ### Copy a blob to another storage account
 
@@ -180,7 +181,7 @@ This section contains the following examples:
 | **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
 | **Example** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
-### Copy all containers, directories, and files to another storage account
+### Copy all containers, directories, and blobs to another storage account
 
 |    |     |
 |--------|-----------|

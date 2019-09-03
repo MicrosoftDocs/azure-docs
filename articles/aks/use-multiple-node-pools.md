@@ -31,7 +31,7 @@ You need the Azure CLI version 2.0.61 or later installed and configured. Run `az
 
 ### Install aks-preview CLI extension
 
-To use multiple nodepools, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To use multiple node pools, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -163,6 +163,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 
 ## Upgrade a node pool
 
+> [!NOTE]
+> Upgrade and scale operations on a cluster or node pool are mutually exclusive. You cannot have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
+
 When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.9* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool. The `az aks upgrade` command is used to upgrade the control plane, while the `az aks nodepool upgrade` is used to upgrade an individual node pool.
 
 Let's upgrade the *mynodepool* to Kubernetes *1.13.9*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
@@ -279,7 +282,7 @@ It takes a few minutes for the scale operation to complete.
 
 ## Scale a specific node pool automatically by enabling the cluster autoscaler
 
-AKS offers a separate feature in preview to automatically scale node pools with a component called the [cluster autoscaler](cluster-autoscaler.md). This component is an AKS add-on that can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools).
+AKS offers a separate feature in preview to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature is an AKS add-on that can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## Delete a node pool
 
@@ -549,6 +552,9 @@ az group deployment create \
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
 ## Assign a public IP per node in a node pool
+
+> [!NOTE]
+> During preview there is a limitation of using this feature with *Standard Load Balancer SKU in AKS (preview)* due to possible load balancer rules conflicting with VM provisioning. While in preview use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
 
 AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This can be achieved by registering for a separate preview feature, Node Public IP (preview).
 

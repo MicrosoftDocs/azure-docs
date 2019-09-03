@@ -1,7 +1,7 @@
 ---
 title: Modeling data in Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
-description: Learn about data modeling in NoSQL databases, differences between modeling data in a relational database and a document database.
+description: Learn about data modeling in NoSQL databases, differences between modeling data in a relational database and an item database.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -25,7 +25,7 @@ After reading this article, you will be able to answer the following questions:
 
 ## Embedding data
 
-When you start modeling data in Azure Cosmos DB try to treat your entities as **self-contained items** represented as JSON documents.
+When you start modeling data in Azure Cosmos DB try to treat your entities as **self-contained items** represented as JSON items.
 
 For comparison, let's first see how we might model data in a relational database. The following example shows how a person might be stored in a relational database.
 
@@ -64,7 +64,7 @@ Now let's take a look at how we would model the same data as a self-contained en
         ]
     }
 
-Using the approach above we have **denormalized** the person record, by **embedding** all the information related to this person, such as their contact details and addresses, into a *single JSON* document.
+Using the approach above we have **denormalized** the person record, by **embedding** all the information related to this person, such as their contact details and addresses, into a *single JSON* item.
 In addition, because we're not confined to a fixed schema we have the flexibility to do things like having contact details of different shapes entirely.
 
 Retrieving a complete person record from the database is now a **single read operation** against a single container and for a single item. Updating a person record, with their contact details and addresses, is also a **single write operation** against a single item.
@@ -165,19 +165,19 @@ Take this JSON snippet.
         ]
     }
 
-This could represent a person's stock portfolio. We have chosen to embed the stock information into each portfolio document. In an environment where related data is changing frequently, like a stock trading application, embedding data that changes frequently is going to mean that you are constantly updating each portfolio document every time a stock is traded.
+This could represent a person's stock portfolio. We have chosen to embed the stock information into each portfolio item. In an environment where related data is changing frequently, like a stock trading application, embedding data that changes frequently is going to mean that you are constantly updating each portfolio item every time a stock is traded.
 
-Stock *zaza* may be traded many hundreds of times in a single day and thousands of users could have *zaza* on their portfolio. With a data model like the above we would have to update many thousands of portfolio documents many times every day leading to a system that won't scale well.
+Stock *zaza* may be traded many hundreds of times in a single day and thousands of users could have *zaza* on their portfolio. With a data model like the above we would have to update many thousands of portfolio items many times every day leading to a system that won't scale well.
 
 ## Referencing data
 
 Embedding data works nicely for many cases but there are scenarios when denormalizing your data will cause more problems than it is worth. So what do we do now?
 
-Relational databases are not the only place where you can create relationships between entities. In a document database, you can have information in one document that relates to data in other documents. We do not recommend building systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be useful.
+Relational databases are not the only place where you can create relationships between entities. In an item database, you can have information in one item that relates to data in other items. We do not recommend building systems that would be better suited to a relational database in Azure Cosmos DB, or any other item database, but simple relationships are fine and can be useful.
 
-In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it. This way, when the stock item changes frequently throughout the day the only document that needs to be updated is the single stock document.
+In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it. This way, when the stock item changes frequently throughout the day the only item that needs to be updated is the single stock item.
 
-    Person document:
+    Person item:
     {
         "id": "1",
         "firstName": "Thomas",
@@ -188,7 +188,7 @@ In the JSON below we chose to use the example of a stock portfolio from earlier 
         ]
     }
 
-    Stock documents:
+    Stock items:
     {
         "id": "1",
         "symbol": "zaza",
@@ -210,14 +210,14 @@ In the JSON below we chose to use the example of a stock portfolio from earlier 
         "pe": 75.82
     }
 
-An immediate downside to this approach though is if your application is required to show information about each stock that is held when displaying a person's portfolio; in this case you would need to make multiple trips to the database to load the information for each stock document. Here we've made a decision to improve the efficiency of write operations, which happen frequently throughout the day, but in turn compromised on the read operations that potentially have less impact on the performance of this particular system.
+An immediate downside to this approach though is if your application is required to show information about each stock that is held when displaying a person's portfolio; in this case you would need to make multiple trips to the database to load the information for each stock item. Here we've made a decision to improve the efficiency of write operations, which happen frequently throughout the day, but in turn compromised on the read operations that potentially have less impact on the performance of this particular system.
 
 > [!NOTE]
 > Normalized data models **can require more round trips** to the server.
 
 ### What about foreign keys?
 
-Because there is currently no concept of a constraint, foreign-key or otherwise, any inter-document relationships that you have in documents are effectively "weak links" and will not be verified by the database itself. If you want to ensure that the data a document is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on Azure Cosmos DB.
+Because there is currently no concept of a constraint, foreign-key or otherwise, any inter-item relationships that you have in items are effectively "weak links" and will not be verified by the database itself. If you want to ensure that the data an item is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on Azure Cosmos DB.
 
 ### When to reference
 
@@ -233,18 +233,18 @@ In general, use normalized data models when:
 
 ### Where do I put the relationship?
 
-The growth of the relationship will help determine in which document to store the reference.
+The growth of the relationship will help determine in which item to store the reference.
 
 If we look at the JSON below that models publishers and books.
 
-    Publisher document:
+    Publisher item:
     {
         "id": "mspress",
         "name": "Microsoft Press",
         "books": [ 1, 2, 3, ..., 100, ..., 1000]
     }
 
-    Book documents:
+    Book items:
     {"id": "1", "name": "Azure Cosmos DB 101" }
     {"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "3", "name": "Taking over the world one JSON doc at a time" }
@@ -253,17 +253,17 @@ If we look at the JSON below that models publishers and books.
     ...
     {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
-If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher document may be useful. However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher document above.
+If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher item may be useful. However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher item above.
 
 Switching things around a bit would result in a model that still represents the same data but now avoids these large mutable collections.
 
-    Publisher document:
+    Publisher item:
     {
         "id": "mspress",
         "name": "Microsoft Press"
     }
 
-    Book documents:
+    Book items:
     {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
     {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
     {"id": "3","name": "Taking over the world one JSON doc at a time"}
@@ -272,7 +272,7 @@ Switching things around a bit would result in a model that still represents the 
     ...
     {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
-In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a reference to the publisher on each book document.
+In the above example, we have dropped the unbounded collection on the publisher item. Instead we just have a reference to the publisher on each book item.
 
 ### How do I model many:many relationships?
 
@@ -280,41 +280,41 @@ In a relational database *many:many* relationships are often modeled with join t
 
 ![Join tables](./media/sql-api-modeling-data/join-table.png)
 
-You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.
+You might be tempted to replicate the same thing using items and produce a data model that looks similar to the following.
 
-    Author documents:
+    Author items:
     {"id": "a1", "name": "Thomas Andersen" }
     {"id": "a2", "name": "William Wakefield" }
 
-    Book documents:
+    Book items:
     {"id": "b1", "name": "Azure Cosmos DB 101" }
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
     {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
-    Joining documents:
+    Joining items:
     {"authorId": "a1", "bookId": "b1" }
     {"authorId": "a2", "bookId": "b1" }
     {"authorId": "a1", "bookId": "b2" }
     {"authorId": "a1", "bookId": "b3" }
 
-This would work. However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database. One query to the joining document and then another query to fetch the actual document being joined.
+This would work. However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database. One query to the joining item and then another query to fetch the actual item being joined.
 
 If all this join table is doing is gluing together two pieces of data, then why not drop it completely?
 Consider the following.
 
-    Author documents:
+    Author items:
     {"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
     {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
-    Book documents:
+    Book items:
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
-Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the IDs of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make.
+Now, if I had an author, I immediately know which books they have written, and conversely if I had a book item loaded I would know the IDs of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make.
 
 ## Hybrid data models
 
@@ -326,7 +326,7 @@ Based on your application's specific usage patterns and workloads there may be c
 
 Consider the following JSON.
 
-    Author documents:
+    Author items:
     {
         "id": "a1",
         "firstName": "Thomas",
@@ -350,7 +350,7 @@ Consider the following JSON.
         ]
     }
 
-    Book documents:
+    Book items:
     {
         "id": "b1",
         "name": "Azure Cosmos DB 101",
@@ -367,21 +367,21 @@ Consider the following JSON.
         ]
     }
 
-Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level document, but other data is referenced.
+Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level item, but other data is referenced.
 
-If you look at the book document, we can see a few interesting fields when we look at the array of authors. There is an `id` field that is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have `name` and `thumbnailUrl`. We could have stuck with `id` and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
+If you look at the book item, we can see a few interesting fields when we look at the array of authors. There is an `id` field that is the field we use to refer back to an author item, standard practice in a normalized model, but then we also have `name` and `thumbnailUrl`. We could have stuck with `id` and left the application to get any additional information it needed from the respective author item using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
 
 Sure, if the author's name changed or they wanted to update their photo we'd have to go and update every book they ever published but for our application, based on the assumption that authors don't change their names often, this is an acceptable design decision.  
 
-In the example, there are **pre-calculated aggregates** values to save expensive processing on a read operation. In the example, some of the data embedded in the author document is data that is calculated at run-time. Every time a new book is published, a book document is created **and** the countOfBooks field is set to a calculated value based on the number of book documents that exist for a particular author. This optimization would be good in read heavy systems where we can afford to do computations on writes in order to optimize reads.
+In the example, there are **pre-calculated aggregates** values to save expensive processing on a read operation. In the example, some of the data embedded in the author item is data that is calculated at run-time. Every time a new book is published, a book item is created **and** the countOfBooks field is set to a calculated value based on the number of book items that exist for a particular author. This optimization would be good in read heavy systems where we can afford to do computations on writes in order to optimize reads.
 
-The ability to have a model with pre-calculated fields is made possible because Azure Cosmos DB supports **multi-document transactions**. Many NoSQL stores cannot do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation. With Azure Cosmos DB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction. Now you don't **have** to embed everything into one document just to be sure that your data remains consistent.
+The ability to have a model with pre-calculated fields is made possible because Azure Cosmos DB supports **multi-item transactions**. Many NoSQL stores cannot do transactions across items and therefore advocate design decisions, such as "always embed everything", due to this limitation. With Azure Cosmos DB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction. Now you don't **have** to embed everything into one item just to be sure that your data remains consistent.
 
-## Distinguishing between different document types
+## Distinguishing between different item types
 
-In some scenarios, you may want to mix different document types in the same collection; this is usually the case when you want multiple, related documents to sit in the same [partition](partitioning-overview.md). For example, you could put both books and book reviews in the same collection and partition it by `bookId`. In such situation, you usually want to add to your documents with a field that identifies their type in order to differentiate them.
+In some scenarios, you may want to mix different item types in the same collection; this is usually the case when you want multiple, related items to sit in the same [partition](partitioning-overview.md). For example, you could put both books and book reviews in the same collection and partition it by `bookId`. In such situation, you usually want to add to your items with a field that identifies their type in order to differentiate them.
 
-    Book documents:
+    Book items:
     {
         "id": "b1",
         "name": "Azure Cosmos DB 101",
@@ -389,7 +389,7 @@ In some scenarios, you may want to mix different document types in the same coll
         "type": "book"
     }
 
-    Review documents:
+    Review items:
     {
         "id": "r1",
         "content": "This book is awesome",

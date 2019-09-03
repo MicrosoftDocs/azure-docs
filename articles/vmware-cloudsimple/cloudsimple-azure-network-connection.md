@@ -13,16 +13,11 @@ manager: dikamath
 
 When you create a CloudSimple service in a region, it:
 
-* Creates an Azure ExpressRoute circuit and attaches it to the service in that region
-* Allows connection from your CloudSimple region network to your Azure virtual network or your on-premises network using Azure ExpressRoute
-* Provides access services running in your Azure subscription, or your on-premises network, from your Private Cloud environment
+* Creates an Azure ExpressRoute circuit and attaches it to the service in that region.
+* Connects your CloudSimple region network to your Azure virtual network or your on-premises network using Azure ExpressRoute.
+* Provides access to services running in your Azure subscription or your on-premises network from your Private Cloud environment.
 
-The connection is:
-
-* Secure
-* Private
-* High bandwidth
-* Low latency
+The ExpressRoute connection is high bandwidth with low latency.
 
 ## Benefits
 
@@ -34,9 +29,9 @@ Azure network connection allows you to:
 
 ## Azure virtual network connection
 
-Private Clouds can be connected to your Azure resources using ExpressRoute.  You can use this connection to access different resources running in your Azure subscription from your Private Cloud.  This connection allows you to extend you Private Cloud network to your Azure virtual network.
+Private Clouds can be connected to your Azure resources using ExpressRoute.  The ExpressRoute connection allows you to access resources running in your Azure subscription from your Private Cloud.  This connection allows you to extend your Private Cloud network to your Azure virtual network.
 
-![Azure ExpressRoute Connection to virtual network](media/cloudsimple-azure-network-connection.png)
+[![Azure ExpressRoute Connection to virtual network](media/cloudsimple-azure-network-connection.png)
 
 ## ExpressRoute connection to on-premises network
 
@@ -46,5 +41,5 @@ You can connect your existing Azure ExpressRoute circuit to your CloudSimple reg
 
 ## Next steps
 
-* [Obtain peering information for Azure virtual network to CloudSimple connection](https://docs.azure.cloudsimple.com/virtual-network-connection)
-* [Connect from on-premises to CloudSimple using ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)
+* [Connect Azure virtual network to CloudSimple using ExpressRoute](virtual-network-connection.md)
+* [Connect from on-premises to CloudSimple using ExpressRoute](on-premises-connection.md)

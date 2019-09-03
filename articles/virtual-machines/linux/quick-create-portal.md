@@ -8,13 +8,13 @@ manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/12/2018
+ms.date: 8/16/2019
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -29,23 +29,50 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
 
-Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).  
+Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. An example command to do this is listed below. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-The above command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat`.
+You will be prompted to enter a file in which to save the key pair. You may either enter a specific file location or just hit 'Enter' to save in the default location indicated in brackets. You will then be prompted to enter a passphrase. You may enter a passphrase for your SSH key or you may hit 'Enter' to continue without a passphrase.
 
-```bash 
+```bash
+[root@linuxvm ~]$ ssh-keygen -t rsa -b 2048
+Enter the file in which to save the key (home/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your public key has been saved in /home/root/.ssh/id_rsa.pub.
+The key fingerprint is: SHA256:kkQS13gbaxevy4ULH0mW6wLIkcFm0twx/rIlSo1fIqU
+The key's randomart image is:
++---[RSA 2018]----+
+|   +oo=+         |
+|  . B=o.+ .      |
+|   + o+. + +     |
+|    o* o+ = .    |
+|   .EoB.S+ =     |
+|   .o+.O. * .    |
+|    . o. = =     |
+|        . *      |
+|         .       |
++----[SHA256]-----+
+```
+The `ssh-keygen` command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat`.
+
+```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
-Save the output of this command. You will need it when configuring your administrator account to log in to your VM.
+>[!NOTE]
+> If you chose to save your SSH key in a different location than the default, you will have to use that location when you run `cat`
 
-For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
+Save the output of this command. This is your public key and you will need it when configuring your administrator account to log in to your VM.
 
-If you create your SSH key pair using the Cloud Shell, it will be stored in an Azure File Share that is [automatically mounted by the Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Don't delete this file share or storage account until after you have retrieved your keys or you will lose access to the VM. 
+For more information on the ssh-keygen command, visit the [man page](https://linux.die.net/man/1/ssh-keygen).
+
+If you are using a Windows computer and want to more on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
+
+If you create your SSH key pair using the Cloud Shell, it will be stored in an Azure File Share that is [automatically mounted by the Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Don't delete this file share or storage account until after you have retrieved your keys or you will lose access to the VM.
 
 ## Sign in to Azure
 
@@ -55,9 +82,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Choose **Create a resource** in the upper left corner of the Azure portal.
 
-1. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
+1. In the search box above the list of Azure Marketplace resources, search for **Ubuntu Server 18.04** and select the Ubuntu 18.04 LTS offering, then choose **Create**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK**. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK**.
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
@@ -65,11 +92,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
-1. Under **Administrator account**, select **SSH public key**, type your user name, then paste your public key into the text box. Remove any leading or trailing white space in your public key.
+1. Under **Administrator account**, select **SSH public key**, type your user name, then paste your public key that you saved earlier into the text box. Remove any leading or trailing white space in your public key.
 
     ![Administrator account](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
+1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
 	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -79,12 +106,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
-	
+
 ## Connect to virtual machine
 
 Create an SSH connection with the VM.
 
-1. Select the **Connect** button on the overview page for your VM. 
+1. Select the **Connect** button on the overview page for your VM.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
 
@@ -94,7 +121,7 @@ Create an SSH connection with the VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Using the same bash shell you used to create your SSH key pair (like the [Azure Cloud Shell](https://shell.azure.com/bash) or your local bash shell) paste the SSH connection command into the shell to create an SSH session. 
+3. Using the same bash shell you used to create your SSH key pair (like the [Azure Cloud Shell](https://shell.azure.com/bash) or your local bash shell), paste the SSH connection command into the shell to create an SSH session.
 
 ## Install web server
 

@@ -50,7 +50,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 
 ## Next steps
 
-- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) article.
+- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) article.
 
 - If you want more information about two-step verification, see [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
 

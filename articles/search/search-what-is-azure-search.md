@@ -11,9 +11,9 @@ ms.author: heidist
 ---
 # What is Azure Search?
 
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing), issues query requests, and handles responses. The search experience is defined in your client code using functionality from Azure Search, with query execution over a persisted index that you create, own, and store on Azure Search.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing), issues query requests, and handles responses. The search experience is defined in your client code using functionality from Azure Search, with query execution over a persisted index that you create, own, and store on Azure Search.
 
-![Azure Search architecture](media/search-what-is-azure-search/azure-search-diagram.png "Azure Search architecture")
+![Azure Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search architecture")
 
 <!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
 + Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.

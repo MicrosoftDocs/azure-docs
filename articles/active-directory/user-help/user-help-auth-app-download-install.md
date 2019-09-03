@@ -48,7 +48,7 @@ Install the latest version of the Microsoft Authenticator app, based on your ope
 - **Apple iOS.** On your Apple iOS device, go to the App Store to [download and install the Microsoft Authenticator app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->If you're not currently on your mobile device, you can still get the Microsoft Authenticator app by sending yourself a download link from the [Microsoft Authenticator page](https://www.microsoft.com/en-us/account/authenticator).
+>If you're not currently on your mobile device, you can still get the Microsoft Authenticator app by sending yourself a download link from the [Microsoft Authenticator page](https://www.microsoft.com/account/authenticator).
 
 ## Next steps
 

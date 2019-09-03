@@ -190,10 +190,7 @@ To learn more, see the [Queue storage output binding](functions-bindings-storage
 
 Visual Studio Code lets you publish your Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-When you publish from Visual Studio Code, you can use one of two deployment methods:
-
-* [Zip deploy with Run From Package enabled](functions-deployment-technologies.md#zip-deploy): Used for most Azure Functions deployments.
-* [External package URL](functions-deployment-technologies.md#external-package-url): Used for deployment to Linux apps on a [Consumption plan](functions-scale.md#consumption-plan).
+When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology.
 
 ### Quick function app creation
 

@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -120,6 +120,8 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 08/16/2019: Changes in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) to remind customers to update the actions in the custom role, if updating to the new version of the Azure fence agent  
+- 08/15/2019: Changes in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to reflect General Availability of Ultra disk (formerly Ultra SSD)
 - 08/01/2019: Changes to [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) to integrate changes specifically for SLES 15 
 - 07/23/2019: Changes in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](sap-high-availability-guide-wsfc-file-share.md) to reflect support of Storage Space Direct by Azure Site Recovery Services
 - 07/14/2019: Release of [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md)

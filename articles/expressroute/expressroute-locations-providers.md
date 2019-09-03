@@ -183,7 +183,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 ## <a name="c1partners"></a>Connectivity Through Additional Service Providers
 | **Location** | **Exchange** | **Connectivity Providers** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Interxion, Level 3 Communications, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
+| **Amsterdam** | Equinix, Interxion, Level 3 Communications, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Luxembourg, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Crown Castle
 | **Cape Town** | Teraco | MTN |
 | **Chicago** | Equinix| Crown Castle, Spectrum Enterprise, Windstream |
