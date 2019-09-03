@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -62,7 +62,7 @@ When you are done with the knowledge base, remove it in the QnA Maker portal.
 
 ## Next steps
 
-For cost savings measures, you can [share](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
+For cost savings measures, you can [share](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
 
 > [!div class="nextstepaction"]
-> [Add chit-chat personal](./chit-chat-knowledge-base.md)
+> [Add questions with metadata](../quickstarts/add-question-metadata-portal.md)
