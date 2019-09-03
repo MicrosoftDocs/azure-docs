@@ -92,15 +92,9 @@ landingContent:
             url: data-sql-management-studio.md
       - linkListType: reference
         links:
-          - text: Database views
-            url: database-views.md
-
-  - title: API
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Messaging API
-            url: messages-overview.md
           - text: REST API
             url: use-api.md
-
+          - text: Messaging API
+            url: messages-overview.md
+          - text: Database views
+            url: database-views.md
