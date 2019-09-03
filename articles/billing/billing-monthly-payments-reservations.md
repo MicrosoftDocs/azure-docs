@@ -1,18 +1,20 @@
 ---
-title: Purchase Azure reservations with monthly payments
-description: Learn how you can purchase Azure reservations with monthly payments.
+title: Purchase Azure reservations with up front or monthly payments
+description: Learn how you can purchase Azure reservations with up front or monthly payments.
 services: billing
 author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: banders
 ---
 
 # Purchase reservations with monthly payments
 
-You can purchase Azure reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
+Until now, Azure reservations required payment up front. Now you can pay for reservations with monthly payments. Unlike an up-front purchase where you can purchase Azure reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
+
+Your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
 Monthly payments are available for:
 
@@ -34,7 +36,7 @@ To view the payments schedule after purchase, select a reservation, click the **
 
 ## View payments made
 
-You can view payments that were made using APIs, usage data, and in cost analysis. For reservations paid for monthly, the frequency value is shown as **recurring** in usage data and Reservation Charges API. For reservations paid up front, the value is shown as **onetime**. For more information about reservations and usage data, see [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md).
+You can view payments that were made using APIs, usage data, and in cost analysis. For reservations paid for monthly, the frequency value is shown as **recurring** in usage data and Reservation Charges API. For reservations paid up front, the value is shown as **onetime**.
 
 Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter for **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
