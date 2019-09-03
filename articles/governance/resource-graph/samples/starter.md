@@ -7,7 +7,6 @@ ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Starter Resource Graph queries
 
