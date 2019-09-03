@@ -4,7 +4,7 @@ description: Learn how to create a container in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: mjbrown
 ---
 
@@ -20,15 +20,15 @@ This article explains the different ways to create an Azure Cosmos container (co
 
 1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing account.
 
-1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
+1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a collection ID.
+   * Enter a container ID.
    * Enter a partition key.
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Data Explorer pane, with New Collection highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
+![Screenshot of Data Explorer pane, with New Container highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
@@ -36,15 +36,15 @@ This article explains the different ways to create an Azure Cosmos container (co
 
 1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select an existing account.
 
-1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
+1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a collection ID.
+   * Enter a container ID.
    * Enter a shard key.
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Azure Cosmos DB API for MongoDB, Add Collection dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Screenshot of Azure Cosmos DB API for MongoDB, Add Container dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
