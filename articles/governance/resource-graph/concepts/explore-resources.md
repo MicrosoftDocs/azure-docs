@@ -7,7 +7,6 @@ ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Explore your Azure resources with Resource Graph
 
