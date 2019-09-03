@@ -3,7 +3,7 @@ title: Azure Resource Manager template functions - deployment | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: tomfitz
 
