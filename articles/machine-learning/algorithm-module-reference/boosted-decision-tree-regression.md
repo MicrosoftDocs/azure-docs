@@ -83,7 +83,7 @@ The gradient boosting method can also be used for classification problems by red
 
 10. Run the experiment.  
   
-### Results
+## Results
 
 After training is complete:
 

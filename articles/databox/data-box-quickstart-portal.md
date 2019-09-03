@@ -21,7 +21,7 @@ ms.localizationpriority: high
 
 ::: zone target="chromeless"
 
-# Get started with Azure Data Box Disk using Azure portal
+# Get started with Azure Data Box 
 
 ::: zone-end
 
