@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -40,9 +40,9 @@ The following table gives you some high-level guidelines.
 | Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
 | Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
-For upgrading your QnA Maker stack, see [Upgrade your QnA Maker service](../How-To/upgrade-qnamaker-service.md).
+For upgrading your QnA Maker stack, see [Upgrade your QnA Maker service](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Upgrade your QnA Maker service](../How-To/upgrade-qnamaker-service.md)
+> [Upgrade your QnA Maker service](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)

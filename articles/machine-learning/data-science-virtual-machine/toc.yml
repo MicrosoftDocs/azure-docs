@@ -4,9 +4,9 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Data Science VM?
+  - name: What is the Data Science Virtual Machine?
     href: overview.md
-  - name: What is the Geo AI Data Science VM?
+  - name: What is the Geo AI DSVM?
     href: geo-ai-dsvm-overview.md
 - name: Quickstarts
   expanded: true
@@ -17,7 +17,7 @@
     href: dsvm-ubuntu-intro.md
   - name: Create a CentOS DSVM
     href: linux-dsvm-intro.md
-  - name: Create a Geo AI Data Science VM
+  - name: Create a Geo AI DSVM
     href: provision-geo-ai-dsvm.md 
 - name: Concepts
   items:
@@ -33,9 +33,9 @@
     href: dsvm-data-platforms.md    
   - name: Data ingestion tools
     href: dsvm-tools-ingestion.md
-  - name: Data exploration & visualization tools
+  - name: Data exploration and visualization tools
     href: dsvm-tools-explore-and-visualize.md
-  - name: Enterprise security & guidance
+  - name: Enterprise security and guidance
     href: dsvm-enterprise-overview.md  
 - name: Samples    
   href: dsvm-samples-and-walkthroughs.md
@@ -47,7 +47,7 @@
     href: linux-dsvm-walkthrough.md
   - name: Use a Geo AI DSVM
     href: use-geo-ai-dsvm.md
-  - name: Create autoscaled DSVM pool 
+  - name: Create an autoscaled DSVM pool 
     href: dsvm-pools.md
   - name: Integrate with Active Directory
     href: dsvm-common-identity.md

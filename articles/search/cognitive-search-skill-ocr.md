@@ -2,7 +2,7 @@
 title: OCR cognitive search skill - Azure Search
 description: Extract text from image files using optical character recognition (OCR) in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/27/2019
 ms.author: jingwang
 
 ---
@@ -30,6 +30,9 @@ To use this Microsoft Access connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the Microsoft Access ODBC driver for the data store on the Integration Runtime machine.
+
+>[!NOTE]
+>Microsoft Access 2016 version of ODBC driver doesn't work with this connector. Use driver version 2013 or 2010 instead.
 
 ## Getting started
 
@@ -80,7 +83,7 @@ The following properties are supported for Microsoft Access linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Microsoft Access dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Microsoft Access dataset.
 
 To copy data from Microsoft Access, the following properties are supported:
 

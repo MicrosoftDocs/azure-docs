@@ -23,9 +23,9 @@ This article provides you with the information you need to configure a user risk
 
 ## What is a user risk policy?
 
-Azure AD analyzes each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. In Azure AD, the suspicious actions the system can detect are also known as risk events. While some risk events can be detected in real-time, there are also risk events requiring more time. For example, to detect an impossible travel to atypical locations, the system requires an initial learning period of 14 days to learn about a user's regular behavior. There are several options to resolve detected risk events. For example, you can resolve individual risk events manually, or you can get them resolved using a sign-in risk or a user risk Conditional Access policy.
+Azure AD analyzes each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. In Azure AD, the suspicious actions the system can detect are also known as risk detections. While some risk detections can be detected in real-time, there are also risk detections requiring more time. For example, to detect an impossible travel to atypical locations, the system requires an initial learning period of 14 days to learn about a user's regular behavior. There are several options to resolve detected risk detections. For example, you can resolve individual risk detections manually, or you can get them resolved using a sign-in risk or a user risk Conditional Access policy.
 
-All risk events that have been detected for a user and didn't get resolved are known as active risk events. The active risk events that are associated with a user are known as user risk. Based on the user risk, Azure AD calculates a probability (low, medium, high) that a user has been compromised. The probability is called user  risk level.
+All risk detections that have been detected for a user and didn't get resolved are known as active risk detections. The active risk detections that are associated with a user are known as user risk. Based on the user risk, Azure AD calculates a probability (low, medium, high) that a user has been compromised. The probability is called user  risk level.
 
 ![User risks](./media/howto-user-risk-policy/1031.png)
 
@@ -69,8 +69,8 @@ You can set a user risk security policy to block users upon sign-in depending on
 
 Blocking a sign-in:
 
-* Prevents the generation of new user risk events for the affected user
-* Enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
+* Prevents the generation of new user risk detections for the affected user
+* Enables administrators to manually remediate the risk detections affecting the user's identity and restore it to a secure state
 
 ## Best practices
 
