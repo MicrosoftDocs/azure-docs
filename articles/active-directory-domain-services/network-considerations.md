@@ -32,7 +32,7 @@ As you design the virtual network for Azure AD DS, the following considerations 
     * To minimize latency, keep your core applications close to, or in the same region as, the virtual network subnet for your Azure AD DS managed domain. You can use virtual network peering or virtual private network (VPN) connections between Azure virtual networks.
 * The virtual network can't rely on DNS services other than those provided by Azure AD DS.
     * Azure AD DS provides its own DNS service. The virtual network must be configured to use these DNS service addresses. Name resolution for additional namespaces can be accomplished using conditional forwarders.
-    * You can't use custom DNS server settings to direct queries other DNS servers, including on VMs. Resources in the virtual network must use the DNS service provided by Azure AD DS.
+    * You can't use custom DNS server settings to direct queries from other DNS servers, including on VMs. Resources in the virtual network must use the DNS service provided by Azure AD DS.
 
 > [!IMPORTANT]
 > You can't move Azure AD DS to a different virtual network after you've enabled the service.
