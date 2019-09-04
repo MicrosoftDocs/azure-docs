@@ -8,7 +8,7 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
-ms.author: sstein
+ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 08/29/2019
 ---
@@ -77,6 +77,14 @@ To cancel a database copy, you will need to be in the following roles
 
    Microsoft.Sql/servers/databases/read
    Microsoft.Sql/servers/databases/write
+   
+To manage database copy using Azure portal, you will also need the following permissions:
+   
+   Microsoft.Resources/subscriptions/resources/read
+   Microsoft.Resources/subscriptions/resources/write 
+   Microsoft.Resources/deployments/read
+   Microsoft.Resources/deployments/write
+   Microsoft.Resources/deployments/operationstatuses/read
 
 ## Copy a database by using Transact-SQL
 
