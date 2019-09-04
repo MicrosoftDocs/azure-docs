@@ -652,4 +652,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to use the HTTP APIs for instance management](durable-functions-http-api.md)
+> [Learn how to handle versioning](durable-functions-versioning.md)
+
+> [!div class="nextstepaction"]
+> [Built-in HTTP API reference for instance management](durable-functions-http-api.md)

@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # Sub-orchestrations in Durable Functions (Azure Functions)
 
-In addition to calling activity functions, orchestrator functions can  call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
+In addition to calling activity functions, orchestrator functions can call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
 
 An orchestrator function can call another orchestrator function by calling the [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) or the [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) methods in .NET, or the `callSubOrchestrator` or `callSubOrchestratorWithRetry` methods in JavaScript. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
 
@@ -117,4 +117,4 @@ module.exports = df.orchestrator(function*(context) {
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn what task hubs are and how to configure them](durable-functions-task-hubs.md)
+> [Learn how to set a custom orchestration status](durable-functions-custom-orchestration-status.md)

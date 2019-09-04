@@ -679,4 +679,4 @@ If the `Counter` entity simply contained a number of steps saved in a `currentVa
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle errors](durable-functions-error-handling.md)
+> [Learn how to use Application Insights to monitor your durable functions](durable-functions-diagnostics.md)

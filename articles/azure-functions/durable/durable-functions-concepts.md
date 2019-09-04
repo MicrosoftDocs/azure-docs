@@ -1,3 +1,5 @@
+TODO: Delete and redirect to durable-functions-overview.md
+
 ---
 title: Durable Functions patterns and technical concepts in Azure Functions
 description: Learn how the Durable Functions extension in Azure Functions gives you the benefits of stateful code execution in the cloud.
@@ -413,9 +415,9 @@ public class Counter
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]

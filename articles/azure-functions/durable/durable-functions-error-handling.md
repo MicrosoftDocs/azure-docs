@@ -210,4 +210,7 @@ If an orchestrator function fails with an unhandled exception, the details of th
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Learn about eternal orchestrations](durable-functions-eternal-orchestrations.md)
+
+> [!div class="nextstepaction"]
 > [Learn how to diagnose problems](durable-functions-diagnostics.md)
