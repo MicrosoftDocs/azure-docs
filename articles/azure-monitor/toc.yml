@@ -947,6 +947,8 @@
         href: platform/alerts-understand-migration.md
       - name: Use the migration tool
         href: platform/alerts-using-migration-tool.md
+      - name: Automatic migration process
+        href: platform/alerts-automatic-migration.md
       - name: Manage classic metric alerts
         href: platform/alerts-classic-portal.md
       - name: Classic metric alert using a Resource Manager template

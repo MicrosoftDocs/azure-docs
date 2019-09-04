@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 
 experimental: true
@@ -80,7 +80,7 @@ In the Cloud Shell, create a quickstart directory and then change to it.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Next, run the following command to clone the sample app repository to your quickstart directory.

@@ -5,11 +5,9 @@ manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
-ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.
 ---
 
