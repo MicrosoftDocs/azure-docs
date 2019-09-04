@@ -28,13 +28,13 @@ Azure AD role-based access control is a public preview feature of Azure AD and i
 
 Granting permission using custom Azure AD roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. A custom role definition is a collection of permissions that you add from a preset list. These permissions are the same permissions used in the built-in roles.  
 
-Once you’ve created your role definition, you can assign it to someone by creating a role assignment. A role assignment grants someone the permissions in a role definition at a specific scope. This two-step process allows you to create one role definition and assign it many times at different scopes. A scope defines the set of resources the role member has access to. The most common scope is organization-wide (org-wide) scope. A custom role can be assigned at org-wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. The same role can be assigned to one user over all applications in the organization and then to another user with a scope of only the Contoso Expense Reports app.  
+Once you’ve created your role definition, you can assign it to a user by creating a role assignment. A role assignment grants the user the permissions in a role definition at a specified scope. This two-step process allows you to create a single role definition and assign it many times at different scopes. A scope defines the set of Azure AD resources the role member has access to. The most common scope is organization-wide (org-wide) scope. A custom role can be assigned at org-wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. The same role can be assigned to one user over all applications in the organization and then to another user with a scope of only the Contoso Expense Reports app.  
 
-Azure AD built-in and custom roles operate on concepts similar to [Azure role-based access control](../../role-based-access-control/overview.md). The [difference between these two role-based access control systems](../..role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC controls access to Azure resources such as virtual machines or storage using Azure Resource Management, and Azure AD custom roles control access to Azure AD resources using Graph API. Both systems leverage the concept of role definitions and role assignments.
+Azure AD built-in and custom roles operate on concepts similar to [Azure role-based access control](../../role-based-access-control/overview.md). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC controls access to Azure resources such as virtual machines or storage using Azure Resource Management, and Azure AD custom roles control access to Azure AD resources using Graph API. Both systems leverage the concept of role definitions and role assignments.
 
 ### Role assignments
 
-A role assignment is the object that attaches a role definition to a user at a particular scope  to grant Azure AD resource access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
+A role assignment is the object that attaches a role definition to a user at a particular scope to grant Azure AD resource access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
 
 - User (an individual who has a user profile in Azure Active Directory)
 - Role definition
@@ -72,4 +72,4 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 ## Next steps
 
 - Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-custom.md)
-- [View the assignments for a custom role](roles-view-assignments.md#view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-ad-portal-preview)
+- [View the assignments for a custom role](roles-view-assignments.md#view-assignments-of-a-role-with-single-application-scope-preview)
