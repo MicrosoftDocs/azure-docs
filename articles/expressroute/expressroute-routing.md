@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 09/04/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -149,6 +149,8 @@ For example, if you connected to Microsoft in Amsterdam through ExpressRoute, yo
 Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
 
 You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the Microsoft peering and public peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
+
+You can run the 'Get-AzBgpServiceCommunity' cmdlet for a full list of the latest values.
 
 | **Microsoft Azure region** | **Regional BGP community** | **Storage BGP community** | **SQL BGP community** | **Cosmos DB BGP community** |
 | --- | --- | --- | --- | --- |
