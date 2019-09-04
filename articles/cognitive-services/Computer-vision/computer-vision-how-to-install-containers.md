@@ -21,13 +21,10 @@ The Read portion of Computer Vision is also available as a Docker container. Rea
 
 #### [Recognize Text](#tab/recognize-text)
 
-> [!CAUTION]
-> Read is a superset of its predecessor Recognize Text, and customers should migrate to using Read.
-
 The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.
 
-> [!IMPORTANT]
-> The Recognize Text container currently works only with English.
+> [!CAUTION]
+> **Read** is a superset of its predecessor **Recognize Text**, and customers should migrate to using **Read**.
 
 ***
 

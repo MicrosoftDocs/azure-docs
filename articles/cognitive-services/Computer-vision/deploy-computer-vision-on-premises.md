@@ -249,21 +249,12 @@ The *Helm chart* contains the configuration of which docker image(s) to pull fro
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-#### [Read](#tab/read)
-
-The provided *Helm charts* pull the docker images of the Computer Vision Service, and the Read services from the `containerpreview.azurecr.io` container 
+The provided *Helm charts* pull the docker images of the Computer Vision Service, and the corresponding service from the `containerpreview.azurecr.io` container 
 registry.
 
-#### [Recognize Text](#tab/recognize-text)
-
-The provided *Helm charts* pull the docker images of the Computer Vision Service, and the Recognize Text services from the `containerpreview.azurecr.io` container 
-registry.
-
-***
+## Install the Helm chart on the Kubernetes cluster
 
 #### [Read](#tab/read)
-
-## Install the Read Helm chart on the Kubernetes cluster
 
 To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `ocr` folder.
 
@@ -318,8 +309,6 @@ replicaset.apps/ocr-57cb76bcf7    1         1         1       17s
 ```
 
 #### [Recognize Text](#tab/recognize-text)
-
-## Install the Recognize Text Helm chart on the Kubernetes cluster
 
 To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `text-recognizer` folder.
 

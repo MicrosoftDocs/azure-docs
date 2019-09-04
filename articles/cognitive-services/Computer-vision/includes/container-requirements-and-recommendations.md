@@ -5,16 +5,28 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 8/26/2019
+ms.topic: include
+ms.date: 09/04/2019
 ms.author: dapine
 ---
+
+#### [Read](#tab/read)
+
+The following table describes the minimum and recommended CPU cores and memory to allocate for each Read container.
+
+| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+| Read | 1 core, 8-GB memory, 0.5 TPS | 2 cores, 8-GB memory, 1 TPS | 0.5, 1 |
+
+#### [Recognize Text](#tab/recognize-text)
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
 
 | Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
-|Recognize Text|1 core, 8-GB memory, 0.5 TPS|2 cores, 8-GB memory, 1 TPS|0.5, 1|
+| Recognize Text | 1 core, 8-GB memory, 0.5 TPS | 2 cores, 8-GB memory, 1 TPS | 0.5, 1 |
+
+***
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second

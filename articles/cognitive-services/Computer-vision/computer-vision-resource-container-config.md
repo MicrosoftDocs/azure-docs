@@ -79,7 +79,7 @@ The exact syntax of the host mount location varies depending on the host operati
 |Not allowed| `Input` | String | Computer Vision containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## Example docker run commands 
+## Example docker run commands
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](computer-vision-how-to-install-containers.md#stop-the-container) it.
 
@@ -99,13 +99,13 @@ Replace {_argument_name_} with your own values:
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).
 > The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page.
 
-#### [Read](#tab/read)
+## Container Docker examples
 
-## Read container Docker examples
+#### [Read](#tab/read)
 
 The following Docker examples are for the Read container.
 
-### Basic example 
+### Basic example
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -128,11 +128,9 @@ The following Docker examples are for the Read container.
 
 #### [Recognize Text](#tab/recognize-text)
 
-## Recognize text container Docker examples
-
 The following Docker examples are for the Recognize Text container.
 
-### Basic example 
+### Basic example
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -142,7 +140,7 @@ The following Docker examples are for the Recognize Text container.
   ApiKey={API_KEY} 
   ```
 
-### Logging example 
+### Logging example
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
