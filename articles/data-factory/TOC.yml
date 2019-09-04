@@ -147,6 +147,8 @@
       href: concepts-data-flow-overview.md
     - name: Debug mode
       href: concepts-data-flow-debug-mode.md
+    - name: JSON handling
+      href: concepts-data-flow-json.md
     - name: Schema drift
       href: concepts-data-flow-schema-drift.md
     - name: Inspect pane
@@ -446,6 +448,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Fixed-width filed
+      href: how-to-fixed-width.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -586,6 +590,8 @@
     items:
     - name: Activity troubleshooting
       href: data-factory-troubleshoot-guide.md
+    - name: Connector troubleshooting
+      href: connector-troubleshoot-guide.md
     - name: Troubleshooting Azure-SSIS IR Management
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
@@ -598,6 +604,10 @@
       href: data-migration-guidance-overview.md
     - name: Migrate data from AWS S3 to Azure
       href: data-migration-guidance-s3-azure-storage.md
+    - name: Migrate data from on-premises Hadoop cluster to Azure
+      href: data-migration-guidance-hdfs-azure-storage.md
+    - name: Migrate data from on-premises Netezza server to Azure
+      href: data-migration-guidance-netezza-azure-sqldw.md
 - name: Reference
   items:
   - name: .NET

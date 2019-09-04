@@ -3,7 +3,7 @@ title: Azure Resource Manager resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: tomfitz
 ---

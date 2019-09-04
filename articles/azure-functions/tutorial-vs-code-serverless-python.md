@@ -3,7 +3,7 @@ title: Create and deploy Azure Functions in Python with Visual Studio Code
 description: How to use the Visual Studio Code extension for Azure Functions to create serverless functions in Python and deploy them to Azure.
 services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
@@ -13,6 +13,16 @@ ms.author: glenga
 # Deploy Python to Azure Functions with Visual Studio Code
 
 In this tutorial, you use Visual Studio Code and the Azure Functions extension to create a serverless HTTP endpoint with Python and to also add a connection (or "binding") to storage. Azure Functions runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for Visual Studio Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Install the Azure Functions extension
+> * Create an HTTP-triggered function
+> * Debug locally
+> * Synchronize application settings
+> * View streaming logs
+> * Connect to Azure Storage
 
 If you encounter issues with any of the steps in this tutorial, we'd love to hear about the details. Use the **I ran into an issue** button at the end of each section to submit detailed feedback.
 
@@ -41,7 +51,7 @@ Follow the instructions for your operating system on [Work with Azure Functions 
 
 ### Sign in to Azure
 
-Once the Functions extension is installed, sign into your Azure account by navigating to the **Azure: Functions** explorer, select **Sign in to Azure**, and follow the prompts.
+Once the Functions extension is installed, sign into your Azure account by going to the **Azure: Functions** explorer, select **Sign in to Azure**, and follow the prompts.
 
 ![Sign in to Azure through Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
 
@@ -95,29 +105,26 @@ If the `func` command isn't recognized, then verify that the folder where you in
     | Select a language for your function app project | **Python** | The language to use for the function, which determines the template used for the code. |
     | Select a template for your project's first function | **HTTP trigger** | A function that uses an HTTP trigger is run whenever there's an HTTP request made to the function's endpoint. (There are a variety of other triggers for Azure Functions. To learn more, see [What can I do with Functions?](functions-overview.md#what-can-i-do-with-functions).) |
     | Provide a function name | HttpExample | The name is used for a subfolder that contains the function's code along with configuration data, and also defines the name of the HTTP endpoint. Use "HttpExample" rather than accepting the default "HTTPTrigger" to distinguish the function itself from the trigger. |
-    | Authorization level | **Anonymous** | Anonymous authorization makes the function publicly accessible to anyone. |
+    | Authorization level | **Function** | Calls made to the function endpoint require a [function key](functions-bindings-http-webhook.md#authorization-keys). |
     | Select how you would like to open your project | **Open in current window** | Opens the project in the current Visual Studio Code window. |
 
-1. After a short time, a message to indicate that the new project was created. In the **Explorer**, there's the subfolder created for the function, and Visual Studio Code opens the *\_\_init\_\_.py* file that contains the default function code:
+1. After a short time, a message to indicate that the new project was created. In the **Explorer**, there's the subfolder created for the function. 
+
+1. If it's not already open, open the *\_\_init\_\_.py* file that contains the default function code:
 
     [![Result of creating a new Python functions project](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > If Visual Studio Code tells you that you don't have a Python interpreter selected when it opens *\_\_init\_\_.py*, open the Command Palette (F1), select the **Python: Select Interpreter** command,  and then select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted earlier under [Prerequisites](#prerequisites).
+    > When Visual Studio Code tells you that you don't have a Python interpreter selected when you open *\_\_init\_\_.py*, open the Command Palette (F1), select the **Python: Select Interpreter** command,  and then select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted earlier under [Prerequisites](#prerequisites).
     >
     > ![Selecting the virtual environment created with the project](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
-
-> [!TIP]
-> Whenever you want to create another function in the same project, use the **Create Function** command in the **Azure: Functions** explorer, or open the Command Palette (F1) and select the **Azure Functions: Create Function** command. Both commands prompt you for a function name (which is the name of the endpoint), then creates a subfolder with the default files.
->
-> ![New Function command in the Azure: Functions explorer](media/tutorial-vs-code-serverless-python/function-create-new.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
 
 ## Examine the code files
 
-In the newly created function subfolder are three files: *\_\_init\_\_.py* contains the function's code, *function.json* describes the function to Azure Functions, and *sample.dat* is a sample data file. You can delete *sample.dat* if you want, as it exists only to show that you can add other files to the subfolder.
+In the newly created _HttpExample_ function subfolder are three files: *\_\_init\_\_.py* contains the function's code, *function.json* describes the function to Azure Functions, and *sample.dat* is a sample data file. You can delete *sample.dat* if you want, as it exists only to show that you can add other files to the subfolder.
 
 Let's look at *function.json* first, then the code in *\_\_init\_\_.py*.
 
@@ -130,7 +137,7 @@ The function.json file provides the necessary configuration information for the 
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
@@ -150,7 +157,7 @@ The function.json file provides the necessary configuration information for the 
 
 The `scriptFile` property identifies the startup file for the code, and that code must contain a Python function named `main`. You can factor your code into multiple files so long as the file specified here contains a `main` function.
 
-The `bindings` element contains two objects, one to describe incoming requests, and the other to describe the HTTP response. For incoming requests (`"direction": "in"`), the function responds to HTTP GET or POST requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
+The `bindings` element contains two objects, one to describe incoming requests, and the other to describe the HTTP response. For incoming requests (`"direction": "in"`), the function responds to HTTP GET or POST requests and requires that you supply the function key. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
 
 ### \_\_init.py\_\_
 
@@ -195,7 +202,7 @@ The important parts of the code are as follows:
 
 ## Debug locally
 
-1. When you create the Functions project, the Visual Studio Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
+1. When you create the Functions project, the Visual Studio Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just select **F5** or use the Debug explorer to start the project:
 
     ![Debug explorer showing the Functions launch configuration](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -228,7 +235,7 @@ The important parts of the code are as follows:
 
     Alternately, create a file like *data.json* that contains `{"name":"Visual Studio Code"}` and use the command `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
 
-1. To test debugging the function, set a breakpoint on the line that reads `name = req.params.get('name')` and make a request to the URL again. The Visual Studio Code debugger should stop on that line, allowing you to examine variables and step through the code. (For a short walkthrough of basic debugging, see [Visual Studio Code Tutorial - Configure and run the debugger](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
+1. To debug the function, set a breakpoint on the line that reads `name = req.params.get('name')` and make a request to the URL again. The Visual Studio Code debugger should stop on that line, allowing you to examine variables and step through the code. (For a short walkthrough of basic debugging, see [Visual Studio Code Tutorial - Configure and run the debugger](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
 
 1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
 
@@ -381,7 +388,7 @@ After your first deployment, you can make changes to your code, such as adding a
     }
     ```
 
-1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
+1. Start the debugger by selecting **F5** or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
     ```output
     Http Functions:
@@ -467,15 +474,15 @@ In this section, you add a storage binding to the HttpExample function created e
             )
     ```
 
-1. To test these changes locally, start the debugger again in Visual Studio Code by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. As before the **Output** window should show the endpoints in your project.
+1. To test these changes locally, start the debugger again in Visual Studio Code by selecting **F5** or selecting the **Debug** > **Start Debugging** menu command. As before the **Output** window should show the endpoints in your project.
 
 1. In a browser, visit the URL `http://localhost:7071/api/HttpExample?name=VS%20Code` to create a request to the HttpExample endpoint, which should also write a message to the queue.
 
 1. To verify that the message was written to the "outqueue" queue (as named in the binding), you can use one of three methods:
 
-    1. Sign into the [Azure portal](https://portal.azure.com), and navigate to the resource group containing your functions project. Within that resource group, local and navigate into the storage account for the project, then navigate into **Queues**. On that page, navigate into "outqueue", which should display all the logged messages.
+    1. Sign into the [Azure portal](https://portal.azure.com), and go to the resource group containing your functions project. Within that resource group, locate and open the storage account for the project, then go to **Queues**. On that page, go to "outqueue", which should display all the logged messages.
 
-    1. Navigate and examine the queue with either the Azure Storage Explorer, which integrates with Visual Studio, as described on [Connect Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), especially the [Examine the output queue](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) section.
+    1. Open and examine the queue with either the Azure Storage Explorer, which integrates with Visual Studio, as described on [Connect Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), especially the [Examine the output queue](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) section.
 
     1. Use the Azure CLI to query the storage queue, as described on [Query the storage queue](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
     
