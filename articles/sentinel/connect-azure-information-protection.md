@@ -49,8 +49,6 @@ If [central reporting for Azure Information Protection](https://docs.microsoft.c
 
 ## Connect to Azure Information Protection
 
-When you connect Azure Sentinel to Azure Information Protection, you're prompted to select a workspace. Make sure you select the same workspace that you've currently selected to use for Azure Sentinel.
-
 1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection**.
 
 2. On the **Azure Information Protection** blade, you see the **STATUS** displays **Not connected**. Select **Open connector page**.
