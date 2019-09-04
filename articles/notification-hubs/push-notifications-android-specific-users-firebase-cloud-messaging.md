@@ -466,7 +466,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-13. If your app is targeting API level 28 (Android 0.0) or above, include the following declaration within the `<application>` element of `AndroidManifest.xml`.
+13. If your app is targeting API level 28 (Android 9.0) or above, include the following declaration within the `<application>` element of `AndroidManifest.xml`.
 
     ```xml
     <uses-library
