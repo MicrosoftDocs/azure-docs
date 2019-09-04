@@ -100,15 +100,7 @@ Dynamic Packaging supports the following video codecs:
 
 ## <a id="audio-codecs"/>Audio codecs supported by Dynamic Packaging
 
-Dynamic Packaging supports the following audio protocols described below:
-
-* MP4 files
-* Multiple audio tracks
-
-Dynamic Packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
-
-> [!NOTE]
-> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
+Dynamic Packaging supports the following audio protocols:
 
 ### MP4 files
 
@@ -130,6 +122,13 @@ Dynamic Packaging supports MP4 files, which contain audio that's encoded with th
 ### Multiple audio tracks
 
 Dynamic Packaging supports multi audio tracks for HLS output (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
+
+### Additional notes
+
+Dynamic Packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
+
+> [!NOTE]
+> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
 
 ## Manifests 
  
