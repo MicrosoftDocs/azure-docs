@@ -188,23 +188,26 @@ With the newly minted tableprojection node, we can now use the slicing feature t
 >
 ```json
 "projections": [
+    {
+        "tables": [
             {
-                "tables": [
-                    {
-                        "tableName": "hotelReviewsDocument",
-                        "generatedKeyName": "Documentid",
-                        "source": "/document/tableprojection"
-                    },
-                    {
-                        "tableName": "hotelReviewsPages",
-                        "generatedKeyName": "Pagesid",
-                        "source": "/document/tableprojection/pages/*"
-                    },
-                    {
-                        "tableName": "hotelReviewsKeyPhrases",
-                        "generatedKeyName": "KeyPhrasesid",
-                        "source": "/document/tableprojection/pages/*/keyphrase/*"
-                    }
+                "tableName": "hotelReviewsDocument",
+                "generatedKeyName": "Documentid",
+                "source": "/document/tableprojection"
+            },
+            {
+                "tableName": "hotelReviewsPages",
+                "generatedKeyName": "Pagesid",
+                "source": "/document/tableprojection/pages/*"
+            },
+            {
+                "tableName": "hotelReviewsKeyPhrases",
+                "generatedKeyName": "KeyPhrasesid",
+                "source": "/document/tableprojection/pages/*/keyphrase/*"
+            }
+        ]
+    }
+]
 ```
 
 #### Inline shaping projections
