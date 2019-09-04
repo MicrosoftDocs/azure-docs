@@ -83,6 +83,9 @@ For Hyper-V, discovery uses Hyper-V host credentials. If VMs share the same Hype
 
 You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a single migration appliance. If you have more machines in your on-premises environment, learn how to scale [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
 
+### Can I delete the Azure Migrate appliance from the project?
+Currently deletion of appliance from the project is not supported. The workaround is to delete the resource group which has the Azure Migrate project, provided that the project has only one registered appliance that you want to delete and the resource group does not contain any other resources except the Azure Migrate project and the associated Azure artifacts. 
+
 ## Azure Migrate Server Assessment
 
 ### Does Azure Migrate Server Assessment support assessment of physical servers?
