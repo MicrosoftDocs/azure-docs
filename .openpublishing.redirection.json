@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/index.yml",
+      "redirect_url": "/azure/machine-learning/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-write-data.md",
       "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
       "redirect_document_id": false
