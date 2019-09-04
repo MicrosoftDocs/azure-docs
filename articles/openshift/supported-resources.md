@@ -2,8 +2,8 @@
 title: Supported resources for Azure Red Hat OpenShift | Microsoft Docs
 description: Understand which Azure regions and virtual machine sizes are supported by Microsoft Azure Red Hat OpenShift.
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article

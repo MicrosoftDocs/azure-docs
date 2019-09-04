@@ -6,6 +6,12 @@
     href: home.md
 - name: Quickstarts
   items:
+  - name: Using the web portal
+    items:
+    - name: Build a classifier
+      href: getting-started-build-a-classifier.md
+    - name: Build an object detector
+      href: get-started-build-detector.md
   - name: Using the .NET SDK
     items:
     - name: Image classification
@@ -42,8 +48,6 @@
     href: logo-detector-mobile.md
 - name: How-to guides
   items:
-  - name: Build a classifier
-    href: getting-started-build-a-classifier.md
   - name: Test your model
     href: test-your-model.md
   - name: Improve your classifier
@@ -70,14 +74,16 @@
     href: https://go.microsoft.com/fwlink/?linkid=865446
   - name: Custom Vision Prediction API 
     href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Glossary
-    href: glossary-of-terms.md
   - name: SDKs
     items:
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+    - name: Node.js - Training
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customvisiontraining?view=azure-node-latest
+    - name: Node.js - Prediction
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customvisionprediction?view=azure-node-latest
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
     - name: Go - Training
@@ -98,5 +104,7 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Release Notes
     href: release-notes.md

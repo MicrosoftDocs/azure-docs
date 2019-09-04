@@ -3,7 +3,7 @@ title: Analyze your device data in your Azure IoT Central application | Microsof
 description: Analyze your device data in your Azure IoT Central application.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

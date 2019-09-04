@@ -55,12 +55,12 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
    The command output appears as follows:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>` is your subscription ID.
 
-    If you do not see the feature name `Microsoft.NetApp/publicPreviewADC`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request for accessing the service](#waitlist) to request service access before continuing. 
+    If you do not see the feature name `Microsoft.NetApp/ANFGA`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request for accessing the service](#waitlist) to request service access before continuing. 
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     

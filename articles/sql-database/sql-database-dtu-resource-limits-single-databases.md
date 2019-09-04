@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 03/20/2019
 ---
 # Resource limits for single databases using the DTU-based purchasing model

@@ -4,22 +4,40 @@ description: SKUs for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
 # Available SKUs for HLI
 
-SAP HANA on Azure (Large Instances) service is available in several configurations in the Azure regions of US West and US East, Australia East, Australia Southeast, West Europe, North Europe, Japan East, and Japan West.
+SAP HANA on Azure (Large Instances) service based on Revision 3 stamps is available in several configurations in the Azure regions of:
+
+- West US
+- East US
+- Australia East
+- Australia Southeast
+- West Europe
+- North Europe
+- Japan East
+- Japan West
+
+SAP HANA on Azure (Large Instances) service based on Revision 4 stamps is available in several configurations in the Azure regions of:
+
+- West US 2
+- East US
+- West Europe
+- North Europe
+
+
 
 [SAP HANA certified SKUs of HANA large Instances](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) list like:
 
@@ -39,12 +57,12 @@ SAP HANA on Azure (Large Instances) service is available in several configuratio
 |---| SAP HANA on Azure S960m<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU cores and 960 CPU threads |  20.0 TB |  46 TB | Available |
 
 
-Under SAP HANA TDIv5, SAP allows customer-specific sizing and customer-specific projects which might lead to server configurations which are not listed as certified in:
+Under SAP HANA TDIv5, SAP allows customer-specific sizing and customer-specific projects, which might lead to server configurations, which are not listed as certified in:
 
 - [SAP HANA Certified Appliances](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
 - [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-In a lot of cases, these customer-specific server configurations carry more memory than the server units certified with SAP. In working with SAP, customers do have the possibility to get SAP support and certify for their customer-specific sized server configurations. In Azure the following HANA Large Instance standard SKUs are available and in the Microsoft price list for such TDIv5 customer-specific sizing projects.
+In many cases, these customer-specific server configurations carry more memory than the server units certified with SAP. In working with SAP, customers do have the possibility to get SAP support and certify for their customer-specific sized server configurations. In Azure, the following HANA Large Instance standard SKUs are available and in the Microsoft price list for such TDIv5 customer-specific sizing projects.
 
 | SKU|CPU | Memory | Storage | Availability |
 | ---| --- | --- | --- | --- |
@@ -68,7 +86,7 @@ The specific configurations chosen are dependent on workload, CPU resources, and
 The hardware base for the offers, except units for customer-specific sizing projects, are SAP HANA TDI-certified. Two different classes of hardware divide the SKUs into:
 
 - S72, S72m, S96, S144, S144m, S192, S192m, and S192xm, which are referred to as the "Type I class" of SKUs.
-- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm and S960m, which are referred to as the "Type II class" of SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm, and S960m, which are referred to as the "Type II class" of SKUs.
 
 A complete HANA Large Instance stamp isn't exclusively allocated for a single customer&#39;s use. This fact applies to the racks of compute and storage resources connected through a network fabric deployed in Azure as well. HANA Large Instance infrastructure, like Azure, deploys different customer &quot;tenants&quot; that are isolated from one another in the following three levels:
 

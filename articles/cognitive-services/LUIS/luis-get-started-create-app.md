@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: create app" 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Quickstart: create app - LUIS" 
+titleSuffix: Azure Cognitive Services
 description:  Create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 08/25/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -22,10 +22,10 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 
 For this article, you need a free LUIS account, created on the LUIS portal at [https://www.luis.ai](https://www.luis.ai). 
 
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
 ## Create a new app
 You can create and manage your applications on **My Apps**. 
-
-1. Sign in to the LUIS portal.
 
 2. Select **Create new app**.
 

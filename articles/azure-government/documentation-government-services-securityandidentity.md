@@ -37,10 +37,7 @@ The Qualys Vulnerability Assessment agent is not available.
 - **Windows Defender Advanced Threat Protection alerts**  
 Windows Defender ATP installation on Windows VMs via Security Center and the associated alerts are not available.
 
-### Alerts and notifications
-
-- **Email notifications for high severity alerts and JIT access**  
-Alerts and just-in-time access will function normally. However, email notifications are not available.
+### Notifications
 
 - **Azure activity logs**  
 User activity in Security Center is not logged in Azure activity logs in Microsoft Azure Government. This means that there’s no trace or audit for user performed actions.
@@ -61,6 +58,9 @@ Geo-enrichment and the threat intelligence option are not available.
 
 - **UEBA for Azure resources**  
 Integration with Microsoft Cloud App Security for user and entity behavior analytics on Azure resources is not available.
+
+- **Advanced threat detection**  
+Azure Security Center Standard tier in Azure Government does not support threat detection for App Service or Storage accounts. 
 
 ### Server protection
 
@@ -120,7 +120,7 @@ The following information identifies the Azure Government boundary for Azure Key
 
 Azure Active Directory is generally available in Azure Government.
 
-For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).
+For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.yml).
 
 ### Variations
 
@@ -133,7 +133,7 @@ The URLs for accessing Azure Active Directory in Azure Government are different:
 
 ## Azure Active Directory Premium P1 and P2
 
-Azure Active Directory Premium is available in Azure Government. For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).  
+Azure Active Directory Premium is available in Azure Government. For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.yml).  
 
 For a list of features in Azure Active Directory Premium P1, see [Azure Active Directory Features](https://www.microsoft.com/cloud-platform/azure-active-directory-features) for a list of all capabilities available. This same feature list applies to the US Government cloud instance.
 All features covered in the above list are available in the US Government cloud instance, with the following known limitations:

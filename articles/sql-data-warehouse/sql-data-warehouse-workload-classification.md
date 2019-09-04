@@ -1,18 +1,18 @@
 ---
-title: SQL Data Warehouse Classification | Microsoft Docs
+title: Azure SQL Data Warehouse classification | Microsoft Docs
 description: Guidance for using classification to manage concurrency, importance, and compute resources for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
 
-# SQL Data Warehouse workload classification
+# Azure SQL Data Warehouse workload classification
 
 This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
 

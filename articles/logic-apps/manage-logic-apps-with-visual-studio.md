@@ -1,5 +1,5 @@
 ---
-title: Manage logic apps with Visual Studio - Azure Logic Apps
+title: Manage logic apps by using Visual Studio - Azure Logic Apps
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
@@ -47,10 +47,7 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that 
-    > you select the **Azure development** workload. 
-    > For Visual Studio 2019, Cloud Explorer can open 
-    > the Logic App Designer in the Azure portal, but can't 
-    > yet open the embedded Logic App Designer. 
+    > you select the **Azure development** workload.
     > For more information, see 
     > [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
@@ -127,6 +124,9 @@ or as Azure Resource Manager projects with Visual Studio.
 1. On the logic app's shortcut menu, 
 select **Open with Logic App Editor**.
 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
@@ -138,7 +138,7 @@ select **Open with Logic App Editor**.
    If you want to create a deployment template for the logic app, 
    learn [how to download an Azure Resource Manager template](#download-logic-app) 
    for that logic app. Learn more about 
-   [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment).
+   [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md).
 
 <a name="download-logic-app"></a>
 
@@ -150,21 +150,18 @@ and save them as [Azure Resource Manager](../azure-resource-manager/resource-gro
 templates. You can then locally edit the templates with Visual Studio 
 and customize logic apps for different deployment environments. 
 Downloading logic apps automatically *parameterizes* their 
-definitions inside [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment), 
+definitions inside [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md), 
 which also use JavaScript Object Notation (JSON).
 
 1. In Visual Studio, open Cloud Explorer, 
 then find and select the logic app 
 that you want to download from Azure.
 
-   > [!NOTE]
-   > For Visual Studio 2019, Cloud Explorer can open 
-   > the Logic App Designer in the Azure portal, 
-   > but can't yet open the embedded Logic App Designer 
-   > for downloading your logic app.
-
 2. On that app's shortcut menu, 
 select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
    The Logic App Designer opens and shows the logic app. 
    To review logic app's underlying definition and structure, 

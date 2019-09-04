@@ -3,81 +3,103 @@
 - name: Overview
   items:
   - name: About Azure Migrate
-    href: migrate-overview.md
+    href: migrate-services-overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Tutorials
   items:
-  - name: Discover and assess VMware VMs
-    href: tutorial-assessment-vmware.md
+  - name: Assess and migrate VMware VMs
+    items:
+    - name: Prepare VMware for assessment and migration
+      href: tutorial-prepare-vmware.md
+    - name: Assess VMware VMs for migration
+      href: tutorial-assess-vmware.md
+    - name: Migrate VMware VMs
+      items:
+      - name: About migration options for VMware VMs
+        href: server-migrate-overview.md
+      - name: Migrate VMware VMs with agentless migration
+        href: tutorial-migrate-vmware.md
+      - name: Migrate VMware VMs with agent-based migration
+        href: tutorial-migrate-vmware-agent.md
+  - name: Assess and migrate Hyper-V VMs
+    items:
+    - name: Prepare Hyper-V for assessment and migration
+      href: tutorial-prepare-hyper-v.md
+    - name: Assess Hyper-V VMs for migration
+      href: tutorial-assess-hyper-v.md
+    - name: Migrate Hyper-V VMs
+      href: tutorial-migrate-hyper-v.md
+  - name: Migrate physical servers and VMs
+    href: tutorial-migrate-physical-virtual-machines.md
 - name: Concepts
   items:
-  - name: About the collector
-    href: concepts-collector.md
-  - name: Collector version upgrades
-    href: concepts-collector-upgrade.md
-  - name: Assessment calculations
+  - name: Common questions
+    href: resources-faq.md
+  - name: Support matrices
+    items:
+    - name: Support matrix for Azure Migrate
+      href: migrate-support-matrix.md
+    - name: Support matrix for VMware assessment and migration
+      href: migrate-support-matrix-vmware.md
+    - name: Support matrix for Hyper-V assessment and migration
+      href: migrate-support-matrix-hyper-v.md
+  - name: Hyper-V migration architecture
+    href: hyper-v-migration-architecture.md
+  - name: Agent-based migration architecture
+    href: agent-based-migration-architecture.md
+  - name: Azure Migrate appliance
+    href: migrate-appliance.md
+  - name: Azure Migrate replication appliance
+    href: migrate-replication-appliance.md
+  - name: Best practices for assessments
+    href: best-practices-assessment.md
+  - name: Assessments overview
     href: concepts-assessment-calculation.md
-  - name: About dependency visualization
+  - name: Dependency visualization
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Migration best practices
-    items:
-    - name: Best practices for security and management after migration
-      href: migrate-best-practices-security-management.md
-    - name: Best practices for networking after migration
-      href: migrate-best-practices-networking.md
-    - name: Best practices for costing and sizing after migration
-      href: migrate-best-practices-costs.md
-  - name: Contoso migration series
-    items:
-    - name: 1. Contoso-Migration overview
-      href: contoso-migration-overview.md
-    - name: 2. Contoso-Deploy an Azure infrastructure
-      href: contoso-migration-infrastructure.md
-    - name: 3. Contoso-Assess on-premises resources for migration to Azure
-      href: contoso-migration-assessment.md
-    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
-      href: contoso-migration-rehost-vm-sql-managed-instance.md
-    - name: 5. Contoso-Rehost an app on Azure VMs
-      href: contoso-migration-rehost-vm.md
-    - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
-      href: contoso-migration-rehost-vm-sql-ag.md
-    - name: 7. Contoso-Rehost a Linux app on Azure VMs
-      href: contoso-migration-rehost-linux-vm.md
-    - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
-      href: contoso-migration-rehost-linux-vm-mysql.md
-    - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
-      href: contoso-migration-refactor-web-app-sql.md
-    - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
-      href: contoso-migration-refactor-linux-app-service-mysql.md
-    - name: 11. Contoso-Migrate TFS to Azure DevOps Services
-      href: contoso-migration-tfs-vsts.md
-    - name: 12. Contoso-Rearchitect an app on Azure Containers and Azure SQL Database
-      href: contoso-migration-rearchitect-container-sql.md
-    - name: 13. Contoso-Rebuild an app in Azure
-      href: contoso-migration-rebuild.md
-    - name: 14. Contoso-Scale a migration
-      href: contoso-migration-scale.md
-  - name: Discover and assess a large environment
-    href: how-to-scale-assessment.md
-  - name: Group machines
+  - name: Work with previous version
+    href: migrate-v1.md
+  - name: Deploy a VMware appliance
+    href: how-to-set-up-appliance-vmware.md
+  - name: Deploy a Hyper-V appliance
+    href: how-to-set-up-appliance-hyper-v.md
+  - name: Add a tool for the first time
+    href: how-to-add-tool-first-time.md
+  - name: Add assessment tools
+    href: how-to-assess.md
+  - name: Group machines for assessment
     href: how-to-create-a-group.md
-  - name: Group machines using machine dependencies
-    href: how-to-create-group-machine-dependencies.md
-  - name: Refine a group using group dependencies
-    href: how-to-create-group-dependencies.md
+  - name: Group machines using dependency visualization
+    href: how-to-create-group-machine-dependencies.md 
+  - name: Create an assessment
+    href: how-to-create-assessment.md
+  - name: Assess a SQL Server database
+    href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json&view=sql-server-2017
   - name: Customize an assessment
     href: how-to-modify-assessment.md
-  - name: Migrate machines after assessment
-    href: how-to-get-migration-tool.md
-  - name: Automate migration of large number of VMs
-    href: how-to-migrate-at-scale.md
+  - name: Add migration tools
+    href: how-to-migrate.md
+  - name: Scale assessment and migration
+    items:
+    - name: Assess large numbers of VMware VMs
+      href: scale-vmware-assessment.md
+    - name: Assess large numbers of Hyper-V VMs
+      href: scale-hyper-v-assessment.md
+    - name: Automate migration of large number of VMs
+      href: how-to-migrate-at-scale.md
+  - name: Migration examples-Contoso series
+    href: contoso-migration-overview.md
+- name: Troubleshoot
+  items:
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources
   items:
-  - name: FAQ
-    href: resources-faq.md
+  - name: Migration in the Cloud Adoption Framework
+    href: https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index
   - name: REST API
     href: https://docs.microsoft.com/rest/api/migrate/
   - name: Resource Manager template

@@ -1,27 +1,27 @@
-﻿---
+---
 title: Windows Defender Advanced Threat Protection with Azure Security Center
 description: This document introduces the integration between Azure Security Center and Windows Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
-author: barclayn
+author: monhaber
 manager: barbkess
 editor: ''
-
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: barclayn
-
+ms.date: 08/21/2019
+ms.author: "v-mohabe"
 ---
 # Windows Defender Advanced Threat Protection with Azure Security Center
 
 Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with [Windows Defender Advanced Threat Protection](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
 This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
 
-Azure Security Center customers can now use features of Windows Defender ATP:
+## Windows Defender ATP features in Security Center
+
+When you use Windows Defender ATP you get:
 
 - **Next-generation post breach detection sensors**: Windows Defender ATP sensors for Windows servers collect a vast array of behavioral signals.
 
@@ -39,19 +39,16 @@ These capabilities are now available in Azure Security Center:
 
 ![Azure Security Center, displaying a list of alerts and general information about each alert](media/security-center-wdatp/image1.png)
 
-You can [investigate the alert](security-center-investigation.md) in Azure Security Center:
-
-![The alert investigation dashboard in Azure Security Center](media/security-center-wdatp/image2.png)
-
 You can further investigate the alert by pivoting to Windows Defender ATP. There you can see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
 ![Windows Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)
 
 ## Platform support
 
-This feature supports detection on Windows Server 2012 R2 and Windows Server 2016.
+Windows Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1 operating systems in a Standard service subscription.
 
-Only servers in subscriptions for the standard service tier are supported.
+> [!NOTE]
+> When you use Azure Security Center to monitor servers, a Windows Defender ATP tenant is automatically created and the Windows Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant.
 
 ## Onboarding servers to Security Center 
 
@@ -66,10 +63,9 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 
    ![Onboard computers](media/security-center-wdatp/onboard-computers.png)
 
-
 ## Enable Windows Defender ATP integration
 
-To view if Windows Defender ATP integration is enabled, select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
+To view if Windows Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > click on your subscription.
 
   ![Azure Security Center Policy Management](media/security-center-wdatp/policy-management.png)
 
@@ -91,7 +87,7 @@ Follow the instructions in [Assign user access to the portal](https://docs.micro
 
 ## Set the firewall configuration
 
-If you have a proxy or firewall that is blocking anonymous traffic, as a Windows Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Windows Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server).
+If you have a proxy or firewall that is blocking anonymous traffic, as a Windows Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Windows Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## Test the feature
 
@@ -115,6 +111,7 @@ To generate a benign Windows Defender ATP test alert:
 
 ## Next steps
 
+- [Platforms and features supported by Azure Security Center](security-center-os-coverage.md)
 - [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations in Azure Security Center](security-center-recommendations.md): Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.

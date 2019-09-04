@@ -41,7 +41,7 @@ It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this
 
 Copy the `Connection String` because you'll need it.
 
-## Open the sample project in Unity
+## Download the Unity sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 

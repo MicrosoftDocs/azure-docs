@@ -88,4 +88,4 @@ When using Direct Connect:
 These restrictions and notes may change as the experiences improve.
 
 ## Next steps
-Now that we've given you some time to warm up with the sample data, see how to [develop](sql-data-warehouse-overview-develop.md), [load](design-elt-data-loading.md), or [migrate](sql-data-warehouse-overview-migrate.md). Or take a look at the [Power BI website](https://www.powerbi.com/).
+Now that we've given you some time to warm up with the sample data, see how to [develop](sql-data-warehouse-overview-develop.md) or [load](design-elt-data-loading.md). Or take a look at the [Power BI website](https://www.powerbi.com/).

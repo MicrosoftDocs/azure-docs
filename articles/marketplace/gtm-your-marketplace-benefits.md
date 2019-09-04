@@ -65,7 +65,7 @@ The table below summarize the eligibility requirements for list and trial offers
 
 ## Marketplace rewards for transact partners
 
-The full list of benefits for marketplace rewards can be viewed in the [program summary slides](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
+The full list of benefits for marketplace rewards can be viewed in the [program summary slides](https://aka.ms/marketplacerewards).
 
 ## Next steps
 

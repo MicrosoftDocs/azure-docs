@@ -4,7 +4,7 @@ title: Azure App Configuration Preview documentation
 metadata:
 #  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
   title: Azure App Configuration documentation - Tutorials, API reference
-  description: Azure App Configuration is a managed service that helps developers centralize their application and feature settings and feature simply and securely.
+  description: Azure App Configuration is a managed service that helps developers centralize their application and feature settings simply and securely.
   author: yegu-ms
   manager: maiye
   ms.author: yegu
@@ -68,6 +68,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core">Enable dynamic configuration in ASP.NET Core</a>
+    - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-dotnet-core">Enable dynamic configuration in a .NET Core app</a>
     - html: <a href="/azure/azure-app-configuration/use-feature-flags-dotnet-core">Use feature flags in a .NET Core app</a>
     - html: <a href="/azure/azure-app-configuration/manage-feature-flags">Manage feature flags</a>
     - html: <a href="/azure/azure-app-configuration/integrate-ci-cd-pipeline">Integrate with a CI/CD pipeline</a>

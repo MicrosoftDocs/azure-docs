@@ -82,7 +82,7 @@ Notification hubs is your ready-to-use push engine with the following advantages
   - Device handle management in one place.
 - **Cross backends**
   - Cloud or on-premises
-  - .NET, Node.js, Java, etc.
+  - .NET, Node.js, Java, Python, etc.
 - **Rich set of delivery patterns**
   - Broadcast to one or multiple platforms: You can instantly broadcast to millions of devices across platforms with a single API call.
   - Push to device: You can target notifications to individual devices.

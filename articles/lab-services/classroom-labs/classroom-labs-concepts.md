@@ -21,7 +21,7 @@ ms.author: spelluru
 The following list contains key Lab Services concepts and definitions:
 
 ## Quota
-Quota is the time limit (in hours) that a teacher can set for a student to use a lab VM. It can be set to 0, unlimited, or a specific number of hours. If the quota is set to 0, a student can only use the virtual machine when a schedule is running or when a teacher manually turns on the virtual machine for the student.
+Quota is the time limit (in hours) that a teacher can set for a student to use a lab VM. It can be set to 0, or a specific number of hours. If the quota is set to 0, a student can only use the virtual machine when a schedule is running or when a teacher manually turns on the virtual machine for the student.
  
 ## Schedules
 Schedules are the time slots(one time or recurring) that a teacher can create for the class. All virtual machines in the lab are automatically started at the beginning to the schedule and they are stopped at the end of the schedule. Quota hours are not used when a schedule is running.

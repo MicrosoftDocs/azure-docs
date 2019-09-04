@@ -7,7 +7,6 @@ manager: jeconnoc
 
 ms.assetid:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
@@ -71,7 +70,7 @@ The following table represents the Azure portal settings and corresponding data 
    1. Set **API definition source** to **Function**.
    1. Click **Generate API definition template** and then **Save** to create a template definition for modifying later.
    1. Note your API definition URL and key.
-1. [Set up continuous integration/continuous deployment (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [Set up continuous integration/continuous deployment (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. Modify swagger.json in source control at \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
 Now, changes to swagger.json in your repository are hosted by your function app at the API definition URL and key that you noted in step 1.c.

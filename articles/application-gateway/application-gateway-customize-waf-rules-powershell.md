@@ -6,6 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Customize web application firewall rules through PowerShell

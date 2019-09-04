@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: shwinne
-author: swinner95
-ms.date: 12/04/2018
+ms.author: ronglu
+author: ronglums
+ms.date: 7/12/2019
 ms.custom: seodec18
 ---
 # Get started with Azure Machine Learning for Visual Studio Code

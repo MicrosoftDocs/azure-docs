@@ -4,7 +4,7 @@ description: Azure Cosmos DB explorer is a standalone web-based interface that a
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 05/23/2019
 ms.author: dech
 
 ---

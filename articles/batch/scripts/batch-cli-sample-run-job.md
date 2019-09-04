@@ -4,7 +4,7 @@ description: Azure CLI Script Example - Run a job with Batch
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 
 ms.assetid:

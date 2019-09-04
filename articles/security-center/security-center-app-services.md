@@ -43,9 +43,8 @@ Security Center is natively integrated with App Service, eliminating the need fo
 ## Enabling monitoring and protection of App Service
 
 1. In Azure, choose Security Center.
-2. Go to **Security policy** and choose a subscription.
-3. At the end of the row of the subscription, click **Edit settings**.
-4. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
+2. Go to **Pricing & settings** and choose a subscription.
+3. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
 
 ![app service toggle](./media/security-center-app-services/app-services-toggle.png)
 

@@ -4,7 +4,7 @@ description: How to encrypt virtual disks on a Linux VM for enhanced security us
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

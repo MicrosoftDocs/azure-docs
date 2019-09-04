@@ -29,7 +29,7 @@ This feature relies on the data factory managed identity. Learn how it works fro
 
 To reference a credential stored in Azure Key Vault, you need to:
 
-1. **Retrieve data factory managed identity** by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory. If you use ADF authoring UI, the managed identity application ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
+1. **Retrieve data factory managed identity** by copying the value of "Managed Identity Application ID" generated along with your factory. If you use ADF authoring UI, the managed identity application ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
 2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add new -> search this managed identity application ID to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
 3. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
 4. **Create data store linked service, inside which reference the corresponding secret stored in key vault.** Refer to [reference secret stored in key vault](#reference-secret-stored-in-key-vault).
@@ -74,8 +74,8 @@ The following properties are supported when you configure a field in linked serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the field must be set to: **AzureKeyVaultSecret**. | Yes |
-| secretName | The name of secret in azure key vault. | Yes |
-| secretVersion | The version of secret in azure key vault.<br/>If not specified, it always uses the latest version of the secret.<br/>If specified, then it sticks to the given version.| No |
+| secretName | The name of secret in Azure Key Vault. | Yes |
+| secretVersion | The version of secret in Azure Key Vault.<br/>If not specified, it always uses the latest version of the secret.<br/>If specified, then it sticks to the given version.| No |
 | store | Refers to an Azure Key Vault linked service that you use to store the credential. | Yes |
 
 **Using authoring UI:**

@@ -3,11 +3,10 @@ title: Find the request unit (RU) charge in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for any operation executed against an Azure Cosmos container.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 04/15/2019
+ms.topic: conceptual
+ms.date: 09/01/2019
 ms.author: thweiss
 ---
-
 # Find the request unit charge in Azure Cosmos DB
 
 This article presents the different ways you can find the [request unit](request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB. Currently, you can measure this consumption only by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs.
@@ -34,7 +33,8 @@ Currently, you can find the request charge in the Azure portal only for a SQL qu
 
 ![Screenshot of a SQL query request charge in the Azure portal](./media/find-request-unit-charge/portal-sql-query.png)
 
-### Use the .NET SDK V2
+### Use the .NET SDK
+### .Net V2 SDK
 
 Objects that are returned from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expose a `RequestCharge` property:
 
@@ -68,6 +68,12 @@ while (query.HasMoreResults)
     requestCharge = queryResponse.RequestCharge;
 }
 ```
+
+### .Net V3 SDK
+
+Objects that are returned from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) expose a `RequestCharge` property:
+
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 For more information, see [Quickstart: Build a .NET web app by using a SQL API account in Azure Cosmos DB](create-sql-api-dotnet.md).
 
@@ -141,10 +147,12 @@ For more information, see [Quickstart: Build a Node.js app by using an Azure Cos
 The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
@@ -162,7 +170,7 @@ Currently, you can find the request charge in the Azure portal only for a query.
 
 1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
 
-1. Go to the **Data Explorer** pane, and then select the collection you want to work on.
+1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
 1. Select **New Query**.
 
@@ -226,7 +234,7 @@ When you use the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
-double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"], 0);
+double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
 For more information, see [Quickstart: Build a Cassandra app by using the .NET SDK and Azure Cosmos DB](create-cassandra-dotnet.md).
@@ -297,3 +305,4 @@ To learn about optimizing your RU consumption, see these articles:
 * [Globally scale provisioned throughput](scaling-throughput.md)
 * [Provision throughput on containers and databases](set-throughput.md)
 * [Provision throughput for a container](how-to-provision-container-throughput.md)
+* [Monitor and debug with metrics in Azure Cosmos DB](use-metrics.md)
