@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 
@@ -342,7 +342,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 
 1. In the bot emulator, book a flight by entering the following utterance: 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

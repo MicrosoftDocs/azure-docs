@@ -44,57 +44,6 @@ In its simplest structure, a template has the following elements:
 
 Each element has properties you can set. This article describes the sections of the template in greater detail.
 
-## Syntax
-
-The basic syntax of the template is JSON. However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object. The following example shows an expression in the default value of a parameter:
-
-```json
-"parameters": {
-  "location": {
-    "type": "string",
-    "defaultValue": "[resourceGroup().location]"
-  }
-},
-```
-
-Within the expression, the syntax `resourceGroup()` calls one of the functions that Resource Manager provides for use within a template. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. The syntax `.location` retrieves one property from the object returned by that function.
-
-Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
-
-To have a literal string start with a left bracket `[` and end with a right bracket `]`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`. For example, the variable:
-
-```json
-"demoVar1": "[[test value]"
-```
-
-Resolves to `[test value]`.
-
-However, if the literal string doesn't end with a bracket, don't escape the first bracket. For example, the variable:
-
-```json
-"demoVar2": "[test] value"
-```
-
-Resolves to `[test] value`.
-
-To pass a string value as a parameter to a function, use single quotes.
-
-```json
-"name": "[concat('storage', uniqueString(resourceGroup().id))]"
-```
-
-To escape double quotes in an expression, such as adding a JSON object in the template, use the backslash.
-
-```json
-"tags": {
-    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
-},
-```
-
-A template expression can't exceed 24,576 characters.
-
-For the full list of template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md). 
-
 ## Parameters
 
 In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You don't have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
@@ -496,11 +445,11 @@ You define resources with the following structure:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [condition](#condition). |
+| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [Conditional deployment](conditional-resource-deployment.md). |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. To determine available values, see [template reference](/azure/templates/). |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). To determine available values, see [template reference](/azure/templates/). For a child resource, the format of the type depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
 | name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
-| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. |
+| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md) |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](resource-group-authoring-templates.md#comments). |
 | copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
@@ -510,31 +459,6 @@ You define resources with the following structure:
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
-
-### Condition
-
-When you must decide during deployment whether to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
-
-Typically, you use this value when you want to create a new resource or use an existing one. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
-
-For a complete example template that uses the `condition` element, see [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
-
-If you use a [reference](resource-group-template-functions-resource.md#reference) or [list](resource-group-template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist. Use the [if](resource-group-template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 ### Resource names
 
@@ -587,65 +511,6 @@ For resource types that you mostly access through a different resource, you can 
   "type": "firewallrules",
   "name": "AllowAllWindowsAzureIps",
   ...
-}
-```
-
-### Resource location
-
-When deploying a template, you must provide a location for each resource. Different resource types are supported in different locations. To get the supported locations for a resource type, see [Azure resource providers and types](resource-manager-supported-services.md).
-
-Use a parameter to specify the location for resources, and set the default value to `resourceGroup().location`.
-
-The following example shows a storage account that is deployed to a location specified as a parameter:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "storageAccountName": {
-      "type": "string",
-      "value": "[variables('storageAccountName')]"
-    }
-  }
 }
 ```
 
