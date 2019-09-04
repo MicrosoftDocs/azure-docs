@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database and Azure SQL Data Warehouse IP firewall rules | Microsoft Docs
-description: Learn how to configure server-level IP firewall rules for a SQL database or SQL Data Warehouse firewall to manage access and to configure database-level IP firewall rules for a single or pooled database.
+description: Configure server-level IP firewall rules for a SQL database or SQL Data Warehouse firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -40,9 +40,9 @@ Connection attempts from the internet and Azure must pass through the firewall b
 
 - **Database-level IP firewall rules:**
 
-  These rules enable clients to access certain (secure) databases within the same SQL Database server. You  create the rules for each database (including the *master* database), and they're stored in the individual database.
+  These rules enable clients to access certain (secure) databases within the same SQL Database server. You create the rules for each database (including the *master* database), and they're stored in the individual database.
   
-  Database-level IP firewall rules for master and user databases can only be created and managed by using Transact-SQL statements and only after you configure the first server-level firewall.
+  You can only create and manage database-level IP firewall rules for master and user databases by using Transact-SQL statements and only after you configure the first server-level firewall.
   
   If you specify an IP address range in the database-level IP firewall rule that's outside the range in the server-level IP firewall rule, only those clients that have IP addresses in the database-level range can access the database.
   
@@ -249,7 +249,7 @@ Consider the following points when access to the SQL Database service doesn't be
 
   If you have an internet connection that uses dynamic IP addressing and you have trouble getting through the firewall, try one of the following solutions:
   
-  - Ask your internet service provider for the IP address range that's assigned to your client computers that access the Azure SQL Database server. Add that IP address range as an IP firewall rule.
+  - Ask your internet service provider for the IP address range that's assigned to your client computers that access the SQL Database server. Add that IP address range as an IP firewall rule.
   - Get static IP addressing instead for your client computers. Add the IP addresses as IP firewall rules.
 
 ## Next steps
