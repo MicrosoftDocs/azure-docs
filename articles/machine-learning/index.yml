@@ -1,11 +1,12 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Azure Machine Learning provides SDKs and web interfaces to quickly train, and deploy machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+summary: Azure Machine Learning offers web interfaces & SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
 
 metadata:
   title: Machine Learning documentation - Azure
-  description: Azure Machine Learning provides SDKs and web interfaces to quickly train, and deploy machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+  description: Azure Machine Learning offers you web interfaces & SDKs to quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+ 
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -21,7 +22,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # OVERVIEW CARD
-  - title: About Azure Machine Learning
+  - title: Learn about Azure Machine Learning
     linkLists:
       - linkListType: overview
         links:
@@ -33,14 +34,20 @@ landingContent:
   # GET STARTED
   - title: Get started with Azure ML
     linkLists:
-      - linkListType: get-started
+      - linkListType: tutorial
         links:
-          - text: First ML experiment with Jupyter notebook
+          - text: Use notebooks for first experiment
             url: service/tutorial-1st-experiment-sdk-setup.md
-          - text: First ML experiment in visual interface 
+          - text: Use visual interface to experiment
             url: service/ui-tutorial-automobile-price-train-score.md
-          - text: First automated ML experiment
+          - text: Automate your first ML experiment
             url: service/tutorial-first-experiment-automated-ml.md
+      - linkListType: overview
+        links:
+          - text: What is Azure ML?
+            url: service/overview-what-is-azure-ml.md
+          - text: Architecture and concepts
+            url: service/concept-azure-machine-learning-architecture.md
       - linkListType: how-to-guide
         links:
           - text: Set up development environments
@@ -75,9 +82,9 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Your first automated ML experiment
+          - text: Train automated ML experiment
             url: service/tutorial-first-experiment-automated-ml.md
-          - text: Your first visual interface experiment
+          - text: Train in the visual interface
             url: service/ui-tutorial-automobile-price-train-score.md
       - linkListType: how-to-guide
         links:
@@ -93,20 +100,16 @@ landingContent:
   # MLOps
   - title: Deploy & manage models
     linkLists:
-      - linkListType: overview
-        links:
-          - text: 'MLOps: deploy and monitor models'
-            url: service/concept-model-management-and-deployment.md
       - linkListType: how-to-guide
         links:
+          - text: What is MLOps?
+            url: service/concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: service/how-to-deploy-and-where.md
-          - text: Request-response consumption
+          - text: Realtime prediction
             url: service/how-to-consume-web-service.md
-          - text: Batch predictions 
+          - text: Batch prediction 
             url: service/how-to-run-batch-predictions.md
-          - text: Troubleshoot deployments
-            url: service/how-to-troubleshoot-deployment.md
 
   # Reference
   - title: Explore reference docs
