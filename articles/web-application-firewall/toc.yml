@@ -31,6 +31,9 @@
     - name: Request size limits and exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
   - name: Front Door
+    items:
+    - name: Custom rules
+      href: ./afds/waf-front-door-custom-rules.md
 - name: How-to guides
   items:
   - name: Application Gateway
