@@ -60,7 +60,7 @@ Projection is the process of selecting the nodes from the enrichment tree to be 
 The matrix above describes the type of selector you choose based on the source and destination of the data.
 
 ## Enrichment tree lifecycle
-Let’s now step through the hotel reviews skillset and look at how the enrichment tree evolves with the execution of each skill and how the context and inputs work to determine how many times a skill executes and what the shape of the input is based on the context. 
+Let’s now step through the hotel reviews skillset and look at how the enrichment tree evolves with the execution of each skill and how the context and inputs work to determine how many times a skill executes and what the shape of the input is based on the context. Note that since we're using the delimited text parsing mode for the indexer, a document within the enrichment process represents a single row within the CSV file.
 
 ### Skill #1: Split skill 
 ![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-before.png "Enrichment tree after document cracking and before skill execution")
