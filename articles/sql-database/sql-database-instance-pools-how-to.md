@@ -233,21 +233,21 @@ To move existing databases:
 
     ```powershell
     $resourceGroupName = "my resource group name"
-      $managedInstanceName = "my managed instance name"
-      $databaseName = "my source database name"
-      $pointInTime = "2019-08-21T08:51:39.3882806Z"
-      $targetDatabase = "name of the new database that will be created"
-      $targetResourceGroupName "resource group of instance pool"
-      $targetInstanceName = "pool instance name"
+    $managedInstanceName = "my managed instance name"
+    $databaseName = "my source database name"
+    $pointInTime = "2019-08-21T08:51:39.3882806Z"
+    $targetDatabase = "name of the new database that will be created"
+    $targetResourceGroupName "resource group of instance pool"
+    $targetInstanceName = "pool instance name"
        
-      Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
-        -ResourceGroupName $resourceGroupName `
-        -InstanceName $managedInstanceName `
-        -Name $databaseName `
-        -PointInTime $pointInTime `
-        -TargetInstanceDatabaseName $targetDatabase `
-        -TargetResourceGroupName $targetResourceGroupName `
-        -TargetInstanceName $targetInstanceName
+    Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
+      -ResourceGroupName $resourceGroupName `
+      -InstanceName $managedInstanceName `
+      -Name $databaseName `
+      -PointInTime $pointInTime `
+      -TargetInstanceDatabaseName $targetDatabase `
+      -TargetResourceGroupName $targetResourceGroupName `
+      -TargetInstanceName $targetInstanceName
     ```
 
 4. Point your application to the new instance and resume it's workloads.
