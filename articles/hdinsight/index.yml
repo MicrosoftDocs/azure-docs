@@ -30,14 +30,6 @@ landingContent:
             url: ./hdinsight-component-versioning.md
           - text: HDInsight supported node configurations
             url: ./hdinsight-supported-node-configuration.md
-          - text: Apache Spark overview
-            url: ./spark/apache-spark-overview.md
-          - text: Apache Hadoop overview
-            url: ./hadoop/apache-hadoop-introduction.md
-          - text: Apache Kafka overview
-            url: ./kafka/apache-kafka-introduction.md
-          - text: Interactive Query overview
-            url: ./interactive-query/apache-interactive-query-get-started.md
           - text: Apache HBase overview
             url: ./hbase/apache-hbase-overview.md
           - text: Apache Storm overview
@@ -78,6 +70,29 @@ landingContent:
             url: ./spark/apache-spark-load-data-run-query.md
 
   # Card
+  - title: Apache Hadoop
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Apache Hadoop and MapReduce?
+            url: ./hadoop/apache-hadoop-introduction.md
+          - text: ETL at Scale
+            url: ./hadoop/apache-hadoop-etl-at-scale.md
+          - text: Migrate on-premises Hadoop to the cloud
+            url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+          - text: Cluster capacity planning
+            url: ./hdinsight-capacity-planning.md
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Connect Excel to Apache Hadoop
+            url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
+          - text: Use Azure monitor logs
+            url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+          - text: Monitor and manage clusters with Ambari UI
+            url: ./hdinsight-hadoop-manage-ambari.md
+
+  # Card
   - title: Apache Kafka
     linkLists:
       - linkListType: concept
@@ -106,8 +121,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: ETL at scale
-            url: ./hadoop/apache-hadoop-etl-at-scale.md
+          - text: Using Hive as an ETL tool
+            url: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
           - text: Optimize Hive queries
             url: ./hdinsight-hadoop-optimize-hive-query.md
       - linkListType: tutorial
@@ -118,7 +133,6 @@ landingContent:
             url: ./interactive-query/apache-hive-warehouse-connector.md
           - text: Use DirectQuery with Power BI
             url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
-
 
   # Card
   - title: Enterprise readiness
@@ -138,18 +152,3 @@ landingContent:
           - text: Enterprise security setup with Azure ADDS
             url: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
 
-  # Card
-  - title: Cluster management
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Customize clusters with script actions
-            url: ./hdinsight-hadoop-customize-cluster-linux.md
-          - text: Use SSH
-            url: ./hdinsight-hadoop-linux-use-ssh-unix.md
-          - text: Cluster capacity planning
-            url: ./hdinsight-capacity-planning.md
-          - text: Use Azure monitor logs
-            url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-          - text: Monitor and manage clusters with Ambari UI
-            url: ./hdinsight-hadoop-manage-ambari.md
