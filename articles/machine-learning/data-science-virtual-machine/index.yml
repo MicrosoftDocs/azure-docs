@@ -44,8 +44,24 @@ landingContent:
           - text: Create a Geo AI DSVM
             url: provision-geo-ai-dsvm.md                        
 
-  
-  # MORE
+# SECURITY
+  - title: Manage your DSVM
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Enterprise security & guidance
+            url: dsvm-enterprise-overview.md
+    linkLists:
+      - linkListType: how-to-guide
+          links:
+          - text: Create auto-scaled DSVM pools
+            url: dsvm-pools.md
+          - text: Integrate with Active Directory
+            url: dsvm-common-identity.md
+          - text: Secure resource access credentials
+            url: dsvm-secure-access-keys.md
+
+# MORE
   - title: More Azure Machine Learning technologies
     linkLists:
       - linkListType: reference
