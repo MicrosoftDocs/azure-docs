@@ -3,7 +3,7 @@ title: Overview of Azure Digital Twins | Microsoft Docs
 description: Learn more about Azure Digital Twins, an Azure IoT solution for spatial intelligence.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 08/01/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
@@ -14,16 +14,15 @@ ms.custom: mvc
 
 # Overview of Azure Digital Twins
 
-Azure Digital Twins is an Azure IoT service that creates comprehensive models of the physical environment. It can create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
+Azure Digital Twins Preview is an Azure IoT service that creates comprehensive models of the physical environment. It can create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
 
-With Azure Digital Twins, you can query data from a physical space rather than from many disparate sensors. This service helps you build reusable, highly scalable, spatially aware experiences that link streaming data across the digital and physical world. Your apps are enhanced by these uniquely relevant contextual features. Azure Digital Twins can be used for the following example tasks to:
+With Azure Digital Twins, you can query data from a physical space rather than from many disparate sensors. This service helps you build reusable, highly scalable, spatially aware experiences that link streaming data across the digital and physical world. Your apps are enhanced by these uniquely relevant contextual features. 
+
+Azure Digital Twins applies to all types of environments, such as, warehouses, offices, schools, hospitals, and banks. It can even be used for stadiums, factories, parking lots, parks, smart grids, and cities. The following are some scenarios where Azure Digital Twins can be helpful:
 
 - Predict maintenance needs for a factory.
 - Analyze real-time energy requirements for an electrical grid.
 - Optimize the use of available space for an office.
-
-Azure Digital Twins applies to all types of environments. Just a few examples are warehouses, offices, schools, hospitals, and banks. It can even be used for stadiums, factories, parking lots, parks, smart grids, and cities. Azure Digital Twins can be used in the following example scenarios to:
-
 - Track daily temperature across several states.
 - Monitor busy drone paths.
 - Identify autonomous vehicles.
@@ -42,15 +41,15 @@ Azure Digital Twins has the following key capabilities.
 
 ### Spatial intelligence graph
 
-The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md), or *spatial graph*, is a virtual representation of the physical environment. You can use it to model the relationships between people, places, and devices.
+The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md#graph), or *spatial graph*, is a virtual representation of the physical environment. You can use it to model the relationships between people, places, and devices.
 
 Consider a smart utility app that involves several electricity usage meters connected across a neighborhood. The smart utility company must accurately monitor and predict electricity usage and billing. Each device and sensor must be modeled with context about the location and the customer that's to be billed. You can use the spatial intelligence graph to model these kinds of complex relationships.
 
 ### Digital twin object models
 
-[Digital twin object models](./concepts-objectmodel-spatialgraph.md) are predefined device protocols and data schema. They align your solution’s domain-specific needs to accelerate and simplify development.
+[Digital twin object models](./concepts-objectmodel-spatialgraph.md#model) are predefined device protocols and data schema. They align your solution’s domain-specific needs to accelerate and simplify development.
 
-An example is a room occupancy application might use predefined space types such as campus, building, floor, and room.
+For example, a room occupancy application might use predefined space types such as campus, building, floor, and room.
 
 ### Multiple and nested tenants
 

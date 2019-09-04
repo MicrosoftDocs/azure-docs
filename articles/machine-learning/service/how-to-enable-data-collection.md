@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/03/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
 
 ---
@@ -18,7 +18,7 @@ ms.custom: seodec18
 In this article, you can learn how to collect input model data from the Azure Machine Learning services you've deployed into Azure Kubernetes Cluster (AKS) into an Azure Blob storage. 
 
 Once enabled, this data you collect helps you:
-* Monitor data drifts as production data enters your model
+* [Monitor data drifts](how-to-monitor-data-drift.md) as production data enters your model
 
 * Make better decisions on when to retrain or optimize your model
 

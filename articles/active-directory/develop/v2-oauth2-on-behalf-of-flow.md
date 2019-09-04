@@ -38,7 +38,7 @@ Assume that the user has been authenticated on an application using the [OAuth 2
 
 The steps that follow constitute the OBO flow and are explained with the help of the following diagram.
 
-![OAuth2.0 On-Behalf-Of flow](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Shows the OAuth2.0 On-Behalf-Of flow](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. The client application makes a request to API A with token A (with an `aud` claim of API A).
 1. API A authenticates to the Microsoft identity platform token issuance endpoint and requests a token to access API B.

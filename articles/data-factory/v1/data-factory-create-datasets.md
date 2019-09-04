@@ -3,21 +3,16 @@ title: Create datasets in Azure Data Factory | Microsoft Docs
 description: Learn how to create datasets in Azure Data Factory, with examples that use properties such as offset and anchorDateTime.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Datasets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-datasets.md)
@@ -326,7 +321,6 @@ Unless a dataset is being produced by Data Factory, it should be marked as **ext
 You can create datasets by using one of these tools or SDKs:
 
 - Copy Wizard
-- Azure portal
 - Visual Studio
 - PowerShell
 - Azure Resource Manager template

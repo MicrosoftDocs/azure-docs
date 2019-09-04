@@ -1,4 +1,4 @@
-﻿---
+---
 title: Windows Defender Advanced Threat Protection with Azure Security Center
 description: This document introduces the integration between Azure Security Center and Windows Defender Advanced Threat Protection.
 services: security-center
@@ -6,15 +6,13 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: ''
-
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2018
-ms.author: monhaber
-
+ms.date: 08/21/2019
+ms.author: "v-mohabe"
 ---
 # Windows Defender Advanced Threat Protection with Azure Security Center
 
@@ -47,7 +45,7 @@ You can further investigate the alert by pivoting to Windows Defender ATP. There
 
 ## Platform support
 
-Windows Defender ATP in Security Center supports detection on Windows Server 2012 R2 and Windows Server 2016 operating systems belonging to a Standard service subscription.
+Windows Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1 operating systems in a Standard service subscription.
 
 > [!NOTE]
 > When you use Azure Security Center to monitor servers, a Windows Defender ATP tenant is automatically created and the Windows Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant.
@@ -67,7 +65,7 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 
 ## Enable Windows Defender ATP integration
 
-To view if Windows Defender ATP integration is enabled, select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
+To view if Windows Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > click on your subscription.
 
   ![Azure Security Center Policy Management](media/security-center-wdatp/policy-management.png)
 
@@ -113,6 +111,7 @@ To generate a benign Windows Defender ATP test alert:
 
 ## Next steps
 
+- [Platforms and features supported by Azure Security Center](security-center-os-coverage.md)
 - [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations in Azure Security Center](security-center-recommendations.md): Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.

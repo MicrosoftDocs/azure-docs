@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/10/2019
+ms.date: 08/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -17,7 +17,7 @@ Use Visual Studio Code to develop and deploy code to Linux devices running IoT E
 
 In the quickstart articles, you created an IoT Edge device using a Linux virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for all the other tutorials, which will go into more detail about specific programming languages or Azure services. 
 
-This tutorial uses the example of deploying a **C# module to a Linux device**. This example was chosen because it is the most common developer scenario on for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial will still be useful to learn about the development tools and concepts. After completing this introduction to the development process, then you can choose your preferred language or Azure service to dive into the details. 
+This tutorial uses the example of deploying a **C# module to a Linux device**. This example was chosen because it is the most common developer scenario for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts. After completing this introduction to the development process, then you can choose your preferred language or Azure service to dive into the details. 
 
 In this tutorial, you learn how to:
 
@@ -37,7 +37,7 @@ This tutorial walks through the development of an IoT Edge module. An *IoT Edge 
 
 When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*.
 
-This tutorial targets Linux devices running IoT Edge. You can use your preferred development machine operating system, as long as your development machine can run Linux containers. We recommend using Visual Studio Code to develop for Linux devices, so that's what this tutorial will use. You can use Visual Studio as well, although there are differences in support between the two tools.
+This tutorial targets Linux devices running IoT Edge. You can use your preferred operating system, as long as your development machine can run Linux containers. We recommend using Visual Studio Code to develop for Linux devices, so that's what this tutorial will use. You can use Visual Studio as well, although there are differences in support between the two tools.
 
 The following table lists the supported development scenarios for **Linux containers** in Visual Studio Code and Visual Studio.
 
@@ -47,6 +47,9 @@ The following table lists the supported development scenarios for **Linux contai
 | **Azure services** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Languages** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
 | **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+
+>[!NOTE]
+>Support for Linux ARM64 devices is available in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio, refer to the instructions in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
@@ -185,11 +188,11 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 7. Find the **modules** property of the $edgeAgent desired properties. 
 
-   There should be two modules listed here. The first is **tempSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **SampleModule** module that you created as part of this solution.
+   There should be two modules listed here. The first is **SimulatedTemperatureSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **SampleModule** module that you created as part of this solution.
 
 7. At the bottom of the file, find the desired properties for the **$edgeHub** module. 
 
-   One of the functions of the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the **routes** property. The first route, **SampleModuleToIoTHub**, uses a wildcard character (**\***) to indicate any messages coming from any output queues in the SampleModule module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, sensorToSampleModule, takes messages coming from the tempSensor module and routes them to the *input1* input queue that you saw initialized in the SampleModule code. 
+   One of the functions of the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the **routes** property. The first route, **SampleModuleToIoTHub**, uses a wildcard character (**\***) to indicate any messages coming from any output queues in the SampleModule module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, sensorToSampleModule, takes messages coming from the SimulatedTemperatureSensor module and routes them to the *input1* input queue that you saw initialized in the SampleModule code. 
 
    ![Review routes in deployment.template.json](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -273,7 +276,7 @@ You verified that the built container images are stored in your container regist
 
 4. Expand the details for your IoT Edge device, then expand the **Modules** list for your device. 
 
-5. Use the refresh button to update the device view until you see the tempSensor and SampleModule modules running on your device. 
+5. Use the refresh button to update the device view until you see the SimulatedTemperatureSensor and SampleModule modules running on your device. 
 
    It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. 
 
@@ -281,7 +284,7 @@ You verified that the built container images are stored in your container regist
 
 ## View messages from device
 
-The SampleModule code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages to SampleModule from tempSensor, and then forwarded messages from SampleModule to IoT Hub. The Azure IoT tools for Visual Studio Code allow you to see messages as they arrive at IoT Hub from your individual devices. 
+The SampleModule code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages to SampleModule from SimulatedTemperatureSensor, and then forwarded messages from SampleModule to IoT Hub. The Azure IoT tools for Visual Studio Code allow you to see messages as they arrive at IoT Hub from your individual devices. 
 
 1. In the Visual Studio Code explorer, right-click the IoT Edge device that you want to monitor, then select **Start Monitoring Built-in Event Endpoint**. 
 
@@ -301,7 +304,7 @@ The commands in this section are for your IoT Edge device, not your development 
    iotedge list
    ```
 
-   You should see four modules: the two IoT Edge runtime modules, tempSensor, and SampleModule. All four should be listed as running.
+   You should see four modules: the two IoT Edge runtime modules, SimulatedTemperatureSensor, and SampleModule. All four should be listed as running.
 
 * Inspect the logs for a specific module:
 
@@ -311,7 +314,7 @@ The commands in this section are for your IoT Edge device, not your development 
 
    IoT Edge modules are case-sensitive. 
 
-   The tempSensor and SamplModule logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors. 
+   The SimulatedTemperatureSensor and SampleModule logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors. 
 
 ## Next steps
 

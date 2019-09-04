@@ -1,6 +1,6 @@
 ---
-title: Add example utterances
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Add example utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add example utterances to an intent.
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -40,7 +40,7 @@ Are there any SQL server jobs?
     > [!NOTE]
     > When selecting words to tag as entities:
     > * For a single word, just select it. 
-    > * For a set of two or more words, select at the beginning and then at the end of the set.
+    > * For a set of two or more words, select the first word and then the final word.
 
 1. In the **What type of entity do you want to create?** pop-up box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 

@@ -1,6 +1,6 @@
 ---
 title: Sample - NIST SP 800-53 R4 blueprint - Control mapping
-description: Control mapping of the NIST SP 800-53 R4 blueprint sample to Azure Policy and RBAC.
+description: Control mapping of the NIST SP 800-53 R4 blueprint sample to Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
@@ -16,35 +16,39 @@ the NIST SP 800-53 R4 controls. For more information about the controls, see [NI
 The following mappings are to the **NIST SP 800-53 (Rev. 4)** controls. Use the navigation on the
 right to jump directly to a specific control mapping. Many of the mapped controls are implemented
 with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative,
-open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]:
+open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\]:
 Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements**
 built-in policy initiative.
 
 ## AC-2 Account Management
 
-This blueprint helps you review accounts that may not comply with your organization’s account
-management requirements. This blueprint assigns five Azure Policy definitions that audit external
-accounts with read, write and owner permissions on a subscription and deprecated accounts. By
-reviewing the accounts audited by these policies, you can take appropriate action to ensure account
-management requirements are met.
+This blueprint helps you review accounts that may not comply with your organization’s account 
+management requirements. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
+definitions that audit external accounts with read, write and owner permissions on a subscription 
+and deprecated accounts. By reviewing the accounts audited by these policies, you can take 
+appropriate action to ensure account management requirements are met.
 
-- [Preview]: Audit deprecated accounts on a subscription
-- [Preview]: Audit deprecated accounts with owner permissions on a subscription
-- [Preview]: Audit external accounts with owner permissions on a subscription
-- [Preview]: Audit external accounts with read permissions on a subscription
-- [Preview]: Audit external accounts with write permissions on a subscription
+- Deprecated accounts should be removed from your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
+- External accounts with read permissions should be removed from your subscription
+- External accounts with write permissions should be removed from your subscription
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
 Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
 (RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
-review who has access to Azure resources and their permissions. This blueprint also assigns two [Azure Policy](../../../policy/overview.md)
+review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
-centralized identity management of database users and other Microsoft services.
+centralized identity management of database users and other Microsoft services. Additionally, this 
+blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding 
+where custom RBAC rules are implement can help you verify need and proper implementation, as custom 
+RBAC rules are error prone.
 
-- Audit provisioning of an Azure Active Directory administrator for SQL server
-- Audit usage of Azure Active Directory for client authentication in Service Fabric
+- An Azure Active Directory administrator should be provisioned for SQL servers
+- Audit usage of custom RBAC rules
+- Service Fabric clusters should only use Azure Active Directory for client authentication
 
 ## AC-2 (12) Account Management | Account Monitoring / Atypical Usage
 
@@ -55,7 +59,7 @@ atypical usage. This blueprint assigns an [Azure Policy](../../../policy/overvie
 that helps you monitor virtual machines that can support just-in-time access but have not yet been
 configured.
 
-- [Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center
+- Just-In-Time network access control should be applied on virtual machines
 
 ## AC-4 Information Flow Enforcement
 
@@ -66,121 +70,133 @@ definition to help you monitor CORS resources access restrictions in Azure Secur
 Understanding CORS implementations can help you verify that information flow controls are
 implemented.
 
-- [Preview]: Audit CORS resource access restrictions for a Web Application
+- CORS should not allow every resource to access your Web Application
 
 ## AC-5 Separation of Duties
 
 Having only one Azure subscription owner doesn't allow for administrative redundancy. Conversely,
 having too many Azure subscription owners can increase the potential for a breach via a compromised
 owner account. This blueprint helps you maintain an appropriate number of Azure subscription owners
-by assigning two [Azure Policy](../../../policy/overview.md) definitions that audit the number of
-owners for Azure subscriptions. This blueprint also assigns four Azure Policy definitions that help
+by assigning [Azure Policy](../../../policy/overview.md) definitions that audit the number of
+owners for Azure subscriptions. This blueprint also assigns Azure Policy definitions that help
 you control membership of the Administrators group on Windows virtual machines. Managing
 subscription owner and virtual machine administrator permissions can help you implement appropriate
 separation of duties.
 
-- [Preview]: Audit maximum number of owners for a subscription
-- [Preview]: Audit minimum number of owners for subscription
-- Audit that the Administrators group inside Windows VMs excludes the specified members
-- Audit that the Administrators group inside Windows VMs includes the specified members
-- Deploy VM extension to audit that the Administrators group inside Windows VMs excludes the specified members
-- Deploy VM extension to audit that the Administrators group inside Windows VMs includes the specified members
+- A maximum of 3 owners should be designated for your subscription
+- Audit Windows VMs in which the Administrators group contains any of the specified members
+- Audit Windows VMs in which the Administrators group does not contain all of the specified members
+- Deploy requirements to audit Windows VMs in which the Administrators group contains any of the specified members
+- Deploy requirements to audit Windows VMs in which the Administrators group does not contain all of the specified members
+- There should be more than one owner assigned to your subscription
 
 ## AC-6 (7) Least Privilege | Review of User Privileges
 
 Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
 (RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
-review who has access to Azure resources and their permissions. This blueprint assigns six [Azure Policy](../../../policy/overview.md)
+review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts that should be prioritized for review. Reviewing these account
 indicators can help you ensure least privilege controls are implemented.
 
-- [Preview]: Audit maximum number of owners for a subscription
-- [Preview]: Audit minimum number of owners for subscription
-- Audit that the Administrators group inside Windows VMs excludes the specified members
-- Audit that the Administrators group inside Windows VMs includes the specified members
-- Deploy VM extension to audit that the Administrators group inside Windows VMs excludes the specified members
-- Deploy VM extension to audit that the Administrators group inside Windows VMs includes the specified members
+- A maximum of 3 owners should be designated for your subscription
+- Audit Windows VMs in which the Administrators group contains any of the specified members
+- Audit Windows VMs in which the Administrators group does not contain all of the specified members
+- Deploy requirements to audit Windows VMs in which the Administrators group contains any of the specified members
+- Deploy requirements to audit Windows VMs in which the Administrators group does not contain all of the specified members
+- There should be more than one owner assigned to your subscription
+
+## AC-16 Security Attributes
+
+The data discovery and classification capability of advanced data security for Azure SQL Database 
+provides capabilities for discovering, classifying, labeling, and protecting the sensitive data in 
+your databases. It can be used to provide visibility into your database classification state, and 
+to track the access to sensitive data within the database and beyond its borders. Advanced data 
+security can help you ensure information as associated with the appropriate security attributes 
+for your organization. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
+definitions to monitor and enforce use of advanced data security on SQL server. 
+
+- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL servers
+- Deploy Advanced Data Security on SQL servers
 
 ## AC-17 (1) Remote Access | Automated Monitoring / Control
 
-This blueprint helps you monitor and control remote access by assigning three [Azure Policy](../../../policy/overview.md)
+This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
 definitions to monitors that remote debugging for Azure App Service application is turned off and
-two policy definitions that audit Linux virtual machines that allow remote connections from accounts
+policy definitions that audit Linux virtual machines that allow remote connections from accounts
 without passwords. This blueprint also assigns an Azure Policy definition that helps you monitor
 unrestricted access to storage accounts. Monitoring these indicators can help you ensure remote
 access methods comply with your security policy.
 
-- [Preview]: Audit remote debugging state for a Function App
-- [Preview]: Audit remote debugging state for a Web Application
-- [Preview]: Audit remote debugging state for an API App
-- [Preview]: Audit that Linux VMs do not allow remote connections from accounts without passwords
-- [Preview]: Deploy VM extension to audit that Linux VMs do not allow remote connections from accounts without passwords
+- \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
 - Audit unrestricted network access to storage accounts
+- Remote debugging should be turned off for API App
+- Remote debugging should be turned off for Function App
+- Remote debugging should be turned off for Web Application
 
 ## AU-3 (2) Content of Audit Records | Centralized Management of Planned Audit Record Content
 
 Log data collected by Azure Monitor is stored in a Log Analytics workspace enabling centralized
-configuration and management. This blueprint helps you ensure events are logged by assigning seven [Azure Policy](../../../policy/overview.md)
+configuration and management. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-5 Response to Audit Processing Failures
 
-This blueprint assigns five [Azure Policy](../../../policy/overview.md) definitions that monitor
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that monitor
 audit and event logging configurations. Monitoring these configurations can provide an indicator of
 an audit system failure or misconfiguration and help you take corrective action.
 
-- [Preview]: Monitor unaudited SQL servers in Azure Security Center
 - Audit diagnostic setting
-- Audit SQL managed instances without Advanced Data Security
 - Audit SQL server level Auditing settings
-- Audit SQL servers without Advanced Data Security
+- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL servers
 
 ## AU-6 (4) Audit Review, Analysis, and Reporting | Central Review and Analysis
 
 Log data collected by Azure Monitor is stored in a Log Analytics workspace enabling centralized
-reporting and analysis. This blueprint helps you ensure events are logged by assigning seven [Azure Policy](../../../policy/overview.md)
+reporting and analysis. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-12 Audit Generation
 
-This blueprint helps you ensure system events are logged by assigning 15 [Azure Policy](../../../policy/overview.md)
+This blueprint helps you ensure system events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit log settings on Azure resources. These policy definitions audit and enforce
 deployment of the Log Analytics agent on Azure virtual machines and configuration of audit settings
 for other Azure resource types. These policy definitions also audit configuration of diagnostic logs
 to provide insight into operations that are performed within Azure resources. Additionally, auditing
 and Advanced Data Security are configured on SQL servers.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
-- [Preview]: Monitor unaudited SQL servers in Azure Security Center
-- Apply Diagnostic Settings for Network Security Groups
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
-- Audit SQL managed instances without Advanced Data Security
 - Audit SQL server level Auditing settings
-- Audit SQL servers without Advanced Data Security
+- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy Auditing on SQL servers
+- Deploy Diagnostic Settings for Network Security Groups
 
 ## CM-7 (2) Least Functionality | Prevent Program Execution
 
@@ -190,7 +206,7 @@ virtual machines. Application control can run in an enforcement mode that prohib
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
 virtual machines where an application whitelist is recommended but has not yet been configured.
 
-- [Preview]: Monitor possible app whitelisting in Azure Security Center
+- Adaptive Application Controls should be enabled on virtual machines
 
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
@@ -201,7 +217,7 @@ machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) 
 helps you monitor virtual machines where an application whitelist is recommended but has not yet
 been configured.
 
-- [Preview]: Monitor possible app whitelisting in Azure Security Center
+- Adaptive Application Controls should be enabled on virtual machines
 
 ## CM-11 User-Installed Software
 
@@ -212,7 +228,7 @@ restriction policies. This blueprint assigns an [Azure Policy](../../../policy/o
 definition that helps you monitor virtual machines where an application whitelist is recommended but
 has not yet been configured.
 
-- [Preview]: Monitor possible app whitelisting in Azure Security Center
+- Adaptive Application Controls should be enabled on virtual machines
 
 ## CP-7 Alternate Processing Site
 
@@ -226,14 +242,14 @@ ensure necessary contingency controls are in place.
 
 ## IA-2 (1) Identification and Authentication (Organizational Users) | Network Access to Privileged Accounts
 
-This blueprint helps you restrict and control privileged access by assigning two [Azure Policy](../../../policy/overview.md)
+This blueprint helps you restrict and control privileged access by assigning [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts with owner and/or write permissions that don't have multi-factor
 authentication enabled. Multi-factor authentication helps keep accounts secure even if one piece of
 authentication information is compromised. By monitoring accounts without multi-factor
 authentication enabled, you can identify accounts that may be more likely to be compromised.
 
-- [Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription
-- [Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription
+- MFA should be enabled on accounts with owner permissions on your subscription
+- MFA should be enabled on accounts with write permissions on your subscription
 
 ## IA-2 (2) Identification and Authentication (Organizational Users) | Network Access to Non-Privileged Accounts
 
@@ -243,61 +259,62 @@ enabled. Multi-factor authentication helps keep accounts secure even if one piec
 information is compromised. By monitoring accounts without multi-factor authentication enabled, you
 can identify accounts that may be more likely to be compromised.
 
-- [Preview]: Audit accounts with read permissions who are not MFA enabled on a subscription
+- MFA should be enabled on accounts with read permissions on your subscription
 
 ## IA-5 Authenticator Management
 
-This blueprint assigns five [Azure Policy](../../../policy/overview.md) definitions that audit Linux
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that audit Linux
 virtual machines that allow remote connections from accounts without passwords and/or have incorrect
-permissions set on the passwd file. This blueprint also assigns a policy definition that audits the
-conjugation of the password encryption type for Windows virtual machines. Monitoring these
+permissions set on the passwd file. This blueprint also assigns policy definitions that audit the
+configuration of the password encryption type for Windows virtual machines. Monitoring these
 indicators helps you ensure that system authenticators comply with your organization’s
 identification and authentication policy.
 
-- [Preview]: Audit that Linux VMs do not have accounts without passwords
-- [Preview]: Deploy VM extension to audit that Linux VMs do not have accounts without passwords
-- [Preview]: Audit that Linux VMs have the passwd file permissions set to 0644
-- [Preview]: Audit that Windows VMs store passwords using reversible encryption
-- [Preview]: Deploy VM extension to audit that Linux VMs have the passwd file permissions set to 0644
+- \[Preview\]: Audit Linux VMs that do not have the passwd file permissions set to 0644
+- \[Preview\]: Audit Linux VMs that have accounts without passwords
+- \[Preview\]: Audit Windows VMs that do not store passwords using reversible encryption
+- \[Preview\]: Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
+- \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
 
 ## IA-5 (1) Authenticator Management | Password-Based Authentication
 
-This blueprint helps you enforce strong passwords by assigning 12 [Azure Policy](../../../policy/overview.md)
+This blueprint helps you enforce strong passwords by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit Windows virtual machines that don't enforce minimum strength and other
 password requirements. Awareness of virtual machines in violation of the password strength policy
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
 with your organization’s password policy.
 
-- [Preview]: Audit that Windows VMs cannot re-use the previous 24 passwords
-- [Preview]: Audit that Windows VMs have a maximum password age of 70 days
-- [Preview]: Audit that Windows VMs have a minimum password age of 1 day
-- [Preview]: Audit that Windows VMs have the password complexity setting enabled
-- [Preview]: Audit that Windows VMs restrict the minimum password length to 14 characters
-- [Preview]: Audit that Windows VMs store passwords using reversible encryption
-- [Preview]: Deploy VM extension to audit that Windows VMs cannot re-use the previous 24 passwords
-- [Preview]: Deploy VM extension to audit that Windows VMs have a maximum password age of 70 days
-- [Preview]: Deploy VM extension to audit that Windows VMs have a minimum password age of 1 day
-- [Preview]: Deploy VM extension to audit that Windows VMs have the password complexity setting enabled
-- [Preview]: Deploy VM extension to audit that Windows VMs restrict the minimum password length to 14 characters
-- [Preview]: Deploy VM extension to audit that Windows VMs store passwords using reversible encryption
+- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Audit Windows VMs that do not store passwords using reversible encryption
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
 
 ## RA-5 Vulnerability Scanning
 
-This blueprint helps you manage information system vulnerabilities by assigning four [Azure Policy](../../../policy/overview.md)
+This blueprint helps you manage information system vulnerabilities by assigning [Azure Policy](../../../policy/overview.md)
 definitions that monitor operating system vulnerabilities, SQL vulnerabilities, and virtual machine
 vulnerabilities in Azure Security Center. Azure Security Center provides reporting capabilities that
 enable you to have real-time insight into the security state of deployed Azure resources. This
-blueprint also assigns three policy definitions that audit and enforce Advanced Data Security on SQL
+blueprint also assigns policy definitions that audit and enforce Advanced Data Security on SQL
 servers. Advanced data security included vulnerability assessment and advanced threat protection
 capabilities to help you understand vulnerabilities in your deployed resources.
 
-- Audit SQL managed instances without Advanced Data Security
-- Audit SQL servers without Advanced Data Security
+- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
-- [Preview]: Audit OS vulnerabilities on your virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor OS vulnerabilities in Azure Security Center
-- [Preview]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Preview]: Monitor VM Vulnerabilities in Azure Security Center
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Vulnerabilities in security configuration on your virtual machines should be remediated
+- Vulnerabilities on your SQL databases should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
 ## SC-5 Denial of Service Protection
 
@@ -308,25 +325,22 @@ definition that audits if the DDoS standard tier is enabled. Understanding the c
 between the service tiers can help you select the best solution to address denial of service
 protections for your Azure environment.
 
-- [Preview]: Audit standard tier of DDoS protection is enabled for a virtual network
+- DDoS Protection Standard should be enabled
 
 ## SC-7 Boundary Protection
 
 This blueprint helps you manage and control the system boundary by assigning an [Azure Policy](../../../policy/overview.md)
-definition that monitors network security groups with permissive rules. Rules that are too
-permissive may allow unintended network access and should be reviewed. This blueprint also assigns a
-policy definition that monitors for network security group hardening recommendations in Azure
+definition that monitors for network security group hardening recommendations in Azure
 Security Center. Azure Security Center analyzes traffic patterns of Internet facing virtual machines
 and provides network security group rule recommendations to reduce the potential attack surface.
-Additionally, this blueprint also assigns three policy definitions that monitor unprotected
+Additionally, this blueprint also assigns policy definitions that monitor unprotected
 endpoints, applications, and storage accounts. Endpoints and applications that aren't protected by a
 firewall, and storage accounts with unrestricted access can allow unintended access to information
 contained within the information system.
 
-- [Preview]: Monitor Internet-facing virtual machines for Network Security Group traffic hardening recommendations
-- [Preview]: Monitor permissive network access in Azure Security Center
-- [Preview]: Monitor unprotected network endpoints in Azure Security Center
-- [Preview]: Monitor unprotected web application in Azure Security Center
+- Network Security Group Rules for Internet facing virtual machines should be hardened
+- Access through Internet facing endpoint should be restricted
+- The NSGs rules for web applications on IaaS should be hardened
 - Audit unrestricted network access to storage accounts
 
 ## SC-7 (3) Boundary Protection | Access Points
@@ -337,7 +351,7 @@ machine access helps you limit the number of external connections to your resour
 blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you monitor
 virtual machines that can support just-in-time access but have not yet been configured.
 
-- [Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center
+- Just-In-Time network access control should be applied on virtual machines
 
 ## SC-7 (4) Boundary Protection | External Telecommunications Services
 
@@ -348,12 +362,28 @@ request and approval processes. This blueprint assigns an [Azure Policy](../../.
 definition that helps you monitor virtual machines that can support just-in-time access but have not
 yet been configured.
 
-- [Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center
+- Just-In-Time network access control should be applied on virtual machines
+
+## SC-8 (1) Transmission Confidentiality and Integrity | Cryptographic or Alternate Physical Protection
+
+This blueprint helps you protect the confidential and integrity of transmitted information by 
+assigning [Azure Policy](../../../policy/overview.md) definitions that help you monitor 
+cryptographic mechanism implemented for communications protocols. Ensuring communications are 
+properly encrypted can help you meet your organization’s requirements or protecting information 
+from unauthorized disclosure and modification.
+
+- API App should only be accessible over HTTPS
+- Audit Windows web servers that are not using secure communication protocols
+- Deploy requirements to audit Windows web servers that are not using secure communication protocols
+- Function App should only be accessible over HTTPS
+- Only secure connections to your Redis Cache should be enabled
+- Secure transfer to storage accounts should be enabled
+- Web Application should only be accessible over HTTPS
 
 ## SC-28 (1) Protection of Information at Rest | Cryptographic Protection
 
 This blueprint helps you enforce your policy on the use of cryptograph controls to protect
-information at rest by assigning 9 [Azure Policy](../../../policy/overview.md) definitions that
+information at rest by assigning [Azure Policy](../../../policy/overview.md) definitions that
 enforce specific cryptograph controls and audit use of weak cryptographic settings. Understanding
 where your Azure resources may have non-optimal cryptographic configurations can help you take
 corrective actions to ensure resources are configured in accordance with your information security
@@ -361,54 +391,52 @@ policy. Specifically, the policy definitions assigned by this blueprint require 
 lake storage accounts; require transparent data encryption on SQL databases; and audit missing
 encryption on SQL databases, virtual machine disks, and automation account variables.
 
-- [Preview]: Monitor unencrypted SQL databases in Azure Security Center
-- [Preview]: Monitor unencrypted VM Disks in Azure Security Center
-- Audit secure transfer to storage accounts
-- Audit SQL managed instances without Advanced Data Security
-- Audit SQL servers without Advanced Data Security
-- Audit transparent data encryption status
+- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy SQL DB transparent data encryption
-- Enforce encryption on Data Lake Store accounts
+- Disk encryption should be applied on virtual machines
+- Require encryption on Data Lake Store accounts
+- Transparent Data Encryption on SQL databases should be enabled
 
 ## SI-2 Flaw Remediation
 
-This blueprint helps you manage information system flaws by assigning six [Azure Policy](../../../policy/overview.md)
+This blueprint helps you manage information system flaws by assigning [Azure Policy](../../../policy/overview.md)
 definitions that monitor missing system updates, operating system vulnerabilities, SQL
 vulnerabilities, and virtual machine vulnerabilities in Azure Security Center. Azure Security Center
 provides reporting capabilities that enable you to have real-time insight into the security state of
-deployed Azure resources. This blueprint also assigns a policy definition that ensures automatic
-upgrade of the operating system for virtual machine scale sets.
+deployed Azure resources. This blueprint also assigns a policy definition that ensures patching
+of the operating system for virtual machine scale sets.
 
-- [Preview]: Audit any missing system updates on virtual machine scale sets in Azure Security Center
-- [Preview]: Audit OS vulnerabilities on your virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor missing system updates in Azure Security Center
-- [Preview]: Monitor OS vulnerabilities in Azure Security Center
-- [Preview]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Preview]: Monitor VM Vulnerabilities in Azure Security Center
-- Enforce automatic OS upgrade with app health checks on VMSS
+- Require automatic OS image patching on Virtual Machine Scale Sets
+- System updates on virtual machine scale sets should be installed
+- System updates should be installed on your virtual machines
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Vulnerabilities in security configuration on your virtual machines should be remediated
+- Vulnerabilities on your SQL databases should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
 ## SI-3 Malicious Code Protection
 
 This blueprint helps you manage endpoint protection, including malicious code protection, by
-assigning three [Azure Policy](../../../policy/overview.md) definitions that monitor for missing
+assigning [Azure Policy](../../../policy/overview.md) definitions that monitor for missing
 endpoint protection on virtual machines in Azure Security Center and enforce the Microsoft
 antimalware solution on Windows virtual machines.
 
-- [Preview]: Audit the endpoint protection solution on virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor missing Endpoint Protection in Azure Security Center
 - Deploy default Microsoft IaaSAntimalware extension for Windows Server
+- Endpoint protection solution should be installed on virtual machine scale sets
+- Monitor missing Endpoint Protection in Azure Security Center
 
 ## SI-3 (1) Malicious Code Protection | Central Management
 
 This blueprint helps you manage endpoint protection, including malicious code protection, by
-assigning two [Azure Policy](../../../policy/overview.md) definitions that monitor for missing
+assigning [Azure Policy](../../../policy/overview.md) definitions that monitor for missing
 endpoint protection on virtual machines in Azure Security Center. Azure Security Center provides
 centralized management and reporting capabilities that enable you to have real-time insight into the
 security state of deployed Azure resources.
 
-- [Preview]: Audit the endpoint protection solution on virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor missing Endpoint Protection in Azure Security Center
+- Endpoint protection solution should be installed on virtual machine scale sets
+- Monitor missing Endpoint Protection in Azure Security Center
 
 ## SI-4 Information System Monitoring
 
@@ -418,15 +446,15 @@ Analytics agent, and enhanced security settings for SQL databases, storage accou
 resources. These capabilities can help you detect anomalous behavior and indicators of attacks so
 you can take appropriate action.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
-- Audit SQL managed instances without Advanced Data Security
-- Audit SQL servers without Advanced Data Security
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
+- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy Advanced Threat Protection on Storage Accounts
 - Deploy Auditing on SQL servers
@@ -442,11 +470,22 @@ exfiltration of information.
 
 - Deploy Advanced Threat Protection on Storage Accounts
 
+> [!NOTE]
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
+> clouds.
+
 ## Next steps
+
+Now that you've reviewed the control mapping of the NIST SP 800-53 R4 blueprint, visit the following
+articles to learn about the blueprint and how to deploy this sample:
+
+> [!div class="nextstepaction"]
+> [NIST SP 800-53 R4 blueprint - Overview](./index.md)
+> [NIST SP 800-53 R4 blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

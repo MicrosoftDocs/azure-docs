@@ -70,6 +70,7 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: (Preview) <a href="/azure/sql-database/sql-database-instance-pools"> Instance pools</a> - provide a convenient and cost-efficient way to migrate smaller SQL instances to the cloud.
     - html: <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a>
     - html: Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure monthly credit for Visual Studio subscribers </a>
     - html: Support for <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 and SharePoint 2019 </a> and <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
@@ -106,7 +107,7 @@ sections:
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-          - href: sql-database-managed-instance-get-started
+          - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
       - title: Modify the Instance
         values:
@@ -142,7 +143,7 @@ sections:
         values:
           - href: 
           - href: 
-          - href: https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa
+          - href: /azure/sql-database/scripts/sql-managed-instance-restore-geo-backup
           - href: 
       - title: Set public IP endpoint
         values:

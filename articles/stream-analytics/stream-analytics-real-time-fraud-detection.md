@@ -132,13 +132,13 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
    telcodatagen.exe 1000 0.2 2
    ```
 
-    The parameters are: 
+   The parameters are: 
 
-    * Number of CDRs per hour. 
-    * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
-    * Duration in hours. The number of hours that the app should run. You can also stop the app any time by pressing Ctrl+C at the command line.
+   * Number of CDRs per hour. 
+   * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
+   * Duration in hours. The number of hours that the app should run. You can also stop the app any time by pressing Ctrl+C at the command line.
 
-    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub.
+   After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub.
 
 Some of the key fields that you will be using in this real-time fraud detection application are the following:
 
@@ -201,7 +201,7 @@ A simple query might just read all the incoming data. However, you often create 
 
 The queries you create here will just display the transformed data to the screen. In a later section, you'll configure an output sink and a query that writes the transformed data to that sink.
 
-To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/dn834998.aspx).
+To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### Get sample data for testing queries
 
@@ -283,11 +283,11 @@ For this transformation, you want a sequence of temporal windows that don't over
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time Vs Application Time" in [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time Vs Application Time" in [Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     The projection includes `System.Timestamp`, which returns a timestamp for the end of each window. 
 
-    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you will get a count by country/region for every 5 seconds' worth of calls.
+    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you will get a count by country/region for every 5 seconds' worth of calls.
 
 2. Click **Test** again. In the results, notice that the timestamps under **WindowEnd** are in 5-second increments.
 
@@ -412,5 +412,5 @@ For more information about Stream Analytics in general, see these articles:
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -96,7 +96,7 @@ To change the User Identifier value, follow these steps:
 
 ## Change the NameID format
 
-If the application expects another format for the **NameID** (User Identifier) attribute, see [Editing nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) to change the NameID format.
+If the application expects another format for the **NameID** (User Identifier) attribute, see [Editing nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) to change the NameID format.
 
 Azure AD selects the format for the **NameID** attribute (User Identifier) based on the value that's selected or the format that's requested by the app in the SAML AuthRequest. For more information, see the "NameIDPolicy" section of [Single sign-on SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 

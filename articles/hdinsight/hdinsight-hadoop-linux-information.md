@@ -25,7 +25,7 @@ Many of the steps in this document use the following utilities, which may need t
 
 ## Users
 
-Unless [domain-joined](./domain-joined/apache-domain-joined-introduction.md), HDInsight should be considered a **single-user** system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
+Unless [domain-joined](./domain-joined/hdinsight-security-overview.md), HDInsight should be considered a **single-user** system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
 
 Domain-joined HDInsight supports multiple users and more granular permission and role settings. For more information, see [Manage Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md).
 

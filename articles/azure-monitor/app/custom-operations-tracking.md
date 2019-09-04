@@ -46,7 +46,10 @@ In this example, trace context is propagated according to the [HTTP Protocol for
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -203,20 +206,7 @@ public async Task Process(BrokeredMessage message)
 The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage. 
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests.
-Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in `applicationInsights.config`. If you don't have it, add it programmatically as described in [Filtering and Preprocessing in the Azure Application Insights SDK](../../azure-monitor/app/api-filtering-sampling.md).
-
-If you configure Application Insights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similarly to:
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+It is configured by default on ASP.NET and ASP.NET Core applications, with other kinds of applicaiton, you can refer to [console applications documentation](../../azure-monitor/app/console.md)
 
 You also might want to correlate the Application Insights operation ID with the Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -324,7 +314,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     {
         // Update status code and success as appropriate.
         telemetry.Stop();
-        telemetryClient.Track(telemetry);
+        telemetryClient.TrackDependency(telemetry);
     }
 
     return null;
@@ -490,6 +480,13 @@ public async Task RunAllTasks()
     await Task.WhenAll(task1, task2);
 }
 ```
+
+## ApplicationInsights operations vs System.Diagnostics.Activity
+`System.Diagnostics.Activity` represents the distributed tracing context and is used by frameworks and libraries to create and propagate context inside and outside of the process and correlate telemetry items. Activity works together with `System.Diagnostics.DiagnosticSource` - the notification mechanism between the framework/library to notify about interesting events (incoming or outgoing requests, exceptions, etc).
+
+Activities are first-class citizens in Application Insights and automatic dependency and request collection relies heavily on them along with `DiagnosticSource` events. If you create Activity in your application - it would not result in Application Insights telemetry being created. Application Insights needs to receive DiagnosticSource events and know the events names and payloads to translate Activity into telemetry.
+
+Each Application Insights operation (request or dependency) involves `Activity` - when `StartOperation` is called, it creates Activity underneath. `StartOperation` is the recommended way to track request or dependency telemetries manually and ensure everything is correlated.
 
 ## Next steps
 

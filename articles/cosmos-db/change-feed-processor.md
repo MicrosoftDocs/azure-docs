@@ -5,69 +5,92 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---
 
 # Change feed processor in Azure Cosmos DB 
 
-The [Azure Cosmos DB change feed processor library](sql-api-sdk-dotnet-changefeed.md) helps you distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
+The change feed processor is part of the [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). It simplifies the process of reading the change feed and distribute the event processing across multiple consumers effectively.
 
-The main benefit of change feed processor library is that you don’t have to manage each partition and continuation token and you don’t have to poll each container manually.
+The main benefit of change feed processor library is its fault-tolerant behavior that assures an "at-least-once" delivery of all the events in the change feed.
 
-The change feed processor library simplifies reading changes across partitions and multiple threads working in parallel. It automatically manages reading changes across partitions using a lease mechanism. As you can see in the following image, if you start two clients that are using the change feed processor library, they divide the work among themselves. As you continue to increase the number of clients, they keep dividing the work among themselves.
+## Components of the change feed processor
 
-![Using Azure Cosmos DB change feed processor library](./media/change-feed-processor/change-feed-output.png)
+There are four main components of implementing the change feed processor: 
 
-The left client was started first and it started monitoring all the partitions, then the second client was started, and then the first let go of some of the leases to second client. This is an efficient way to distribute work among different machines and clients.
+1. **The monitored container:** The monitored container has the data from which the change feed is generated. Any inserts and updates to the monitored container are reflected in the change feed of the container.
 
-If you have two server-less Azure functions monitoring the same container and using the same lease, the two functions may get different documents depending upon how the processor library decides to process the partitions.
+1. **The lease container:** The lease container acts as a state storage and coordinates processing the change feed across multiple workers. The lease container can be stored in the same account as the monitored container or in a separate account. 
 
-## Implementing the change feed processor library
+1. **The host:** A host is an application instance that uses the change feed processor to listen for changes. Multiple instances with the same lease configuration can run in parallel, but each instance should have a different **instance name**. 
 
-There are four main components of implementing the change feed processor library: 
+1. **The delegate:** The delegate is the code that defines what you, the developer, want to do with each batch of changes that the change feed processor reads. 
 
-1. **The monitored container:** The monitored container has the data from which the change feed is generated. Any inserts and changes to the monitored container are reflected in the change feed of the container.
-
-1. **The lease container:** The lease container coordinates processing the change feed across multiple workers. A separate container is used to store the leases with one lease per partition. It is advantageous to store this lease container on a different account with the write region closer to where the change feed processor is running. A lease object contains the following attributes:
-
-   * Owner: Specifies the host that owns the lease.
-
-   * Continuation: Specifies the position (continuation token) in the change feed for a particular partition.
-
-   * Timestamp: Last time lease was updated; the timestamp can be used to check whether the lease is considered expired.
-
-1. **The processor host:** Each host determines how many partitions to process based on how many other instances of hosts have active leases.
-
-   * When a host starts up, it acquires leases to balance the workload across all hosts. A host periodically renews leases, so leases remain active.
-
-   * A host checkpoints the last continuation token to its lease for each read. To ensure concurrency safety, a host checks the ETag for each lease update. Other checkpoint strategies are also supported.
-
-   * Upon shutdown, a host releases all leases but keeps the continuation information, so it can resume reading from the stored checkpoint later.
-
-   Currently, the number of hosts cannot be greater than the number of partitions (leases).
-
-1. **The consumers:** Consumers, or workers, are threads that perform the change feed processing initiated by each host. Each processor host can have multiple consumers. Each consumer reads the change feed from the partition it is assigned to and notifies its host of changes and expired leases.
-
-To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses 'City' as the partition key. We see that the blue partition contains documents with the 'City' field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already-read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer.
+To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored container stores documents and uses 'City' as the partition key. We see that the partition key values are distributed in ranges that contain items. 
+There are two host instances and the change feed processor is assigning different ranges of partition key values to each instance to maximize compute distribution. 
+Each range is being read in parallel and its progress is maintained separately from other ranges in the lease container.
 
 ![Change feed processor example](./media/change-feed-processor/changefeedprocessor.png)
 
-### Change feed and provisioned throughput
+## Implementing the change feed processor
+
+The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+
+Where the first parameter is a distinct name that describes the goal of this processor and the second name is the delegate implementation that will handle changes. 
+
+An example of a delegate would be:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+
+Finally you define a name for this processor instance with `WithInstanceName` and which is the container to maintain the lease state with `WithLeaseContainer`.
+
+Calling `Build` will give you the processor instance that you can start by calling `StartAsync`.
+
+## Processing life cycle
+
+The normal life cycle of a host instance is:
+
+1. Read the change feed.
+1. If there are no changes, sleep for a predefined amount of time (customizable with `WithPollInterval` in the Builder) and go to #1.
+1. If there are changes, send them to the **delegate**.
+1. When the delegate finishes processing the changes **successfully**, update the lease store with the latest processed point in time and go to #1.
+
+## Error handling
+
+The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check which was the latest point in time the lease store has for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee, because if the delegate code throws, it will retry that batch.
+
+## Dynamic scaling
+
+As mentioned during the introduction, the change feed processor can distribute compute across multiple instances automatically. You can deploy multiple instances of your application using the change feed processor and take advantage of it, the only key requirements are:
+
+1. All instances should have the same lease container configuration.
+1. All instances should have the same workflow name.
+1. Each instance needs to have a different instance name (`WithInstanceName`).
+
+If these three conditions apply, then the change feed processor will, using an equal distribution algorithm, distribute all the leases in the lease container across all running instances and parallelize compute. One lease can only be owned by one instance at a given time, so the maximum number of instances equals to the number of leases.
+
+The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly.
+
+Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
+
+## Change feed and provisioned throughput
 
 You are charged for RUs consumed, since data movement in and out of Cosmos containers always consumes RUs. You are charged for RUs consumed by the lease container.
 
 ## Additional resources
 
-* [Azure Cosmos DB change feed processor library](sql-api-sdk-dotnet-changefeed.md)
-* [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Additional samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## Next steps
 
-You can now proceed to learn more about change feed in the following articles:
+You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed](change-feed.md)
-* [Ways to read change feed](read-change-feed.md)
-* [Using change feed with Azure Functions](change-feed-functions.md)
+* [Using the change feed estimator](how-to-use-change-feed-estimator.md)
+* [Change feed processor start time](how-to-configure-change-feed-start-time.md)

@@ -102,6 +102,7 @@ Note the following points:
 
 * For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
+
 ## Create a linked service
 
 Create linked services in a data factory to link your data stores and compute services to the data factory. In this quickstart, you create an Azure Storage linked service that is used as both the source and sink stores. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
@@ -115,12 +116,10 @@ Create linked services in a data factory to link your data stores and compute se
     {
         "name": "AzureStorageLinkedService",
         "properties": {
-            "type": "AzureStorage",
+            "annotations": [],
+            "type": "AzureBlobStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net"
             }
         }
     }
@@ -148,57 +147,99 @@ Create linked services in a data factory to link your data stores and compute se
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobStorageLinkedService
     ```
 
-## Create a dataset
+## Create datasets
 
-In this step, you define a dataset that represents the data to copy from a source to a sink. The dataset is of type **AzureBlob**. It refers to the **Azure Storage linked service** you created in the previous step. It takes a parameter to construct the **folderPath** property. For an input dataset, the copy activity in the pipeline passes the input path as a value for this parameter. Similarly, for an output dataset, the copy activity passes the output path as a value for this parameter. 
-
-1. Create a JSON file named **BlobDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
+In this procedure, you create two datasets: **InputDataset** and **OutputDataset**. These datasets are of type **Binary**. They refer to the Azure Storage linked service that you created in the previous section.
+The input dataset represents the source data in the input folder. In the input dataset definition, you specify the blob container (**adftutorial**), the folder (**input**), and the file (**emp.txt**) that contain the source data.
+The output dataset represents the data that's copied to the destination. In the output dataset definition, you specify the blob container (**adftutorial**), the folder (**output**), and the file to which the data is copied. 
+1. Create a JSON file named **InputDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
 
     ```json
     {
-        "name": "BlobDataset",
+        "name": "InputDataset",
         "properties": {
-            "type": "AzureBlob",
-            "typeProperties": {
-                "folderPath": "@{dataset().path}"
-            },
             "linkedServiceName": {
                 "referenceName": "AzureStorageLinkedService",
                 "type": "LinkedServiceReference"
             },
-            "parameters": {
-                "path": {
-                    "type": "String"
+            "annotations": [],
+            "type": "Binary",
+            "typeProperties": {
+                "location": {
+                    "type": "AzureBlobStorageLocation",
+                    "fileName": "emp.txt",
+                    "folderPath": "input",
+                    "container": "adftutorial"
                 }
             }
         }
     }
     ```
 
-2. To create the dataset: **BlobDataset**, run the **Set-AzDataFactoryV2Dataset** cmdlet.
+2. To create the dataset: **InputDataset**, run the **Set-AzDataFactoryV2Dataset** cmdlet.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" `
-        -DefinitionFile ".\BlobDataset.json"
+        -ResourceGroupName $ResGrp.ResourceGroupName -Name "InputDataset" `
+        -DefinitionFile ".\InputDataset.json"
     ```
 
     Here is the sample output:
 
     ```console
-    DatasetName       : BlobDataset
+    DatasetName       : InputDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
     Structure         :
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
+3. Repeat the steps to create the output dataset. Create a JSON file named **OutputDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
+
+    ```json
+    {
+        "name": "OutputDataset",
+        "properties": {
+            "linkedServiceName": {
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
+            },
+            "annotations": [],
+            "type": "Binary",
+            "typeProperties": {
+                "location": {
+                    "type": "AzureBlobStorageLocation",
+                    "folderPath": "output",
+                    "container": "adftutorial"
+                }
+            }
+        }
+    }
+    ```
+
+4. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the **OutDataset**.
+
+    ```powershell
+    Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
+        -ResourceGroupName $ResGrp.ResourceGroupName -Name "OutputDataset" `
+        -DefinitionFile ".\OutputDataset.json"
+    ```
+
+    Here is the sample output:
+
+    ```console
+    DatasetName       : OutputDataset
+    ResourceGroupName : <resourceGroupname>
+    DataFactoryName   : <dataFactoryName>
+    Structure         :
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
+    ```
 ## Create a pipeline
 
-In this quickstart, you create a pipeline with one activity that takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered/run. The copy activity uses the same blob dataset created in the previous step as input and output. When the dataset is used as an input dataset, input path is specified. And, when the dataset is used as an output dataset, the output path is specified.
+In this procedure, you create a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings.  
 
 1. Create a JSON file named **Adfv2QuickStartPipeline.json** in the **C:\ADFv2QuickStartPSH** folder with the following content:
 
@@ -210,42 +251,46 @@ In this quickstart, you create a pipeline with one activity that takes two param
                 {
                     "name": "CopyFromBlobToBlob",
                     "type": "Copy",
+                    "dependsOn": [],
+                    "policy": {
+                        "timeout": "7.00:00:00",
+                        "retry": 0,
+                        "retryIntervalInSeconds": 30,
+                        "secureOutput": false,
+                        "secureInput": false
+                    },
+                    "userProperties": [],
+                    "typeProperties": {
+                        "source": {
+                            "type": "BinarySource",
+                            "storeSettings": {
+                                "type": "AzureBlobStorageReadSettings",
+                                "recursive": true
+                            }
+                        },
+                        "sink": {
+                            "type": "BinarySink",
+                            "storeSettings": {
+                                "type": "AzureBlobStorageWriteSettings"
+                            }
+                        },
+                        "enableStaging": false
+                    },
                     "inputs": [
                         {
-                            "referenceName": "BlobDataset",
-                            "parameters": {
-                                "path": "@pipeline().parameters.inputPath"
-                            },
+                            "referenceName": "InputDataset",
                             "type": "DatasetReference"
                         }
                     ],
                     "outputs": [
                         {
-                            "referenceName": "BlobDataset",
-                            "parameters": {
-                                "path": "@pipeline().parameters.outputPath"
-                            },
+                            "referenceName": "OutputDataset",
                             "type": "DatasetReference"
                         }
-                    ],
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource"
-                        },
-                        "sink": {
-                            "type": "BlobSink"
-                        }
-                    }
+                    ]
                 }
             ],
-            "parameters": {
-                "inputPath": {
-                    "type": "String"
-                },
-                "outputPath": {
-                    "type": "String"
-                }
-            }
+            "annotations": []
         }
     }
     ```
@@ -262,24 +307,15 @@ In this quickstart, you create a pipeline with one activity that takes two param
 
 ## Create a pipeline run
 
-In this step, you set values for the pipeline parameters:  **inputPath** and **outputPath** with actual values of source and sink blob paths. Then, you create a pipeline run by using these arguments.
+In this step, you create a pipeline run.
 
-1. Create a JSON file named **PipelineParameters.json** in the **C:\ADFv2QuickStartPSH** folder with the following content:
-
-    ```json
-    {
-        "inputPath": "adftutorial/input",
-        "outputPath": "adftutorial/output"
-    }
-    ```
-2. Run the **Invoke-AzDataFactoryV2Pipeline** cmdlet to create a pipeline run and pass in the parameter values. The cmdlet returns the pipeline run ID for future monitoring.
+Run the **Invoke-AzDataFactoryV2Pipeline** cmdlet to create a pipeline run. The cmdlet returns the pipeline run ID for future monitoring.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
-        -PipelineName $DFPipeLine.Name `
-        -ParameterFile .\PipelineParameters.json
+        -PipelineName $DFPipeLine.Name 
     ```
 
 ## Monitor the pipeline run
@@ -312,43 +348,18 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     Pipeline is running...status: InProgress
     Pipeline run finished. The status is:  Succeeded
     
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : SPTestFactory0928
-    RunId             : 0000000000-0000-0000-0000-0000000000000
+    ResourceGroupName : ADFQuickStartRG
+    DataFactoryName   : ADFQuickStartFactory
+    RunId             : 00000000-0000-0000-0000-0000000000000
     PipelineName      : Adfv2QuickStartPipeline
-    LastUpdated       : 9/28/2017 8:28:38 PM
-    Parameters        : {[inputPath, adftutorial/input], [outputPath, adftutorial/output]}
-    RunStart          : 9/28/2017 8:28:14 PM
-    RunEnd            : 9/28/2017 8:28:38 PM
-    DurationInMs      : 24151
+    LastUpdated       : 8/27/2019 7:23:07 AM
+    Parameters        : {}
+    RunStart          : 8/27/2019 7:22:56 AM
+    RunEnd            : 8/27/2019 7:23:07 AM
+    DurationInMs      : 11324
     Status            : Succeeded
-    Message           :
+    Message           : 
     ```
-
-    You might see the following error:
-
-    ```console
-    Activity CopyFromBlobToBlob failed: Failed to detect region of linked service 'AzureStorage' : 'AzureStorageLinkedService' with error '[Region Resolver] Azure Storage failed to get address for DNS. Warning: System.Net.Sockets.SocketException (0x80004005): No such host is known
-    ```
-
-    If you see the error, perform the following steps:
-
-    1. In the AzureStorageLinkedService.json, confirm that the name and key of your Azure Storage Account are correct.
-    2. Verify that the format of the connection string is correct. The properties, for example, AccountName and AccountKey are separated by semi-colon (`;`) character.
-    3. If you have angled brackets surrounding the account name and account key, remove them.
-    4. Here is an example connection string:
-
-        ```json
-        "connectionString": {
-            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageaccountkey;EndpointSuffix=core.windows.net",
-            "type": "SecureString"
-        }
-        ```
-
-    5. Recreate the linked service by following steps in the [Create a linked service](#create-a-linked-service) section.
-    6. Rerun the pipeline by following steps in the [Create a pipeline run](#create-a-pipeline-run) section.
-    7. Run the current monitoring command again to monitor the new pipeline run.
-
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
@@ -365,29 +376,59 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 3. Confirm that you see the output similar to the following sample output of activity run result:
 
     ```console
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : SPTestFactory0928
+    ResourceGroupName : ADFQuickStartRG
+    DataFactoryName   : ADFQuickStartFactory
+    ActivityRunId     : 00000000-0000-0000-0000-000000000000
     ActivityName      : CopyFromBlobToBlob
-    PipelineRunId     : 00000000000-0000-0000-0000-000000000000
+    PipelineRunId     : 00000000-0000-0000-0000-000000000000
     PipelineName      : Adfv2QuickStartPipeline
-    Input             : {source, sink}
-    Output            : {dataRead, dataWritten, copyDuration, throughput...}
+    Input             : {source, sink, enableStaging}
+    Output            : {dataRead, dataWritten, filesRead, filesWritten...}
     LinkedServiceName :
-    ActivityRunStart  : 9/28/2017 8:28:18 PM
-    ActivityRunEnd    : 9/28/2017 8:28:36 PM
-    DurationInMs      : 18095
+    ActivityRunStart  : 8/27/2019 7:22:58 AM
+    ActivityRunEnd    : 8/27/2019 7:23:05 AM
+    DurationInMs      : 6828
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
     
     Activity 'Output' section:
-    "dataRead": 38
-    "dataWritten": 38
-    "copyDuration": 7
+    "dataRead": 20
+    "dataWritten": 20
+    "filesRead": 1
+    "filesWritten": 1
+    "sourcePeakConnections": 1
+    "sinkPeakConnections": 1
+    "copyDuration": 4
     "throughput": 0.01
     "errors": []
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)"
-    "usedDataIntegrationUnits": 2
-    "billedDuration": 14
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (Central US)"
+    "usedDataIntegrationUnits": 4
+    "usedParallelCopies": 1
+    "executionDetails": [
+      {
+        "source": {
+          "type": "AzureBlobStorage"
+        },
+        "sink": {
+          "type": "AzureBlobStorage"
+        },
+        "status": "Succeeded",
+        "start": "2019-08-27T07:22:59.1045645Z",
+        "duration": 4,
+        "usedDataIntegrationUnits": 4,
+        "usedParallelCopies": 1,
+        "detailedDurations": {
+          "queuingDuration": 3,
+          "transferDuration": 1
+        }
+      }
+    ]
+    
+    Activity 'Error' section:
+    "errorCode": ""
+    "message": ""
+    "failureType": ""
+    "target": "CopyFromBlobToBlob"
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]

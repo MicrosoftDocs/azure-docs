@@ -1,29 +1,21 @@
 ---
 title: What are access controls in Azure Active Directory Conditional Access? | Microsoft Docs
 description: Learn how access controls in Azure Active Directory Conditional Access work.
-services: active-directory
-keywords: Conditional Access to apps, Conditional Access with Azure AD, secure access to company resources, Conditional Access policies
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
 
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
+services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 06/15/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 
 #Customer intent: As an IT admin, I need to understand the controls in Conditional Access so that I can set them according to my business needs
-
 ms.collection: M365-identity-device-management
 ---
-
 # What are access controls in Azure Active Directory Conditional Access?
 
 With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a Conditional Access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens").
@@ -33,7 +25,6 @@ With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-
 In the context of Conditional Access,
 
 - "**When this happens**" is called **conditions**
-
 - "**Then do this**" is called **access controls**
 
 The combination of a condition statement with your controls represents a Conditional Access policy.
@@ -45,7 +36,6 @@ Each control is either a requirement that must be fulfilled by the person or sys
 There are two types of controls:
 
 - **Grant controls** - To gate access
-
 - **Session controls** - To restrict access within a session
 
 This topic explains the various controls that are available in Azure AD Conditional Access. 
@@ -64,7 +54,6 @@ With grant controls, you can either block access altogether or allow access with
 You can use this control to require multi-factor authentication to access the specified cloud app. This control supports the following multi-factor providers:
 
 - Azure Multi-Factor Authentication
-
 - An on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS).
 
 Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the primary credentials of a valid user.
@@ -75,9 +64,11 @@ You can configure Conditional Access policies that are device-based. The objecti
 
 Your device needs to be registered to Azure AD before it can be marked as compliant. To register a device, you have three options: 
 
-- [Azure AD registered devices](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD joined devices](../devices/overview.md#azure-ad-joined-devices)  
-- [Hybrid Azure AD joined devices](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- Azure AD registered devices
+- Azure AD joined devices  
+- Hybrid Azure AD joined devices
+
+These three options are discussed in the article [What is a device identity?](../devices/overview.md)
 
 For more information, see [how to require managed devices for cloud app access with Conditional Access](require-managed-devices.md).
 
@@ -105,16 +96,11 @@ Your device must be registered to Azure AD before an application can be marked a
 
 For a list of supported policy protected client apps, see [app protection policy requirement](technical-reference.md#app-protection-policy-requirement).
 
-
 ### Terms of use
 
 You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed.
 
-### Custom controls (preview)
-
-You can add custom controls in Conditional Access that redirect your users to a compatible service to satisfy further requirements outside of Azure Active Directory. This allows you to use certain external multi-factor authentication and verification providers to enforce Conditional Access requirements. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. If the user was successfully authenticated or validated, the user continues in the Conditional Access flow. 
-
-## Custom controls
+## Custom controls (preview)
 
 Custom controls are a capability of the Azure Active Directory Premium P1 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
 
@@ -156,10 +142,8 @@ Clicking **New custom control**, opens a blade with a textbox for the JSON data 
 To delete a custom control, you must first ensure that it isn’t being used in any Conditional Access policy. Once complete:
 
 1. Go to the Custom controls list
-
-2. Click …  
-
-3. Select **Delete**.
+1. Click …  
+1. Select **Delete**.
 
 ### Editing custom controls
 
@@ -178,11 +162,9 @@ You can use this control to require Azure AD to pass device information to the s
 To learn more, see:
 
 - [Enabling limited access with SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-
 - [Enabling limited access with Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## Next steps
 
 - If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
-
 - If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md).

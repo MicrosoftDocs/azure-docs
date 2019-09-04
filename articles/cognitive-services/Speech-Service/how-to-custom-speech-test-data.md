@@ -1,6 +1,6 @@
 ---
-title: "Prepare test data for Custom Speech - Speech Services"
-titlesuffix: Azure Cognitive Services
+title: "Prepare test data for Custom Speech - Speech Service"
+titleSuffix: Azure Cognitive Services
 description: "Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page, we cover the types of data, how they are used, and how to manage them."
 services: cognitive-services
 author: erhopf
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -24,7 +24,7 @@ This table lists accepted data types, when each data type should be used, and th
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5 - 5 hours of audio | Yes | 1 - 1,000 hours of audio |
-| [Related text](##related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 

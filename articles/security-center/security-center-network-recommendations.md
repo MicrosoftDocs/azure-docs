@@ -44,6 +44,7 @@ To open the Network map:
 2. Under **Network map** click **See topology**.
  
 The default view of the topology map displays:
+
 - Subscriptions you selected in Azure. The map supports multiple subscriptions.
 - VMs, subnets, and VNets of the Resource Manager resource type (Classic Azure resources are not supported)
 - Peered VNets
@@ -60,6 +61,7 @@ The Network map can show you your Azure resources in a **Topology** view and a *
 ### The topology view
 
 In the **Topology** view of the networking map, you can view the following insights about your networking resources:
+
 - In the inner circle, you can see all the Vnets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
 - The lines connecting the resources in the map let you know which resources are associated with each other, and how your Azure network is structured. 
 - Use the severity indicators to quickly get an overview of which resources have open recommendations from Security Center.
@@ -69,6 +71,7 @@ In the **Topology** view of the networking map, you can view the following insig
 Because the map is interactive and dynamic, every node is clickable, and the view can change based on the filters:
 
 1. You can modify what you see on the network map by using the filters at the top. You can focus the map based on:
+
    -  **Security health**: You can filter the map based on Severity (High, Medium, Low) of your Azure resources.
    - **Recommendations**: You can select which resources are displayed based on which recommendations are active on those resources. For example, you can view only resources for which Security Center recommends you enable Network Security Groups.
    - **Network zones**: By default, the map displays only Internet facing resources, you can select internal VMs as well.
@@ -76,6 +79,7 @@ Because the map is interactive and dynamic, every node is clickable, and the vie
 2. You can click **Reset** in top left corner at any time to return the map to its default state.
 
 To drill down into a resource:
+
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
 2. When you hover over a node in the map, you can view general information about the resource, including subscription, resource type, and resource group.
 3. Use the link to zoom into the tool tip and refocus the map on that specific node. 
@@ -94,6 +98,7 @@ For example, you might detect two machines that you weren’t aware could commun
 ### Investigate resources
 
 To drill down into a resource:
+
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
 2. Click **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets which it can communicate with are shown.
 
@@ -125,21 +130,25 @@ The third level displays virtual machines, which is similar to what is described
 
 ## Network recommendations
 
-|Resource type|Secure score|Recommendation|Description|
-|----|----|----|----|
-|Machine|40|Network Security Groups for virtual machines should be enabled|Enable Network Security Groups to control network access of your virtual machines.|
-|Subnet|35|Network Security Groups on the subnet level should be enabled|Enable network  security groups to control network access of resources deployed in your subnets.|
-|Machine|30|Just-In-Time network access control should be applied on virtual machines|Apply just in time VM access control to permanently lock down access to selected ports, and enable authorized users to open them via the same mechanism and for a limited amount of time.|
-|Machine|20|Restrict access through Internet facing endpoint|Harden the network security groups of your Internet facing VMs by restricting the access of your existing allow rules.|
-|Machine|10|Add a next generation firewall|Add a Next Generation Firewall (NGFW) solution to better protect your internet facing VMs.|
-|Machine|5|Route traffic through network gateway firewall only|In order to complete the deployment of your next generation firewall solution, traffic to your protected internet facing VMs should be routed only via the next generation firewall solution.|
-|VNet|5|Enable DDoS protection standard|Applications with public IPs in these virtual networks are not protected with the DDOS protection service standard. It is advised to enable it to enable mitigation of network volumetric and protocol attacks.|
+|Recommendation name|Description|Severity|Secure score|Resource type|
+|----|----|----|----|----|----|
+|Network security groups on the subnet level should be enabled|Enable network security groups to control network access of resources deployed in your subnets.|High/ Medium|30|Subnet|
+|Virtual machines should be associated with a network security group|Enable Network Security Groups to control network access of your virtual machines.|High/ Medium|30|Virtual machine|
+|Access should be restricted for permissive network security groups with Internet-facing VMs|Harden the network security groups of your Internet-facing VMs by restricting the access of your existing allow rules.|High|20|Virtual machine|
+|The rules for web applications on IaaS NSGs should be hardened|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regards to web application ports.|High|20|Virtual machine|
+|Access to App Services should be restricted|Restrict access to your App Services by changing the networking configuration, to deny inbound traffic from ranges that are too broad.|High|10|App service|
+|Management ports should be closed on your virtual machines|Harden the network security group of your virtual machines to restrict access to management ports.|High|10|Virtual machine|
+DDoS Protection Standard should be enabled|Protect virtual networks containing applications with public IPs by enabling DDoS protection service standard. DDoS protection enables mitigation of network volumetric and protocol attacks.|High|10|Virtual network|
+|IP forwarding on your virtual machine should be disabled|Disable IP forwarding. When  IP forwarding is enabled on a virtual machine's NIC, the machine can receive traffic addressed to other destinations. IP forwarding is rarely required (e.g., when using the VM as a network virtual appliance), and therefore, this should be reviewed by the network security team.|Medium|10|Virtual machine|
+|Web Application should only be accessible over HTTPS|Enable "HTTPS only" access for web applications. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.|Medium|20|Web application|
+|Just-in-time network access control should be applied on virtual machines|Apply just-in-time (JIT ) virtual machine (VM) access control to permanently lock down access to selected ports, and enable authorized users to open them, via JIT, for a limited amount of time only.|High|20|Virtual machine|
+|Function Apps should only be accessible over HTTPS|Enable "HTTPS only" access for function apps. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.|Medium|20|Function app|
+|Secure transfer to storage accounts should be enabled|Enable secure transfer to storage accounts. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks, such as man-in-the-middle, eavesdropping, and session-hijacking.|High|20|Storage account|
 
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
-* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)
 
 To learn more about Security Center, see the following:

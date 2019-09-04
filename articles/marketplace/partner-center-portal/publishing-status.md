@@ -1,9 +1,9 @@
 ---
 title: Check the publishing status of your Commercial Marketplace offer
 description: Check the status of the validation, certification, and preview steps required to publish an offer via the Commercial Marketplace in Microsoft Partner Center. 
-author: mattwojo 
+author: ChJenk 
 manager: evansma
-ms.author: mattwoj 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
 ms.date: 05/30/2019
@@ -70,7 +70,7 @@ During content validation, the information entered when you created your offer a
 - quality screenshots and accompanying videos; and
 - an explanation of how the offer utilizes Microsoft platforms and tools.
 
-Learn more regarding the content validation criteria by reading the [general listing policies](https://docs.microsoft.com/legal/marketplace/general-policies#10-general-listing-policies).
+Learn more regarding the content validation criteria by reading the [general listing policies](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general).
 
 #### Technical validation
 

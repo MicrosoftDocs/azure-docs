@@ -1,5 +1,5 @@
 ---
-title: Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C
 description: Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -27,11 +27,11 @@ This article shows you how to enable sign-in for users from a Salesforce organiz
 
 ### Set up Salesforce as an identity provider
 
-1. [Sign in to Salesforce](https://login.salesforce.com/). 
+1. [Sign in to Salesforce](https://login.salesforce.com/).
 2. On the left menu, under **Settings**, expand **Identity**, and then select **Identity Provider**.
 3. Select **Enable Identity Provider**.
-4. Under **Select the certificate**, select the certificate you want Salesforce to use to communicate with Azure AD B2C. You can use the default certificate. 
-5. Click **Save**. 
+4. Under **Select the certificate**, select the certificate you want Salesforce to use to communicate with Azure AD B2C. You can use the default certificate.
+5. Click **Save**.
 
 ### Create a connected app in Salesforce
 
@@ -45,7 +45,7 @@ This article shows you how to enable sign-in for users from a Salesforce organiz
       ```
 
 6. In the **ACS URL** field, enter the following URL. Make sure that you replace the value for `your-tenant` with the name of your Azure AD B2C tenant.
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -86,17 +86,17 @@ You need to store the certificate that you created in your Azure AD B2C tenant.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Upload`.
 7. Enter a **Name** for the policy. For example, SAMLSigningCert. The prefix `B2C_1A_` is automatically added to the name of your key.
-8. Browse to and select the B2CSigningCert.pfx certificate that you created. 
+8. Browse to and select the B2CSigningCert.pfx certificate that you created.
 9. Enter the **Password** for the certificate.
 3. Click **Create**.
 
 ## Add a claims provider
 
-If you want users to sign in using a Salesforce account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
+If you want users to sign in using a Salesforce account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define a Salesforce account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
@@ -185,7 +185,7 @@ Now that you have a button in place, you need to link it to an action. The actio
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
+
     Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `LinkedIn-OAUTH`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.

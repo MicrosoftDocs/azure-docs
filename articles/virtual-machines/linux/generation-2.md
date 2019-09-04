@@ -4,14 +4,14 @@ description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-linux
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
@@ -34,12 +34,15 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 
 Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers preview generation 2 support for the following selected VM series:
 
+* [B-series](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [Dsv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) and [Dsv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Esv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Fsv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
-* [GS-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#gs-series)
+* [GS-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
 * [Ls-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) and [Lsv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
 * [Mv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
+* [NCv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) and [NCv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
+* [ND-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
 
 ## Generation 2 VM images in Azure Marketplace
 

@@ -3,8 +3,8 @@ title: Provision container throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the container level in Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/23/2019
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: rimman
 ---
 
@@ -31,14 +31,40 @@ This article explains how to provision throughput on a container (collection, gr
 ## Provision throughput using Azure CLI
 
 ```azurecli-interactive
-# Create a container with a partition key and provision throughput of 1000 RU/s
+# Create a container with a partition key and provision throughput of 400 RU/s
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
     --collection-name $containerName \
     --name $accountName \
     --db-name $databaseName \
     --partition-key-path /myPartitionKey \
-    --throughput 1000
+    --throughput 400
+```
+
+## Provision throughput using PowerShell
+
+```azurepowershell-interactive
+# Create a container with a partition key and provision throughput of 400 RU/s
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+$ContainerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash"
+        }
+    };
+    "options"=@{ "Throughput"= 400 }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
 If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path. If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.
@@ -49,9 +75,10 @@ If you are provisioning throughput on a container in an Azure Cosmos account con
 > Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra API.
 
 ### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin, and Table APIs
+### .Net V2 SDK
 
 ```csharp
-// Create a container with a partition key and provision throughput of 1000 RU/s
+// Create a container with a partition key and provision throughput of 400 RU/s
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "myContainerName";
 myCollection.PartitionKey.Paths.Add("/myPartitionKey");
@@ -59,17 +86,20 @@ myCollection.PartitionKey.Paths.Add("/myPartitionKey");
 await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
     myCollection,
-    new RequestOptions { OfferThroughput = 1000 });
+    new RequestOptions { OfferThroughput = 400 });
 ```
+
+### .Net V3 SDK
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
 ```csharp
-// Create a Cassandra table with a partition (primary) key and provision throughput of 1000 RU/s
+// Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
 session.Execute(CREATE TABLE myKeySpace.myTable(
     user_id int PRIMARY KEY,
     firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=1000);
+    lastName text) WITH cosmosdb_provisioned_throughput=400);
 ```
 
 ## Next steps

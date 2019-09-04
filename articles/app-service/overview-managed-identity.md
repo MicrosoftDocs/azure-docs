@@ -8,17 +8,14 @@ editor: ''
 
 ms.service: app-service
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
+ms.reviewer: yevbronsh
 
 ---
 
 # How to use managed identities for App Service and Azure Functions
-
-> [!NOTE] 
-> Managed identity support for App Service on Linux and Web App for Containers is currently in preview.
 
 > [!Important] 
 > Managed identities for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can be done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources will also need to have access policies updated to use the new identity.
@@ -26,8 +23,8 @@ ms.author: mahender
 This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. A managed identity from Azure Active Directory allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities: 
-- A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity. System-assigned identity support is generally available for Windows apps. 
-- A **user-assigned identity** is a standalone Azure resource which can be assigned to your app. An app can have multiple user-assigned identities. User-assigned identity support is in preview for all app types.
+- A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
+- A **user-assigned identity** is a standalone Azure resource which can be assigned to your app. An app can have multiple user-assigned identities.
 
 ## Adding a system-assigned identity
 
@@ -154,17 +151,11 @@ When the site is created, it has the following additional properties:
 Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId property identifies what AAD tenant the identity belongs to. The principalId is a unique identifier for the application's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
 
-## Adding a user-assigned identity (preview)
-
-> [!NOTE] 
-> User-assigned identities are currently in preview. Sovereign clouds are not yet supported.
+## Adding a user-assigned identity
 
 Creating an app with a user-assigned identity requires that you create the identity and then add its resource identifier to your app config.
 
 ### Using the Azure portal
-
-> [!NOTE] 
-> This portal experience is being deployed and may not yet be available in all regions.
 
 First, you'll need to create a user-assigned identity resource.
 
@@ -176,7 +167,7 @@ First, you'll need to create a user-assigned identity resource.
 
 4. Select **Managed identity**.
 
-5. Within the **User assigned (preview)** tab, click **Add**.
+5. Within the **User assigned** tab, click **Add**.
 
 6. Search for the identity you created earlier and select it. Click **Add**.
 
@@ -273,6 +264,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
+
+### Using the Azure SDK for Java
+
+For Java applications and functions, the simplest way to work with a managed identity is through the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java). This section shows you how to get started with the library in your code.
+
+1. Add a reference to the [Azure SDK library](https://mvnrepository.com/artifact/com.microsoft.azure/azure). For Maven projects, you might add this snippet to the `dependencies` section of the project's POM file:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. Use the `AppServiceMSICredentials` object for authentication. This example shows how this mechanism may be used for working with Azure Key Vault:
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
+
 ### Using the REST protocol
 
 An app with a managed identity has two environment variables defined:
@@ -356,6 +375,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>In Python:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>In PowerShell:

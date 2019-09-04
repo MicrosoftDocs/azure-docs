@@ -44,7 +44,7 @@ However, if you prefer not to use a library in your single-page app and send pro
 
 The following diagram shows what the entire implicit sign-in flow looks like and the sections that follow describe each step in more detail.
 
-![OpenID Connect swimlanes](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagram showing the implicit sign-in flow](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
 ## Send the sign-in request
 
@@ -209,16 +209,6 @@ error=user_authentication_required
 | `error_description` |A specific error message that can help a developer identify the root cause of an authentication error. |
 
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token. You can choose to handle this case in whatever way makes sense for your application.
-
-## Validating access tokens
-
-Once you receive an access_token, make sure to validate the signature of the token as well as the following claims. You may also choose to validate additional claims based on your scenario.
-
-* **audience** claim, to ensure that the token was intended to be given to your app
-* **issuer** claim, to verify that the token was issued to your app by the Microsoft identity platform endpoint
-* **not before** and **expiration time** claims, to verify that the token has not expired
-
-For more information about the claims present in the access token, see the [access token reference](access-tokens.md)
 
 ## Refreshing tokens
 

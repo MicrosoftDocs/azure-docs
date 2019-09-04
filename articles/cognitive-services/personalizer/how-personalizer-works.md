@@ -2,13 +2,13 @@
 title: How Personalizer Works - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses machine learning to discover what action to use in a context. Each learning loop has a model that is trained exclusively on data that you have sent to it via Rank and Reward calls. Every learning loop is completely independent of each other.
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
+ms.author: diberry
 ---
 
 # How Personalizer works
@@ -74,6 +74,8 @@ Personalizer is based on cutting-edge science and research in the area of [Reinf
 * **Inactive Events**: An inactive event is one where you called Rank, but you're not sure the user will ever see the result, due to client application decisions. Inactive events allow you to create and store personalization results, then decide to discard them later without impacting the machine learning model.
 
 * **Model**: A Personalizer model captures all data learned about user behavior, getting training data from the combination of the arguments you send to Rank and Reward calls, and with a training behavior determined by the Learning Policy. 
+
+* **Learning Policy**: How Personalizer trains a model on every event will be determined by some meta-parameters that affect how the machine learning algorithms work. New Personalizer loops will start with a default Learning Policy, which can yield moderate performance. When running [Evaluations](concepts-offline-evaluation.md), Personalizer can create new Learning Policies specifically optimized to the use cases of your loop. Personalizer will perform significantly better with policies optimized for each specific loop, generated during Evaluation.
 
 ## Example use cases for Personalizer
 
@@ -157,7 +159,6 @@ You can use recommendation engines with Personalizer:
 ## Adding content safeguards to your application
 
 If your application allows for large variances in content shown to users, and some of that content may be unsafe or inappropriate for some users, you should plan ahead to make sure that the right safeguards are in place to prevent your users from seeing unacceptable content. The best pattern to implement safeguards is:
-The best pattern to implement safeguards is:
     * Obtain the list of actions to rank.
     * Filter out the ones that are not viable for the audience.
     * Only rank these viable actions.
@@ -178,3 +179,4 @@ You can monitor the effectiveness of Personalizer periodically by performing [of
 ## Next steps
 
 Understand [where you can use Personalizer](where-can-you-use-personalizer.md).
+Perform [Offline Evaluations](how-to-offline-evaluation.md)

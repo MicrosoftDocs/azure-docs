@@ -3,20 +3,16 @@ title: Azure Data Factory - JSON Scripting Reference | Microsoft Docs
 description: Provides JSON schemas for Data Factory entities.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor:
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
@@ -1823,7 +1819,7 @@ To define a MySQL linked service, set the **type** of the linked service to **On
 | database |Name of the MySQL database. |Yes |
 | schema |Name of the schema in the database. |No |
 | authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: `Basic`. |Yes |
-| username |Specify user name to connect to the MySQL database. |Yes |
+| userName |Specify user name to connect to the MySQL database. |Yes |
 | password |Specify password for the user account you specified. |Yes |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. |Yes |
 
@@ -5696,5 +5692,5 @@ For detailed information, see [Use custom activities in Data Factory](data-facto
 ## Next Steps
 See the following tutorials:
 
-- [Tutorial: create a pipeline with a copy activity](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline-using-editor.md)
+- [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline.md)

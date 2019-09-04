@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: raynew
 ---
 
@@ -111,7 +111,7 @@ Disk: 4K logical and physical sector | Not supported: Gen 1/Gen 2 | Not supporte
 Disk: 4K logical and 512 bytes physical sector | Yes |  Yes
 Logical volume management (LVM). LVM is supported on data disks only. Azure provides only a single OS disk. | Yes | Yes
 Volume with striped disk >1 TB | Yes | Yes
-Storage Spaces | Yes | Yes
+Storage Spaces | No | No
 Hot add/remove disk | No | No
 Exclude disk | Yes | Yes
 Multi-path (MPIO) | Yes | Yes
@@ -147,7 +147,7 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
 Guest operating system | Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Prerequisites check fails if unsupported.
-Guest operating system architecture | 64-bit | Prerequisites check fails if unsupported.
+Guest operating system architecture | 32-bit (Windows Server 2008)/64-bit | Prerequisites check fails if unsupported.
 Operating system disk size | Up to 2,048 GB for generation 1 VMs.<br/><br/> Up to 300 GB for generation 2 VMs.  | Prerequisites check fails if unsupported.
 Operating system disk count | 1 | Prerequisites check fails if unsupported.
 Data disk count | 16 or less  | Prerequisites check fails if unsupported.
@@ -162,13 +162,13 @@ VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with a
 
 ## Recovery Services vault actions
 
-**Action** |  **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
+**Action** |  **Hyper-V with VMM** | **Hyper-V without VMM**
 --- | --- | ---
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
 > [!NOTE]
-> When replicating Hyper-VMs (managed with/without SCVMM) from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or SCVMM as applicable.
+> When replicating Hyper-VMs  from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or Hyper-V with VMM as applicable.
 
 
 ## Provider and agent

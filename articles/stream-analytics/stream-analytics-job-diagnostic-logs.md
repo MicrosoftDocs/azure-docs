@@ -144,5 +144,5 @@ Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identif
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors)

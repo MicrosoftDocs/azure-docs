@@ -4,8 +4,8 @@ description: Tutorial that walks you through the creation, testing, and publishi
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
@@ -94,7 +94,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
 > [!NOTE]
 > The Automation account must have been created with the service principal feature for there to be a Run As Certificate.
 > If your automation account was not created with the service principal, you can authenticate by using the method described at
-> [Authenticate with the Azure Management Libraries for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate).
+> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate).
 
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-Python pane.
 
@@ -211,5 +211,5 @@ Click **OK** to start the runbook. The runbook runs and starts the VM that you s
 - To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 - To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 - To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
-- To learn about developing for Azure with Python, see [Azure for Python developers](https://docs.microsoft.com/python/azure/?view=azure-python)
+- To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/)
 - To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

@@ -11,7 +11,7 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
@@ -79,7 +79,6 @@ For the VM that is created from a custom image, you must configure the appropria
 
 3. Make sure that the VM is configured to use the correct Azure KMS server. To do this, run the following command:
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -88,30 +87,27 @@ For the VM that is created from a custom image, you must configure the appropria
 
 4. Verify by using Psping that you have connectivity to the KMS server. Switch to the folder where you extracted the Pstools.zip download, and then run the following:
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    In the second-to-last line of the output, make sure that you see: Sent = 4, Received = 4, Lost = 0 (0% loss).
 
    If Lost is greater than 0 (zero), the VM does not have connectivity to the KMS server. In this situation, if the VM is in a virtual network and has a custom DNS server specified, you must make sure that DNS server is able to resolve kms.core.windows.net. Or, change the DNS server to one that does resolve kms.core.windows.net.
 
    Notice that if you remove all DNS servers from a virtual network, VMs use Azure’s internal DNS service. This service can resolve kms.core.windows.net.
   
-Also verify that the guest firewall has not been configured in a manner that would block activation attempts.
+    Also make sure that the outbound network traffic to KMS endpoint with 1688 port is not blocked by the firewall in the VM.
 
-1. After you verify successful connectivity to kms.core.windows.net, run the following command at that elevated Windows PowerShell prompt. This command tries activation multiple times.
+5. After you verify successful connectivity to kms.core.windows.net, run the following command at that elevated Windows PowerShell prompt. This command tries activation multiple times.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-A successful activation returns information that resembles the following:
-
-**Activating Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) …
-Product activated successfully.**
+    A successful activation returns information that resembles the following:
+    
+    **Activating Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) …
+    Product activated successfully.**
 
 ## FAQ 
 

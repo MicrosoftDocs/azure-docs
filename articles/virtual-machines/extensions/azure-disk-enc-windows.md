@@ -4,12 +4,11 @@ description: Deploys Azure Disk Encryption to a Windows virtual machine using a 
 services: virtual-machines-windows 
 documentationcenter: ''
 author: ejarvi 
-manager: jeconnoc 
+manager: gwallace 
 editor: ''
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

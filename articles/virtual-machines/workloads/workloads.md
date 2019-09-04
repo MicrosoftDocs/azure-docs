@@ -4,7 +4,7 @@ description: Learn how to run workloads on Azure virtual machines.
 services: virtual-machines
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -20,7 +20,7 @@ ms.author: cynthn
 
 Virtual machines in Azure can support many workloads. Each workload can have specialized guidance around the optimal design for deployments on VMs in Azure. Here is some of the guidance we can offer for specialized workloads.
 
-- [High performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure uses CPU or GPU optimized virtual machines to solve complex, compute-intensive problems. 
+- [High performance computing](./hpc/overview.md) in Azure uses CPU or GPU optimized virtual machines to solve complex, compute-intensive problems.
 - [SAP](./sap/get-started.md) in Azure can run your mission critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform.
 - [Oracle](./oracle/oracle-considerations.md)  supports running Oracle DB 12.1 Standard and Enterprise editions in Azure on virtual machine images based on Oracle Linux. 
 - [Mainframe rehosting](./mainframe-rehosting/overview.md) 

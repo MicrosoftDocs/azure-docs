@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 07/05/2019
 ms.author: fmegen
 ---
 # About the Speech SDK audio input stream API

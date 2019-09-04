@@ -271,14 +271,14 @@ You can use network security groups (NSG) or user-defined routes (UDR) to contro
 > [!WARNING]  
 > HDInsight requires inbound access from specific IP addresses in the Azure cloud, and unrestricted outbound access. When using NSGs or UDRs to control traffic, you must perform the following steps:
 
-1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-management-ip-addresses.md).
 
 2. For the IP addresses identified in step 1, allow inbound traffic from that IP addresses.
 
    * If you are using __NSG__: Allow __inbound__ traffic on port __443__ for the IP addresses.
    * If you are using __UDR__: Set the __Next Hop__ type of the route to __Internet__ for the IP addresses.
 
-For an example of using Azure PowerShell or the Azure CLI to create NSGs, see the [Extend HDInsight with Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
+For an example of using Azure PowerShell or the Azure CLI to create NSGs, see the [Extend HDInsight with Azure Virtual Networks](hdinsight-create-virtual-network.md#hdinsight-nsg) document.
 
 ## Create the HDInsight cluster
 
@@ -330,7 +330,7 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 ## Next steps
 
-* For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md).
+* For more information on using HDInsight in a virtual network, see [Plan a virtual network deployment for Azure HDInsight clusters](./hdinsight-plan-virtual-network-deployment.md).
 
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 

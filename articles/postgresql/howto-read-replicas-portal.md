@@ -5,15 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 09/04/2019
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
-
-> [!IMPORTANT]
-> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 
 ## Prerequisites
@@ -60,16 +57,19 @@ To create a read replica, follow these steps:
 
     ![Name the replica](./media/howto-read-replicas-portal/name-replica.png)
 
-5. Select a location for the replica. You can create a replica in any Azure region. The default location is the same as the master server's.
+5. Select a location for the replica. The default location is the same as the master server's.
 
     ![Select a location](./media/howto-read-replicas-portal/location-replica.png)
 
+   > [!NOTE]
+   > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
+
 6. Select **OK** to confirm the creation of the replica.
 
-A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 > [!IMPORTANT]
-> Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
+> Before a master server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 After the read replica is created, it can be viewed from the **Replication** window:
 
@@ -173,4 +173,5 @@ The **Replica Lag** metric shows the time since the last replayed transaction on
 3. For your **Aggregation**, select **Max**. 
  
 ## Next steps
-Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
+* Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
+* Learn how to [create and manage read replicas in the Azure CLI](howto-read-replicas-cli.md).

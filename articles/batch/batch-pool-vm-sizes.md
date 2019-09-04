@@ -4,16 +4,15 @@ description: How to choose from the available VM sizes for compute nodes in Azur
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
 ms.service: batch
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -48,8 +47,8 @@ Any promotional or preview VM sizes not listed aren't guaranteed for support.
 | [Memory optimized sizes](../virtual-machines/linux/sizes-memory.md) | None | Not available |
 | Fsv2-series | All sizes | Any |
 | H-series | All sizes | Any |
-| Hb-series | All sizes | User subscription mode |
-| Hc-series | All sizes | User subscription mode |
+| Hb-series<sup>2</sup> | All sizes | Any |
+| Hc-series<sup>2</sup> | All sizes | Any |
 | Ls-series | All sizes | Any |
 | Lsv2-series | None | Not available |
 | M-series | Standard_M64ms (low-priority only), Standard_M128s (low-priority only) | Any |  

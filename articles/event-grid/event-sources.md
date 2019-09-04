@@ -146,6 +146,16 @@ Subscribe to Azure App Configuration events to respond to key-value modification
 | [QuickStart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
 | [Event schema](event-schema-app-configuration.md) | Shows fields in Azure App Configuration events. |
 
+## Azure SignalR
+Subscribe to Azure SignalR Service events to respond to client connection events.
+
+|Title | Description |
+|---------|---------|
+| [React to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
+| [How to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Shows how to send  Azure SignalR Service events to an application through Event Grid. |
+| [Event schema](event-schema-azure-signalr.md) | Shows fields in Azure SignalR Service events. |
+
+
 
 ## Next steps
 

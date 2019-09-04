@@ -7,11 +7,10 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 06/12/2019
+ms.date: 08/26/2019
 ---
 # Azure SQL Database serverless (preview)
 
@@ -131,7 +130,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
-|SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
+|SQL Server Management Studio (SSMS)|Using SSMS versions earlier than 18.1 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 18.1 or later.|
 
 Autoresuming is also triggered during the deployment of some service updates which require the database be online.
 
@@ -160,7 +159,7 @@ Creating a new database or moving an existing database into a serverless compute
    |Parameter|Value choices|Default value|
    |---|---|---|---|
    |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
-   |Autopause delay|Minimum: 360 minutes (6 hours)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
+   |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
 > [!NOTE]
 > Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
@@ -276,7 +275,7 @@ Get-AzSqlDatabase `
 
 ## Resource limits
 
-For resource limits, see [Serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+For resource limits, see [Serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## Billing
 
@@ -319,4 +318,4 @@ The serverless compute tier is available worldwide except the following regions:
 ## Next steps
 
 - To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
-- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

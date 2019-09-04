@@ -5,13 +5,12 @@ services: virtual-machines-linux
 documentationcenter: ''
 
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
@@ -65,7 +64,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
 ### Core property values
 
 | Name | Value / Example | Data Type
-| ---- | ---- | ---- 
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
@@ -101,7 +100,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates can be used to deploy one or more virtual machines, install the Chef Client, connect to the Chef Server and the perform the initial configuration on the server as defined by the [Run-list](https://docs.chef.io/run_lists.html)
 
-A sample Resource Manager template that includes the Chef VM Extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+A sample Resource Manager template that includes the Chef VM Extension can be found in the [Azure quickstart gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
 The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md).
 

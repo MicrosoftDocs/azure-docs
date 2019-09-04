@@ -3,18 +3,18 @@ title: Errors and exceptions (MSAL) | Azure
 description: Learn how to handle errors and exceptions, Conditional Access, and claims challenge in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: negoe
 manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
-ms.author: ryanwi
+ms.date: 08/19/2019
+ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
 ---
@@ -36,16 +36,16 @@ Here are the common exceptions that might be thrown and some possible mitigation
 
 | Exception | Error code | Mitigation|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: The user or administrator has not consented to use the application with ID '{appId}' named '{appName}'. Send an interactive authorization request for this user and resource.| You need to get user consent first. If you are not using .NET Core (which does not have any Web UI), call (once only) `AcquireTokeninteractive`. If you are using .NET core or don't want to do an `AcquireTokenInteractive`, the user can navigate to a URL to give consent: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . To call `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: The user or administrator has not consented to use the application with ID '{appId}' named '{appName}'. Send an interactive authorization request for this user and resource.| You need to get user consent first. If you are not using .NET Core (which does not have any Web UI), call (once only) `AcquireTokeninteractive`. If you are using .NET core or don't want to do an `AcquireTokenInteractive`, the user can navigate to a URL to give consent: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. To call `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: The user is required to use multi-factor authentication.| There is no mitigation - if MFA is configured for your tenant and AAD decides to enforce it, you need to fallback to an interactive flow such as `AcquireTokenInteractive` or `AcquireTokenByDeviceCode`.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: The grant type is not supported over the */common* or */consumers* endpoints. Use the */organizations* or tenant-specific endpoint. You used */common*.| As explained in the message from Azure AD, the authority needs to have a tenant or otherwise */organizations*.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: The request body must contain the following parameter: 'client_secret or client_assertion'.| This can happen if your application was not registered as a public client application in Azure AD. In the Azure portal, edit the manifest for your application and set the `allowPublicClient` to `true`. |
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: The request body must contain the following parameter: 'client_secret or client_assertion'.| This exception can happen if your application was not registered as a public client application in Azure AD. In the Azure portal, edit the manifest for your application and set the `allowPublicClient` to `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user Message: Could not identify logged in user| The library was unable to query the current Windows logged-in user or this user is not AD or AAD joined (work-place joined users are not supported). Mitigation 1: on UWP, check that the application has the following capabilities: Enterprise Authentication, Private Networks (Client and Server), User Account Information. Mitigation 2: Implement your own logic to fetch the username (for example, john@contoso.com) and use the `AcquireTokenByIntegratedWindowsAuth` form that takes in the username.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| This method relies on a protocol exposed by Active Directory (AD). If a user was created in Azure Active Directory without AD backing ("managed" user), this method will fail. Users created in AD and backed by AAD ("federated" users) can benefit from this non-interactive method of authentication. Mitigation: Use interactive authentication.|
 
 ## JavaScript errors
 
-MSAL.js provides Error objects that abstract and classify the different types of common errors and have an interface to access specific details of the errors such as error messages to handle them appropriately.
+MSAL.js provides error objects that abstract and classify the different types of common errors. It also provides interface to access specific details of the errors such as error messages to handle them appropriately.
 
 **Error object**
 
@@ -61,7 +61,7 @@ export class AuthError extends Error {
 }
 ```                
 By extending the error class, you have access to the following properties:
-* **AuthError.message:** This is the same as errorMessage.
+* **AuthError.message:**  Same as the errorMessage.
 * **AuthError.stack:** Stack trace for thrown errors. Allows tracing to origin point of error.
 
 **Error Types**
@@ -70,15 +70,15 @@ The following error types are available:
 
 * *AuthError:* Base error class for the MSAL.js library, also used for unexpected errors.
 
-* *ClientAuthError:* Error class which denotes an issue with Client authentication. Most errors that come from the library will be ClientAuthErrors. These may be errors such as calling a login method when login is in progress, users canceling login, etc.
+* *ClientAuthError:* Error class, which denotes an issue with Client authentication. Most errors that come from the library will be ClientAuthErrors. These errors are such as calling a login method when login is in progress, users canceling login and so on. 
 
-* *ClientConfigurationError:* Error class extending ClientAuthError thrown before requests are made when the given user config parameters is malformed or missing.
+* *ClientConfigurationError:* Error class extending ClientAuthError thrown before requests are made when the given user config parameters are malformed or missing.
 
 * *ServerError:* Error class to represent the error strings sent by the authentication server. These may be errors such as invalid request formats or parameters, or any other errors that prevent the server from authenticating or authorizing the user.
 
-* *InteractionRequiredAuthError:* Error class extending ServerError to represent server errors which require an interactive call. This is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include "interaction_required", "login_required", "consent_required".
+* *InteractionRequiredAuthError:* Error class extending ServerError to represent server errors, which require an interactive call. This error is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include "interaction_required", "login_required", "consent_required".
 
-For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you will need to register the callback which is called with success or failure after the redirect using `handleRedirectCallback()` method as follows:
+For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you will need to register the callback, which is called with success or failure after the redirect using `handleRedirectCallback()` method as follows:
 
 ```javascript
 function authCallback(error, response) {
@@ -94,7 +94,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 myMSALObj.acquireTokenRedirect(request);
 ```
 
-The methods for pop-up experience (`loginPopup`, `acquireTokenPopup`) return promises, so you can use the promise pattern (.then and .catch) to handle them as shown:
+The methods for pop-up experience (`loginPopup`, `acquireTokenPopup`) return promises, so you can use the promise pattern (.then and.catch) to handle them as shown:
 
 ```javascript
 myMSALObj.acquireTokenPopup(request).then(
@@ -107,7 +107,9 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### Interaction required errors
 
-An error is returned when a UI interaction is required. This means you have attempted to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`), but MSAL could not do it silently. Possible reasons are:
+An error is returned, when you attempt to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`) and MSAL could not do it silently. 
+
+Possible reasons are:
 
 * you need to sign in
 * you need to consent
@@ -156,28 +158,24 @@ The pattern to handle this error is to make an interactive call to acquire token
 myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
     // call API
 }).catch( function (error) {
-    // call acquireTokenPopup in case of acquireTokenSilent failure
-    myMSALObj.acquireTokenPopup(accessTokenRequest).then(
-        function (accessTokenResponse) {
+    if (error instanceof InteractionRequiredAuthError) {
+        // Extract claims from error message
+        accessTokenRequest.claimsRequest = extractClaims(error.errorMessage);
+        // call acquireTokenPopup in case of InteractionRequiredAuthError failure
+        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function (accessTokenResponse) {
             // call API
         }).catch(function (error) {
             console.log(error);
         });
+    }
 });
 ```
 
 Interactively acquiring the token prompts the user and gives them the opportunity to satisfy the required Conditional Access policy.
 
-When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error as `extraQueryParameters` in the call to acquire tokens so that the user is prompted to satisfy the appropriate policy:
+When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claimsRequest` field of the `AuthenticationParameters.ts` class to satisfy the appropriate policy. 
 
-```javascript
-var request = {
-    scopes: ["user.read"],
-    extraQueryParameters: {claims: claims}
-}
-
-myMSALObj.acquireTokenPopup(request);
-```
+See [Requesting Additional Claims](active-directory-optional-claims.md) for more detail.
 
 ## Retrying after errors and exceptions
 
@@ -185,7 +183,7 @@ myMSALObj.acquireTokenPopup(request);
 MSAL.NET implements a simple retry-once mechanism for errors with HTTP error codes 500-600.
 
 ### HTTP 429
-When the Service Token Server (STS) is too busy because of “too many requests”, it returns an HTTP error 429 with a hint about when you can try again (the Retry-After response field) as a delay in seconds, or a date.
+When the Service Token Server (STS) is overloaded with too many requests, it returns an HTTP error 429 with a hint about when you can try again in terms of time. The error can be read from `Retry-After` response field.
 
 #### .NET
 The [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) exception surfaces `System.Net.Http.Headers.HttpResponseHeaders` as a property `namedHeaders`. You can therefore leverage additional information from the error code to improve the reliability of your applications. In the case we just described, you can use the `RetryAfterproperty` (of type `RetryConditionHeaderValue`) and compute when to retry.

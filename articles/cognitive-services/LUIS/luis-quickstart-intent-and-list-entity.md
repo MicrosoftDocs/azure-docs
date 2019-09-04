@@ -1,5 +1,5 @@
 ---
-title: Exact text match
+title: "Tutorial: Exact text match - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 ---

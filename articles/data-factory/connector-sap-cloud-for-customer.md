@@ -12,13 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from/to SAP Cloud for Customer (C4C). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
 
 ## Supported capabilities
 
@@ -91,6 +94,7 @@ To copy data from SAP Cloud for Customer, set the type property of the dataset t
         "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"

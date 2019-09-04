@@ -131,6 +131,8 @@ A successful response looks like the following example:
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> When creating users via Graph API, the application needs to have "openid", "offline_access", and "profile" permissions from Microsoft Graph.
 
 ## Implement with your preferred native SDK or use App-Auth
 

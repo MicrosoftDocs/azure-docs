@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---
@@ -36,7 +36,7 @@ The following example shows the format of the configuration file:
 [
   {
     "EndpointUrl": "opc.tcp://testserver:62541/Quickstarts/ReferenceServer",
-    "UseSecurity": false,
+    "UseSecurity": true,
     "OpcNodes": [
       {
         "Id": "i=2258",

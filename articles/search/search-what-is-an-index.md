@@ -2,7 +2,7 @@
 title: Create an index definition and concepts - Azure Search
 description: Introduction to index terms and concepts in Azure Search, including component parts and physical structure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
@@ -30,7 +30,7 @@ Arriving at the right index design is typically achieved through multiple iterat
   
    When you click **Create**, all of the physical structures supporting your index are created in your search service.
 
-3. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-fiddler.md). You now have a JSON representation of the index you created in the portal. 
+3. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-get-started-postman.md). You now have a JSON representation of the index you created in the portal. 
 
    You are switching to a code-based approach at this point. The portal is not well-suited for iteration because you cannot edit an index that is already created. But you can use Postman and REST for the remaining tasks.
 
@@ -42,7 +42,7 @@ Arriving at the right index design is typically achieved through multiple iterat
 
 Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary whenever you make material changes to an existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
 
-Code, rather than a portal approach, is recommended for iterative design. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
+Code, rather than a portal approach, is recommended for iterative design. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-get-started-postman.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
 
 ## Components of an index
 

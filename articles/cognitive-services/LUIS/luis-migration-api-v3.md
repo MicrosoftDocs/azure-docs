@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/24/2019
+ms.topic: conceptual
+ms.date: 07/30/2019
 ms.author: diberry
 ---
 
 
-# Preview: Migrate to API version 3.x  for LUIS apps
+# Preview: Migrate to API version 3.x for LUIS apps
 
 The query prediction endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
@@ -39,6 +39,32 @@ The following LUIS features are **not supported** in the V3 API:
 * Bing Spell Check V7
 
 [Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
+
+## Endpoint URL changes by slot name
+
+The format of the V3 endpoint HTTP call has changed.
+
+|METHOD|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+Valid values for slots:
+
+* `production`
+* `staging`
+
+## Endpoint URL changes by version ID
+
+If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with the `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
+
+
+|METHOD|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
 
 ## Prebuilt entities with new JSON
 
@@ -82,7 +108,7 @@ The V3 API has different query string parameters.
 |--|--|--|--|--|
 |`dynamicLists`|array|V3 only|Not required.|[Dynamic lists](#dynamic-lists-passed-in-at-prediction-time) allow you to extend an existing trained and published list entity, already in the LUIS app.|
 |`externalEntities`|array|V3 only|Not required.|[External entities](#external-entities-passed-in-at-prediction-time) give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. |
-|`options.datetimeReference`|string|V3 only|No default|Used to determine [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
+|`options.datetimeReference`|string|V3 only|No default|Used to determine [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). The format for the datetimeReference is [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.overridePredictions`|boolean|V3 only|false|Specifies if user's [external entity (with same name as existing entity)](#override-existing-model-predictions) is used or the existing entity in the model is used for prediction. |
 |`query`|string|V3 only|Required.|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 
@@ -120,6 +146,10 @@ The top JSON properties for V3 are:
 }
 ```
 
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
+
 The `intents` object is an unordered list. Do not assume the first child in the `intents` corresponds to the `topIntent`. Instead, use the `topIntent` value to find the score:
 
 ```nodejs
@@ -130,7 +160,7 @@ const score = intents[topIntentName];
 The response JSON schema changes allow for:
 
 * Clear distinction between original utterance, `query`, and returned prediction, `prediction`.
-* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **named** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
+* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **name** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
 * Data types, if determined, are respected. Numerics are no longer returned as strings.
 * Distinction between first priority prediction information and additional metadata, returned in the `$instance` object. 
 
@@ -384,7 +414,7 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

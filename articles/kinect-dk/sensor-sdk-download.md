@@ -23,10 +23,12 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 
 ## Windows download link
 
-[Microsoft installer](https://download.microsoft.com/download/E/B/D/EBDBB3C1-ED3F-4236-96D6-2BCB352F3710/Azure%20Kinect%20SDK%201.1.0.msi) | [GitHub source code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/releases/tag/v1.1.0)
+[Microsoft installer](http://download.microsoft.com/download/1/9/8/198048e8-63f2-45c6-8f96-1fd541d1b4bc/Azure%20Kinect%20SDK%201.2.0.msi) | [GitHub source code](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/releases/tag/v1.2.0)
 
 > [!NOTE]
-> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.0.2". You will find the tools referenced in articles in this path.
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.2". You will find the tools referenced in articles in this path.
+
+You can find previous versions of Azure Kinect Sensor SDK and Firmware on [GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md).
 
 ## Linux installation instructions
 
@@ -43,7 +45,7 @@ Now, you can install the necessary packages. The `k4a-tools` package includes th
 
  The basic tutorials require the `libk4a<major>.<minor>-dev` package. To install it, run
 
- `sudo apt install libk4a1.1-dev`.
+ `sudo apt install libk4a1.1-dev`
 
 If the command succeeds, the SDK is ready for use.
 

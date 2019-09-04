@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Deploy and monitor IoT Edge modules at scale using the Azure CLI
 
-Create an **IoT Edge automatic deployment** using the Azure command-line interface to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary. 
+Create an **IoT Edge automatic deployment** using the Azure command-line interface to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary. 
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
@@ -24,7 +24,7 @@ In this article, you set up Azure CLI and the IoT extension. You then learn how 
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription. 
 * [IoT Edge devices](how-to-register-device-cli.md) with the IoT Edge runtime installed.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework. 
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## Configure a deployment manifest
@@ -75,7 +75,7 @@ Here's a basic deployment manifest with one module as an example:
             }
           },
           "modules": {
-            "tempSensor": {
+            "SimulatedTemperatureSensor": {
               "version": "1.0",
               "type": "docker",
               "status": "running",
@@ -99,7 +99,7 @@ Here's a basic deployment manifest with one module as an example:
           }
         }
       },
-      "tempSensor": {
+      "SimulatedTemperatureSensor": {
         "properties.desired": {}
       }
     }

@@ -1,9 +1,9 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2019
 ---
 
 ## Use the Docker CLI to authenticate the private container registry

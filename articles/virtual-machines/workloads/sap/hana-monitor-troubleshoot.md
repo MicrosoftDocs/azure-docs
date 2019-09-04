@@ -4,11 +4,11 @@ description: Monitoring and troubleshooting from HANA side on SAP HANA on an Azu
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

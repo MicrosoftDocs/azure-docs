@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/29/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -100,15 +100,20 @@ The following steps describe how to configure how long log data is kept by in yo
 3. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.
 
     ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
+	
+The retention can also be [set via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `dataRetention` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via ARM. 
 
 ## Legacy pricing tiers
 
-Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention of up to 2 years. 
+Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention of up to 2 years. 
+
+Workspaces created prior to April 2016 also have access the original **Standard** and **Premium** pricing tiers which have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back. 
+
+More details of pricing tier limitations are available [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
 
-The earliest adopters of Log Analytics also have access to the original pricing tiers **Standard** and **Premium**, which have fixed data retention of 30 and 365 days respectively. 
 
 ## Changing pricing tier
 
@@ -121,11 +126,7 @@ If your Log Analytics workspace has access to legacy pricing tiers, to change be
 3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
     ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-If you want to move your workspace into the current pricing tier, you need to change your subscription's monitoring [pricing model in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
-
-> [!NOTE]
-> You can learn more about setting the pricing tier when [using an Azure Resource Manager template](template-workspace-configuration.md#create-a-log-analytics-workspace) to create a workspace, and ensure that your Azure Resource Manager template deployment will succeed regardless of whether the subscription is in the legacy or new pricing model. 
-
+You can also [set the pricing tier via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `ServiceTier` parameter. 
 
 ## Troubleshooting why Log Analytics is no longer collecting data
 
@@ -413,7 +414,7 @@ When you receive an alert, use the steps in the following section to troubleshoo
 
 ## Limits summary
 
-There are some additional Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+There are some additional Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 
 ## Next steps

@@ -4,8 +4,8 @@ description: This article describes source control integration with GitHub in Az
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
@@ -166,6 +166,13 @@ Select the source control you want to remove. On the **Source Control Summary** 
 ## Encoding
 
 If multiple people are editing runbooks in your source control repository with different editors, there's a chance to run into encoding issues. This situation can lead to incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+
+## Updating the access token
+
+Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
+
+* Through the [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps
 

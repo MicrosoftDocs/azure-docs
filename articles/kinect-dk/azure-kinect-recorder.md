@@ -52,21 +52,21 @@ k4arecorder [options] output.mkv
 Example 1. Record Depth NFOV unbinned (640x576) mode, RGB 1080p at 30 fps with IMU.
 Press the **CTRL-C** keys to stop recording.
 
-`
+```
 k4arecorder.exe output.mkv
-`
+```
 
 Example 2. Record WFOV non-binned (1MP), RGB 3072p at 15 fps without IMU, for 10 seconds.
 
-`
+```
 k4arecorder.exe -d WFOV_UNBINNED -c 3072p -r 15 -l 10 --imu OFF output.mkv
-`
+```
 
 Example 3. Record WFOV 2x2 binned at 30 fps for 5 seconds, and save to output.mkv.
 
-`
+```
 k4arecorder.exe -d WFOV_2X2BINNED -c OFF --imu OFF -l 5 output.mkv
-`
+```
 
 >[!TIP]
 >You can use [Azure Kinect Viewer](azure-kinect-viewer.md) to configure RGB camera controls before recording (e.g. to set manual white balance).

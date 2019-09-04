@@ -4,8 +4,8 @@ description: This article describes how you can now update common Azure PowerShe
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
@@ -25,6 +25,9 @@ If you develop your scripts locally, it's recommended to have the same module ve
 
 > [!NOTE]
 > A new Automation account might not contain the latest modules.
+
+> [!NOTE]
+> You will not be able to delete global modules - modules that Automation provides out of the box.
 
 ## Considerations
 

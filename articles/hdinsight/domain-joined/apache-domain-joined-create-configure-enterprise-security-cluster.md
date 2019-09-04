@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
 The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations, which adhere to strict corporate security policies, to process sensitive data securely.
 
-The goal of this guide is correctly configured the necessary resources so that on-premises users can sign in to an ESP enabled HDInsight cluster. This article walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. The steps will cover creating a Windows IaaS VM with Active Directory & Domain Name Services (DNS) enabled. This server will act as a replacement for your **actual** on-premises environment and will enable you to proceed through the setup and configuration steps so that you can repeat them later in your own environment. This guide will also help you create a hybrid identity environment using password hash sync with Azure Active Directory.
+The goal of this guide is to correctly configure the necessary resources so that on-premises users can sign in to an ESP enabled HDInsight cluster. This article walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. The steps will cover creating a Windows IaaS VM with Active Directory & Domain Name Services (DNS) enabled. This server will act as a replacement for your **actual** on-premises environment and will enable you to proceed through the setup and configuration steps so that you can repeat them later in your own environment. This guide will also help you create a hybrid identity environment using password hash sync with Azure Active Directory.
 
 This guide is meant to complement [Use Enterprise Security Package in HDInsight](apache-domain-joined-architecture.md)
 
@@ -202,7 +202,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 1. Sign in to the Azure portal.
 1. Click **Create resource**, enter **Domain services** and select **Azure AD Domain Services**.
 1. On the **Basics** screen complete the following steps:
-    1. Under **Directory name** select the Azure Active Directory created for this tutorial, **HDIFabrikam**.
+    1. Under **Directory name** select the Azure Active Directory created for this article, **HDIFabrikam**.
     1. Enter a **DNS domain name** of **HDIFabrikam.com**.
     1. Select your subscription.
     1. Specify the resource group **HDIFabrikam-CentralUS** and the **Location** of **Central US**.
@@ -213,7 +213,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 
     ![select network](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this tutorial. Click **OK**.
+1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this article. Click **OK**.
 
     ![view administrator group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 
@@ -305,7 +305,7 @@ click **Next**.
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | <Desired Number> |
+        | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
     ![inbound security rule](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
@@ -375,4 +375,4 @@ If you are able to login with this account, then you have configured your ESP cl
 
 ## Next steps
 
-* [An introduction to Apache Hadoop security with Enterprise Security Package](apache-domain-joined-introduction.md)
+* [An introduction to Apache Hadoop security with Enterprise Security Package](hdinsight-security-overview.md)

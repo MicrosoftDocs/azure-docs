@@ -117,7 +117,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 [Download the sample project](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) and unzip the file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Node.js application.
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 ```
 
 ---
@@ -355,7 +355,8 @@ The `retry_callback` event handler is called when the download of the image fail
 def retry_callback(retry_context):
     global retry_count
     retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.write(
+        "\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
     sys.stdout.flush()
 
     # Check if we have more than n-retries in which case switch to secondary

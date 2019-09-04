@@ -1,20 +1,42 @@
 ---
 title: Troubleshoot backup errors with Azure virtual machines
 description: Troubleshoot backup and restore of Azure virtual machines
-services: backup
-author: srinathvasireddy
-manager: vijayts
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: srinathvasireddy
+ms.date: 08/30/2019
+ms.author: dacurwin
 ---
 
-# Troubleshoot Azure virtual machine backup
+# Troubleshooting backup failures on Azure virtual machines
+
 You can troubleshoot errors encountered while using Azure Backup with the information listed below:
 
 ## Backup
+
 This section covers backup operation failure of Azure Virtual machine.
+
+### Basic troubleshooting
+
+* Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Verify that another backup service is not running.
+   * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+* Verify that the VM has internet connectivity.
+   * Make sure another backup service is not running.
+* From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and are not due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
+   * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
+    * If Azure Backup is working, then the issue is likely with another backup solution.
+    * Here is an example of an event viewer error where Azure backup was working fine but "Windows Server Backup" was failing:<br>
+    ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article.
+
+## Common issues
+
+The following are common issues with backup failures on Azure virtual machines.
 
 ## CopyingVHDsFromBackUpVaultTakingLongTime - Copying backed up data from vault timed out
 
@@ -31,7 +53,7 @@ Error message: VM is not in a state that allows backups.<br/>
 The backup operation failed because the VM is in Failed state. For successful backup the VM state should be Running, Stopped, or Stopped (deallocated).
 
 * If the VM is in a transient state between **Running** and **Shut down**, wait for the state to change. Then trigger the backup job.
-*  If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.
+* If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.
 
 ## UserErrorFsFreezeFailed - Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot
 
@@ -143,7 +165,7 @@ Backup operation on the VM failed due to delay in network calls while performing
 
 From an elevated (admin) command-prompt, run the below command:
 
-```
+```text
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -158,16 +180,15 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 
 | Error details | Workaround |
 | ------ | --- |
-| Error code: 320001<br/> Error message: Could not perform the operation as VM no longer exists. <br/> <br/> Error code: 400094 <br/> Error message: The virtual machine doesn't exist <br/> <br/>  An Azure virtual machine wasn't found.  |This error happens when the primary VM is deleted, but the backup policy still looks for a VM to back up. To fix this error, take the following steps: <ol><li> Re-create the virtual machine with the same name and same resource group name, **cloud service name**,<br>**or**</li><li> Stop protecting the virtual machine with or without deleting the backup data. For more information, see [Stop protecting virtual machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| **Error code**: 320001<br/> **Error message**: Could not perform the operation as VM no longer exists. <br/> <br/> **Error code**: 400094 <br/> **Error message**: The virtual machine doesn't exist <br/> <br/>  An Azure virtual machine wasn't found.  |This error happens when the primary VM is deleted, but the backup policy still looks for a VM to back up. To fix this error, take the following steps: <ol><li> Re-create the virtual machine with the same name and same resource group name, **cloud service name**,<br>**or**</li><li> Stop protecting the virtual machine with or without deleting the backup data. For more information, see [Stop protecting virtual machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | The VM is in failed provisioning state: <br>Restart the VM and make sure the VM is running or shut down. | This error occurs when one of the extension failures puts the VM into failed provisioning state. Go to the extensions list, check if there's a failed extension, remove it, and try restarting the virtual machine. If all extensions are in running state, check if the VM Agent service is running. If not, restart the VM Agent service. |
-|Error code: UserErrorBCMPremiumStorageQuotaError<br/> Error message: Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account | For premium VMs on VM backup stack V1, we copy the snapshot to the storage account. This step makes sure that backup management traffic, which works on the snapshot, doesn't limit the number of IOPS available to the application using premium disks. <br><br>We recommend that you allocate only 50 percent, 17.5 TB, of the total storage account space. Then the Azure Backup service can copy the snapshot to the storage account and transfer data from this copied location in the storage account to the vault. |
-| Failed to install Microsoft Recovery Services extension as virtual machine is not running <br>The VM Agent is a prerequisite for the Azure Recovery Services extension. Install the Azure Virtual Machine Agent and restart the registration operation. |<ol> <li>Check if the VM Agent is installed correctly. <li>Make sure that the flag on the VM config is set correctly.</ol> Read more about installing the VM Agent and how to validate the VM Agent installation. |
-| The snapshot operation failed with the Volume Shadow Copy Service (VSS) operation error **This drive is locked by BitLocker Drive Encryption. You must unlock this drive from the Control Panel.** |Turn off BitLocker for all drives on the VM and check if the VSS issue is resolved. |
-| The VM isn't in a state that allows backups. |<ul><li>If the VM is in a transient state between **Running** and **Shut down**, wait for the state to change. Then trigger the backup job. <li> If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.  |
+|**Error code**: UserErrorBCMPremiumStorageQuotaError<br/> **Error message**: Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account | For premium VMs on VM backup stack V1, we copy the snapshot to the storage account. This step makes sure that backup management traffic, which works on the snapshot, doesn't limit the number of IOPS available to the application using premium disks. <br><br>We recommend that you allocate only 50 percent, 17.5 TB, of the total storage account space. Then the Azure Backup service can copy the snapshot to the storage account and transfer data from this copied location in the storage account to the vault. |
+| **Error code: 380008** <br/> **Error message**: Failed to install Microsoft Recovery Services extension as virtual machine is not running | The VM Agent is a prerequisite for the Azure Recovery Services extension. Install the Azure Virtual Machine Agent and restart the registration operation. <br> <ol> <li>Check if the VM Agent is installed correctly. <li>Make sure that the flag on the VM config is set correctly.</ol> Read more about installing the VM Agent and how to validate the VM Agent installation. |
+| **Error code**: ExtensionSnapshotBitlockerError <br/> **Error message**: The snapshot operation failed with the Volume Shadow Copy Service (VSS) operation error **This drive is locked by BitLocker Drive Encryption. You must unlock this drive from the Control Panel.** |Turn off BitLocker for all drives on the VM and check if the VSS issue is resolved. |
+| **Error code**: VmNotInDesirableState <br/> **Error message**:  The VM isn't in a state that allows backups. |<ul><li>If the VM is in a transient state between **Running** and **Shut down**, wait for the state to change. Then trigger the backup job. <li> If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.  |
 | The VM Agent isn't present on the virtual machine: <br>Install any prerequisite and the VM Agent. Then restart the operation. |Read more about [VM Agent installation and how to validate VM Agent installation](#vm-agent). |
-| Backup failed to freeze one or more mount points of the VM to take a file system consistent snapshot. | Take the following step: <ul><li>Check the file system state of all mounted devices by using the **'tune2fs'** command. An example is **tune2fs -l /dev/sdb1 \\**.\| grep **Filesystem state**. <li>Unmount the devices for which the file system state isn't clean by using the **'umount'** command. <li> Run a file system consistency check on these devices by using the **'fsck'** command. <li> Mount the devices again and try backup.</ol> |
-| The snapshot operation failed because of failure to create a secure network communication channel. | <ol><li> Open the Registry Editor by running **regedit.exe** in an elevated mode. <li> Identify all versions of the .NET Framework present in your system. They're present under the hierarchy of registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> For each .NET Framework present in the registry key, add the following key: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012. | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.  |
+| **Error code**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Error message**: The snapshot operation failed because of failure to create a secure network communication channel. | <ol><li> Open the Registry Editor by running **regedit.exe** in an elevated mode. <li> Identify all versions of the .NET Framework present in your system. They're present under the hierarchy of registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> For each .NET Framework present in the registry key, add the following key: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
+| **Error code**: ExtensionVCRedistInstallationFailure <br/> **Error message**: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012. | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.  |
 
 
 ## Jobs
@@ -240,7 +261,7 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 - **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either allowed list of IPs or through a proxy server.
 - **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
-   ```
+   ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

@@ -317,7 +317,22 @@ The token of the Managed Application can now be accessed through the `listTokens
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+Request Body Parameters:
+
+Parameter | Required | Description
+---|---|---
+authorizationAudience | *no* | The App ID URI of the target resource. It also is the `aud` (audience) claim of the issued token. The default value is "https://management.azure.com/"
+userAssignedIdentities | *no* | The list of user-assigned managed identities to retrieve a token for. If not specified, `listTokens` will return the token for the system-assigned managed identity.
+
 
 A sample response might look like:
 
@@ -339,6 +354,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+The response will contain an array of tokens under the `value` property:
+
+Parameter | Description
+---|---
+access_token | The requested access token.
+expires_in | The number of seconds the access token will be valid.
+expires_on | The timespan when the access token expires. This is represented as the number of seconds from epoch.
+not_before | The timespan when the access token takes effect. This is represented as the number of seconds from epoch.
+authorizationAudience | The `aud` (audience) the access token was request for. This is the same as what was provided in the `listTokens` request.
+resourceId | The Azure resource ID for the issued token. This is either the managed application ID or the user-assigned identity ID.
+token_type | The type of the token.
 
 ## Next steps
 

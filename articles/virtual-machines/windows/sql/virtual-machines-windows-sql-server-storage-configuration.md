@@ -3,18 +3,18 @@ title: Storage configuration for SQL Server VMs | Microsoft Docs
 description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
 services: virtual-machines-windows
 documentationcenter: na
-author: ninarn
-manager: craigg
+author: MashaMSFT
+manager: jroth
 tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
-ms.author: ninarn
+ms.author: mathoma
 
 ---
 # Storage configuration for SQL Server VMs
@@ -65,7 +65,7 @@ If you use the following Resource Manager templates, two premium data disks are 
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
 
 * SQL data
 * SQL log
@@ -107,8 +107,7 @@ The other option for expanding storage is to extend the existing drive. This opt
 
 This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure portal.
 
-* If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
-* If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.
+* Azure configures a storage pool from storage selected from your VM. The next section of this topic provides details about storage pool configuration.
 * Automatic storage configuration always uses [premium SSDs](../disks-types.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
 
 For pricing information, see the [Storage pricing](https://azure.microsoft.com/pricing/details/storage) page on the **Disk Storage** tab.

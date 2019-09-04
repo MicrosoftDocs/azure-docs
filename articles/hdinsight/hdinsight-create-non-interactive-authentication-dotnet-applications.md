@@ -24,13 +24,13 @@ From your non-interactive .NET application, you need:
 * An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## Assign a role to the Azure AD application
-Assign your Azure AD application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. (For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it.) In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
+Assign your Azure AD application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. (For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it.) In this article, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
 **To add the Owner role to the Azure AD application**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, select **Resource groups**.
-3. Select the resource group that has the HDInsight cluster on which you will run your Hive query later in this tutorial. If you have a large number of resource groups, you can use the filter to find the one you want.
+3. Select the resource group that has the HDInsight cluster on which you will run your Hive query later in this article. If you have a large number of resource groups, you can use the filter to find the one you want.
 4. On the resource group menu, select **Access control (IAM)**.
 5. Select the **Role assignments** tab to see the current role assignments.
 6. At the top of the page, select **Add role assignment**.

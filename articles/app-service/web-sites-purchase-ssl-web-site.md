@@ -11,10 +11,10 @@ ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
 ---
 # Buy and configure an SSL certificate for Azure App Service
@@ -45,7 +45,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Setting | Description |
 |-|-|
 | Name | A friendly name for your App Service certificate. |
-| Naked Domain Host Name | If you specify the root domain here, you get a certificate that secures *both* the root domain and the `www` subdomain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`). |
+| Naked Domain Host Name | Specify the root domain here. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the Common Name field contains the root domain, and the Subject Alternative Name field contains the `www` domain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`).|
 | Subscription | The datacenter where the web app is hosted. |
 | Resource group | The resource group that contains the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
 | Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -133,7 +133,7 @@ Once the rekey operation is complete, click **Sync**. The sync operation automat
 
 ## Renew certificate
 
-To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation.
+To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a 1 year validity period.
 
 Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 

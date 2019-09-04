@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
@@ -234,7 +232,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
         ![Second lookup activity - new dataset](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **SourceDataset** is selected for the **Source Dataset** field. 
-18. Select **Query** for the **Use Query** field, and enter the following query: you are only selecting the maximum value of **LastModifytime** from the **data_source_table**. Please make sure you have also checked **Fist row only**.
+18. Select **Query** for the **Use Query** field, and enter the following query: you are only selecting the maximum value of **LastModifytime** from the **data_source_table**. Please make sure you have also checked **First row only**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table

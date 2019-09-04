@@ -5,6 +5,7 @@
   - name: What is Azure IoT Hub?
     href: about-iot-hub.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Send telemetry
     items:
@@ -36,7 +37,7 @@
       href: quickstart-control-device-android.md
   - name: Communicate using device streams (preview)
     items:
-    - name: C#
+    - name: .NET
       href: quickstart-device-streams-echo-csharp.md
     - name: Node.js
       href: quickstart-device-streams-echo-nodejs.md
@@ -44,7 +45,7 @@
       href: quickstart-device-streams-echo-c.md
   - name: SSH/RDP using device streams (preview)
     items:
-    - name: C#
+    - name: .NET
       href: quickstart-device-streams-proxy-csharp.md
     - name: Node.js
       href: quickstart-device-streams-proxy-nodejs.md
@@ -90,6 +91,8 @@
     href: iot-hub-scaling.md
   - name: High availability and disaster recovery
     href: iot-hub-ha-dr.md
+  - name: Understanding IoT hub IP address
+    href: iot-hub-understand-ip-address.md
   - name: Supporting additional protocols
     href: iot-hub-protocol-gateway.md
   - name: Compare message and event routing
@@ -159,6 +162,8 @@
       href: iot-hub-devguide-glossary.md
   - name: Security
     items:
+    - name: Recommendations
+      href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
     - name: Security from the ground up
       href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
     - name: Security best practices
@@ -245,7 +250,7 @@
         href: iot-hub-python-python-module-twin-getstarted.md
       - name: C
         href: iot-hub-c-c-module-twin-getstarted.md
-      - name: Node
+      - name: Node.js
         href: iot-hub-node-node-module-twin-getstarted.md
     - name: Get started with device management
       items:
@@ -327,8 +332,6 @@
         href: iot-hub-raspberry-pi-kit-c-get-started.md
       - name: MXChip IoT DevKit with Arduino
         href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-      - name: Adafruit Feather HUZZAH ESP8266 with Arduino
-        href: iot-hub-arduino-huzzah-esp8266-get-started.md
     - name: Use MXChip IoT DevKit
       items:
       - name: Translate voice message with Azure Cognitive Services
@@ -403,14 +406,16 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
   - name: Platform Services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: IoT Service SDKs

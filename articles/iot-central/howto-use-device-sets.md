@@ -12,9 +12,11 @@ manager: peterpfr
 
 # Use device sets in your Azure IoT Central application
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as an operator, to use device sets in your Azure IoT Central application.
 
-A device set is a list of devices that are grouped together because they all match some specified criteria. Device sets help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you create a list of all the air conditioner devices in Seattle to enable the Seattle technician to find all the devices for which the technician is responsible. This article shows you how to create and configure device sets.
+A device set is a list of devices that are grouped together because they match some specified criteria. Device sets help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you can create a device set to list all the air conditioner devices in Seattle to enable a technician to find the devices for which they're responsible. This article shows you how to create and configure device sets.
 
 ## Create a device set
 
@@ -37,9 +39,9 @@ To create a device set:
 
 1. Choose **Save**.
 
-## Configure the Dashboard for your device set
+## Configure the dashboard for your device set
 
-After you create your device set, you can configure its **Dashboard**. The **Dashboard** is the homepage where you can place images and links. You can also add grids that list the devices in the device set.
+After you create your device set, you can configure its **Dashboard**. The **Dashboard** is the homepage where you place images and links. You can also add grids that list the devices in the device set.
 
 1. Choose **Device Sets** on the left navigation menu.
 
@@ -80,19 +82,20 @@ After you create your device set, you can configure its **Dashboard**. The **Das
   
     1. Select **Done**.
 
-### Configuring Location Map in your device sets dashboard
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
 
-You can add a location map to visualize location of your devices sets in a Map.
+### Configure a location map in your device sets dashboard
 
-In order to add a location map to you device sets dashboard you must have configured location property in your Device template, see [Create a Location Property powered by Azure Maps](howto-set-up-template.md).
+You can add a map to visualize location of the devices in your device set.
 
-1. On your Device Set Dashboard, select Map from the library.
-2. Give a title and choose the location property you have previously configured as part of your Device Property.
-3. Save and you will see the map tile displaying the location of your devices in the Device Set.
-4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance!
+To add a map to your device sets dashboard, you must have configured a location measurement or location property in your device template. To learn more, see [Create a Location Measurement](howto-set-up-template.md) or [Create a Location Property](howto-set-up-template.md).
 
-> [!NOTE]
-> You can resize the map to your desired size. Selecting a pin in the map displays the device information, name and location. You can select the pop-up to go to the device property page.
+1. On your device set **Dashboard**, select **Map** from the library.
+2. Add a title and choose the location measurement or property you configured previously.
+3. Select **Save** and the map tile displays the last known locations of the devices in your device set.
+4. When an operator views the device sets dashboard, the operator sees all the tiles you've configured, including the location map.
+
+You can resize the map tile on the dashboard. Selecting a pin on the map displays the device information, name, and location. Select the pop-up to go to the device property page.
 
 ## Configure the List for your device set
 

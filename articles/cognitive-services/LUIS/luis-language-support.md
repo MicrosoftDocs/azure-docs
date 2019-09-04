@@ -1,5 +1,5 @@
 ---
-title: Language support
+title: Language support - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 services: cognitive-services
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/19/2019
+ms.topic: conceptual
+ms.date: 09/04/2019
 ms.author: diberry
 ---
 
@@ -33,6 +33,7 @@ LUIS understands utterances in the following languages:
 | French (France) |`fr-FR` |-| ✔ |✔ |✔|
 | French (Canada) |`fr-CA` |-|   -   |-|✔|
 | German |`de-DE` |-| ✔ |✔ |✔|
+| Hindi | `hi-IN`|-|-|-|-|
 | Italian |`it-IT` |-| ✔ |✔|✔|
 | *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|
 | Korean |`ko-KR` |-|   -   |-|Key phrase only|
@@ -83,6 +84,7 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 |French (fr-FR)|✔||||
 |French (fr-CA)|✔||||
 |German|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |Italian|✔||||
 |Japanese||||✔|
 |Korean||✔||✔|

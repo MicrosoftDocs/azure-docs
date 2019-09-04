@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Scoped synchronization | Microso
 description: Configure scoped synchronization from Azure AD to your managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Configure scoped synchronization from Azure AD to your managed domain
@@ -43,7 +43,7 @@ The following table helps you determine how to use scoped synchronization:
 
 ## Create a new managed domain and enable group-based scoped synchronization using Azure portal
 
-1. Follow the [Getting Started guide](create-instance.md) to create a managed domain.
+1. Follow the [Getting Started guide](tutorial-create-instance.md) to create a managed domain.
 2. Choose **scoped** during the synchronization style selection in the Azure AD Domain Services creation wizard.
 
 ## Create a new managed domain and enable group-based scoped synchronization using PowerShell
@@ -77,7 +77,7 @@ Complete the following steps to configure group-based scoped synchronization to 
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
+   $ManagedDomainName = "contoso.com"
    $ResourceGroupName = "ContosoAaddsRg"
    $VnetName = "DomainServicesVNet_WUS"
    $AzureLocation = "westus"

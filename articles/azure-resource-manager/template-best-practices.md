@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 08/16/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager template best practices
@@ -22,7 +22,7 @@ For recommendations about how to build templates that work in all Azure cloud en
 
 ## Template limits
 
-Limit the size of your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
 You're also limited to:
 
@@ -145,6 +145,8 @@ The information in this section can be helpful when you work with [parameters](r
 
 The following information can be helpful when you work with [variables](resource-group-authoring-templates.md#variables):
 
+* Use camel case for variable names.
+
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 
 * Use variables for values that you construct from a complex arrangement of template functions. Your template is easier to read when the  complex expression only appears in variables.
@@ -167,7 +169,7 @@ When deciding what [dependencies](resource-group-define-dependencies.md) to set,
 
 * Set a child resource as dependent on its parent resource.
 
-* Resources with the [condition element](resource-group-authoring-templates.md#condition) set to false are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
+* Resources with the [condition element](conditional-resource-deployment.md) set to false are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
 
 * Let dependencies cascade without setting them explicitly. For example, your virtual machine depends on a virtual network interface, and the virtual network interface depends on a virtual network and public IP addresses. Therefore, the virtual machine is deployed after all three resources, but don't explicitly set the virtual machine as dependent on all three resources. This approach clarifies the dependency order and makes it easier to change the template later.
 

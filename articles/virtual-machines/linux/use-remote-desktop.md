@@ -4,14 +4,14 @@ description: Learn how to install and configure Remote Desktop (xrdp) to connect
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
@@ -52,7 +52,7 @@ sudo apt-get install xfce4
 Now that you have a desktop environment installed, configure a remote desktop service to listen for incoming connections. [xrdp](http://xrdp.org) is an open source Remote Desktop Protocol (RDP) server that is available on most Linux distributions, and works well with xfce. Install xrdp on your Ubuntu VM as follows:
 
 ```bash
-sudo apt-get install xrdp
+sudo apt-get install xrdp=0.6.1-2
 sudo systemctl enable xrdp
 ```
 

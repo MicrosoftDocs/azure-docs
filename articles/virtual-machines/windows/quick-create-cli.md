@@ -1,20 +1,20 @@
 ---
-title: Quickstart - Create a Windows VM with Azure PowerShell | Microsoft Docs
-description: In this quickstart, you learn how to use Azure PowerShell to create a Windows virtual machine
+title: Quickstart - Create a Windows VM using the Azure CLI | Microsoft Docs
+description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -25,9 +25,11 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## Launch Azure Cloud Shell
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
 ## Create a resource group
 
@@ -39,7 +41,10 @@ az group create --name myResourceGroup --location eastus
 
 ## Create virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. Update these values to something appropriate to your environment. These values are needed when you connect to the VM.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name. 
+
+You must change the value for `--admin-password` or it will fail. Change it to a password that meets the [password requirements for Azure VMs](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). The user name and password will be used later, when you connect to the VM.
 
 ```azurecli-interactive
 az vm create \
@@ -47,7 +52,7 @@ az vm create \
     --name myVM \
     --image win2016datacenter \
     --admin-username azureuser \
-    --admin-password myPassword12
+    --admin-password myPassword
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.

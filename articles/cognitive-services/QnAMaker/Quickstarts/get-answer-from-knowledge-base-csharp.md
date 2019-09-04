@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, C# - QnA Maker"
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: This C# REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 07/16/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using C#. 
 ---

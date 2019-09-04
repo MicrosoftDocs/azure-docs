@@ -3,16 +3,16 @@ title: Red Hat Enterprise Linux images in Azure | Microsoft Docs
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: jeconnoc
+author: asinn826
+manager: BorisB2015
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 6/6/2019
+ms.date: 8/14/2019
 ms.author: borisb
 
 ---
@@ -96,13 +96,15 @@ The following table will apply for RHEL images that contain a minor version in t
 
 >[!NOTE]
 > At the time of writing, only RHEL 7.4 and later minor versions have EUS support. EUS is no longer supported for RHEL <= 7.3.
+>
+> More details about RHEL EUS availability can be found [here](https://access.redhat.com/support/policy/updates/errata).
 
 Minor version |EUS Image example              |EUS status                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Images published April 2019 and later will be EUS by default|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Images published June 2019 and later will be EUS by default |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Images published May 2019 and later will be EUS by default  |
-RHEL 8.0      |N/A                            | No EUS currently images currently available                 |
+RHEL 8.0      |N/A                            | No EUS available from Red Hat                               |
 
 
 ## List of RHEL images available
@@ -129,6 +131,12 @@ RHEL-SAP-HANA | 6.7      | RAW    | Linux Agent | RHEL 6.7 for SAP HANA
 |             | 7.3      | LVM    | Linux Agent | RHEL 7.3 for SAP HANA
 RHEL-SAP-APPS | 6.8      | RAW    | Linux Agent | RHEL 6.8 for SAP Business Applications
 |             | 7.3      | LVM    | Linux Agent | RHEL 7.3 for SAP Business Applications
+RHEL-HA       | 7.4      | LVM    | Linux Agent | RHEL 7.4 with HA Add-On
+|             | 7.5      | LVM    | Linux Agent | RHEL 7.5 with HA Add-On
+|             | 7.6      | LVM    | Linux Agent | RHEL 7.6 with HA Add-On
+RHEL-SAP-HA   | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP with HA Add-On
+|             | 7.5      | LVM    | Linux Agent | RHEL 7.5 for SAP with HA Add-On
+|             | 7.6      | LVM    | Linux Agent | RHEL 7.6 for SAP with HA Add-On
 
 ### Old naming convention
 The RHEL 7 family of images and the RHEL 6 family of images used specific versions in their SKUs up until the naming convention change explained above.
