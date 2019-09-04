@@ -6,7 +6,7 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: banders
 ---
 
@@ -62,13 +62,13 @@ Q. Does Azure offer "Partial up-front reservations?"
 A. No. Because the costs for reservations paid up front and monthly are the same, Microsoft doesn't support partial up-front payments.
 
 Q. Are monthly payments available for the Microsoft Cloud Solution Provider (CSP) program?
-A. Yes, partners can purchase reservations for their CSP customers in the Azure portal. The ability to purchase reservations with monthly billing will be available soon in the Partner center.
+A. Yes, partners can purchase reservations for their CSP customers in the Azure portal. The ability to purchase reservations with monthly billing isn't available in the Partner center.
 
 Q. I'm a US Azure Government customer, can I pay monthly for reservation purchases?
-A. Not yet. This feature is in development.
+A. Not currently.
 
 Q. When can I exchange or refund myself in the Azure portal, instead of creating a Support ticket?
-A. This feature is in development. Until complete, requests to exchange and refund reservations with monthly payments are handled by Azure support.
+A. Not currently. Requests to exchange and refund reservations with monthly payments are handled by Azure support.
 
 ## Next steps
 
