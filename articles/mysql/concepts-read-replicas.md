@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/21/2019
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -44,7 +44,7 @@ Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, 
 
 
 ### Paired regions
-In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
 
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 
@@ -116,7 +116,7 @@ A read replica is created as a new Azure Database for MySQL server. An existing 
 
 ### Replica configuration
 
-A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, backup retention period, and MySQL engine version. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.

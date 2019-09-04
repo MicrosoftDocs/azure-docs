@@ -5,7 +5,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
 ---
@@ -18,6 +18,8 @@ quality and ready to deploy today to assist you in meeting your various complian
 
 |  |  |
 |---------|---------|
+| [Canada Federal PBMM](./canada-federal-pbmm/control-mapping.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
+| [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark recommendations. |
 | [IRS 1075](./irs-1075/index.md) | Provides guardrails for compliance to IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Provides guardrails for compliance with ISO 27001. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
@@ -25,8 +27,8 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Provides guardrails for compliance to NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Provides a set of policies to aide in PCI-DSS v3.2.1 compliance. |
 | [UK OFFICIAL and UK NHS Governance](./ukofficial/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards UK OFFICIAL and UK NHS attestation. |
-| [CAF Foundation](./caf-foundation/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index.md). |
-| [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you set up for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index.md). |
+| [CAF Foundation](./caf-foundation/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index). |
+| [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you set up for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index). |
 
 ## Samples Strategy
 
@@ -50,7 +52,7 @@ customizing it for their unique needs.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).

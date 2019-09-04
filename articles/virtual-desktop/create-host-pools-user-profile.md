@@ -1,19 +1,19 @@
 ---
-title: Set up a user profile share for a Windows Virtual Desktop Preview host pool  - Azure
-description: How to set up an FSLogix profile container for a Windows Virtual Desktop Preview host pool.
+title: Create an FSLogix profile container for a host pool using a virtual machine-based file share  - Azure
+description: How to set up an FSLogix profile container for a Windows Virtual Desktop Preview host pool using a virtual machine-based file share.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 08/20/2019
 ms.author: helohr
 ---
-# Set up a user profile share for a host pool
+# Create a profile container for a host pool using a file share
 
 The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Windows Virtual Desktop.
 
-This section will tell you how to set up a FSLogix profile container share for a host pool. For general documentation regarding FSLogix, see the [FSLogix site](https://docs.fslogix.com/).
+This article will tell you how to set up a FSLogix profile container share for a host pool using a virtual machine-based file share. For more FSLogix documentation, see the [FSLogix site](https://docs.fslogix.com/).
 
 ## Create a new virtual machine that will act as a file share
 
@@ -50,8 +50,8 @@ For more information about permissions, see the [FSLogix documentation](https://
 To configure the virtual machines with the FSLogix software, do the following on each machine registered to the host pool:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Launch an internet browser and navigate to [this link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent. As part of the Windows Virtual Desktop public preview, you'll get a license key to activate the FSLogix software. The key is the LicenseKey.txt file included in the FSLogix agent .zip file.
-3. Navigate to either \\\\Win32\\Release or \\\\X64\\Release in the .zip file and run **FSLogixAppsSetup** to install the FSLogix agent.
+2. Launch an internet browser and navigate to [this link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent.
+3. Navigate to either \\\\Win32\\Release or \\\\X64\\Release in the .zip file and run **FSLogixAppsSetup** to install the FSLogix agent.  To learn more about how to install FSLogix, see [Download and install FSLogix](https://docs.microsoft.com/fslogix/install-ht).
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
 5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 6. Create a key named **Profiles**.

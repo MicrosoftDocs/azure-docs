@@ -1,7 +1,7 @@
 ---
 title: Samples - CAF Foundation blueprint - Deploy steps
 description: Deploy steps of the CAF Foundation blueprint sample.
-author: dacoulte
+author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
@@ -154,7 +154,7 @@ following article to learn about the architecture:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

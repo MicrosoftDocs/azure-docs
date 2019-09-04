@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 The QnA Maker service, takes a dependency on three Azure resources:
 1.	App Service (for the runtime)
-2.	Azure Search (for storing QnAs)
+2.	Azure Search (for storing and searching QnAs)
 3.	App Insights (optional, for storing chat logs and telemetry)
 
 Before you create your QnA Maker service, you should decide which tier of the above services is appropriate for you. 
@@ -40,9 +40,9 @@ The following table gives you some high-level guidelines.
 | Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
 | Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
-For upgrading your QnA Maker stack, see [Upgrade your QnA Maker service](../How-To/upgrade-qnamaker-service.md).
+For upgrading your QnA Maker stack, see [Upgrade your QnA Maker service](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Upgrade your QnA Maker service](../How-To/upgrade-qnamaker-service.md)
+> [Upgrade your QnA Maker service](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)

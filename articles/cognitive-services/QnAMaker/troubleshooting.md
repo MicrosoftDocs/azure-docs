@@ -8,13 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
 # Troubleshooting for QnA Maker
 
 The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
+
+
+## How to get the QnAMaker service hostname
+
+QnAMaker service hostname is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The hostname is a URL in this form: https://*{hostname}*.azurewebsites.net.
+	
+1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
+
+    ![QnAMaker Azure resource group in Azure portal](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+
+1. Select the App Service associated with the QnA Maker resource. Typically, the names are the same.
+
+     ![Select QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
+1. The hostname URL is available in the Overview section
+
+    ![QnAMaker hostname](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    
 
 ## Use the Help bot in the QnA Maker portal
 
@@ -92,6 +110,14 @@ If you have content from multiple languages, be sure to create a separate servic
 
 Refresh your app service when the caution icon is next to the version value for the knowledge base in the **Endpoint keys** table on the **User Settings** [page](https://www.qnamaker.ai/UserSettings).
 
+### I deleted my existing Search service. How can I fix this?
+
+If you delete an Azure Search index, the operation is final and the index cannot be recovered. 
+
+### I deleted my `testkb` index in my Search service. How can I fix this? 
+
+Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+
 ### When should I refresh my endpoint keys?
 
 Refresh your endpoint keys if you suspect that they have been compromised.
@@ -102,7 +128,7 @@ To use multiple language and multiple knowledge bases, the user has to create an
 
 ### How can I change the name of the Azure Search resource used by QnA Maker?
 
-The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
+The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
 ### When QnA Maker returns `Runtime core is not initialized,` how do I fix it?
 
@@ -130,9 +156,25 @@ The disk space for your app service might be full. Steps to fix your disk space:
 
 No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
-### How can I create a bot with QnA Maker?
+### How can I create a new bot with QnA Maker?
 
 Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation to create your Bot with Azure Bot Service.
+
+### How do I use a different knowledge base with an existing Azure bot service?
+
+You need to have the following information about your knowledge base:
+
+* Knowledge base ID.
+* Knowledge base's published endpoint host name - found on **Settings** page after you publish.
+* Knowledge base's published endpoint key - found on **Settings** page after you publish. 
+
+With this information, go to your bot's app service in the Azure portal. Under **Settings -> Configuration -> Application settings**, change those values.  
+
+The knowledge base's endpoint key is labeled `QnAAuthkey` in the ABS service. 
+
+### Can two or more client applications share a knowledge base? 
+
+Yes, the knowledge base can be queried from any number of clients. If the response from the knowledge base appears to be slow or time out, consider upgrading the service tier for the app service associated with the knowledge base.
 
 ### How do I embed the QnA Maker service in my website?
 

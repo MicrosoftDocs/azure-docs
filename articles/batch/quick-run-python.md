@@ -43,7 +43,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Navigate to the directory that contains the Python script `python_quickstart_client.py`.
+Go to the directory that contains the Python script `python_quickstart_client.py`.
 
 In your Python development environment, install the required packages using `pip`.
 
@@ -226,7 +226,7 @@ for task in tasks:
 
 The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. When you delete the pool, all task output on the nodes is deleted. 
 
-When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete resource group**.
+When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and select **Delete resource group**.
 
 ## Next steps
 

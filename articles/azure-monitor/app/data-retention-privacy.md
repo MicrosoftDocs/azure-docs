@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/22/2019
 ms.author: mbullwin
 
 ---
@@ -78,12 +78,11 @@ For web pages, open your browser's debugging window.
 This would be possible by writing a [telemetry processor plugin](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## How long is the data kept?
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 90 days. If you need to keep data longer than that, you can use [continuous export](../../azure-monitor/app/export-telemetry.md) to copy it to a storage account.
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](../../azure-monitor/app/export-telemetry.md) to copy it to a storage account during data ingestion. 
+
+Data kept longer than 90 days will incur addition charges. Learn more about Application Insights pricing on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
-
-> [!NOTE]
-> Variable retention for Application Insights is in Preview now. Learn more [here](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
 
 [Debug snapshots](../../azure-monitor/app/snapshot-debugger.md) are stored for fifteen days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
@@ -96,7 +95,7 @@ It can be exported by you and your team members and could be copied to other loc
 Microsoft uses the data only in order to provide the service to you.
 
 ## Where is the data held?
-* In the USA, Europe or Southeast Asia. You can select the location when you create a new Application Insights resource. 
+* You can select the location when you create a new Application Insights resource. Know more about Application Insights availability per region [here](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
 #### Does that mean my app has to be hosted in the USA, Europe or Southeast Asia?
 * No. Your application can run anywhere, either in your own on-premises hosts or in the cloud.
@@ -163,7 +162,7 @@ Via code:
 By default `ServerTelemetryChannel` uses the current user’s local app data folder `%localAppData%\Microsoft\ApplicationInsights` or temp folder `%TMP%`. (See [implementation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) here.) 
 In a Linux environment, local storage will be disabled unless a storage folder is specified.
 
-The following code snippet shows how to set `ServerTelemetryChannel.StorageFolder` in the `ConfigureServices()` method of your `Startup.cs` class:
+The following code snippet shows how to set `ServerTelemetryChannel.StorageFolder` in the `ConfigureServices()` method of your `Startup.cs` class:
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -275,7 +274,7 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) will walk you through your options.
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).
@@ -294,4 +293,3 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
-
