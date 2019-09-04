@@ -192,6 +192,37 @@ Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ver
 
 Where `<version>` refers to the current version number.
 
+### Collecting logs remotely
+
+The first step in troubleshooting Guest Configuration configurations or modules should be to use the `Test-GuestConfigurationPackage` cmdlet following the steps in
+[Test a Guest Configuration package](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).  If that is not successful, collecting client logs can help diagnose issues.
+
+#### Windows
+
+If you would like to use the Azure VM Run Command capability to capture information from log files in Windows machines,
+the following example PowerShell script can be helpful. For details on running the script from the Azure Portal
+or using Azure PowerShell, see [Run PowerShell scripts in your Windows VM with Run Command](../../../virtual-machines/windows/run-command.md).
+
+```powershell
+$linesToIncludeBeforeMatch = 0
+$linesToIncludeAfterMatch = 10
+$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
+Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+```
+
+#### Linux
+
+If you would like to use the Azure VM Run Command capability to capture information from log files in Linux machines,
+the following example Bash script can be helpful. For details on running the script from the Azure Portal
+or using Azure CLI, see [Run shell scripts in your Linux VM with Run Command](../../../virtual-machines/linux/run-command.md)
+
+```Bash
+linesToIncludeBeforeMatch=0
+linesToIncludeAfterMatch=10
+latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+```
+
 ## Guest Configuration samples
 
 Samples for Policy Guest Configuration are available in the following locations:

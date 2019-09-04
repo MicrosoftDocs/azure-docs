@@ -133,7 +133,7 @@ If you were using SAP HANA linked service with the following payload, it is stil
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by SAP HANA dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by SAP HANA dataset.
 
 To copy data from SAP HANA, the following properties are supported:
 
