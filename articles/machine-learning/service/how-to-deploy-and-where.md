@@ -558,7 +558,7 @@ For more information, see the reference documentation for [LocalWebservice](http
 To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model:
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 [!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
