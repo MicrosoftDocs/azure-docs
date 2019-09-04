@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/22/2019
+ms.date: 08/22/2019 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -21,14 +21,14 @@ ms.author: juliako
 
 Microsoft Azure Media Services can be used to encode many media source file formats, and deliver them via different streaming protocols, with or without content protection, to reach all major devices (for example, iOS and Android devices). These clients understand different protocols, for example iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH. You can use Dynamic Packaging whether you are streaming live or on-demand videos. 
 
-In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols mentioned in the following section. Dynamic packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
+In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols mentioned in the following section. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
 
 > [!NOTE]
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## To prepare your source files for delivery
 
-To prepare your source files for delivery by adaptive bitrate streaming, they need to be [encoded](encoding-concept.md) into a set of multiple bitrate (also called adaptive bitrate) MP4 (ISO Base Media 14496-12) files. From this set of MP4 files, you can use **Dynamic Packaging** to deliver video via the following streaming media protocols:
+To prepare your source files for delivery by adaptive bitrate streaming, they need to be [encoded](encoding-concept.md) into a set of multiple bitrate (also called adaptive bitrate) MP4 (ISO Base Media 14496-12) files. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
 
 ### Delivery protocols
 
@@ -47,7 +47,7 @@ If you plan to protect your content by using Media Services dynamic encryption, 
 
 ## To take advantage of Dynamic Packaging
 
-To take advantage of **Dynamic Packaging**, you need to have an [Asset](assets-concept.md) with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to [encode your mezzanine (source) file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
+To take advantage of Dynamic Packaging, you need to have an [Asset](assets-concept.md) with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to [encode your mezzanine (source) file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
 
 To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you have chosen.
 
