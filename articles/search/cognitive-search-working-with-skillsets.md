@@ -18,7 +18,7 @@ A skillset comprises of three properties:
 +	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked.
 +	```knowledgeStore```, the storage account where your enriched documents can be projected in addition to the search index.
 
-Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walkthrough the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you will need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you will need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
 
 ## Concepts
 ### Enrichment tree
@@ -35,7 +35,7 @@ The enrichment tree is the JSON representation of the document and enrichments a
 
 
 The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills, projecting to the knowledge store or mapping to index fields. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
-For the rest of this document we will assume we are working with hotel reviews, but the same concepts apply to enriching documents from all other data sources.
+For the rest of this document, we will assume we are working with hotel reviews, but the same concepts apply to enriching documents from all other data sources.
 
 ### Context
 Each skill requires a context. A context determines:
@@ -45,7 +45,7 @@ Each skill requires a context. A context determines:
 +	Where in the tree the input is evaluated. Inputs can only be sourced from nodes scoped by the context. 
 
 ### SourceContext
-The sourceContext is only used in shaper skills and projections to be able to construct multi-level, nested objects. The sourceContext enables you to construct a hierarchial, anonymous type object which would require multiple skills if only using the context. This concept is further described with an example in the projections section.
+The sourceContext is only used in shaper skills and projections to be able to construct multi-level, nested objects. The sourceContext enables you to construct a hierarchical, anonymous type object, which would require multiple skills if only using the context. This concept is further described with an example in the projections section.
 
 ### Projections
 Projection is the process of selecting the nodes from the enrichment tree to be saved in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be outputted as either table or object projections. To learn more about working with projections, see [working with projections](knowledge-store-projection-overview.md).
@@ -60,14 +60,14 @@ Projection is the process of selecting the nodes from the enrichment tree to be 
 The matrix above describes the type of selector you choose based on the source and destination of the data.
 
 ## Enrichment tree lifecycle
-Let’s now step through the hotel reviews skillset and look at how the enrichment tree evolves with the execution of each skill and how the context and inputs work to determine how many times a skill executes and what the shape of the input is based on the context. Note that since we're using the delimited text parsing mode for the indexer, a document within the enrichment process represents a single row within the CSV file.
+Let’s now step through the hotel reviews skillset and look at how the enrichment tree evolves with the execution of each skill and how the context and inputs work to determine how many times a skill executes and what the shape of the input is based on the context. Since we're using the delimited text parsing mode for the indexer, a document within the enrichment process represents a single row within the CSV file.
 
 ### Skill #1: Split skill 
 ![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-before.png "Enrichment tree after document cracking and before skill execution")
 
-With the skill context of ```"/document/reviews_text"```, this skill will execute once for the review_text. The skill output is a list where the reviews_text is chunked into 5000 character segments. The output from the split skill is named pages and added to the enrichment tree. The targetName feature allows you to rename a skill output beofre being added to the enrichment tree.
-The enrichment tree now has a new node parented under the context of the skill and this node is available to any skill, projection or output field mapping.
- While the document ```"/document"``` is the root node for all enrichments, when ```"/document"``` is addressed, the only child properties are ```"/document/content"```, ```"/document/normalized_images/*"``` when working with blob indexers or the column names here since we are working with CSV data. To access any of the enrichments that were added to a node by a skill, the full path for those enrichments is needed. For example, if you want to use the text from the ```pags``` node as an input to another skill, you will need to select it as ```"/document/reviews_text/pages/*"```.
+With the skill context of ```"/document/reviews_text"```, this skill will execute once for the review_text. The skill output is a list where the reviews_text is chunked into 5000 character segments. The output from the split skill is named pages and added to the enrichment tree. The targetName feature allows you to rename a skill output before being added to the enrichment tree.
+The enrichment tree now has a new node parented under the context of the skill and this node is available to any skill, projection, or output field mapping.
+ While the document ```"/document"``` is the root node for all enrichments, when ```"/document"``` is addressed, the only child properties are ```"/document/content"```, ```"/document/normalized_images/*"``` when working with blob indexers or the column names here since we are working with CSV data. To access any of the enrichments that were added to a node by a skill, the full path for the enrichments is needed. For example, if you want to use the text from the ```pags``` node as an input to another skill, you will need to select it as ```"/document/reviews_text/pages/*"```.
  
  ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-after.png "Enrichment tree after  skill #1 executes")
  
@@ -85,7 +85,7 @@ Skillsets also define a knowledge store where your enriched documents can be pro
 When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all your table projections. 
 ### Shaping projections
 There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then in your projections, you only reference the output of the shaper skill. You could also inline shape a projection within the projection the definition itself.
-The shaper approach ensures that all the mutations of the enrichment tree are contained within the skills and output is an object that can be reused, but it is more verbose. Inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection it is defined for. Either approach works, the skillset created for you in the portal workflow contains both approaches. It uses a shaper skill for the table projections, but alos uses inline shaping to project the key phrases table.
+The shaper approach ensures that all the mutations of the enrichment tree are contained within the skills and output is an object that can be reused, but it is more verbose. Inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection it is defined for. Either approach works, the skillset created for you in the portal workflow contains both approaches. It uses a shaper skill for the table projections, but also uses inline shaping to project the key phrases table.
 
 To extend the example further, you can use only a shaper skill by creating a new node for the key phrases. To create a shape that you can project into three tables namely document, pages and keyphrases, the two options are
 #### Shaper skill and projection 
