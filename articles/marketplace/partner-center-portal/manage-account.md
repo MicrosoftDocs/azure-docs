@@ -146,7 +146,7 @@ Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azu
 
 ## Manage users
 
-The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Note that in order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
+The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
 
 Once you are signed in with your work account (Azure AD tenant), you can:
 - [Add or remove users](#add-or-remove-users)
@@ -295,20 +295,19 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 4.	If you want to create more keys, select **Add another key**.
 
 
-### Define user roles and permissions
+## Define user roles and permissions
 
-Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center. 
+Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center:
 
-|**Role**|**Permissions**|
-|----------------------------------|---------------------------------|
-|Manager|- Can access all Microsoft account features except tax and payout settings|
-|      |- Can manage users, roles, and work accounts (tenants)|
-|Developer|- Can manage and publish offers|
-|      |- Can view some publisher reports|
-|Global admin|- Not relevant for commercial marketplace|
-|Business Contributor|- Not relevant for commercial marketplace|
-|Financial Contributor|- Not relevant for commercial marketplace|
-|Marketer|- Not relevant for commercial marketplace|
+- **Manager**
+  - Can access all Microsoft account features except tax and payout settings
+  - Can manage users, roles, and work accounts (tenants)
+- **Developer**
+  - Can manage and publish offers
+  - Can view some publisher reports
+
+> [!NOTE]
+> For the Commercial Marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.
 
 For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 

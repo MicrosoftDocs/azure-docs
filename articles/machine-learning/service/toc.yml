@@ -1,5 +1,5 @@
 - name: Azure Machine Learning service Documentation
-  href: index.yml
+  href: ../index.yml
 - name: Overview
   expanded: true
   items:
@@ -291,12 +291,18 @@
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
+      - name: Feature Hashing
+        href: ../algorithm-module-reference/feature-hashing.md
+      - name: Extract N-Gram Features from Text
+        href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
         href: ../algorithm-module-reference/add-columns.md
       - name: Add Rows
         href: ../algorithm-module-reference/add-rows.md
       - name: Remove Duplicate Rows
         href: ../algorithm-module-reference/remove-duplicate-rows.md
+      - name: Preprocess Text
+        href: ../algorithm-module-reference/preprocess-text.md
       - name: Join Data
         href: ../algorithm-module-reference/join-data.md
       - name: Split Data
