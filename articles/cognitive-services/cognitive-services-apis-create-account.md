@@ -25,20 +25,17 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
 ## Create a new Azure Cognitive Services resource
 
-You can create a Cognitive Services resource in two ways - using a multi-service resource or a single-service resource.
-
-
 1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
 
-2. Create a resource
+2. Create a resource.
 
     #### [Multi-service resource](#tab/multiservice)
 
     >[!WARNING]
-    > At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
+    > At this time, these services **can't** be called using a multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
     
     Creating a multi-service Cognitive Services resource:
     * Lets you use a single Azure resource for most Azure Cognitive Services.
@@ -46,13 +43,10 @@ You can create a Cognitive Services resource in two ways - using a multi-service
     * Consolidates billing from the services you use. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for additional information.
     
     
-    To create a multi-service resource, [click here](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) or search for the resource name **Cognitive Services** in the portal by entering it in the search bar. Then select **Create**.
+    The multi-service resource is named **Cognitive Services** in the portal. To create one, [click here](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) or search for **Cognitive Services** in the portal search bar. Then select **Create**.
 
-    ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+    ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png) <!--On the resource page, select **Create**. ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png) -->
 
-    <!--On the resource page, select **Create**. 
-
-     ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png) -->
 
     #### [Single-service resource](#tab/singleservice)
 
@@ -89,8 +83,10 @@ You can create a Cognitive Services resource in two ways - using a multi-service
     * Search
         * [Bing Search API V7]()
         * [Bing Custom Search]()
+        * [Bing Entity Search]()
+        * [Bing Spell Check]()
 
-    To see all available cognitive services, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
+    To see all available cognitive services in the portal, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
 
     Once you are on the service you are interested in, click **Create**.
     
@@ -131,9 +127,9 @@ You can create a Cognitive Services resource in two ways - using a multi-service
 
 ## Get the keys for your resource
 
-After the resource is successfully created, you get a pop-up notification in the top-right of the screen. From the notification, click **Go to resource** to see the cognitive service resource you created. 
+After your resource is successfully deployed, click on **Next Steps** in the deployment window, then **Go to resource**.
 
-![Go to cognitive service resource](media/cognitive-services-apis-create-account/cog-serv-go-to-resource.png)
+![Search for Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
 From the quickstart pane that opens, you can access your endpoint and key.
 
@@ -147,14 +143,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 2. Locate the resource group containing the resource to be deleted
-
-To remove a resource group using the Azure portal: 
-
-* Right-click on the resource group listing. Select **Delete resource group**, and confirm.
-
-To remove only the resource:
-
-* Click on the the resource group, and select the resource you want to remove. Then click **Delete**, and confirm.
+3. Right-click on the resource group listing. Select **Delete resource group**, and confirm.
 
 ## See also
 
