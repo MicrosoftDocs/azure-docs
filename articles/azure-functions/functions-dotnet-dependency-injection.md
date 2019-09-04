@@ -18,7 +18,7 @@ ms.reviewer: jehollan
 
 Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
-- Dependency injection in Azure Functions works in a similar fashion to the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended, but the two pipelines are not identical.
+- Dependency injection in Azure Functions works in a similar fashion to the ASP.NET Core Dependency Injection features. Familiarity with [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)'s services, lifetimes, and patterns before using dependency injection in Azure Functions is recommended, but the two aren't identical.
 
 - Support for dependency injection begins with Azure Functions 2.x.
 
@@ -67,11 +67,11 @@ namespace MyNamespace
 
 ### Caveats
 
-There are a number of registration steps that happen before and after after the runtime processes the startup class. Therefore, the keep in mind the following caveats:
+There are a number of registration steps that happen before and after the runtime processes the startup class. Therefore, the keep in mind the following caveats:
 
-- **The startup class is meant for only setup and registration.** Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After your app is setup, the Functions runtime continues to register additional dependencies which can affect how your services operate.
+- **The startup class is meant for only setup and registration.** Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After your app is set up, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
 
-- **Not all Functions types are available during setup**. For instance, `BindingContext` is not available during the setup process.
+- **Not all Functions types are available during setup**. For instance, `BindingContext` isn't available during the set-up process.
 
 ## Use injected dependencies
 
@@ -121,7 +121,7 @@ namespace MyNamespace
 
 Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): transient, scoped, and singleton.
 
-In terms of a functions app, the different service lifetimes behave as follows:
+For a Functions app, the different service lifetimes behave as follows:
 
 - **Transient** services are created upon each request of the service
 - **Scoped** service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
@@ -157,9 +157,9 @@ Provide configuration values to the setup class via [app settings](./functions-h
 
 ## Working with options
 
-You can extract options from an `IConfiguration` instance into a custom type which allows you to easily test your services.
+You can extract options from an `IConfiguration` instance into a custom type, which allows you to easily test your services.
 
-Consider the following class which includes a property named consistent with configuration values.
+Consider the following class that includes a property named consistent with configuration values.
 
 ```csharp
 public class MyOptions
