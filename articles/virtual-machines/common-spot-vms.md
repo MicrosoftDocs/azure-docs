@@ -46,7 +46,7 @@ az vm create \
 
 ## Use Azure PowerShell
 
-The process to create a spot VM using Azure PowerShell is the same as creating other VMs, just add the '-Priority' parameter to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmconfig) portion of the script and set it to *Spot*:
+The process to create a spot VM using Azure PowerShell is the same as creating other VMs, just add the '-Priority' parameter to the [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) portion of the script and set it to *Spot*:
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
@@ -97,7 +97,7 @@ Here is a sample template with the added properties for a spot VM. Replace the r
     "parameters": {
     },
     "variables": {
-        "vnetId": "/subscriptions/ec9fcd04-e188-48b9-abfc-a35d515f1836/resourceGroups/TestVMSS/providers/Microsoft.Network/virtualNetworks/TestVMSS",
+        "vnetId": "/subscriptions/ec9fcd04-e188-48b9-abfc-abcd515f1836/resourceGroups/spotVM/providers/Microsoft.Network/virtualNetworks/spotVM",
         "subnetName": "default",
         "networkInterfaceName": "spotVMNIC",
         "publicIpAddressName": "spotVM-ip",
@@ -226,13 +226,7 @@ Here is a sample template with the added properties for a spot VM. Replace the r
 ```
 
 
-##  Frequesntly asked questions
-
-**Q:** What maxPrice value should I use when creating low-priority VM or VMSS?
-**A:** Variable pricing low-priority VM and VMSS don't apply to Microsoft internal subscriptions. You should skip and ignore maxPrice when creating a low-priority VM or VMSS, so that the default value (-1) can kick-in.
-
-**Q:** Can I know the eviction rate of a specific VM Size?
-**A:** Low-priority VM eviction triggered by 24-hour TTL is eliminated. We will provide a dashboard for internal customers to look up eviction rate of a specific VM Size across Azure regions, caused by capacity reasons.
+##  Frequently asked questions
 
 **Q:** Once created, is a low-priority VM the same as regular on-demand VM?
 **A:** Yes.
