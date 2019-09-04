@@ -30,7 +30,7 @@ You can use the [portal](#cosmos-indexer-portal), REST APIs, or .NET SDK to inde
 * [MongoDB API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
-> User Voice has existing items for additional API support. You can cast a vote for the Cosmos APIs you would like to see supported in Azure Search: [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), 
+> User Voice has existing items for additional API support. You can cast a vote for the Cosmos APIs you would like to see supported in Azure Search: [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), 
 [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
 >
 
