@@ -122,8 +122,6 @@ To view it:
 
 To learn more about how to use Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
 
-This 
-    
 
 ## Example notebook
 
