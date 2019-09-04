@@ -194,12 +194,12 @@ $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-n
 
 To connect to a managed instance in a pool, the following two steps are required:
 
-1. Enable the public endpoint for the instance.
-2. Add an inbound rule to the network security group (NSG).
+1. [Enable the public endpoint for the instance](#enable-the-public-endpoint-for-the-instance).
+2. [Add an inbound rule to the network security group (NSG)](#add-an-inbound-rule-to-the-network-security-group).
 
 After both steps are complete, you can connect to the instance by using a public endpoint address, port, and credentials provided during instance creation. 
 
-## Enable the public endpoint for an instance
+### Enable the public endpoint for the instance
 
 Enabling the public endpoint for an instance can be done through the Azure portal or by using the following PowerShell command:
 
@@ -210,8 +210,8 @@ $instanceOne | Set-AzSqlInstance -InstancePoolName "pool-mi-001" -PublicDataEndp
 
 This parameter can be set during instance creation as well.
 
-## Add an inbound rule to the network security group 
- 
+### Add an inbound rule to the network security group 
+
 This step can be done through the Azure portal or using PowerShell commands, and can be done anytime after the subnet is prepared for the managed instance.
 
 For details, see [Allow public endpoint traffic on the network security group](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
