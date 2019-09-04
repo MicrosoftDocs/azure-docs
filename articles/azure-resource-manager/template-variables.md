@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
 ---
-# Create Azure Resource Manager template
+# Variables in Azure Resource Manager template
 
 This article describes how to define and use variables in your Azure Resource Manager template. You use variables to simplify your template. Rather than repeating complicated expressions throughout your template, you define a variable that contains the complicated expression. Then, you reference that variable as needed throughout your template.
 
@@ -35,9 +35,11 @@ In the template, you reference the value for the parameter by using the [variabl
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageName')]",
     ...
+  }
+]
 ```
 
-### Configuration variables
+## Configuration variables
 
 You can define variables that hold related values for configuring an environment. You define the variable as an object with the values. The following example shows an object that holds values for two environments - **test** and **prod**.
 
