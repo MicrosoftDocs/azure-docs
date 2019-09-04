@@ -13,18 +13,29 @@ ms.author: dapine
 ms.custom: seodec18
 ---
 
-# Install and run Recognize Text containers
+# Install and run Computer Vision containers
+
+#### [Read](#tab/read)
+
+The Read portion of Computer Vision is also available as a Docker container. Read allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. It uses an Optical Character Recognition (OCR) technology, which detects text in an image and extracts the recognized characters into a machine-usable character stream.
+
+#### [Recognize Text](#tab/recognize-text)
+
+> [!CAUTION]
+> Read is a superset of its predecessor Recognize Text, and customers should migrate to using Read.
 
 The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.
 
 > [!IMPORTANT]
 > The Recognize Text container currently works only with English.
 
+***
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Recognize Text containers:
+You must meet the following prerequisites before using the containers:
 
 |Required|Purpose|
 |--|--|
@@ -38,6 +49,8 @@ You must meet the following prerequisites before using Recognize Text containers
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
+
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -48,20 +61,43 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ## Get the container image with `docker pull`
 
-Container images for Recognize Text are available. 
+#### [Read](#tab/read)
+
+Container images for Read are available.
 
 | Container | Repository |
 |-----------|------------|
-|Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-ocr:latest` |
+
+#### [Recognize Text](#tab/recognize-text)
+
+Container images for Recognize Text are available.
+
+| Container | Repository |
+|-----------|------------|
+| Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+
+***
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
+#### [Read](#tab/read)
+
+### Docker pull for the Read container
+
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-ocr:latest
+```
+
+#### [Recognize Text](#tab/recognize-text)
 
 ### Docker pull for the Recognize Text container
 
 ```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
+
+***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -78,6 +114,25 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
+#### [Read](#tab/read)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+containerpreview.azurecr.io/microsoft/cognitive-services-ocr \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+This command:
+
+* Runs the Read container from the container image
+* Allocates one CPU core and 4 gigabytes (GB) of memory
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
+#### [Recognize Text](#tab/recognize-text)
+
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
@@ -88,10 +143,12 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs a recognize container from the container image
+* Runs the Recognize Text container from the container image
 * Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer. 
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
+***
 
 More [examples](./computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
@@ -100,12 +157,53 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
 Use the host, `http://localhost:5000`, for container APIs.
+
+#### [Read](#tab/read)
+
+### Optical character recognition
+
+You can use the `POST /vision/v1.0/ocr` endpoint to detect printed text in an image, similar to how the Computer Vision service uses corresponding REST operations. At this time, the Read container only recognizes printed text, not handwritten text.
+
+#### Supported languages
+
+The following table represents the [IETF RFC 5646](https://tools.ietf.org/html/rfc5646) language codes supported by the Read container. The default language code is `{unk}` which means that the service will automatically detect the language.
+
+| Language | Language Code |
+|--|--|
+| Auto Detect | `unk` |
+| Chinese (Simplified) | `zh-Hans` |
+| Chinese (Traditional) | `zh-Hant` |
+| Czech | `cs` |
+| Danish | `da` |
+| Dutch | `nl` |
+| English | `en` |
+| Finnish | `fi` |
+| French | `fr` |
+| German | `de` |
+| Greek | `el` |
+| Hungarian | `hu` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Korean | `ko` |
+| Norwegian | `no` |
+| Polish | `pl` |
+| Portuguese | `pt` |
+| Russian | `ru` |
+| Spanish | `es` |
+| Sami | `se` |
+| Turkish | `tr` |
+| Arabic | `ar` |
+| Romanian | `ro` |
+| Cyrillic Serbian | `sr-Cyrl` |
+| Latin Serbian | `sr-Latn` |
+| Slovak | `sk` |
+
+#### [Recognize Text](#tab/recognize-text)
 
 ### Asynchronous text recognition
 
@@ -114,6 +212,8 @@ You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOper
 ### Synchronous text recognition
 
 You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
+
+***
 
 <!--  ## Validate container is running -->
 
@@ -128,10 +228,9 @@ You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronous
 
 If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
-
 ## Billing
 
-The Recognize Text containers send billing information to Azure, using a _Recognize Text_ resource on your Azure account. 
+The Cognitive Services containers send billing information to Azure, using the corresponding resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -143,13 +242,27 @@ For more information about these options, see [Configure containers](./computer-
 
 ## Summary
 
+#### [Read](#tab/read)
+
+In this article, you learned concepts and workflow for downloading, installing, and running Read containers. In summary:
+
+* Read provides a Linux container for Docker, encapsulating Optical Character Recognition (OCR).
+* Container images are downloaded from the "Container Preview" container registry in Azure.
+* Container images run in Docker.
+* You can use either the REST API or SDK to call operations in Read containers by specifying the host URI of the container.
+* You must specify billing information when instantiating a container.
+
+#### [Recognize Text](#tab/recognize-text)
+
 In this article, you learned concepts and workflow for downloading, installing, and running Recognize Text containers. In summary:
 
 * Recognize Text provides a Linux container for Docker, encapsulating recognize text.
-* Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
+* Container images are downloaded from the "Container Preview" container registry in Azure.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Recognize Text containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
+
+***
 
 > [!IMPORTANT]
 > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
@@ -157,7 +270,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
-* Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text  
+* Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text
 * Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
