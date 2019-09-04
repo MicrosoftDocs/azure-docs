@@ -38915,7 +38915,7 @@
     },
 	{
 	  "source_path": "articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
-	  "redirect_url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face",
+	  "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
 	  "redirect_document_id": false
 	},
 	{
