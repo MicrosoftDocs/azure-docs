@@ -110,6 +110,14 @@ If you have content from multiple languages, be sure to create a separate servic
 
 Refresh your app service when the caution icon is next to the version value for the knowledge base in the **Endpoint keys** table on the **User Settings** [page](https://www.qnamaker.ai/UserSettings).
 
+### I deleted my existing Search service. How can I fix this?
+
+If you delete an Azure Search index, the operation is final and the index cannot be recovered. 
+
+### I deleted my `testkb` index in my Search service. How can I fix this? 
+
+Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+
 ### When should I refresh my endpoint keys?
 
 Refresh your endpoint keys if you suspect that they have been compromised.
@@ -120,7 +128,7 @@ To use multiple language and multiple knowledge bases, the user has to create an
 
 ### How can I change the name of the Azure Search resource used by QnA Maker?
 
-The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-azure-search-service).
+The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
 ### When QnA Maker returns `Runtime core is not initialized,` how do I fix it?
 

@@ -375,6 +375,8 @@ pip install -r requirements.txt
 
 When you're ready to publish, make sure that all your dependencies are listed in the *requirements.txt* file, which is located at the root of your project directory. Azure Functions can [remotely build](functions-deployment-technologies.md#remote-build) these dependencies.
 
+Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.  
+
 To deploy to Azure and perform a remote build, use the following command:
 
 ```bash
