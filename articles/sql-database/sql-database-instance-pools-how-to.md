@@ -99,7 +99,7 @@ $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
   -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
-  -LicenseType "LicenceIncluded" `
+  -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `
   -ComputeGeneration "Gen5" `
@@ -161,7 +161,7 @@ $instancePool | Get-AzSqlInstancePoolUsage –ExpandChildren
 To list the databases in an instance:
 
 ```powershell
-$databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGroupName " resource-group-name "
+$databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGroupName "resource-group-name"
 ```
 
 
@@ -205,7 +205,7 @@ Enabling the public endpoint for an instance can be done through the Azure porta
 
 
 ```powershell
-$instanceOne | Set-AzSqlInstance -PublicDataEndpointEnabled true
+$instanceOne | Set-AzSqlInstance -InstancePoolName "pool-mi-001" -PublicDataEndpointEnabled $true
 ```
 
 This parameter can be set during instance creation as well.
