@@ -3346,6 +3346,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/how-to-create-template.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/move-limitations/virtual-network-move-limitations.md",
       "redirect_url": "/azure/azure-resource-manager/move-limitations/networking-move-limitations",
       "redirect_document_id": false

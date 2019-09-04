@@ -43,7 +43,8 @@ Use the limits summarized in this table for planning.
 **Planning** | **Limits**
 --- | --- 
 **Azure Migrate projects** | Assess up to 35,000 VMs in a project.
-**Azure Migrate appliance** | An appliance can only connect to a single vCenter Server.<br/><br/> An appliance can only be associated with a single Azure Migrate project.<br/> An appliance can discover up to 10,000 VMs on a vCenter Server.
+**Azure Migrate appliance** | An appliance can discover up to 10,000 VMs on a vCenter Server.<br/> An appliance can only connect to a single vCenter Server.<br/> An appliance can only be associated with a single Azure Migrate project.<br/>  Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
+**Group** | You can add up to 35,000 VMs in a single group.
 **Azure Migrate assessment** | You can assess up to 35,000 VMs in a single assessment.
 
 With these limits in mind, here are some example deployments:
