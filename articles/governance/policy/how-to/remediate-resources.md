@@ -15,8 +15,6 @@ through **Remediation**. Remediation is accomplished by instructing Azure Policy
 **deployIfNotExists** effect of the assigned policy on your existing resources. This article shows
 the steps needed to understand and accomplish remediation with Azure Policy.
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## How remediation security works
 
 When Azure Policy runs the template in the **deployIfNotExists** policy definition, it does so using
