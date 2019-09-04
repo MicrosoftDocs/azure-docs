@@ -64,7 +64,6 @@ landingContent:
             url: ./hdinsight-using-spark-query-hbase.md
           - text: Analyze Spark data with Power BI
             url: ./spark/apache-spark-use-bi-tools.md
-          - text: Create Scala Maven application
 
   # Card
   - title: Apache Hadoop
