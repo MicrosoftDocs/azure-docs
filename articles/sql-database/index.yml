@@ -45,7 +45,7 @@ sections:
           src: media/index/i_perftier.svg
         title: Price/service tiers
       - href: /azure/sql-database/sql-database-scalability-index
-        html: <p>Easily scale up, scale out, or shard your databases depending on your needs to improve performance of your application.</p>
+        html: <p>Easily scale up, scale out, or share your databases depending on your needs to improve performance of your application.</p>
         image:
           src: media/index/i_scale.svg
         title: Scalability
