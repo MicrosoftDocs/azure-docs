@@ -116,7 +116,7 @@ A read replica is created as a new Azure Database for MySQL server. An existing 
 
 ### Replica configuration
 
-A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, backup retention period, and MySQL engine version. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.

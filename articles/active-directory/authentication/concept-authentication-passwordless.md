@@ -23,7 +23,7 @@ Multi-factor authentication (MFA) is a great way to secure your organization, bu
 | --- | --- | --- |
 | Passwordless | Phone or security key | Biometric or PIN |
 
-Each organization has different needs when it comes to authentication. Microsoft currently offers Windows Hello, our for Windows PCs. We are adding the Microsoft Authenticator app and FIDO2 security keys to the passwordless family.
+Each organization has different needs when it comes to authentication. Microsoft currently offers Windows Hello for our Windows PCs. We are adding the Microsoft Authenticator app and FIDO2 security keys to the passwordless family.
 
 ## Microsoft Authenticator App
 
