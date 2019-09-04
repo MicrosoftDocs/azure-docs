@@ -34,7 +34,7 @@ To complete this tutorial, you will need:-
 
 ## Configure a deployment manifest
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of manually building the JSON document. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**. 
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of manually building the JSON document. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
 
 ### Add modules
 
@@ -46,22 +46,22 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: msint.azurecr.io/azure-event-grid/iotedge-samplesubscriber-azfunc:latest
    * **Container Create Options**:
 
-             ```json
-             {
-                  "HostConfig": {
-                    "PortBindings": {
-                      "80/tcp": [
-                        {
-                               "HostPort": "8080"
-                        }
-                      ]
+         ```json
+            {
+              "HostConfig": {
+                "PortBindings": {
+                  "80/tcp": [
+                    {
+                      "HostPort": "8080"
                     }
-                  }
-             }
-             ```
- 
+                  ]
+                }
+              }
+            }
+         ```
+
 1. Click **Save**
- 1. Click **Next** to continue to the routes section
+1. Click **Next** to continue to the routes section
 
  ### Setup routes
 
