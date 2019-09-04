@@ -75,7 +75,7 @@ There are a number of registration steps that happen before and after the runtim
 
 ## Use injected dependencies
 
-The dependency injection pipeline uses constructor injection to make your dependencies available to your function. The use of constructor injection requires that you not to use static functions.
+Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you not to use static functions.
 
 The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
@@ -119,19 +119,17 @@ namespace MyNamespace
 
 ## Service lifetimes
 
-Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): transient, scoped, and singleton.
+Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). For a Functions app, the different service lifetimes behave as follows:
 
-For a Functions app, the different service lifetimes behave as follows:
-
-- **Transient** services are created upon each request of the service
-- **Scoped** service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
-- **Singleton** service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `SqlConnection`, `CloudBlobClient`, or `HttpClient` instances.
+- **Transient** services are created upon each request of the service.
+- The **scoped** service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
+- The **singleton** service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `SqlConnection`, `CloudBlobClient`, or `HttpClient` instances.
 
 View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample) on GitHub.
 
 ## Logging services
 
-If you need your own logging provider, the recommended way is to register an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
+If you need your own logging provider, register a custom type as an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
 > Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
@@ -157,9 +155,7 @@ Provide configuration values to the setup class via [app settings](./functions-h
 
 ## Working with options
 
-You can extract options from an `IConfiguration` instance into a custom type, which allows you to easily test your services.
-
-Consider the following class that includes a property named consistent with configuration values.
+You can extract options from an `IConfiguration` instance into a custom type, which allows you to easily test your services. Consider the following class that includes a property named consistent with configuration values.
 
 ```csharp
 public class MyOptions
@@ -168,7 +164,7 @@ public class MyOptions
 }
 ```
 
-From inside `Startup.Configure` you can extract the values from the `IConfiguration` instance into your custom type using the following code:
+From inside the `Startup.Configure` method, you can extract values from the `IConfiguration` instance into your custom type using the following code:
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
