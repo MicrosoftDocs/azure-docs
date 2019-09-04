@@ -34,6 +34,10 @@
     items:
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
+      - name: Policy settings
+        href: ./afds/waf-front-door-policy-settings.md
+      - name: FAQ
+        href: waf-faq.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -66,6 +70,8 @@
       href: ./afds/waf-front-door-configure-ip-restriction.md
     - name: Configure rate limit - PowerShell
       href: ./afds/waf-front-door-rate-limit-powershell.md
+    - name: Monitor and logging
+      href: ./afds/waf-front-door-monitor.md
 - name: Reference
   items:
   - name: Azure CLI
