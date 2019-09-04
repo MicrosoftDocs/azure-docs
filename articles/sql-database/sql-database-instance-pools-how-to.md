@@ -229,22 +229,24 @@ To move existing databases:
 2. Generate scripts to create system databases and execute them on the instance that's inside the instance pool.
 3. Do a point-in-time restore of each database from the single instance to the instance in the pool.
 
+  ```powershell
   $resourceGroupName = "my resource group name"
-  $managedInstanceName = "my managed instance name"
-  $databaseName = "my source database name"
-  $pointInTime = "2019-08-21T08:51:39.3882806Z"
-  $targetDatabase = "name of the new database that will be created"
-  $targetResourceGroupName "resource group of instance pool"
-  $targetInstanceName = "pool instance name"
-   
-  Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
-    -ResourceGroupName $resourceGroupName `
-    -InstanceName $managedInstanceName `
-    -Name $databaseName `
-    -PointInTime $pointInTime `
-    -TargetInstanceDatabaseName $targetDatabase `
-    -TargetResourceGroupName $targetResourceGroupName `
-    -TargetInstanceName $targetInstanceName
+    $managedInstanceName = "my managed instance name"
+    $databaseName = "my source database name"
+    $pointInTime = "2019-08-21T08:51:39.3882806Z"
+    $targetDatabase = "name of the new database that will be created"
+    $targetResourceGroupName "resource group of instance pool"
+    $targetInstanceName = "pool instance name"
+     
+    Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
+      -ResourceGroupName $resourceGroupName `
+      -InstanceName $managedInstanceName `
+      -Name $databaseName `
+      -PointInTime $pointInTime `
+      -TargetInstanceDatabaseName $targetDatabase `
+      -TargetResourceGroupName $targetResourceGroupName `
+      -TargetInstanceName $targetInstanceName
+  ```
 
   Both instances must be in the same subscription and region. Cross-region and cross-subscription restore is not currently supported.
 
