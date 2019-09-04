@@ -52,7 +52,7 @@ The following experiment setup and run steps are completed in Azure Machine Lear
 
 1. Select your subscription and the workspace you created. Then select **Get started**.
 
-1.  Select **Automated machine learning** under the **Authoring** section, on the left side pane.
+1.  Select **Automated ML** under the **Authoring** section, on the left side pane.
 You'll see the **Getting started** screen, since this is your first experiment with Automated Machine Learning.
 
     ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
