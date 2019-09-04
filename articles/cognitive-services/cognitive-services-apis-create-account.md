@@ -40,7 +40,7 @@ Before creating a Cognitive Services resource, you must have an Azure resource g
 
     On the Cognitive Services page, select **Create**.
 
-    ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azureCogServSearchMulti-2.jpg)
+    ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
 
     #### [Single-service resource](#tab/singleservice)
 
