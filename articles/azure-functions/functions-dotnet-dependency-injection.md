@@ -18,7 +18,7 @@ ms.reviewer: jehollan
 
 Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
-- Dependency injection in Azure Functions works in a similar fashion to the ASP.NET Core Dependency Injection features. Familiarity with [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)'s services, lifetimes, and patterns before using dependency injection in Azure Functions is recommended, but the two aren't identical.
+- Dependency injection in Azure Functions works in a similar fashion to the .NET Core Dependency Injection features. Familiarity with [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)'s services, lifetimes, and patterns before using dependency injection in Azure Functions is recommended, but the two aren't identical.
 
 - Support for dependency injection begins with Azure Functions 2.x.
 
@@ -29,8 +29,6 @@ Before you can use dependency injection, you must install the following NuGet pa
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
-
-- Optional: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) Only required for registering HttpClient at startup
 
 ## Register services
 
@@ -71,13 +69,13 @@ There are a number of registration steps that happen before and after the runtim
 
 - **The startup class is meant for only setup and registration.** Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After your app is set up, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
 
-- **Not all Functions types are available during setup**. For instance, `BindingContext` isn't available during the set-up process.
+- **The DI container only holds explicitly registered types**. The only services available as injectable types are what you setup in the `Configure` method. This means that Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during the set-up process or as injectable types.
 
 ## Use injected dependencies
 
 Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you not to use static functions.
 
-The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
+The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function. This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) packager required to register an `HttpClient` at startup.
 
 ```csharp
 using System;
@@ -121,9 +119,9 @@ namespace MyNamespace
 
 Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). For a Functions app, the different service lifetimes behave as follows:
 
-- **Transient** services are created upon each request of the service.
-- The **scoped** service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
-- The **singleton** service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `SqlConnection`, `CloudBlobClient`, or `HttpClient` instances.
+- **Transient**: Transient services are created upon each request of the service.
+- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
+- **Singleton**: The singleton service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `SqlConnection` or `HttpClient` instances.
 
 View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample) on GitHub.
 
@@ -133,6 +131,9 @@ If you need your own logging provider, register a custom type as an `ILoggerProv
 
 > [!WARNING]
 > Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
+
+> [!WARNING]
+> Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality.
 
 ## Function app provided services
 
@@ -149,18 +150,14 @@ If there are other services you want to take a dependency on, [create an issue a
 
 Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
 
-## Reading configuration values
+## Working with options and settings
 
-Provide configuration values to the setup class via [app settings](./functions-how-to-use-azure-function-app-settings.md#settings).
-
-## Working with options
-
-You can extract options from an `IConfiguration` instance into a custom type, which allows you to easily test your services. Consider the following class that includes a property named consistent with configuration values.
+Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance. You can extract values from the `IConfiguration` instance into a custom type, which allows you to easily test your services. Consider the following class that includes a property named consistent with an app setting.
 
 ```csharp
 public class MyOptions
 {
-    public string AzureWebJobsStorage { get; set; }
+    public string MyCustomSetting { get; set; }
 }
 ```
 
@@ -174,7 +171,7 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-Calling `Bind` copies matching values from the configuration into the custom instance. The options instance is now available in the IoC container to inject into a function.
+Calling `Bind` copies values that have matching property names from the configuration into the custom instance. The options instance is now available in the IoC container to inject into a function.
 
 The options object is injected into the function as an instance of the generic `IOptions` interface. Use the `Value` property to access the values found in your configuration.
 
@@ -193,6 +190,8 @@ public class HttpTrigger
     }
 }
 ```
+
+Refer to [Options pattern in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
 
 ## Next steps
 
