@@ -18,6 +18,8 @@ ROBOTS: NOINDEX
 # What is Project Acoustics?
 Project Acoustics is a wave acoustics engine for 3D interactive experiences. It models wave effects like diffraction, portaling and reverb effects in complex scenes without requiring manual zone markup. It also includes game engine and audio middleware integration. Project Acoustics' philosophy is similar to static lighting: bake detailed physics offline to provide a physical baseline, and use a lightweight runtime with expressive design controls to meet your artistic goals.
 
+Here is the GDC2019 Project Acoustics presentation video (30min): (https://youtu.be/uY4G-GUAQIE?list=PLRs2lXTYCDQ3q9WF-4aO2SgCCCL6rSmA6)
+
 ![Screenshot from Gears of War 4 showing acoustics voxels](media/gears-with-voxels.jpg)
 
 ## Using wave physics for interactive acoustics
