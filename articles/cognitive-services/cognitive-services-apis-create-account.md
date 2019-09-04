@@ -106,11 +106,16 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
-To remove a resource group using the Azure portal:
-
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
-2. Locate the resource group to delete, and right-click the More button (...) on the right side of the listing.
-3. Select **Delete resource group**, and confirm.
+2. Locate the resource group containing the resource to be deleted
+
+To remove a resource group using the Azure portal: 
+
+* Right-click on the resource group listing. Select **Delete resource group**, and confirm.
+
+To remove only the resource:
+
+* Click on the the resource group, and select the resource you want to remove. Then click **Delete**, and confirm.
 
 ## See also
 
