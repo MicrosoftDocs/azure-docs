@@ -16,7 +16,7 @@ ms.date: 09/09/2019
 
 # Tutorial: Create your first classification model with automated machine learning
 
-In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create your first automated machine learning experiment in Azure Machine Learning studio (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to do the following tasks:
 
 ## Create and run the experiment
 
-The following experiment setup and run steps are completed in Azure Machine Learning studio. 
+The following experiment setup and run steps are completed in Azure Machine Learning studio, a consolidated web experience that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/workspaceportal/).
 
@@ -77,27 +77,25 @@ You'll see the **Getting started** screen, since this is your first experiment w
     1. Select **Next** to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
 
     1. When the upload is complete, the **Settings and preview** form is intelligently populated based on the file type. Ensure the form is populated as follows.
-    
-        Field| Value
-        ---|---
-        File format| Delimited
-        Delimiter| Comma
-        Encoding| UTF-8
-        Column headers| All files have same headers
-        Skip rows | None
+        
+            Field|Value
+            ---|---
+            File format| Delimited
+            Delimiter| Comma
+            Encoding| UTF-8
+            Column headers| All files have same headers
+            Skip rows | None
 
-        >[!NOTE]
-        > If any of the settings on this form are updated the preview will update accordingly.
-  
-        Select **Next**.
-    
-    1. The **Schema** tab allows for further configuration of your data for this experiment.
+            >[!NOTE]
+            > If any of the settings on this form are updated the preview will update accordingly.
 
-        1. On the **Schema** tab, the service defaults to include all of the features (columns) for training. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select**Done**.
+            Select **Next**.
+    
+    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. 
 
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
-    Now your configured dataset uploads to your default storage and your experiment.
+        Select **Done**, to complete the file upload and creation of the dataset for your experiment.
 
 1. Select **Classification** as the prediction task.
 
