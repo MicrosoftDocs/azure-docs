@@ -1,7 +1,7 @@
 ---
 title: Use automated ML to build and deploy machine learning models
 titleSuffix: Azure Machine Learning service
-description: Create, manage and deploy automated machine learning experiments in the Azure portal
+description: Create, manage and deploy automated machine learning experiments in the Azure Machine Learning studio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/02/2019
+ms.date: 09/09/2019
 
 ---
 
-# Create, explore and deploy automated machine learning experiments in the Azure portal (Preview)
+# Create, explore and deploy automated machine learning experiments with Azure Machine Learning studio (Preview)
 
- In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+ In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning studio without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -27,12 +27,15 @@ ms.date: 08/02/2019
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
 ## Get started
+1. Sign in to your Azure Machine Learning studio. 
 
-Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (Preview) section.
+1. Select your subscription and workspace. 
+
+1. Navigate to the left pane. Select **Automated Machine Learning** under the **Authoring** section.
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
- If this is your first time doing any experiments, you'll see the **Welcome to Automated Machine Learning** screen. 
+ If this is your first time doing any experiments, you'll see the **Get started** screen. 
 
 Otherwise, you'll see your **Automated machine learning** dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
@@ -57,17 +60,11 @@ Select **Create Experiment** and populate the **Create a new automated machine l
       >[!NOTE]
       > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
 
-1. Select a storage account for your data. 
-
-1. Select a storage container.
-
 1. Select a data file from your storage container, or upload a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
     >[!Important]
     > Requirements for training data:
     >* Data must be in tabular form.
     >* The value you want to predict (target column) must be present in the data.
-
-    [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
 1. Use the preview and profile tabs to further configure your data for this experiment.
 
