@@ -6,14 +6,14 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 08/26/2019
+ms.date: 09/03/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # Latency in Blob storage
 
-Latency, sometimes referenced as response time, is the amount of time that an application must wait for a request to complete. Latency can directly affect an application’s performance. Low latency is often important for scenarios with humans in the loop, such as conducting credit card transactions or loading web pages. Systems that need to process incoming events at high rates, such as telemetry logging or IoT events, also require low latency. This article describes how to understand and measure latency for Blob storage operations, and how to design your Blob storage applications for low latency.
+Latency, sometimes referenced as response time, is the amount of time that an application must wait for a request to complete. Latency can directly affect an application’s performance. Low latency is often important for scenarios with humans in the loop, such as conducting credit card transactions or loading web pages. Systems that need to process incoming events at high rates, such as telemetry logging or IoT events, also require low latency. This article describes how to understand and measure latency for operations on block blobs, and how to design your applications for low latency.
 
 Azure Storage offers two different performance options for block blobs: premium and standard. Premium block blobs offer significantly lower and more consistent latency than standard block blobs via high-performance SSD disks. For more information, see **Premium performance block blob storage** in [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
 
@@ -21,7 +21,7 @@ Azure Storage offers two different performance options for block blobs: premium 
 
 Azure Storage latency depends on the request rates for Azure Storage operations. Request rates are also known as input/output operations per second (IOPS).
 
-To understand IOPS in Azure Storage, assume that a request takes 50 milliseconds (ms) to complete. An application using one thread with one outstanding read or write operation should achieve 20 IOPS (1000ms / 50ms per request). Theoretically, if the thread count is doubled to two, then the application should be able to achieve 40 IOPS. If the outstanding read or write operations for each thread are doubled to two, then the application should be able to achieve 80 IOPS.
+To calculate request rate, first determine the length of time that each request takes to complete, then calculate how many requests can be processed per second. For example, assume that a request takes 50 milliseconds (ms) to complete. An application using one thread with one outstanding read or write operation should achieve 20 IOPS (1 second or 1000 ms / 50 ms per request). Theoretically, if the thread count is doubled to two, then the application should be able to achieve 40 IOPS. If the outstanding asynchronous read or write operations for each thread are doubled to two, then the application should be able to achieve 80 IOPS.
 
 In practice, request rates do not always scale so linearly, due to overhead in the client from task scheduling, context switching, and so forth. On the service side, there can be variability in latency due to pressure on the Azure Storage system, differences in the storage media used, noise from other workloads, maintenance tasks, and other factors. Finally, the network connection between the client and the server may affect Azure Storage latency due to congestion, rerouting, or other disruptions.
 
