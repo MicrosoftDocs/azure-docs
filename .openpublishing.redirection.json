@@ -19071,7 +19071,7 @@
     },
     {
       "source_path": "articles/active-directory/hybrid/whatis-hybrid-identity-health.md",
-      "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+      "redirect_url": "/azure/active-directory/hybrid/whatis-azure-ad-connect",
       "redirect_document_id": false
     },
     {
@@ -38958,6 +38958,16 @@
       "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
     },
+	{
+	  "source_path": "articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
+	  "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
+	  "redirect_document_id": false
+	},
+	{
+		"source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial.md",
+		"redirect_url": "/azure/cognitive-services/face/quickstarts/python-sdk#display-and-frame-faces",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
