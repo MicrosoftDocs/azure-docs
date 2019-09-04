@@ -12,7 +12,7 @@ manager: philmea
 
 # Get shape data
 
-This article shows how to get shapes data that have been drawn on the map using the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **drawingManager.getSource()** function. There can be various scenarios where you might want to extract geojson data of a drawn shape and utilize it elsewhere.  
+This article shows you how to get shapes data that have been drawn on the map using the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **drawingManager.getSource()** function. There can be various scenarios where you might want to extract geojson data of a drawn shape and utilize it elsewhere.  
 
 
 ## Get data from drawn shape

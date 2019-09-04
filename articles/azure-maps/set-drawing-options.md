@@ -48,7 +48,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-Below is the code sample implementing the functionality that lets you draw on the map freely, while holding the left mouse button down and dragging it around. 
+Below is the code sample implementing the functionality that lets you draw on the map freely, while holding down the left mouse button and dragging it around. 
 
 <br/>
 
