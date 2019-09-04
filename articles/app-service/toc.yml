@@ -170,7 +170,7 @@
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: web-sites-scale.md
+      href: manage-scale-up.md
     - name: Configure PremiumV2 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances

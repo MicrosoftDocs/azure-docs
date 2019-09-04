@@ -179,12 +179,6 @@
       - name: SQL query execution
         displayName: query performance, query execution
         href: sql-query-execution.md
-      - name: Data types
-        items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: Geospatial
-          href: geospatial.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -192,8 +186,8 @@
       - name: Work with databases, containers, and items
         displayName: collection, document
         href: databases-containers-items.md
-      - name: Modeling data
-        displayName: model document, model json
+      - name: Model document data
+        displayName: document
         href: modeling-data.md
       - name: Indexing
         items:
@@ -203,6 +197,12 @@
         - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
+      - name: Data types
+        items:
+        - name: DateTime
+          href: working-with-dates.md
+        - name: Geospatial
+          href: geospatial.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
@@ -751,6 +751,10 @@
         href: cosmosdb-sql-api-migrate-data-striim.md
       - name: Migrate to Cassandra API using Striim
         href: cosmosdb-cassandra-api-migrate-data-striim.md
+      - name: Migrate - Oracle DB to Cassandra API using Blitzz
+        href: oracle-migrate-cosmos-db-blitzz.md
+      - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+        href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
     - name: Bulk executor library

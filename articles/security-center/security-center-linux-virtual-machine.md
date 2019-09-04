@@ -81,7 +81,7 @@ After you enable [security policies](tutorial-security-policy.md) for a subscrip
 ![Security health](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## Manage and respond to security alerts
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-detection-capabilities.md), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
+Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-alerts-overview.md#detect-threats), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
 
 ![Security alerts](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

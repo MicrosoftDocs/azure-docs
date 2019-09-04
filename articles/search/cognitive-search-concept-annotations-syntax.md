@@ -2,17 +2,15 @@
 title: Reference inputs and outputs in cognitive search pipelines - Azure Search
 description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in a cognitive search pipeline in Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
 ---
 # How to reference annotations in a cognitive search skillset
 

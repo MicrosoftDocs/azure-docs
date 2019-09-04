@@ -1,11 +1,10 @@
 ---
 title: Working with projections in a knowledge store (preview) - Azure Search
 description: Save and shape your enriched data from the AI indexing pipeline for use in scenarios other than search
-manager: eladz
+manager: nitinme
 author: vkurpad
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad

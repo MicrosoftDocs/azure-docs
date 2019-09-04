@@ -15,6 +15,10 @@ If you already have an Azure ExpressRoute connection from an external location (
 
 [![On-premises ExpressRoute Connection - Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
 
+## Before you begin
+
+A **/29** network address block is required for establishing Global Reach connection from on-premises.  The /29 address space is used for transit network between ExpressRoute circuits.  The transit network should not overlap with any of you Azure virtual networks, on-premises networks or CloudSimple Private Cloud networks.
+
 ## Prerequisites
 
 * An Azure ExpressRoute circuit is required before you can establish the connection between the circuit and the CloudSimple Private Cloud networks.
@@ -30,11 +34,11 @@ Connecting your on-premises network to your Private Cloud network allows you to 
 * Use your Private Cloud as part of a disaster recovery solution.
 * Consume on-premises resources on your Private Cloud workload VMs.
 
-## Connecting ExpressRoute Circuits
+## Connecting ExpressRoute circuits
 
 To establish the ExpressRoute connection, you must create an authorization on your ExpressRoute circuit and provide the authorization information to CloudSimple.
 
-### Create ExpressRoute Authorization
+### Create ExpressRoute authorization
 
 1. Sign in to the Azure portal.
 
@@ -59,3 +63,8 @@ To establish the ExpressRoute connection, you must create an authorization on yo
     * Problem type: **Service request**
     * Problem subtype: **Create ExpressRoute connection to on-premises**
     * Provide the resource ID and authorization key that you copied and saved in the details pane.
+    * Provide a /29 network address space for transit network.
+
+## Next steps
+
+* [Learn more about Azure network connections](cloudsimple-azure-network-connection.md)  
