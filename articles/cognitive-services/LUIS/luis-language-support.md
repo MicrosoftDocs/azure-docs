@@ -84,6 +84,7 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 |French (fr-FR)|✔||||
 |French (fr-CA)|✔||||
 |German|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |Italian|✔||||
 |Japanese||||✔|
 |Korean||✔||✔|
