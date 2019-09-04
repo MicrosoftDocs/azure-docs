@@ -726,6 +726,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-collaborator.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-security.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys#securing-the-endpoint",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-account-settings.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#types-of-keys-in-qna-maker",
       "redirect_document_id": false
@@ -26075,6 +26090,26 @@
       "redirect_document_id": false
     },  
     {
+      "source_path": "articles/security-center/security-center-search.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_search",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-customize-os-security-config.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityconfigurations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-custom-alert.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-threat-intel.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
@@ -41559,6 +41594,11 @@
     {
       "source_path": "articles/sql-database/sql-database-paas.yml",
       "redirect_url": "/azure/sql-database/sql-database-paas-index",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/azure-monitor/app/sample-mscrm.md",
+      "redirect_url": "/azure/azure-monitor/app/javascript",
       "redirect_document_id": false
     }
   ]
