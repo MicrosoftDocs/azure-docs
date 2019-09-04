@@ -21,16 +21,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # OVERVIEW CARD
-  - title: Learn about Azure Machine Learning
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure ML?
-            url: service/overview-what-is-azure-ml.md
-          - text: Architecture and concepts
-            url: service/concept-azure-machine-learning-architecture.md
-            
+           
   # GET STARTED
   - title: Get started with Azure ML
     linkLists:
@@ -78,7 +69,7 @@ landingContent:
             url: service/how-to-train-keras.md
 
   # VISUAL INTERFACE
-  - title: Use visual interface for ML
+  - title: Train in visual interface
     linkLists:
       - linkListType: get-started
         links:
