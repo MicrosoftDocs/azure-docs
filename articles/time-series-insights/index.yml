@@ -24,8 +24,6 @@ landingContent:
         links:
           - text: What is Azure Time Series Insights Preview?
             url: time-series-insights-update-overview.md
-      - linkListType: overview
-        links:
           - text: About Azure Time Series Insights GA
             url: time-series-insights-overview.md
       - linkListType: video
