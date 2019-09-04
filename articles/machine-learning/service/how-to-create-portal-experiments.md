@@ -34,7 +34,7 @@ ms.date: 09/09/2019
 
 1. Navigate to the left pane. Select **Automated Machine Learning** under the **Authoring** section.
 
-![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
+[![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
  If this is your first time doing any experiments, you'll see the **Get started** screen. 
 
