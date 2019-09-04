@@ -406,6 +406,8 @@ PowerShell functions support downloading and managing [PowerShell gallery](https
 
 The maximum number of modules currently supported is 10. The supported syntax is MajorNumber.* or exact module version as shown below. The Azure Az module is included by default when a new PowerShell function app is created.
 
+The language worker will pick up any updated modules on a restart.
+
 host.json
 ```json
 {
