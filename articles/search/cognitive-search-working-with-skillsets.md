@@ -15,10 +15,10 @@ ms.subservice: cognitive-search
 Skillsets define the AI skills that are invoked within the enrichment pipeline to enrich each document. 
 A skillset comprises of three properties:
 +	```skills```, an unordered collection of skills where the platform determines the sequence of execution based on the inputs required for each skill. 
-+	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
++	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked.
 +	```knowledgeStore```, the storage account where your enriched documents can be projected in addition to the search index.
 
-Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree where a ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walkthrough the [JFK Files sample](https://github.com/microsoft/AzureSearch_JFK_Files/blob/master/JfkWebApiSkills/JfkInitializer/skillset.json) skillset.
+Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walkthrough the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you will need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
 
 ## Concepts
 ### Enrichment tree
@@ -35,7 +35,7 @@ The enrichment tree is the JSON representation of the document and enrichments a
 
 
 The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills, projecting to the knowledge store or mapping to index fields. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
-For the rest of this document we will assume we are working with PDF files in blob storage, but the same concepts apply to enriching documents from all other data sources.
+For the rest of this document we will assume we are working with hotel reviews, but the same concepts apply to enriching documents from all other data sources.
 
 ### Context
 Each skill requires a context. A context determines:
@@ -60,19 +60,21 @@ Projection is the process of selecting the nodes from the enrichment tree to be 
 The matrix above describes the type of selector you choose based on the source and destination of the data.
 
 ## Enrichment tree lifecycle
-Let’s now step through a skillset and look at how the enrichment tree evolves with the execution of each skill and how the context and inputs work to determine how many times a skill executes and what the shape of the input is based on the context.
+Let’s now step through the hotel reviews skillset and look at how the enrichment tree evolves with the execution of each skill and how the context and inputs work to determine how many times a skill executes and what the shape of the input is based on the context. 
 
-One important aspect of the enrichment tree is the scope of the enrichments addressable with a specific path. Let’s look at the JFK Files sample skillset, and evaluate the document state, inputs and outputs as each skill executes.
-### Skill #1: OCR skill 
-![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enricment-tree-before.png "Enrichment tree after document cracking and before skill execution")
+### Skill #1: Split skill 
+![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-before.png "Enrichment tree after document cracking and before skill execution")
 
-With the skill context of ```"/document/normalized_images/*"```, this skill will execute once for each image in the document. The skill generates a set out outputs, the outputs we want are the text and layoutText . Since neither of these nodes exist in the enrichment tree you don’t need to rename them with a targetName option. If you did have an existing node with the same name, the targetName allows you to create the node with a different name.
-The enrichment tree now has the new nodes parented under the context of the skill and these nodes are available to any skill, projection or output field mapping.
- While the document ```"/document"``` is the root node for all enrichments, when ```"/document"``` is addressed, the only child properties are ```"/document/content"```, ```"/document/normalized_images/*"```. To access any of the enrichments that were added to a node by a skill, the full path for those enrichments are needed. For example, if you want to use the text from OCR as an input to another skill, you will need to select it as ```"/document/normalized_images/*/text"```.
+With the skill context of ```"/document/reviews_text"```, this skill will execute once for the review_text. The skill output is a list where the reviews_text is chunked into 5000 character segments. The output from the split skill is named pages and added to the enrichment tree. The targetName feature allows you to rename a skill output beofre being added to the enrichment tree.
+The enrichment tree now has a new node parented under the context of the skill and this node is available to any skill, projection or output field mapping.
+ While the document ```"/document"``` is the root node for all enrichments, when ```"/document"``` is addressed, the only child properties are ```"/document/content"```, ```"/document/normalized_images/*"``` when working with blob indexers or the column names here since we are working with CSV data. To access any of the enrichments that were added to a node by a skill, the full path for those enrichments is needed. For example, if you want to use the text from the ```pags``` node as an input to another skill, you will need to select it as ```"/document/reviews_text/pages/*"```.
  
- ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enricment-tree-after.png "Enrichment tree after  skill #1 executes")
+ ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-after.png "Enrichment tree after  skill #1 executes")
  
  You should now be able to look at the remainder of the skills in the skillset and be able to visualize how the tree of enrichments continues to grow with the execution of each skill. Some skills like the merge skill and the shaper skill also create new nodes, but only use data from existing nodes and don't create any net new enrichments.
+
+![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enrichment-tree-projections.png "Enrichment tree after  all skills")
+The colors of the connectors in the tree above indicate that the enrichments were created by different skills and the nodes will need to be addressed individually.
 
 ## Knowledge store
 Skillsets also define a knowledge store where your enriched documents can be projected as tables or objects. To save your enriched data in the knowledge store, you define a set of projections of your enriched document. To learn more about the knowledge store see [what is knowledge store?](knowledge-store-concept-intro.md)
@@ -80,11 +82,9 @@ Skillsets also define a knowledge store where your enriched documents can be pro
 When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all your table projections. 
 ### Shaping projections
 There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then in your projections, you only reference the output of the shaper skill. You could also inline shape a projection within the projection the definition itself.
-The shaper approach ensures that all the mutations of the enrichment tree are contained within the skills and output is an object that can be reused, but it is more verbose. Either approach works, the following example demonstrates each of the approaches. Assuming we are working with a set of reviews and enrich the reviews enriched with key phrases, entities and sentiment analysis. The enrichment tree below represents the state after all enrichments are complete.
+The shaper approach ensures that all the mutations of the enrichment tree are contained within the skills and output is an object that can be reused, but it is more verbose. Either approach works, the following example demonstrates each of the approaches. Assuming we are working with the reviews dataset enriched with key phrases, language detection and sentiment analysis. 
 
-![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enricment-tree-projection.png "Enrichment tree before projection")
-
-To create a shape that you can project into three tables namely Reviews, KeyPhrases and Entities, the two options are
+To create a shape that you can project into two tables namely Reviews and KeyPhrases, the two options are
 #### Shaper skill 
 ```json
 {
@@ -93,34 +93,22 @@ To create a shape that you can project into three tables namely Reviews, KeyPhra
     "inputs": [
         {
             "name": "review",
-            "source": "/document/review"
+            "source": "/document/reviews_text"
         },
 {
             "name": "sentiment",
-            "source": "/document/review/sentiment"
+            "source": "/document/reviews_text/pages/*/sentiment"
         },
         {
             "name": "keyPhrases",
-            "sourceContext": "/document/review/keyPhrases/*",
+            "sourceContext": "/document/reviews_text/pages/*/keyPhrases/*",
             "inputs": [
               {
                   "name": "keyPhrases",
-                  "source": "/document/review/keyPhrases/*"
-              }
-            ]
-        },
-{
-            "name": "entities",
-            "sourceContext": "/document/review/entites/*",
-            "inputs": [
-              {
-                  "name": "entities",
-                  "source": "/document/review/entites/*"
+                  "source": "/document/reviews_text/pages/*/keyPhrases/*"
               }
             ]
         }
-
-
     ],
     "outputs": [
         {
@@ -143,29 +131,20 @@ Within the projections object of the knowledge store definition, you can select 
                 "inputs":[
                     { 
                         "name": "review",
-                        "source": "/document/review"
+                        "source": "/document/reviews_text"
                     },
                     { 
                         "name": "sentiment",
-                        "source": "/document/review/sentiment"
+                        "source": "/document/reviews_text/pages/*/sentiment"
                     }
                 ]
             },
             { 
-                "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "sourceContext": "/document", 
+                "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "sourceContext": "/document/reviews_text/pages/*", 
                 "inputs":[
                     { 
                         "name": "keyPhrases",
-                        "source": "/document/review/keyPhrases/*"
-                    }
-                ]
-            },
-            { 
-                "tableName": "Entities", "generatedKeyName": "EntityId", "sourceContext": "/document", 
-                "inputs":[
-                    { 
-                        "name": "entities",
-                        "source": "/document/review/entities/*"
+                        "source": "/document/reviews_text/pages/*/keyPhrases/*"
                     }
                 ]
             }
