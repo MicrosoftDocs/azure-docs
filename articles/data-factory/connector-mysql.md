@@ -141,7 +141,7 @@ If you were using MySQL linked service with the following payload, it is still s
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by MySQL dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by MySQL dataset.
 
 To copy data from MySQL, the following properties are supported:
 

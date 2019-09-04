@@ -136,7 +136,7 @@ If you were using PostgreSQL linked service with the following payload, it is st
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by PostgreSQL dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by PostgreSQL dataset.
 
 To copy data from PostgreSQL, the following properties are supported:
 

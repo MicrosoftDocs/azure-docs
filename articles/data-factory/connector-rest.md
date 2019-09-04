@@ -19,7 +19,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 The difference among this REST connector, [HTTP connector](connector-http.md) and the [Web table connector](connector-web-table.md) are:
 
-- **REST connector** specifically support copying data from RESTful APIs; 
+- **REST connector** specifically supports copying data from RESTful APIs; 
 - **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before this REST connector becomes available, you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
@@ -55,7 +55,7 @@ The following properties are supported for the REST linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **RestService**. | Yes |
 | url | The base URL of the REST service. | Yes |
-| enableServerCertificateValidation | Whether to validate server side SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
+| enableServerCertificateValidation | Whether to validate server-side SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal** and **ManagedServiceIdentity**. Refer to corresponding sections below on more properties and examples respectively. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 
@@ -285,7 +285,7 @@ The following properties are supported in the copy activity **source** section:
 
 ## Pagination support
 
-Normally, REST API limit its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
+Normally, REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
 
 This generic REST connector supports the following pagination patterns: 
 
@@ -296,7 +296,7 @@ This generic REST connector supports the following pagination patterns:
 * Next request’s header = property value in current response body
 * Next request’s header = header value in current response headers
 
-**Pagination rules** are defined as a dictionary in dataset which contain one or more case-sensitive key-value pairs. The configuration will be used to generate the request starting from the second page. The connector will stop iterating when it gets HTTP status code 204 (No Content), or any of the JSONPath expression in "paginationRules" returns null.
+**Pagination rules** are defined as a dictionary in dataset which contains one or more case-sensitive key-value pairs. The configuration will be used to generate the request starting from the second page. The connector will stop iterating when it gets HTTP status code 204 (No Content), or any of the JSONPath expressions in "paginationRules" returns null.
 
 **Supported keys** in pagination rules:
 
