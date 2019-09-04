@@ -15,7 +15,8 @@ ms.author: danlep
 
 During normal operation of your container instances, you may find it necessary to update the running containers in a [container group](container-instances-container-groups.md). For example, you might wish to update the image version, change a DNS name, update environment variables, or refresh the state of a container whose application has crashed.
 
-Terminated or deleted container groups can't be updated. Once a container group has terminated (is in either a Succeeded or Failed state) or has been deleted, the group must be deployed as new.
+> [!NOTE]
+> Terminated or deleted container groups can't be updated. Once a container group has terminated (is in either a Succeeded or Failed state) or has been deleted, the group must be deployed as new.
 
 ## Update a container group
 
