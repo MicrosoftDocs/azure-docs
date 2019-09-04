@@ -82,15 +82,22 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 The following command runs the Azurite Docker image. The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
 
 ```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Specify the workspace location**:
 
-In the following example, the `-v c:/azurite:/data` parameter specifies `c:/azurite` as the Azurite persisted data location.
+In the following example, the `-v c:/azurite:/data` parameter specifies *c:/azurite* as the Azurite persisted data location. The directory, *c:/azurite*, must be created before running the Docker command.
 
 ```console
-docker run -p 10000:10000 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+```
+
+**Run just the blob service**
+
+```console
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+    azurite-blob --blobHost 0.0.0.0 --blobPort 10000
 ```
 
 **Set all Azurite parameters**:
@@ -99,13 +106,14 @@ This example shows how to set all of the command-line parameters. All of the par
 
 ```console
 docker run -p 8888:8888
+           -p 9999:9999
            -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite
            -l /workspace
            -d /workspace/debug.log
-           --blobPort 10000
-           --blobHost 127.0.0.1
-           --queuePort 10001
-           --queueHost 127.0.0.1
+           --blobPort 8888
+           --blobHost 0.0.0.0
+           --queuePort 9999
+           --queueHost 0.0.0.0
 ```
 
 See [Command-line options](#command-line-options) for more information about configuring Azurite at start-up.
