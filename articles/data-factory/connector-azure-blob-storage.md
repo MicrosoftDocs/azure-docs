@@ -29,6 +29,7 @@ This Azure Blob connector is supported for the following activities:
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, this Blob storage connector supports:
 

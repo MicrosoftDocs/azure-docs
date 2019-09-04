@@ -26,10 +26,11 @@ This article outlines how to copy data to and from Azure Data Lake Storage Gen1.
 
 This Azure Data Lake Storage Gen1 connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source or sink matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) 
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, with this connector you can:
 
