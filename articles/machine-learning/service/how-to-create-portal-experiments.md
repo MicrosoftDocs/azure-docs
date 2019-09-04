@@ -32,7 +32,7 @@ ms.date: 09/09/2019
 
 1. Select your subscription and workspace. 
 
-1. Navigate to the left pane. Select **Automated Machine Learning** under the **Authoring** section.
+1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
 
 [![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -76,19 +76,19 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
 
     1. Review the **Settings and preview** form for accuracy. The form is intelligently populated based on the file type. 
 
-            Field| Description
-            ----|----
-            File format| Defines the layout and type of data stored in a file.
-            Delimiter| One or more characters for specifying the boundary between separate, independent regions in plain text or other data streams.
-            Encoding| Identifies what bit to character schema table to use to read your dataset.
-            Column headers| Indicates how the headers of the dataset, if any, will be treated.
-            Skip rows | Indicates how many, if any, rows are skipped in the dataset.
-            
-            Select **Next**.
+        Field| Description
+        ----|----
+        File format| Defines the layout and type of data stored in a file.
+        Delimiter| One or more characters for specifying the boundary between separate, independent regions in plain text or other data streams.
+        Encoding| Identifies what bit to character schema table to use to read your dataset.
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.
+        Skip rows | Indicates how many, if any, rows are skipped in the dataset.
+    
+        Select **Next**.
 
     1. The **Schema** form is intelligently populated based on the selections in the **Settings and preview** form. Here configure the data type for each column, review the column names, and select which columns to **Not include** for your experiment. 
             
-            Select **Next.**
+        Select **Next.**
 
 1. Select the training job type: classification, regression, or forecasting.
 
