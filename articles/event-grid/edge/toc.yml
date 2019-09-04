@@ -6,7 +6,7 @@
   items:
   - name: Publish and subscribe locally
     items:
-    - name: Deploy Event Grid Edge
+    - name: Deploy Event Grid IoT Edge
       href: deploy-event-grid-portal.md
     - name: Deploy Azure Functions
       href: deploy-func-webhook-module-portal.md
@@ -14,19 +14,19 @@
       href: pub-sub-events-webhook-local.md
   - name: Publish and subscribe to the cloud
     items:
-    - name: Deploy Event Grid Edge
+    - name: Deploy Event Grid Azure IoT Edge
       href: deploy-event-grid-portal.md
     - name: Publish and Subscribe
       href: pub-sub-events-webhook-cloud.md
   - name: Forward to Azure Event Grid
     items:
-    - name: Deploy Event Grid Edge
+    - name: Deploy Event Grid Azure IoT Edge
       href: deploy-event-grid-portal.md
     - name: Publish and Subscribe
       href: forward-events-event-grid-cloud.md
-  - name: Forward to Edge Hub and Azure IoT Hub
+  - name: Forward to Azure IoT Edge Hub and Azure IoT Hub
     items:
-    - name: Deploy Event Grid Edge
+    - name: Deploy Event Grid Azure IoT Edge
       href: deploy-event-grid-portal.md
     - name: Publish and Subscribe
       href: forward-events-iothub.md

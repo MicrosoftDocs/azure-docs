@@ -45,6 +45,7 @@ EventGrid schema consists of a set of required properties that a publishing enti
 ```
 
 ### EventGrid schema properties
+
 All events have the following top-level data:
 
 | Property | Type | Required | Description |

@@ -22,16 +22,16 @@ For a deeper understanding on this topic refer to [Security and Authentication](
 | Property Name | Description |
 | ---------------- | ------------ |
 |`inbound:serverAuth:tlsPolicy`|TLS Policy of the Event Grid module. Default HTTPs only.
-|`inbound:serverAuth:serverCert:source`|Source of Server Certificate used by Event Grid Module for its TLS configuration. Default IoTEdge.
+|`inbound:serverAuth:serverCert:source`|Source of Server Certificate used by Event Grid Module for its TLS configuration. Default IoT Edge.
 
 ## Incoming Client Authentication
 
-For a deeper understanding on this topic refer to [Security and Authentication](security-authentication.md). Examples can be found [here](configure-client-auth.md).
+Refer to [Security and Authentication](security-authentication.md) for a deeper understanding on this topic. Examples can be found [here](configure-client-auth.md).
 
 | Property Name | Description |
 | ---------------- | ------------ |
-|`inbound:clientAuth:clientCert:enabled`| To turn on/off Certificate based client authentication. Default on.
-|`inbound:clientAuth:clientCert:source`| Source for validating client certificates. Default IoTEdge.
+|`inbound:clientAuth:clientCert:enabled`| To turn on/off Certificate-based client authentication. Default on.
+|`inbound:clientAuth:clientCert:source`| Source for validating client certificates. Default IoT Edge.
 |`inbound:clientAuth:clientCert:allowUnknownCA`| Policy to allow a self-signed client certificate. Default on.
 |`inbound:clientAuth:sasKeys:enabled`| To turn on/off SAS key based client authentication. Default off.
 |`inbound:clientAuth:sasKeys:key1`| One of the values to use to validate incoming requests.
@@ -39,26 +39,26 @@ For a deeper understanding on this topic refer to [Security and Authentication](
 
 ## Outgoing Client Authentication
 
-For a deeper understanding on this topic refer to [Security and Authentication](security-authentication.md). Examples can be found [here](configure-identity-auth.md).
+Refer to [Security and Authentication](security-authentication.md) for a deeper understanding on this topic. Examples can be found [here](configure-identity-auth.md).
 
 | Property Name | Description |
 | ---------------- | ------------ |
 |`outbound:clientAuth:clientCert:enabled`| To turn on/off attaching an identity certificate for outgoing requests. Default on.
-|`outbound:clientAuth:clientCert:source`| Source for retrieving Event Grid module's outgoing certificate. Default IoTEdge.
+|`outbound:clientAuth:clientCert:source`| Source for retrieving Event Grid module's outgoing certificate. Default IoT Edge.
 
 ## Webhook EventHandlers
 
-For a deeper understanding on this topic refer to [Security and Authentication](security-authentication.md). Examples can be found [here](configure-webhook-subscriber-auth.md).
+Refer to [Security and Authentication](security-authentication.md) for a deeper understanding on this topic. Examples can be found [here](configure-webhook-subscriber-auth.md).
 
 | Property Name | Description |
 | ---------------- | ------------ |
-|`outbound:webhook:httpsOnly`| Policy to control whether only HTTPs subscribers will be allowed. Default only HTTPs subscribers.
+|`outbound:webhook:httpsOnly`| Policy to control whether only HTTPs' subscribers will be allowed. Default only HTTPs' subscribers.
 |`outbound:webhook:skipServerCertValidation`| Flag to control whether to validate the subscriber's certificate. Default true.
 |`outbound:webhook:allowUnknownCA`| Policy to control whether a self-signed certificate can be presented by a subscriber. Default on.
 
 ## Delivery and Retry
 
-For a deeper understanding on this topic refer to [Delivery and Retry](delivery-retry.md).
+Refer to [Delivery and Retry](delivery-retry.md) for a deeper understanding on this topic.
 
 | Property Name | Description |
 | ---------------- | ------------ |
@@ -67,7 +67,7 @@ For a deeper understanding on this topic refer to [Delivery and Retry](delivery-
 
 ## Output Batching
 
-For a deeper understanding on this topic refer to [Delivery and Output batching](delivery-output-batching.md).
+Refer to [Delivery and Output batching](delivery-output-batching.md) for a deeper understanding on this topic.
 
 | Property Name | Description |
 | ---------------- | ------------ |
