@@ -31,7 +31,7 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 + [Visual Studio Code extension](how-to-vscode-tools.md)
 
 
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/]
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 ## What can I do with Azure Machine Learning service?
 
