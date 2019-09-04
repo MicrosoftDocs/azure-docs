@@ -60,9 +60,6 @@
   items:
   - name: Template deployments
     href: template-deployment-overview.md
-  - name: Template file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md
   - name: Templates for cloud consistency
@@ -248,6 +245,9 @@
     href: resource-manager-async-operations.md
 - name: Reference
   items:
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs,condition
+    href: resource-group-authoring-templates.md
   - name: Template reference
     href: /azure/templates/
   - name: Template functions
