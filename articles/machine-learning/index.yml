@@ -59,41 +59,41 @@ landingContent:
             url: service/ui-tutorial-automobile-price-train-score.md
       - linkListType: how-to-guide
         links:
-          - text: Predict a car's price
+          - text: 'Visual interface: predict car prices'
             url: service/ui-sample-regression-predict-automobile-price-basic.md                 
-          - text: Predict credit risk
+          - text: 'Visual interface: predict credit risk'
             url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
-          - text: Predict flight delays
+          - text: 'Visual interface: predict delays'
             url: service/ui-sample-classification-predict-flight-delay.md
-          - text: Predict churn & upsell
+          - text: 'Visual interface: predict churn'
             url: service/ui-sample-classification-predict-churn.md     
 
   # MLOps
-  - title: Deploy & manage models (MLOps)
+  - title: Deploy & manage models
     linkLists:
       - linkListType: overview
         links:
-          - text: 'MLOps'
+          - text: 'MLOps: deploy and monitor models'
             url: service/concept-model-management-and-deployment.md
       - linkListType: how-to-guide
         links:
-          - text: How & where to deploy ML models
+          - text: How & where to deploy
             url: service/how-to-deploy-and-where.md
-          - text: Request-response model consumption
+          - text: Request-response consumption
             url: service/how-to-consume-web-service.md
-          - text: Batch predictions with ML pipelines
+          - text: Batch predictions 
             url: service/how-to-run-batch-predictions.md
           - text: Troubleshoot deployments
             url: service/how-to-troubleshoot-deployment.md
 
   # Reference
-  - title: Reference
+  - title: Explore reference docs
     linkLists:
       - linkListType: reference
         links:
-          - text: Python SDK
+          - text: Azure ML Python SDK
             url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-          - text: Azure Machine Learning CLI
+          - text: Azure ML CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: Algorithm & module
+          - text: Visual interface algorithms & modules
             url: algorithm-module-reference/module-reference.md
