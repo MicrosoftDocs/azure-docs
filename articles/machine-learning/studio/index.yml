@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: What is Studio?
             url: what-is-ml-studio.md
-          - text: Compare our ML products
-            url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
           - text: Create your first ML experiment
             url: create-experiment.md
           - text: Create a predictive solution
@@ -58,3 +56,5 @@ landingContent:
             url: /azure/machine-learning/
           - text: Data Science Virtual Machine
             url: /azure/machine-learning/data-science-virtual-machine
+          - text: Compare our ML products
+            url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
