@@ -29,7 +29,7 @@ When you've completed the guide, your application will accept sign-ins of person
 
 ## Prerequisites
 
-To run this sample you will need:
+To run this sample, you will need:
 
 - An internet connection.
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
@@ -98,7 +98,7 @@ To run this sample you will need:
 
 1. Extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
-1. Open the **app_config.py** file, which can be found in the root folder and replace with the following:
+1. Open the **app_config.py** file, which can be found in the root folder and replace with the following code snippet:
 
 ```python
 AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
@@ -120,7 +120,7 @@ REDIRECT_URI = "http://localhost:5000/getAToken"
 
 #### Step 4: Run the code sample
 
-- You will need to install MSAL Python library, Flask framework, Flask-Sessions for server side session management and requests using pip as follows:
+- You will need to install MSAL Python library, Flask framework, Flask-Sessions for server-side session management and requests using pip as follows:
 
 ```Shell
 pip install msal
