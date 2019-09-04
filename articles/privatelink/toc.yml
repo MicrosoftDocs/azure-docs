@@ -7,12 +7,21 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Create Private Endpoint - Azure portal
+    href: create-private-endpoint-portal.md
+  - name: Create Private Link - Azure CLI
+    href: create-private-endpoint-cli.md
+  - name: Create Private Link - Azure PowerShell
+    href: create-private-endpoint-powershell.md
+- name: How-to
+  items:
   - name: Create Private Link - Azure portal
     href: create-privatelink-portal.md
   - name: Create Private Link - Azure CLI
     href: create-privatelink-cli.md
   - name: Create Private Link - Azure PowerShell
     href: create-privatelink-powershell.md
+
 - name: Reference
   items:
   - name: Azure CLI
