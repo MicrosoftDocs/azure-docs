@@ -53,10 +53,10 @@ You can configure the ServiceNow Classic (Mobile) application with Azure AD for 
 To configure the integration of ServiceNow into Azure AD, you need to add ServiceNow from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or by using a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
+1. In the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications**, and select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **ServiceNow** in the search box.
+1. In the **Add from the gallery** section, enter **ServiceNow** in the search box.
 1. Select **ServiceNow** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for ServiceNow
@@ -87,10 +87,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. In the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In **Sign on URL**, type a URL that uses the following pattern:
+	a. In **Sign on URL**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com/navpage.do`
 
-    b. In **Identifier (Entity ID)**, type a URL that uses the following pattern:
+    b. In **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
 	> [!NOTE]
@@ -154,10 +154,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In the **Basic SAML Configuration** section, perform the following steps:
 
-	a. For **Sign on URL**, type a URL that uses the following pattern:
+	a. For **Sign on URL**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com/navpage.do`
 
-    b. For **Identifier (Entity ID)**, type a URL that uses the following pattern:
+    b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
 	> [!NOTE]
@@ -181,7 +181,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Activate the **Integration - Multiple Provider single sign-on Installer** plug-in by following these steps:
 
-	a. In the navigation pane on the left side, search for the **System Definition** section from the search box, and then select **Plugins**.
+	a. In the left pane, search for the **System Definition** section from the search box, and then select **Plugins**.
 
 	![Screenshot of System Definition section, with System Definition and Plugins highlighted](./media/servicenow-tutorial/tutorial_servicenow_03.png "Activate plugin")
 
@@ -197,7 +197,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	 ![Screenshot of Activate Plugin dialog box, with Activate highlighted](./media/servicenow-tutorial/tutorial_activate1.png "Activate plugin")
 
-3. In the navigation pane on the left side, search for the **Multi-Provider SSO** section from the search bar, and then select **Properties**.
+3. In the left pane, search for the **Multi-Provider SSO** section from the search bar, and then select **Properties**.
 
 	![Screenshot of Multi-Provider SSO section, with Multi-Provider SSO and Properties highlighted](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
@@ -211,7 +211,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	* For **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
 
-	* For **The field on the user table that...**, type **user_name**.
+	* For **The field on the user table that...**, enter **user_name**.
   
 	* Select **Save**.
 
@@ -231,7 +231,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	   * In the automatic configuration, all the necessary settings are configured on the **ServiceNow** side, but the **X.509 Certificate** isn't enabled by default. You have to map it manually to your identity provider in ServiceNow. Follow these steps:
 
-	     1. In the navigation pane on the left side, search for the **Multi-Provider SSO** section from the search box, and select **Identity Providers**.
+	     1. In the left pane, search for the **Multi-Provider SSO** section from the search box, and select **Identity Providers**.
 
 		    ![Screenshot of Multi-Provider SSO section, with Identity Providers highlighted](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
@@ -243,7 +243,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		     ![Screenshot of Identity Provider section](./media/servicenow-tutorial/automatic_config.png "Configure single sign-on")
 
-		       * For **Name**, type a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
+		       * For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
 		       * Remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
 
@@ -266,7 +266,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	      1. Select **Save**.
 
-	      1. At the top right corner of the page, select **Test Connection**.
+	      1. At the upper-right corner of the page, select **Test Connection**.
 
 		     ![Screenshot of page, with Test Connection highlighted](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
 
@@ -278,7 +278,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Sign on to your ServiceNow application as an administrator.
 
-	1. In the navigation pane on the left side, select **Identity Providers**.
+	1. In the left pane, select **Identity Providers**.
 
 		![Screenshot of Multi-Provider SSO, with Identity Providers highlighted](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
@@ -302,7 +302,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		![Screenshot of Identity Provider](./media/servicenow-tutorial/ic7694982.png "Configure single sign-on")
 
-		* For **Name**, type a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
+		* For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
 		* Remove the populated **Identity Provider's SingleLogoutRequest** value from the text box.
 
@@ -315,12 +315,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		* Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value.
 
-		* Select **Advanced**. In **User Field**, type **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
+		* Select **Advanced**. In **User Field**, enter **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
 
 			> [!NOTE]
 			> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
 
-		* Select **Test Connection** at the top right corner of the page.
+		* Select **Test Connection** at the upper-right corner of the page.
 
 		* When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
@@ -337,7 +337,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 1. Sign on to your ServiceNow Express application as an administrator.
 
-2. In the navigation pane on the left side, select **Single Sign-On**.
+2. In the left pane, select **Single Sign-On**.
 
 	![Screenshot of ServiceNow Express application, with Single Sign-On highlighted](./media/servicenow-tutorial/ic7694980ex.png "Configure app URL")
 
@@ -349,7 +349,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 	b. Toggle **Enable debug logging for the multiple provider SSO integration** to the right.
 
-	c. In **The field on the user table that...**, type **user_name**.
+	c. In **The field on the user table that...**, enter **user_name**.
 
 4. In the **Single Sign-On** dialog box, select **Add New Certificate**.
 
@@ -359,7 +359,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 	![Screenshot of X.509 Certificates dialog box](./media/servicenow-tutorial/ic7694975.png "Configure single sign-on")
 
-	a. For **Name**, type a name for your configuration (for example: **TestSAML2.0**).
+	a. For **Name**, enter a name for your configuration (for example: **TestSAML2.0**).
 
 	b. Select **Active**.
 
@@ -379,7 +379,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 	![Screenshot of Add New Identity Provider dialog box](./media/servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
 
-	a. For **Name**, type a name for your configuration (for example: **SAML 2.0**).
+	a. For **Name**, enter a name for your configuration (for example: **SAML 2.0**).
 
 	b. For **Identity Provider URL**, paste the value of the identity provider ID that you copied from the Azure portal.
 
@@ -393,11 +393,11 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 	![Screenshot of Add New Identity Provider dialog box, with Advanced Settings highlighted](./media/servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
 
-	a. For **Protocol Binding for the IDP's SingleLogoutRequest**, type **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+	a. For **Protocol Binding for the IDP's SingleLogoutRequest**, enter **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
-	b. For **NameID Policy**, type **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+	b. For **NameID Policy**, enter **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
 
-	c. For **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
+	c. For **AuthnContextClassRef Method**, enter `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
 
 	d. For **Create an AuthnContextClass**, toggle it to off (unselected).
 
@@ -405,18 +405,18 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 	![Screenshot of Add New Identity Provider dialog box, with various properties highlighted](./media/servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
 
-	a. For **ServiceNow Homepage**, type the URL of your ServiceNow instance homepage.
+	a. For **ServiceNow Homepage**, enter the URL of your ServiceNow instance homepage.
 
 	> [!NOTE]
 	> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example: `https://fabrikam.service-now.com/navpage.do`).
 
-	b. For **Entity ID / Issuer**, type the URL of your ServiceNow tenant.
+	b. For **Entity ID / Issuer**, enter the URL of your ServiceNow tenant.
 
-	c. For **Audience URI**, type the URL of your ServiceNow tenant.
+	c. For **Audience URI**, enter the URL of your ServiceNow tenant.
 
-	d. For **Clock Skew**, type **60**.
+	d. For **Clock Skew**, enter **60**.
 
-	e. For **User Field**, type **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
+	e. For **User Field**, enter **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
 
 	> [!NOTE]
 	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
@@ -435,7 +435,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 	![Screenshot of ServiceNow Classic application, with plus sign highlighted](./media/servicenow-tutorial/test03.png)
 
-	b. Type your ServiceNow instance name, and select **Continue**.
+	b. Enter your ServiceNow instance name, and select **Continue**.
 
 	![Screenshot of Add Instance page, with Continue highlighted](./media/servicenow-tutorial/test04.png)
 
@@ -443,7 +443,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 	![Screenshot of Log in page, with Use external login highlighted](./media/servicenow-tutorial/test01.png)
 
-	*  Type **Username**, like B.simon@contoso.com.
+	*  Enter **Username**, like B.simon@contoso.com.
 
 	*  Select **USE EXTERNAL LOGIN**. You're redirected to the Azure AD page for sign in.
     
