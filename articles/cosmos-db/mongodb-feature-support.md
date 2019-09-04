@@ -329,7 +329,7 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 
 ## Sharding
 
-Cosmos DB supports automatic, server-side sharding. Cosmos DB does not support manual sharding commands.
+Azure Cosmos DB supports automatic, server-side sharding. It manages shard creation, placement, and balancing automatically. Azure Cosmos DB does not support manual sharding commands, which means you don't have to invoke commands such as shardCollection, addShard, balancerStart, moveChunk etc. You only need to specify the shard key while creating the containers or querying the data.
 
 ## Next steps
 

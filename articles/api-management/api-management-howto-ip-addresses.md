@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
@@ -24,7 +23,9 @@ You can use IP addresses to create firewall rules, filter the incoming traffic t
 
 ## IP addresses of API Management service
 
-If your API Management service is a Developer, Basic, Standard, or Premium tier service, you can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal.
+Every API Management service instance in Developer, Basic, Standard, or Premium tier has public IP addresses, which are exclusive only to that service instance (they are not shared with other resources). 
+
+You can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal.
 
 ![API Management IP address](media/api-management-howto-ip-addresses/public-ip.png)
 

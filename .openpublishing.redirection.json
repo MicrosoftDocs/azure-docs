@@ -16,6 +16,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-load-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-transform-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-write-data.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview.md",
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
       "redirect_document_id": false
@@ -711,6 +726,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-collaborator.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-security.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys#securing-the-endpoint",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-account-settings.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#types-of-keys-in-qna-maker",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/troubleshooting-runtime.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/upgrade-qnamaker-service.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#upgrade-qna-maker-sku",
+      "redirect_document_id": false
+    },         
+    {
       "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-vr-app-launcher.md",
       "redirect_url": "/azure/cognitive-services/Labs/Conversation-Learner/overview",
       "redirect_document_id": false
@@ -1097,6 +1142,11 @@
     },
     {
       "source_path": "articles/cognitive-services/bing-visual-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-video-search/resize-and-crop-thumbnails.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
       "redirect_document_id": false
     },
@@ -4856,6 +4906,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
@@ -7186,6 +7241,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/paloaltoglobalprotect-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/palo-alto-networks-globalprotect-tutorial",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-alcumus-info-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/alcumus-info-tutorial",
       "redirect_document_id": true
@@ -8721,11 +8781,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/active-directory-saas-paloaltoglobalprotect-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/paloaltoglobalprotect-tutorial",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/active-directory-saas-paloaltonetworks-aperture-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/paloaltonetworks-aperture-tutorial",
       "redirect_document_id": true
@@ -8733,6 +8788,11 @@
     {
       "source_path": "articles/active-directory/active-directory-saas-paloaltonetworks-captiveportal-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/paloaltonetworks-captiveportal-tutorial",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/thefundingportal-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/the-funding-portal-tutorial",
       "redirect_document_id": true
     },
     {
@@ -26008,10 +26068,45 @@
       "source_path": "articles/security-center/security-center-enable-transparent-data-encryption.md",
       "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/security-center/security-center-incident-response.md",
       "redirect_url": "/azure/security-center/tutorial-security-incident",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/security-center/security-center-detection-capabilities.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-enable-network-security-groups.md",
+      "redirect_url": "/azure/security-center/security-center-network-recommendations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-events-dashboard.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#events-dashboard---the-new-experience",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-search.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_search",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-customize-os-security-config.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityconfigurations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-custom-alert.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-threat-intel.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
       "redirect_document_id": false
     },  
     {
@@ -31545,18 +31640,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/storage/blobs/index.md",
-      "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/files/index.md",
-      "redirect_url": "/azure/storage/files/storage-files-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/queues/index.md",
-      "redirect_url": "/azure/storage/queues/storage-queues-introduction",
+      "source_path": "articles/storage/blobs/storage-unstructured-search.md",
+      "redirect_url": "/azure/search/search-howto-indexing-azure-blob-storage",
       "redirect_document_id": false
     },
     {
@@ -38878,6 +38963,16 @@
       "redirect_url": "https://github.com/Microsoft/Cognitive-Vision-Python",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/cognitive-services/Computer-vision/Tutorials/java-tutorial.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial",
+      "redirect_document_id": false
+    },
+	{
+		"source_path": "articles/cognitive-services/Computer-vision/Tutorials/javascript-tutorial.md",
+		"redirect_url": "https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/media-services/previous/media-services-hyperlapse-content.md",
       "redirect_url": "/azure/media-services/previous/media-services-analytics-overview",
@@ -41474,6 +41569,36 @@
     {
       "source_path": "articles/iot-accelerators/howto-opc-vault-deploy-scratch.md",
       "redirect_url": "/azure/iot-accelerators/howto-opc-vault-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/tutorial-data-prep.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/deploy-sentiment-analysis-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances?tabs=sentiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=language",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/use-sentiment-analysis-on-aks.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service?tabs=sentiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-paas.yml",
+      "redirect_url": "/azure/sql-database/sql-database-paas-index",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/azure-monitor/app/sample-mscrm.md",
+      "redirect_url": "/azure/azure-monitor/app/javascript",
       "redirect_document_id": false
     }
   ]
