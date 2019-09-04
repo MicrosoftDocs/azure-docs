@@ -148,4 +148,119 @@ NOTE: Advisor alerts are currently only available for High Availability, Perform
 }
 </pre>
 
+# Configure recommendation alerts to use a webhook
+This article shows you how to configure Azure Advisor alerts to send recommendation data through webhooks to your existing systems. 
+
+You can set up alerts to be notified when you have a new Advisor recommendation on one of your resources. These alerts can notify you through email or text message, but they can also be used to integrate with your existing systems through a webhook. 
+
+To learn more about configuring recommendation alerts, see [Create activity log alerts for new recommendations](createalerts.md).
+
+## Using the Advisor recommendation alert payload
+If you want to integrate Advisor alerts into your own systems using a webhook, you will need to parse the JSON payload that is sent from the notification. 
+
+When you set up your action group for this alert, you select if you would like to use the common alert schema. If you select the common alert schema, your payload will look like: 
+
+<pre>
+{  
+   "schemaId":"azureMonitorCommonAlertSchema",
+   "data":{  
+      "essentials":{  
+         "alertId":"/subscriptions/<subid>/providers/Microsoft.AlertsManagement/alerts/<alerted>",
+         "alertRule":"Webhhook-test",
+         "severity":"Sev4",
+         "signalType":"Activity Log",
+         "monitorCondition":"Fired",
+         "monitoringService":"Activity Log - Recommendation",
+         "alertTargetIDs":[  
+            "/subscriptions/<subid>/resourcegroups/<resource group name>/providers/microsoft.dbformariadb/servers/<resource name>"
+         ],
+         "originAlertId":"001d8b40-5d41-4310-afd7-d65c9d4428ed",
+         "firedDateTime":"2019-07-17T23:00:57.3858656Z",
+         "description":"A new recommendation is available.",
+         "essentialsVersion":"1.0",
+         "alertContextVersion":"1.0"
+      },
+      "alertContext":{  
+         "channels":"Operation",
+         "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+         "caller":"Microsoft.Advisor",
+         "correlationId":"8554b847-2a72-48ef-9776-600aca3c3aab",
+         "eventSource":"Recommendation",
+         "eventTimestamp":"2019-07-17T22:28:54.1566942+00:00",
+         "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+         "eventDataId":"001d8b40-5d41-4310-afd7-d65c9d4428ed",
+         "level":"Informational",
+         "operationName":"Microsoft.Advisor/recommendations/available/action",
+         "properties":{  
+            "recommendationSchemaVersion":"1.0",
+            "recommendationCategory":"Performance",
+            "recommendationImpact":"Medium",
+            "recommendationName":"Increase the MariaDB server vCores",
+            "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/source/ActivityLog/recommendationTypeId/a5f888e3-8cf4-4491-b2ba-b120e14eb7ce/resourceId/%2Fsubscriptions%<subscription id>%2FresourceGroups%2<resource group name>%2Fproviders%2FMicrosoft.DBforMariaDB%2Fservers%2F<resource name>",
+            "recommendationType":"a5f888e3-8cf4-4491-b2ba-b120e14eb7ce"
+         },
+         "status":"Active",
+         "subStatus":"",
+         "submissionTimestamp":"2019-07-17T22:28:54.1566942+00:00"
+      }
+   }
+}
+</pre>
+
+If you do not use the Common schema, your payload will look like: 
+
+<pre>
+{  
+   "schemaId":"Microsoft.Insights/activityLogs",
+   "data":{  
+      "status":"Activated",
+      "context":{  
+         "activityLog":{  
+            "channels":"Operation",
+            "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+            "caller":"Microsoft.Advisor",
+            "correlationId":"3ea7320f-c002-4062-adb8-96d3bd92a5f4",
+            "description":"A new recommendation is available.",
+            "eventSource":"Recommendation",
+            "eventTimestamp":"2019-07-17T20:36:39.3966926+00:00",
+            "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+            "eventDataId":"a12b8e59-0b1d-4003-bfdc-3d8152922e59",
+            "level":"Informational",
+            "operationName":"Microsoft.Advisor/recommendations/available/action",
+            "properties":{  
+               "recommendationSchemaVersion":"1.0",
+               "recommendationCategory":"Performance",
+               "recommendationImpact":"Medium",
+               "recommendationName":"Increase the MariaDB server vCores",
+               "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/source/ActivityLog/recommendationTypeId/a5f888e3-8cf4-4491-b2ba-b120e14eb7ce/resourceId/%2Fsubscriptions%2F<subscription id>%2FresourceGroups%2F<resource group name>%2Fproviders%2FMicrosoft.DBforMariaDB%2Fservers%2F<resource name>",
+               "recommendationType":"a5f888e3-8cf4-4491-b2ba-b120e14eb7ce"
+            },
+            "resourceId":"/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/microsoft.dbformariadb/servers/<resource name>",
+            "resourceGroupName":"<resource group name>",
+            "resourceProviderName":"MICROSOFT.DBFORMARIADB",
+            "status":"Active",
+            "subStatus":"",
+            "subscriptionId":"<subscription id>",
+            "submissionTimestamp":"2019-07-17T20:36:39.3966926+00:00",
+            "resourceType":"MICROSOFT.DBFORMARIADB/SERVERS"
+         }
+      },
+      "properties":{  
+ 
+      }
+   }
+}
+</pre>
+
+In either schema, you can identify Advisor recommendation events by looking for **eventSource** is “Recommendation” and **operationName**  is "Microsoft.Advisor/recommendations/available/action".
+
+Some of the other important fields that you may want to use are: 
+
+1. **alertTargetIDs** (common schema) or **resourceId** (legacy schema)
+2. **recommendationType**
+3. **recommendationName**
+4. **recommendationCategory**
+5. **recommendationImpact**
+6. **recommendationResourceLink**
+
 
