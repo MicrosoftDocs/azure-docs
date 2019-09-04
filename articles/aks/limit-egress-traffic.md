@@ -16,38 +16,11 @@ ms.author: mlearned
 
 By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is configured by default to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR). You must configure your preferred firewall and security rules to allow these required ports and addresses.
 
-This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.  This feature is currently in preview.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.
 
 ## Before you begin
 
 You need the Azure CLI version 2.0.66 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-To create an AKS cluster that can limit egress traffic, first enable a feature flag on your subscription. This feature registration configures any AKS clusters you create to use base system container images from MCR or ACR. To register the *AKSLockingDownEgressPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
-
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
-```azurecli-interactive
-az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Egress traffic overview
 
@@ -70,7 +43,7 @@ In AKS, there are two sets of ports and addresses:
 * The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and authorize any of the services and components used in your AKS cluster.
 
 > [!NOTE]
-> Limiting egress traffic only works on new AKS clusters created after you enable the feature flag registration. For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command before you limit the egress traffic.
+> Limiting egress traffic only works on new AKS clusters. For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command before you limit the egress traffic.
 
 ## Required ports and addresses for AKS clusters
 
