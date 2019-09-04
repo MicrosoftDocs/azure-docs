@@ -84,18 +84,17 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
     1. When the upload is complete, the **Settings and preview** form is intelligently populated based on the file type. Ensure the form is populated as follows.
         
-            Field|Value
-            ---|---
-            File format| Delimited
-            Delimiter| Comma
-            Encoding| UTF-8
-            Column headers| All files have same headers
-            Skip rows | None
+        Field|Value
+        ---|---
+        File format| Delimited
+        Delimiter| Comma
+        Encoding| UTF-8
+        Column headers| All files have same headers            Skip rows | None
 
-            >[!NOTE]
-            > If any of the settings on this form are updated the preview will update accordingly.
+        >[!NOTE]
+        > If any of the settings on this form are updated the preview will update accordingly.
 
-            Select **Next**.
+        Select **Next**.
     
     1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. 
 
