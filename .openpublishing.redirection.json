@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/index.yml",
+      "redirect_url": "/azure/machine-learning/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-write-data.md",
       "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
       "redirect_document_id": false
@@ -3343,6 +3348,11 @@
     {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/how-to-create-template.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
       "redirect_document_id": false
     },
     {
