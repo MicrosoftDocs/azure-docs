@@ -28,7 +28,7 @@ In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represe
 
 ## To prepare your source files for delivery
 
-To prepare your source files for delivery by adaptive bitrate streaming, they need to be [encoded](encoding-concept.md) into a set of multiple bitrate (also called adaptive bitrate) MP4 (ISO Base Media 14496-12) files. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
+To prepare your source files for delivery by adaptive bitrate streaming, they need to be [encoded](encoding-concept.md) into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
 
 ### Delivery protocols
 
