@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Foodee for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Foodee.
 
-1. Login into [Foodee](https://www.food.ee/login/). Click on your **Tenant ID**
+1. Log in into [Foodee](https://www.food.ee/login/). Click on your **Tenant ID**
 
 	![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
 
