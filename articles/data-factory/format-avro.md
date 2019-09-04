@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---

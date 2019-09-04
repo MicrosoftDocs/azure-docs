@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
