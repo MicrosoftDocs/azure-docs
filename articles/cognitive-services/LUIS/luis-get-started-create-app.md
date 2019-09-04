@@ -61,7 +61,7 @@ Select **Intents** in the left-side navigation pane to review the HomeAutomation
 
 Select the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances that are labeled with entities.
 
-[![Screenshot of HomeAutomation.TurnOff intent](media/luis-quickstart-new-app/home-automation-turnon.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Screenshot of HomeAutomation.TurnOff intent](media/luis-quickstart-new-app/home-automation-turnoff.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## Train the LUIS app
 
@@ -81,6 +81,10 @@ In this example, "Turn off the lights" is correctly identified as the top scorin
 [![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
 
 
+Select **Inspect** to review more information about the prediction.
+
+![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+
 Select **Test** again to collapse the test pane. 
 
 <a name="publish-your-app"></a>
@@ -93,9 +97,78 @@ Select **Test** again to collapse the test pane.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Go to the end of the URL in the address and enter `turn off the living room light`, and then press Enter. The browser displays the JSON response of your HTTP endpoint.
+2. Go to the end of the URL in the address and enter `turn off the living room light`, and then press Enter. The browser displays the V2 API version of the JSON response of your HTTP endpoint.
 
-    [![Screenshot of browser with JSON result detects the intent TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+```json
+{
+  "query": "turn off the living room light",
+  "topScoringIntent": {
+    "intent": "HomeAutomation.TurnOff",
+    "score": 0.9753089
+  },
+  "intents": [
+    {
+      "intent": "HomeAutomation.TurnOff",
+      "score": 0.9753089
+    },
+    {
+      "intent": "HomeAutomation.QueryState",
+      "score": 0.01027893
+    },
+    {
+      "intent": "HomeAutomation.TurnUp",
+      "score": 0.006881481
+    },
+    {
+      "intent": "HomeAutomation.SetDevice",
+      "score": 0.006786365
+    },
+    {
+      "intent": "HomeAutomation.TurnDown",
+      "score": 0.005145787
+    },
+    {
+      "intent": "HomeAutomation.TurnOn",
+      "score": 0.004114749
+    },
+    {
+      "intent": "None",
+      "score": 0.000598924
+    }
+  ],
+  "entities": [
+    {
+      "entity": "living room",
+      "type": "HomeAutomation.Location",
+      "startIndex": 13,
+      "endIndex": 23,
+      "score": 0.94558233
+    },
+    {
+      "entity": "living room light",
+      "type": "HomeAutomation.DeviceName",
+      "startIndex": 13,
+      "endIndex": 29,
+      "resolution": {
+        "values": [
+          "living room light"
+        ]
+      }
+    },
+    {
+      "entity": "light",
+      "type": "HomeAutomation.DeviceType",
+      "startIndex": 25,
+      "endIndex": 29,
+      "resolution": {
+        "values": [
+          "light"
+        ]
+      }
+    }
+  ]
+}
+```
     
 ## Clean up resources
 

@@ -116,32 +116,32 @@ The prebuilt entity, geographyV2, extracts location information, including city 
       "query": "Please move Carl Chamerlin from Tampa to Portland",
       "topScoringIntent": {
         "intent": "MoveEmployeeToCity",
-        "score": 0.979823351
+        "score": 0.9706451
       },
       "intents": [
         {
           "intent": "MoveEmployeeToCity",
-          "score": 0.979823351
+          "score": 0.9706451
         },
         {
           "intent": "None",
-          "score": 0.0156363435
+          "score": 0.0307451729
         }
       ],
       "entities": [
         {
-          "entity": "geographyV2",
-          "role": "Destination",
-          "startIndex": 41,
-          "endIndex": 48,
-          "score": 0.6044041
-        },
-        {
-          "entity": "geographyV2",
-          "role": "Origin",
+          "entity": "tampa",
+          "type": "builtin.geographyV2.city",
           "startIndex": 32,
           "endIndex": 36,
-          "score": 0.739491045
+          "role": "Origin"
+        },
+        {
+          "entity": "portland",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 41,
+          "endIndex": 48,
+          "role": "Destination"
         }
       ]
     }
