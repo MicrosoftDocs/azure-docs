@@ -21,7 +21,7 @@ Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in
 Azure API Management can be deployed inside the virtual network (VNET), so it can access backend services within the network. The developer portal and API gateway, can be configured to be accessible either from the Internet or only within the virtual network.
 
 > [!NOTE]
-> Azure API Management supports both classic and Azure Resource Manager VNets.
+> The API import document URL must be hosted on a publicly accessible internet address.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
