@@ -479,7 +479,8 @@ openssl x509 -in certificate.crt -text -noout
 2.  From the properties displayed, find the CN of the certificate and
     enter the same in the hostname field of the http settings. If that's
     not the desired hostname for your website, you must get a
-    certificate for that domain.
+    certificate for that domain or enter the right hostname in the
+    custom probe/http setting configuration.
 
 #### Backend certificate is invalid
 
