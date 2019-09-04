@@ -244,8 +244,7 @@ The firewall might also block connections that the Azure Service Bus makes to th
 
 ## Configure ports
 
-The gateway creates an outbound connection to [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) 
-and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354. The gateway doesn't require inbound ports. Learn more about [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
+The gateway creates an outbound connection to [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354. The gateway doesn't require inbound ports. Learn more about [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
 
 The gateway uses these fully qualified domain names:
 
