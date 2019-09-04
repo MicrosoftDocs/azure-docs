@@ -18,7 +18,7 @@ ms.reviewer: jehollan
 
 Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
-- Dependency injection in Azure Functions works in a similar fashion to the .NET Core Dependency Injection features. Familiarity with [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)'s services, lifetimes, and patterns before using dependency injection in Azure Functions is recommended, but the two aren't identical.
+- Dependency injection in Azure Functions works in a similar fashion to the .NET Core Dependency Injection features. Familiarity with the [.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)  before using dependency injection in Azure Functions is recommended, but the two aren't identical.
 
 - Support for dependency injection begins with Azure Functions 2.x.
 
@@ -65,17 +65,17 @@ namespace MyNamespace
 
 ### Caveats
 
-There are a number of registration steps that happen before and after the runtime processes the startup class. Therefore, the keep in mind the following caveats:
+A series of registration steps run before and after the runtime processes the startup class. Therefore, the keep in mind the following items:
 
 - **The startup class is meant for only setup and registration.** Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After your app is set up, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
 
-- **The DI container only holds explicitly registered types**. The only services available as injectable types are what you setup in the `Configure` method. This means that Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during the set-up process or as injectable types.
+- **The dependency injection container only holds explicitly registered types**. The only services available as injectable types are what are setup in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during the set-up process or as injectable types.
 
 ## Use injected dependencies
 
-Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you not to use static functions.
+Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes.
 
-The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function. This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) packager required to register an `HttpClient` at startup.
+The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function. This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) package required to register an `HttpClient` at startup.
 
 ```csharp
 using System;
@@ -152,7 +152,9 @@ Overriding services provided by the host is currently not supported.  If there a
 
 ## Working with options and settings
 
-Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance. You can extract values from the `IConfiguration` instance into a custom type, which allows you to easily test your services. Consider the following class that includes a property named consistent with an app setting.
+Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
+
+You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Consider the following class that includes a property named consistent with an app setting.
 
 ```csharp
 public class MyOptions
