@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -167,7 +167,9 @@ To copy data from and to Oracle, set the type property of the dataset to `Oracle
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to `OracleTable`. | Yes |
-| tableName |The name of the table in the Oracle database that the linked service refers to. | Yes |
+| schema | Name of the schema. |No for source, Yes for sink  |
+| table | Name of the table/view. |No for source, Yes for sink  |
+| tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No for source, Yes for sink |
 
 **Example:**
 
@@ -177,12 +179,14 @@ To copy data from and to Oracle, set the type property of the dataset to `Oracle
     "properties":
     {
         "type": "OracleTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        },
         "linkedServiceName": {
             "referenceName": "<Oracle linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
