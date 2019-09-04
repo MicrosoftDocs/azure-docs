@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high 
 ---
@@ -62,8 +62,6 @@ For Linux client, the Data Box Disk toolset installs the following required soft
 - dislocker
 - OpenSSL
 
-::: zone target="docs"
-
 ## Supported connection
 
 The client computer containing the data must have a USB 3.0 or later port. The disks connect to this client using the provided cable.
@@ -93,6 +91,7 @@ Here is a list of the storage types supported for uploaded to Azure using Data B
 | Azure Files  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## Next step
 
