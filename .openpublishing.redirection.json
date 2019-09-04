@@ -19071,7 +19071,7 @@
     },
     {
       "source_path": "articles/active-directory/hybrid/whatis-hybrid-identity-health.md",
-      "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+      "redirect_url": "/azure/active-directory/hybrid/whatis-azure-ad-connect",
       "redirect_document_id": false
     },
     {
