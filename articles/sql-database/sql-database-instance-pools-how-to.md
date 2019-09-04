@@ -237,7 +237,7 @@ To move existing databases:
     $databaseName = "my source database name"
     $pointInTime = "2019-08-21T08:51:39.3882806Z"
     $targetDatabase = "name of the new database that will be created"
-    $targetResourceGroupName "resource group of instance pool"
+    $targetResourceGroupName = "resource group of instance pool"
     $targetInstanceName = "pool instance name"
        
     Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
