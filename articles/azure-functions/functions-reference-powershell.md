@@ -402,14 +402,16 @@ You can see the current version by printing `$PSVersionTable` from any function.
 
 ## Dependency management
 
-PowerShell functions support managing Azure modules by the service. By modifying the host.json and setting the managedDependency enabled property to true, the requirements.psd1 file will be processed. The latest Azure modules will be automatically downloaded and made available to the function.
+PowerShell functions support downloading and managing [PowerShell gallery](https://www.powershellgallery.com) modules by the service. By modifying the host.json and setting the managedDependency enabled property to true, the requirements.psd1 file will be processed. The specified modules will be automatically downloaded and made available to the function. 
+
+The maximum number of modules currently supported is 10. The supported syntax is MajorNumber.* or exact module version as shown below. The Azure Az module is included by default when a new PowerShell function app is created.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -418,10 +420,11 @@ requirements.psd1
 ```powershell
 @{
 	Az = '1.*'
+	SqlServer = '21.1.18147'
 }
 ```
 
-Leveraging your own custom modules or modules from the [PowerShell Gallery](https://powershellgallery.com) is a little different than how you would do it normally.
+Leveraging your own custom modules is a little different than how you would do it normally.
 
 When you install the module on your local machine, it goes in one of the globally available folders in your `$env:PSModulePath`. Since your function runs in Azure, you won't have access to the modules installed on your machine. This requires that the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script.
 
@@ -432,16 +435,19 @@ In Functions, `PSModulePath` contains two paths:
 
 ### Function app-level `Modules` folder
 
-To use custom modules or PowerShell modules from the PowerShell Gallery, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules.
+To use custom modules, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules. 
 
-To take advantage of this feature, create a `Modules` folder in the root of your function app. Save the modules you want to use in your functions in this location.
+> [!NOTE]
+> Modules specified in the requirements.psd1 file are automatically downloaded and included in the path so you don't need to include them in the modules folder. These are stored locally in the $env:LOCALAPPDATA/AzureFunctions folder and in the /data/ManagedDependencies folder when run in the cloud.
+
+To take advantage of the custom module feature, create a `Modules` folder in the root of your function app. Copy the modules you want to use in your functions to this location.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Use `Save-Module` to save all of the modules your functions use, or copy your own custom modules to the `Modules` folder. With a Modules folder, your function app should have the following folder structure:
+With a Modules folder, your function app should have the following folder structure:
 
 ```
 PSFunctionApp
@@ -449,11 +455,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
