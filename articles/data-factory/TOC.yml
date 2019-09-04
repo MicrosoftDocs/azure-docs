@@ -197,6 +197,8 @@
       href: connector-amazon-redshift.md
     - name: Amazon S3
       href: connector-amazon-simple-storage-service.md
+    - name: Avro format
+      href: format-avro.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
     - name: Azure Cosmos DB SQL API

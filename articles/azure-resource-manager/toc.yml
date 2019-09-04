@@ -60,9 +60,6 @@
   items:
   - name: Template deployments
     href: template-deployment-overview.md
-  - name: Template file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md
   - name: Templates for cloud consistency
@@ -87,23 +84,25 @@
     items:
     - name: Use VS Code
       href: resource-manager-tools-vs-code.md
-    - name: Create template
-      href: how-to-create-template.md
     - name: Write template expressions
       href: template-expressions.md
-    - name: Child resource name and type
-      href: child-resource-name-type.md
-    - name: Conditional deployment
-      href: conditional-resource-deployment.md
-    - name: Define resource dependencies
-      href: resource-group-define-dependencies.md
+    - name: Resources
+      items:
+      - name: Child resource name and type
+        href: child-resource-name-type.md
+      - name: Conditional deployment
+        href: conditional-resource-deployment.md
+      - name: Set resource dependencies
+        href: resource-group-define-dependencies.md
+      - name: Set resource location
+        href: resource-location.md
+      - name: Use template extensions
+        href: resource-manager-use-extensions.md
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
-    - name: Use template extensions
-      href: resource-manager-use-extensions.md
     - name: Create resource groups and resources at subscription
       displayName: subscription level deployment
       href: deploy-to-subscription.md
@@ -246,6 +245,9 @@
     href: resource-manager-async-operations.md
 - name: Reference
   items:
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs,condition
+    href: resource-group-authoring-templates.md
   - name: Template reference
     href: /azure/templates/
   - name: Template functions
