@@ -21,7 +21,7 @@ ms.author: cynthn
 # Preview: Use spot VMs in Azure
 
 
-[!INCLUDE [common-use-low-priority](../common-use-low-priority.md)] 
+[!INCLUDE [common-spot-vms](../common-spot-vms.md)]  
 
 
 
