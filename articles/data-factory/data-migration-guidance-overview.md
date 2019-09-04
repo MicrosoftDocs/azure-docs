@@ -54,3 +54,5 @@ If you want to complete the data migration within two weeks (migration window), 
 ## Next steps
 
 - [Migrate data from AWS S3 to Azure](data-migration-guidance-s3-azure-storage.md)
+- [Migrate data from on-premises hadoop cluster to Azure](data-migration-guidance-hdfs-azure-storage.md)
+- [Migrate data from on-premises Netezza server to Azure](data-migration-guidance-netezza-azure-sqldw.md)

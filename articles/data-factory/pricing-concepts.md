@@ -2,17 +2,16 @@
 title: Understanding Azure Data Factory pricing through examples | Microsoft Docs
 description: This article explains and demonstrates the Azure Data Factory pricing model with detailed examples
 documentationcenter: ''
-author: shlo
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: shlo
-
 ---
+
 # Understanding Data Factory pricing through examples
 
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.

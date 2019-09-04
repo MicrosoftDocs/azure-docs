@@ -19,9 +19,9 @@ In this quickstart, you build a new app in the [LUIS portal](https://www.luis.ai
 
 Building an app is free and doesn't require an Azure subscription. When you're ready to deploy your app, see the [quickstart to deploy an app](get-started-portal-deploy-app.md). It shows you how to create an Azure Cognitive Service Resource and assign it to the app.
 
-## Create an app
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-1. Open the [LUIS portal](https://www.luis.ai) in a browser and sign in. If it's your first time signing in, you need to create a free LUIS portal user account.
+## Create an app
 
 1. Select **Create new app** from the context toolbar.
 
