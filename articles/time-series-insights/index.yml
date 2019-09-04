@@ -24,7 +24,7 @@ landingContent:
         links:
           - text: What is Azure Time Series Insights Preview?
             url: time-series-insights-update-overview.md
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: About Azure Time Series Insights GA
             url: time-series-insights-overview.md
@@ -56,6 +56,27 @@ landingContent:
           - text: Visualize data in Time Series Insights explorer Preview
             url: time-series-insights-update-explorer.md
 
+  - title: Plan and prepare Preview
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Connect to Event Hubs
+            url: time-series-insights-how-to-add-an-event-source-eventhub.md
+          - text: Connect to IoT Hub
+            url: time-series-insights-how-to-add-an-event-source-iothub.md
+          - text: Data storage and ingress
+            url: time-series-insights-update-storage-ingress.md
+      - linkListType: how-to-guide
+        links:
+          - text: Grant data access
+            url: time-series-insights-data-access.md
+          - text: Shape JSON for queries
+            url: time-series-insights-update-how-to-shape-events.md
+      - linkListType: concept
+        links:
+          - text: Time Series Model
+            url: time-series-insights-update-tsm.md
+
   - title: Get started with GA
     linkLists:
       - linkListType: quickstart
@@ -78,27 +99,6 @@ landingContent:
         links:
           - text: Visualize data in Time Series Insights explorer
             url: time-series-insights-explorer.md
-
-  - title: Plan and prepare Preview
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Connect to Event Hubs
-            url: time-series-insights-how-to-add-an-event-source-eventhub.md
-          - text: Connect to IoT Hub
-            url: time-series-insights-how-to-add-an-event-source-iothub.md
-          - text: Data storage and ingress
-            url: time-series-insights-update-storage-ingress.md
-      - linkListType: how-to-guide
-        links:
-          - text: Grant data access
-            url: time-series-insights-data-access.md
-          - text: Shape JSON for queries
-            url: time-series-insights-update-how-to-shape-events.md
-      - linkListType: concept
-        links:
-          - text: Time Series Model
-            url: time-series-insights-update-tsm.md
 
   - title: Plan and prepare GA
     linkLists:
