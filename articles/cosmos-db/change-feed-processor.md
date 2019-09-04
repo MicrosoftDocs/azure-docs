@@ -73,7 +73,9 @@ As mentioned during the introduction, the change feed processor can distribute c
 
 If these three conditions apply, then the change feed processor will, using an equal distribution algorithm, distribute all the leases in the lease container across all running instances and parallelize compute. One lease can only be owned by one instance at a given time, so the maximum number of instances equals to the number of leases.
 
-The instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly.
+The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly.
+
+Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
 
 ## Change feed and provisioned throughput
 
@@ -82,12 +84,13 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 ## Additional resources
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## Next steps
 
-You can now proceed to learn more about change feed in the following articles:
+You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed](change-feed.md)
-* [Ways to read change feed](read-change-feed.md)
-* [Using change feed with Azure Functions](change-feed-functions.md)
+* [Using the change feed estimator](how-to-use-change-feed-estimator.md)
+* [Change feed processor start time](how-to-configure-change-feed-start-time.md)

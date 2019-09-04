@@ -41,7 +41,15 @@ When mapping columns in Source and Select transformations, you will have an opti
 
 ![rule based mapping](media/data-flow/rule2.png "Rule based mapping")
 
-Build your rules using the expression builder. Your expressions will return a boolean value to either match columns (true) or exclude columns (false). 
+Build your rules using the expression builder. Your expressions will return a boolean value to either match columns (true) or exclude columns (false).
+
+## Pattern matching special columns
+
+* `$$` will translate to the name of each match at design time in debug mode and upon execution at run time
+* `name` represents the name of each incoming column
+* `type` represents the data type of each incoming column
+* `stream` represents the name associated with each stream or transformation in your flow
+* `position` is the ordinal position of columns in your data flow
 
 ## Next steps
 * Learn more about the ADF Mapping Data Flow [expression language](http://aka.ms/dataflowexpressions) for data transformations

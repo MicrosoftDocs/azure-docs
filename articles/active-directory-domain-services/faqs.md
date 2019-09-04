@@ -28,6 +28,9 @@ Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common is
 ### Can I create multiple managed domains for a single Azure AD directory?
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
+### Can I enable Azure AD Domain Services in a Classic virtual network?
+Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported.
+
 ### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer supported for creating new managed domains.
 
@@ -55,6 +58,9 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You do 
 ### Can guest users invited to my directory use Azure AD Domain Services?
 No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users are not stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to sync NTLM and Kerberos hashes for these users into your managed domain. As a result, such users cannot log in to the managed domain or join computers to the managed domain.
 
+### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
+No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+
 ## Administration and Operations
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
 No. You do not have permissions to connect to domain controllers for the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
@@ -69,7 +75,7 @@ No. You are not granted administrative privileges on the managed domain. Both â€
 No. Group memberships cannot be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You may however change group memberships or user attributes either in Azure AD or on your on-premises domain. Such changes are automatically synchronized to Azure AD Domain Services.
 
 ### How long does it take for changes I make to my Azure AD directory to be visible in my managed domain?
-Changes made in your Azure AD directory using either the Azure AD UI or PowerShell are synchronized to your managed domain. This synchronization process runs in the background. Once initial synchronization is complete, it typically takes about 20 minutes for changes made in Azure AD to be reflected in your managed domain.
+Changes made in your Azure AD directory using either the Azure AD UI or PowerShell are automatically synchronized to your managed domain. This synchronization process runs in the background. There's no defined time period for this synchronization to complete all the object changes.
 
 ### Can I extend the schema of the managed domain provided by Azure AD Domain Services?
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
@@ -97,7 +103,7 @@ No. Once you have enabled an Azure AD Domain Services managed domain, the servic
 No.  Azure AD Domain Services does not currently provide a geo-redundant deployment model. It is limited to a single virtual network in an Azure region. If you want to utilize multiple Azure regions, you need to run your Active Directory Domain Controllers on Azure IaaS VMs.  Architecture guidance can be found [here](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 ### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
-No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free, Basic, and, Premium). You are billed on an hourly basis, depending on usage.
+No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free and Premium). You are billed on an hourly basis, depending on usage.
 
 ### What Azure regions is the service available in?
 Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.

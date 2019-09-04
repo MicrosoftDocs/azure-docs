@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -30,11 +30,13 @@ You can copy data from an Oracle database to any supported sink data store. You 
 Specifically, this Oracle connector supports:
 
 - The following versions of an Oracle database:
-  - Oracle 12c R1 (12.1)
-  - Oracle 11g R1, R2 (11.1, 11.2)
-  - Oracle 10g R1, R2 (10.1, 10.2)
-  - Oracle 9i R1, R2 (9.0.1, 9.2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18c R1 (18.1) and higher
+    - Oracle 12c R1 (12.1) and higher
+    - Oracle 11g R1 (11.1) and higher
+    - Oracle 10g R1 (10.1) and higher
+    - Oracle 9i R2 (9.2) and higher
+    - Oracle 8i R3 (8.1.7) and higher
+    - Oracle Database Cloud Exadata Service
 - Copying data by using Basic or OID authentications.
 - Parallel copying from an Oracle source. See the [Parallel copy from Oracle](#parallel-copy-from-oracle) section for details.
 
@@ -43,7 +45,9 @@ Specifically, this Oracle connector supports:
 
 ## Prerequisites
 
-To copy data from and to an Oracle database that isn't publicly accessible, you need to set up a [Self-hosted integration runtime](create-self-hosted-integration-runtime.md). The integration runtime provides a built-in Oracle driver. Therefore, you don't need to manually install a driver when you copy data from and to Oracle.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+The integration runtime provides a built-in Oracle driver. Therefore, you don't need to manually install a driver when you copy data from and to Oracle.
 
 ## Get started
 
@@ -59,7 +63,7 @@ The Oracle linked service supports the following properties:
 |:--- |:--- |:--- |
 | type | The type property must be set to **Oracle**. | Yes |
 | connectionString | Specifies the information needed to connect to the Oracle Database instance. <br/>Mark this field as a `SecureString` to store it securely in Data Factory. You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. <br><br>**Supported connection type**: You can use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- If you use SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- If you use Service Name: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Yes |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use self-hosted integration runtime or Azure integration runtime (if your data store is publicly accessible). If not specified, this property uses the default Azure integration runtime. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 >[!TIP]
 >If you get an error, "ORA-01025: UPI parameter out of range", and your Oracle version is 8i, add `WireProtocolMode=1` to your connection string. Then try again.
@@ -163,7 +167,9 @@ To copy data from and to Oracle, set the type property of the dataset to `Oracle
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to `OracleTable`. | Yes |
-| tableName |The name of the table in the Oracle database that the linked service refers to. | Yes |
+| schema | Name of the schema. |No for source, Yes for sink  |
+| table | Name of the table/view. |No for source, Yes for sink  |
+| tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No for source, Yes for sink |
 
 **Example:**
 
@@ -173,12 +179,14 @@ To copy data from and to Oracle, set the type property of the dataset to `Oracle
     "properties":
     {
         "type": "OracleTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        },
         "linkedServiceName": {
             "referenceName": "<Oracle linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -188,11 +196,10 @@ To copy data from and to Oracle, set the type property of the dataset to `Oracle
 
 This section provides a list of properties supported by the Oracle source and sink. For a full list of sections and properties available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
 
-### Oracle as a source type
+### Oracle as source
 
-> [!TIP]
->
-> To load data from Oracle efficiently by using data partitioning, see [Parallel copy from Oracle](#parallel-copy-from-oracle).
+>[!TIP]
+>To load data from Oracle efficiently by using data partitioning, learn more from [Parallel copy from Oracle](#parallel-copy-from-oracle).
 
 To copy data from Oracle, set the source type in the copy activity to `OracleSource`. The following properties are supported in the copy activity **source** section.
 
@@ -200,12 +207,12 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), also configure the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. This determines the parallel degree to concurrently load data from an Oracle database. For example, you might set this to 4. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfRangePartitionColumnName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| PartitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| partitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 
 **Example: copy data by using a basic query without partition**
 
@@ -239,7 +246,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 ]
 ```
 
-### Oracle as a sink type
+### Oracle as sink
 
 To copy data to Oracle, set the sink type in the copy activity to `OracleSink`. The following properties are supported in the copy activity **sink** section.
 
@@ -287,9 +294,9 @@ The Data Factory Oracle connector provides built-in data partitioning to copy da
 
 ![Screenshot of partition options](./media/connector-oracle/connector-oracle-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings. Each query retrieves a portion of data from your Oracle database.
+When you enable partitioned copy, Data Factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Oracle database.
 
-It's a good idea to enable parallel copy with data partitioning, especially when you load large amount of data from your Oracle database. The following are suggested configurations for different scenarios:
+You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Oracle database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

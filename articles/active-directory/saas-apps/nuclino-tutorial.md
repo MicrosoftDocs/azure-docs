@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with Nuclino, perform the following steps:
 	> [!NOTE]
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Nuclino Client support team](mailto:contact@nuclino.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. Nuclino application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+6. Nuclino application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 

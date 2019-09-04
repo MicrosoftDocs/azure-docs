@@ -1,5 +1,5 @@
 ---
-title: Back up Azure File Shares
+title: Back up and restore Azure File Shares
 description: This article details how to back up and restore your Azure file shares, and explains management tasks.
 
 author: dcurwin
@@ -10,7 +10,7 @@ ms.service: backup
 manager: carmonm
 ---
 
-# Back up Azure file shares
+# Back up and restore Azure file shares
 This article explains how to use the Azure portal to back up and restore [Azure file shares](../storage/files/storage-files-introduction.md).
 
 In this guide, you learn how to:
@@ -28,7 +28,6 @@ Before you can back up an Azure file share, ensure that it's present in one of t
 ## Limitations for Azure file share backup during Preview
 Backup for Azure file shares is in Preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
 - Support for Backup of Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently limited to [these regions](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 - There is no CLI available for protecting Azure Files using Azure Backup.
 - Azure Backup currently supports configuring scheduled once-daily backups of Azure File Shares.
 - The maximum number of scheduled backups per day is one.
@@ -184,7 +183,7 @@ To resume protection for the file share, go to the Backup Item and click Resume 
 
 ### Delete Backup data
 
-You can delete the backup of a file share during the Stop backup job, or any time after you have stopped protection. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you can't choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
+You can delete the backup of a file share during the Stop backup job, or anytime after you have stopped protection. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you can't choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
 
 The following procedure assumes the Backup job for the virtual machine has been stopped. Once the Backup job is stopped, the Resume backup and Delete Backup Data options are available in the Backup item dashboard. Click Delete Backup Data and type the name of the File share to confirm deletion. Optionally, provide a Reason to delete or Comment.
 

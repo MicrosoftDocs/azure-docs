@@ -43,62 +43,38 @@ You must meet the following prerequisites before using Text Analytics containers
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Key Phrase Extraction | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Language Detection | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Sentiment Analysis 2.x | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Sentiment Analysis 3.x | 1 core, 2-GB memory | 4 core, 4-GB memory |15, 30|
+#### [Key Phrase Extraction](#tab/keyphrase)
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+#### [Language Detection](#tab/language)
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+#### [Sentiment Analysis](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+***
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-## Get the container image with `docker pull`
+#### [Key Phrase Extraction](#tab/keyphrase)
 
-Container images for Text Analytics are available from Microsoft Container Registry.
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-| Container | Repository |
-|-----------|------------|
-|Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Sentiment Analysis 2.x| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
-|Sentiment Analysis 3.x| `containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0` |
+#### [Language Detection](#tab/language)
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
+#### [Sentiment Analysis](#tab/sentiment)
 
-* [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654)
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
-
-### Docker pull for the Key phrase extraction container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### Docker pull for the language detection container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### Docker pull for the sentiment 2.x container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
-
-### Docker pull for the sentiment 3.x container
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0:latest
-```
+***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -107,7 +83,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
 1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
-1. Query the container's prediction endpoint for [v2](#query-the-containers-v2-prediction-endpoint) or [v3](#query-the-containers-v3-prediction-endpoint).
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
 
@@ -115,151 +91,30 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-### Run v2 container example of docker run command
+#### [Key Phrase Extraction](#tab/keyphrase)
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-This command:
+#### [Language Detection](#tab/language)
 
-* Runs a key phrase container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-### Run v3 container example of docker run command
+#### [Sentiment Analysis](#tab/sentiment)
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0 \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
-```
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
-This command:
-
-* Runs a key phrase container from the container image
-* Allocates 4 CPU cores and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
+***
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## Query the container's v2 prediction endpoint
+## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs.
 
-Use the host, `https://localhost:5000`, for container APIs.
-
-## Query the container's v3 prediction endpoint
-
-The container provides REST-based query prediction endpoint APIs.
-
-Use the host, `https://localhost:5000`, for container APIs.
-
-### V3 API request POST body
-
-The following JSON is an example of a V3 API request's POST body:
-
-```json
-{
-  "documents": [
-    {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
-    }
-  ]
-}
-```
-
-### V3 API response body
-
-The following JSON is an example of a V3 API request's POST body:
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
-                    },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
-                    },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
-```
+Use the host, `http://localhost:5000`, for container APIs.
 
 <!--  ## Validate container is running -->
 

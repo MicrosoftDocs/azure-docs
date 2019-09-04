@@ -62,6 +62,9 @@ Your notification hub is configured to work with FCM, and you have the connectio
 
 ### Create Visual Studio project and add NuGet packages
 
+> [!NOTE]
+> The steps documented in this tutorial are for Visual Studio 2017. 
+
 1. In Visual Studio, open the **File** menu, select **New**, and then select **Project**. In the **New Project** window, do these steps:
     1. Expand **Installed**, **Visual C#**, and then click **Android**.
     2. Select **Android App (Xamarin)** from the list.
@@ -76,12 +79,18 @@ Your notification hub is configured to work with FCM, and you have the connectio
 3. In the **Solution Explorer** window, expand **Properties**, and click **AndroidManifest.xml**. Update the package name to match the package name you entered when adding Firebase Cloud Messaging to your project in the Google Firebase Console.
 
     ![Package name in GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. Right-click your project, and select **Manage NuGet Packages...**.
-5. Select the **Browse** tab. Search for **Xamarin.GooglePlayServices.Base**. Select **Xamarin.GooglePlayServices.Base** in the result list. Then, select **Install**.
+4. Set the target Android version for the project to **Android 9.0 (pie)** by following these steps: 
+    1. Right-click your project, and select **Properties**. 
+    1. For the **Compile using Android version: (Target framework)** field, select **Android 9.0 (Pie)**. 
+    1. Select **Yes** on the message box to continue with changing the target framework.
+1. Add required NuGet packages to the project by following these steps:
+    1. Right-click your project, and select **Manage NuGet Packages...**.
+    1. Switch to the **Installed** tab, select **Xamarin.Android.Support.Design**, and select **Update** in the right pane to update the package to the latest version.
+    1. Switch to the **Browse** tab. Search for **Xamarin.GooglePlayServices.Base**. Select **Xamarin.GooglePlayServices.Base** in the result list. Then, select **Install**.
 
-    ![Google Play Services NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-6. In the **NuGet Package Manager** window, search for **Xamarin.Firebase.Messaging**. Select **Xamarin.Firebase.Messaging** in the result list. Then, select **Install**.
-7. Now, search for **Xamarin.Azure.NotificationHubs.Android**. Select **Xamarin.Azure.NotificationHubs.Android** in the result list. Then, select **Install**.
+        ![Google Play Services NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
+    6. In the **NuGet Package Manager** window, search for **Xamarin.Firebase.Messaging**. Select **Xamarin.Firebase.Messaging** in the result list. Then, select **Install**.
+    7. Now, search for **Xamarin.Azure.NotificationHubs.Android**. Select **Xamarin.Azure.NotificationHubs.Android** in the result list. Then, select **Install**.
 
 ### Add the Google Services JSON File
 

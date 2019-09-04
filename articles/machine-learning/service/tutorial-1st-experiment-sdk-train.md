@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train your first model."
+title: "Tutorial: Train your first ML model"
 titleSuffix: Azure Machine Learning service
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set.
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
+ms.date: 09/03/2019
 ---
 
-# Tutorial: Train your first model
+# Tutorial: Train your first ML model
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you learn the following tasks:
 
+> [!div class="checklist"]
 > * Connect your workspace and create an experiment
 > * Load data and train scikit-learn models
 > * View training results in the portal
@@ -25,14 +26,37 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-The only prerequisite is to run the previous tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+The only prerequisite is to run part one of this tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+
+In this part of the tutorial, you run the code in the sample Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` opened at the end of part one. This article walks through the same code that is in the notebook.
+
+## Launch Jupyter web interface
+
+1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
+
+1. Select **Jupyter** in the **URI** column for the VM you created in part one of this tutorial.
+
+    ![Start the Jupyter notebook server](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
+
+1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
+
+   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
+
+1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
 
 ## Connect workspace and create experiment
 
-Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. If you are running this notebook in a cloud notebook server in your workspace, the file is automatically in the root directory.
+> [!Important]
+> The rest of this article contains the same content as you see in the notebook.  
+>
+> Switch to the Jupyter notebook now if you want to read along as you run the code. 
+> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Cell > Run All** from the top menu.
+
+Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. In a cloud notebook server, the file is automatically in the root directory.
 
 If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token.
-
 
 ```python
 from azureml.core import Workspace
@@ -106,7 +130,7 @@ After the training has completed, call the `experiment` variable to fetch a link
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td><a href="" target="_blank" rel="noopener">Link to Azure Portal</a></td><td><a href="" target="_blank" rel="noopener">Link to Documentation</a></td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure Portal</td><td>Link to Documentation</td></tr></table>
 
 ## View training results in portal
 
@@ -176,7 +200,7 @@ If you used a cloud notebook server, stop the VM when you are not using it to re
 
 1. In your workspace, select **Notebook VMs**.
 
-   ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. From the list, select the VM.
 

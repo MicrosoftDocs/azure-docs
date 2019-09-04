@@ -1,6 +1,6 @@
 ---
-title: Persist files for Bash in Azure Cloud Shell | Microsoft Docs
-description: Walkthrough of how Bash in Azure Cloud Shell persists files.
+title: Persist files in Azure Cloud Shell | Microsoft Docs
+description: Walkthrough of how Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -27,10 +27,10 @@ Cloud Shell persists files through both of the following methods:
 > [!NOTE]
 > All files in your `$Home` directory, such as SSH keys, are persisted in your user disk image, which is stored in your mounted file share. Apply best practices when you persist information in your `$Home` directory and mounted file share.
 
-## Bash-specific commands
+## clouddrive commands
 
 ### Use the `clouddrive` command
-With Bash in Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that is mounted to Cloud Shell.
+In Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that is mounted to Cloud Shell.
 ![Running the "clouddrive" command](media/persisting-shell-storage/clouddrive-h.png)
 
 ### Mount a new clouddrive
@@ -38,7 +38,7 @@ With Bash in Cloud Shell, you can run a command called `clouddrive`, which enabl
 #### Prerequisites for manual mounting
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
 
-If you mount an existing file share, the storage accounts must be located in your select Cloud Shell region. Retrieve the location by running `env` from Bash and checking the `ACC_LOCATION`.
+If you mount an existing file share, the storage accounts must be located in your select Cloud Shell region. Retrieve the location by running `env` and checking the `ACC_LOCATION`.
 
 #### The `clouddrive mount` command
 
@@ -102,7 +102,6 @@ Note: If you need to define a function in a file and call it from the PowerShell
 For example: . .\MyFunctions.ps1
 
 ## Next steps
-[Bash in Cloud Shell Quickstart](quickstart.md) <br>
-[PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
+[Cloud Shell Quickstart](quickstart.md) <br>
 [Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

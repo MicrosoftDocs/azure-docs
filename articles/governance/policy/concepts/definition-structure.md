@@ -7,7 +7,6 @@ ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Azure Policy definition structure
 
@@ -66,11 +65,9 @@ For example, the following JSON shows a policy that limits where resources are d
 
 All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Mode
 
-**Mode** is configured depending if the policy is targeting an Azure Resource Manager property or a
+**Mode** is configured depending on if the policy is targeting an Azure Resource Manager property or a
 Resource Provider property.
 
 ### Resource Manager modes

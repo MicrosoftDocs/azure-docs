@@ -6,7 +6,6 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 08/18/2019
 ms.author: azfuncdf
@@ -34,7 +33,7 @@ The following are some examples of APIs that should be avoided because they are 
 | Dates/times  | APIs that return the _current_ date and/or time are non-deterministic because they returned value will be different for every replay. | Use the [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) or `currentUtcDateTime` (JavaScript) API, which are safe for replay. |
 | GUIDs/UUIDs  | APIs that return a _random_ GUID/UUID are non-deterministic because the generated value will be different for every replay. | Use the [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET) or `newGuid` (JavaScript) to safely generate random GUIDs. |
 | Random numbers | APIs that return random numbers are non-deterministic because the generated value will be different for every replay. | Use an activity function to return random numbers to an orchestration. The return values of activity functions are always safe for replay. |
-| Bindings | Input and output bindings typically do I/O and are non-deterministic. | Use input and output bindings inside client or activity functions. |
+| Bindings | Input and output bindings typically do I/O and are non-deterministic. This includes the [orchestration client](durable-functions-bindings.md#orchestration-client) and [entity client](durable-functions-bindings.md#entity-client) bindings. | Use input and output bindings inside client or activity functions. |
 | Network | Network calls involve external systems and are therefore non-deterministic. | Use activity functions to make network calls on behalf of your orchestration. |
 | Blocking APIs | Blocking APIs such as `Thread.Sleep` (.NET) or other similar APIs can cause performance and scalability problems for orchestrator functions and should be avoided.  | Use alternatives to blocking APIs when available, such as `CreateTimer` to introduce delays in orchestration execution. |
 | Async APIs | Orchestrator code must **never initiate any async operation** except by using the [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API or `context.df` object's API. For example, no `Task.Run`, `Task.Delay` or `HttpClient.SendAsync` in .NET, or `setTimeout()` and `setInterval()` in JavaScript. The Durable Task Framework executes orchestrator code on a single thread and cannot interact with any other threads that could be scheduled by other async APIs. | Only *durable* async calls should be made by an orchestrator function. Any other async API calls should be done from activity functions. |
