@@ -13,7 +13,7 @@ services: event-grid
 
 # Configuration
 
-Event Grid provides allows configuration that can be modified per environment. The below section provides a reference to all the available ones with their defaults.
+Event Grid provides many configurations that can be modified per environment. The below section is a reference to all the available options along with their defaults.
 
 ## TLS Configuration
 

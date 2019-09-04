@@ -64,7 +64,7 @@
   items:
   - name: REST API
     href: api.md
-  - name: Configuration
+  - name: Event Grid Configuration
     href: eg-config.md
   - name: Module Twin Configuration Schema
     href: twin-json.md

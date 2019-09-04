@@ -46,7 +46,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: msint.azurecr.io/azure-event-grid/iotedge-samplesubscriber-azfunc:latest
    * **Container Create Options**:
 
-         ```json
+       ```json
             {
               "HostConfig": {
                 "PortBindings": {
@@ -58,7 +58,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
                 }
               }
             }
-         ```
+       ```
 
 1. Click **Save**
 1. Click **Next** to continue to the routes section
