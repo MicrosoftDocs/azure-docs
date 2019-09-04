@@ -22,7 +22,7 @@ See the [list for VMware](https://docs.microsoft.com/azure/migrate/migrate-suppo
 
 Azure Migrate provides a centralized hub to start your migration, execute and track discovery and assessment of machines and workloads, and execute and track the migration of machines and workloads to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) is a disaster recovery solution. Azure Migrate Server Migration uses Azure Site Recovery on the backend to enable migration scenarios for lift-and-shift migration of on-premises machines.
 
-## Azure Migrate appliance (VMware/physical servers)
+## Azure Migrate appliance
 
 ### How does the Azure Migrate appliance connect to Azure?
 
@@ -82,6 +82,9 @@ For Hyper-V, discovery uses Hyper-V host credentials. If VMs share the same Hype
 ### How many VMs can I discover with a single migration appliance?
 
 You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a single migration appliance. If you have more machines in your on-premises environment, learn how to scale [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
+
+### Can I delete the Azure Migrate appliance from the project?
+Currently deletion of appliance from the project is not supported. The only way to delete the appliance is to delete the resource group which has the Azure Migrate project, associated with the appliance but that will also delete other registered appliances, the discovered inventory, assessments and all other Azure artifacts associated with the project in the resource group.
 
 ## Azure Migrate Server Assessment
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -209,6 +209,7 @@ To copy data from OData, set the **type** property of the dataset to **ODataReso
     "properties":
     {
         "type": "ODataResource",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OData linked service name>",
             "type": "LinkedServiceReference"
@@ -229,11 +230,11 @@ For a full list of sections and properties that are available for defining activ
 
 ### OData as source
 
-To copy data from OData, set the **source** type in Copy Activity to **RelationalSource**. The following properties are supported in the Copy Activity **source** section:
+To copy data from OData, the following properties are supported in the Copy Activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the Copy Activity source must be set to **RelationalSource**. | Yes |
+| type | The **type** property of the Copy Activity source must be set to **ODataSource**. | Yes |
 | query | OData query options for filtering data. Example: `"$select=Name,Description&$top=5"`.<br/><br/>**Note**: The OData connector copies data from the combined URL: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Example**
@@ -257,7 +258,7 @@ To copy data from OData, set the **source** type in Copy Activity to **Relationa
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "ODataSource",
                 "query": "$select=Name,Description&$top=5"
             },
             "sink": {
@@ -267,6 +268,8 @@ To copy data from OData, set the **source** type in Copy Activity to **Relationa
     }
 ]
 ```
+
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Data type mapping for OData
 
