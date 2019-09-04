@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
 
 ---
@@ -44,7 +44,7 @@ If you need to specify whether a resource is deployed at all, see [condition ele
 
 To specify the number of iterations, you provide a value for the count property. The count can't exceed 800.
 
-The count can't be a negative number. If you deploy a template with REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of the REST API don't support zero for count. Currently, Azure CLI or PowerShell don't support zero for count, but that support will be added in a future release.
+The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell and the REST API don't support zero for count. Currently, Azure CLI doesn't support zero for count, but that support will be added in a future release.
 
 Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
 
