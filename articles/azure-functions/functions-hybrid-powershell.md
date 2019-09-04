@@ -20,7 +20,7 @@ The Azure App Service Hybrid Connections enables access to resources in other ne
 
 ## Configure an on-premises server to be used for PowerShell remoting
 
-The below script enables PowerShell remoting, creates a new firewall rule and a WinRM https listener. For testing purposes, a self-signed cert is used although a signed cert can also be used.
+The below script enables PowerShell remoting, creates a new firewall rule, and a WinRM https listener. For testing purposes, a self-signed cert is used. It is recommended to use a signed certificate for production.
 
 ```powershell
 # For configuration of WinRM, please see
@@ -40,11 +40,11 @@ New-NetFirewallRule -Name "WinRM HTTPS" `
                     -Protocol "TCP"
 
 # Create new self-signed-certificate to be used by WinRM
-$thumbprint = (New-SelfSignedCertificate -DnsName $env:COMPUTERNAME  -CertStoreLocation Cert:\LocalMachine\My).Thumbprint
+$Thumbprint = (New-SelfSignedCertificate -DnsName $env:COMPUTERNAME  -CertStoreLocation Cert:\LocalMachine\My).Thumbprint
 
 # Create WinRM HTTPS listener
-$cmd = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=""$env:COMPUTERNAME ""; CertificateThumbprint=""$thumbprint""}"
-cmd.exe /C $cmd
+$Cmd = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=""$env:COMPUTERNAME ""; CertificateThumbprint=""$Thumbprint""}"
+cmd.exe /C $Cmd
 ```
 
 ## Create a PowerShell function app in the portal
@@ -113,11 +113,11 @@ Click OK to create the hybrid connection
 1. Select the Download connection manager icon to save the .msi file locally on your computer.
 ![Download installer](./media/functions-hybrid-powershell/download-hybrid-connection-installer.png)  
 1. Copy the .msi from your local computer to the on-premises server.
-1. Run the hybrid connection installer to install the service on the server.
+1. Run the hybrid connection installer to install the service on the on-premises server.
 ![Install Hybrid Connection](./media/functions-hybrid-powershell/hybrid-installation.png)  
 1. From the portal, open the hybrid connection and copy the gateway connection string to the clipboard.
 ![Copy hybrid connection string](./media/functions-hybrid-powershell/copy-hybrid-connection.png)  
-1. Open the Hybrid Connection Manager UI on the server.
+1. Open the Hybrid Connection Manager UI on the on-premises server.
 ![Open Hybrid Connection UI](./media/functions-hybrid-powershell/hybrid-connection-ui.png)  
 1. Select the "Enter Manually" button and paste the connection string from the clipboard.
 ![Paste connection](./media/functions-hybrid-powershell/enter-manual-connection.png)  
@@ -125,6 +125,7 @@ Click OK to create the hybrid connection
 ```powershell
 Restart-Service HybridConnectionManager
 ```
+
 ## Create an app setting for the password of an account that is an administrator on the on-premises server
 
 1. Select the Platform tab from the function application
@@ -179,7 +180,7 @@ Click Save and run to test the function
 
 ## Managing other systems on-premises from the hybrid connection server
 
-You can use the hybrid connection server to connect to other servers and management systems in the local environment. This enables management of your data center operations from Azure Functions using PowerShell. The below script registers a PowerShell configuration session that runs under supplied credentials.  You can then use this configuration to access other endpoints in the local data center.
+You can use the hybrid connection server to connect to other servers and management systems in the local environment. This enables management of your data center operations from Azure Functions using PowerShell. The below script registers a PowerShell configuration session that runs under supplied credentials. These credentials need to be an administrator on the remote servers. You can then use this configuration to access other endpoints in the local data center.
 
 ```powershell
 # Input bindings are passed in via param block.
@@ -190,7 +191,7 @@ Write-Host "PowerShell HTTP trigger function processed a request."
 
 # Note that ContosoUserPassword is a function app setting, so I can access it as $env:ContosoUserPassword
 $UserName = "ContosoUser"
-$securedPassword = ConvertTo-SecureString  $Env:ContosoUserPassword -AsPlainText -Force
+$SecuredPassword = ConvertTo-SecureString  $Env:ContosoUserPassword -AsPlainText -Force
 $Credential = [System.management.automation.pscredential]::new($UserName, $SecuredPassword)
 
 # This is the name of the hybrid connection Endpoint.
