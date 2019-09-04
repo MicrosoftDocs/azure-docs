@@ -27,7 +27,7 @@ For a full list of sections and properties available for defining datasets, see 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **Avro**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
-| avroCompressionCodec | The compression codec to use when writing to Avro files. When reading from Avro files, Data Factory automatically determine the compression codec based on the file metadata.<br>Supported types are "**none**" (default), "**defalte**", "**snappy**". | No       |
+| avroCompressionCodec | The compression codec to use when writing to Avro files. When reading from Avro files, Data Factory automatically determine the compression codec based on the file metadata.<br>Supported types are "**none**" (default), "**deflate**", "**snappy**". | No       |
 
 > [!NOTE]
 > White space in column name is not supported for Avro files.
