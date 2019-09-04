@@ -86,6 +86,8 @@
       href: resource-manager-tools-vs-code.md
     - name: Write template expressions
       href: template-expressions.md
+    - name: Parameters
+      href: template-parameters.md
     - name: Resources
       items:
       - name: Child resource name and type

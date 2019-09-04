@@ -109,7 +109,7 @@ Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next si
 >
 > ingress rate = 40 MiB/s + 0.04 * provisioned GiB
 
-Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase, you can decrease the share size as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+Provisioned share size is specified by share quota. Share quota can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
 
 It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
 
