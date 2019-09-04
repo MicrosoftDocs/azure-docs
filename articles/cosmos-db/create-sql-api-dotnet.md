@@ -408,7 +408,7 @@ private async Task DeleteDatabaseAndCleanupAsync()
    DatabaseResponse databaseResourceResponse = await this.database.DeleteAsync();
    // Also valid: await this.cosmosClient.Databases["FamilyDatabase"].DeleteAsync();
 
-   Console.WriteLine("Deleted Database: {0}\n", this.databaseId);
+   Console.WriteLine("Deleted Database: {0}\n", this.database.Id);
 
    //Dispose of CosmosClient
     this.cosmosClient.Dispose();
