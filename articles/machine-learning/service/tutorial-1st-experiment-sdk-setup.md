@@ -59,6 +59,7 @@ From your workspace, you create a cloud resource to get started using Jupyter no
 
    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
 
+
 ## Next steps
 
 In this tutorial, you completed these tasks:
