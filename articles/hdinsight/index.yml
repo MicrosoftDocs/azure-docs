@@ -28,22 +28,30 @@ landingContent:
             url: ./hdinsight-overview.md
           - text: HDInsight components and versions
             url: ./hdinsight-component-versioning.md
+          - text: HDInsight supported node configurations
+            url: ./hdinsight-supported-node-configuration.md
+          - text: Apache Spark overview
+            url: ./spark/apache-spark-overview.md
+          - text: Apache Hadoop overview
+            url: ./hadoop/apache-hadoop-introduction.md
+          - text: Apache Kafka overview
+            url: ./kafka/apache-kafka-introduction.md
+          - text: Interactive Query overview
+            url: ./interactive-query/apache-interactive-query-get-started.md
+          - text: Apache HBase overview
+            url: ./hbase/apache-hbase-overview.md
+          - text: Apache Storm overview
+            url: ./storm/apache-storm-overview.md
+          - text: ML Services overview
+            url: ./r-server/r-server-overview.md
       - linkListType: quickstart
         links:
           - text: Create HDInsight clusters in the portal
             url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
           - text: Setup HDInsight clusters
             url: ./hdinsight-hadoop-provision-linux-clusters.md
-          - text: Create Spark cluster using template
-            url: ./spark/apache-spark-jupyter-spark-sql.md
           - text: Create clusters with Data Lake Store Gen2
             url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
-      - linkListType: concept
-        links:
-          - text: Query HDFS compatible storage
-            url: ./hadoop/hdinsight-hadoop-use-blob-storage.md
-          - text: Compare storage options
-            url: ./hdinsight-hadoop-compare-storage-options.md
 
   # Card
   - title: Apache Spark
@@ -64,45 +72,56 @@ landingContent:
             url: ./hdinsight-using-spark-query-hbase.md
           - text: Analyze Spark data with Power BI
             url: ./spark/apache-spark-use-bi-tools.md
-
-  # Card
-  - title: Stream data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Introduction to Apache Kafka
-            url: ./kafka/apache-kafka-introduction.md
-          - text: Apache HBase overview
-            url: ./hbase/apache-hbase-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Use Kafka producer and consumper APIs
-            url: ./kafka/apache-kafka-producer-consumer-api.md
-          - text: Apache Spark structured streaming with Apache Kafka
-            url: ./hdinsight-apache-kafka-spark-structured-streaming.md
-          - text: Get started with Apache HBase
-            url: ./hbase/apache-hbase-tutorial-get-started-linux.md
-
-  # Card
-  - title: ETL and Interactive querying
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: ETL at scale
-            url: ./hadoop/apache-hadoop-etl-at-scale.md
-      - linkListType: tutorial
-        links:
-          - text: Analyze flight data
-            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
-          - text: Use Hive Warehouse connector
-            url: ./interactive-query/apache-hive-warehouse-connector.md
           - text: Create Scala Maven application
             url: ./spark/apache-spark-create-standalone-application.md
           - text: Load data and run Apache Spark queries
             url: ./spark/apache-spark-load-data-run-query.md
 
   # Card
-  - title: Extend on-prem to the cloud
+  - title: Apache Kafka
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to Apache Kafka
+            url: ./kafka/apache-kafka-introduction.md
+          - text: Optimize Kafka performance
+            url: ./kafka/apache-kafka-performance-tuning.md
+          - text: Kafka scalability
+            url: ./kafka/apache-kafka-scalability.md
+          - text: Kafka high availability
+            url: ./kafka/apache-kafka-high-availability.md
+      - linkListType: tutorial
+        links:
+          - text: Use Kafka producer and consumper APIs
+            url: ./kafka/apache-kafka-producer-consumer-api.md
+          - text: Apache Spark structured streaming with Apache Kafka
+            url: ./hdinsight-apache-kafka-spark-structured-streaming.md
+          - text: Mirroring for disaster recovery
+            url: ./kafka/apache-kafka-mirroring.md
+          - text: Setup SSL encryption for Kafka
+            url: ./kafka/apache-kafka-ssl-encryption-authentication.md
+
+  # Card
+  - title: Interactive query
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: ETL at scale
+            url: ./hadoop/apache-hadoop-etl-at-scale.md
+          - text: Optimize Hive queries
+            url: ./hdinsight-hadoop-optimize-hive-query.md
+      - linkListType: tutorial
+        links:
+          - text: Analyze flight data
+            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+          - text: Use Hive Warehouse connector
+            url: ./interactive-query/apache-hive-warehouse-connector.md
+          - text: Use DirectQuery with Power BI
+            url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+
+
+  # Card
+  - title: Enterprise readiness
     linkLists:
       - linkListType: concept
         links:
