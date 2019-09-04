@@ -66,7 +66,7 @@ The following example steps will create an alert for a disconnection event that 
 
    ![Selections for a custom log search](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Select")
 
-10. Enter the following query in the **Search query** text box. Replace the values in <> & TimeGenerated as appropriate.
+10. Enter the following query in the **Search query** text box. Replace the values in <> and TimeGenerated as appropriate.
 
     ```
     AzureDiagnostics
