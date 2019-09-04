@@ -37,7 +37,7 @@
       - name: Policy settings
         href: ./afds/waf-front-door-policy-settings.md
       - name: FAQ
-        href: waf-faq.md
+        href: ./afds/waf-faq.md
 - name: How-to guides
   items:
   - name: Application Gateway

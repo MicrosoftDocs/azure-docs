@@ -63,5 +63,5 @@ Globally distributed at Azure network edges, Azure Front Door can absorb and geo
 
 ## Next steps
 
-- Learn about [Azure web application firewall](waf-overview.md).
-- Learn more about [Azure Front Door](front-door-overview.md).
+- Learn about [Azure Web Application Firewall](../overview.md).
+- Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).
