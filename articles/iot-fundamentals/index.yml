@@ -1,42 +1,17 @@
 ### YamlMime:Hub
 
-title: Azure Internet of Things Documentation
+title: Azure IoT Documentation
 summary: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets.
 brand: azure
 
 metadata:
-  title: Azure Internet of Things Documentation
+  title: Azure IoT Documentation
   description: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets.
   ms.service: iot-fundamentals
   ms.topic: hub-page
   author: philmea
   ms.author: philmea
-  ms.date: 09/01/2019
-
-tools:
-  title: Microsoft Azure IoT SDKs
-  summary: Reference documentation for Microsoft Azure IoT SDKs
-  items:
-    # Card
-    - title: Azure IoT SDK for C reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
-      url: https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/
-    # Card
-    - title: Azure IoT SDK for Python (Preview)
-      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-      url: https://github.com/Azure/azure-iot-sdk-python
-    # Card
-    - title: Azure IoT SDK for Node.js reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-      url: https://docs.microsoft.com/en-us/javascript/api/overview/azure/iot-hub?view=azure-node-latest
-    # Card
-    - title: Azure IoT SDK for Java reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-      url: https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
-    # Card
-    - title: Azure IoT SDK for .NET reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
-      url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/iot?view=azure-dotnet
+  ms.date: 09/04/2019
 
 highlightedContent:
   items:
@@ -45,13 +20,26 @@ highlightedContent:
       itemType: overview
       url: ../iot-fundamentals/iot-introduction.md
     # Card
-    - title: Azure IoT reference architecture
+    - title: Install VS Code tools for Azure IoT
+      itemType: download
+      url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+    # Card
+    - title: Browse Azure IoT code samples
       itemType: overview
+      url: https://docs.microsoft.com/en-us/samples/browse/?term=iot
+    # Card
+    - title: Secure your Azure IoT deployment
+      itemType: concept
+      url: ../iot-fundamentals/security-recommendations.md
+    # Card
+    - title: Azure IoT reference architecture
+      itemType: architecture
       url: https://docs.microsoft.com/azure/architecture/reference-architectures/iot/
     # Card
-    - title: Internet of Things (IoT) security architecture
-      itemType: overview
-      url: ../iot-fundamentals/iot-security-architecture.md
+    - title: Azure IoT on Microsoft Learn
+      itemType: learn
+      url: https://docs.microsoft.com/en-us/learn/browse/?products=azure&term=iot
+
 
 
 # conceptualContent section
@@ -186,24 +174,28 @@ conceptualContent:
       footerLink:
         url: ../azure-maps/index.yml
         text: See more
-      
-# additionalContent section
-# Card with summary style
-additionalContent:
-  # Supports up to 3 sections
-  sections:
-    - title: Tools and resources # < 60 chars
-      summary: Developer tools and resources # < 160 chars
-      items:
-        # Card
-        - title: VS Code tools for Azure IoT
-          summary: Azure IoT extensions for Visual Studio Code
-          url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
-        # Card
-        - title: Samples
-          summary: Search for code samples for Azure IoT
-          url: https://docs.microsoft.com/en-us/samples/browse/
-        # Card
-        - title: Device catalog
-          summary: Find your Microsoft Azure certified IoT device
-          url: https://catalog.azureiotsolutions.com/
+
+tools:
+  title: Azure IoT SDKs
+  summary: Reference documentation for Azure IoT SDKs
+  items:
+    # Card
+    - title: Azure IoT SDK for C reference
+      imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
+      url: https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/
+    # Card
+    - title: Azure IoT SDK for Python (Preview)
+      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+      url: https://github.com/Azure/azure-iot-sdk-python
+    # Card
+    - title: Azure IoT SDK for Node.js reference
+      imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+      url: https://docs.microsoft.com/en-us/javascript/api/overview/azure/iot-hub?view=azure-node-latest
+    # Card
+    - title: Azure IoT SDK for Java reference
+      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+      url: https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+    # Card
+    - title: Azure IoT SDK for .NET reference
+      imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+      url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/iot?view=azure-dotnet
