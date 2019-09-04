@@ -217,9 +217,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. You can configure ServiceNow automatically or manually. To configure ServiceNow automatically, follow these steps:
 
-	1. Return to the **ServiceNow** Single-Sign on page in the Azure portal.
+	1. Return to the **ServiceNow** single sign-on page in the Azure portal.
 
-	1. One-click configure service is provided for ServiceNow. To enable this service, go to the **ServiceNow Configuration** section, and select **Configure ServiceNow** to open the Configure sign-on window.
+	1. One-click configure service is provided for ServiceNow. To enable this service, go to the **ServiceNow Configuration** section, and select **Configure ServiceNow** to open the **Configure sign-on** window.
 
 		![Screenshot of Set up ServiceNow, with View step-by-step instructions highlighted](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
@@ -431,7 +431,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 1. Open your **ServiceNow Classic (Mobile)** application, and perform the following steps:
 
-	a. Select the plus sign in the lower right corner.
+	a. Select the plus sign in the lower-right corner.
 
 	![Screenshot of ServiceNow Classic application, with plus sign highlighted](./media/servicenow-tutorial/test03.png)
 
@@ -445,7 +445,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 	*  Enter **Username**, like B.simon@contoso.com.
 
-	*  Select **USE EXTERNAL LOGIN**. You're redirected to the Azure AD page for sign in.
+	*  Select **USE EXTERNAL LOGIN**. You're redirected to the Azure AD page for sign-in.
     
 	*  Enter your credentials. If there is any third-party authentication, or any other security feature enabled, the user must respond accordingly. The application **Home page** appears.
 
