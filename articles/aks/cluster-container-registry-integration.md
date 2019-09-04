@@ -46,7 +46,7 @@ You can set up AKS and ACR integration during the initial creation of your AKS c
 ```azurecli
 az login
 az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr myContainerRegistry [--acr <acr-name-or-resource-id>]
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
 **An ACR resource id has the following format: 
 
@@ -59,14 +59,14 @@ This step may take several minutes to complete.
 Integrate ACR with existing ACR clusters by supplying valid values for **acr-name** and **acr-resource-id** below.
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --attach-acr --acr <acrName>
-az aks update -n myAKSCluster -g myResourceGroup --attach-acr --acr <acr-resource-id>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
 You can also remove the integration between an ACR and an AKS cluster with the following
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --detach-acr --acr <acrName>
-az aks update -n myAKSCluster -g myResourceGroup --detach-acr --acr <acr-resource-id>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
 
