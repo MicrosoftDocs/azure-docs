@@ -40,10 +40,11 @@ landingContent:
           - text: Create a predictive solution
             url: tutorial-part1-credit-risk.md                     
 
-# REFERENCE
+  # REFERENCE
   - title: References
     linkLists:
       - linkListType: reference
+        links:
           - text: Command-Line PowerShell modules
             url: powershell-module
           - text: Algorithm & Module reference
@@ -53,7 +54,7 @@ landingContent:
           - text: Web service error codes
             url: web-service-error-codes.md
 
-# MORE
+  # MORE
   - title: More Azure Machine Learning technologies
     linkLists:
       - linkListType: reference
