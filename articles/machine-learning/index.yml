@@ -30,32 +30,54 @@ landingContent:
           - text: Architecture and concepts
             url: service/concept-azure-machine-learning-architecture.md
             
-  # PYTHON
-  - title: Code with Python
+  # GET STARTED
+  - title: Get started with Azure ML
     linkLists:
       - linkListType: get-started
+        links:
+          - text: First ML experiment with Jupyter notebook
+            url: service/tutorial-1st-experiment-sdk-setup.md
+          - text: First ML experiment in visual interface 
+            url: service/ui-tutorial-automobile-price-train-score.md
+          - text: First automated ML experiment
+            url: service/tutorial-first-experiment-automated-ml.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up development environments
+            url: service/how-to-configure-environment.md
+          - text: Set up training compute targets
+            url: service/how-to-set-up-training-targets.md
+            
+  # PYTHON
+  - title: Train with Python
+    linkLists:
+      - linkListType: tutorial
         links:
           - text: Create your first ML experiment
             url: service/tutorial-1st-experiment-sdk-setup.md
-      - linkListType: tutorial
-        links:
           - text: Train image classification models
             url: service/tutorial-train-models-with-aml.md                     
           - text: Predict taxi fares with automated ML
-            url: service/tutorial-auto-train-models.md  
+            url: service/tutorial-auto-train-models.md   
       - linkListType: how-to-guide
         links:
-          - text: Train image classification models
-            url: service/tutorial-train-models-with-aml.md     
+          - text: Train with Scikit-learn
+            url: service/how-to-train-scikit-learn.md
+          - text: Train with TensorFlow
+            url: service/how-to-train-tensorflow.md
+          - text: Train with PyTorch
+            url: service/how-to-train-pytorch.md
+          - text: Train with Keras
+            url: service/how-to-train-keras.md
 
   # VISUAL INTERFACE
-  - title: Use the visual interface for ML
+  - title: Use visual interface for ML
     linkLists:
       - linkListType: get-started
         links:
-          - text: Train your first automated ML experiment
+          - text: Your first automated ML experiment
             url: service/tutorial-first-experiment-automated-ml.md
-          - text: Train your first visual interface experiment
+          - text: Your first visual interface experiment
             url: service/ui-tutorial-automobile-price-train-score.md
       - linkListType: how-to-guide
         links:
