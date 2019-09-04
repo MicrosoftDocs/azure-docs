@@ -65,7 +65,7 @@ For the sample in this quickstart, you need the connection string for your provi
 
 1. Sign in to the Azure portal, select **All resources** on the left-hand menu and open your Device Provisioning Service.
 
-1. Select **Shared access policies**, then choose the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string.
+1. Select **Shared access policies**, then choose the access policy you want to use to open its properties. In **Access Policy**, copy and note down the primary key connection string.
 
     ![Get provisioning service connection string from the portal](media/quick-enroll-device-x509-csharp/get-service-connection-string-vs2019.png)
 
@@ -73,7 +73,7 @@ For the sample in this quickstart, you need the connection string for your provi
 
 The steps in this section show how to create a .NET Core console app that adds an enrollment group to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the enrollment group. To learn more about developing with IoT Core, see the [Windows IoT Core developer documentation](https://docs.microsoft.com/windows/iot-core/).
 
-1. Open Visual Studio and select **Create a new project**. In **Create a new project**, choose the **Console App (.NET Core)** project template and select **Next**.
+1. Open Visual Studio and select **Create a new project**. In **Create a new project**, choose the **Console App (.NET Core)** for C# project template and select **Next**.
 
 1. Name the project **CreateEnrollmentGroup**, and select **Create**.
 
