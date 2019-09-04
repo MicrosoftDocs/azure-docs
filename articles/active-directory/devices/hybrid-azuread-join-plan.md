@@ -32,7 +32,7 @@ If you have an on-premises Active Directory (AD) environment and you want to joi
 This article assumes that you are familiar with the [Introduction to device identity management in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
+> The minimum required domain controller version for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
 
 ## Plan your implementation
 
@@ -61,10 +61,10 @@ For devices running the Windows desktop operating system, supported version are 
 ### Windows down-level devices
 
 - Windows 8.1
-- Windows 7. For support information on Windows 7, please review this article [Support for Windows 7 is ending](https://www.microsoft.com/windowsforbusiness/end-of-windows-7-support)
+- Windows 7. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2. For support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 As a first planning step, you should review your environment and determine whether you need to support Windows down-level devices.
 
@@ -74,7 +74,7 @@ Hybrid Azure AD join is currently not supported if your environment consists of 
 
 Hybrid Azure AD join is currently not supported when using virtual desktop infrastructure (VDI).
 
-Hybrid Azure AD join is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
+Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2 . If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
