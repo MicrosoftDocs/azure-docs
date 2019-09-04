@@ -38,7 +38,7 @@ When used with a variable or property, the copy object has the following format:
 
 Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
-If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
+If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
 ## Copy limits
 

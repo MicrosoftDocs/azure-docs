@@ -12,13 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW) via Open Hub. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP Data Integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
 
 ## Supported capabilities
 
@@ -173,7 +176,7 @@ For a full list of sections and properties available for defining activities, se
 
 To copy data from SAP BW Open Hub, set the source type in the copy activity to **SapOpenHubSource**. There are no additional type-specific properties needed in the copy activity **source** section.
 
-To speed up the data loading, you can set [`parallelCopies`](copy-activity-performance.md#parallel-copy) on the copy activity to load data from SAP BW Open Hub in parallel. For example, if you set `parallelCopies` to four, Data Factory concurrently executes four RFC calls, and each RFC call retrieves a portion of data from your SAP BW Open Hub table partitioned by the DTP request ID and package ID. This applies when the number of unique DTP request ID + package ID is bigger than the value of `parallelCopies`.
+To speed up the data loading, you can set [`parallelCopies`](copy-activity-performance.md#parallel-copy) on the copy activity to load data from SAP BW Open Hub in parallel. For example, if you set `parallelCopies` to four, Data Factory concurrently executes four RFC calls, and each RFC call retrieves a portion of data from your SAP BW Open Hub table partitioned by the DTP request ID and package ID. This applies when the number of unique DTP request ID + package ID is bigger than the value of `parallelCopies`. When copying data into file-based data store, it's also recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 **Example:**
 

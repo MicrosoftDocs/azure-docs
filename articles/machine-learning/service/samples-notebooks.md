@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks
 titleSuffix: Azure Machine Learning service
-description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service Python SDK. 
+description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -64,4 +64,4 @@ Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Az
 
 - [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
 
-- [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-data-prep.md)
+- [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-auto-train-models.md)

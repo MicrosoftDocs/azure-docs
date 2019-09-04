@@ -91,6 +91,9 @@ The default Alerts page provides a summary of alerts that are created within a p
 
 Alternatively, you can [programmatically enumerate the alert instances generated on your subscription(s) by using REST APIs](#manage-your-alert-instances-programmatically).
 
+> [!NOTE]
+   >  Only alerts generated in the last 30 days can be accessed on the UX or through the REST APIs.
+
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
 
 ![Alerts page](media/alerts-overview/alerts-page.png)
