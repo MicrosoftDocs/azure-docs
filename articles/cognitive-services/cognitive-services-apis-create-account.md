@@ -14,35 +14,81 @@ ms.author: aahi
 
 # Create a Cognitive Services resource using the Azure portal
 
-Use this quickstart to create an Azure Cognitive Services resource using the Azure portal. After you have successfully created a Cognitive Services resource, you will obtain an endpoint and a key that you can use to authenticate your applications.
+Use this quickstart to start using Azure Cognitive Services. After creating a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
+
+
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
 ## Create a new Azure Cognitive Services resource
 
-When you create a new Cognitive Services resource, you have the option to either create a new resource group to contain it, or use an existing one. This article shows how to create a new resource group.
+You can create a Cognitive Services resource in two ways - using a multi-service resource or a single-service resource.
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. Find the Cognitive Services resource you want to create in two ways: by searching for it, or viewing all available resource types. 
 
-    #### [Using search](#tab/multiservice)
+2. Create a resource
 
-    * To create a multi-service resource, enter **Cognitive Services** in the search bar.
-    * To create a single-service resource, search for the service name you want to use. For example **Computer Vision**.
+    #### [Multi-service resource](#tab/multiservice)
+
+    >[!WARNING]
+    > At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
+    
+    Creating a multi-service Cognitive Services resource:
+    * Lets you use a single Azure resource for most Azure Cognitive Services.
+    * You obtain a single key that can be used with multiple Azure Cognitive Services.
+    * Consolidates billing from the services you use. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for additional information.
+    
+    
+    To create a multi-service resource, [click here](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) or search for the resource name **Cognitive Services** in the portal by entering it in the search bar. Then select **Create**.
+
     ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
-    On the page for your resource (for example, the Cognitive Services one), select **Create**.
+    <!--On the resource page, select **Create**. 
 
-    ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
+     ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png) -->
 
-    #### [viewing all available types](#tab/singleservice)
+    #### [Single-service resource](#tab/singleservice)
+
+    Subscribing to a single-service Cognitive Services resource:
+    * Lets you use a specified cognitive service.
+    * You obtain a key that is specific to the cognitive service you create a resource for.
+    
+    Use the below links to create a resource for the available Cognitive Services:
+
+    * Vision
+        * [Computer vision]()
+        * [Computer vision service]()
+        * [Face]()
+        * [Form Recognizer]()
+        * [Ink Recognizer]()
+        * [Video Indexer]()
+    
+    * Speech
+        * [Speech Services]()
+        * [Speaker Recognition]()
+        * [Video Indexer]()
+    
+    * Language
+        * [Immersive reader]()
+        * [Language Understanding (LUIS)]()
+        * [QnA Maker]()
+        * [Text Analytics]()
+        * [Translator Text]()
+    
+    * Decision
+        * [Anomaly Detector]()
+        * [Immersive reader]()
+        * [Personalizer]()
+    * Search
+        * [Bing Search API V7]()
+        * [Bing Custom Search]()
 
     To see all available cognitive services, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
 
@@ -94,13 +140,6 @@ From the quickstart pane that opens, you can access your endpoint and key.
 ![Get key and endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
-
-## Pricing tiers and billing
-
-Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
-* maximum number of allowed transactions per second (TPS).
-* service features enabled within the pricing tier.
-* The cost for a predefined number of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
 ## Clean up resources
 
