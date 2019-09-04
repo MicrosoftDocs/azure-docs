@@ -20,28 +20,23 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # OVERVIEW CARD
-  - title: About Machine Learning Studio
+
+  # GET STARTED CARD
+  - title: Get started with Studio
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
           - text: What is Studio?
             url: what-is-ml-studio.md
           - text: Compare our ML products
             url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-
-  # GET STARTED CARD
-  - title: Get started with Studio
-    linkLists:
-      - linkListType: tutorial
-        links:
           - text: Create your first ML experiment
             url: create-experiment.md
           - text: Create a predictive solution
             url: tutorial-part1-credit-risk.md                     
 
   # REFERENCE
-  - title: References
+  - title: Explore reference content
     linkLists:
       - linkListType: reference
         links:
@@ -55,7 +50,7 @@ landingContent:
             url: web-service-error-codes.md
 
   # MORE
-  - title: More Azure Machine Learning technologies
+  - title: Other Azure ML technologies
     linkLists:
       - linkListType: reference
         links:
