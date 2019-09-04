@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ---
 # Copy a transactionally consistent copy of an Azure SQL database
 
