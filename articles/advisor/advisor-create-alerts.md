@@ -148,6 +148,7 @@ NOTE: Advisor alerts are currently only available for High Availability, Perform
 }
 </pre>
 
+
 # Configure recommendation alerts to use a webhook
 This article shows you how to configure Azure Advisor alerts to send recommendation data through webhooks to your existing systems. 
 
@@ -263,4 +264,21 @@ Some of the other important fields that you may want to use are:
 5. **recommendationImpact**
 6. **recommendationResourceLink**
 
+
+# Manage your alerts 
+
+From Azure Advisor, you can edit, delete, or disable and enable your recommendations alerts. 
+
+**1.** In the **portal**, select **Azure Advisor** [Click here for a full screen image](./media/Advisor%20Alert/create1.png)
+
+![Azure Advisor Banner](./media/Advisor%20Alert/create1.png)
+
+**2.** In the **Monitoring** section of the left menu, select **Alerts** [Click here for a full screen image](./media/Advisor%20Alert/create2.png)
+
+![Azure Advisor Banner](./media/Advisor%20Alert/create2.png)
+
+**3.** To edit an alert, click on the Alert name to open the alert and edit the fields you want to edit 
+
+**4.** To delete, enable, or disable an alert, click on the ellipse at the end of the row and then select the action you would like to take
+ 
 
