@@ -27,7 +27,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Experiment with notebooks
+          - text: Experiment with Python notebooks
             url: service/tutorial-1st-experiment-sdk-setup.md
           - text: Experiment in visual interface
             url: service/ui-tutorial-automobile-price-train-score.md
@@ -47,13 +47,13 @@ landingContent:
             url: service/how-to-set-up-training-targets.md
             
   # PYTHON
-  - title: Train with Python
+  - title: Experiment with Python SDK
     linkLists:
       - linkListType: tutorial
         links:
           - text: Create your first ML experiment
             url: service/tutorial-1st-experiment-sdk-setup.md
-          - text: Train image classification models
+          - text: Classify images 
             url: service/tutorial-train-models-with-aml.md                     
           - text: Predict taxi fares with automated ML
             url: service/tutorial-auto-train-models.md   
@@ -69,9 +69,9 @@ landingContent:
             url: service/how-to-train-keras.md
 
   # VISUAL INTERFACE
-  - title: Train in visual interface
+  - title: Experiment in visual interface
     linkLists:
-      - linkListType: get-started
+      - linkListType: tutorial
         links:
           - text: Train automated ML experiment
             url: service/tutorial-first-experiment-automated-ml.md
