@@ -270,7 +270,7 @@ Create the gateway for the virtual network of the secondary managed instance usi
 -->
 
 ## 6 - Connect the gateways
-In this step, create a connection between gateways. A connection must be established from the primary to the secondary gateway, and then a separate connection must be established between the secondary to the primary gateway. Be sure to use the same **Shared key** when configuring connectivity between both gateways. 
+In this step, create a bidirectional connection between the two gateways of the two virtual networks. 
 
 <!--
 # [Portal](#tab/azure-portal)
@@ -278,20 +278,25 @@ In this step, create a connection between gateways. A connection must be establi
 Connect the two gateways using the Azure portal. 
 -->
 
-1. Navigate to your resource group in the [Azure portal](https://portal.azure.com) and select the primary gateway you created in Step 4. 
-1. Select **Connections** under **Settings** and then select **Add** to create a new connection. 
+1. Select **Create a resource** from the [Azure portal](https://portal.azure.com).
+1. Type `connection` in the search box and then press enter to search, which takes you to the **Connection** resource, published by Microsoft.
+1. Select **Create** to create your connection. 
+1. On the **Basics** tab, select the following values and then select **OK**. 
+    1. Select `VNet-to-VNet` for the **Connection type**. 
+    1. Select your subscription from the drop-down. 
+    1. Select the resource group for your managed instance in the drop-down. 
+    1. Select the location of your primary managed instance from the drop down 
+1. On the **Settings** tab, select or enter the following values and then select **OK**:
+    1. Choose the primary network gateway for the **First virtual network gateway**, such as `Primary-Gateway`.  
+    1. Choose the secondary network gateway for the **Second virtual network gateawy**, such as `Secondary-Gateway`. 
+    1. Select the checkbox next to **Establish bidirectional connectivity**. 
+    1. Either leave the default primary connection name, or rename it to a value of your choice. 
+    1. Either leave the default primary connection name, or rename it to a value of your choice. 
+    1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`. 
 
-   ![Add connection to primary gateway](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
+   ![Create gateway connection](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. Enter a name for your connection, such as `Primary-connection`, and type in a value for the **Shared Key** such as `mi1mi2psk`. 
-1. Select the **Second virtual network gateway** and then select the gateway for the secondary managed instance, such as `secondary-mi-gateway`. 
-
-   ![Create primary to secondary connection](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
-
-1. Select **OK** to add your new primary-to-secondary gateway connection.
-1. Repeat these steps to create a connection from the gateway of the secondary managed instance to the gateway of the primary managed instance. 
-
-   ![Create secondary to primary connection](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
+1. On the **Summary** tab, review the settings for your bidirectional connection and then select **OK** to create your connection. 
 
 <!--
 # [PowerShell](#tab/azure-powershell)
@@ -324,9 +329,8 @@ Connect the two gateways using PowerShell.
         -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
     $secondaryGWConnection 
     ```
-
-
 ---
+
 -->
 
 ## 7 - Create a failover group
