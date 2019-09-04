@@ -12,12 +12,14 @@ services: event-grid
 ---
 
 # Tutorial: Deploy Azure Function IoT Edge module
+
 This article shows you how deploy the Azure Functions IoT module, which would act as an Event Grid subscriber to which events can be delivered.
 
 ## Prerequisites
+
 To complete this tutorial, you will need:-
 
-* **Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up. 
+* **Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up.
 
 >[!IMPORTANT]
 >In this tutorial, you will deploy a sample Azure Function-based subscribing module. It can of course be any custom IoT Module that can listen for HTTP POST requests.
@@ -31,7 +33,8 @@ To complete this tutorial, you will need:-
 1. Select **Set Modules**
 
 ## Configure a deployment manifest
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of manually building the JSON document. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of manually building the JSON document. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**. 
 
 ### Add modules
 
@@ -43,24 +46,25 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: msint.azurecr.io/azure-event-grid/iotedge-samplesubscriber-azfunc:latest
    * **Container Create Options**:
 
-       ```json
-        {
-         "HostConfig": {
-            "PortBindings": {
-               "80/tcp": [
-                 {  
-                   "HostPort": "8080"
-                 }
-               ]
-            }
-         }
-        }
-        ```
-
- 1. Click **Save**
+             ```json
+             {
+                  "HostConfig": {
+                    "PortBindings": {
+                      "80/tcp": [
+                        {
+                               "HostPort": "8080"
+                        }
+                      ]
+                    }
+                  }
+             }
+             ```
+ 
+1. Click **Save**
  1. Click **Next** to continue to the routes section
 
  ### Setup routes
+
 Keep the default routes, and select **Next** to continue to the review section
 
 ### Review deployment

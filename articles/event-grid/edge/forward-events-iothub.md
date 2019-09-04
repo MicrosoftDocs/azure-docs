@@ -33,19 +33,41 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 1. Create topic4.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
    ```json
-   {
-       "name": "sampleTopic4",
-       "properties" : {
-          "inputschema": "eventGridSchema",
-       },
-   }
-   ```
+    {
+          "name": "sampleTopic4",
+          "properties": {
+            "inputschema": "eventGridSchema"
+          }
+    }
+    ```
 
 1. Run the following command to create the topic. HTTP Status Code of 200 OK should be returned.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
+
+1. Run the following command to verify topic was created successfully. HTTP Status Code of 200 OK should be returned.
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
+    ```
+
+   Sample output:
+
+   ```json
+        [
+          {
+            "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/sampleTopic4",
+            "name": "sampleTopic4",
+            "type": "Microsoft.EventGrid/topics",
+            "properties": {
+              "endpoint": "https://<edge-vm-ip>:4438/topics/sampleTopic4/events?api-version=2019-01-01-preview",
+              "inputSchema": "EventGridSchema"
+            }
+          }
+        ]
+   ```
 
 ## Step 2: Create event subscription
 
@@ -55,16 +77,16 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
    ```json
     {
-      "properties": {
-        "destination": {
-          "endpointType": "edgeHub",
           "properties": {
-            "outputName": "sampleSub4"
+                "destination": {
+                      "endpointType": "edgeHub",
+                      "properties": {
+                            "outputName": "sampleSub4"
+                      }
+                }
           }
-        }
-      }
     }
-    ```
+   ```
 
    >[!NOTE]
    > The **endpointType** specifies that the subscriber is edgeHub. The **outputName** specifies the output on which the Event Grid module will route events that match this subscription to edgeHub. For example, events that match the above subscription will be written to **/messages/modules/eventgridmodule/outputs/sampleSub4**.
@@ -73,6 +95,31 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
+    ```
+
+3. Run the following command to verify subscription was created successfully. HTTP Status Code of 200 OK should be returned.
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
+    ```
+
+    Sample output:
+
+   ```json
+        {
+          "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/sampleTopic4/eventSubscriptions/sampleSubscription4",
+          "type": "Microsoft.EventGrid/eventSubscriptions",
+          "name": "sampleSubscription4",
+          "properties": {
+            "Topic": "sampleTopic4",
+            "destination": {
+                      "endpointType": "edgeHub",
+                      "properties": {
+                            "outputName": "sampleSub4"
+                      }
+                }
+          }
+        }
     ```
 
 ## Step 3: Setup edgeHub route
@@ -112,18 +159,20 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 1. Create event4.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
-   ```json
-   [{
-       "id": "eventId-iothub-1",
-       "eventType": "recordInserted",
-       "subject": "myapp/vehicles/motorcycles",
-       "eventTime": "2019-07-28T21:03:07+00:00",
-       "dataVersion": "1.0",
-       "data": {
-            "make": "Ducati",
-            "model": "Monster"
-        },
-    }]
+    ```json
+        [
+          {
+            "id": "eventId-iothub-1",
+            "eventType": "recordInserted",
+            "subject": "myapp/vehicles/motorcycles",
+            "eventTime": "2019-07-28T21:03:07+00:00",
+            "dataVersion": "1.0",
+            "data": {
+              "make": "Ducati",
+              "model": "Monster"
+            }
+          }
+        ]
     ```
 
 1. Run the following command to publish event

@@ -51,7 +51,7 @@ It also reports the current metadata state of what all topics and event subscrip
                 "subjectBeginsWith": "^",
                 "subjectEndsWith": "$",
                 "isSubjectCaseSensitive": false,
-                "eventTypes": "[\"et1\",\"et2\"]",
+                "includedEventTypes": "[\"et1\",\"et2\"]",
                 "advancedFilters": "[{\"value\":true,\"operatorType\":\"BoolEquals\",\"key\":\"data.b\"},{\"values\":[\"\\\"\",\"c\"],    \"operatorType\":\"StringContains\",\"key\":\"data.s\"}]"
             }
         },
@@ -108,7 +108,7 @@ The reported properties section of the module twin is supposed to show:
                 "subjectBeginsWith": "^",
                 "subjectEndsWith": "$",
                 "isSubjectCaseSensitive": false,
-                "eventTypes": "[\"et1\",\"et2\"]",
+                "includedEventTypes": "[\"et1\",\"et2\"]",
                 "advancedFilters": "[{\"value\":true,\"operatorType\":\"BoolEquals\",\"key\":\"data.b\"},{\"values\":[\"\\\"\",\"c\"],    \"operatorType\":\"StringContains\",\"key\":\"data.s\"}]"
             }
         },

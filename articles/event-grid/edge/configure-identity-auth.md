@@ -21,19 +21,19 @@ See [Security and authentication](security-authentication.md) guide for all the 
 
 ```json
  {
-        "Env": [
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge"
-        ]
- }
+  "Env": [
+    "outbound:clientAuth:clientCert:enabled=true",
+    "outbound:clientAuth:clientCert:source=IoTEdge"
+  ]
+}
  ```
 
 ## Example 2: Don't present identity certificate on outgoing calls
 
 ```json
  {
-        "Env": [
-            "outbound:clientAuth:clientCert:enabled=false"
-        ]
- }
+  "Env": [
+    "outbound:clientAuth:clientCert:enabled=false"
+  ]
+}
  ```

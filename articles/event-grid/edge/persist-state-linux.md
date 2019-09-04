@@ -25,13 +25,13 @@ The rest of the document details the steps needed to deploy Event Grid module wi
  We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to preserve the data across deployments. You can let docker automatically create a named volume as part of deploying Event Grid module. This is the simplest option. You can specify the volume name to be created in the **Binds** section as follows:
 
 ```json
-   {
-         "HostConfig": {
-            "Binds": [
-                "<your-volume-name-here>:/app/metadataDb"
-             ]
-         }
-  }
+  {
+     "HostConfig": {
+          "Binds": [
+                 "<your-volume-name-here>:/app/metadataDb"
+           ]
+      }
+   }
 ```
 
 >[!IMPORTANT]
@@ -41,31 +41,31 @@ For example, below configuration will result in the creation of  volume **egmeta
 
 ```json
  {
-        "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
-         ],
-         "HostConfig": {
-            "Binds": [
-                "egmetadataDbVol:/app/metadataDb"
-             ],
-             "PortBindings": {
-                    "4438/tcp": [
-                         {
-                            "HostPort": "4438"
-                          }
-                    ]
-              }
-         }
+  "Env": [
+    "inbound:serverAuth:tlsPolicy=strict",
+    "inbound:serverAuth:serverCert:source=IoTEdge",
+    "inbound:clientAuth:sasKeys:enabled=false",
+    "inbound:clientAuth:clientCert:enabled=true",
+    "inbound:clientAuth:clientCert:source=IoTEdge",
+    "inbound:clientAuth:clientCert:allowUnknownCA=true",
+    "outbound:clientAuth:clientCert:enabled=true",
+    "outbound:clientAuth:clientCert:source=IoTEdge",
+    "outbound:webhook:httpsOnly=true",
+    "outbound:webhook:skipServerCertValidation=false",
+    "outbound:webhook:allowUnknownCA=true"
+  ],
+  "HostConfig": {
+    "Binds": [
+      "egmetadataDbVol:/app/metadataDb"
+    ],
+    "PortBindings": {
+      "4438/tcp": [
+        {
+          "HostPort": "4438"
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -121,7 +121,7 @@ Instead of docker volume, you also have the option to mount a host folder.
 
     ```json
     {
-        "Env": [
+          "Env": [
             "inbound:serverAuth:tlsPolicy=strict",
             "inbound:serverAuth:serverCert:source=IoTEdge",
             "inbound:clientAuth:sasKeys:enabled=false",
@@ -133,19 +133,19 @@ Instead of docker volume, you also have the option to mount a host folder.
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
             "outbound:webhook:allowUnknownCA=true"
-         ],
-         "HostConfig": {
-            "Binds": [
-                "/myhostdir:/app/metadataDb"
-             ],
-             "PortBindings": {
-                    "4438/tcp": [
-                         {
-                            "HostPort": "4438"
-                          }
-                    ]
-              }
-         }
+          ],
+          "HostConfig": {
+                "Binds": [
+                  "/myhostdir:/app/metadataDb"
+                ],
+                "PortBindings": {
+                      "4438/tcp": [
+                        {
+                          "HostPort": "4438"
+                        }
+                      ]
+                }
+          }
     }
     ```
 

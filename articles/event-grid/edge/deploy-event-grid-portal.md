@@ -16,6 +16,7 @@ services: event-grid
 There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Event Grid on IoT Edge. This article describes the steps to deploy Event Grid on IoT Edge from the Azure portal.
 
 ## Prerequisites
+
 To complete this tutorial, you will need:
 
 * An **Azure Subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one.
@@ -34,7 +35,7 @@ To complete this tutorial, you will need:
 1. Navigate to your IoT Hub.
 1. Select **IoT Edge** from the menu in the **Automatic Device Management** section. 
 1. Click on the ID of the target device from the list of devices
-1. Select **Set Modules**. Keep the page open. You will continue with the steps in the next section. 
+1. Select **Set Modules**. Keep the page open. You will continue with the steps in the next section.
 
 ## Configure a deployment manifest
 
@@ -50,23 +51,23 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: msint.azurecr.io/azure-event-grid/iotedge:latest
    * **Container Create Options**:
 
-        ```json
+    ```json
         {
-             "Env": [
-               "inbound:clientAuth:clientCert:enabled=false",
-               "outbound:webhook:httpsOnly=false"
-              ],
-              "HostConfig": {
-                 "PortBindings": {
-                   "4438/tcp": [
-                    {
-                      "HostPort": "4438"
-                    }
-                   ]
-                 }
-              }
+          "Env": [
+            "inbound:clientAuth:clientCert:enabled=false",
+            "outbound:webhook:httpsOnly=false"
+          ],
+          "HostConfig": {
+            "PortBindings": {
+              "4438/tcp": [
+                {
+                  "HostPort": "4438"
+                }
+              ]
+            }
+          }
         }
-        ```
+    ```
 
  1. Click **Save**
  1. Click **Next** to continue to the routes section

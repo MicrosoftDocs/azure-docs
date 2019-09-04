@@ -19,24 +19,24 @@ This guide gives examples of the possible webhook subscriber configurations an E
 
 ```json
  {
-        "Env": [
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=false"
-        ]
- }
+  "Env": [
+    "outbound:webhook:httpsOnly=true",
+    "outbound:webhook:skipServerCertValidation=false",
+    "outbound:webhook:allowUnknownCA=false"
+  ]
+}
  ```
 
 ## Example 2: Allow only HTTPS subscriber configured with self-signed certificate
 
 ```json
  {
-        "Env": [
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
-        ]
- }
+  "Env": [
+    "outbound:webhook:httpsOnly=true",
+    "outbound:webhook:skipServerCertValidation=false",
+    "outbound:webhook:allowUnknownCA=true"
+  ]
+}
  ```
 
 >[!NOTE]
@@ -46,12 +46,12 @@ This guide gives examples of the possible webhook subscriber configurations an E
 
 ```json
  {
-        "Env": [
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=true",
-            "outbound:webhook:allowUnknownCA=false"
-        ]
- }
+  "Env": [
+    "outbound:webhook:httpsOnly=true",
+    "outbound:webhook:skipServerCertValidation=true",
+    "outbound:webhook:allowUnknownCA=false"
+  ]
+}
  ```
 
 >[!NOTE]
@@ -61,12 +61,12 @@ This guide gives examples of the possible webhook subscriber configurations an E
 
 ```json
  {
-        "Env": [
-            "outbound:webhook:httpsOnly=false",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
-        ]
- }
+  "Env": [
+    "outbound:webhook:httpsOnly=false",
+    "outbound:webhook:skipServerCertValidation=false",
+    "outbound:webhook:allowUnknownCA=true"
+  ]
+}
  ```
 
 >[!NOTE]

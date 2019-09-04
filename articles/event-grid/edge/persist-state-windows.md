@@ -50,17 +50,17 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to pre
 
    Sample Output:-
 
-   ```sh
+   ```json
    [
-    {
-        "CreatedAt": "2019-07-30T21:20:59Z",
-        "Driver": "local",
-        "Labels": {},
-        "Mountpoint": "C:\\ProgramData\\iotedge-moby\\volumes\\myeventgridvol\\_data",
-        "Name": "myeventgridvol",
-        "Options": {},
-        "Scope": "local"
-    }
+          {
+            "CreatedAt": "2019-07-30T21:20:59Z",
+            "Driver": "local",
+            "Labels": {},
+            "Mountpoint": "C:\\ProgramData\\iotedge-moby\u000bolumes\\myeventgridvol\\_data",
+            "Name": "myeventgridvol",
+            "Options": {},
+            "Scope": "local"
+          }
    ]
    ```
 
@@ -77,38 +77,39 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to pre
 
    For example,
 
-   ```json
-   {
-        "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
-         ],
-         "HostConfig": {
-            "Binds": [
-                "<your-volume-name-here>:C:\\app\\metadataDb"
-             ],
-             "PortBindings": {
-                    "4438/tcp": [
-                         {
-                            "HostPort": "4438"
-                          }
-                    ]
+    ```json
+        {
+              "Env": [
+                "inbound:serverAuth:tlsPolicy=strict",
+                "inbound:serverAuth:serverCert:source=IoTEdge",
+                "inbound:clientAuth:sasKeys:enabled=false",
+                "inbound:clientAuth:clientCert:enabled=true",
+                "inbound:clientAuth:clientCert:source=IoTEdge",
+                "inbound:clientAuth:clientCert:allowUnknownCA=true",
+                "outbound:clientAuth:clientCert:enabled=true",
+                "outbound:clientAuth:clientCert:source=IoTEdge",
+                "outbound:webhook:httpsOnly=true",
+                "outbound:webhook:skipServerCertValidation=false",
+                "outbound:webhook:allowUnknownCA=true"
+              ],
+              "HostConfig": {
+                "Binds": [
+                  "<your-volume-name-here>:C:\\app\\metadataDb"
+                ],
+                "PortBindings": {
+                  "4438/tcp": [
+                     {
+                        "HostPort": "4438"
+                     }
+                  ]
+                }
               }
-         }
-    }
+        }
     ```
 
-    >[!IMPORTANT]
-    >Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on windows it has to be **C:\\app\\metadataDb**.
+   >[!IMPORTANT]
+   >Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on windows it has to be **C:\\app\\metadataDb**.
+
 
     For example,
 

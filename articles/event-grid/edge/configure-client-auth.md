@@ -24,26 +24,26 @@ See [Security and authentication](security-authentication.md) guide for all the 
 
 ```json
  {
-        "Env": [
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=false"
-        ]
- }
+  "Env": [
+    "inbound:clientAuth:sasKeys:enabled=false",
+    "inbound:clientAuth:clientCert:enabled=true",
+    "inbound:clientAuth:clientCert:source=IoTEdge",
+    "inbound:clientAuth:clientCert:allowUnknownCA=false"
+  ]
+}
  ```
 
 ## Example 2: Enable certificate-based client authentication, allow self-signed certificates
 
 ```json
  {
-        "Env": [
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true"
-        ]
- }
+  "Env": [
+    "inbound:clientAuth:sasKeys:enabled=false",
+    "inbound:clientAuth:clientCert:enabled=true",
+    "inbound:clientAuth:clientCert:source=IoTEdge",
+    "inbound:clientAuth:clientCert:allowUnknownCA=true"
+  ]
+}
 ```
 
 >[!NOTE]
@@ -53,15 +53,15 @@ See [Security and authentication](security-authentication.md) guide for all the 
 
 ```json
  {
-        "Env": [
-            "inbound:clientAuth:sasKeys:enabled=true",
-            "inbound:clientAuth:sasKeys:key1=<some-secret1-here>",
-            "inbound:clientAuth:sasKeys:key2=<some-secret2-here>",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true"
-        ]
- }
+  "Env": [
+    "inbound:clientAuth:sasKeys:enabled=true",
+    "inbound:clientAuth:sasKeys:key1=<some-secret1-here>",
+    "inbound:clientAuth:sasKeys:key2=<some-secret2-here>",
+    "inbound:clientAuth:clientCert:enabled=true",
+    "inbound:clientAuth:clientCert:source=IoTEdge",
+    "inbound:clientAuth:clientCert:allowUnknownCA=true"
+  ]
+}
  ```
 
 >[!NOTE]
