@@ -41,7 +41,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShareDataSet](/powershell/module/az.resources/new-azdatasharedataset) | Adds a dataset to a data share. |
+| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Adds a dataset to a data share. |
 |||
 
 ## Next steps

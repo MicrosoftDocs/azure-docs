@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://aka.ms/aml-sdk) reference page. 
+In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page. 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
