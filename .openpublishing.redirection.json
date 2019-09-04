@@ -726,6 +726,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-collaborator.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-security.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys#securing-the-endpoint",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-account-settings.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#types-of-keys-in-qna-maker",
       "redirect_document_id": false
@@ -3328,6 +3343,11 @@
     {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/how-to-create-template.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
       "redirect_document_id": false
     },
     {
@@ -26072,6 +26092,26 @@
     {
       "source_path": "articles/security-center/security-center-events-dashboard.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#events-dashboard---the-new-experience",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-search.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_search",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-customize-os-security-config.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityconfigurations",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-custom-alert.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/security-center/security-center-threat-intel.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
       "redirect_document_id": false
     },  
     {
