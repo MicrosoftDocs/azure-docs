@@ -203,7 +203,7 @@ The first step in troubleshooting Guest Configuration configurations or modules 
 
 If you would like to use the Azure VM Run Command capability to capture information from log files in Windows machines,
 the following example PowerShell script can be helpful. For details on running the script from the Azure Portal
-or using Azure PowerShell, see [Run PowerShell scripts in your Windows VM with Run Command](../../../virtual-machines/windows/run-command).
+or using Azure PowerShell, see [Run PowerShell scripts in your Windows VM with Run Command](../../../virtual-machines/windows/run-command.md).
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -216,7 +216,7 @@ Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCM
 
 If you would like to use the Azure VM Run Command capability to capture information from log files in Linux machines,
 the following example Bash script can be helpful. For details on running the script from the Azure Portal
-or using Azure CLI, see [Run shell scripts in your Linux VM with Run Command](../../../virtual-machines/linux/run-command)
+or using Azure CLI, see [Run shell scripts in your Linux VM with Run Command](../../../virtual-machines/linux/run-command.md)
 
 ```Bash
 linesToIncludeBeforeMatch=0
