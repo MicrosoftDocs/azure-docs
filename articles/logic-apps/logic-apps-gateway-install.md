@@ -262,7 +262,7 @@ The gateway uses these fully qualified domain names:
 | login.microsoftonline.com | 443 | HTTPS |
 ||||
 
-In some cases, Azure Service Bus connections are made with IP addresses rather than fully qualified domain names. So, you might want to whitelist IP addresses for your data region in your firewall. To whitelist IP addresses rather than domains, you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). The IP addresses in this list are in [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+In some cases, Azure Service Bus connections are made with IP addresses rather than fully qualified domain names. So, you might want to unblock the IP addresses for your data region in your firewall. To allow access for IP addresses rather than domains, you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). The IP addresses in this list are in [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
 ### Force HTTPS communication with Azure Service Bus
 
