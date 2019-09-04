@@ -29,15 +29,15 @@ This article explains private endpoint concepts, to help you use them effectivel
 |Property  |Description |
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
-|Subnet    |  The subnet to deploy and allocate private IP addresses from a Virtual Network, for subnet requirements please see limitations section.         |
+|Subnet    |  The subnet to deploy and allocate private IP addresses from a Virtual Network, for subnet requirements see the Limitations section.         |
 |Private Link Resource    |   The private link resource to connect, from the list of available types, a unique network identifier will be generated for all traffic sent to this resource.       |
-|Target sub-resource   |      The sub-resource to connect, each private link resource type have different options to select based on preference.    |
+|Target subresource   |      The subresource to connect, each private link resource type have different options to select based on preference.    |
 |Connection approval method    |  Automatic or manual, based on RBAC permissions, your private endpoint can be approved automatically, if you are trying to connect to a private link resource without RBAC, use manual method to allow the owner of the resource to approve the connection.        |
-|Request Message     |  You can specify a message for connections requested to be approved manually, this message can be used to identify an specific request.        |
-|Connection status   |   A read only property that specifies if the private endpoint is active, only private endpoints in approved state can be used to send traffic. Additional states available: <br>-**Approved**: Connection was automatically or manually approved and is ready to be used.</br><br>-**Pending**: Connection is created manually and pending for approval by the private link resource owner.</br><br>-**Rejected**: Connection was rejected by the private link resource owner.</br><br>-**Disconnected**: Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean up. </br>|
+|Request Message     |  You can specify a message for connections requested to be approved manually, this message can be used to identify a specific request.        |
+|Connection status   |   A read-only property that specifies if the private endpoint is active, only private endpoints in approved state can be used to send traffic. Additional states available: <br>-**Approved**: Connection was automatically or manually approved and is ready to be used.</br><br>-**Pending**: Connection is created manually and pending for approval by the private link resource owner.</br><br>-**Rejected**: Connection was rejected by the private link resource owner.</br><br>-**Disconnected**: Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. </br>|
 
 Here are some key details about Private Endpoints: 
-- An approved private endpoint allows connectivity from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) connections completely private. 
+- An approved private endpoint allows connectivity from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) connections private. 
  
 - When creating a private endpoint, a network interface will also be created for the life cycle of the resource, multiple private IP addresses can be allocated to a selected private link resource.  
  
@@ -52,11 +52,11 @@ Here are some key details about Private Endpoints:
 
  
 ## The Private Link resource 
-A private link resource is the destination target of a given private endpoint, the following is a list of available private link resource types and regions for Preview: 
+A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types and regions for Preview: 
  
 - **Private Link Service**: Your own private link service or shared service, available in selected Azure regions. 
-- **Azure Storage**: Storage accounts with multiple target sub-resources available, Available in all Azure regions. 
-- **Azure Data Lake Service gen2**: ADLS gen2 is available using Storage accounts with blob sub-resource, Available in selected Azure regions. 
+- **Azure Storage**: Storage accounts with multiple target subresources available, Available in all Azure regions. 
+- **Azure Data Lake Service gen2**: ADLS gen2 is available using Storage accounts with blob subresource, Available in selected Azure regions. 
 - **Azure SQL Database**: Generally available in all Azure regions. 
 - **Azure SQL Data Warehouse**: Generally available in all Azure regions. 
  
@@ -66,12 +66,12 @@ All private link resources shares a common behavior and experience for managing 
 - DNS configuration.
  
 ### Network security of Private Endpoints 
-When using private endpoints for Azure Services, traffic is secured to an specific private link resource, the platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure Service, additional private endpoints are required. 
+When using private endpoints for Azure Services, traffic is secured to a specific private link resource, the platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure Service, additional private endpoints are required. 
  
 You can completely lock down your workloads from accessing to public endpoints to connect to a supported Azure Service. This control provides an additional network security layer to your resources by providing a build-in exfiltration protection that prevents access to other resources hosted on the same Azure Service. 
  
 ### Access to a Private Link Resource using approval workflow 
-You can connect to a private link resource without permissions by using an approval workflow, the private endpoint needs to be created manually and a sub-sequent private endpoint connection will be created in "Pending" state, the private link resource owner is responsible to approve the connection, once approved, the private endpoint will be enabled to send traffic normally. 
+You can connect to a private link resource without permissions by using an approval workflow, the private endpoint needs to be created manually and a subsequent private endpoint connection will be created in "Pending" state, the private link resource owner is responsible to approve the connection, once approved, the private endpoint will be enabled to send traffic normally. 
  
 The following approval workflow diagram applies to all private link resource types: 
 (Diagram here) 
@@ -95,12 +95,12 @@ A given network interface can contain multiple private IP addresses (IPConfigura
 The following options can be used to configure your DNS settings for private endpoints: 
 - Using the Host file (only recommended for testing): You can use the host file on a test virtual machine to override the DNS.  
 - Using a private DNS zone: You can use private DNS zones to override the DNS resolution for a given private endpoint, a private DNS zone can be linked to your virtual networks to resolve specific domains
-- Using your custom DNS server : You can use your own DNS server to override the DNS resolution for a given private link resource, if your DNS server is hosted on an virtual network, you can create a DNS forwarding rule to use private DNS zone to simplify the configuration for all private link resources 
+- Using your custom DNS server: You can use your own DNS server to override the DNS resolution for a given private link resource, if your DNS server is hosted on a virtual network, you can create a DNS forwarding rule to use private DNS zone to simplify the configuration for all private link resources 
  
 > [!IMPORTANT]
 > It's not recommended to override a zone that it's actively in use to resolve public endpoints, connections to resources won't be able to resolve properly without a DNS forwarding to the public DNS, to avoid issues, create a different domain name or follow the suggested name for each service below. 
  
-For Azure Services, the recommended zone names are the following:
+For Azure Services, use the recommended zone names as described in the following table:
 
 |Private Link Resource Type   |Sub-Resource  |Zone name  |
 |---------|---------|---------|
@@ -127,9 +127,9 @@ The following is a list of known limitation when using private endpoints:
 
 |Limitation |Description |Mitigation  |
 |---------|---------|---------|
-|Restrict traffic to selected sources within my virtual network    |<br> Network security group is not supported on private endpoints.</br><br>Subnets must have network policies enforcement disabled in order deploy private endpoints with NSG disabled .</br>       | Controlling the traffic by using security rules for outbound traffic on source clients.         |
+|Restrict traffic to selected sources within my virtual network    |<br> Network security group is not supported on private endpoints.</br><br>Subnets must have network policies enforcement disabled in order to deploy private endpoints with NSG disabled.</br>       | Controlling the traffic by using security rules for outbound traffic on source clients.         |
 |Deploy private endpoints on subnets with service endpoints or specialized workloads     |  Private endpoints cannot be deployed on subnets with service endpoints enabled or subnets delegated to specialized workloads.        |  Creating a separate subnet to deploy the private endpoints.        |
-|Create a private endpoint to a private link service (your own) from a different region    |   Connecting to a private link service (your own) from a different region is not supported       |  You private link service would need to be deployed in the same region during preview.        |
+|Create a private endpoint to a private link service (your own) from a different region    |   Connecting to a private link service (your own) from a different region is not supported       |  During Preview, you must deploy your Private Link service in the same region.        |
 |Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>-App Service Plan.</br><br>Azure Container Instance.</br>       |   No mitigation during preview.       |
 |    |         |         |
 
