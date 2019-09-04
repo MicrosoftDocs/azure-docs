@@ -30,15 +30,15 @@ Connection attempts from the internet and Azure must pass through the firewall b
 
    ![Firewall configuration diagram][1]
 
-- **Server-level IP firewall rules:**
+### Server-level IP firewall rules
 
   These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same SQL Database server. The rules are stored in the *master* database.
   
-  You can configure server-level IP firewall rules by using the Azure portal or PowerShell or by using Transact-SQL statements.
+  You can configure server-level IP firewall rules by using the Azure portal, PowerShell, or Transact-SQL statements.
   - To use the portal or PowerShell, you must be the subscription owner or a subscription contributor.
   - To use Transact-SQL, you must connect to the SQL Database instance as the server-level principal login or as the Azure Active Directory administrator. (A server-level IP firewall rule must first be created by a user who has Azure-level permissions).
 
-- **Database-level IP firewall rules:**
+### Database-level IP firewall rules
 
   These rules enable clients to access certain (secure) databases within the same SQL Database server. You create the rules for each database (including the *master* database), and they're stored in the individual database.
   
@@ -46,7 +46,7 @@ Connection attempts from the internet and Azure must pass through the firewall b
   
   If you specify an IP address range in the database-level IP firewall rule that's outside the range in the server-level IP firewall rule, only those clients that have IP addresses in the database-level range can access the database.
   
-  You can have a maximum of 128 database-level IP firewall rules for a database. For more information about configuring database-level IP firewall rules, see the example later in this article, and see [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
+  You can have a maximum of 128 database-level IP firewall rules for a database. For more information about configuring database-level IP firewall rules, see the example later in this article and see [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ### Recommendations for how to set firewall rules
 
@@ -62,11 +62,11 @@ We recommend that you use database-level IP firewall rules whenever possible. Th
 
 *Should users of one database be fully isolated from another database?*
 
-If *yes*, use database-level IP firewall rules to grant access. This step avoids using server-level IP firewall rules, which permit access through the firewall to all databases. That would reduce the depth of your defenses.
+If *yes*, use database-level IP firewall rules to grant access. This method avoids using server-level IP firewall rules, which permit access through the firewall to all databases. That would reduce the depth of your defenses.
 
 *Do users at the IP addresses need access to all databases?*
 
-Use server-level IP firewall rules to reduce the number of times that you have to configure IP firewall rules.
+If *yes*, use server-level IP firewall rules to reduce the number of times that you have to configure IP firewall rules.
 
 *Does the person or team who configures the IP firewall rules only have access through the Azure portal, PowerShell, or the REST API?*
 
@@ -78,7 +78,7 @@ If so, use server-level IP firewall rules. You need at least *CONTROL DATABASE* 
 
 *Is the person or team who configures or audits the IP firewall rules centrally managing IP firewall rules for many (perhaps hundreds) of databases?*
 
-This selection depends on your needs and environment. Server-level IP firewall rules might be easier to configure, but scripting can configure rules at the database-level. And even if you use server-level IP firewall rules, you might need to audit the database-level IP firewall rules to see if users with *CONTROL* permission on the database have created database-level IP firewall rules.
+In this scenario, best practices are determined by your needs and environment. Server-level IP firewall rules might be easier to configure, but scripting can configure rules at the database-level. And even if you use server-level IP firewall rules, you might need to audit database-level IP firewall rules to see if users with *CONTROL* permission on the database  create database-level IP firewall rules.
 
 *Can I use a mix of server-level and database-level IP firewall rules?*
 
@@ -114,14 +114,14 @@ To improve performance, server-level IP firewall rules are temporarily cached at
 > [!TIP]
 > You can use [SQL Database Auditing](sql-database-auditing.md) to audit server-level and database-level firewall changes.
 
-## Use the Azure portal to manage server-level IP firewall rules
+### Use the Azure portal to manage server-level IP firewall rules
 
 To set a server-level IP firewall rule in the Azure portal, go to the overview page for your Azure SQL database or your SQL Database server.
 
 > [!TIP]
 > For a tutorial, see [Create a DB using the Azure portal](sql-database-single-database-get-started.md).
 
-### From the database overview page
+#### From the database overview page
 
 1. To set a server-level IP firewall rule from the database overview page, select **Set server firewall** on the toolbar, as the following image shows. The **Firewall settings** page for the SQL Database server opens.
 
@@ -131,7 +131,7 @@ To set a server-level IP firewall rule in the Azure portal, go to the overview p
 
       ![Set server-level IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
 
-### From the server overview page
+#### From the server overview page
 
 The overview page for your server opens. It shows the fully qualified server name (such as *mynewserver20170403.database.windows.net*) and provides options for further configuration.
 
@@ -139,7 +139,7 @@ The overview page for your server opens. It shows the fully qualified server nam
 
 2. Select **Add client IP** on the toolbar to add the IP address of the computer that you're using, and then select **Save**. A server-level IP firewall rule is created for your current IP address.
 
-## Use Transact-SQL to manage IP firewall rules
+### Use Transact-SQL to manage IP firewall rules
 
 | Catalog view or stored procedure | Level | Description |
 | --- | --- | --- |
@@ -169,7 +169,7 @@ To delete a server-level IP firewall rule, execute the *sp_delete_firewall_rule*
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```
 
-## Use PowerShell to manage server-level IP firewall rules
+### Use PowerShell to manage server-level IP firewall rules 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -191,9 +191,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> For PowerShell examples in the context of a quick start, see [Create DB - PowerShell](sql-database-powershell-samples.md) and [Create a single database and configure a SQL Database server-level IP firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
+> For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](sql-database-powershell-samples.md) and [Create a single database and configure a SQL Database server-level IP firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 
-## Use CLI to manage server-level IP firewall rules
+### Use CLI to manage server-level IP firewall rules
 
 | Cmdlet | Level | Description |
 | --- | --- | --- |
@@ -213,7 +213,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 > [!TIP]
 > For a CLI example in the context of a quickstart, see [Create DB - Azure CLI](sql-database-cli-samples.md) and [Create a single database and configure a SQL Database IP firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md).
 
-## Use a REST API to manage server-level IP firewall rules
+### Use a REST API to manage server-level IP firewall rules
 
 | API | Level | Description |
 | --- | --- | --- |
@@ -255,7 +255,7 @@ Consider the following points when access to the SQL Database service doesn't be
 ## Next steps
 
 - Confirm that your corporate network environment allows inbound communication from the compute IP address ranges (including SQL ranges) that are used by the Azure datacenters. You might have to add those IP addresses to the allow list. See [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).  
-- For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](sql-database-single-database-get-started.md).
+- For a quickstart about creating a server-level IP firewall rule, see [Create an Azure SQL database](sql-database-single-database-get-started.md).
 - For help with connecting to an Azure SQL database from open-source or third-party applications, see [Client quickstart code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md).
