@@ -153,7 +153,7 @@ Overriding services provided by the host is currently not supported.  If there a
 
 ## Reading configuration values
 
-Provide configuration values to the setup class via [app settings](./functions-how-to-use-azure-function-app-settings#settings).
+Provide configuration values to the setup class via [app settings](./functions-how-to-use-azure-function-app-settings.md#settings).
 
 ## Working with options
 
