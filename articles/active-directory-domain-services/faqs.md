@@ -52,7 +52,7 @@ Yes. For more information, see [how to enable Azure AD Domain Services in Azure 
 No. To authenticate users via NTLM or Kerberos, Azure AD Domain Services needs access to the password hashes of user accounts. In a federated directory, password hashes aren't stored in the Azure AD directory. Therefore, Azure AD Domain Services doesn't work with such Azure AD directories.
 
 ### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
-The service itself doesn't directly support this scenario. Your managed domain is available in only one virtual network at a time. However, you can configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. For more information, see [how to connect virtual networks in Azure using VPN gateways](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) or [virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+The service itself doesn't directly support this scenario. Your managed domain is available in only one virtual network at a time. However, you can configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. For more information, see [how to connect virtual networks in Azure using VPN gateways](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) or [virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### Can I enable Azure AD Domain Services using PowerShell?
 Yes. For more information, see [how to enable Azure AD Domain Services using PowerShell](powershell-create-instance.md).
