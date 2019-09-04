@@ -490,7 +490,7 @@ Allowed to view, set and reset authentication method information for any non-adm
 Can manage Azure DevOps organization policy and settings.
 
 > [!NOTE]
-> This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#) above.
+> This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#azure-devops-administrator) above.
 >
 >
 
