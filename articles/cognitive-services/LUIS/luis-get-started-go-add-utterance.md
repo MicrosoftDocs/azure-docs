@@ -1,5 +1,5 @@
 ---
-title: Change, train app, Go - LUIS
+title: "Quickstart: Change, train app, Go - LUIS"
 titleSuffix: Azure Cognitive Services
 description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. 
 author: diberry

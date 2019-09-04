@@ -1,5 +1,5 @@
 ---
-title: Change, train app, Java - LUIS
+title: "Quickstart: Change, train app, Java - LUIS"
 titleSuffix: Azure Cognitive Services
 description: In this Java quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
