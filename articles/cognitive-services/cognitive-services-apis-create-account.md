@@ -30,9 +30,6 @@ When you create a new Cognitive Services resource, you have the option to either
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. Create a Cognitive Services resource in one of two ways - using a multi-service resource or a single-service resource. 
-
-
 2. Find the Cognitive Services resource you want to create in two ways: by searching for it, or viewing all available resource types. 
 
     #### [Using search](#tab/multiservice)
