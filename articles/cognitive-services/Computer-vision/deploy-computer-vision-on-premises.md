@@ -14,7 +14,7 @@ ms.author: dapine
 
 # Use Computer Vision container with Kubernetes and Helm
 
-One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the Recognize Text container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Recognize Text containers](computer-vision-how-to-install-containers.md).
+One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define a Computer Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Computer Vision containers](computer-vision-how-to-install-containers.md).
 
 ## Prerequisites
 
@@ -84,6 +84,86 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
 
 ## Configure Helm chart values for deployment
+
+#### [Read](#tab/read)
+
+Start by creating a folder named *ocr*, copy, and paste the following YAML content into a new file named `Chart.yml`.
+
+```yaml
+apiVersion: v1
+name: ocr
+version: 1.0.0
+description: A Helm chart to deploy the microsoft/cognitive-services-ocr to a Kubernetes cluster
+```
+
+To configure the Helm chart default values, copy and paste the following YAML into a file named `values.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
+
+```yaml
+# These settings are deployment specific and users can provide customizations
+
+ocr:
+  enabled: true
+  image:
+    name: cognitive-services-ocr
+    registry: containerpreview.azurecr.io/
+    repository: microsoft/cognitive-services-ocr
+    tag: latest
+    pullSecret: containerpreview # Or an existing secret
+    args:
+      eula: accept
+      billing: # {ENDPOINT_URI}
+      apikey: # {API_KEY}
+```
+
+> [!IMPORTANT]
+> If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
+
+Create a *templates* folder under the *ocr* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
+
+> Templates generate manifest files, which are YAML-formatted resource descriptions that Kubernetes can understand. [- Helm Chart Template Guide][chart-template-guide]
+
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ocr
+spec:
+  template:
+    metadata:
+      labels:
+        app: ocr-app
+    spec:
+      containers:
+      - name: {{.Values.ocr.image.name}}
+        image: {{.Values.ocr.image.registry}}{{.Values.ocr.image.repository}}
+        ports:
+        - containerPort: 5000
+        env:
+        - name: EULA
+          value: {{.Values.ocr.image.args.eula}}
+        - name: billing
+          value: {{.Values.ocr.image.args.billing}}
+        - name: apikey
+          value: {{.Values.ocr.image.args.apikey}}
+      imagePullSecrets:
+      - name: {{.Values.ocr.image.pullSecret}}
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocr
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+  selector:
+    app: ocr-app
+```
+
+The template specifies a load balancer service and the deployment of your container/image for Read.
+
+#### [Recognize Text](#tab/recognize-text)
 
 Start by creating a folder named *text-recognizer*, copy, and paste the following YAML content into a new file named `Chart.yml`.
 
@@ -161,15 +241,85 @@ spec:
 
 The template specifies a load balancer service and the deployment of your container/image for text recognition.
 
+***
+
 ### The Kubernetes package (Helm chart)
 
 The *Helm chart* contains the configuration of which docker image(s) to pull from the `containerpreview.azurecr.io` container registry.
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Computer Vision Service, and the recognize text services from the `containerpreview.azurecr.io` container registry.
+#### [Read](#tab/read)
 
-## Install the Helm chart on the Kubernetes cluster
+The provided *Helm charts* pull the docker images of the Computer Vision Service, and the Read services from the `containerpreview.azurecr.io` container 
+registry.
+
+#### [Recognize Text](#tab/recognize-text)
+
+The provided *Helm charts* pull the docker images of the Computer Vision Service, and the Recognize Text services from the `containerpreview.azurecr.io` container 
+registry.
+
+***
+
+#### [Read](#tab/read)
+
+## Install the Read Helm chart on the Kubernetes cluster
+
+To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `ocr` folder.
+
+```console
+helm install ocr --name ocr
+```
+
+Here is an example output you might expect to see from a successful install execution:
+
+```console
+NAME:   ocr
+LAST DEPLOYED: Thu Sep 04 13:24:06 2019
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/Pod(related)
+NAME                    READY  STATUS             RESTARTS  AGE
+ocr-57cb76bcf7-45sdh    0/1    ContainerCreating  0         0s
+
+==> v1/Service
+NAME     TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)         AGE
+ocr      LoadBalancer  10.110.44.86  localhost    5000:31301/TCP  0s
+
+==> v1beta1/Deployment
+NAME    READY  UP-TO-DATE  AVAILABLE  AGE
+ocr     0/1    1           0          0s
+```
+
+The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
+
+```console
+kubectl get all
+```
+
+You should expect to see something similar to the following output:
+
+```console
+λ kubectl get all
+NAME                        READY   STATUS    RESTARTS   AGE
+pod/ocr-57cb76bcf7-45sdh    1/1     Running   0          17s
+
+NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes     ClusterIP      10.96.0.1      <none>        443/TCP          45h
+service/ocr            LoadBalancer   10.110.44.86   localhost     5000:31301/TCP   17s
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/ocr    1/1     1            1           17s
+
+NAME                              DESIRED   CURRENT   READY   AGE
+replicaset.apps/ocr-57cb76bcf7    1         1         1       17s
+```
+
+#### [Recognize Text](#tab/recognize-text)
+
+## Install the Recognize Text Helm chart on the Kubernetes cluster
 
 To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `text-recognizer` folder.
 
@@ -222,6 +372,8 @@ deployment.apps/text-recognizer   1/1     1            1           17s
 NAME                                         DESIRED   CURRENT   READY   AGE
 replicaset.apps/text-recognizer-57cb76bcf7   1         1         1       17s
 ```
+
+***
 
 <!--  ## Validate container is running -->
 
