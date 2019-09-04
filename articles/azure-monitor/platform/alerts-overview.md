@@ -91,7 +91,7 @@ Alternatively, you can [programmatically enumerate the alert instances generated
 > [!NOTE]
    >  You can only access alerts generated in the last 30 days.
 
-It doesn't show or track [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
+It doesn't show or track classic alerts. You can change the subscriptions or filter parameters to update the page. 
 
 ![Screenshot of Alerts page](media/alerts-overview/alerts-page.png)
 
