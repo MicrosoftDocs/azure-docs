@@ -21,7 +21,7 @@ The following metrics related to timing of the request and response are availabl
 
 - **Client RTT**
 
-  Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgements.
+  Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments.
 
 - **Application gateway total time**
 
