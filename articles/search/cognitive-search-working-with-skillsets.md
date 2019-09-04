@@ -45,7 +45,7 @@ Each skill requires a context. A context determines:
 +	Where in the tree the input is evaluated. Inputs can only be sourced from nodes scoped by the context. 
 
 ### SourceContext
-The sourceContext is only used in Shaper skills and projections to be able to build multi-level nested objects. The context is limiting in scenarios where you need to create a nested object as all inputs within a specified context are flattened (share the same parent). When you are building a nested hierarchy, the source context allows you to define a new object with named properties. This concept  is further described with an example in the projections section.
+The sourceContext is only used in Shaper skills and projections to be able to build multi-level nested objects. The sourceContext enables you to construct a hierarchial, anonymous type object which would require multiple skills if only using the context. This concept is further described with an example in the projections section.
 
 ### Projections
 Projection is the process of selecting the nodes from the enrichment tree to be saved in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be outputted as either table or object projections. To learn more about working with projections, see [working with projections](knowledge-store-projection-overview.md).
@@ -80,7 +80,8 @@ Skillsets also define a knowledge store where your enriched documents can be pro
 When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all your table projections. 
 ### Shaping projections
 There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then in your projections, you only reference the output of the shaper skill. You could also inline shape a projection within the projection the definition itself.
-One advantage of the shaper approach is that it ensures that all the mutations of the enrichment tree are contained within the skills which does make debugging issues with your skillset easier. Either approach works, the following example demonstrates each of the approaches. Assuming we are working with a set of reviews and enrich the reviews enriched with key phrases, entities and sentiment analysis. The enrichment tree below represents the state after all enrichments are complete.
+The shaper approach ensures that all the mutations of the enrichment tree are contained within the skills and output is an object that can be reused, but it is more verbose. Either approach works, the following example demonstrates each of the approaches. Assuming we are working with a set of reviews and enrich the reviews enriched with key phrases, entities and sentiment analysis. The enrichment tree below represents the state after all enrichments are complete.
+
 ![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enricment-tree-projection.png "Enrichment tree before projection")
 
 To create a shape that you can project into three tables namely Reviews, KeyPhrases and Entities, the two options are
