@@ -407,6 +407,8 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     android:id="@+id/text_hello"
     ```
 
+    ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+
 10. Next you add a subclass for the receiver that you defined in AndroidManifest.xml. Add another new class to your project named `FirebaseService`.
 
 11. Add the following import statements at the top of `FirebaseService.java`:
