@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What is Azure HDInsight?
             url: ./hdinsight-overview.md
+      - linkListType: concept
+        links:
           - text: HDInsight components and versions
             url: ./hdinsight-component-versioning.md
           - text: HDInsight supported node configurations
@@ -48,10 +50,12 @@ landingContent:
   # Card
   - title: Apache Spark
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: What is Apache Spark?
             url: ./spark/apache-spark-overview.md
+      - linkListType: concept
+        links:
           - text: Optimize Spark jobs
             url: ./spark/apache-spark-perf.md
       - linkListType: tutorial
@@ -68,10 +72,12 @@ landingContent:
   # Card
   - title: Apache Hadoop
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: What is Apache Hadoop?
             url: ./hadoop/apache-hadoop-introduction.md
+      - linkListType: concept
+        links:
           - text: Hadoop ETL at Scale
             url: ./hadoop/apache-hadoop-etl-at-scale.md
           - text: Migrate Hadoop to the cloud
@@ -90,10 +96,12 @@ landingContent:
   # Card
   - title: Apache Kafka
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: What is Apache Kafka?
             url: ./kafka/apache-kafka-introduction.md
+      - linkListType: concept
+        links:
           - text: Optimize Kafka performance
             url: ./kafka/apache-kafka-performance-tuning.md
           - text: Kafka scalability
@@ -114,12 +122,16 @@ landingContent:
   # Card
   - title: Interactive query
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Interactive Query?
+            url: ./interactive-query/apache-interactive-query-get-started.md
       - linkListType: concept
         links:
-          - text: Using Hive as an ETL tool
-            url: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
           - text: Optimize Hive queries
             url: ./hdinsight-hadoop-optimize-hive-query.md
+          - text: Using Hive as an ETL tool
+            url: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
       - linkListType: tutorial
         links:
           - text: Analyze flight data with Apache Hive
@@ -132,10 +144,12 @@ landingContent:
   # Card
   - title: Enterprise readiness
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: HDInsight security overview
             url: ./domain-joined/hdinsight-security-overview.md
+      - linkListType: concept
+        links:
           - text: Plan virtual network
             url: ./hdinsight-plan-virtual-network-deployment.md
           - text: 'Hadoop on Active Directory: Enterprise Security Package'
