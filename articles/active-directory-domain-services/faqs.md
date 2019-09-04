@@ -14,7 +14,7 @@ ms.date: 09/03/2019
 ms.author: iainfou
 
 ---
-# Frequently Asked Questions (FAQs)
+# Frequently asked questions (FAQs)
 
 This page answers frequently asked questions about Azure Active Directory Domain Services.
 
