@@ -88,6 +88,8 @@
       href: template-expressions.md
     - name: Parameters
       href: template-parameters.md
+    - name: Variables
+      href: template-variables.md
     - name: Resources
       items:
       - name: Child resource name and type
