@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/10/2019
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
@@ -38,6 +38,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -82,6 +83,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -127,6 +129,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -172,6 +175,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | show row-level locking information|
@@ -206,6 +210,9 @@ Currently, outbound connections from Azure Database for PostgreSQL are not suppo
 ## uuid
 If you are planning to use `uuid_generate_v4()` from the uuid-ossp extension, consider comparing with `gen_random_uuid()` from the pgcrypto extension for performance benefits.
 
+
+## pgAudit
+The pgAudit extension provides session and object audit logging. To learn how to use this extension in Azure Database for PostgreSQL, visit the [auditing concepts article](concepts-audit-logs.md). 
 
 ## TimescaleDB
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
