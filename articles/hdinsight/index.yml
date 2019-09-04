@@ -5,7 +5,7 @@ summary: Azure HDInsight is a managed Apache Hadoop service which lets you run A
 
 metadata:
   title: Azure HDInsight # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure HDInsight is a managed Apache Hadoop service which lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase and more in the cloud. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure HDInsight is a managed Apache Hadoop cloud service which lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase and more. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: hdinsight #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
@@ -56,7 +56,7 @@ landingContent:
             url: ./spark/apache-spark-perf.md
       - linkListType: tutorial
         links:
-          - text: Create Scala Maven application
+          - text: Create Scala Maven application for Spark
             url: ./spark/apache-spark-create-standalone-application.md
           - text: Load data and run Apache Spark queries
             url: ./spark/apache-spark-load-data-run-query.md
@@ -65,31 +65,28 @@ landingContent:
           - text: Analyze Spark data with Power BI
             url: ./spark/apache-spark-use-bi-tools.md
           - text: Create Scala Maven application
-            url: ./spark/apache-spark-create-standalone-application.md
-          - text: Load data and run Apache Spark queries
-            url: ./spark/apache-spark-load-data-run-query.md
 
   # Card
   - title: Apache Hadoop
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Apache Hadoop and MapReduce?
+          - text: What is Apache Hadoop?
             url: ./hadoop/apache-hadoop-introduction.md
-          - text: ETL at Scale
+          - text: Hadoop ETL at Scale
             url: ./hadoop/apache-hadoop-etl-at-scale.md
-          - text: Migrate on-premises Hadoop to the cloud
+          - text: Migrate Hadoop to the cloud
             url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-          - text: Cluster capacity planning
+          - text: Hadoop cluster capacity planning
             url: ./hdinsight-capacity-planning.md
     linkLists:
       - linkListType: tutorial
         links:
           - text: Connect Excel to Apache Hadoop
             url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
-          - text: Use Azure monitor logs
+          - text: Monitor Hadoop with Azure monitor logs
             url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-          - text: Monitor and manage clusters with Ambari UI
+          - text: Monitor and manage Hadoop clusters with Ambari UI
             url: ./hdinsight-hadoop-manage-ambari.md
 
   # Card
@@ -97,7 +94,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Introduction to Apache Kafka
+          - text: What is Apache Kafka?
             url: ./kafka/apache-kafka-introduction.md
           - text: Optimize Kafka performance
             url: ./kafka/apache-kafka-performance-tuning.md
@@ -111,9 +108,9 @@ landingContent:
             url: ./kafka/apache-kafka-producer-consumer-api.md
           - text: Apache Spark structured streaming with Apache Kafka
             url: ./hdinsight-apache-kafka-spark-structured-streaming.md
-          - text: Mirroring for disaster recovery
+          - text: Kafka mirroring for disaster recovery
             url: ./kafka/apache-kafka-mirroring.md
-          - text: Setup SSL encryption for Kafka
+          - text: Kafka SSL setup for authentication
             url: ./kafka/apache-kafka-ssl-encryption-authentication.md
 
   # Card
@@ -127,11 +124,11 @@ landingContent:
             url: ./hdinsight-hadoop-optimize-hive-query.md
       - linkListType: tutorial
         links:
-          - text: Analyze flight data
+          - text: Analyze flight data with Apache Hive
             url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
-          - text: Use Hive Warehouse connector
+          - text: Connect Spark and Hive with Hive Warehouse connector
             url: ./interactive-query/apache-hive-warehouse-connector.md
-          - text: Use DirectQuery with Power BI
+          - text: Connect Hive with Power BI using DirectQuery
             url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
 
   # Card
@@ -139,13 +136,15 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Plan virtual network
-            url: ./hdinsight-plan-virtual-network-deployment.md
           - text: HDInsight security overview
             url: ./domain-joined/hdinsight-security-overview.md
-          - text: Use Enterprise Security Package
+          - text: Plan virtual network
+            url: ./hdinsight-plan-virtual-network-deployment.md
+          - text: 'Hadoop on Active Directory: Enterprise Security Package'
             url: ./domain-joined/apache-domain-joined-architecture.md
-          - text: Migrate on-prem clusters to the cloud
+          - text: Scale Hadoop clusters automatically
+            url: ./hdinsight-autoscale-clusters.md
+          - text: Migrate on-premises clusters to the cloud
             url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
       - linkListType: tutorial
         links:
