@@ -3,7 +3,7 @@ title: Set drawing options in Azure Maps| Microsoft Docs
 description: How to set drawing options data using Azure Maps Web SDK
 author: walsehgal
 ms.author: v-musehg
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -77,7 +77,7 @@ Learn more about the classes and methods used in this article:
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Drawing manager](https://docs.microsoft.com/en-us/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
 
 > [!div class="nextstepaction"]
 > [Drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
