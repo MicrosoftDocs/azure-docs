@@ -78,7 +78,6 @@ landingContent:
             url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
           - text: Hadoop cluster capacity planning
             url: ./hdinsight-capacity-planning.md
-    linkLists:
       - linkListType: tutorial
         links:
           - text: Connect Excel to Apache Hadoop
