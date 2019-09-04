@@ -1,5 +1,5 @@
 ---
-title: Create, publish, and answer in QnA Maker
+title: "Tutorial: Create, publish, and answer in QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: Create a new knowledge base with questions and answers from a public web-based FAQ. Save, train, and publish the knowledge base. After the knowledge base is published, send a question and receive an answer with a cURL command. Then create a bot, and test the bot with the same question. 
 services: cognitive-services

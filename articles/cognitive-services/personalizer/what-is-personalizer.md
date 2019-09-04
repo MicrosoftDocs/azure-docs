@@ -61,4 +61,8 @@ Personalizer Service has two APIs:
 ## Next steps
 
 * [Quickstart: Create a feedback loop in C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Quickstart: Create a feedback loop in Node.js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
+* [Quickstart: Create a feedback loop in Python](python-quickstart-commandline-feedback-loop.md)
+* [Learn about features and actions for the Rank request](concepts-features.md)
+* [Learn about determining the score for the Reward request](concept-rewards.md)
 * [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)

@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using Node.js. 
 ---
 
-# Get answers to a question from a knowledge base with Node.js
+# Quickstart: Get answers to a question from a knowledge base with Node.js
 
 This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. The knowledge base contains questions and answers from [data sources](../Concepts/data-sources-supported.md) such as FAQs. The [question](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) is sent to the QnA Maker service. The [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) includes the top-predicted answer. 
 
