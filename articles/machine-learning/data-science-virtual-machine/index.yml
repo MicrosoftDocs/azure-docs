@@ -8,7 +8,7 @@ metadata:
   description: The Data Science Virtual Machine is an experimental environment in the Azure cloud that's built for data science. Popular data science and ML tools are preinstalled. 
   services: machine-learning
   ms.service: machine-learning
-  ms.subservice: core
+  ms.subservice: data-science-vm
   ms.topic: landing-page
   ms.collection: collection
   author: j-martens
