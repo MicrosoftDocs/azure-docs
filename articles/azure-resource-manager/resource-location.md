@@ -8,7 +8,7 @@ ms.date: 09/04/2019
 ms.author: tomfitz
 ---
 
-### Set resource location in Resource Manager template
+# Set resource location in Resource Manager template
 
 When deploying a template, you must provide a location for each resource. The location doesn't need to be the same location as the resource group location.
 
@@ -34,7 +34,7 @@ az provider show \
 
 ---
 
-## Default location parameter
+## Use location parameter
 
 To allow for flexibility when deploying your template, use a parameter to specify the location for resources. Set the default value of the parameter to `resourceGroup().location`.
 
