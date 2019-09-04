@@ -38,7 +38,7 @@ When you create a new Cognitive Services resource, you have the option to either
     * To create a single-service resource, search for the service name you want to use. For example **Computer Vision**.
     ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
-    On the Cognitive Services page, select **Create**.
+    On the page for your resource (for example, the Cognitive Services one), select **Create**.
 
     ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
 
