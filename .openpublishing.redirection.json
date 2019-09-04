@@ -36511,12 +36511,12 @@
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md",
@@ -36526,12 +36526,12 @@
 	{
 		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot0.md",
 		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
-		"redirect_document_id": true
+		"redirect_document_id": false
 	  },
 	  {
 		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot2.md",
 		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
-		"redirect_document_id": true
+		"redirect_document_id": false
 	  },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-storage.md",

@@ -517,36 +517,39 @@
         - name: Azure Diagnostics extension
           items:
           - name: Overview
-            href: platform/diagnostics-extension-overview.md
-          - name: Azure Diagnostics extension schema
-            href: platform/diagnostics-extension-schema.md
-            items:
-            - name: 1.3 and later
+            href: platform/diagnostics-extension-overview.md  
+          - name: Windows 
+            items:   
+            - name: Azure Diagnostics version history
+              href: platform/diagnostics-extension-schema.md
+            - name: Schema
               href: platform/diagnostics-extension-schema-1dot3.md
-            - name: 1.2
-              href: platform/diagnostics-extension-schema-1dot2.md
-            - name: 1.0
-              href: platform/diagnostics-extension-schema-1dot0.md
-          - name: Send to Azure Storage
-            href: platform/diagnostics-extension-to-storage.md
-          - name: Send to Application Insights
-            href: platform/diagnostics-extension-to-application-insights.md
-          - name: Send to Event Hubs
-            href: platform/diagnostics-extension-stream-event-hubs.md
-          - name: Troubleshooting
-            href: platform/diagnostics-extension-troubleshooting.md
-          - name: Prepare for JSON Lines diagnostic logs format
-            href: platform/diagnostic-logs-append-blobs.md
-          - name: GuestOS to Metrics-VM 
-            href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
-          - name: GuestOS to Metrics-VM Linux (Telegraf)
-            href: platform/collect-custom-metrics-linux-telegraf.md   
-          - name: GuestOS to Metrics-VM scale set 
-            href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
-          - name: GuestOS to Metrics-VM classic 
-            href: platform/collect-custom-metrics-guestos-vm-classic.md  
-          - name: GuestOS to Metrics-Cloud service
-            href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+            - name: Send to Azure Storage
+              href: platform/diagnostics-extension-to-storage.md
+            - name: Send to Application Insights
+              href: platform/diagnostics-extension-to-application-insights.md
+            - name: Send to Event Hubs
+              href: platform/diagnostics-extension-stream-event-hubs.md
+            - name: Prepare for JSON Lines diagnostic logs format
+              href: platform/diagnostic-logs-append-blobs.md
+            - name: GuestOS to Metrics-VM 
+              href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
+
+            - name: GuestOS to Metrics-VM scale set 
+              href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
+            - name: GuestOS to Metrics-VM classic 
+              href: platform/collect-custom-metrics-guestos-vm-classic.md  
+            - name: GuestOS to Metrics-Cloud service
+              href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+            - name: Troubleshooting
+              href: platform/diagnostics-extension-troubleshooting.md
+            - name: Linux
+              items: 
+              - name: Use with VMs
+                href: ../virtual-machines/extensions/diagnostics-linux.md   
+              - name: GuestOS to Metrics-VM Linux (Telegraf)
+                href: platform/collect-custom-metrics-linux-telegraf.md   
+
         - name: Log Analytics agents  
           items:
           - name: Overview
