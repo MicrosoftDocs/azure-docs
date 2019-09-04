@@ -219,7 +219,9 @@ For details, see [Allow public endpoint traffic on the network security group](s
 
 ## Move an existing single instance inside an instance pool 
  
-Moving instances in and out of a pool is one of the public preview limitations. A workaround that can be used relies on point-in-time restore of databases from an instance outside a pool to an instance that's already in a pool.
+Moving instances in and out of a pool is one of the public preview limitations. A workaround that can be used relies on point-in-time restore of databases from an instance outside a pool to an instance that's already in a pool. 
+
+Both instances must be in the same subscription and region. Cross-region and cross-subscription restore is not currently supported.
 
 This process does have a period of downtime.
 
@@ -229,26 +231,24 @@ To move existing databases:
 2. Generate scripts to create system databases and execute them on the instance that's inside the instance pool.
 3. Do a point-in-time restore of each database from the single instance to the instance in the pool.
 
-  ```powershell
-  $resourceGroupName = "my resource group name"
-    $managedInstanceName = "my managed instance name"
-    $databaseName = "my source database name"
-    $pointInTime = "2019-08-21T08:51:39.3882806Z"
-    $targetDatabase = "name of the new database that will be created"
-    $targetResourceGroupName "resource group of instance pool"
-    $targetInstanceName = "pool instance name"
-     
-    Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
-      -ResourceGroupName $resourceGroupName `
-      -InstanceName $managedInstanceName `
-      -Name $databaseName `
-      -PointInTime $pointInTime `
-      -TargetInstanceDatabaseName $targetDatabase `
-      -TargetResourceGroupName $targetResourceGroupName `
-      -TargetInstanceName $targetInstanceName
-  ```
-
-  Both instances must be in the same subscription and region. Cross-region and cross-subscription restore is not currently supported.
+    ```powershell
+    $resourceGroupName = "my resource group name"
+      $managedInstanceName = "my managed instance name"
+      $databaseName = "my source database name"
+      $pointInTime = "2019-08-21T08:51:39.3882806Z"
+      $targetDatabase = "name of the new database that will be created"
+      $targetResourceGroupName "resource group of instance pool"
+      $targetInstanceName = "pool instance name"
+       
+      Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
+        -ResourceGroupName $resourceGroupName `
+        -InstanceName $managedInstanceName `
+        -Name $databaseName `
+        -PointInTime $pointInTime `
+        -TargetInstanceDatabaseName $targetDatabase `
+        -TargetResourceGroupName $targetResourceGroupName `
+        -TargetInstanceName $targetInstanceName
+    ```
 
 4. Point your application to the new instance and resume it's workloads.
 
