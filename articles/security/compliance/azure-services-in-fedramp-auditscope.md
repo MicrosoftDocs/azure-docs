@@ -1,8 +1,8 @@
 ---
 title: Azure Services in FedRAMP and DoD SRG Audit Scope
 description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, or 5) audit scope a given service has reached.
-author: Jain-Garima
-ms.author: gjain
+author: davib
+ms.author: davib
 ms.date: 5/17/2019
 ms.topic: article
 ms.service: security
