@@ -85,15 +85,16 @@
   items:
   - name: Create templates
     items:
-    - name: Development tool - VS Code
+    - name: Use VS Code
       href: resource-manager-tools-vs-code.md
     - name: Create template
       href: how-to-create-template.md
+    - name: Write template expressions
+      href: template-expressions.md
     - name: Child resource name and type
       href: child-resource-name-type.md
-    - name: Create resource groups and resources at subscription
-      displayName: subscription level deployment
-      href: deploy-to-subscription.md
+    - name: Conditional deployment
+      href: conditional-resource-deployment.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
     - name: Modularize templates
@@ -103,8 +104,9 @@
       href: resource-group-create-multiple.md
     - name: Use template extensions
       href: resource-manager-use-extensions.md
-    - name: Update resources
-      href: /azure/architecture/building-blocks/extending-templates/update-resource
+    - name: Create resource groups and resources at subscription
+      displayName: subscription level deployment
+      href: deploy-to-subscription.md
   - name: Deploy templates
     items:
     - name: Deploy - portal
