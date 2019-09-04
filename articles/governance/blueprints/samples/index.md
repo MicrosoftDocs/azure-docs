@@ -5,7 +5,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
 ---
@@ -18,7 +18,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 
 |  |  |
 |---------|---------|
-| [Canada Federal PBMM](./canada-federal-pbmm/control-mapping.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
+| [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark recommendations. |
 | [IRS 1075](./irs-1075/index.md) | Provides guardrails for compliance to IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Provides guardrails for compliance with ISO 27001. |
