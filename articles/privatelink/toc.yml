@@ -13,7 +13,11 @@
     href: create-private-endpoint-cli.md
   - name: Create Private Link - Azure PowerShell
     href: create-private-endpoint-powershell.md
-- name: How-to
+- name: Concepts
+  items:
+  - name: What is Private Endpoint
+    href: private-endpoint-overview.md
+- name: How to
   items:
   - name: Create Private Link - Azure portal
     href: create-privatelink-portal.md

@@ -91,7 +91,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 ## Create a storage account
 
-Create a general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](powershell/module/az.storage/new-azstorageaccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Create a general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurepowershell
 $storageAccount = New-AzStorageAccount -ResourceGroupName "myResourceGroup" `
