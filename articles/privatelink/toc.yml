@@ -7,23 +7,23 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create Private Endpoint - Azure portal
+  - name: Create a Private Endpoint - Azure portal
     href: create-private-endpoint-portal.md
-  - name: Create Private Link - Azure CLI
+  - name: Create a Private Endpoint - Azure CLI
     href: create-private-endpoint-cli.md
-  - name: Create Private Link - Azure PowerShell
+  - name: Create a Private Endpoint - Azure PowerShell
     href: create-private-endpoint-powershell.md
 - name: Concepts
   items:
-  - name: What is Private Endpoint
+  - name: What is Private Endpoint?
     href: private-endpoint-overview.md
 - name: How to
   items:
-  - name: Create Private Link - Azure portal
+  - name: Create your own Private Link service- Azure portal
     href: create-privatelink-portal.md
-  - name: Create Private Link - Azure CLI
+  - name: Create your own Private Link service - Azure CLI
     href: create-privatelink-cli.md
-  - name: Create Private Link - Azure PowerShell
+  - name: Create your own Private Link service - Azure PowerShell
     href: create-privatelink-powershell.md
 
 - name: Reference
@@ -41,7 +41,7 @@
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/virtual-network
+    href: /rest/api/virtualnetwork/privateendpoints
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/allversions
   - name: Code samples
