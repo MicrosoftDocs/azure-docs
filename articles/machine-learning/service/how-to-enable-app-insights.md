@@ -121,6 +121,8 @@ To view it:
    [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 To learn more about how to use Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
+
+This 
     
 
 ## Example notebook

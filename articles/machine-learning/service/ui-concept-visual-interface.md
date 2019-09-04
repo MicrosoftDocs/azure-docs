@@ -77,7 +77,7 @@ Use compute resources from your workspace to run your experiment or host your de
 | Azure Machine Learning compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure portal](https://portal.azure.com).
+Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure portal](https://portal.azure.com) or in your [workspace landing page (preview)](https://ml.azure.com).
 
 ## Deployment
 

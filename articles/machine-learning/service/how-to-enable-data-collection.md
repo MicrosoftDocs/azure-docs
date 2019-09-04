@@ -140,6 +140,8 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Select **Update** to apply the change.
 
+  You can also access these settings in your [workspace landing page (preview)](https://ml.azure.com).
+
 + Option 2 - Use Python to disable data collection:
 
   ```python 

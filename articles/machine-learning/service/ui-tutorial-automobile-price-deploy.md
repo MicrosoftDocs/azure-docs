@@ -115,6 +115,8 @@ The models and web service deployments you create in the visual interface can al
 
     [![Screenshot detailed run report](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
 
+You can also find these models and deployments in the **Models** and **Endpoints** sections of your [workspace landing page (preview)](https://ml.azure.com).
+
 ## Clean up resources
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]

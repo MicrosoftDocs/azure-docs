@@ -14,7 +14,7 @@ ms.date: 08/22/2019
 
 ---
 
-# Create and access datasets (Preview) in Azure Machine Learning
+# Create and access datasets (preview) in Azure Machine Learning
 
 In this article, you'll learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
 

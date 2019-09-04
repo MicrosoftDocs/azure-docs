@@ -14,11 +14,12 @@ ms.date: 08/02/2019
 
 ---
 
-# Create, explore and deploy automated machine learning experiments in the Azure portal (Preview)
+# Create, explore and deploy automated machine learning experiments in the Azure portal (preview)
 
  In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
 
 ## Prerequisites
 
@@ -28,13 +29,15 @@ ms.date: 08/02/2019
 
 ## Get started
 
-Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (Preview) section.
+Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (preview) section.
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
  If this is your first time doing any experiments, you'll see the **Welcome to Automated Machine Learning** screen. 
 
 Otherwise, you'll see your **Automated machine learning** dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
+
+You can also access Automated Machine Learning from your [workspace landing page (preview)](https://ml.azure.com).
 
 ## Create an experiment
 

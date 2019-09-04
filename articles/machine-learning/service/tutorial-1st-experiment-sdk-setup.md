@@ -74,3 +74,5 @@ In **part two** of the tutorial you run the code in `tutorial-1st-experiment-sdk
 
 > [!IMPORTANT]
 > If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the cloud notebook server VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
+
+
