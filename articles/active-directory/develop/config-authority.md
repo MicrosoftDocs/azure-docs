@@ -49,7 +49,7 @@ MSALB2CAuthority *b2cAuthority = [[MSALB2CAuthority alloc] initWithURL:authority
 ```
 Swift
 ```swift
-guard let authorityURL = URL(string:"arbitrary URL") else {
+guard let authorityURL = URL(string: "arbitrary URL") else {
     // Handle error
     return
 }
@@ -111,7 +111,7 @@ Swift
 ```swift
 do{
     // Create B2C authority URL
-    guard let authorityURL = URL(string:"https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy") else {
+    guard let authorityURL = URL(string: "https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy") else {
         // Handle error
         return
     }
@@ -160,7 +160,7 @@ Objective-C
 Swift
 ```swift
 do{
-    guard let authorityURL = URL(string:"https://login.microsoftonline.de/common") else {
+    guard let authorityURL = URL(string: "https://login.microsoftonline.de/common") else {
         //Handle error
         return
     }
@@ -214,7 +214,7 @@ Objective-C
 Swift
 ```swift
 do{
-    guard let authorityURL = URL(string:"https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4") else {
+    guard let authorityURL = URL(string: "https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4") else {
         //Handle error
         return
     }    
