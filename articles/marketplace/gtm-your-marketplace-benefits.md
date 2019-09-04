@@ -5,7 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: v-qiwe
 
 ---
@@ -30,8 +30,6 @@ For Transact partners, as you grow your billed sales through the marketplace pla
 
 The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform. 
 
-![Technical benefits table](./media/marketplace-publishers-guide/technical-benefit-table.png)
-
 You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
 
 Detailed descriptions of all program benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
@@ -53,6 +51,8 @@ If you publish a trial or consulting proof of concept, implementation, or worksh
 The table below summarize the eligibility requirements for list and trial offers:
 
 ![Go-To-Market benefits](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+
+Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
 ## Marketplace Rewards for transact partners
 
@@ -93,7 +93,7 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 
 This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
-Transactions that are proven to be fraudulent will not count towards a publisher’s [billed sales program tier](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
+Transactions that are proven to be fraudulent will not count towards a publisher’s [billed sales program tier](https://aka.ms/marketplacepublisherrewards), as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and the [detailed program deck](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
 
 ## Next steps
 
