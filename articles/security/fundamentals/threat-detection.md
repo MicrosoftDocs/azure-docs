@@ -27,13 +27,13 @@ Azure provides a wide array of options to configure and customize security to me
 
 ## Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) is an [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) edition feature that provides an overview of the risk events and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](../../active-directory/active-directory-reporting-azure-portal.md), and introduces new risk event types that can detect real time anomalies.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) is an [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) edition feature that provides an overview of the risk detections and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](../../active-directory/active-directory-reporting-azure-portal.md), and introduces new risk detection types that can detect real time anomalies.
 
 ![Azure AD Identity Protection diagram](./media/threat-detection/azure-threat-detection-fig1.png)
 
-Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that might indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts so that you can investigate these risk events and take appropriate remediation or mitigation action.
+Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk detections that might indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts so that you can investigate these risk detections and take appropriate remediation or mitigation action.
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk events, Identity Protection calculates a user risk level for each user, so that you can configure risk-based policies to automatically protect the identities of your organization.
+Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk detections, Identity Protection calculates a user risk level for each user, so that you can configure risk-based policies to automatically protect the identities of your organization.
 
 These risk-based policies, in addition to other [Conditional Access controls](../../active-directory/active-directory-conditional-access-azure-portal.md) that are provided by Azure Active Directory and [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.
 
@@ -43,14 +43,14 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
-[Detecting risk events and risky accounts](../../active-directory/identity-protection/overview.md)
--	Detect six risk event types using machine learning and heuristic rules.
+[Detecting risk detections and risky accounts](../../active-directory/identity-protection/overview.md)
+-	Detect six risk detection types using machine learning and heuristic rules.
 -	Calculate user risk levels.
 -	Provide custom recommendations to improve overall security posture by highlighting vulnerabilities.
 
-[Investigating risk events](../../active-directory/identity-protection/overview.md)
--	Send notifications for risk events.
--	Investigate risk events using relevant and contextual information.
+[Investigating risk detections](../../active-directory/identity-protection/overview.md)
+-	Send notifications for risk detections.
+-	Investigate risk detections using relevant and contextual information.
 -	Provide basic workflows to track investigations.
 -	Provide easy access to remediation actions such as password reset.
 

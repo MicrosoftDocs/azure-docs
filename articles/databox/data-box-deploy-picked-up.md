@@ -7,12 +7,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 7/08/2019
+ms.date: 8/27/2019
 ms.author: alkohli
+ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
+::: zone target="docs"
 
 # Tutorial: Return Azure Data Box and verify data upload to Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# Return Data Box and verify data upload to Azure
+
+::: zone-end
+
+::: zone target="docs"
 
 This tutorial describes how to return Azure Data Box and verify the data uploaded to Azure.
 
@@ -36,12 +48,32 @@ Before you begin, make sure:
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
+::: zone-end
+
+::: zone target="chromeless"
+
+After the data copy is complete, you prepare and ship the device. When the device reaches Azure datacenter, data is automatically uploaded to Azure.
+
+## Prepare to ship
+
+Before you prepare to ship, make sure that copy jobs are complete.
+
+1. Go to **Prepare to ship** page in the local web UI and start the ship preparation. 
+2. Turn off the device from the local web UI. Remove the cables from the device. 
+
+The next steps are determined by where you are returning the device.
+
+::: zone-end
+
+::: zone target="docs"
+
 ## Ship Data Box back
 
 Ensure that the data copy to device is complete and **Prepare to ship** run is successful. Based on the region where you are shipping the device, the procedure is different.
 
+::: zone-end
 
-### Ship in US, Canada, Europe
+## Ship in US, Canada, Europe
 
 Take the following steps if returning the device in US, Canada, or Europe.
 
@@ -57,9 +89,8 @@ Take the following steps if returning the device in US, Canada, or Europe.
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
-### Ship in Asia-Pacific region
 
-#### Ship in Australia
+## Ship in Australia
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps to ship in Australia.
 
@@ -86,13 +117,12 @@ Azure datacenters in Australia have an additional security notification. All the
 
 If needed, you can email Quantium Solution Support at Azure@quantiumsolutions.com or phone.
 
-
 For inquiry regarding your order via the phone:
 
 - Send an email for pickup first.
 - Provide your order name on the phone.
 
-#### Ship in Japan 
+## Ship in Japan 
 
 1. Retain the original box used to ship the device for return shipment.
 2. Power off the device and remove the cables.
@@ -122,6 +152,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
+::: zone target="docs"
 
 ## Verify data upload to Azure
 
@@ -152,9 +183,21 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
     - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, or Premium SSD. The VHDs are uploaded as page blobs in your staging storage account.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+::: zone-end
+
 ## Erasure of data from Data Box
  
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone target="docs"
 
 ## Next steps
 
@@ -171,5 +214,7 @@ Advance to the following article to learn how to manage Data Box via the local w
 
 > [!div class="nextstepaction"]
 > [Use local web UI to administer Azure Data Box](./data-box-local-web-ui-admin.md)
+
+::: zone-end
 
 
