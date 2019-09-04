@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -95,9 +95,9 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by SAP BW dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by SAP BW dataset.
 
-To copy data from SAP BW, set the type property of the dataset to **RelationalTable**. While there are no type-specific properties supported for the SAP BW dataset of type RelationalTable.
+To copy data from SAP BW, set the type property of the dataset to **SapBwCube**. While there are no type-specific properties supported for the SAP BW dataset of type RelationalTable.
 
 **Example:**
 
@@ -105,15 +105,18 @@ To copy data from SAP BW, set the type property of the dataset to **RelationalTa
 {
     "name": "SAPBWDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapBwCube",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -121,11 +124,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### SAP BW as source
 
-To copy data from SAP BW, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from SAP BW, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **SapBwSource** | Yes |
 | query | Specifies the MDX query to read data from the SAP BW instance. | Yes |
 
 **Example:**
@@ -149,7 +152,7 @@ To copy data from SAP BW, set the source type in the copy activity to **Relation
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapBwSource",
                 "query": "<MDX query for SAP BW>"
             },
             "sink": {
@@ -159,6 +162,8 @@ To copy data from SAP BW, set the source type in the copy activity to **Relation
     }
 ]
 ```
+
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Data type mapping for SAP BW
 
