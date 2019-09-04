@@ -178,7 +178,9 @@
     - name: Scale Media Reserved Units - CLI
       href: media-reserved-units-cli-how-to.md   
     - name: Create an Asset - CLI
-      href: cli-create-asset.md      
+      href: cli-create-asset.md 
+  - name: Developer guides
+    items:
     - name: Develop with REST
       items:
       - name: Connect with Postman
