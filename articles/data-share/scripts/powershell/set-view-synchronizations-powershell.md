@@ -43,8 +43,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShareSynchronizationSetting](/powershell/module/az.resources/new-azdatasharesynchronizationsettings) | Create a share synchronization. |
-| [Get-AzDataShareSynchronizationSetting](/powershell/module/az.resources/get-azdatasharesynchronizationsetting) | Gets synchronization settings of a share synchronization. |
+| [New-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting?view=azps-2.6.0) | Create a share synchronization. |
+| [Get-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | Gets synchronization settings of a share synchronization. |
 |||
 
 ## Next steps
