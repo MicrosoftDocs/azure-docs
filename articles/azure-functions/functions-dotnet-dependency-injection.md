@@ -18,9 +18,9 @@ ms.reviewer: jehollan
 
 Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
-Azure Functions builds on top of the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended.
+- Dependency injection in Azure Functions works in a similar fashion to the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended, but the two pipelines are not identical.
 
-Support for dependency injection begins with Azure Functions 2.x.
+- Support for dependency injection begins with Azure Functions 2.x.
 
 ## Prerequisites
 
@@ -34,9 +34,9 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 ## Register services
 
-To register services, you can create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
+To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
-To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup. Also code is referencing a prerelease of [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) on Nuget.
+To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
 
 ```csharp
 using System;
@@ -44,7 +44,6 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Azure.Cosmos;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -55,18 +54,30 @@ namespace MyNamespace
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddHttpClient();
+
             builder.Services.AddSingleton((s) => {
-                return new CosmosClient(Environment.GetEnvironmentVariable("COSMOSDB_CONNECTIONSTRING"));
+                return new MyService();
             });
+
             builder.Services.AddSingleton<ILoggerProvider, MyLoggerProvider>();
         }
     }
 }
 ```
 
+### Caveats
+
+There are a number of registration steps that happen before and after after the runtime processes the startup class. Therefore, the keep in mind the following caveats:
+
+- **The startup class is meant for only setup and registration.** Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After your app is setup, the Functions runtime continues to register additional dependencies which can affect how your services operate.
+
+- **Not all Functions types are available during setup**. For instance, `BindingContext` is not available during the setup process.
+
 ## Use injected dependencies
 
-ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
+The dependency injection pipeline uses constructor injection to make your dependencies available to your function. The use of constructor injection requires that you not to use static functions.
+
+The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
 ```csharp
 using System;
@@ -77,7 +88,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 namespace MyNamespace
 {
@@ -107,15 +117,15 @@ namespace MyNamespace
 }
 ```
 
-The use of constructor injection means that you should not use static functions if you want to take advantage of dependency injection.
-
 ## Service lifetimes
 
 Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): transient, scoped, and singleton.
 
-In a functions app, a scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance. A singleton service lifetime matches the host lifetime and is reused across function executions on that instance.
+In terms of a functions app, the different service lifetimes behave as follows:
 
-Singleton lifetime services are recommended for connections and clients, for example `SqlConnection`, `CloudBlobClient`, or `HttpClient` instances.
+- **Transient** services are created upon each request of the service
+- **Scoped** service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
+- **Singleton** service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `SqlConnection`, `CloudBlobClient`, or `HttpClient` instances.
 
 View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample) on GitHub.
 
@@ -140,6 +150,53 @@ If there are other services you want to take a dependency on, [create an issue a
 ### Overriding host services
 
 Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
+
+## Reading configuration values
+
+Provide configuration values to the setup class via [app settings](./functions-how-to-use-azure-function-app-settings#settings).
+
+## Working with options
+
+You can extract options from an `IConfiguration` instance into a custom type which allows you to easily test your services.
+
+Consider the following class which includes a property named consistent with configuration values.
+
+```csharp
+public class MyOptions
+{
+    public string AzureWebJobsStorage { get; set; }
+}
+```
+
+From inside `Startup.Configure` you can extract the values from the `IConfiguration` instance into your custom type using the following code:
+
+```csharp
+builder.Services.AddOptions<MyOptions>()
+                .Configure<IConfiguration>((settings, configuration) =>
+                                           {
+                                                configuration.Bind(settings);
+                                           });
+```
+
+Calling `Bind` copies matching values from the configuration into the custom instance. The options instance is now available in the IoC container to inject into a function.
+
+The options object is injected into the function as an instance of the generic `IOptions` interface. Use the `Value` property to access the values found in your configuration.
+
+```csharp
+using System;
+using Microsoft.Extensions.Options;
+
+public class HttpTrigger
+{
+    private readonly MyOptions _settings;
+
+    public HttpTrigger(IOptions<MyOptions> options)
+    {
+        this._service = service;
+        this._settings = options.Value;
+    }
+}
+```
 
 ## Next steps
 
