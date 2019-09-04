@@ -24,25 +24,28 @@ Use this quickstart to create an Azure Cognitive Services resource using the Azu
 
 ## Create a new Azure Cognitive Services resource
 
-Before creating a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group.
+When you create a new Cognitive Services resource, you have the option to either create a new resource group to contain it, or use an existing one. This article shows how to create a new resource group.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. As explained earlier, you can create a Cognitive Services resource in two ways - using a multi-service resource or a single-service resource.
+2. Create a Cognitive Services resource in one of two ways - using a multi-service resource or a single-service resource. 
 
-    #### [Multi-service resource](#tab/multiservice)
 
-    To create a multi-service resource, enter **Cognitive Services** in the search bar.
+2. Find the Cognitive Services resource you want to create in two ways: by searching for it, or viewing all available resource types. 
 
+    #### [Using search](#tab/multiservice)
+
+    * To create a multi-service resource, enter **Cognitive Services** in the search bar.
+    * To create a single-service resource, search for the service name you want to use. For example **Computer Vision**.
     ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
     On the Cognitive Services page, select **Create**.
 
     ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
 
-    #### [Single-service resource](#tab/singleservice)
+    #### [viewing all available types](#tab/singleservice)
 
     To see all available cognitive services, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
 
